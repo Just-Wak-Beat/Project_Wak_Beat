@@ -32,7 +32,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "오브젝트",
-    "path": "folders/오브젝트.yy",
+    "name": "effect",
+    "path": "folders/오브젝트/effect.yy",
   },
 }

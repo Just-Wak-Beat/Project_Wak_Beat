@@ -23,8 +23,11 @@ if invincibility_cooltime <= 0
 			hurt = _placed_obj
 			hurt_hspeed = global.hmove_speed
 			hurt_vspeed = global.vmove_speed
+			
+			
 			if invincibility_cooltime != 90
 			{
+			global.hp --
 			invincibility_cooltime = 90
 			show_invincibility = 1
 			

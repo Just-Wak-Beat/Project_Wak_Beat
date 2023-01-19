@@ -13,3 +13,5 @@ surface_resize(application_surface, display_get_width (), display_get_height ())
 global.master_volume = 1
 global.bgm_volume = 1
 global.sfx_volume = 1
+
+global.bpm = 172
