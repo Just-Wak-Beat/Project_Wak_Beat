@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Object8",
+  "name": "obj_stage_clear",
   "spriteId": {
     "name": "spr_W",
     "path": "sprites/spr_W/spr_W.yy",

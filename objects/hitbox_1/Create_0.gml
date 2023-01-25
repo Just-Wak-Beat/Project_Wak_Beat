@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 w_alpha = 1
-image_blend = $FFFF9838
+image_blend = global.map_color
 
 timer = 0
 t_angle = 0

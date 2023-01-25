@@ -27,4 +27,4 @@ global.dashing = 0
 
 w_alpha = 0
 
-image_blend = $FF4AB539
+image_blend = global.player_color
