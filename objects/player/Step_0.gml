@@ -1,9 +1,25 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if global.hp < 0
+if global.hp <= 0 && global.rewind <= 0
 {
-global.hp = 5
+global.rewind = 1
+global.w_alpha = 1.1
+global.cannot_control = 1
+global.hmove_speed = 0
+global.vmove_speed = 0
+hurt = -4
+hurt_coolitme = 0
+died_xx = x
+died_yy = y
+
+
+
+var yy_h = camera_get_view_height(view_camera[0])
+	for(var i = 0; i < 16; i++)
+	{
+	global.rewind_effect_line_pos[i] = irandom_range(0,yy_h)
+	}
 }
 
 image_index = 5-global.hp
@@ -102,13 +118,13 @@ global.vmove = 1
 if global.hmove != 0 && global.vmove != 0
 {
 image_angle = 45+90*sign(global.vmove+global.hmove)
-t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.3)
-t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.3)
+t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)
+t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)
 }
 else
 {
-t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.3)-abs(global.vmove)*(0.2+global.dashing*0.3)
-t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.3)+abs(global.vmove)*(0.2+global.dashing*0.3)
+t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)-abs(global.vmove)*(0.2+global.dashing*0.5)
+t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)+abs(global.vmove)*(0.2+global.dashing*0.5)
 }
 
 

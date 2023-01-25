@@ -11,7 +11,7 @@ show_invincibility = 0
 }
 
 
-if invincibility_cooltime <= 0
+if invincibility_cooltime <= 0 && global.hp > 0
 {
 	for(var i = 1; i <= abs(global.hmove_speed)+1; i++)
 	{
@@ -30,6 +30,7 @@ if invincibility_cooltime <= 0
 			global.hp --
 			invincibility_cooltime = 90
 			show_invincibility = 1
+			audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6)
 			
 				repeat(irandom_range(8,10))
 				{
@@ -43,8 +44,6 @@ if invincibility_cooltime <= 0
 				effect_.image_blend = $FF4AB539
 				}
 			}
-			
-			audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume)
 			break;
 			break;
 			}

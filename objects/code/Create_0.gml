@@ -25,7 +25,8 @@ global.show_music_title = 1
 
 global.n_music_title = "왁굳향100% 첨가"
 global.n_music_artist = "제이타지"
-global.n_music_id = wakgoodhyang;
+global.n_music_id = -4;
+global.n_music_name = "wakgoodhyang"
 global.n_music_instance = -4
 global.map_color = $FFFF9838
 music_title_alpha = 0
@@ -35,8 +36,26 @@ global.bpm = 172
 
 global.player_color = $FF4AB539
 global.n_progress = 0
-global.music_duration = 6900 //x60된 값(프레임 값 보정) > origin = 115 sec 
+global.music_duration = 6900 //x60된 값(프레임 값 보정) > origin = 115 sec
+
+global.start_point = 0
+for(var i = 0; i <= 5; i++)
+{
+global.savepoint_position[i] = -4
+}
 
 
 global.camera_sx = -4
 global.w_alpha = 0
+
+
+global.rewind = 0
+global.clock_alpha_1 = 0
+global.clock_alpha_2 = 0
+
+
+global.rewind_effect_line_angle = 0
+for(var i = 0; i < 16; i++)
+{
+global.rewind_effect_line_pos[i] = -4
+}
