@@ -43,6 +43,8 @@ for(var i = 0; i <= 5; i++)
 {
 global.savepoint_position[i] = -4
 }
+global.respawn_point_xx = -4
+global.respawn_point_yy = -4
 
 
 global.camera_sx = -4
@@ -52,6 +54,12 @@ global.w_alpha = 0
 global.rewind = 0
 global.clock_alpha_1 = 0
 global.clock_alpha_2 = 0
+
+global.c_w = -4
+global.c_h = -4
+
+global.c_x = -4
+global.c_y = -4
 
 
 global.rewind_effect_line_angle = 0

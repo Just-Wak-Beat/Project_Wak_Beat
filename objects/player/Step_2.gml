@@ -18,7 +18,7 @@ if invincibility_cooltime <= 0 && global.hp > 0
 		for(var ii = 1; ii <= abs(global.vmove_speed)+1; ii++)
 		{
 		var _placed_obj = instance_place(x+i*sign(global.hmove_speed),y+ii*sign(global.vmove_speed),hitbox_parents)
-			if instance_exists(_placed_obj)
+			if instance_exists(_placed_obj) && _placed_obj.image_alpha >= 0.95
 			{
 			hurt = _placed_obj
 			hurt_hspeed = global.hmove_speed

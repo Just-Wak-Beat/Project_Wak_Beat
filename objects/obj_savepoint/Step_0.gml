@@ -8,7 +8,8 @@ if global.hp > 0 && player.x+player.image_xscale*32 >= x
 {
 audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 global.w_alpha = 1
-
+global.respawn_point_xx = player.x
+global.respawn_point_yy = player.y
 
 	if global.n_progress >= global.music_duration
 	{

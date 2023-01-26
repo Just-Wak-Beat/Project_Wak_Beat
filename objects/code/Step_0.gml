@@ -224,8 +224,18 @@ global.rewind ++
 	global.n_progress = global.start_point
 	timeline_position = global.start_point
 	global.cannot_control = 0
+	instance_destroy(hitbox_parents)
+	
+	if global.respawn_point_xx != -4
+	{
+	player.x = global.respawn_point_xx
+	player.y = global.respawn_point_yy
+	}
+	else
+	{
 	player.x = xstart
 	player.y = ystart
+	}
 	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume,global.start_point/60)
 	global.rewind_effect_line_angle = 0
 	audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)

@@ -30,24 +30,31 @@ w_alpha += (-0.01 - w_alpha)*0.1
 image_xscale += (t_xscale - image_xscale)*0.3
 image_yscale += (t_yscale - image_yscale)*0.3
 
-if x < 16
+
+var xx = camera_get_view_x(view_camera[0])
+var yy = camera_get_view_y(view_camera[0])
+
+var xx_w = camera_get_view_width(view_camera[0])
+var yy_h = camera_get_view_height(view_camera[0])
+
+if x < xx+16
 {
-x = 16
+x = xx+16
 }
 
-if x > room_width-16
+if x > xx+xx_w-16
 {
-x = room_width-16
+x = xx+xx_w-16
 }
 
-if y > room_height-16
+if y > yy+yy_h-16
 {
-y = room_height-16
+y = yy+yy_h-16
 }
 
-if y < 16
+if y < yy+16
 {
-y = 16
+y = yy+16
 }
 
 

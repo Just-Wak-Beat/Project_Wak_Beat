@@ -1,12 +1,17 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-
 var xx = camera_get_view_x(view_camera[0])
 var yy = camera_get_view_y(view_camera[0])
 
 var xx_w = camera_get_view_width(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
+
+global.c_x = xx
+global.c_y = yy
+
+global.c_w = xx+xx_w
+global.c_h = yy+yy_h
+
 
 
 var font_size = global.camera_sx
