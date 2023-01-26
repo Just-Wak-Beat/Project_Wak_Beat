@@ -7,7 +7,7 @@
 ///@param n_music_name
 ///@param map_color
 ///@param music_duration
-function load_stage(argument0,argument1,argument2,argument3)
+function load_stage(argument0,argument1,argument2,argument3,argument4)
 {
 global.n_music_title = argument0
 global.n_music_artist = argument1
