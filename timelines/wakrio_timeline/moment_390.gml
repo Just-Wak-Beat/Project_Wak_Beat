@@ -1,4 +1,5 @@
-create_laser(room_width*0.5,global.c_y,60,26,10,2,3,180)
+create_laser(room_width*0.5,global.c_y,78,26,10,2,3,180)
+
 
 
 var attack_ef = instance_create_depth(global.c_w,irandom_range(global.c_y+32,global.c_h-32),depth+1,hitbox_2)

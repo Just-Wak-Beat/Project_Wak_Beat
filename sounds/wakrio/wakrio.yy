@@ -4,7 +4,7 @@
   "name": "wakrio",
   "conversionMode": 0,
   "compression": 0,
-  "volume": 0.68,
+  "volume": 0.46,
   "preload": false,
   "bitRate": 512,
   "sampleRate": 48000,

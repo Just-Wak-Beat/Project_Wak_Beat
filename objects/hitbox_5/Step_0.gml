@@ -7,7 +7,7 @@ image_angle += 15
 
 warning_timer ++
 
-if warning_timer%10 = 0
+if warning_timer%10 = 0 && abs(warning_timer - target_time) < 120
 {
 w_alpha = 1
 }

@@ -32,10 +32,10 @@ global.map_color = -4
 global.background_color = c_black
 
 //왁굳향 100% 첨가
-//load_stage("왁굳향100% 첨가","제이타지","wakgoodhyang",$FF9A3FE5)
+//load_stage("왁굳향100% 첨가","제이타지","wakgoodhyang",$FF9A3FE5,6900)
 
 //왁리오
-load_stage("왁리오 (Wak'Lio)","Team Pangenie (아버 편곡)","wakrio",#415c84)
+load_stage("왁리오 (Wak'Lio)","Team Pangenie (아버 편곡)","wakrio",#415c84,4482)
 
 
 music_title_alpha = 0
@@ -45,7 +45,7 @@ global.bpm = 172
 
 global.player_color = $FF4AB539
 global.n_progress = 0
-global.music_duration = 6900 //x60된 값(프레임 값 보정) > origin = 115 sec
+
 
 global.start_point = 0
 for(var i = 0; i <= 5; i++)

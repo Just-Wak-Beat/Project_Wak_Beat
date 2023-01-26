@@ -2,6 +2,9 @@
 // You can write your code in this editor
 
 
+image_angle += auto_spin
+
+
 w_alpha += (-0.01 - w_alpha)*0.15
 
 warning_timer ++

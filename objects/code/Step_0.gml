@@ -226,6 +226,7 @@ global.rewind ++
 	timeline_position = global.start_point
 	global.cannot_control = 0
 	instance_destroy(hitbox_parents)
+	instance_destroy(obj_savepoint)
 	
 	if global.respawn_point_xx != -4
 	{

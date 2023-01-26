@@ -1,5 +1,4 @@
-create_laser(irandom_range(global.c_x,global.c_w),global.c_y,60,26,10,2,2,180)
-
+create_laser(irandom_range(global.c_x,global.c_w),global.c_y,60,26,4,2,2,180)
 create_spike_circle(room_width*0.5,global.c_h,room_width*0.5,room_height*0.5,60,0,0,0.5)
 
 

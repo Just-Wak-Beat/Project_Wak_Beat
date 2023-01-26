@@ -29,7 +29,7 @@ t_scale += 0.001
 image_xscale += (t_scale - image_xscale)*0.3
 image_yscale += (t_scale - image_yscale)*0.3
 
-	if warning_timer%10 = 0
+	if warning_timer%10 = 0 && abs((warning_timer-target_time)-des_time) < 120
 	{
 	w_alpha = 1
 	}

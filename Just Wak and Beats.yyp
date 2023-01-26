@@ -11,6 +11,7 @@
     {"id":{"name":"spr_W","path":"sprites/spr_W/spr_W.yy",},"order":3,},
     {"id":{"name":"obj_savepoint","path":"objects/obj_savepoint/obj_savepoint.yy",},"order":6,},
     {"id":{"name":"dead_sfx","path":"sounds/dead_sfx/dead_sfx.yy",},"order":5,},
+    {"id":{"name":"hitbox_8","path":"objects/hitbox_8/hitbox_8.yy",},"order":8,},
     {"id":{"name":"rewinding_sfx","path":"sounds/rewinding_sfx/rewinding_sfx.yy",},"order":3,},
     {"id":{"name":"dead_explosion","path":"objects/dead_explosion/dead_explosion.yy",},"order":1,},
     {"id":{"name":"obj_stage_clear","path":"objects/obj_stage_clear/obj_stage_clear.yy",},"order":3,},

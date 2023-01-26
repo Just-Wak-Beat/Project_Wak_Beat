@@ -22,7 +22,16 @@ laser__.des_time = argument3
 laser__.shake_scale = argument4
 laser__.shake_dir = argument5
 laser__.image_xscale = argument6
+
+if argument7%90 = 0
+{
 laser__.image_angle = argument7
+laser__.auto_spin = 0
+}
+else
+{
+laser__.auto_spin = argument7
+}
 
 return laser__;
 }
