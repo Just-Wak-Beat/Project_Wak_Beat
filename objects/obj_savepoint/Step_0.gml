@@ -19,6 +19,9 @@ global.respawn_point_yy = player.y
 	else
 	{
 	global.start_point = n_savepoint_position
+	global.savepoint_text_t_alpha = 1
+	global.background_color = n_color
+	code.alarm[0] = 120
 	}
 instance_destroy()
 }

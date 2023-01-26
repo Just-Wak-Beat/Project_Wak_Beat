@@ -23,12 +23,21 @@ progress_alpha_sec = 0
 
 global.show_music_title = 1
 
-global.n_music_title = "왁굳향100% 첨가"
-global.n_music_artist = "제이타지"
+global.n_music_title = -4
+global.n_music_artist = -4
 global.n_music_id = -4;
-global.n_music_name = "wakgoodhyang"
+global.n_music_name = -4
 global.n_music_instance = -4
-global.map_color = $FFFF9838
+global.map_color = -4
+global.background_color = c_black
+
+//왁굳향 100% 첨가
+//load_stage("왁굳향100% 첨가","제이타지","wakgoodhyang",$FF9A3FE5)
+
+//왁리오
+load_stage("왁리오 (Wak'Lio)","Team Pangenie (아버 편곡)","wakrio",#415c84)
+
+
 music_title_alpha = 0
 
 global.bpm = 172
@@ -42,6 +51,7 @@ global.start_point = 0
 for(var i = 0; i <= 5; i++)
 {
 global.savepoint_position[i] = -4
+global.savepoint_color[i] = global.map_color
 }
 global.respawn_point_xx = -4
 global.respawn_point_yy = -4
@@ -63,6 +73,8 @@ global.c_y = -4
 
 
 global.rewind_effect_line_angle = 0
+global.savepoint_text_alpha = 0
+global.savepoint_text_t_alpha = 0
 for(var i = 0; i < 16; i++)
 {
 global.rewind_effect_line_pos[i] = -4

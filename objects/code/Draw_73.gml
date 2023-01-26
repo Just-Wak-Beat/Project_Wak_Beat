@@ -37,7 +37,11 @@ draw_line_width(xx+xx_w*0.7-font_size*35,yy+font_size*80,xx+xx_w*0.7+font_size*3
 //n_progress player (progress bar)
 draw_set_color(global.player_color)
 draw_set_alpha(progress_alpha_sec*0.9)
-draw_line_width(xx+xx_w*0.3+font_size*32+font_size*((1433.6*global.n_progress/global.music_duration)-14),yy+font_size*80,xx+font_size*32+xx_w*0.3+font_size*((1433.6*global.n_progress/global.music_duration)+14),yy+font_size*80,28*font_size)
+var max_player_pos = global.n_progress/global.music_duration
+draw_line_width(xx+xx_w*0.29+font_size*32+font_size*((1433.6*max_player_pos)-14),yy+font_size*80,xx+font_size*32+xx_w*0.29+font_size*((1433.6*global.n_progress/global.music_duration)+14),yy+font_size*80,28*font_size)
+
+//check point
+draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),"중간 사베(save) 도착!",64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,font_size/2,font_size/2,0)
 
 
 //progress bar icon
@@ -55,6 +59,7 @@ draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,global.map_color,0,1,light_font,font_size*0.85,font_size*0.85,0)
 
 
+
 for(var i = 0; i <= 5; i++)
 {
 	if global.savepoint_position[i] != -4
@@ -70,6 +75,7 @@ for(var i = 0; i <= 5; i++)
 		{
 		var save_ = instance_create_depth(room_width,0,player.depth+1,obj_savepoint)
 		save_.n_savepoint_position = global.savepoint_position[i]
+		save_.n_color = global.savepoint_color[i]
 		}
 	}
 }

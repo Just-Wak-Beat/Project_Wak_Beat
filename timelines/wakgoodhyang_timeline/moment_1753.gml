@@ -1,1 +1,0 @@
-create_laser(room_width*0.5,global.c_y,140,653,10,2,5,180)
