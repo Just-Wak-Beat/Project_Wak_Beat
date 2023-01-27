@@ -204,6 +204,7 @@ global.background_color = $FF343434
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left))
 		{
 		gamestart = 1
+		audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 		}
 	
 		if global.t_select_map <= 1

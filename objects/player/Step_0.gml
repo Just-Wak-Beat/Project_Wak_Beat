@@ -13,6 +13,8 @@ else
 {
 	if image_xscale = 0
 	{
+	audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+
 	var _ef = instance_create_depth(x,y,depth+1,explosion_effect)
 	_ef.image_xscale = 1
 	_ef.image_yscale = 1
@@ -208,7 +210,7 @@ x -= global.map_speed
 
 	if global.dash_cooltime <= 0 && keyboard_check(vk_space)
 	{
-	w_alpha = 1
+	w_alpha = 5
 	invincibility_cooltime = 30
 	global.dashing = 1
 	global.dash_cooltime = 40

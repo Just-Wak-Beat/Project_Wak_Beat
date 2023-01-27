@@ -27,6 +27,7 @@ if invincibility_cooltime <= 0 && global.hp > 0
 			
 			if invincibility_cooltime != 90
 			{
+			w_alpha = 2
 			global.hp --
 			invincibility_cooltime = 90
 			show_invincibility = 1

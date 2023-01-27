@@ -5,7 +5,7 @@ var yy_h = camera_get_view_height(view_camera[0])
 
 image_index = code.n_stage+1
 x = global.c_x + 916
-depth = code.depth-10
+depth = code.depth-100
 
 if instance_exists(code) && code.gamestart = 1
 {
@@ -23,11 +23,12 @@ image_xscale += (1 - image_xscale)*0.16
 image_yscale += (1 - image_yscale)*0.16
 
 
-if global.highlight_time <= 360 && global.highlight_time > 30
+if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart = 0
 {
 bpm_timer ++
 	if bpm_timer >= (3600/global.bpm)
 	{
+	instance_create_depth(global.c_w-640,global.c_y+yy_h*0.47,code.depth-50,circle_effect)
 		repeat(irandom_range(8,10)*5)
 		{
 		var random_x = irandom_range(-260,260)
