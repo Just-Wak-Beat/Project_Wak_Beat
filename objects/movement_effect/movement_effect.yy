@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "movement_effect",
   "spriteId": {
-    "name": "spr_squire",
-    "path": "sprites/spr_squire/spr_squire.yy",
+    "name": "spr_square",
+    "path": "sprites/spr_square/spr_square.yy",
   },
   "solid": false,
   "visible": true,

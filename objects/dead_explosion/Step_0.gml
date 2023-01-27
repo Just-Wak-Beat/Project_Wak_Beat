@@ -2,7 +2,6 @@
 // You can write your code in this editor
 
 
-
 speed += (0 - speed)*0.02
 image_alpha += (-0.01 - image_alpha)*0.1
 image_xscale += (-0.01 - image_xscale)*0.05

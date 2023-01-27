@@ -29,13 +29,22 @@ global.n_music_id = -4;
 global.n_music_name = -4
 global.n_music_instance = -4
 global.map_color = -4
+global.t_bg_color_alpha = 0
+global.t_bg_color = 1
 global.background_color = c_black
+global.map_speed = 0
+global.t_map_speed = 0
+
+
 
 //왁굳향 100% 첨가
-load_stage("왁굳향100% 첨가","제이타지","wakgoodhyang",$FF9A3FE5,6900)
+//load_stage("왁굳향100% 첨가","제이타지","wakgoodhyang",$FF9A3FE5,6900)
 
 //왁리오
 //load_stage("왁리오 (Wak'Lio)","Team Pangenie (아버 편곡)","wakrio",#415c84,4482)
+
+//밤가이
+load_stage("밤가이!!","나쁜개츠비 (아버 편곡)","bamguy",#bb631d,5411)
 
 
 music_title_alpha = 0

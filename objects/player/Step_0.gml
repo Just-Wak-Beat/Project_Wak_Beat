@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+x -= global.map_speed
+
 if global.hp <= 0 && global.rewind <= 0
 {
 global.rewind = 1
@@ -178,7 +180,13 @@ if global.dash_cooltime <= 0 && keyboard_check(vk_space)
 w_alpha = 1
 invincibility_cooltime = 30
 global.dashing = 1
-global.dash_cooltime = 50
+global.dash_cooltime = 40
+
+var _ef = instance_create_depth(x,y,depth+1,explosion_effect)
+_ef.image_xscale = 1
+_ef.image_yscale = 1
+_ef.t_scale = 2
+_ef.image_blend = global.player_color
 
 	repeat(irandom_range(8,10))
 	{
