@@ -16,7 +16,8 @@ global.c_h = yy+yy_h
 
 var font_size = global.camera_sx
 
-
+if global.n_playing_tutorial != 1
+{
 //progress bar
 draw_set_color(global.map_color)
 draw_set_alpha(progress_alpha*0.1*progress_alpha)
@@ -40,16 +41,17 @@ draw_set_alpha(progress_alpha_sec*0.9)
 var max_player_pos = global.n_progress/global.music_duration
 draw_line_width(xx+xx_w*0.29+font_size*32+font_size*((1433.6*max_player_pos)-14),yy+font_size*80,xx+font_size*32+xx_w*0.29+font_size*((1433.6*global.n_progress/global.music_duration)+14),yy+font_size*80,28*font_size)
 
-//check point
-draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),"중간 사베(save) 도착!",64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,font_size/2,font_size/2,0)
-
-
 //progress bar icon
 draw_sprite_ext(spr_W,0,xx+xx_w*0.3+progress_icon_alpha*1430*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
 draw_sprite_ext(spr_W,0,xx+xx_w*0.3+progress_icon_alpha*1436*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
 draw_sprite_ext(spr_W,0,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*78*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
 draw_sprite_ext(spr_W,0,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*84*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
 draw_sprite_ext(spr_W,0,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha)
+}
+
+//check point
+draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,font_size/2,font_size/2,0)
+
 
 //music title
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-512*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2,font_size*2,0)
@@ -122,6 +124,114 @@ draw_set_color(c_white)
 }
 
 
+
+
+if global.select_map != 0
+{
+global.background_color = $FF343434
+	for(var i = 0; i < global.total_map; i++)
+	{
+	var dis___ = 1/abs(global.select_map-2 - i)-0.2
+	draw_set_alpha(dis___)
+	
+		if dis___ > 0
+		{
+		var selected_me = 0
+			if (global.t_select_map-2 - i) = 0
+			{
+			selected_me = 1
+			draw_set_color(global.map_color)
+			}
+			else
+			{
+			draw_set_color($FFCCCCCC)
+			}
+	
+
+			var xx_ = global.c_w+2-1920-selected_me*192+(abs(global.select_map-2 - i)*32)
+			var yy_ = global.c_y+yy_h*0.72+256*(i-global.select_map)
+			draw_rectangle(global.c_w,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
+			
+			//title
+			if selected_me = 0
+			{
+			var dis_real = (1 - abs(global.select_map-2 - i)/6)
+			draw_text_k_scale(xx_+256,yy_-64,global.stage_map_name[i],64,-1,dis___,global.map_color,0,-1,normal_font,1*dis_real,1*dis_real,0)
+			draw_text_k_scale(xx_+256,yy_+32,global.stage_map_artist[i],64,-1,dis___,global.map_color,0,-1,light_font,0.5*dis_real,0.5*dis_real,0)
+			draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis___,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
+			}
+			else
+			{
+			draw_text_k_scale(xx_+256,yy_-96,global.stage_map_name[i],64,-1,dis___,c_white,0,-1,normal_font,1,1,0)
+			draw_text_k_scale(xx_+256,yy_,global.stage_map_artist[i],64,-1,dis___,c_white,0,-1,light_font,0.6,0.6,0)
+			draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis___,c_white,0,1,normal_font,0.75,0.75,0)
+			}
+	
+			//outline
+			draw_set_color(global.map_color)
+			for(var ii = 0; ii <= 6; ii++)
+			{
+			draw_rectangle(global.c_w-ii,yy_+ii-128+(abs(global.select_map-2 - i)*16),xx_+ii,global.c_y-ii+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),true)
+			}
+		}
+	}
+	
+	if gamestart != 2
+	{
+	draw_set_color(#373b40)
+	draw_set_alpha(1)
+	draw_line_width(global.c_w-3070-gamestart_anime*2300,global.c_y,global.c_w-3070-gamestart_anime*2300,global.c_y+yy_h,2000)
+	
+	draw_sprite_ext(circle_x1024,1,global.c_w-640,global.c_y+yy_h*0.47,2.8+gamestart_anime*5,3+gamestart_anime*5,0,#373b40,1)
+	draw_sprite_ext(circle_x1024,0,global.c_w-640,global.c_y+yy_h*0.47,2.8+gamestart_anime*5,3+gamestart_anime*5,0,global.map_color,1)
+	}
+	
+	var changed_music = 0
+	if gamestart = 0
+	{
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(vk_right) || mouse_wheel_down())
+		{
+		changed_music = 1
+		global.t_select_map ++
+		}
+	
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_left) || mouse_wheel_up())
+		{
+		changed_music = 1
+		global.t_select_map --
+		}
+	
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left))
+		{
+		gamestart = 1
+		}
+	
+		if global.t_select_map <= 1
+		{
+		global.t_select_map = 2
+		}
+	
+		if global.t_select_map > global.total_map+1
+		{
+		global.t_select_map = global.total_map+1
+		}
+	
+		n_stage = global.t_select_map-2
+	
+		if changed_music = 1
+		{
+		play_highlight = 1
+		obj_album_ui.y = room_height
+		obj_album_ui.image_xscale = 0
+		obj_album_ui.image_yscale = 0
+		load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
+		}
+	}
+	
+	
+//alpha text
+draw_text_k_scale(xx+32,global.c_h-64,"Just Wak and Beats (Beta 1.0)",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
+}
 
 
 

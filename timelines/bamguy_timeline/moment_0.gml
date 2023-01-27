@@ -1,6 +1,10 @@
 global.savepoint_position[0] = 2160
 global.savepoint_color[0] = c_black
 
+global.t_bg_color = 1
+global.t_bg_color_alpha = 1
+
+
 var attack_ef = instance_create_depth(global.c_w,irandom_range(global.c_y,global.c_h),depth+1,hitbox_2)
 attack_ef.direction = 180
 attack_ef.speed = 24

@@ -1,0 +1,25 @@
+{
+  "resourceType": "GMTimeline",
+  "resourceVersion": "1.0",
+  "name": "tutorial_part1_timeline",
+  "momentList": [
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":0,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":24,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":24,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":48,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":48,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":120,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":120,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":159,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":159,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":183,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":183,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":255,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":255,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":288,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":288,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":312,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":312,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":384,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":384,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":419,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":419,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":443,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":443,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":520,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":520,"eventType":0,"collisionObjectId":null,},},
+    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","moment":529,"evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":529,"eventType":0,"collisionObjectId":null,},},
+  ],
+  "parent": {
+    "name": "타임라인",
+    "path": "folders/타임라인.yy",
+  },
+}

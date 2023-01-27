@@ -1,0 +1,1 @@
+create_spike_circle(global.c_w-320,room_height*0.5,global.c_w-320,room_height*0.5,60,0,0,0.35)

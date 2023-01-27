@@ -4,6 +4,10 @@ global.savepoint_color[0] = $FF331E00
 global.savepoint_position[1] = 2910
 global.savepoint_color[1] = $FF263302
 
+global.t_bg_color = 1
+global.t_bg_color_alpha = 1
+
+
 
 create_laser(irandom_range(global.c_x,global.c_w),global.c_y,60,26,4,2,2,180)
 

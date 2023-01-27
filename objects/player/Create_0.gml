@@ -29,5 +29,3 @@ w_alpha = 0
 
 died_xx = 0
 died_yy = 0
-
-image_blend = global.player_color

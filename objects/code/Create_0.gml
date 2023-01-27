@@ -11,9 +11,10 @@ surface_resize(application_surface, display_get_width (), display_get_height ())
 
 
 global.master_volume = 1
-global.bgm_volume = 1
+global.bgm_volume = 0.5
 global.sfx_volume = 1
-
+global.select_map = 2 //global.show_music_title = 0로 게임 시작
+global.t_select_map = 2
 global.show_progress_bar = 0
 progress_icon_alpha = 0
 progress_alpha = 0
@@ -21,19 +22,78 @@ progress_alpha_sec = 0
 
 
 
-global.show_music_title = 1
-
+global.show_music_title = 0
+global.checkpoint_text = -4
 global.n_music_title = -4
 global.n_music_artist = -4
 global.n_music_id = -4;
 global.n_music_name = -4
 global.n_music_instance = -4
 global.map_color = -4
-global.t_bg_color_alpha = 0
+global.t_bg_color_alpha = 1
 global.t_bg_color = 1
 global.background_color = c_black
 global.map_speed = 0
 global.t_map_speed = 0
+global.total_map = 4
+global.music_duration = 99999
+global.bpm = 172
+
+for(var i = 0; i <= global.total_map; i++)
+{
+global.stage_map_name[i] = -4;
+global.stage_map_artist[i] = -4;
+global.stage_map_difficulty[i] = -4;
+global.stage_map_color[i] = -4;
+global.stage_map_duration[i] = -4;
+global.stage_map_audio_name[i] = -4;
+global.stage_bpm[i] = -4;
+global.stage_map_highlight_part[i] = -4
+}
+
+
+//왁트 모르즈비
+global.stage_map_name[0] = "왁트모르즈비";
+global.stage_map_artist[0] = "영바이브 (아버 편곡)";
+global.stage_map_difficulty[0] = "Tutorial";
+global.stage_map_color[0] = $FFFFA232;
+global.stage_map_duration[0] = 99999;
+global.stage_map_audio_name[0] = "tutorial_part1";
+global.stage_bpm[0] = 29;
+global.stage_map_highlight_part[0] = 0;
+
+//왁굳향 100% 첨가
+global.stage_map_name[1] = "왁굳향100% 첨가";
+global.stage_map_artist[1] = "제이타지";
+global.stage_map_difficulty[1] = "Normal";
+global.stage_map_color[1] = $FF004C0E;
+global.stage_map_duration[1] = 6900;
+global.stage_map_audio_name[1] = "wakgoodhyang";
+global.stage_bpm[1] = 82;
+global.stage_map_highlight_part[1] = 21;
+
+//밤가이
+global.stage_map_name[2] = "밤가이!!";
+global.stage_map_artist[2] = "나쁜개츠비 (아버 편곡)";
+global.stage_map_difficulty[2] = "Hard";
+global.stage_map_color[2] = #bb631d;
+global.stage_map_duration[2] = 5411;
+global.stage_map_audio_name[2] = "bamguy";
+global.stage_bpm[2] = 151;
+global.stage_map_highlight_part[2] = 54.5;
+
+//왁리오
+global.stage_map_name[3] = "왁리오 (Wak'Lio)";
+global.stage_map_artist[3] = "Team Pangenie (아버 편곡)";
+global.stage_map_difficulty[3] = "Expert";
+global.stage_map_color[3] = #415c84;
+global.stage_map_duration[3] = 4482;
+global.stage_map_audio_name[3] = "wakrio";
+global.stage_bpm[3] = 122;
+global.stage_map_highlight_part[3] = 41.46;
+
+
+
 
 
 
@@ -44,12 +104,15 @@ global.t_map_speed = 0
 //load_stage("왁리오 (Wak'Lio)","Team Pangenie (아버 편곡)","wakrio",#415c84,4482)
 
 //밤가이
-load_stage("밤가이!!","나쁜개츠비 (아버 편곡)","bamguy",#bb631d,5411)
+//load_stage("밤가이!!","나쁜개츠비 (아버 편곡)","bamguy",#bb631d,5411)
+
+//왁트 모르즈비 (튜토리얼)
+load_stage("왁트모르즈비","영바이브 (아버 편곡)","tutorial_part1",$FFFFA232,5411,82)
 
 
 music_title_alpha = 0
 
-global.bpm = 172
+
 
 
 global.player_color = $FF4AB539
@@ -88,3 +151,23 @@ for(var i = 0; i < 16; i++)
 {
 global.rewind_effect_line_pos[i] = -4
 }
+
+
+
+//play highlight (music)
+global.highlight_time = 0
+global.highlight_music = -4;
+global.highlight_music_volume = 0;
+play_highlight = 1
+n_stage = 0
+gamestart = 0
+gamestart_anime = 0
+instance_create_depth(0,0,0,obj_album_ui)
+
+
+
+
+
+//tutorial
+global.n_playing_tutorial = 0
+global.tutorial_n_stage = 0

@@ -1,7 +1,17 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+global.select_map += (global.t_select_map - global.select_map)*0.1
 
+if global.n_music_title = "왁트모르즈비"
+{
+global.hp = 5
+global.n_playing_tutorial = 1
+}
+else
+{
+global.checkpoint_text = "중간 사베(save) 도착!"
+}
 
 
 if global.show_music_title > 0
@@ -52,6 +62,7 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 		if timeline_exists(_timeline_index_)
 		{
 		timeline_index = _timeline_index_
+		timeline_position = 0
 		timeline_loop = false
 		timeline_running = true
 		timeline_speed = 1
@@ -227,6 +238,7 @@ global.rewind ++
 	global.cannot_control = 0
 	instance_destroy(hitbox_parents)
 	instance_destroy(obj_savepoint)
+	instance_destroy(square_misile)
 	
 	if global.respawn_point_xx != -4
 	{
@@ -235,8 +247,8 @@ global.rewind ++
 	}
 	else
 	{
-	player.x = xstart
-	player.y = ystart
+	player.x = room_width*0.5
+	player.y = room_height*0.5
 	}
 	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume,global.start_point/60)
 	global.rewind_effect_line_angle = 0

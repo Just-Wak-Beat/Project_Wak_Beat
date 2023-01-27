@@ -67,3 +67,63 @@ image_angle += (0 - image_angle)*0.03
 image_xscale += (0.2 - image_xscale)*0.1
 image_yscale += (0.2 - image_yscale)*0.1
 w_alpha += (0 - w_alpha)*0.01
+
+
+
+if place_meeting(x,y,player)
+{
+global.w_alpha = 1
+global.savepoint_text_t_alpha = -0.01
+audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+var _ef = instance_create_depth(x,y,depth+1,explosion_effect)
+_ef.image_xscale = 1
+_ef.image_yscale = 1
+_ef.t_scale = 2
+_ef.image_blend = global.player_color
+
+	repeat(irandom_range(8,10))
+	{
+	var random_x = irandom_range(-16,16)
+	var random_y = irandom_range(-16,16)
+	var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
+	effect_.image_xscale = 0.3
+	effect_.image_yscale = 0.3
+	effect_.direction = point_direction(x,y,x+random_x,y+random_y)
+	effect_.speed = 16
+	effect_.image_blend = $FF4AB539
+	}
+	
+	if global.n_playing_tutorial = 1
+	{
+	global.tutorial_n_stage++
+	
+		if global.tutorial_n_stage = 1
+		{
+		global.background_color = $FF161510
+		}
+		else if global.tutorial_n_stage = 2
+		{
+		global.background_color = $FF331800
+		}
+		else if global.tutorial_n_stage = 3
+		{
+		global.background_color = $FF1E2620
+		}
+		else
+		{
+		global.t_bg_color_alpha = 1
+		global.t_bg_color = 0
+		global.select_map = code.n_stage+2
+		global.t_select_map = code.n_stage+2
+		code.gamestart = 3
+		}
+	}
+	else
+	{
+	global.select_map = code.n_stage+2
+	global.t_select_map = code.n_stage+2
+	code.gamestart = 3
+	}
+	
+instance_destroy()
+}
