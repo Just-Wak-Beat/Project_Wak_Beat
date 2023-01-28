@@ -1,0 +1,5 @@
+global.w_alpha = 0
+instance_destroy(square_outline_hitbox1)
+instance_destroy(square_outline_hitbox2)
+instance_destroy(square_outline_hitbox3)
+instance_destroy(square_outline_hitbox4)

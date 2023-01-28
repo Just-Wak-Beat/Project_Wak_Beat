@@ -37,7 +37,7 @@ global.t_bg_color = 1
 global.background_color = c_black
 global.map_speed = 0
 global.t_map_speed = 0
-global.total_map = 5
+global.total_map = 6
 global.music_duration = 99999
 global.bpm = 172
 
@@ -104,6 +104,17 @@ global.stage_map_audio_name[4] = "fukurou";
 global.stage_bpm[4] = 45;
 global.stage_map_highlight_part[4] = 46;
 global.fukurou_snow_effect = 0
+
+//뒤틀린 사랑
+global.stage_map_name[5] = "뒤틀린 사랑";
+global.stage_map_artist[5] = "Mixing by 마이보틀 / Original by Porter Robinson, Madeon";
+global.stage_map_difficulty[5] = "Expert";
+global.stage_map_color[5] = #219cac;
+global.stage_map_duration[5] = 5791;
+global.stage_map_audio_name[5] = "shelter";
+global.stage_bpm[5] = 45;
+global.stage_map_highlight_part[5] = 39.34;
+
 
 
 

@@ -39,15 +39,15 @@ if timer > (global.bpm/3600)*2000
 t_speed -= 0.001
 }
 
-if timer > (global.bpm/3600)*5000
+if timer > (3600/global.bpm)
 {
-timer -= (global.bpm/3600)*5000
+timer -= (3600/global.bpm)
 	if t_speed != 10
 	{
 	image_angle = 360*choose(-1,1)
 	t_speed = 10
 	w_alpha = 1
-		if point_distance(x,y,room_width*0.5,room_height*0.5) > room_height*0.3
+		if point_distance(x,y,room_width*0.5,room_height*0.5) > 1000
 		{
 		t_angle = point_direction(x,y,room_width*0.5,room_height*0.5)
 		}
