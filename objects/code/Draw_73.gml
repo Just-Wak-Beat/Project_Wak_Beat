@@ -232,7 +232,7 @@ global.background_color = $FF343434
 	
 	
 //alpha text
-draw_text_k_scale(xx+32,global.c_h-64,"Just Wak and Beats (Beta 1.0)",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
+draw_text_k_scale(xx+32,global.c_h-64,"Just Wak and Beats (Beta 1.1)",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
 }
 
 
