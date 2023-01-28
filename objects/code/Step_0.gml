@@ -73,7 +73,7 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 	
 	if global.n_progress < global.music_duration
 	{
-		if audio_is_playing(global.n_music_id)
+		if audio_is_playing(global.n_music_id) || global.n_progress > 2000
 		{
 		global.n_progress ++
 		}
@@ -239,6 +239,15 @@ global.rewind ++
 	instance_destroy(hitbox_parents)
 	instance_destroy(obj_savepoint)
 	instance_destroy(square_misile)
+	
+	if global.fukurou_snow_effect != 0
+	{
+		for(var i = 0; i <= 64; i++)
+		{
+		var _shaking_circle = create_explo_circle(global.c_x+i*64,global.c_y+64,1+i*10,7200,0,0,0.18,2,0,0)
+		_shaking_circle.direction = 90
+		}
+	}
 	
 	if global.respawn_point_xx != -4
 	{

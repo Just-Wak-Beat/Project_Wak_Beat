@@ -1,0 +1,1 @@
+global.fukurou_snow_effect = 1

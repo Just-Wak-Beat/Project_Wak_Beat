@@ -178,11 +178,12 @@ global.background_color = $FF343434
 	
 	if gamestart != 2
 	{
-	draw_set_color(#373b40)
+	var color__bg = merge_color(#373b40,global.map_color,0.2)
+	draw_set_color(color__bg)
 	draw_set_alpha(1)
 	draw_line_width(global.c_w-3070-gamestart_anime*2300,global.c_y,global.c_w-3070-gamestart_anime*2300,global.c_y+yy_h,2000)
 	
-	draw_sprite_ext(circle_x1024,1,global.c_w-640,global.c_y+yy_h*0.47,2.8+gamestart_anime*5,3+gamestart_anime*5,0,#373b40,1)
+	draw_sprite_ext(circle_x1024,1,global.c_w-640,global.c_y+yy_h*0.47,2.8+gamestart_anime*5,3+gamestart_anime*5,0,color__bg,1)
 	draw_sprite_ext(circle_x1024,0,global.c_w-640,global.c_y+yy_h*0.47,2.8+gamestart_anime*5,3+gamestart_anime*5,0,global.map_color,1)
 	}
 	

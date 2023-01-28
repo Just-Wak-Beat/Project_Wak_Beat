@@ -1,5 +1,5 @@
 global.savepoint_position[0] = 2490
-global.savepoint_color[0] = $FF331110
+global.savepoint_color[0] = $FF190808
 global.savepoint_position[1] = 5320
 global.savepoint_color[1] = $FF330E22
 

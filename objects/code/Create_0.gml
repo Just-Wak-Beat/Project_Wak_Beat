@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//show_debug_overlay(true)
+
 window_set_fullscreen(true)
 window_set_size(1920,1080)
 window_set_fullscreen(true)
@@ -35,7 +37,7 @@ global.t_bg_color = 1
 global.background_color = c_black
 global.map_speed = 0
 global.t_map_speed = 0
-global.total_map = 4
+global.total_map = 5
 global.music_duration = 99999
 global.bpm = 172
 
@@ -92,6 +94,16 @@ global.stage_map_audio_name[3] = "wakrio";
 global.stage_bpm[3] = 122;
 global.stage_map_highlight_part[3] = 41.46;
 
+//후쿠로우
+global.stage_map_name[4] = "부엉이 (Cover by 아이네 INE)";
+global.stage_map_artist[4] = "Original by KOKIA / Inst by Kupon";
+global.stage_map_difficulty[4] = "Easy";
+global.stage_map_color[4] = #3d333e;
+global.stage_map_duration[4] = 7600;
+global.stage_map_audio_name[4] = "fukurou";
+global.stage_bpm[4] = 45;
+global.stage_map_highlight_part[4] = 46;
+global.fukurou_snow_effect = 0
 
 
 

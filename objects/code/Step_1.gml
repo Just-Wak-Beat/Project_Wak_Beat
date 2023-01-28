@@ -36,7 +36,7 @@ else
 global.highlight_music_volume += (1 - global.highlight_music_volume)*0.05
 }
 
-if play_highlight = 1
+if play_highlight = 1 && instance_exists(obj_album_ui)
 {
 global.highlight_time = 0
 obj_album_ui.bpm_timer = 0

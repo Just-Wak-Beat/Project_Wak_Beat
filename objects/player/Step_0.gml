@@ -211,7 +211,10 @@ x -= global.map_speed
 	if global.dash_cooltime <= 0 && keyboard_check(vk_space)
 	{
 	w_alpha = 5
+	if invincibility_cooltime < 30
+	{
 	invincibility_cooltime = 30
+	}
 	global.dashing = 1
 	global.dash_cooltime = 40
 

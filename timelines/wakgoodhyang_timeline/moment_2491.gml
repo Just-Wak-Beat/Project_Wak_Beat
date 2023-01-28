@@ -1,0 +1,1 @@
+global.map_color = $FF004C0E
