@@ -1,0 +1,1 @@
+global.turisumo_effect = 1

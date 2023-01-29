@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 x -= global.map_speed
+y += global.map_speed_y
 
 
 t_scale += 0.01

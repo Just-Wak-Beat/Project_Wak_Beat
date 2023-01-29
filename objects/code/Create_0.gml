@@ -37,7 +37,10 @@ global.t_bg_color = 1
 global.background_color = c_black
 global.map_speed = 0
 global.t_map_speed = 0
-global.total_map = 6
+global.map_speed_y = 0
+global.t_map_speed_y = 0
+
+global.total_map = 7
 global.music_duration = 99999
 global.bpm = 172
 
@@ -115,8 +118,22 @@ global.stage_map_audio_name[5] = "shelter";
 global.stage_bpm[5] = 45;
 global.stage_map_highlight_part[5] = 39.34;
 
-
-
+//느그란 또리스모
+global.stage_map_name[6] = "느그란 또리스모";
+global.stage_map_artist[6] = "갉갉";
+global.stage_map_difficulty[6] = "Normal";
+global.stage_map_color[6] = #2fdc40;
+global.stage_map_duration[6] = 6188;
+global.stage_map_audio_name[6] = "turisumo";
+global.stage_bpm[6] = 160;
+global.stage_map_highlight_part[6] = 6;
+global.turisumo_effect = 0
+global.turisumo_effect_2 = 0
+global.turisumo_effect_scale = 0
+global.t_turisumo_effect_scale = 0
+global.turisumo_effect_3 = 0
+turisumo_bpm_timer = 0
+turisumo_road_sign_delay = 0
 
 
 

@@ -28,7 +28,10 @@ image_yscale += ((distance+32)/64 - image_yscale)*0.5
 
 		if image_yscale >= distance/64
 		{
-		view_shake(0.1,shake_scale,3,shake_dir)
+			if shake_scale > 0
+			{
+			view_shake(0.1,shake_scale,3,shake_dir)
+			}
 		des = 1
 		w_alpha = 1.1
 		}

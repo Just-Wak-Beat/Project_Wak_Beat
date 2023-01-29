@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 x -= global.map_speed
-
+y += global.map_speed_y
 
 
 w_alpha += (-0.01 - w_alpha)*0.2

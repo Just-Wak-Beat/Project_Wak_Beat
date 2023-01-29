@@ -36,6 +36,15 @@ else
 	
 x -= global.map_speed
 
+	if global.map_speed_y > 18
+	{
+	y += 18
+	}
+	else
+	{
+	y += global.map_speed_y
+	}
+
 	if global.hp <= 0 && global.rewind <= 0
 	{
 	global.rewind = 1

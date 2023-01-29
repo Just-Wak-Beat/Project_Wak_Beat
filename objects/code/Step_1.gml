@@ -7,6 +7,8 @@ global.savepoint_text_alpha += (global.savepoint_text_t_alpha - global.savepoint
 
 
 global.map_speed += (global.t_map_speed - global.map_speed)*0.05
+global.map_speed_y += (global.t_map_speed_y - global.map_speed_y)*0.05
+
 
 global.t_bg_color_alpha += (global.t_bg_color - global.t_bg_color_alpha)*0.001
 

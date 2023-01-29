@@ -249,6 +249,15 @@ global.rewind ++
 		}
 	}
 	
+	if global.turisumo_effect != 0
+	{
+		for(var i = 0; i <= 64; i++)
+		{
+		var _shaking_circle = create_explo_circle(global.c_x+i*128,global.c_h+128,1+i*5,7200,0,0,0.5,2,0,0)
+		_shaking_circle.direction = 90
+		}
+	}
+	
 	if global.respawn_point_xx != -4
 	{
 	player.x = global.respawn_point_xx
