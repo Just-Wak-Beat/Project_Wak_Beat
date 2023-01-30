@@ -85,6 +85,7 @@
     {"id":{"name":"tutorial_part1_timeline","path":"timelines/tutorial_part1_timeline/tutorial_part1_timeline.yy",},"order":3,},
     {"id":{"name":"light_font","path":"fonts/light_font/light_font.yy",},"order":3,},
     {"id":{"name":"normal_font","path":"fonts/normal_font/normal_font.yy",},"order":2,},
+    {"id":{"name":"hitbox_13","path":"objects/hitbox_13/hitbox_13.yy",},"order":14,},
     {"id":{"name":"wakgoodhyang","path":"sounds/wakgoodhyang/wakgoodhyang.yy",},"order":1,},
     {"id":{"name":"code","path":"objects/code/code.yy",},"order":0,},
     {"id":{"name":"load_stage","path":"scripts/load_stage/load_stage.yy",},"order":7,},
