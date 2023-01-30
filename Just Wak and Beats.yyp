@@ -55,6 +55,7 @@
     {"id":{"name":"spr_circle_spike","path":"sprites/spr_circle_spike/spr_circle_spike.yy",},"order":7,},
     {"id":{"name":"spr_square","path":"sprites/spr_square/spr_square.yy",},"order":0,},
     {"id":{"name":"circle_effect","path":"objects/circle_effect/circle_effect.yy",},"order":3,},
+    {"id":{"name":"rewind","path":"sounds/rewind/rewind.yy",},"order":17,},
     {"id":{"name":"spr_cross_outline","path":"sprites/spr_cross_outline/spr_cross_outline.yy",},"order":15,},
     {"id":{"name":"cleared_sfx","path":"sounds/cleared_sfx/cleared_sfx.yy",},"order":2,},
     {"id":{"name":"movement_effect","path":"objects/movement_effect/movement_effect.yy",},"order":0,},
