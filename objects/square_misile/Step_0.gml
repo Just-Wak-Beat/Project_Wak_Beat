@@ -3,6 +3,10 @@
 x -= global.map_speed
 y += global.map_speed_y
 
+
+direction += (image_angle - direction)*0.005
+
+
 if stop_create > 0
 {
 stop_create++
@@ -21,6 +25,7 @@ if stop_create < 60
 	laser__.image_xscale = image_xscale
 	laser__.image_yscale = image_yscale
 	laser__.t_scale = t_scale
+	laser__.image_angle = direction
 	}
 }
 

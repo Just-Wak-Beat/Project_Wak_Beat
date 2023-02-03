@@ -5,7 +5,14 @@ x -= global.map_speed
 y += global.map_speed_y
 
 
-w_alpha += (-0.01 - w_alpha)*0.2
+if global.low_graphics = false
+{
+w_alpha += (-0.01 - w_alpha)*0.15
+}
+else
+{
+w_alpha = 0
+}
 
 warning_timer ++
 

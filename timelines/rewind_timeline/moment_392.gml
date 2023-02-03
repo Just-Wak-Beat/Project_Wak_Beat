@@ -1,0 +1,1 @@
+clock_hitbox.t_angle = -360

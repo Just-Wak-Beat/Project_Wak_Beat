@@ -23,7 +23,7 @@ laser__.shake_scale = argument4
 laser__.shake_dir = argument5
 laser__.image_xscale = argument6
 
-if argument7%90 = 0
+if abs(argument7) > 3
 {
 laser__.image_angle = argument7
 laser__.auto_spin = 0

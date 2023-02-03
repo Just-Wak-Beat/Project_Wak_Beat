@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-//show_debug_overlay(true)
+global.version = "Beta 2.0"
+global.low_graphics = false;
+show_debug_overlay(true)
 
 window_set_fullscreen(true)
 window_set_size(1920,1080)
@@ -40,7 +41,7 @@ global.t_map_speed = 0
 global.map_speed_y = 0
 global.t_map_speed_y = 0
 
-global.total_map = 7
+global.total_map = 8
 global.music_duration = 99999
 global.bpm = 172
 
@@ -54,6 +55,9 @@ global.stage_map_duration[i] = -4;
 global.stage_map_audio_name[i] = -4;
 global.stage_bpm[i] = -4;
 global.stage_map_highlight_part[i] = -4
+global.n_rank[i] = "--";
+global.n_artifact[i] = "X";
+global.detailed_difficulty[i] = -4
 }
 
 
@@ -66,6 +70,7 @@ global.stage_map_duration[0] = 99999;
 global.stage_map_audio_name[0] = "tutorial_part1";
 global.stage_bpm[0] = 29;
 global.stage_map_highlight_part[0] = 0;
+global.detailed_difficulty[0] = 0;
 
 //왁굳향 100% 첨가
 global.stage_map_name[1] = "왁굳향100% 첨가";
@@ -76,6 +81,7 @@ global.stage_map_duration[1] = 6900;
 global.stage_map_audio_name[1] = "wakgoodhyang";
 global.stage_bpm[1] = 82;
 global.stage_map_highlight_part[1] = 21;
+global.detailed_difficulty[1] = 2;
 
 //밤가이
 global.stage_map_name[2] = "밤가이!!";
@@ -86,6 +92,7 @@ global.stage_map_duration[2] = 5411;
 global.stage_map_audio_name[2] = "bamguy";
 global.stage_bpm[2] = 151;
 global.stage_map_highlight_part[2] = 54.5;
+global.detailed_difficulty[2] = 3;
 
 //왁리오
 global.stage_map_name[3] = "왁리오 (Wak'Lio)";
@@ -96,6 +103,7 @@ global.stage_map_duration[3] = 4482;
 global.stage_map_audio_name[3] = "wakrio";
 global.stage_bpm[3] = 122;
 global.stage_map_highlight_part[3] = 41.46;
+global.detailed_difficulty[3] = 4;
 
 //후쿠로우
 global.stage_map_name[4] = "부엉이 (Cover by 아이네 INE)";
@@ -107,6 +115,7 @@ global.stage_map_audio_name[4] = "fukurou";
 global.stage_bpm[4] = 45;
 global.stage_map_highlight_part[4] = 46;
 global.fukurou_snow_effect = 0
+global.detailed_difficulty[4] = 1;
 
 //뒤틀린 사랑
 global.stage_map_name[5] = "뒤틀린 사랑";
@@ -117,6 +126,7 @@ global.stage_map_duration[5] = 5791;
 global.stage_map_audio_name[5] = "shelter";
 global.stage_bpm[5] = 45;
 global.stage_map_highlight_part[5] = 39.34;
+global.detailed_difficulty[5] = 5;
 
 //느그란 또리스모
 global.stage_map_name[6] = "느그란 또리스모";
@@ -127,6 +137,7 @@ global.stage_map_duration[6] = 6188;
 global.stage_map_audio_name[6] = "turisumo";
 global.stage_bpm[6] = 160;
 global.stage_map_highlight_part[6] = 6;
+global.detailed_difficulty[6] = 2;
 global.turisumo_effect = 0
 global.turisumo_effect_2 = 0
 global.turisumo_effect_scale = 0
@@ -134,6 +145,18 @@ global.t_turisumo_effect_scale = 0
 global.turisumo_effect_3 = 0
 turisumo_bpm_timer = 0
 turisumo_road_sign_delay = 0
+
+
+//Re:wind
+global.stage_map_name[7] = "RE:WIND";
+global.stage_map_artist[7] = "Arranged by 아버 / Original remix by Hyeok, Elestee";
+global.stage_map_difficulty[7] = "Expert";
+global.stage_map_color[7] = #d892a6;
+global.stage_map_duration[7] = 7495;
+global.stage_map_audio_name[7] = "rewind";
+global.stage_bpm[7] = 40;
+global.stage_map_highlight_part[7] = 12.80;
+global.detailed_difficulty[7] = 5;
 
 
 
@@ -211,3 +234,7 @@ instance_create_depth(0,0,0,obj_album_ui)
 //tutorial
 global.n_playing_tutorial = 0
 global.tutorial_n_stage = 0
+
+
+//rank system
+global.total_died_here = 0

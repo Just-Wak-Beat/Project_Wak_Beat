@@ -13,10 +13,12 @@ show_invincibility = 0
 
 if invincibility_cooltime <= 0 && global.hp > 0
 {
-	for(var i = 1; i <= abs(global.hmove_speed)+1; i++)
-	{
-		for(var ii = 1; ii <= abs(global.vmove_speed)+1; ii++)
-		{
+	//for(var i = 1; i <= abs(global.hmove_speed)+1; i++)
+	//{
+		//for(var ii = 1; ii <= abs(global.vmove_speed)+1; ii++)
+		//{
+		var i = 1
+		var ii = 1
 		var _placed_obj = instance_place(x+i*sign(global.hmove_speed),y+ii*sign(global.vmove_speed),hitbox_parents)
 			if instance_exists(_placed_obj) && _placed_obj.image_alpha >= 0.95
 			{
@@ -45,10 +47,10 @@ if invincibility_cooltime <= 0 && global.hp > 0
 				effect_.image_blend = $FF4AB539
 				}
 			}
-			break;
-			break;
-			}
-		}
+			//break;
+			//break;
+			//}
+		//}
 	}
 }
 

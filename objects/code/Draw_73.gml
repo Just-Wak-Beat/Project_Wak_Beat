@@ -95,20 +95,20 @@ var clock_alpha = global.clock_alpha_2*global.clock_alpha_1
 
 	for(var i = -15; i <= 15; i++)
 	{
-	draw_sprite_ext(spr_rewind_clock,5,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
-	draw_sprite_ext(spr_rewind_clock,5,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
+	draw_sprite_ext(spr_clock,1,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha*0.02)
+	draw_sprite_ext(spr_clock,1,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha*0.02)
 
-	draw_sprite_ext(spr_rewind_clock,4,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
-	draw_sprite_ext(spr_rewind_clock,4,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
+	draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
+	draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
 
-	draw_sprite_ext(spr_rewind_clock,3,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale,clock_scale,global.rewind*13,c_white,clock_alpha*0.02)
-	draw_sprite_ext(spr_rewind_clock,3,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale,clock_scale,global.rewind*13,c_white,clock_alpha*0.02)
+	draw_sprite_ext(spr_clock,0,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha*0.02)
+	draw_sprite_ext(spr_clock,0,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha*0.02)
 	}
-draw_sprite_ext(spr_rewind_clock,5,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha)
+draw_sprite_ext(spr_clock,1,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha)
 
-draw_sprite_ext(spr_rewind_clock,4,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.5)
+draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.5)
 
-draw_sprite_ext(spr_rewind_clock,3,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale,clock_scale,global.rewind*13,c_white,clock_alpha)
+draw_sprite_ext(spr_clock,0,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha)
 
 
 
@@ -126,9 +126,15 @@ draw_set_color(c_white)
 
 
 
-if global.select_map != 0
+if global.select_map != 0 && abs(player.image_xscale) < 0.1
 {
-global.background_color = $FF343434
+	if gamestart = 0
+	{
+	global.background_color = $FF343434
+	global.t_bg_color = 1
+	global.t_bg_color_alpha = 1
+	}
+	
 	for(var i = 0; i < global.total_map; i++)
 	{
 	var dis___ = 1/abs(global.select_map-2 - i)-0.2
@@ -151,6 +157,7 @@ global.background_color = $FF343434
 			var xx_ = global.c_w+2-1920-selected_me*192+(abs(global.select_map-2 - i)*32)
 			var yy_ = global.c_y+yy_h*0.72+256*(i-global.select_map)
 			draw_rectangle(global.c_w,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
+
 			
 			//title
 			if selected_me = 0
@@ -159,12 +166,30 @@ global.background_color = $FF343434
 			draw_text_k_scale(xx_+256,yy_-64,global.stage_map_name[i],64,-1,dis___,global.map_color,0,-1,normal_font,1*dis_real,1*dis_real,0)
 			draw_text_k_scale(xx_+256,yy_+32,global.stage_map_artist[i],64,-1,dis___,global.map_color,0,-1,light_font,0.5*dis_real,0.5*dis_real,0)
 			draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis___,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
+				for(var k = 0; k <= global.detailed_difficulty[i]; k++)
+				{
+				draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+64*dis_real+(abs(global.select_map-2 - i)*16),global.c_w-(320+32-k*40)*dis_real,yy_+32*dis_real+(abs(global.select_map-2 - i)*16),false)
+				}
+				
+				for(var k = 7; k > global.detailed_difficulty[i]; k--)
+				{
+				draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+64*dis_real+(abs(global.select_map-2 - i)*16),global.c_w-(320+32-k*40)*dis_real,yy_+32*dis_real+(abs(global.select_map-2 - i)*16),true)
+				}
 			}
 			else
 			{
 			draw_text_k_scale(xx_+256,yy_-96,global.stage_map_name[i],64,-1,dis___,c_white,0,-1,normal_font,1,1,0)
 			draw_text_k_scale(xx_+256,yy_,global.stage_map_artist[i],64,-1,dis___,c_white,0,-1,light_font,0.6,0.6,0)
 			draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis___,c_white,0,1,normal_font,0.75,0.75,0)
+				for(var k = 0; k <= global.detailed_difficulty[i]; k++)
+				{
+				draw_rectangle(global.c_w-320+k*40,yy_+84+(abs(global.select_map-2 - i)*16),global.c_w-320-32+k*40,yy_+52+(abs(global.select_map-2 - i)*16),false)
+				}
+				
+				for(var k = 7; k > global.detailed_difficulty[i]; k--)
+				{
+				draw_rectangle(global.c_w-320+k*40,yy_+84+(abs(global.select_map-2 - i)*16),global.c_w-320-32+k*40,yy_+52+(abs(global.select_map-2 - i)*16),true)
+				}
 			}
 	
 			//outline
@@ -172,6 +197,14 @@ global.background_color = $FF343434
 			for(var ii = 0; ii <= 6; ii++)
 			{
 			draw_rectangle(global.c_w-ii,yy_+ii-128+(abs(global.select_map-2 - i)*16),xx_+ii,global.c_y-ii+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),true)
+			}
+			
+		
+			if selected_me = 0
+			{
+			draw_set_alpha(dis___*6)
+			draw_rectangle(xx_+152,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
+			draw_text_k_scale(xx_+48,yy_-32,global.n_rank[i],64,-1,dis___,c_white,0,-1,normal_font,1,1,0)
 			}
 		}
 	}
@@ -232,7 +265,7 @@ global.background_color = $FF343434
 	
 	
 //alpha text
-draw_text_k_scale(xx+32,global.c_h-64,"Just Wak and Beats (Beta 1.1)",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
+draw_text_k_scale(xx+32,global.c_h-64,"Just Wak and Beats ("+string(global.version)+")",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
 }
 
 

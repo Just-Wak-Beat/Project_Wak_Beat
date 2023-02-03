@@ -6,8 +6,26 @@ t_angle += automatic_angle_real
 image_blend = global.map_color
 
 image_angle += (t_angle - image_angle)*0.15
+if global.low_graphics = false
+{
 w_alpha += (-0.01 - w_alpha)*0.15
+}
+else
+{
+w_alpha = 0
+}
 image_alpha += (1 - image_alpha)*0.1
+
+if image_xscale < 0
+{
+image_xscale = 0
+}
+
+if image_yscale < 0
+{
+image_yscale = 0
+}
+
 image_xscale += (t_scale - image_xscale)*0.1
 image_yscale += (t_scale - image_yscale)*0.1
 

@@ -3,7 +3,14 @@
 x -= global.map_speed
 
 image_angle += keep_spin_angle
+if global.low_graphics = false
+{
 w_alpha += (-0.01 - w_alpha)*0.15
+}
+else
+{
+w_alpha = 0
+}
 
 
 if global.fukurou_snow_effect != 0

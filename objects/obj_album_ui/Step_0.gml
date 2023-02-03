@@ -21,7 +21,7 @@ y += (yy+yy_h*0.5 - y)*0.1
 
 image_xscale += (1 - image_xscale)*0.16
 image_yscale += (1 - image_yscale)*0.16
-
+w_alpha += (0 - w_alpha)*0.1
 
 if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart = 0
 {
@@ -40,8 +40,9 @@ bpm_timer ++
 		effect_.speed = 16
 		effect_.image_blend = global.map_color
 		}
-	image_xscale = 0.7
-	image_yscale = 0.7
+	image_xscale *= 0.8
+	image_yscale *= 0.8
+	w_alpha = 1
 	bpm_timer -= (3600/global.bpm)
 	}
 }

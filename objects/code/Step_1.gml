@@ -98,3 +98,11 @@ gamestart_anime += (-0.01 - gamestart_anime)*0.1
 	gamestart = 0
 	}
 }
+
+
+
+
+if gamestart = 1 && global.show_progress_bar = 0 && global.n_progress > 1000 && !instance_exists(obj_stage_clear)
+{
+instance_create_depth(room_width+128,irandom_range(0,room_height),player.depth-1,obj_stage_clear)
+}

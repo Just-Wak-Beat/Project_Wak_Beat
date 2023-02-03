@@ -47,7 +47,7 @@ timer -= (3600/global.bpm)
 	image_angle = 360*choose(-1,1)
 	t_speed = 10
 	w_alpha = 1
-		if point_distance(x,y,room_width*0.5,room_height*0.5) > 1000
+		if point_distance(x,y,room_width*0.5,room_height*0.5) > 600
 		{
 		t_angle = point_direction(x,y,room_width*0.5,room_height*0.5)
 		}
@@ -111,11 +111,15 @@ _ef.image_blend = global.player_color
 		}
 		else
 		{
-		global.t_bg_color_alpha = 1
-		global.t_bg_color = 0
+		load_stage(global.stage_map_name[code.n_stage],global.stage_map_artist[code.n_stage],global.stage_map_audio_name[code.n_stage],global.stage_map_color[code.n_stage],global.stage_map_duration[code.n_stage],global.stage_bpm[code.n_stage])
+		global.highlight_time = 0
+		code.play_highlight = 1
 		global.select_map = code.n_stage+2
 		global.t_select_map = code.n_stage+2
 		code.gamestart = 3
+		global.t_bg_color = 1
+		global.t_bg_color_alpha = 1
+		code.alarm[1] = 1
 		}
 	}
 	else
@@ -126,6 +130,9 @@ _ef.image_blend = global.player_color
 	global.select_map = code.n_stage+2
 	global.t_select_map = code.n_stage+2
 	code.gamestart = 3
+	global.t_bg_color = 1
+	global.t_bg_color_alpha = 1
+	code.alarm[1] = 1
 	}
 	
 instance_destroy()

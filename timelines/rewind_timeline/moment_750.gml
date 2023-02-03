@@ -1,0 +1,1 @@
+global.w_alpha = 0.1

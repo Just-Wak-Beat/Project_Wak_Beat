@@ -37,6 +37,7 @@ turisumo_bpm_timer ++
 	var scale = irandom_range(10,5)/10
 	var _misile_ = create_square_misile(irandom_range(global.c_x,global.c_w),global.c_y-global.map_speed_y*3,5,20/scale,0,0,scale)
 	_misile_.direction = 270
+	_misile_.image_angle = 270
 	_misile_.speed = (64+4)*scale/5
 	}
 	
@@ -45,6 +46,7 @@ turisumo_bpm_timer ++
 	var scale = 0.5
 	var _misile_ = create_square_misile(room_width*0.5,global.c_y-global.map_speed_y*3,5,20/scale,0,0,scale)
 	_misile_.direction = 270
+	_misile_.image_angle = 270
 	_misile_.speed = (64+4)*scale/5
 	}
 	

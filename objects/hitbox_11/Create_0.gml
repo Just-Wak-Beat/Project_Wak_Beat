@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 
-
+image_speed = 0
 w_alpha = 1
 image_xscale = 0
 image_yscale = 0

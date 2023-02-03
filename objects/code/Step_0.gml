@@ -121,7 +121,7 @@ if global.rewind > 0
 	}
 	
 	
-	if global.rewind = 1 || global.rewind = 21 || global.rewind = 41
+	if global.low_graphics = false && (global.rewind = 1 || global.rewind = 21 || global.rewind = 41)
 	{
 		for(var i = 0; i < 360; i += 45)
 		{
@@ -228,6 +228,7 @@ global.rewind ++
 	
 	if global.rewind > 260
 	{
+	global.total_died_here ++
 	global.w_alpha = 1.1
 	global.hp = 5
 	global.rewind = 0
@@ -236,6 +237,8 @@ global.rewind ++
 	global.n_progress = global.start_point
 	timeline_position = global.start_point
 	global.cannot_control = 0
+	player.invincibility_cooltime = 90
+	player.show_invincibility = 1
 	instance_destroy(hitbox_parents)
 	instance_destroy(obj_savepoint)
 	instance_destroy(square_misile)

@@ -1,7 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if global.low_graphics = false
+{
 w_alpha += (-0.01 - w_alpha)*0.15
+}
+else
+{
+w_alpha = 0
+}
 
 
 timer ++
