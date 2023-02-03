@@ -2,8 +2,9 @@
 // You can write your code in this editor
 global.version = "Beta 2.0"
 global.low_graphics = false;
-show_debug_overlay(true)
+//show_debug_overlay(true)
 
+////////////////////////////////////////////////
 window_set_fullscreen(true)
 window_set_size(1920,1080)
 window_set_fullscreen(true)
