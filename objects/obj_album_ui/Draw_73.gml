@@ -1,23 +1,27 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+var ui_alpha__cal = global.ui_alpha
+if ui_alpha__cal > 1
+{
+ui_alpha__cal = 1
+}
 //스탯창 그림자
 for(var i = 0; i <= 16; i += 0.5)
 {
-draw_sprite_ext(spr_status,0,global.c_x-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+i,1,1,0,#d9d1dc,0.02*global.ui_alpha)
-draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+80+i,0.5,0.5,45,#d9d1dc,0.02*global.ui_alpha)
+draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+i,1,1,0,#d9d1dc,0.02*ui_alpha__cal)
+draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80+i,0.5,0.5,45,#d9d1dc,0.02*ui_alpha__cal)
 }
 
 //스텟 창
-draw_sprite_ext(spr_status,0,global.c_x-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y,1,1,0,c_white,global.ui_alpha)
-draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+80,0.5,0.5,45,c_white,global.ui_alpha)
+draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,1,1,0,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80,0.5,0.5,45,c_white,ui_alpha__cal)
 
 
-draw_text_k_scale(global.c_x+32-(1 - global.ui_alpha)*1880,global.c_y+10,"Artifacts",64,-1,global.ui_alpha,#171628,0,-1,normal_font,0.5,0.5,0)
+draw_text_k_scale(global.c_x+32-(1 - ui_alpha__cal)*1880,global.c_y+10,"Artifacts",64,-1,ui_alpha__cal,#171628,0,-1,normal_font,0.5,0.5,0)
 for(var i = 0; i <= 7; i++)
 {
-draw_sprite_ext(spr_W,i,global.c_x+64+150*i-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+95,0.15,0.15,20,#5a5257,global.ui_alpha)
-draw_text_k_scale(global.c_x+96+150*i-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+90,"x"+string(global.artifact_owned[i]),64,-1,global.ui_alpha,#5a5257,0,-1,normal_font,0.5,0.5,0)
+draw_sprite_ext(spr_W,i,global.c_x+64+150*i-(1 - ui_alpha__cal)*1880,global.c_y+95,0.15,0.15,20,#5a5257,ui_alpha__cal)
+draw_text_k_scale(global.c_x+96+150*i-(1 - ui_alpha__cal)*1880,global.c_y+90,"x"+string(global.artifact_owned[i]),64,-1,ui_alpha__cal,#5a5257,0,-1,normal_font,0.5,0.5,0)
 }
 
 
@@ -35,8 +39,8 @@ draw_sprite_ext(spr_lock,0,x,y,image_xscale*0.7,image_yscale*0.7,image_angle,c_w
 
 for(var i = -10; i <= 10; i += 0.5)
 {
-draw_sprite_ext(sprite_index,0,x,y+i,image_xscale,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),global.ui_alpha*0.01)
-draw_sprite_ext(sprite_index,0,x+i,y,image_xscale,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),global.ui_alpha*0.01)
+draw_sprite_ext(sprite_index,0,x,y+i,image_xscale,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),ui_alpha__cal*0.01)
+draw_sprite_ext(sprite_index,0,x+i,y,image_xscale,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),ui_alpha__cal*0.01)
 }
 
 

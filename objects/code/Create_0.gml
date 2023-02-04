@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.0"
+global.version = "Beta 2.02"
 global.low_graphics = false;
 global.dev_mode = 0
 alarm[11] = 1

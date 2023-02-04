@@ -7,3 +7,7 @@ _misile_.direction = i-60
 _misile_.image_angle = i+90-60
 _misile_.speed = (64+4)*scale/5
 }
+
+heart_hitbox.image_xscale *= 0.8
+heart_hitbox.image_yscale *= 0.8
+heart_hitbox.w_alpha = 1

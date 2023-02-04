@@ -10,3 +10,8 @@ attack_ef.w_alpha = 10
 }
 
 global.w_alpha = 0.1
+
+
+heart_hitbox.image_xscale *= 0.8
+heart_hitbox.image_yscale *= 0.8
+heart_hitbox.w_alpha = 1

@@ -6,3 +6,4 @@ _misile_.direction = i
 _misile_.image_angle = i+90
 _misile_.speed = (64+4)*scale/5
 }
+
