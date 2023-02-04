@@ -1,6 +1,7 @@
 global.t_bg_color = 1
 global.t_bg_color_alpha = 0
 global.background_color = #424650
+global.artifact_type = 7
 
 global.map_color = #d892a6
 global.savepoint_position[0] = 4080

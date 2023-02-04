@@ -1,10 +1,46 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//스탯창 그림자
+for(var i = 0; i <= 16; i += 0.5)
+{
+draw_sprite_ext(spr_status,0,global.c_x-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+i,1,1,0,#d9d1dc,0.02*global.ui_alpha)
+draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+80+i,0.5,0.5,45,#d9d1dc,0.02*global.ui_alpha)
+}
+
+//스텟 창
+draw_sprite_ext(spr_status,0,global.c_x-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y,1,1,0,c_white,global.ui_alpha)
+draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+80,0.5,0.5,45,c_white,global.ui_alpha)
 
 
+draw_text_k_scale(global.c_x+32-(1 - global.ui_alpha)*1880,global.c_y+10,"Artifacts",64,-1,global.ui_alpha,#171628,0,-1,normal_font,0.5,0.5,0)
+for(var i = 0; i <= 7; i++)
+{
+draw_sprite_ext(spr_W,i,global.c_x+64+150*i-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+95,0.15,0.15,20,#5a5257,global.ui_alpha)
+draw_text_k_scale(global.c_x+96+150*i-(1 - floor(global.ui_alpha*10)/10)*1880,global.c_y+90,"x"+string(global.artifact_owned[i]),64,-1,global.ui_alpha,#5a5257,0,-1,normal_font,0.5,0.5,0)
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
+var __brighting_col = global.map_color
 draw_self()
-draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,image_angle,merge_color(global.map_color,c_white,w_alpha),image_alpha)
+
+if instance_exists(code) && global.artifact_owned[global.requirement_type[code.n_stage]] < global.requirement_number[code.n_stage]
+{
+__brighting_col = #68646f
+draw_sprite_ext(sprite_index,1,x,y,image_xscale,image_yscale,image_angle,__brighting_col,0.5*image_alpha)
+draw_sprite_ext(spr_lock,0,x,y,image_xscale*0.7,image_yscale*0.7,image_angle,c_white,image_alpha)
+}
+
+
+for(var i = -10; i <= 10; i += 0.5)
+{
+draw_sprite_ext(sprite_index,0,x,y+i,image_xscale,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),global.ui_alpha*0.01)
+draw_sprite_ext(sprite_index,0,x+i,y,image_xscale,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),global.ui_alpha*0.01)
+}
+
+
+
 
 
 var yy = camera_get_view_y(view_camera[0])

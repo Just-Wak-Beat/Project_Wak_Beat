@@ -6,3 +6,4 @@ global.checkpoint_text = "방향키로 이동하기"
 
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
+global.artifact_type = 0

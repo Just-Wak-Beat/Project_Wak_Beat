@@ -3,5 +3,7 @@
 
 
 
-
+if global.dev_mode = 1
+{
 global.hp = 0
+}

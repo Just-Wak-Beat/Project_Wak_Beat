@@ -3,9 +3,10 @@
 var yy = camera_get_view_y(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
 
-image_index = code.n_stage+1
+image_index = code.n_stage+2
 x = global.c_x + 916
 depth = code.depth-100
+image_alpha = global.ui_alpha
 
 if instance_exists(code) && code.gamestart = 1
 {

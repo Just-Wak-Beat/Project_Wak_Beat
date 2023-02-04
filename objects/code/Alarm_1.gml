@@ -11,22 +11,25 @@ if global.total_died_here = 0
 	{
 	global.n_rank[global.select_map-2] = "S"
 	}
-	else if global.hp = 3
+	else if (global.hp = 3 || global.hp = 2)
 	{
 	global.n_rank[global.select_map-2] = "A+"
 	}
-	else if global.hp = 2
-	{
-	global.n_rank[global.select_map-2] = "A"
-	}
 	else
 	{
-	global.n_rank[global.select_map-2] = "B+"
+	global.n_rank[global.select_map-2] = "A"
 	}
 }
 else if global.total_died_here = 1
 {
-global.n_rank[global.select_map-2] = "B"
+	if global.hp >= 3 && global.hp <= 5
+	{
+	global.n_rank[global.select_map-2] = "B+"
+	}
+	else
+	{
+	global.n_rank[global.select_map-2] = "B"
+	}
 }
 else if global.total_died_here = 2
 {
@@ -53,5 +56,11 @@ else
 global.n_rank[global.select_map-2] = "F"
 }
 
-global.n_artifact[global.select_map-2] = "O"
+if global.n_artifact[global.select_map-2] != "완료"
+{
+global.artifact_owned[global.artifact_type]++
+global.n_artifact[global.select_map-2] = "완료"
+}
 global.total_died_here = 0
+
+save_and_load_data(0,false)

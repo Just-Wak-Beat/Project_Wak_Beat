@@ -30,7 +30,7 @@ if invincibility_cooltime <= 0 && global.hp > 0
 			if invincibility_cooltime != 90
 			{
 			w_alpha = 2
-			global.hp --
+			global.hp -= sign(global.show_progress_bar)
 			invincibility_cooltime = 90
 			show_invincibility = 1
 			audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6)

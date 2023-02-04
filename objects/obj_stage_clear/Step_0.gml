@@ -1,5 +1,41 @@
 /// @description Insert description here
 // You can write your code in this editor
+image_index = global.artifact_type
+if global.artifact_type = 1
+{
+image_blend = #b879ef
+color_sec = #b79aef
+}
+if global.artifact_type = 2
+{
+image_blend = #aaa6a2
+color_sec = #77716a
+}
+if global.artifact_type = 3
+{
+image_blend = #84acdf
+color_sec = #6589b9
+}
+if global.artifact_type = 4
+{
+image_blend = #3b3157
+color_sec = #594a81
+}
+if global.artifact_type = 5
+{
+image_blend = #604055
+color_sec = #9b647b
+}
+if global.artifact_type = 6
+{
+image_blend = #e38e2a
+color_sec = #fe6f56
+}
+if global.artifact_type = 7
+{
+image_blend = #01bfa3
+color_sec = #44d2ac
+}
 
 
 
@@ -38,6 +74,32 @@ if timer > (global.bpm/3600)*2000
 {
 t_speed -= 0.001
 }
+
+if outside_timer > 360
+{
+instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),player.depth-1,obj_stage_clear)
+instance_destroy()
+}
+
+
+var xx__ = camera_get_view_x(view_camera[0])
+var yy__ = camera_get_view_y(view_camera[0])
+
+var xx_w__ = camera_get_view_width(view_camera[0])
+var yy_h__ = camera_get_view_height(view_camera[0])
+
+if x < xx__+16 || x > xx__+xx_w__-16 || y > yy__+yy_h__-16 || y < yy__+16
+{
+outside_timer ++
+}
+else
+{
+	if outside_timer > 0
+	{
+	outside_timer --
+	}
+}
+
 
 if timer > (3600/global.bpm)
 {
@@ -90,7 +152,7 @@ _ef.image_blend = global.player_color
 	effect_.image_yscale = 0.3
 	effect_.direction = point_direction(x,y,x+random_x,y+random_y)
 	effect_.speed = 16
-	effect_.image_blend = $FF4AB539
+	effect_.image_blend = color_sec
 	}
 	
 	if global.n_playing_tutorial = 1
@@ -111,28 +173,12 @@ _ef.image_blend = global.player_color
 		}
 		else
 		{
-		load_stage(global.stage_map_name[code.n_stage],global.stage_map_artist[code.n_stage],global.stage_map_audio_name[code.n_stage],global.stage_map_color[code.n_stage],global.stage_map_duration[code.n_stage],global.stage_bpm[code.n_stage])
-		global.highlight_time = 0
-		code.play_highlight = 1
-		global.select_map = code.n_stage+2
-		global.t_select_map = code.n_stage+2
-		code.gamestart = 3
-		global.t_bg_color = 1
-		global.t_bg_color_alpha = 1
-		code.alarm[1] = 1
+		event_user(0)
 		}
 	}
 	else
 	{
-	load_stage(global.stage_map_name[code.n_stage],global.stage_map_artist[code.n_stage],global.stage_map_audio_name[code.n_stage],global.stage_map_color[code.n_stage],global.stage_map_duration[code.n_stage],global.stage_bpm[code.n_stage])
-	global.highlight_time = 0
-	code.play_highlight = 1
-	global.select_map = code.n_stage+2
-	global.t_select_map = code.n_stage+2
-	code.gamestart = 3
-	global.t_bg_color = 1
-	global.t_bg_color_alpha = 1
-	code.alarm[1] = 1
+	event_user(0)
 	}
 	
 instance_destroy()

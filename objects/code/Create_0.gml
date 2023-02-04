@@ -2,6 +2,8 @@
 // You can write your code in this editor
 global.version = "Beta 2.0"
 global.low_graphics = false;
+global.dev_mode = 0
+alarm[11] = 1
 //show_debug_overlay(true)
 
 ////////////////////////////////////////////////
@@ -25,7 +27,7 @@ progress_alpha = 0
 progress_alpha_sec = 0
 
 
-
+global.artifact_type = 0
 global.show_music_title = 0
 global.checkpoint_text = -4
 global.n_music_title = -4
@@ -40,11 +42,19 @@ global.background_color = c_black
 global.map_speed = 0
 global.t_map_speed = 0
 global.map_speed_y = 0
+global.ui_alpha = 1
 global.t_map_speed_y = 0
 
 global.total_map = 8
 global.music_duration = 99999
 global.bpm = 172
+
+
+for(var i = 0; i <= 7; i++)
+{
+global.artifact_owned[i] = 0;
+}
+
 
 for(var i = 0; i <= global.total_map; i++)
 {
@@ -59,6 +69,8 @@ global.stage_map_highlight_part[i] = -4
 global.n_rank[i] = "--";
 global.n_artifact[i] = "X";
 global.detailed_difficulty[i] = -4
+global.requirement_type[i] = -4
+global.requirement_number[i] = -4
 }
 
 
@@ -72,6 +84,8 @@ global.stage_map_audio_name[0] = "tutorial_part1";
 global.stage_bpm[0] = 29;
 global.stage_map_highlight_part[0] = 0;
 global.detailed_difficulty[0] = 0;
+global.requirement_type[0] = 0
+global.requirement_number[0] = 0
 
 //왁굳향 100% 첨가
 global.stage_map_name[1] = "왁굳향100% 첨가";
@@ -83,6 +97,8 @@ global.stage_map_audio_name[1] = "wakgoodhyang";
 global.stage_bpm[1] = 82;
 global.stage_map_highlight_part[1] = 21;
 global.detailed_difficulty[1] = 2;
+global.requirement_type[1] = 0
+global.requirement_number[1] = 1
 
 //밤가이
 global.stage_map_name[2] = "밤가이!!";
@@ -94,6 +110,8 @@ global.stage_map_audio_name[2] = "bamguy";
 global.stage_bpm[2] = 151;
 global.stage_map_highlight_part[2] = 54.5;
 global.detailed_difficulty[2] = 3;
+global.requirement_type[2] = 0
+global.requirement_number[2] = 3
 
 //왁리오
 global.stage_map_name[3] = "왁리오 (Wak'Lio)";
@@ -105,6 +123,8 @@ global.stage_map_audio_name[3] = "wakrio";
 global.stage_bpm[3] = 122;
 global.stage_map_highlight_part[3] = 41.46;
 global.detailed_difficulty[3] = 4;
+global.requirement_type[3] = 0
+global.requirement_number[3] = 4
 
 //후쿠로우
 global.stage_map_name[4] = "부엉이 (Cover by 아이네 INE)";
@@ -117,6 +137,8 @@ global.stage_bpm[4] = 45;
 global.stage_map_highlight_part[4] = 46;
 global.fukurou_snow_effect = 0
 global.detailed_difficulty[4] = 1;
+global.requirement_type[4] = 0
+global.requirement_number[4] = 1
 
 //뒤틀린 사랑
 global.stage_map_name[5] = "뒤틀린 사랑";
@@ -128,6 +150,8 @@ global.stage_map_audio_name[5] = "shelter";
 global.stage_bpm[5] = 45;
 global.stage_map_highlight_part[5] = 39.34;
 global.detailed_difficulty[5] = 5;
+global.requirement_type[5] = 0
+global.requirement_number[5] = 4
 
 //느그란 또리스모
 global.stage_map_name[6] = "느그란 또리스모";
@@ -139,6 +163,8 @@ global.stage_map_audio_name[6] = "turisumo";
 global.stage_bpm[6] = 160;
 global.stage_map_highlight_part[6] = 6;
 global.detailed_difficulty[6] = 2;
+global.requirement_type[6] = 0
+global.requirement_number[6] = 2
 global.turisumo_effect = 0
 global.turisumo_effect_2 = 0
 global.turisumo_effect_scale = 0
@@ -158,6 +184,8 @@ global.stage_map_audio_name[7] = "rewind";
 global.stage_bpm[7] = 40;
 global.stage_map_highlight_part[7] = 12.80;
 global.detailed_difficulty[7] = 5;
+global.requirement_type[7] = 1
+global.requirement_number[7] = 1
 
 
 

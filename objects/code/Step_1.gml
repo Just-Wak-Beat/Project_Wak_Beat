@@ -55,6 +55,10 @@ audio_sound_gain(global.highlight_music,(1-gamestart_anime)*0.8*global.highlight
 
 
 
+if gamestart = 0
+{
+global.ui_alpha += (1.01 - global.ui_alpha)*0.1
+}
 
 
 
@@ -64,6 +68,7 @@ global.t_bg_color = 0
 global.t_select_map ++
 global.t_bg_color_alpha += (global.t_bg_color - global.t_bg_color_alpha)*0.1
 gamestart_anime += (1.01 - gamestart_anime)*0.1
+global.ui_alpha += (-0.01 - global.ui_alpha)*0.1
 	if !instance_exists(obj_album_ui)
 	{
 	global.select_map = 0
@@ -102,7 +107,16 @@ gamestart_anime += (-0.01 - gamestart_anime)*0.1
 
 
 
-if gamestart = 1 && global.show_progress_bar = 0 && global.n_progress > 1000 && !instance_exists(obj_stage_clear)
+if gamestart = 2 && global.show_progress_bar = 0 && global.n_progress > 1000
 {
-instance_create_depth(room_width+128,irandom_range(0,room_height),player.depth-1,obj_stage_clear)
+	if !instance_exists(obj_stage_clear)
+	{
+	instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),player.depth-1,obj_stage_clear)
+	}
+}
+
+
+if player.image_xscale < 0.1
+{
+instance_destroy(obj_stage_clear)
 }

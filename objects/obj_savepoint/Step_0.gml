@@ -15,7 +15,6 @@ global.respawn_point_yy = player.y
 	{
 	instance_create_depth(room_width+128,irandom_range(0,room_height),player.depth-1,obj_stage_clear)
 	global.show_progress_bar = 0
-	global.hp = 5
 	
 	instance_destroy(hitbox_parents)
 	instance_destroy(obj_savepoint)

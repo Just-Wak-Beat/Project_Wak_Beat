@@ -3,6 +3,7 @@ global.savepoint_color[0] = $FF331E00
 
 global.savepoint_position[1] = 2910
 global.savepoint_color[1] = $FF263302
+global.artifact_type = 0
 
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
