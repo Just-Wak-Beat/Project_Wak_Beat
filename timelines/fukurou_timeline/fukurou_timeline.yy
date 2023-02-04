@@ -69,7 +69,6 @@
     {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7192,"eventType":0,"isDnD":false,},"moment":7192,},
     {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7277,"eventType":0,"isDnD":false,},"moment":7277,},
     {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7362,"eventType":0,"isDnD":false,},"moment":7362,},
-    {"resourceType":"GMMoment","resourceVersion":"1.0","name":"","evnt":{"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7500,"eventType":0,"isDnD":false,},"moment":7500,},
   ],
   "parent": {
     "name": "타임라인",

@@ -2,7 +2,7 @@
 // You can write your code in this editor
 global.version = "Beta 2.02"
 global.low_graphics = false;
-global.dev_mode = 0
+global.dev_mode = 1
 alarm[11] = 1
 //show_debug_overlay(true)
 
