@@ -1,3 +1,5 @@
+global.map_color = #9ed5cb
+
 
 if !instance_exists(clock_hitbox)
 {
