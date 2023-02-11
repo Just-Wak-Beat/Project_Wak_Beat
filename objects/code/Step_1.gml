@@ -89,6 +89,10 @@ global.ui_alpha += (-0.01 - global.ui_alpha)*0.1
 		global.savepoint_position[i] = -4
 		global.savepoint_color[i] = global.map_color
 		}
+		
+		
+	//discord presence
+	discord_presence_update = 1
 	}
 }
 
@@ -100,6 +104,7 @@ gamestart_anime += (-0.01 - gamestart_anime)*0.1
 	{
 	gamestart_anime = 0
 	instance_create_depth(0,0,0,obj_album_ui)
+	event_user(0)
 	gamestart = 0
 	}
 }

@@ -18,6 +18,7 @@
     {"name":"타일 세트","order":2,"path":"folders/타일 세트.yy",},
     {"name":"타임라인","order":8,"path":"folders/타임라인.yy",},
     {"name":"확장","order":14,"path":"folders/확장.yy",},
+    {"name":"확장 기능","order":15,"path":"folders/확장 기능.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tutorial_part4_timeline","order":6,"path":"timelines/tutorial_part4_timeline/tutorial_part4_timeline.yy",},
@@ -72,6 +73,7 @@
     {"name":"hitbox_2","order":2,"path":"objects/hitbox_2/hitbox_2.yy",},
     {"name":"spr_circle_spike","order":7,"path":"sprites/spr_circle_spike/spr_circle_spike.yy",},
     {"name":"spr_gear","order":13,"path":"sprites/spr_gear/spr_gear.yy",},
+    {"name":"convert_sec_to_clocktime","order":14,"path":"scripts/convert_sec_to_clocktime/convert_sec_to_clocktime.yy",},
     {"name":"circle_effect","order":3,"path":"objects/circle_effect/circle_effect.yy",},
     {"name":"rewind","order":17,"path":"sounds/rewind/rewind.yy",},
     {"name":"spr_cross_outline","order":16,"path":"sprites/spr_cross_outline/spr_cross_outline.yy",},

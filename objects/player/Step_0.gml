@@ -30,7 +30,7 @@ else
 		effect_.image_yscale = 0.3
 		effect_.direction = point_direction(x,y,x+random_x,y+random_y)
 		effect_.speed = 16
-		effect_.image_blend = $FF4AB539
+		effect_.image_blend = global.player_color
 		}
 	}
 	
@@ -66,7 +66,7 @@ x -= global.map_speed
 		}
 	}
 
-	image_index = 5-global.hp
+
 
 	w_alpha += (-0.01 - w_alpha)*0.1
 
@@ -126,14 +126,20 @@ x -= global.map_speed
 	global.hmove_speed += (global.hmove*(14+global.dashing*62)+random_dash*64 - global.hmove_speed)*0.3
 	global.vmove_speed += (global.vmove*(14+global.dashing*62) - global.vmove_speed)*0.3
 
+	var ff_angle = 180
+	if global.player_skin = 1
+	{
+	ff_angle = 360
+	}
+	
 	if abs(global.hmove) = 1 && global.vmove = 0
 	{
-	image_angle = 180
+	image_angle = ff_angle
 	}
 
 	if global.hmove = 0 && abs(global.vmove) = 1
 	{
-	image_angle = -180
+	image_angle = -ff_angle
 	}
 
 
@@ -164,8 +170,6 @@ x -= global.map_speed
 
 
 
-
-
 	if global.hmove != 0 && global.vmove != 0
 	{
 	image_angle = 45+90*sign(global.vmove+global.hmove)
@@ -190,7 +194,7 @@ x -= global.map_speed
 	effect_.image_yscale = 0.3
 	effect_.vspeed = -global.vmove_speed*1.2
 	effect_.hspeed = -global.hmove_speed*1.2
-	effect_.image_blend = $FF4AB539
+	effect_.image_blend = global.player_color
 	}
 
 
@@ -204,7 +208,8 @@ x -= global.map_speed
 
 
 
-
+	//체력에 따른 이미지 설정
+	player.image_index = global.player_skin*7+(5-global.hp)
 
 	if global.dash_cooltime > 0
 	{
@@ -242,7 +247,7 @@ x -= global.map_speed
 		effect_.image_yscale = 0.3
 		effect_.direction = point_direction(x,y,x+random_x,y+random_y)
 		effect_.speed = 16
-		effect_.image_blend = $FF4AB539
+		effect_.image_blend = global.player_color
 		}
 	}
 }

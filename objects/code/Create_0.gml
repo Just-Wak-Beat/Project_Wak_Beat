@@ -16,6 +16,21 @@ window_set_max_height(1080)
 surface_resize(application_surface, display_get_width (), display_get_height ());
 
 
+//discord presence
+#macro DISCORD_APP_ID "1073730369964220527"
+
+ready = false;
+discord_presence_update = 0
+if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
+{
+//show_error("NekoPresence init fail.", true);
+}
+
+
+
+
+global.player_skin = 0
+global.b_player_skin = 0
 global.master_volume = 1
 global.bgm_volume = 0.5
 global.sfx_volume = 1

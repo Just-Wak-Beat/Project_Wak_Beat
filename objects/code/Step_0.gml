@@ -1,6 +1,39 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//캐릭터 변경
+if global.b_player_skin != global.player_skin
+{
+player.image_index = global.player_skin*7+(5-global.hp)
+	global.player_color = $FF4AB539
+	if global.player_skin = 1
+	{
+	global.player_color = $FF60006F
+	}
+	if global.player_skin = 2
+	{
+	global.player_color = $FF969EA3
+	}
+	if global.player_skin = 3
+	{
+	global.player_color = $FFFFC065
+	}
+	if global.player_skin = 4
+	{
+	global.player_color = $FFFF9761
+	}
+	if global.player_skin = 5
+	{
+	global.player_color = $FF8812D5
+	}
+	if global.player_skin = 6
+	{
+	global.player_color = $FF62E0F6
+	}
+global.b_player_skin = global.player_skin
+}
+
+
 global.select_map += (global.t_select_map - global.select_map)*0.1
 
 if global.n_music_title = "왁트모르즈비"
@@ -73,7 +106,7 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 	
 	if global.n_progress < global.music_duration
 	{
-		if audio_is_playing(global.n_music_id) || global.n_progress > 2000
+		if (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
 		{
 		global.n_progress ++
 		}
@@ -84,9 +117,19 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 	
 		if !instance_exists(obj_savepoint)
 		{
-		var save_ = instance_create_depth(room_width,0,player.depth+1,obj_savepoint)
-		save_.n_savepoint_position = 99999
-		save_.n_color = c_black
+			if abs(global.map_speed_y) > 0
+			{
+			var save_ = instance_create_depth(0,0,player.depth+1,obj_savepoint)
+			save_.n_savepoint_position = 99999
+			save_.n_color = c_black
+			save_.image_angle = 90
+			}
+			else
+			{
+			var save_ = instance_create_depth(room_width,0,player.depth+1,obj_savepoint)
+			save_.n_savepoint_position = 99999
+			save_.n_color = c_black
+			}
 		}
 	}
 }
@@ -98,6 +141,31 @@ progress_alpha_sec += (-0.01 - progress_alpha_sec)*0.1
 }
 
 
+
+//discord presence
+if discord_presence_update > 0
+{
+	if discord_presence_update%60 = 0 && global.n_progress < global.music_duration
+	{
+	np_update();
+	var time_sec = floor(global.stage_map_duration[n_stage]/60)
+	var n_time_sec = floor(global.n_progress/60)
+	var album_id = "album"+string(n_stage+1)
+		if n_stage+1 > sprite_get_number(spr_album)-2
+		{
+		album_id = "album0"
+		}
+	
+	np_setpresence_more("","", false);
+	np_setpresence(string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec)),string(global.stage_map_name[n_stage]), string(album_id), "type"+string(global.artifact_type));
+	}
+discord_presence_update ++
+	
+	if global.n_progress >= global.music_duration
+	{
+	discord_presence_update = 0
+	}
+}
 
 
 global.w_alpha += (-0.01 - global.w_alpha)*0.1

@@ -75,9 +75,19 @@ for(var i = 0; i <= 5; i++)
 	
 		if global.n_progress = global.savepoint_position[i] && !audio_is_playing(cleared_sfx)
 		{
-		var save_ = instance_create_depth(room_width,0,player.depth+1,obj_savepoint)
-		save_.n_savepoint_position = global.savepoint_position[i]
-		save_.n_color = global.savepoint_color[i]
+			if abs(global.map_speed_y) > 0
+			{
+			var save_ = instance_create_depth(0,0,player.depth+1,obj_savepoint)
+			save_.n_savepoint_position = global.savepoint_position[i]
+			save_.n_color = global.savepoint_color[i]
+			save_.image_angle = 90
+			}
+			else
+			{
+			var save_ = instance_create_depth(room_width,0,player.depth+1,obj_savepoint)
+			save_.n_savepoint_position = global.savepoint_position[i]
+			save_.n_color = global.savepoint_color[i]
+			}
 		}
 	}
 }
