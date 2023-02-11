@@ -4,7 +4,7 @@ global.version = "Beta 2.02"
 global.low_graphics = false;
 global.dev_mode = 1
 alarm[11] = 1
-//show_debug_overlay(true)
+
 
 ////////////////////////////////////////////////
 window_set_fullscreen(true)
@@ -14,6 +14,7 @@ window_set_size(1920,1080)
 window_set_max_width(1920)
 window_set_max_height(1080)
 surface_resize(application_surface, display_get_width (), display_get_height ());
+//show_debug_overlay(true)
 
 
 //discord presence
@@ -60,7 +61,7 @@ global.map_speed_y = 0
 global.ui_alpha = 1
 global.t_map_speed_y = 0
 
-global.total_map = 8
+global.total_map = 9
 global.music_duration = 99999
 global.bpm = 172
 
@@ -203,6 +204,24 @@ global.requirement_type[7] = 1
 global.requirement_number[7] = 1
 
 
+//Re:wind
+global.stage_map_name[8] = "아이패드";
+global.stage_map_artist[8] = "뾰복";
+global.stage_map_difficulty[8] = "Normal";
+global.stage_map_color[8] = #5595ff
+global.stage_map_duration[8] = 4316;
+global.stage_map_audio_name[8] = "ipad";
+global.stage_bpm[8] = 60;
+global.stage_map_highlight_part[8] = 0;
+global.detailed_difficulty[8] = 2;
+global.requirement_type[8] = 0
+global.requirement_number[8] = 1
+global.ipad_random_xx = -4
+global.ipad_random_xspeed = -4
+global.ipad_random_yspeed = -4
+global.ipad_effect = 0
+
+
 
 //왁굳향 100% 첨가
 //load_stage("왁굳향100% 첨가","제이타지","wakgoodhyang",$FF9A3FE5,6900)
@@ -282,3 +301,4 @@ global.tutorial_n_stage = 0
 
 //rank system
 global.total_died_here = 0
+randomize()

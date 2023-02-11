@@ -157,7 +157,7 @@ if discord_presence_update > 0
 		}
 	
 	np_setpresence_more("","", false);
-	np_setpresence(string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec)),string(global.stage_map_name[n_stage]), string(album_id), "type"+string(global.artifact_type));
+	np_setpresence("["+string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec))+"]",string(global.stage_map_name[n_stage]), string(album_id), "type"+string(global.artifact_type));
 	}
 discord_presence_update ++
 	
@@ -328,6 +328,26 @@ global.rewind ++
 		_shaking_circle.direction = 90
 		}
 	}
+	
+	if global.ipad_effect != 0
+	{
+		if global.low_graphics = false
+		{
+			for(var i = 0; i <= 64; i++)
+			{
+			var _shaking_circle = create_explo_circle(global.c_x+i*80,global.c_h+32,1+i*2,7200,0,0,0.4,2,0,0)
+			_shaking_circle.direction = 90
+			}
+		}
+
+
+		for(var i = 0; i <= 64; i++)
+		{
+		var _shaking_circle = create_explo_circle(global.c_w-i*80,global.c_h,1+i*3,7200,0,0,0.4,2,0,0)
+		_shaking_circle.direction = 90
+		}
+	}
+
 	
 	if global.respawn_point_xx != -4
 	{

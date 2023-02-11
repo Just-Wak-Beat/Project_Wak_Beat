@@ -5,3 +5,4 @@
 image_blend = global.map_color
 
 des = 0
+timer__ = 0

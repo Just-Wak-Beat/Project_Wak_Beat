@@ -3,7 +3,7 @@
 
 
 //원이 점점 커지는 탄막
-image_blend = global.map_color
+
 image_alpha = 0.35
 warning_timer = 0
 //target_time = 0
