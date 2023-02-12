@@ -95,3 +95,42 @@ global.turisumo_effect_2++
 	global.turisumo_effect_2 = 1
 	}
 }
+
+
+
+
+if global.phony_effect != 0 && instance_exists(hitbox_11)
+{
+hitbox_11.t_angle += 2
+var _xx_ = hitbox_11.x+lengthdir_x(phony_y,hitbox_11.image_angle)
+var _yy_ = hitbox_11.y+lengthdir_y(phony_y,hitbox_11.image_angle)
+
+if phony_y_timer%5 = 0
+{
+var attack_ef = instance_create_depth(_xx_,_yy_,depth+1,hitbox_2)
+attack_ef.direction = hitbox_11.image_angle
+attack_ef.speed = 24
+attack_ef.keep_spin_angle = 2
+attack_ef.image_xscale = 0.4
+attack_ef.image_yscale = 0.4
+attack_ef.w_alpha = 10
+
+var attack_ef = instance_create_depth(_xx_,_yy_,depth+1,hitbox_2)
+attack_ef.direction = hitbox_11.image_angle+180
+attack_ef.speed = 24
+attack_ef.keep_spin_angle = -2
+attack_ef.image_xscale = 0.4
+attack_ef.image_yscale = 0.4
+attack_ef.w_alpha = 10
+}
+
+
+phony_y_timer ++
+phony_y += phony_t_y;
+
+	if phony_y_timer > 60
+	{
+	phony_t_y *= -1
+	phony_y_timer = 0
+	}
+}

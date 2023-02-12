@@ -1,0 +1,1 @@
+global.phony_effect = 0

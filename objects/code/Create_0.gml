@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.02"
+global.version = "Beta 2.03"
 global.low_graphics = false;
 global.dev_mode = 1
 alarm[11] = 1
@@ -235,6 +235,10 @@ global.stage_map_highlight_part[9] = 15.72;
 global.detailed_difficulty[9] = 3;
 global.requirement_type[9] = 0
 global.requirement_number[9] = 1
+global.phony_effect = 0
+phony_y = 0
+phony_t_y = 1
+phony_y_timer = 0
 
 
 

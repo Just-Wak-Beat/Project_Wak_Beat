@@ -4,3 +4,5 @@ global.artifact_type = 2
 
 global.t_bg_color = 0.1
 global.t_bg_color_alpha = 0
+global.t_map_speed = 0
+global.t_map_speed_y = 0
