@@ -44,7 +44,7 @@ if invincibility_cooltime <= 0 && global.hp > 0
 				effect_.image_yscale = 0.3
 				effect_.direction = point_direction(x,y,x+random_x,y+random_y)
 				effect_.speed = 24
-				effect_.image_blend = $FF4AB539
+				effect_.image_blend = global.player_color
 				}
 			}
 			//break;

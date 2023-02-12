@@ -37,6 +37,7 @@ global.bgm_volume = 0.5
 global.sfx_volume = 1
 global.select_map = 2 //global.show_music_title = 0로 게임 시작
 global.t_select_map = 2
+global.die_sfx = wakgood_hurt
 global.show_progress_bar = 0
 progress_icon_alpha = 0
 progress_alpha = 0
@@ -61,7 +62,7 @@ global.map_speed_y = 0
 global.ui_alpha = 1
 global.t_map_speed_y = 0
 
-global.total_map = 9
+global.total_map = 10
 global.music_duration = 99999
 global.bpm = 172
 
@@ -204,7 +205,7 @@ global.requirement_type[7] = 1
 global.requirement_number[7] = 1
 
 
-//Re:wind
+//아이패드
 global.stage_map_name[8] = "아이패드";
 global.stage_map_artist[8] = "뾰복";
 global.stage_map_difficulty[8] = "Normal";
@@ -220,6 +221,21 @@ global.ipad_random_xx = -4
 global.ipad_random_xspeed = -4
 global.ipad_random_yspeed = -4
 global.ipad_effect = 0
+
+
+//Phony
+global.stage_map_name[9] = "Phony (Cover by 비챤 VIichan)";
+global.stage_map_artist[9] = "Mixing by Min / Original by Tsumiki";
+global.stage_map_difficulty[9] = "Hard";
+global.stage_map_color[9] = #757c45
+global.stage_map_duration[9] = 5136;
+global.stage_map_audio_name[9] = "phony";
+global.stage_bpm[9] = 170;
+global.stage_map_highlight_part[9] = 15.72;
+global.detailed_difficulty[9] = 3;
+global.requirement_type[9] = 0
+global.requirement_number[9] = 1
+
 
 
 
@@ -257,6 +273,7 @@ global.respawn_point_yy = -4
 
 global.camera_sx = -4
 global.w_alpha = 0
+global.t_w_alpha = -0.01
 
 
 global.rewind = 0

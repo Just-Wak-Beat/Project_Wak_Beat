@@ -6,11 +6,11 @@ var yy = camera_get_view_y(view_camera[0])
 var xx_w = camera_get_view_width(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
 
-global.c_x = xx
-global.c_y = yy
+global.c_x = xx-global.real_shake_x
+global.c_y = yy-global.real_shake_y
 
-global.c_w = xx+xx_w
-global.c_h = yy+yy_h
+global.c_w = xx+xx_w-global.real_shake_x
+global.c_h = yy+yy_h-global.real_shake_y
 
 
 

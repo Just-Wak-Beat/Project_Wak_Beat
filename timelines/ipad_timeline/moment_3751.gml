@@ -1,3 +1,10 @@
+global.ipad_effect = 0
+global.w_alpha = 1
+global.map_color = #5595ff
+global.background_color = #5595ff
+global.t_bg_color = 0
+
+
 var random_xx = irandom_range(global.c_x,global.c_w)
 create_explo_circle(random_xx,global.c_h-16,1,10,1,0,0.35,0,0,0)
 

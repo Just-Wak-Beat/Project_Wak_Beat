@@ -1,5 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+if audio_is_playing(phony)
+{
+x -= global.map_speed
+}
+
 image_blend = global.map_color
 x -= global.map_speed
 

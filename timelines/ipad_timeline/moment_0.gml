@@ -1,4 +1,4 @@
-global.savepoint_position[0] = 2820
+global.savepoint_position[0] = 2810
 global.savepoint_color[0] = #ff637a
 global.t_bg_color = 0.3
 global.t_bg_color_alpha = 0

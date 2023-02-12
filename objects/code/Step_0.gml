@@ -5,30 +5,38 @@
 if global.b_player_skin != global.player_skin
 {
 player.image_index = global.player_skin*7+(5-global.hp)
-	global.player_color = $FF4AB539
+global.player_color = $FF4AB539
+global.die_sfx = wakgood_hurt
+	
 	if global.player_skin = 1
 	{
 	global.player_color = $FF60006F
+	global.die_sfx = ine_hurt
 	}
 	if global.player_skin = 2
 	{
 	global.player_color = $FF969EA3
+	global.die_sfx = bichan_hurt
 	}
 	if global.player_skin = 3
 	{
 	global.player_color = $FFFFC065
+	global.die_sfx = segu_hurt
 	}
 	if global.player_skin = 4
 	{
 	global.player_color = $FFFF9761
+	global.die_sfx = lilpa_hurt
 	}
 	if global.player_skin = 5
 	{
 	global.player_color = $FF8812D5
+	global.die_sfx = jururu_hurt
 	}
 	if global.player_skin = 6
 	{
 	global.player_color = $FF62E0F6
+	global.die_sfx = jing_hurt
 	}
 global.b_player_skin = global.player_skin
 }
@@ -168,7 +176,7 @@ discord_presence_update ++
 }
 
 
-global.w_alpha += (-0.01 - global.w_alpha)*0.1
+global.w_alpha += (global.t_w_alpha - global.w_alpha)*0.1
 
 
 
@@ -177,7 +185,7 @@ if global.rewind > 0
 {
 	if global.rewind = 1
 	{
-	audio_play_sound(wakgood_hurt,0,false,global.master_volume*global.sfx_volume)
+	audio_play_sound(global.die_sfx,0,false,global.master_volume*global.sfx_volume)
 	audio_play_sound(dead_sfx,0,false,global.master_volume*global.sfx_volume*0.2)
 	audio_stop_sound(global.n_music_instance)
 	}
@@ -300,6 +308,7 @@ global.rewind ++
 	global.w_alpha = 1.1
 	global.hp = 5
 	global.rewind = 0
+	global.ipad_effect = 0
 	global.clock_alpha_1 = 0
 	global.clock_alpha_2 = 0
 	global.n_progress = global.start_point
@@ -329,24 +338,6 @@ global.rewind ++
 		}
 	}
 	
-	if global.ipad_effect != 0
-	{
-		if global.low_graphics = false
-		{
-			for(var i = 0; i <= 64; i++)
-			{
-			var _shaking_circle = create_explo_circle(global.c_x+i*80,global.c_h+32,1+i*2,7200,0,0,0.4,2,0,0)
-			_shaking_circle.direction = 90
-			}
-		}
-
-
-		for(var i = 0; i <= 64; i++)
-		{
-		var _shaking_circle = create_explo_circle(global.c_w-i*80,global.c_h,1+i*3,7200,0,0,0.4,2,0,0)
-		_shaking_circle.direction = 90
-		}
-	}
 
 	
 	if global.respawn_point_xx != -4
