@@ -32,8 +32,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "스프라이트",
-    "path": "folders/스프라이트.yy",
+    "name": "hitbox_shapes",
+    "path": "folders/스프라이트/hitbox_shapes.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

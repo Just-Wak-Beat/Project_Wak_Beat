@@ -138,8 +138,8 @@
   "optionsFile": "options.json",
   "packageId": "",
   "parent": {
-    "name": "확장 기능",
-    "path": "folders/확장 기능.yy",
+    "name": "DiscordPresence",
+    "path": "folders/확장 기능/DiscordPresence.yy",
   },
   "productId": "",
   "sourcedir": "",

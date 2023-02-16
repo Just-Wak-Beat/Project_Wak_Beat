@@ -73,6 +73,7 @@ global.artifact_owned[i] = 0;
 }
 
 
+//곡 정보
 for(var i = 0; i <= global.total_map; i++)
 {
 global.stage_map_name[i] = -4;
@@ -88,7 +89,31 @@ global.n_artifact[i] = "X";
 global.detailed_difficulty[i] = -4
 global.requirement_type[i] = -4
 global.requirement_number[i] = -4
+
+
+
+//좋아하는 곡 정보
+global.fav_map_origin_id[i] = -4;
+global.fav_map_name[i] = -4;
+global.fav_map_artist[i] = -4;
+global.fav_map_difficulty[i] = -4;
+global.fav_map_color[i] = -4;
+global.fav_map_duration[i] = -4;
+global.fav_map_audio_name[i] = -4;
+global.fav_bpm[i] = -4;
+global.fav_map_highlight_part[i] = -4
+global.fav_n_rank[i] = "--";
+global.fav_n_artifact[i] = "X";
+global.fav_detailed_difficulty[i] = -4
+global.fav_requirement_type[i] = -4
+global.fav_requirement_number[i] = -4
 }
+
+//현재까지 좋아요 누른 곡 갯수
+global.fav_n_music_num = 0;
+
+
+
 
 
 //왁트 모르즈비

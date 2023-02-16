@@ -33,7 +33,7 @@
   "origin": 4,
   "parent": {
     "name": "effects",
-    "path": "folders/스프라이트/effects.yy",
+    "path": "folders/스프라이트/hitbox_shapes/effects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 17.751083,
   "parent": {
-    "name": "사운드",
-    "path": "folders/사운드.yy",
+    "name": "Musics",
+    "path": "folders/사운드/Musics.yy",
   },
   "preload": false,
   "sampleRate": 48000,

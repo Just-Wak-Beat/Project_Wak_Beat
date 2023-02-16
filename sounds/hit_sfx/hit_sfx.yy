@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.097574,
   "parent": {
-    "name": "사운드",
-    "path": "folders/사운드.yy",
+    "name": "common_sfx",
+    "path": "folders/사운드/common_sfx.yy",
   },
   "preload": false,
   "sampleRate": 48000,

@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "create_spike_circle",
+  "name": "add_favorite_music",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "MapEditor",
-    "path": "folders/스크립트/MapEditor.yy",
+    "name": "Stage_Load",
+    "path": "folders/스크립트/Stage_Load.yy",
   },
 }

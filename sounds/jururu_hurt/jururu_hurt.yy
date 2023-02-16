@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.528,
   "parent": {
-    "name": "사운드",
-    "path": "folders/사운드.yy",
+    "name": "voice_sfx",
+    "path": "folders/사운드/voice_sfx.yy",
   },
   "preload": false,
   "sampleRate": 48000,
