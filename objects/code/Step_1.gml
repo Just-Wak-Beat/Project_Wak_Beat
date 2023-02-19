@@ -15,7 +15,40 @@ global.t_bg_color_alpha += (global.t_bg_color - global.t_bg_color_alpha)*0.001
 
 
 
+global.fav_anime += (1 - global.fav_anime)*0.1
 
+if global.n_map_list = 0
+{
+global.n_map_id = n_stage
+}
+if global.n_map_list = 1
+{
+global.n_map_id = global.fav_map_id[n_stage]
+}
+
+if gamestart = 0 && keyboard_check_pressed(vk_anykey)
+{
+	if keyboard_check_pressed(vk_left)
+	{
+	global.n_map_list--
+	}
+	
+	if keyboard_check_pressed(vk_right)
+	{
+	global.n_map_list++
+	}
+	
+	if global.n_map_list < 0
+	{
+	global.n_map_list = 1
+	}
+	
+	if global.n_map_list > 1
+	{
+	global.n_map_list = 0
+	}
+load_musicList(global.n_map_list)
+}
 
 
 	

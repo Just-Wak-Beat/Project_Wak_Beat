@@ -36,10 +36,8 @@ draw_set_alpha(progress_alpha_sec*0.5)
 draw_line_width(xx+xx_w*0.7-font_size*35,yy+font_size*80,xx+xx_w*0.7+font_size*32,yy+font_size*80,64*font_size)
 
 //n_progress player (progress bar)
-draw_set_color(global.player_color)
-draw_set_alpha(progress_alpha_sec*0.9)
 var max_player_pos = global.n_progress/global.music_duration
-draw_line_width(xx+xx_w*0.29+font_size*32+font_size*((1433.6*max_player_pos)-14),yy+font_size*80,xx+font_size*32+xx_w*0.29+font_size*((1433.6*global.n_progress/global.music_duration)+14),yy+font_size*80,28*font_size)
+draw_sprite_ext(spr_player,global.player_skin*7,xx+xx_w*0.29+font_size*32+font_size*(1433.6*max_player_pos),yy+font_size*80,font_size*0.5,font_size*0.5,0,c_white,progress_alpha_sec*0.9)
 
 //progress bar icon
 if global.low_graphics = false
@@ -152,6 +150,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	{
 	var dis___ = 1/abs(global.select_map-2 - i)-0.2
 	var dis_alpha = dis___*global.ui_alpha
+	var dis_real = (1 - abs(global.select_map-2 - i)/6)
 	
 		if dis_alpha > 0
 		{
@@ -193,30 +192,34 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			{
 			draw_set_color(global.map_color)
 			draw_set_alpha(dis_alpha*3)
-			draw_rectangle(xx_+152,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
+			draw_rectangle(xx_+192*dis_real,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
 			draw_set_alpha(dis_alpha)
 			}
 			
 			//title
 			if selected_me = 0
 			{
-			var dis_real = (1 - abs(global.select_map-2 - i)/6)
 				if locked_now = 0 && dis_alpha > 0.1
 				{
-				draw_text_k_scale(xx_+48,yy_-32,global.n_rank[i],64,-1,dis_alpha,c_white,0,-1,normal_font,1,1,0)
+				draw_text_k_scale(xx_+96*dis_real,yy_-32,global.n_rank[i],64,-1,dis_alpha,c_white,0,0,normal_font,dis_real,dis_real,0)
+				
+				if global.n_favorite[i] = 1
+				{
+				draw_sprite_ext(spr_heart,0,xx_+96*dis_real,yy_+64*dis_real,0.1*dis_real,0.1*dis_real,0,c_white,dis_alpha)
+				}
 
-				draw_text_k_scale(xx_+256,yy_-64,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,1*dis_real,1*dis_real,0)
+				draw_text_k_scale(xx_+256,yy_-64,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real,dis_real,0)
 				draw_text_k_scale(xx_+256,yy_+32,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real,0.5*dis_real,0)
 				draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
 					
 					for(var k = 0; k <= global.detailed_difficulty[i]; k++)
 					{
-					draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+64*dis_real+(abs(global.select_map-2 - i)*16),global.c_w-(320+32-k*40)*dis_real,yy_+32*dis_real+(abs(global.select_map-2 - i)*16),false)
+					draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320+32-k*40)*dis_real,yy_+(32+(abs(global.select_map-2 - i)*16))*dis_real,false)
 					}
 				
 					for(var k = 7; k > global.detailed_difficulty[i]; k--)
 					{
-					draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+64*dis_real+(abs(global.select_map-2 - i)*16),global.c_w-(320+32-k*40)*dis_real,yy_+32*dis_real+(abs(global.select_map-2 - i)*16),true)
+					draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320+32-k*40)*dis_real,yy_+(32+(abs(global.select_map-2 - i)*16))*dis_real,true)
 					}
 				}
 			}
@@ -230,14 +233,34 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 					draw_text_k_scale(xx_+256,yy_,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6,0.6,0)
 					draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75,0.75,0)
 					
+						if global.n_favorite[i] = 1
+						{
+						draw_sprite_ext(spr_heart,0,xx_+160,yy_,0.2*global.fav_anime,0.2*global.fav_anime,0,c_white,1)
+						
+							if global.fav_anime <= 0.9 && audio_is_playing(favorite_sfx)
+							{
+								repeat(choose(2,3))
+								{
+								var effect_ = instance_create_depth(xx_+160+irandom_range(-global.fav_anime*32,global.fav_anime*32),yy_+irandom_range(-32+global.fav_anime,global.fav_anime*16),obj_album_ui.depth-15,movement_effect)
+								effect_.sprite_index = spr_circle
+								effect_.image_xscale = 0.02
+								effect_.image_yscale = 0.02
+								effect_.direction = 90
+								effect_.speed = 16-global.fav_anime*10
+								effect_.image_blend = c_white
+								}
+							}
+						}
+					
+					
 						for(var k = 0; k <= global.detailed_difficulty[i]; k++)
 						{
-						draw_rectangle(global.c_w-320+k*40,yy_+84+(abs(global.select_map-2 - i)*16),global.c_w-320-32+k*40,yy_+52+(abs(global.select_map-2 - i)*16),false)
+						draw_rectangle(global.c_w-320+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320-32+k*40,yy_+(52+(abs(global.select_map-2 - i)*16))*dis_real,false)
 						}
 				
 						for(var k = 7; k > global.detailed_difficulty[i]; k--)
 						{
-						draw_rectangle(global.c_w-320+k*40,yy_+84+(abs(global.select_map-2 - i)*16),global.c_w-320-32+k*40,yy_+52+(abs(global.select_map-2 - i)*16),true)
+						draw_rectangle(global.c_w-320+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320-32+k*40,yy_+(52+(abs(global.select_map-2 - i)*16))*dis_real,true)
 						}
 					}
 				}
@@ -288,13 +311,13 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	var changed_music = 0
 	if gamestart = 0
 	{
-		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(vk_right) || mouse_wheel_down())
+		if (keyboard_check_pressed(vk_down)|| mouse_wheel_down())
 		{
 		changed_music = 1
 		global.t_select_map ++
 		}
 	
-		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(vk_left) || mouse_wheel_up())
+		if (keyboard_check_pressed(vk_up) || mouse_wheel_up())
 		{
 		changed_music = 1
 		global.t_select_map --
@@ -302,15 +325,20 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	
 		if global.t_select_map <= 1
 		{
-		global.t_select_map = 2
+		global.t_select_map = global.total_map+1
 		}
 	
 		if global.t_select_map > global.total_map+1
 		{
-		global.t_select_map = global.total_map+1
+		global.t_select_map = 2
 		}
 	
 		n_stage = global.t_select_map-2
+		
+		if n_stage < 0
+		{
+		n_stage = 0
+		}
 		
 		if global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left))
 		{
@@ -325,6 +353,30 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		obj_album_ui.image_xscale = 0
 		obj_album_ui.image_yscale = 0
 		load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
+		}
+		
+		
+		if keyboard_check_pressed(vk_shift) && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage]
+		{
+		global.fav_anime = 0
+		audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
+
+			if global.n_map_list = 0
+			{
+			//좋아요 누른 곡 따로 분류
+			add_favorite_music(global.n_map_list);
+		
+			global.real_n_favorite[n_stage] *= -1
+			}
+			
+			if global.n_map_list = 1
+			{
+			global.real_n_favorite[global.fav_map_id[n_stage]] *= -1
+			load_musicList(global.n_map_list)
+			load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
+			}
+		global.n_favorite[n_stage] *= -1
+		save_and_load_data(0,0)
 		}
 	}
 	

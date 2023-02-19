@@ -3,26 +3,35 @@
 var yy = camera_get_view_y(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
 
-image_index = code.n_stage+2
+image_index = global.n_map_id+2
 x = global.c_x + 916
 depth = code.depth-100
 image_alpha = global.ui_alpha
 
-if instance_exists(code) && code.gamestart = 1
+if global.fav_music_num > 0 || global.n_map_list = 0
 {
-y += (yy+yy_h*2 - y)*0.1
-timer ++
-
-	if timer > 120
+	if instance_exists(code) && code.gamestart = 1
 	{
-	instance_destroy()
+	y += (yy+yy_h*2 - y)*0.1
+	timer ++
+
+		if timer > 120
+		{
+		instance_destroy()
+		}
 	}
-}
 y += (yy+yy_h*0.5 - y)*0.1
 
 image_xscale += (1 - image_xscale)*0.16
 image_yscale += (1 - image_yscale)*0.16
 w_alpha += (0 - w_alpha)*0.1
+}
+else
+{
+obj_album_ui.y = room_height
+obj_album_ui.image_xscale = 0
+obj_album_ui.image_yscale = 0
+}
 
 if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart = 0
 {

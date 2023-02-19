@@ -10,11 +10,30 @@ for(var i = 0; i <= 16; i += 0.5)
 {
 draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+i,1,1,0,#d9d1dc,0.02*ui_alpha__cal)
 draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80+i,0.5,0.5,45,#d9d1dc,0.02*ui_alpha__cal)
+draw_sprite_ext(spr_list_name,0,global.c_w-640*1.4,global.c_y-(1 - ui_alpha__cal)*1880+i,1,1,0,#d9d1dc,0.02*ui_alpha__cal)
 }
 
 //스텟 창
 draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,1,1,0,c_white,ui_alpha__cal)
 draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80,0.5,0.5,45,c_white,ui_alpha__cal)
+
+
+//리스트 이름 표기창
+var __xx = global.c_w-640*1.4
+var key_Lpressed = keyboard_check(vk_left)
+var key_Rpressed = keyboard_check(vk_right)
+draw_sprite_ext(spr_list_name,0,__xx,global.c_y-(1 - ui_alpha__cal)*1880,1,1,0,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_key,key_Lpressed,__xx-500,global.c_y+64-(1 - ui_alpha__cal)*1880,2,2,0,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_key,key_Rpressed,__xx+500,global.c_y+64-(1 - ui_alpha__cal)*1880,-2,2,0,c_white,ui_alpha__cal)
+
+if global.n_map_list = 0
+{
+draw_text_k_scale(__xx,global.c_y+52-(1 - ui_alpha__cal)*1880,"모든 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
+}
+else
+{
+draw_text_k_scale(__xx,global.c_y+52-(1 - ui_alpha__cal)*1880,"좋아요 한 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
+}
 
 
 draw_text_k_scale(global.c_x+32-(1 - ui_alpha__cal)*1880,global.c_y+10,"Artifacts",64,-1,ui_alpha__cal,#171628,0,-1,normal_font,0.5,0.5,0)
@@ -62,8 +81,8 @@ draw_sprite_ext(spr_square,0,x,yy+yy_h*0.5+512,dis__*0.5,dis__*0.5,image_angle+4
 if instance_exists(code) && code.gamestart = 0
 {
 draw_text_k_scale(x-128,yy+yy_h*0.5+620,"Rank",64,-1,dis__,c_white,0,0,light_font,0.55,0.55,0)
-draw_text_k_scale(x-128,yy+yy_h*0.5+680,string(global.n_rank[global.t_select_map-2]),64,-1,dis__,c_white,0,0,normal_font,0.65,0.65,0)
+draw_text_k_scale(x-128,yy+yy_h*0.5+680,string(global.n_rank[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,0.65,0.65,0)
 
 draw_text_k_scale(x+128,yy+yy_h*0.5+620,"아티펙트 수집",64,-1,dis__,c_white,0,0,light_font,0.52,0.52,0)
-draw_text_k_scale(x+128,yy+yy_h*0.5+680,string(global.n_artifact[global.t_select_map-2]),64,-1,dis__,c_white,0,0,normal_font,0.65,0.65,0)
+draw_text_k_scale(x+128,yy+yy_h*0.5+680,string(global.n_artifact[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,0.65,0.65,0)
 }

@@ -13,8 +13,10 @@ ini_open_protect("JWAB_Beta.ini")
 		for(var i = 0; i <= global.total_map; i++)
 		{
 		//인게임 정보 (맵)
-		ini_write_string("n_rank",string(i),global.n_rank[i]);
-		ini_write_string("n_artifact",string(i),global.n_artifact[i]);
+		ini_write_string("n_rank",string(i),global.real_n_rank[i]);
+		ini_write_string("n_artifact",string(i),global.real_n_artifact[i]);
+		ini_write_real("n_favorite",string(i),global.real_n_favorite[i]);
+		ini_write_real("fav_map_id",string(i),global.fav_map_id[i]);
 		}
 		
 		for(var i = 0; i <= 7; i++)
@@ -33,8 +35,10 @@ ini_open_protect("JWAB_Beta.ini")
 		for(var i = 0; i <= global.total_map; i++)
 		{
 		//인게임 정보 (맵)
-		global.n_rank[i] = ini_read_string("n_rank",string(i),"--");
-		global.n_artifact[i] = ini_read_string("n_artifact",string(i),"X");
+		global.real_n_rank[i] = ini_read_string("n_rank",string(i),"--");
+		global.real_n_artifact[i] = ini_read_string("n_artifact",string(i),"X");
+		global.real_n_favorite[i] = ini_read_real("n_favorite",string(i),-1);
+		global.fav_map_id[i] = ini_read_real("fav_map_id",string(i),-4);
 		}
 		
 		for(var i = 0; i <= 7; i++)
