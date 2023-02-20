@@ -58,8 +58,13 @@ draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-512*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2,font_size*2,0)
 
 //music credit
-draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,"by",64*font_size,-1,music_title_alpha,global.map_color,0,1,light_font,font_size*0.7,font_size*0.7,0)
-draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,global.map_color,0,1,light_font,font_size*0.85,font_size*0.85,0)
+var col = global.map_color
+if col = c_black
+{
+col = c_white
+}
+draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7,font_size*0.7,0)
+draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85,font_size*0.85,0)
 
 
 
@@ -207,6 +212,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 				{
 				draw_sprite_ext(spr_heart,0,xx_+96*dis_real,yy_+64*dis_real,0.1*dis_real,0.1*dis_real,0,c_white,dis_alpha)
 				}
+				
 
 				draw_text_k_scale(xx_+256,yy_-64,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real,dis_real,0)
 				draw_text_k_scale(xx_+256,yy_+32,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real,0.5*dis_real,0)

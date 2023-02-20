@@ -1,0 +1,1 @@
+wakgood_shouting.w_alpha = 1

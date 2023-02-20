@@ -15,6 +15,7 @@ global.t_bg_color_alpha += (global.t_bg_color - global.t_bg_color_alpha)*0.001
 
 
 
+
 global.fav_anime += (1 - global.fav_anime)*0.1
 
 if global.n_map_list = 0

@@ -1,12 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if audio_is_playing(phony) && (image_angle = 0 || image_angle = 180)
+if (audio_is_playing(phony)) && (image_angle = 0 || image_angle = 180)
 {
 x -= global.map_speed
 }
 
-image_angle += auto_spin
+
 
 
 if global.low_graphics = false
@@ -32,6 +32,7 @@ image_yscale = 0
 
 if warning_timer >= target_time
 {
+image_angle += auto_spin
 image_yscale += ((distance+32)/64 - image_yscale)*0.5
 	if des = 0
 	{

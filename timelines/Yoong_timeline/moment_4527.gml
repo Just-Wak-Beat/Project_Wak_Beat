@@ -1,0 +1,11 @@
+wakgood_shouting.w_alpha = 1
+wakgood_shouting.image_index = 0
+wakgood_shouting.image_xscale = 1.7
+wakgood_shouting.image_yscale = 1.7
+global.w_alpha = 1
+global.quake_effect = 0
+wakgood_shouting.t_y = global.c_h+800
+global.t_bg_color = 0
+global.t_bg_color_alpha = 0
+cre_now1 = 0
+cre_now2 = 0

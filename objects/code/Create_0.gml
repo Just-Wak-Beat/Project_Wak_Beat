@@ -63,7 +63,7 @@ global.map_speed_y = 0
 global.ui_alpha = 1
 global.t_map_speed_y = 0
 
-global.origin_total_map = 10
+global.origin_total_map = 11
 global.total_map = global.origin_total_map
 global.music_duration = 99999
 global.bpm = 172
@@ -273,6 +273,26 @@ phony_y_timer = 0
 
 
 
+
+//융터르
+global.real_stage_map_name[10] = "융터르";
+global.real_stage_map_artist[10] = "CLTH";
+global.real_stage_map_difficulty[10] = "Expert";
+global.real_stage_map_color[10] = c_black
+global.real_stage_map_duration[10] = 4749;
+global.real_stage_map_audio_name[10] = "Yoong";
+global.real_stage_bpm[10] = 176;
+global.real_stage_map_highlight_part[10] = 16.1;
+global.real_detailed_difficulty[10] = 5;
+global.real_requirement_type[10] = 0
+global.real_requirement_number[10] = 1
+global.quake_effect = 0
+global.yoong_laser_dir = 0
+global.yoong_laser_dir2 = 0
+cre_now1 = 0
+cre_now2 = 0
+random_dir_laser = choose(-1,1)
+random_dir_laser2 = choose(-1,1)
 
 
 

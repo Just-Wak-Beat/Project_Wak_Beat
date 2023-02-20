@@ -28,11 +28,13 @@ draw_sprite_ext(spr_key,key_Rpressed,__xx+500,global.c_y+64-(1 - ui_alpha__cal)*
 
 if global.n_map_list = 0
 {
-draw_text_k_scale(__xx,global.c_y+52-(1 - ui_alpha__cal)*1880,"모든 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
+draw_sprite_ext(spr_music,0,__xx-75,global.c_y+64-(1 - ui_alpha__cal)*1880,0.2,0.2,-15,#171628,ui_alpha__cal)
+draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"모든 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
 }
 else
 {
-draw_text_k_scale(__xx,global.c_y+52-(1 - ui_alpha__cal)*1880,"좋아요 한 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
+draw_sprite_ext(spr_heart,0,__xx-125,global.c_y+72-(1 - ui_alpha__cal)*1880,0.1,0.1,0,#171628,ui_alpha__cal)
+draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"좋아요 한 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
 }
 
 

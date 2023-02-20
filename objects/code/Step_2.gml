@@ -134,3 +134,37 @@ phony_y += phony_t_y;
 	phony_y_timer = 0
 	}
 }
+
+
+if global.quake_effect = 1
+{
+view_shake(0.1,1.5,0.1,0)
+
+global.yoong_laser_dir += random_dir_laser*0.5
+global.yoong_laser_dir2 += random_dir_laser2*0.5
+
+	if instance_exists(hitbox_7)
+	{
+		if cre_now1 = 1
+		{
+		var attack_ef = instance_create_depth(wakgood_shouting.x+irandom_range(-64,64),wakgood_shouting.y+irandom_range(-64,64),depth+1,hitbox_2)
+		attack_ef.direction = global.yoong_laser_dir+irandom_range(-50,50)
+		attack_ef.speed = irandom_range(40,64)
+		attack_ef.keep_spin_angle = 2
+		attack_ef.image_xscale = 0.4
+		attack_ef.image_yscale = 0.4
+		attack_ef.w_alpha = 10
+		}
+		
+		if cre_now2 = 1
+		{
+		var attack_ef = instance_create_depth(wakgood_shouting.x+irandom_range(-64,64),wakgood_shouting.y+irandom_range(-64,64),depth+1,hitbox_2)
+		attack_ef.direction = global.yoong_laser_dir2+irandom_range(-50,50)
+		attack_ef.speed = irandom_range(40,64)
+		attack_ef.keep_spin_angle = 2
+		attack_ef.image_xscale = 0.4
+		attack_ef.image_yscale = 0.4
+		attack_ef.w_alpha = 10
+		}
+	}
+}
