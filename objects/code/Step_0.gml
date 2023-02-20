@@ -307,6 +307,7 @@ global.rewind ++
 	global.total_died_here ++
 	global.w_alpha = 1.1
 	global.hp = 5
+	global.quake_effect = 0
 	global.rewind = 0
 	global.ipad_effect = 0
 	global.clock_alpha_1 = 0

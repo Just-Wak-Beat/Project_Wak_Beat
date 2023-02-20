@@ -13,6 +13,8 @@ y = floor(y)
 global.view_angle_ += (0 - global.view_angle_)*0.1
 camera_set_view_angle(view_camera[0],global.view_angle_)
 
+v_x += (3584 - v_x)*0.1
+v_y += (2016 - v_y)*0.1
 if v_x > 3584*0.4
 {
 camera_set_view_size(view_camera[0],floor(v_x),floor(v_y));

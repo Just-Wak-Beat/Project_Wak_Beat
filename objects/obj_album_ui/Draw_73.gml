@@ -31,10 +31,20 @@ if global.n_map_list = 0
 draw_sprite_ext(spr_music,0,__xx-75,global.c_y+64-(1 - ui_alpha__cal)*1880,0.2,0.2,-15,#171628,ui_alpha__cal)
 draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"모든 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
 }
-else
+if global.n_map_list = 1
 {
 draw_sprite_ext(spr_heart,0,__xx-125,global.c_y+72-(1 - ui_alpha__cal)*1880,0.1,0.1,0,#171628,ui_alpha__cal)
 draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"좋아요 한 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
+}
+if global.n_map_list = 2
+{
+draw_sprite_ext(spr_W,0,__xx-250,global.c_y+72-(1 - ui_alpha__cal)*1880,0.12,0.12,15,#171628,ui_alpha__cal)
+draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"아티펙트 획득 가능한 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
+}
+if global.n_map_list = 3
+{
+draw_sprite_ext(spr_lock,1,__xx-125,global.c_y+72-(1 - ui_alpha__cal)*1880,0.1,0.1,0,#171628,ui_alpha__cal)
+draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"해금 된 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65,0.65,0)
 }
 
 

@@ -26,6 +26,14 @@ if global.n_map_list = 1
 {
 global.n_map_id = global.fav_map_id[n_stage]
 }
+if global.n_map_list = 2
+{
+global.n_map_id = global.none_clear_map_id[n_stage]
+}
+if global.n_map_list = 3
+{
+global.n_map_id = global.unlocked_map_id[n_stage]
+}
 
 if gamestart = 0 && keyboard_check_pressed(vk_anykey)
 {
@@ -41,13 +49,14 @@ if gamestart = 0 && keyboard_check_pressed(vk_anykey)
 	
 	if global.n_map_list < 0
 	{
-	global.n_map_list = 1
+	global.n_map_list = 3
 	}
 	
-	if global.n_map_list > 1
+	if global.n_map_list > 3
 	{
 	global.n_map_list = 0
 	}
+	
 load_musicList(global.n_map_list)
 }
 

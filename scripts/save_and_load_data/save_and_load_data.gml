@@ -10,7 +10,7 @@ ini_open_protect("JWAB_Beta.ini")
 
 	if argument0 = 0
 	{
-		for(var i = 0; i <= global.total_map; i++)
+		for(var i = 0; i < global.total_map; i++)
 		{
 		//인게임 정보 (맵)
 		ini_write_string("n_rank",string(i),global.real_n_rank[i]);
@@ -32,7 +32,7 @@ ini_open_protect("JWAB_Beta.ini")
 	}
 	else
 	{
-		for(var i = 0; i <= global.total_map; i++)
+		for(var i = 0; i < global.total_map; i++)
 		{
 		//인게임 정보 (맵)
 		global.real_n_rank[i] = ini_read_string("n_rank",string(i),"--");

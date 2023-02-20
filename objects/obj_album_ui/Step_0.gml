@@ -8,7 +8,7 @@ x = global.c_x + 916
 depth = code.depth-100
 image_alpha = global.ui_alpha
 
-if global.fav_music_num > 0 || global.n_map_list = 0
+if global.total_map > 0
 {
 	if instance_exists(code) && code.gamestart = 1
 	{

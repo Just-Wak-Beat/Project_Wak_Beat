@@ -144,11 +144,14 @@ else
 	}
 }
 
+global.real_n_rank[global.select_map-2] = global.n_rank[global.select_map-2]
 
-if global.n_artifact[global.select_map-2] != "완료"
+
+if global.real_n_artifact[global.select_map-2] != "완료"
 {
 global.artifact_owned[global.artifact_type]++
 global.n_artifact[global.select_map-2] = "완료"
+global.real_n_artifact[global.select_map-2] = "완료"
 }
 global.total_died_here = 0
 

@@ -367,7 +367,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		global.fav_anime = 0
 		audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
 
-			if global.n_map_list = 0
+			if global.n_map_list != 1
 			{
 			//좋아요 누른 곡 따로 분류
 			add_favorite_music(global.n_map_list);

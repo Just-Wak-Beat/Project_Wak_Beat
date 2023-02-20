@@ -50,7 +50,6 @@ global.checkpoint_text = -4
 global.n_music_title = -4
 global.n_music_artist = -4
 global.n_music_id = -4;
-global.fav_music_num = 0
 global.n_music_name = -4
 global.n_music_instance = -4
 global.map_color = -4
@@ -79,10 +78,24 @@ global.artifact_owned[i] = 0;
 }
 
 
+//좋아하는 곡 총 갯수
+global.fav_music_num = 0
+
+//클리어 하지 않은 곡 총 갯수
+global.none_cleared_music_num = 0
+
+//언락된 곡 총 갯수
+global.unlocked_music_num = 0
+
 //곡 정보
-for(var i = 0; i <= global.total_map; i++)
+for(var i = 0; i < global.total_map; i++)
 {
+//좋아요 한 곡
 global.fav_map_id[i] = -4;
+//클리어 하지 않은 곡
+global.none_clear_map_id[i] = -4;
+//해금된 곡
+global.unlocked_map_id[i] = -4;
 
 
 //실제 리스트에만 표기되는 곡
@@ -283,9 +296,9 @@ global.real_stage_map_duration[10] = 4749;
 global.real_stage_map_audio_name[10] = "Yoong";
 global.real_stage_bpm[10] = 176;
 global.real_stage_map_highlight_part[10] = 16.1;
-global.real_detailed_difficulty[10] = 5;
+global.real_detailed_difficulty[10] = 6;
 global.real_requirement_type[10] = 0
-global.real_requirement_number[10] = 1
+global.real_requirement_number[10] = 6
 global.quake_effect = 0
 global.yoong_laser_dir = 0
 global.yoong_laser_dir2 = 0

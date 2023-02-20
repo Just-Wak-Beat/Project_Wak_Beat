@@ -143,6 +143,26 @@ view_shake(0.1,1.5,0.1,0)
 global.yoong_laser_dir += random_dir_laser*0.5
 global.yoong_laser_dir2 += random_dir_laser2*0.5
 
+if global.yoong_laser_dir2 > 170
+{
+random_dir_laser2 = -1
+}
+
+if global.yoong_laser_dir2 < 10
+{
+random_dir_laser2 = 1
+}
+
+if global.yoong_laser_dir > 170
+{
+random_dir_laser = -1
+}
+
+if global.yoong_laser_dir < 10
+{
+random_dir_laser = 1
+}
+
 	if instance_exists(hitbox_7)
 	{
 		if cre_now1 = 1
