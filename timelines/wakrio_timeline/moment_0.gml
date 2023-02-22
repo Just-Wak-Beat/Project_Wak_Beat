@@ -1,7 +1,7 @@
 global.savepoint_position[0] = 1976
 global.savepoint_color[0] = $FF331E00
 
-global.savepoint_position[1] = 2910
+global.savepoint_position[1] = 2875
 global.savepoint_color[1] = $FF263302
 global.artifact_type = 0
 

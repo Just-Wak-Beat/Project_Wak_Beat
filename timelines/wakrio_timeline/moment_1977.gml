@@ -7,16 +7,11 @@ attack_ef.image_yscale = 0.4
 attack_ef.w_alpha = 10
 
 
-create_laser(room_width*0.5,global.c_y,60,26,4,2,4,180)
+for(var i = -5; i <= 5; i++)
+{
+create_laser(room_width*0.5+i*192,global.c_y,60+abs(i)*5,26,4,2,4,180)
+}
 
-create_laser(room_width*0.5-192,global.c_y,65,26,4,2,2,180)
-create_laser(room_width*0.5+192,global.c_y,65,26,4,2,2,180)
-
-create_laser(room_width*0.5-288,global.c_y,70,26,4,2,1,180)
-create_laser(room_width*0.5+288,global.c_y,70,26,4,2,1,180)
-
-create_laser(room_width*0.5-320,global.c_y,75,26,4,2,1,180)
-create_laser(room_width*0.5+320,global.c_y,75,26,4,2,1,180)
 
 
 var _laser_ = create_laser(room_width*0.5,room_height*0.5,75,900,4,2,1,-0.5)

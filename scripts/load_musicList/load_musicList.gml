@@ -36,6 +36,10 @@ function load_musicList(argument0)
 		for(var i = 0; i < global.total_map; i++)
 		{
 		var ii = global.fav_map_id[i]
+			if ii = -4
+			{
+			break;
+			}
 		//기존 모든 곡 항목에서 좋아하는 곡 목록으로 데이터 복사
 		global.stage_map_name[i] = global.real_stage_map_name[ii];
 		global.stage_map_artist[i] = global.real_stage_map_artist[ii];
@@ -61,6 +65,10 @@ function load_musicList(argument0)
 		for(var i = 0; i < global.total_map; i++)
 		{
 		var ii = global.none_clear_map_id[i]
+			if ii = -4
+			{
+			ii = i
+			}
 		//기존 모든 곡 항목에서 좋아하는 곡 목록으로 데이터 복사
 		global.stage_map_name[i] = global.real_stage_map_name[ii];
 		global.stage_map_artist[i] = global.real_stage_map_artist[ii];
@@ -86,6 +94,10 @@ function load_musicList(argument0)
 		for(var i = 0; i < global.total_map; i++)
 		{
 		var ii = global.unlocked_map_id[i]
+			if ii = -4
+			{
+			ii = i
+			}
 		//기존 모든 곡 항목에서 좋아하는 곡 목록으로 데이터 복사
 		global.stage_map_name[i] = global.real_stage_map_name[ii];
 		global.stage_map_artist[i] = global.real_stage_map_artist[ii];

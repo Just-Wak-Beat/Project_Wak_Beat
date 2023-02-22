@@ -7,7 +7,6 @@ var cal = 0
 	{
 		if global.real_n_artifact[i] = "X"
 		{
-		global.none_clear_map_id[i] = i;
 		cal ++
 		}
 	}
