@@ -18,7 +18,7 @@
     {"name":"UserData_Load","order":2,"path":"folders/스크립트/UserData_Load.yy",},
     {"name":"스프라이트","order":1,"path":"folders/스프라이트.yy",},
     {"name":"hitbox_shapes","order":21,"path":"folders/스프라이트/hitbox_shapes.yy",},
-    {"name":"effects","order":22,"path":"folders/스프라이트/hitbox_shapes/effects.yy",},
+    {"name":"effects","order":23,"path":"folders/스프라이트/hitbox_shapes/effects.yy",},
     {"name":"ui","order":19,"path":"folders/스프라이트/ui.yy",},
     {"name":"시퀀스","order":11,"path":"folders/시퀀스.yy",},
     {"name":"애니메이션 곡선","order":12,"path":"folders/애니메이션 곡선.yy",},
@@ -144,5 +144,6 @@
     {"name":"load_stage","order":1,"path":"scripts/load_stage/load_stage.yy",},
     {"name":"spr_key","order":5,"path":"sprites/spr_key/spr_key.yy",},
     {"name":"create_spike_circle","order":2,"path":"scripts/create_spike_circle/create_spike_circle.yy",},
+    {"name":"spr_alzar","order":22,"path":"sprites/spr_alzar/spr_alzar.yy",},
   ],
 }
