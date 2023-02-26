@@ -1,6 +1,62 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//조이스틱
+global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_alpha)*0.15
+if global.joystick_activated != -1
+{
+global.hmove = floor((global.joystick_n_xx - global.joystick_xx)/(global.joystick_size*0.5)*10)/10
+global.vmove = floor((global.joystick_n_yy - global.joystick_yy)/(global.joystick_size*0.5)*10)/10
+}
+
+
+
+if global.mobile_mode = 1
+{
+	for(var i = 0; i < 4; i++)
+	{
+	var is_click = device_mouse_check_button_pressed(i, mb_left);
+	var is_clicked = device_mouse_check_button_released(i, mb_left);
+
+	var xx = camera_get_view_x(view_camera[0])
+	var xx_w = camera_get_view_width(view_camera[0])
+
+		if device_mouse_x(i) < xx+xx_w*0.5
+		{
+			if is_click
+			{
+			global.joystick_xx = device_mouse_x(i)
+			global.joystick_yy = device_mouse_y(i)
+			global.joystick_activated = i
+			}
+		}
+		else
+		{
+			if global.dash_cooltime <= 0 && is_click
+			{
+				with(player)
+				{
+					if object_index = player
+					{
+					event_user(0)
+					}
+				}
+			}
+		}
+	
+		if is_clicked
+		{
+		global.joystick_activated = -1
+		global.vmove = 0
+		global.hmove = 0
+		}
+	}
+}
+
+	
+
+
+
 //캐릭터 변경
 if global.b_player_skin != global.player_skin
 {

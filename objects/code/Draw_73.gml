@@ -399,3 +399,37 @@ draw_text_k_scale(xx+32,global.c_h-64,"Just Wak and Beats ("+string(global.versi
 draw_set_color(c_white)
 draw_set_alpha(global.w_alpha)
 draw_line_width(0,0,room_width,room_height,5000)
+
+
+
+//조이스틱
+if global.joystick_alpha > 0.01
+{
+var joystick_size_real = global.joystick_size*global.camera_sx
+var joystick_size__ = joystick_size_real/512
+draw_sprite_ext(spr_circle_outline,0,global.joystick_xx,global.joystick_yy,joystick_size__,joystick_size__,0,c_white,global.joystick_alpha*0.5)
+
+
+	if global.joystick_activated != -1
+	{
+	var rad__ = joystick_size_real*0.5
+	global.joystick_n_xx = device_mouse_x(global.joystick_activated)
+	global.joystick_n_yy = device_mouse_y(global.joystick_activated)
+	
+	global.joystick_dir = point_direction(global.joystick_xx,global.joystick_yy,global.joystick_n_xx,global.joystick_n_yy)
+		if point_distance(global.joystick_xx,global.joystick_yy,global.joystick_n_xx,global.joystick_n_yy) > rad__
+		{
+		global.joystick_n_xx = global.joystick_xx+lengthdir_x(rad__,global.joystick_dir)
+		global.joystick_n_yy = global.joystick_yy+lengthdir_y(rad__,global.joystick_dir)
+		}
+	}
+	else
+	{
+	global.joystick_n_xx += (global.joystick_xx - global.joystick_n_xx)*0.2
+	global.joystick_n_yy += (global.joystick_yy - global.joystick_n_yy)*0.2
+	}
+	
+draw_set_alpha(global.joystick_alpha*0.5)
+draw_set_color(global.player_color)
+draw_circle(global.joystick_n_xx,global.joystick_n_yy,global.camera_sx*96,false)
+}

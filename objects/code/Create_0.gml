@@ -1,8 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.03"
+global.version = "Beta 2.04"
 global.low_graphics = false;
 global.dev_mode = 1
+global.mobile_mode = 1
 alarm[11] = 1
 
 
@@ -389,3 +390,16 @@ global.b_map_list = 0
 //맵 리스트 로드
 load_musicList(0)
 alarm[2] = 3
+
+
+
+
+//모바일용 조이스틱
+global.joystick_xx = -4
+global.joystick_yy = -4
+global.joystick_n_xx = -4
+global.joystick_n_yy = -4
+global.joystick_dir = 0
+global.joystick_activated = -1
+global.joystick_alpha = 0
+global.joystick_size = 512
