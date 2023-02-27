@@ -93,7 +93,7 @@ play_highlight = 0
 //자동 볼륨 조절
 if audio_is_playing(global.highlight_music)
 {
-audio_sound_gain(global.highlight_music,(1-gamestart_anime)*0.8*global.highlight_music_volume*global.master_volume*global.bgm_volume,0)
+audio_sound_gain(global.highlight_music,(1-gamestart_anime)*0.8*global.highlight_music_volume*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),0)
 }
 
 

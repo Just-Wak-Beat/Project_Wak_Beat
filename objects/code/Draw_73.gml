@@ -51,7 +51,7 @@ draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*
 }
 
 //check point
-draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,font_size/2,font_size/2,0)
+draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,font_size/2*(global.mobile_mode*0.5+1),font_size/2*(global.mobile_mode*0.5+1),0)
 
 
 //music title
@@ -164,7 +164,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			if global.artifact_owned[global.requirement_type[i]] < global.requirement_number[i]
 			{
 			locked_now = 1
-				if (global.t_select_map-2 - i) = 0
+				if round(global.t_select_map-2 - i) = 0
 				{
 				selected_me = 1
 				draw_set_color(global.map_color)
@@ -176,7 +176,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			}
 			else
 			{
-				if (global.t_select_map-2 - i) = 0
+				if round(global.t_select_map-2 - i) = 0
 				{
 				selected_me = 1
 				draw_set_color(global.map_color)
@@ -317,36 +317,101 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	var changed_music = 0
 	if gamestart = 0
 	{
-		if (keyboard_check_pressed(vk_down)|| mouse_wheel_down())
+		if global.mobile_mode = 0
 		{
-		changed_music = 1
-		global.t_select_map ++
-		}
+			if (keyboard_check_pressed(vk_down)|| mouse_wheel_down())
+			{
+			changed_music = 1
+			global.t_select_map ++
+			}
 	
-		if (keyboard_check_pressed(vk_up) || mouse_wheel_up())
+			if (keyboard_check_pressed(vk_up) || mouse_wheel_up())
+			{
+			changed_music = 1
+			global.t_select_map --
+			}
+			
+			if global.t_select_map <= 1
+			{
+			global.t_select_map = global.total_map+1
+			}
+	
+			if global.t_select_map > global.total_map+1
+			{
+			global.t_select_map = 2
+			}
+		}
+		else
 		{
-		changed_music = 1
-		global.t_select_map --
-		}
+			if global.scroll_activated != -1
+			{
+			global.scroll_n_m_xx = device_mouse_x(global.scroll_activated)
+			global.scroll_n_m_yy = device_mouse_y(global.scroll_activated)
+			
+			global.t_select_map += (global.joystick_yy - global.scroll_n_m_yy)/512
+			global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.25
+			global.select_map += (global.t_select_map - global.select_map)*0.3
+			}
+			else
+			{
+			var y_plusment = (global.joystick_yy - global.scroll_n_m_yy)/512
+				if y_plusment > 0.01
+				{
+				global.t_select_map += y_plusment
+				global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.1
+				}
+				else
+				{
+				global.t_select_map = round(global.t_select_map)
+				}
+			}
+			
+			
+			if scrolling_map != round(global.t_select_map)
+			{
+			scrolling_map = round(global.t_select_map)
+			changed_music = 1
+			}
+			
+			
+			if global.t_select_map <= 1
+			{
+			global.t_select_map = 2
+			}
 	
-		if global.t_select_map <= 1
-		{
-		global.t_select_map = global.total_map+1
+			if global.t_select_map > global.total_map+1
+			{
+			global.t_select_map = global.total_map+1
+			}
 		}
+
 	
-		if global.t_select_map > global.total_map+1
-		{
-		global.t_select_map = 2
-		}
-	
-		n_stage = global.t_select_map-2
+		n_stage = round(global.t_select_map-2)
 		
 		if n_stage < 0
 		{
 		n_stage = 0
 		}
 		
-		if global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left))
+		
+		
+		var go_play = false
+		if global.mobile_mode = 1
+		{
+			if global.scroll_activated != -1 && device_mouse_x(global.scroll_activated) < xx+xx_w*0.4
+			{
+			go_play = true
+			}
+		}
+		else
+		{
+			if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left)
+			{
+			go_play = true
+			}
+		}
+		
+		if global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && go_play
 		{
 		gamestart = 1
 		audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
@@ -407,7 +472,7 @@ if global.joystick_alpha > 0.01
 {
 var joystick_size_real = global.joystick_size*global.camera_sx
 var joystick_size__ = joystick_size_real/512
-draw_sprite_ext(spr_circle_outline,0,global.joystick_xx,global.joystick_yy,joystick_size__,joystick_size__,0,c_white,global.joystick_alpha*0.5)
+draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_size__,joystick_size__,0,c_white,global.joystick_alpha*0.1)
 
 
 	if global.joystick_activated != -1
@@ -429,7 +494,7 @@ draw_sprite_ext(spr_circle_outline,0,global.joystick_xx,global.joystick_yy,joyst
 	global.joystick_n_yy += (global.joystick_yy - global.joystick_n_yy)*0.2
 	}
 	
-draw_set_alpha(global.joystick_alpha*0.5)
-draw_set_color(global.player_color)
+draw_set_alpha(global.joystick_alpha*0.15)
+draw_set_color(c_white)
 draw_circle(global.joystick_n_xx,global.joystick_n_yy,global.camera_sx*96,false)
 }

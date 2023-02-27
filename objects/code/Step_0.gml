@@ -16,39 +16,63 @@ if global.mobile_mode = 1
 	for(var i = 0; i < 4; i++)
 	{
 	var is_click = device_mouse_check_button_pressed(i, mb_left);
-	var is_clicked = device_mouse_check_button_released(i, mb_left);
 
 	var xx = camera_get_view_x(view_camera[0])
 	var xx_w = camera_get_view_width(view_camera[0])
 
-		if device_mouse_x(i) < xx+xx_w*0.5
+
+		if instance_exists(player) && player.image_xscale > 0
+		{
+			if global.hp > 0
+			{
+				if device_mouse_x(i) < xx+xx_w*0.5
+				{
+					if is_click
+					{
+					global.joystick_xx = device_mouse_x(i)
+					global.joystick_yy = device_mouse_y(i)
+					global.joystick_activated = i
+					}
+				}
+				else
+				{
+					if global.dash_cooltime <= 0 && is_click
+					{
+						with(player)
+						{
+							if object_index = player
+							{
+							event_user(0)
+							}
+						}
+					}
+				}
+			}
+		}
+		else
 		{
 			if is_click
 			{
 			global.joystick_xx = device_mouse_x(i)
 			global.joystick_yy = device_mouse_y(i)
-			global.joystick_activated = i
-			}
-		}
-		else
-		{
-			if global.dash_cooltime <= 0 && is_click
-			{
-				with(player)
-				{
-					if object_index = player
-					{
-					event_user(0)
-					}
-				}
+			global.scroll_activated = i
 			}
 		}
 	
-		if is_clicked
+	
+	var is_clicked_joystick = device_mouse_check_button_released(global.joystick_activated, mb_left);
+	var is_clicked_scroll = device_mouse_check_button_released(global.scroll_activated, mb_left);
+		if is_clicked_joystick
 		{
 		global.joystick_activated = -1
 		global.vmove = 0
 		global.hmove = 0
+		}
+		
+		if is_clicked_scroll
+		{
+		global.t_select_map = round(global.t_select_map)
+		global.scroll_activated = -1
 		}
 	}
 }
@@ -153,7 +177,7 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 	global.start_point = 0
 	global.hp = 5
 	global.n_music_id = asset_get_index(global.n_music_name)
-	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume)
+	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
 	
 	var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
 		if timeline_exists(_timeline_index_)
@@ -253,7 +277,7 @@ if global.rewind > 0
 	}
 	
 	
-	if global.low_graphics = false && (global.rewind = 1 || global.rewind = 21 || global.rewind = 41)
+	if (global.rewind = 1 || global.rewind = 21 || global.rewind = 41)
 	{
 		for(var i = 0; i < 360; i += 45)
 		{
@@ -407,7 +431,7 @@ global.rewind ++
 	player.x = room_width*0.5
 	player.y = room_height*0.5
 	}
-	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume,global.start_point/60)
+	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
 	global.rewind_effect_line_angle = 0
 	audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 	}
