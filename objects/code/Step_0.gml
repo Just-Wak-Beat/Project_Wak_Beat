@@ -16,6 +16,10 @@ if global.mobile_mode = 1
 	for(var i = 0; i < 4; i++)
 	{
 	var is_click = device_mouse_check_button_pressed(i, mb_left);
+	if device_mouse_check_button(i, mb_left)
+	{
+	global.clicking_timer ++
+	}
 
 	var xx = camera_get_view_x(view_camera[0])
 	var xx_w = camera_get_view_width(view_camera[0])
@@ -59,6 +63,11 @@ if global.mobile_mode = 1
 			}
 		}
 	
+	if global.clicking_del = 0 && device_mouse_check_button_released(i, mb_left)
+	{
+	global.clicking_del = 1
+	alarm[5] = 1
+	}
 	
 	var is_clicked_joystick = device_mouse_check_button_released(global.joystick_activated, mb_left);
 	var is_clicked_scroll = device_mouse_check_button_released(global.scroll_activated, mb_left);

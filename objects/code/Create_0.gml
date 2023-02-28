@@ -406,4 +406,6 @@ global.joystick_size = 512
 global.scroll_activated = -1
 global.scroll_n_m_xx = -1
 global.scroll_n_m_yy = -1
+global.clicking_timer = 0
+global.clicking_del = 0
 scrolling_map = 0

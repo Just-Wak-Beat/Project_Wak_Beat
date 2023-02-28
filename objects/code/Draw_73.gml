@@ -398,7 +398,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		var go_play = false
 		if global.mobile_mode = 1
 		{
-			if global.scroll_activated != -1 && device_mouse_x(global.scroll_activated) < xx+xx_w*0.4
+			if global.clicking_timer < 10 && mouse_check_button_released(mb_left)
 			{
 			go_play = true
 			}
