@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 
-for(var ii = -10; ii <= 10; ii++)
+for(var ii = -10+global.mobile_mode*8; ii <= 10-global.mobile_mode*8; ii++)
 {
 draw_set_color(c_white)
 draw_set_alpha(image_alpha*0.1*0.05)

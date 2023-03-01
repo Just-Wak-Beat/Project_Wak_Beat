@@ -4,6 +4,7 @@
 
 
 
+
 if global.fukurou_snow_effect > 0
 {
 global.fukurou_snow_effect++

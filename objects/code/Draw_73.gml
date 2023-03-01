@@ -51,11 +51,11 @@ draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*
 }
 
 //check point
-draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,font_size/2*(global.mobile_mode*0.5+1),font_size/2*(global.mobile_mode*0.5+1),0)
+draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,font_size/2*(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx,font_size/2*(global.mobile_mode*0.5+1),0)
 
 
 //music title
-draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-512*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2,font_size*2,0)
+draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-512*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
 
 //music credit
 var col = global.map_color
@@ -63,8 +63,8 @@ if col = c_black
 {
 col = c_white
 }
-draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7,font_size*0.7,0)
-draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85,font_size*0.85,0)
+draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7*global.font_ratio_resolution_xx,font_size*0.7,0)
+draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85*global.font_ratio_resolution_xx,font_size*0.85,0)
 
 
 
@@ -214,8 +214,8 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 				}
 				
 
-				draw_text_k_scale(xx_+256,yy_-64,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real,dis_real,0)
-				draw_text_k_scale(xx_+256,yy_+32,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real,0.5*dis_real,0)
+				draw_text_k_scale(xx_+256,yy_-64,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real*global.font_ratio_resolution_xx,dis_real,0)
+				draw_text_k_scale(xx_+256,yy_+32,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 				draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
 					
 					for(var k = 0; k <= global.detailed_difficulty[i]; k++)
@@ -235,9 +235,9 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 				{
 					if locked_now = 0
 					{
-					draw_text_k_scale(xx_+256,yy_-96,global.stage_map_name[i],64,-1,dis_alpha,c_white,0,-1,normal_font,1,1,0)
-					draw_text_k_scale(xx_+256,yy_,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6,0.6,0)
-					draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75,0.75,0)
+					draw_text_k_scale(xx_+256,yy_-96,global.stage_map_name[i],64,-1,dis_alpha,c_white,0,-1,normal_font,global.font_ratio_resolution_xx,1,0)
+					draw_text_k_scale(xx_+256,yy_,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6*global.font_ratio_resolution_xx,0.6,0)
+					draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75*global.font_ratio_resolution_xx,0.75,0)
 					
 						if global.n_favorite[i] = 1
 						{
@@ -286,18 +286,18 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 				if selected_me = 0
 				{
 				draw_sprite_ext(spr_lock,0,xx_+72,yy_,0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+206,yy_-64,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real,0.5*dis_real,0)
+				draw_text_k_scale(xx_+206,yy_-64,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 				
 				draw_sprite_ext(spr_W,global.requirement_type[i],xx_+236,yy_+32,0.15,0.15,20,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+				draw_text_k_scale(xx_+256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				}
 				else
 				{
 				draw_sprite_ext(spr_lock,0,xx_+1080,yy_,0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+1156,yy_-64,"해금 조건",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+				draw_text_k_scale(xx_+1156,yy_-64,"해금 조건",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				
 				draw_sprite_ext(spr_W,global.requirement_type[i],xx_+1236,yy_+32,0.15,0.15,20,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+1256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+				draw_text_k_scale(xx_+1256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				}
 			}
 		}
@@ -398,7 +398,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		var go_play = false
 		if global.mobile_mode = 1
 		{
-			if global.clicking_timer < 10 && mouse_check_button_released(mb_left)
+			if global.clicking_timer < 5 && mouse_check_button_released(mb_left)
 			{
 			go_play = true
 			}
@@ -453,7 +453,11 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	
 	
 //alpha text
-draw_text_k_scale(xx+32,global.c_h-64,"Just Wak and Beats ("+string(global.version)+")",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+draw_text_k_scale(xx+32,global.c_h-100,"Just Wak and Beats ("+string(global.version)+")",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+	if global.mobile_mode = 1
+	{
+	draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+")",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
+	}
 }
 
 

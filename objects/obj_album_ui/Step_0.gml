@@ -22,8 +22,8 @@ if global.total_map > 0
 	}
 y += (yy+yy_h*0.5 - y)*0.1
 
-image_xscale += (1 - image_xscale)*0.16
-image_yscale += (1 - image_yscale)*0.16
+image_xscale += (1+global.mobile_mode*0.5 - image_xscale)*0.16
+image_yscale += (1+global.mobile_mode*0.5 - image_yscale)*0.16
 w_alpha += (0 - w_alpha)*0.1
 }
 else

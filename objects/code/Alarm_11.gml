@@ -5,9 +5,3 @@ save_and_load_data(1,0)
 
 
 event_user(0)
-
-
-if global.mobile_mode = 1
-{
-global.low_graphics = true;
-}
