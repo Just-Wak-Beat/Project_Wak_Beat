@@ -3,7 +3,7 @@
 global.version = "Beta 2.04"
 global.low_graphics = false;
 global.dev_mode = 1
-global.mobile_mode = 1
+global.mobile_mode = 0
 global.font_ratio_resolution_xx = 1
 alarm[11] = 1
 
@@ -64,7 +64,7 @@ global.map_speed_y = 0
 global.ui_alpha = 1
 global.t_map_speed_y = 0
 
-global.origin_total_map = 11
+global.origin_total_map = 12
 global.total_map = global.origin_total_map
 global.music_duration = 99999
 global.bpm = 172
@@ -183,7 +183,7 @@ global.real_stage_map_difficulty[3] = "Expert";
 global.real_stage_map_color[3] = #415c84;
 global.real_stage_map_duration[3] = 4482;
 global.real_stage_map_audio_name[3] = "wakrio";
-global.real_stage_bpm[3] = 122;
+global.real_stage_bpm[3] = 128;
 global.real_stage_map_highlight_part[3] = 48.1;
 global.real_detailed_difficulty[3] = 4;
 global.real_requirement_type[3] = 0
@@ -308,6 +308,29 @@ cre_now1 = 0
 cre_now2 = 0
 random_dir_laser = choose(-1,1)
 random_dir_laser2 = choose(-1,1)
+
+
+
+
+//알잘딱깔센
+global.real_stage_map_name[11] = "Alzar Takkarsen";
+global.real_stage_map_artist[11] = "BLKFLAGZ, WAKGOOD RECORDS";
+global.real_stage_map_difficulty[11] = "Expert";
+global.real_stage_map_color[11] = #9b3c5c;
+global.real_stage_map_duration[11] = 7005;
+global.real_stage_map_audio_name[11] = "alzar";
+global.real_stage_bpm[11] = 128;
+global.real_stage_map_highlight_part[11] = 43.36;
+global.real_detailed_difficulty[11] = 4;
+global.real_requirement_type[11] = 0
+global.real_requirement_number[11] = 6
+
+
+
+
+
+
+
 
 
 
