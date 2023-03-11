@@ -1,0 +1,31 @@
+// Script assets have changed for v2.3.0 see
+// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+function load_custom_map_files()
+{
+	for(var i = 0; i < load_custom_map_num(); i++)
+	{
+	var directory = string(global.custom_stage_map_audio_name[i])+".ogg"
+	var audio_file = "already_loaded"
+	if !audio_exists(global.custom_audio_asset[i])
+	{
+	audio_file = audio_create_stream(directory);
+	ini_open("custom_map_file_"+string(i+1)+".JWABMAP")
+	global.custom_stage_map_name[i] = ini_read_string("custom_stage_map_name","value",-4)
+	global.custom_stage_map_artist[i] = ini_read_real("custom_stage_map_artist","value",-4)
+	global.custom_stage_map_difficulty[i] = ini_read_real("custom_stage_map_difficulty","value",-4)
+	global.custom_stage_map_color[i] = ini_read_string("custom_stage_map_color","value",c_black)
+	global.custom_stage_map_audio_name[i] = ini_read_string("custom_stage_map_audio_name","value",-4)
+	global.custom_stage_bpm[i] = ini_read_real("custom_stage_bpm","value",180)
+	global.custom_stage_map_highlight_part[i] = ini_read_real("custom_stage_map_highlight_part","value",-4)
+	global.custom_n_rank[i] = ini_read_string("custom_n_rank","value",-4)
+	global.custom_detailed_difficulty[i] = ini_read_string("custom_detailed_difficulty","value",-4)
+	global.custom_n_artifact[i] = ini_read_real("custom_n_artifact","value",-4)
+	global.custom_stage_album[i] = sprite_add("custom_map_album_"+string(global.n_map_id+1)+".png",0,false,false,256,256)
+	global.custom_map_duration[i] = floor(audio_sound_length(audio_file)*60);
+	global.custom_audio_asset[i] = audio_file;
+	}
+		
+	show_debug_message(string(global.custom_stage_map_audio_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))
+	ini_close()
+	}
+}

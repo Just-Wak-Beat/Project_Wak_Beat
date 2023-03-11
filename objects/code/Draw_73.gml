@@ -427,7 +427,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		}
 		
 		
-		if keyboard_check_pressed(vk_shift) && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage]
+		if keyboard_check_pressed(vk_shift) && global.n_map_list != 2 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage]
 		{
 		global.fav_anime = 0
 		audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)

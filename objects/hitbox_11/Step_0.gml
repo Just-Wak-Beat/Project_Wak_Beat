@@ -1,6 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+
 automatic_angle_real += (automatic_angle - automatic_angle_real)*0.05
+
+if noneuse_t_x = 0
+{
+x += (t_x - x)*0.1
+y += (t_y - y)*0.1
+}
 
 t_angle += automatic_angle_real
 image_blend = global.map_color

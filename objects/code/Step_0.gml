@@ -185,7 +185,8 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 	{
 	global.start_point = 0
 	global.hp = 5
-	global.n_music_id = asset_get_index(global.n_music_name)
+	var _audio_asset = asset_get_index(global.n_music_name)
+	global.n_music_id = _audio_asset
 	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
 	
 	var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
@@ -272,6 +273,7 @@ global.w_alpha += (global.t_w_alpha - global.w_alpha)*0.1
 //되감기 이펙트
 if global.rewind > 0
 {
+
 	if global.rewind = 1
 	{
 	audio_play_sound(global.die_sfx,0,false,global.master_volume*global.sfx_volume)
@@ -400,6 +402,7 @@ global.rewind ++
 	global.rewind = 0
 	global.ipad_effect = 0
 	global.clock_alpha_1 = 0
+	global.check_died = 1
 	global.clock_alpha_2 = 0
 	global.n_progress = global.start_point
 	timeline_position = global.start_point

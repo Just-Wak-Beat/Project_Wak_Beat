@@ -28,7 +28,7 @@ global.n_map_id = global.fav_map_id[n_stage]
 }
 if global.n_map_list = 2
 {
-global.n_map_id = global.none_clear_map_id[n_stage]
+global.n_map_id = n_stage
 }
 if global.n_map_list = 3
 {
@@ -58,6 +58,7 @@ if gamestart = 0 && keyboard_check_pressed(vk_anykey)
 	}
 	
 load_musicList(global.n_map_list)
+load_custom_map_files()
 }
 
 
@@ -86,7 +87,8 @@ if play_highlight = 1 && instance_exists(obj_album_ui)
 global.highlight_time = 0
 obj_album_ui.bpm_timer = 0
 audio_stop_sound(global.highlight_music)
-global.highlight_music = audio_play_sound(asset_get_index(global.n_music_name),0,false,0,global.stage_map_highlight_part[n_stage])
+var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
+global.highlight_music = audio_play_sound(_audio_asset,0,false,0,global.stage_map_highlight_part[n_stage])
 play_highlight = 0
 }
 	

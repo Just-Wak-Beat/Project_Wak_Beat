@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 1.056,
   "parent": {
-    "name": "소리",
-    "path": "folders/소리.yy",
+    "name": "common_sfx",
+    "path": "folders/사운드/common_sfx.yy",
   },
   "preload": false,
   "sampleRate": 48000,

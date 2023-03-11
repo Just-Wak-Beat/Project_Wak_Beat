@@ -48,20 +48,20 @@ if warning_timer >= target_time
 {
 	if shake_movement != 0
 	{
-	shake_time++
+	shake_time += abs(shake_speed)
 		if shake_time >= 0 && shake_time < 60
 		{
-		speed += (shake_movement - speed)*0.05
+		speed += (shake_movement*sign(shake_speed) - speed)*0.05*power(2,abs(abs(shake_speed) - 1)-1)
 		}
 	
 		if shake_time >= 60
 		{
-		speed += (-shake_movement - speed)*0.05
+		speed += (-shake_movement*sign(shake_speed) - speed)*0.05*power(2,abs(abs(shake_speed) - 1)-1)
 		}
 	
 		if shake_time >= 118
 		{
-		shake_time = 0
+		shake_time -= 118
 		}
 	}
 	

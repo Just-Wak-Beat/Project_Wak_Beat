@@ -1,0 +1,1 @@
+create_explo_circle(room_width*0.5,room_height*0.5,60,15,15,0,1.5,0,0,0)

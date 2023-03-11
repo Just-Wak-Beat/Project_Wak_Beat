@@ -189,3 +189,93 @@ random_dir_laser = 1
 		}
 	}
 }
+
+
+
+if global.alzar_effect != 0
+{
+	if instance_exists(spotlight1) && instance_exists(spotlight2)
+	{
+	spotlight1.t_angle += global.alzar_effect
+	spotlight2.t_angle += -global.alzar_effect
+	alzar_timer ++
+	
+	var angle__1 = spotlight1.image_angle+180
+	var angle__2 = spotlight2.image_angle+180
+		if alzar_timer >= alzar_t_timer
+		{
+		var _spotlight1_laser = create_laser(spotlight1.x,spotlight1.y,1,10,0.1,0,2,angle__1)
+		_spotlight1_laser.image_angle = angle__1+45
+		
+		var _spotlight2_laser = create_laser(spotlight2.x,spotlight2.y,1,10,0.1,0,2,angle__2)
+		_spotlight2_laser.image_angle = angle__2-45
+		
+		spotlight1.w_alpha = 1
+		spotlight1.image_xscale *= 0.95
+		spotlight1.image_yscale *= 0.95
+		spotlight2.w_alpha = 1
+		spotlight2.image_xscale *= 0.95
+		spotlight2.image_yscale *= 0.95
+		yonsei_hitbox.w_alpha = 1
+		yonsei_hitbox.image_xscale *= 0.95
+		yonsei_hitbox.image_yscale *= 0.95
+		alzar_timer -= alzar_t_timer
+		global.t_bg_color_alpha = 0.5
+		}
+		
+		if !instance_exists(spotlight1_preview_ins)
+		{
+		spotlight1_preview_ins = create_laser(spotlight1.x,spotlight1.y,9999,10,0.1,0,2,angle__1)
+		spotlight1_preview_ins.image_angle = angle__1+45
+		
+		spotlight2_preview_ins = create_laser(spotlight2.x,spotlight2.y,9999,10,0.1,0,2,angle__2)
+		spotlight2_preview_ins.image_angle = angle__2-45
+		}
+		else
+		{
+		spotlight1_preview_ins.image_angle = angle__1+45
+		spotlight2_preview_ins.image_angle = angle__2-45
+		}
+	
+		if (spotlight1.t_angle > 50 || spotlight1.t_angle < -150)
+		{
+		global.alzar_effect *= -1
+		}
+	}
+}
+else
+{
+	if instance_exists(spotlight1_preview_ins)
+	{
+	spotlight1_preview_ins.target_time = 1
+	spotlight2_preview_ins.target_time = 1
+	}
+}
+
+if global.alzar_effect2 = 1
+{
+alzar_timer2 ++
+
+	if alzar_timer2 >= alzar_t_timer
+	{
+	alzar_timer2 -= alzar_t_timer
+	alzar_timer2_stack ++
+	}
+	
+	if alzar_timer2_stack = 2 && instance_exists(yonsei_hitbox)
+	{
+		for(var i = 0; i < 360; i += 15)
+		{
+		var attack_ef = instance_create_depth(yonsei_hitbox.x,yonsei_hitbox.y-128,depth-1,hitbox_6)
+		attack_ef.direction = i
+		attack_ef.speed = 32
+		attack_ef.keep_spin_angle = 2
+		attack_ef.image_xscale = 0.06
+		attack_ef.image_yscale = 0.06
+		attack_ef.w_alpha = 10
+		}
+		
+	global.background_color = choose(#82849d,#5d68a8,#650b2f,#5a365c)
+	alzar_timer2_stack = 0
+	}
+}

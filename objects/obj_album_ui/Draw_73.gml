@@ -42,8 +42,8 @@ draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"좋아요 한 
 }
 if global.n_map_list = 2
 {
-draw_sprite_ext(spr_W,0,__xx-250,global.c_y+72-(1 - ui_alpha__cal)*1880,0.12,0.12,15,#171628,ui_alpha__cal)
-draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"아티펙트 획득 가능한 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65*global.font_ratio_resolution_xx,0.65,0)
+draw_sprite_ext(spr_gear,0,__xx-110,global.c_y+72-(1 - ui_alpha__cal)*1880,0.12,0.12,15,#171628,ui_alpha__cal)
+draw_text_k_scale(__xx+25,global.c_y+52-(1 - ui_alpha__cal)*1880,"커스텀 곡",64,-1,ui_alpha__cal,#171628,0,0,normal_font,0.65*global.font_ratio_resolution_xx,0.65,0)
 }
 if global.n_map_list = 3
 {
@@ -61,23 +61,25 @@ draw_text_k_scale(global.c_x+96+150*i-(1 - ui_alpha__cal)*1880,global.c_y+90,"x"
 
 
 ///////////////////////////////////////////////////////////////////////////////////
-var __brighting_col = global.map_color
-draw_sprite_ext(sprite_index,image_index,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
-
-if instance_exists(code) && global.artifact_owned[global.requirement_type[code.n_stage]] < global.requirement_number[code.n_stage]
+if sprite_exists(sprite_index)
 {
-__brighting_col = #68646f
-draw_sprite_ext(sprite_index,1,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,__brighting_col,0.5*image_alpha)
-draw_sprite_ext(spr_lock,0,x,y,image_xscale*0.7*global.font_ratio_resolution_xx,image_yscale*0.7,image_angle,c_white,image_alpha)
+	var __brighting_col = global.map_color
+	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
+
+	if instance_exists(code) && global.artifact_owned[global.requirement_type[code.n_stage]] < global.requirement_number[code.n_stage]
+	{
+	__brighting_col = #68646f
+	draw_sprite_ext(sprite_index,1,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,__brighting_col,0.5*image_alpha)
+	draw_sprite_ext(spr_lock,0,x,y,image_xscale*0.7*global.font_ratio_resolution_xx,image_yscale*0.7,image_angle,c_white,image_alpha)
+	}
+
+
+	for(var i = -10; i <= 10; i += 0.5)
+	{
+	draw_sprite_ext(sprite_index,0,x,y+i,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),ui_alpha__cal*0.01)
+	draw_sprite_ext(sprite_index,0,x+i,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),ui_alpha__cal*0.01)
+	}
 }
-
-
-for(var i = -10; i <= 10; i += 0.5)
-{
-draw_sprite_ext(sprite_index,0,x,y+i,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),ui_alpha__cal*0.01)
-draw_sprite_ext(sprite_index,0,x+i,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,merge_color(__brighting_col,c_white,w_alpha),ui_alpha__cal*0.01)
-}
-
 
 
 

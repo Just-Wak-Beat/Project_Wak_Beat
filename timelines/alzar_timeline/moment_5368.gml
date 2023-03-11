@@ -1,0 +1,1 @@
+create_explo_circle(yonsei_hitbox.x,yonsei_hitbox.y,60,15,1,0,6,0,0,0)

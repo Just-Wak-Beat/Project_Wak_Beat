@@ -94,8 +94,6 @@ for(var i = 0; i < global.total_map; i++)
 {
 //좋아요 한 곡
 global.fav_map_id[i] = -4;
-//클리어 하지 않은 곡
-global.none_clear_map_id[i] = -4;
 //해금된 곡
 global.unlocked_map_id[i] = -4;
 
@@ -134,6 +132,23 @@ global.real_n_artifact[i] = "X";
 global.real_detailed_difficulty[i] = -4
 global.real_requirement_type[i] = 2
 global.real_requirement_number[i] = -4
+
+
+
+//커스텀 곡 정보
+global.custom_stage_map_name[i] = -4;
+global.custom_stage_map_artist[i] = -4;
+global.custom_stage_map_difficulty[i] = -4;
+global.custom_map_duration[i] = -4;
+global.custom_stage_map_color[i] = -4;
+global.custom_stage_map_audio_name[i] = -4;
+global.custom_stage_bpm[i] = -4;
+global.custom_stage_map_highlight_part[i] = -4
+global.custom_n_rank[i] = "--";
+global.custom_n_artifact[i] = "X";
+global.custom_detailed_difficulty[i] = -4
+global.custom_stage_album[i] = -4
+global.custom_audio_asset[i] = -4
 }
 
 
@@ -324,6 +339,14 @@ global.real_stage_map_highlight_part[11] = 43.36;
 global.real_detailed_difficulty[11] = 4;
 global.real_requirement_type[11] = 0
 global.real_requirement_number[11] = 6
+global.alzar_effect = 0
+global.alzar_effect2 = 0
+alzar_timer = 0
+alzar_timer2 = 0
+alzar_timer2_stack = 0
+alzar_t_timer = 27
+spotlight1_preview_ins = -4
+spotlight2_preview_ins = -4
 
 
 
@@ -367,6 +390,8 @@ global.c_h = -4
 
 global.c_x = -4
 global.c_y = -4
+
+global.check_died = 0
 
 
 global.rewind_effect_line_angle = 0
