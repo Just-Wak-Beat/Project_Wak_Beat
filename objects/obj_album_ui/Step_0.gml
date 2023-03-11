@@ -41,20 +41,20 @@ obj_album_ui.image_xscale = 0
 obj_album_ui.image_yscale = 0
 }
 
-if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart = 0
+if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
 bpm_timer ++
 	if bpm_timer >= (3600/global.bpm)
 	{
+	global.background_w_alpha = 0.05
 	instance_create_depth(global.c_w-640,global.c_y+yy_h*0.47,code.depth-50,circle_effect)
 		repeat(irandom_range(8,10)*5)
 		{
-		var random_x = irandom_range(-260,260)
-		var random_y = irandom_range(-260,260)
-		var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
+		var random_dir = irandom_range(0,359)
+		var effect_ = instance_create_depth(x+lengthdir_x(image_xscale*240,random_dir),y+lengthdir_y(image_xscale*240,random_dir),depth+1,movement_effect)
 		effect_.image_xscale = 0.3
 		effect_.image_yscale = 0.3
-		effect_.direction = point_direction(x,y,x+random_x,y+random_y)
+		effect_.direction = random_dir
 		effect_.speed = 16
 		effect_.image_blend = global.map_color
 		}

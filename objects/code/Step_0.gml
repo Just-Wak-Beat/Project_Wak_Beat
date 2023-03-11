@@ -185,7 +185,7 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 	{
 	global.start_point = 0
 	global.hp = 5
-	var _audio_asset = asset_get_index(global.n_music_name)
+	var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
 	global.n_music_id = _audio_asset
 	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
 	
@@ -252,6 +252,11 @@ if discord_presence_update > 0
 		if n_stage+1 > sprite_get_number(spr_album)-2
 		{
 		album_id = "album0"
+		}
+		
+		if global.n_map_list = 2
+		{
+		album_id = "custom_album"
 		}
 	
 	np_setpresence_more("","", false);

@@ -12,56 +12,69 @@ global.map_speed_y += (global.t_map_speed_y - global.map_speed_y)*0.05
 
 global.t_bg_color_alpha += (global.t_bg_color - global.t_bg_color_alpha)*0.001
 
-
-
-
+global.reload_n_map_list_value_animation += (global.reload_n_map_list_value - global.reload_n_map_list_value_animation)*0.1
 
 global.fav_anime += (1 - global.fav_anime)*0.1
 
-if global.n_map_list = 0
-{
-global.n_map_id = n_stage
-}
-if global.n_map_list = 1
-{
-global.n_map_id = global.fav_map_id[n_stage]
-}
-if global.n_map_list = 2
-{
-global.n_map_id = n_stage
-}
-if global.n_map_list = 3
-{
-global.n_map_id = global.unlocked_map_id[n_stage]
-}
+global.sync_setting_alpha += (global.sync_setting - global.sync_setting_alpha)*0.23
 
-if gamestart = 0 && keyboard_check_pressed(vk_anykey)
+if global.sync_setting = 1
 {
-	if keyboard_check_pressed(vk_left)
+sync_setting_timer ++
+	if sync_setting_timer > 120
 	{
-	global.n_map_list--
+	sync_setting_timer = 0
 	}
-	
-	if keyboard_check_pressed(vk_right)
+
+	if sync_setting_timer != 0 && sync_setting_timer < 120
 	{
-	global.n_map_list++
-	}
+		if sync_setting_timer%30 = 0
+		{
+		global.sync_setting_circle_scale[sync_setting_timer/30-1] = 0.7
+		}
+		
+		if sync_setting_timer%30 = 0 && sync_setting_timer%90 != 0
+		{
+		audio_play_sound(kick_sfx,0,false,global.sfx_volume*global.master_volume*0.25)
+		}
 	
-	if global.n_map_list < 0
-	{
-	global.n_map_list = 3
+		if sync_setting_timer%90 = 0
+		{
+		audio_play_sound(drum_sfx,0,false,global.sfx_volume*global.master_volume*0.25)
+		}
 	}
-	
-	if global.n_map_list > 3
-	{
-	global.n_map_list = 0
-	}
-	
-load_musicList(global.n_map_list)
-load_custom_map_files()
 }
 
 
+// global.n_map_list setting
+if gamestart = 0
+{
+	if global.n_map_list = 0
+	{
+	global.n_map_id = n_stage
+	}
+	if global.n_map_list = 1
+	{
+	global.n_map_id = global.fav_map_id[n_stage]
+	}
+	if global.n_map_list = 2
+	{
+	global.n_map_id = n_stage
+	}
+	if global.n_map_list = 3
+	{
+	global.n_map_id = global.unlocked_map_id[n_stage]
+	}
+	
+	if keyboard_check_pressed(vk_anykey)
+	{
+	event_user(1)
+	}
+}
+
+
+
+global.background_w_alpha += (0 - global.background_w_alpha)*0.1
 	
 
 if instance_exists(obj_album_ui)
@@ -69,7 +82,7 @@ if instance_exists(obj_album_ui)
 global.highlight_time ++
 }
 
-if global.highlight_time > 360
+if global.highlight_time > 360 || gamestart != 0
 {
 global.highlight_music_volume += (-0.01 - global.highlight_music_volume)*0.05
 	if global.highlight_time > 440
@@ -114,30 +127,63 @@ global.t_select_map ++
 global.t_bg_color_alpha += (global.t_bg_color - global.t_bg_color_alpha)*0.1
 gamestart_anime += (1.01 - gamestart_anime)*0.1
 global.ui_alpha += (-0.01 - global.ui_alpha)*0.1
-	if !instance_exists(obj_album_ui)
+
+	if global.music_duration > 0
 	{
-	global.select_map = 0
-	global.t_select_map = 0
-	global.show_music_title = 1
-	gamestart = 2
-	global.background_color = c_black
-	global.t_bg_color = 1
-	global.t_bg_color_alpha = 1
-	global.n_music_id = -4
-	global.n_progress = 0
-	global.n_playing_tutorial = 0
-	global.hmove = 0
-	global.vmove = 0
-	
-		for(var i = 0; i <= 5; i++)
+		if !instance_exists(obj_album_ui)
 		{
-		global.savepoint_position[i] = -4
-		global.savepoint_color[i] = global.map_color
+		global.select_map = 0
+		global.t_select_map = 0
+		global.show_music_title = 1
+		gamestart = 2
+		global.background_color = c_black
+		global.t_bg_color = 1
+		global.t_bg_color_alpha = 1
+		global.n_music_id = -4
+		global.n_progress = 0
+		global.n_playing_tutorial = 0
+		global.hmove = 0
+		global.vmove = 0
+	
+			for(var i = 0; i <= 5; i++)
+			{
+			global.savepoint_position[i] = -4
+			global.savepoint_color[i] = global.map_color
+			}
+		
+		
+		//discord presence
+		discord_presence_update = 1
+		}
+	}
+	else
+	{
+	load_data_timer++
+		if global.n_map_list = 2
+		{
+			if load_data_timer < 10
+			{
+			global.custom_map_duration[global.n_map_id] = floor(audio_sound_length(global.custom_audio_asset[global.n_map_id])*60);
+			loading_now_progress = 1
+			}
+		}
+		else
+		{
+		loading_now_progress = 1
 		}
 		
+		if loading_now_progress = 1 && load_data_timer >= 10 && load_data_timer < 20
+		{
+		load_musicList(global.n_map_list)
+		show_debug_message("global.n_map_id : "+string(global.n_map_list))
+		loading_now_progress = 2
+		}
 		
-	//discord presence
-	discord_presence_update = 1
+		if loading_now_progress = 2 && load_data_timer >= 20 && load_data_timer < 30
+		{
+		load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
+		loading_now_progress = 3
+		}
 	}
 }
 

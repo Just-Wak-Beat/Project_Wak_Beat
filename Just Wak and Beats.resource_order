@@ -27,6 +27,7 @@
     {"name":"확장 기능","order":14,"path":"folders/확장 기능.yy",},
     {"name":"DiscordPresence","order":1,"path":"folders/확장 기능/DiscordPresence.yy",},
     {"name":"확장","order":13,"path":"folders/확장.yy",},
+    {"name":"ui","order":8,"path":"folders/오브젝트/ui.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"tutorial_part4_timeline","order":6,"path":"timelines/tutorial_part4_timeline/tutorial_part4_timeline.yy",},
@@ -51,7 +52,7 @@
     {"name":"tutorial_part1","order":3,"path":"sounds/tutorial_part1/tutorial_part1.yy",},
     {"name":"obj_album_ui","order":5,"path":"objects/obj_album_ui/obj_album_ui.yy",},
     {"name":"tutorial_part2","order":4,"path":"sounds/tutorial_part2/tutorial_part2.yy",},
-    {"name":"circle_x1024","order":1,"path":"sprites/circle_x1024/circle_x1024.yy",},
+    {"name":"circle_x2048","order":1,"path":"sprites/circle_x2048/circle_x2048.yy",},
     {"name":"load_custom_map_num","order":3,"path":"scripts/load_custom_map_num/load_custom_map_num.yy",},
     {"name":"tutorial_part3_timeline","order":5,"path":"timelines/tutorial_part3_timeline/tutorial_part3_timeline.yy",},
     {"name":"ipad_timeline","order":11,"path":"timelines/ipad_timeline/ipad_timeline.yy",},

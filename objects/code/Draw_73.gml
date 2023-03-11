@@ -306,12 +306,27 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	if gamestart != 2
 	{
 	var color__bg = merge_color(#373b40,global.map_color,0.2)
-	draw_set_color(color__bg)
+	var col_cal = merge_color(color__bg,c_white,global.background_w_alpha)
+	draw_set_color(col_cal)
 	draw_set_alpha(1)
 	draw_line_width(global.c_w-3070-gamestart_anime*2300,global.c_y,global.c_w-3070-gamestart_anime*2300,global.c_y+yy_h,2000)
 	
-	draw_sprite_ext(circle_x1024,1,global.c_w-640,global.c_y+yy_h*0.47,2.8+gamestart_anime*5,3+gamestart_anime*5,0,color__bg,1)
-	draw_sprite_ext(circle_x1024,0,global.c_w-640,global.c_y+yy_h*0.47,2.8+gamestart_anime*5,3+gamestart_anime*5,0,global.map_color,1)
+	var scale = (2.8+gamestart_anime*5)*0.5
+	draw_sprite_ext(circle_x2048,1,global.c_w-640,global.c_y+yy_h*0.47,scale,scale,0,col_cal,1)
+	
+	//var xx__ = global.c_w-640
+	//var yy__ = global.c_y+yy_h*0.47
+	//draw_set_alpha(1)
+	//draw_set_color(merge_color(global.map_color,c_white,global.background_w_alpha*10))
+	//var scale = 2.7+gamestart_anime*5
+	//for(var i = -6; i <= 6; i++)
+	//{
+	//draw_circle(xx__,yy__+i,1024*0.5*scale,true)
+	//draw_circle(xx__+i,yy__,1024*0.5*scale,true)
+	//draw_circle(xx__+i,yy__+i,1024*0.5*scale,true)
+	//draw_circle(xx__-i,yy__-i,1024*0.5*scale,true)
+	//}
+	draw_sprite_ext(circle_x2048,0,global.c_w-640,global.c_y+yy_h*0.47,scale,scale,0,merge_color(global.map_color,c_white,global.background_w_alpha*10),1)
 	}
 	
 	var changed_music = 0
@@ -348,22 +363,41 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			global.scroll_n_m_xx = device_mouse_x(global.scroll_activated)
 			global.scroll_n_m_yy = device_mouse_y(global.scroll_activated)
 			
-			global.t_select_map += (global.joystick_yy - global.scroll_n_m_yy)/512
-			global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.25
+			global.t_select_map += (global.joystick_yy - global.scroll_n_m_yy)/1080
+			global.reload_n_map_list_value = (global.joystick_xx - global.scroll_n_m_xx)/512
+			global.joystick_xx += (global.scroll_n_m_xx - global.joystick_xx)*0.2
+			global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.2
 			global.select_map += (global.t_select_map - global.select_map)*0.3
 			}
 			else
 			{
-			var y_plusment = (global.joystick_yy - global.scroll_n_m_yy)/512
-				if y_plusment > 0.01
+			var y_plusment = (global.joystick_yy - global.scroll_n_m_yy)/1080
+				if abs(y_plusment) > 0.01
 				{
 				global.t_select_map += y_plusment
-				global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.1
+				global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.3
 				}
 				else
 				{
 				global.t_select_map = round(global.t_select_map)
 				}
+				
+				if abs(y_plusment) > 1
+				{
+				global.clicking_timer = 10
+				}
+				
+			global.reload_n_map_list_value = (global.scroll_n_m_xx - global.joystick_xx)/512
+				if abs(global.reload_n_map_list_value) > 0.5
+				{
+				global.n_map_list += sign(global.reload_n_map_list_value)
+				global.reload_n_map_list_value = sign(global.reload_n_map_list_value)
+				global.joystick_xx = global.scroll_n_m_xx
+				global.clicking_timer = 10
+				event_user(1)
+				scrolling_map = -4
+				}
+			global.joystick_xx += (global.scroll_n_m_xx - global.joystick_xx)*0.2
 			}
 			
 			
@@ -398,7 +432,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		var go_play = false
 		if global.mobile_mode = 1
 		{
-			if global.clicking_timer < 5 && mouse_check_button_released(mb_left)
+			if global.clicking_timer <= 4 && mouse_check_button_released(mb_left)
 			{
 			go_play = true
 			}
@@ -453,7 +487,9 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	
 	
 //alpha text
-draw_text_k_scale(xx+32,global.c_h-100,"Just Wak and Beats ("+string(global.version)+")",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+draw_text_k_scale(xx+32,global.c_h-100,"Just Wak and Beats ("+string(global.version)+")",64,-1,floor(global.ui_alpha),c_white,0,-1,normal_font,0.5,0.5,0)
+draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+
 	if global.mobile_mode = 1
 	{
 	draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+")",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
@@ -476,7 +512,7 @@ if global.joystick_alpha > 0.01
 {
 var joystick_size_real = global.joystick_size*global.camera_sx
 var joystick_size__ = joystick_size_real/512
-draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_size__,joystick_size__,0,c_white,global.joystick_alpha*0.1)
+draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_size__*global.font_ratio_resolution_xx,joystick_size__,0,c_white,global.joystick_alpha*0.1)
 
 
 	if global.joystick_activated != -1
@@ -498,7 +534,6 @@ draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_si
 	global.joystick_n_yy += (global.joystick_yy - global.joystick_n_yy)*0.2
 	}
 	
-draw_set_alpha(global.joystick_alpha*0.15)
-draw_set_color(c_white)
-draw_circle(global.joystick_n_xx,global.joystick_n_yy,global.camera_sx*96,false)
+
+draw_sprite_ext(spr_circle,0,global.joystick_n_xx,global.joystick_n_yy,joystick_size__*0.35*global.font_ratio_resolution_xx,joystick_size__*0.35,0,c_white,global.joystick_alpha*0.15)
 }

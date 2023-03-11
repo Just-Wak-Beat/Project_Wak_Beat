@@ -3,6 +3,6 @@
 
 
 image_alpha = 0.8
-
 w_alpha = 1
+
 

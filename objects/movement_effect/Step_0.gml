@@ -15,3 +15,8 @@ if image_xscale <= 0
 {
 instance_destroy()
 }
+
+if place_meeting(x,y,obj_album_ui)
+{
+w_alpha = 1
+}

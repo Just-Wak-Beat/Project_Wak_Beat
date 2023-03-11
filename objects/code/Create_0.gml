@@ -50,6 +50,8 @@ global.artifact_type = 0
 global.show_music_title = 0
 global.checkpoint_text = -4
 global.n_music_title = -4
+global.reload_n_map_list_value = 0
+global.reload_n_map_list_value_animation = 0
 global.n_music_artist = -4
 global.n_music_id = -4;
 global.n_music_name = -4
@@ -68,6 +70,8 @@ global.origin_total_map = 12
 global.total_map = global.origin_total_map
 global.music_duration = 99999
 global.bpm = 172
+load_data_timer = 0
+loading_now_progress = 0
 
 
 
@@ -225,7 +229,7 @@ global.real_stage_map_difficulty[5] = "Expert";
 global.real_stage_map_color[5] = #219cac;
 global.real_stage_map_duration[5] = 5791;
 global.real_stage_map_audio_name[5] = "shelter";
-global.real_stage_bpm[5] = 45;
+global.real_stage_bpm[5] = 50;
 global.real_stage_map_highlight_part[5] = 39.34;
 global.real_detailed_difficulty[5] = 5;
 global.real_requirement_type[5] = 0
@@ -364,6 +368,15 @@ music_title_alpha = 0
 
 global.player_color = $FF4AB539
 global.n_progress = 0
+global.background_w_alpha = 0
+global.sync_setting = 0
+global.sync_setting_alpha = 0
+global.music_sync = 0
+sync_setting_timer = 0
+for(var i = 0; i <= 2; i++)
+{
+global.sync_setting_circle_scale[i] = 1;
+}
 
 
 global.start_point = 0

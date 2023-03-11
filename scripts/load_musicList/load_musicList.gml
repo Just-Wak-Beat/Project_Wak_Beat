@@ -28,8 +28,7 @@ function load_musicList(argument0)
 		global.requirement_number[i] = global.real_requirement_number[i];
 		}
 	}
-	
-	if argument0 = 1
+	else if argument0 = 1
 	{
 	global.total_map = get_fav_list_num();
 	
@@ -57,8 +56,7 @@ function load_musicList(argument0)
 		global.requirement_number[i] = global.real_requirement_number[ii];
 		}
 	}
-	
-	if argument0 = 2
+	else if argument0 = 2
 	{
 	global.total_map = load_custom_map_num();//"custom_map_file_"+string(i)의 파일 갯수로 확인 
 	
@@ -81,8 +79,7 @@ function load_musicList(argument0)
 		global.requirement_number[i] = 0;
 		}
 	}
-	
-	if argument0 = 3
+	else if argument0 = 3
 	{
 	global.total_map = get_unlocked_list_num();
 	
