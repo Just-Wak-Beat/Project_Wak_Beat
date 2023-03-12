@@ -21,26 +21,48 @@ global.sync_setting_alpha += (global.sync_setting - global.sync_setting_alpha)*0
 if global.sync_setting = 1
 {
 sync_setting_timer ++
-	if sync_setting_timer > 120
+	if sync_setting_timer > 240
 	{
 	sync_setting_timer = 0
+	sync_play_part = 0
 	}
 
-	if sync_setting_timer != 0 && sync_setting_timer < 120
+	if sync_setting_timer != 0
 	{
-		if sync_setting_timer%30 = 0
+		if sync_setting_timer < 120
 		{
-		global.sync_setting_circle_scale[sync_setting_timer/30-1] = 0.7
+			if sync_setting_timer%30 = 0
+			{
+			sync_play[sync_play_part] = 1
+			sync_play_part ++
+			}
+		
+			if sync_setting_timer%30 = 0 && sync_setting_timer%90 != 0
+			{
+			audio_play_sound(kick_sfx,0,false,global.sfx_volume*global.master_volume*0.25)
+			}
+	
+			if sync_setting_timer%90 = 0
+			{
+			audio_play_sound(drum_sfx,0,false,global.sfx_volume*global.master_volume*0.25)
+			}
+		}
+	}
+	
+
+		
+	for(var i = 0; i <= 2; i++)
+	{
+		if sync_play[i] > global.music_sync_offset*3*60
+		{
+		global.sync_setting_circle_scale[i] = 0.7
+		global.setting_beat_w_alpha[i] = 1
+		sync_play[i] = 0
 		}
 		
-		if sync_setting_timer%30 = 0 && sync_setting_timer%90 != 0
+		if sync_play[i] > 0
 		{
-		audio_play_sound(kick_sfx,0,false,global.sfx_volume*global.master_volume*0.25)
-		}
-	
-		if sync_setting_timer%90 = 0
-		{
-		audio_play_sound(drum_sfx,0,false,global.sfx_volume*global.master_volume*0.25)
+		sync_play[i] ++
 		}
 	}
 }
@@ -85,7 +107,7 @@ global.highlight_time ++
 if global.highlight_time > 360 || gamestart != 0
 {
 global.highlight_music_volume += (-0.01 - global.highlight_music_volume)*0.05
-	if global.highlight_time > 440
+	if global.highlight_time > 440 && gamestart = 0 && global.sync_setting_alpha < 0.1
 	{
 	play_highlight = 1
 	}

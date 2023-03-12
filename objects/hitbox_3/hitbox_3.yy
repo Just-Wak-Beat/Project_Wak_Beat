@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_squire_laser",
-    "path": "sprites/spr_squire_laser/spr_squire_laser.yy",
+    "name": "spr_square_laser",
+    "path": "sprites/spr_square_laser/spr_square_laser.yy",
   },
   "spriteMaskId": null,
   "visible": true,

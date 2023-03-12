@@ -7,3 +7,6 @@ image_yscale = 0.2
 n_full_screen = 0
 n_screen_width = 0
 n_screen_height = 0
+scroll_value = 0
+scroll_activated = 0
+alarm[1] = 1

@@ -193,7 +193,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			draw_rectangle(global.c_w,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
 
 			//옆에 살짝 큰 사각형
-			if dis_alpha*3 > 0
+			if selected_me = 0 && dis_alpha*3 > 0
 			{
 			draw_set_color(global.map_color)
 			draw_set_alpha(dis_alpha*3)
@@ -457,6 +457,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		obj_album_ui.y = room_height
 		obj_album_ui.image_xscale = 0
 		obj_album_ui.image_yscale = 0
+		obj_album_ui.image_angle = 0
 		load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
 		}
 		

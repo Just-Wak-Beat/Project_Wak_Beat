@@ -30,7 +30,7 @@ function load_custom_map_files()
 	
 	if !sprite_exists(global.custom_stage_album[i])
 	{
-	global.custom_stage_album[i] = sprite_add("custom_map_album_"+string(global.n_map_id+1)+".png",0,false,false,256,256)
+	global.custom_stage_album[i] = sprite_add("custom_map_album_"+string(i+1)+".png",0,false,false,256,256)
 	}
 		
 	show_debug_message(string(global.custom_stage_map_audio_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))

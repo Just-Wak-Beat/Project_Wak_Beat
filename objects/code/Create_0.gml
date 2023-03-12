@@ -9,13 +9,6 @@ alarm[11] = 1
 
 
 ////////////////////////////////////////////////
-window_set_fullscreen(true)
-window_set_size(1920,1080)
-window_set_fullscreen(true)
-window_set_size(1920,1080)
-window_set_max_width(1920)
-window_set_max_height(1080)
-surface_resize(application_surface, display_get_width (), display_get_height ());
 //show_debug_overlay(true)
 
 
@@ -32,11 +25,20 @@ if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
 
 
 
+
+
+//global setting
 global.player_skin = 0
 global.b_player_skin = 0
 global.master_volume = 1
 global.bgm_volume = 0.5
 global.sfx_volume = 1
+global.window_width = 1920
+global.window_height = 1080
+global.window_fullscreen = true
+
+
+
 global.select_map = 2 //global.show_music_title = 0로 게임 시작
 global.t_select_map = 2
 global.die_sfx = wakgood_hurt
@@ -371,11 +373,14 @@ global.n_progress = 0
 global.background_w_alpha = 0
 global.sync_setting = 0
 global.sync_setting_alpha = 0
-global.music_sync = 0
+global.music_sync_offset = 0
 sync_setting_timer = 0
+sync_play_part = 0
 for(var i = 0; i <= 2; i++)
 {
 global.sync_setting_circle_scale[i] = 1;
+global.setting_beat_w_alpha[i] = 0
+sync_play[i] = 0
 }
 
 

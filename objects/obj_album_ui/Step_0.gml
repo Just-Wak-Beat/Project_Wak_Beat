@@ -12,7 +12,7 @@ else
 {
 sprite_index = global.custom_stage_album[global.n_map_id]
 }
-x = global.c_x + 916
+x = global.c_x+916-global.mobile_mode*64
 depth = code.depth-100
 image_alpha = global.ui_alpha
 
@@ -30,15 +30,26 @@ if global.total_map > 0
 	}
 y += (yy+yy_h*0.5 - y)*0.1
 
-image_xscale += (1+global.mobile_mode*0.5 - image_xscale)*0.16
-image_yscale += (1+global.mobile_mode*0.5 - image_yscale)*0.16
+image_xscale += (1+global.mobile_mode*0.8 - image_xscale)*0.16
+image_yscale += (1+global.mobile_mode*0.8 - image_yscale)*0.16
+image_angle += (5+angle_moving - image_angle)*0.1
 w_alpha += (0 - w_alpha)*0.1
+
+	if angle_moving_timer%2 = 0
+	{
+	angle_moving += (3 - angle_moving)*0.03
+	}
+	else
+	{
+	angle_moving += (-3 - angle_moving)*0.03
+	}
 }
 else
 {
-obj_album_ui.y = room_height
-obj_album_ui.image_xscale = 0
-obj_album_ui.image_yscale = 0
+y = room_height
+image_xscale = 0
+image_yscale = 0
+image_angle = 0
 }
 
 if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
@@ -46,6 +57,7 @@ if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart 
 bpm_timer ++
 	if bpm_timer >= (3600/global.bpm)
 	{
+	angle_moving_timer++
 	global.background_w_alpha = 0.05
 	instance_create_depth(global.c_w-640,global.c_y+yy_h*0.47,code.depth-50,circle_effect)
 		repeat(irandom_range(8,10)*5)
