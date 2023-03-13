@@ -49,7 +49,6 @@ y += 9
 		instance_destroy(hitbox_parents)
 		instance_destroy(obj_savepoint)
 		instance_destroy(square_misile)
-		global.fukurou_snow_effect = 0
 		}
 		else
 		{

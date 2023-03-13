@@ -55,7 +55,7 @@ image_angle = 0
 if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
 bpm_timer ++
-	if bpm_timer >= (3600/global.bpm)
+	if bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
 	{
 	angle_moving_timer++
 	global.background_w_alpha = 0.05
@@ -73,6 +73,6 @@ bpm_timer ++
 	image_xscale *= 0.8
 	image_yscale *= 0.8
 	w_alpha = 1
-	bpm_timer -= (3600/global.bpm)
+	bpm_timer -= (3600/global.bpm)+global.music_sync_offset*3*60
 	}
 }

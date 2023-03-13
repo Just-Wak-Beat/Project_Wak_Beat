@@ -225,7 +225,7 @@ x -= global.map_speed
 	global.dashing = 0
 	}
 
-	if global.dash_cooltime <= 0 && keyboard_check(vk_space)
+	if global.cannot_control = 0 && global.dash_cooltime <= 0 && keyboard_check_pressed(vk_space)
 	{
 	event_user(0)
 	}

@@ -9,7 +9,7 @@ ui_alpha__cal = 1
 if sprite_exists(sprite_index)
 {
 	var __brighting_col = global.map_color
-	draw_sprite_ext(spr_album,1,x-32,y+32,image_xscale*global.font_ratio_resolution_xx*1.05,image_yscale*1.05,image_angle,merge_color(__brighting_col,c_black,0.3),0.5*image_alpha)
+	draw_sprite_ext(spr_album,1,x-32,y+32,image_xscale*global.font_ratio_resolution_xx*1.05,image_yscale*1.05,image_angle,merge_color(__brighting_col,c_black,0.7),0.5*image_alpha)
 	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
 
 	if instance_exists(code) && global.artifact_owned[global.requirement_type[code.n_stage]] < global.requirement_number[code.n_stage]

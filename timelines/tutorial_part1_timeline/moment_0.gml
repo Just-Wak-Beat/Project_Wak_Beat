@@ -15,3 +15,4 @@ if global.checkpoint_text != "'W' 아티펙트를 획득하여, 다음으로 넘
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
 global.artifact_type = 0
+global.tutorial_now = 1

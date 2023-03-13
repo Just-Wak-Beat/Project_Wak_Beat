@@ -11,7 +11,7 @@ x = floor(x)
 y = floor(y)
 
 global.view_angle_ += (0 - global.view_angle_)*0.1
-camera_set_view_angle(view_camera[0],global.view_angle_)
+
 
 v_x += (3584 - v_x)*0.1
 v_y += (2016 - v_y)*0.1
@@ -46,5 +46,14 @@ global.shake_y = -global.shake_y
 global.shake_time = 0
 }
 
+
+if global.sync_setting_alpha <= 0.01
+{
 x += global.real_shake_x
 y += global.real_shake_y
+camera_set_view_angle(view_camera[0],global.view_angle_)
+}
+else
+{
+camera_set_view_angle(view_camera[0],0)
+}

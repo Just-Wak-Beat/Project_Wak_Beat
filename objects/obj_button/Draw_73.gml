@@ -12,3 +12,8 @@ if sprite_index = spr_square
 draw_sprite_ext(spr_square,0,x,y,image_xscale*80,image_yscale,0,c_white,image_alpha)
 draw_sprite_ext(spr_square,0,x+image_xscale*64*((scroll_value/100)*80-40),y,0.2*1.6,image_yscale*5,0,global.player_color,image_alpha)
 }
+
+//if global.n_setting_button = button_id
+//{
+//draw_text(mouse_x,mouse_y,image_alpha)
+//}

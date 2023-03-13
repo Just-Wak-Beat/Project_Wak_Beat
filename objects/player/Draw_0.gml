@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if global.hp > 0
+if global.hp > 0 && code.gamestart = 2
 {
 	if invincibility_cooltime > 0 && show_invincibility = 1
 	{

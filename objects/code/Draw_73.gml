@@ -498,7 +498,50 @@ draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alph
 }
 
 
+if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
+{
+var fontsize2 = 0.65*(1+global.mobile_mode*0.3)
+var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
 
+
+draw_set_alpha(global.sync_setting_alpha*0.93+(global.back_to_game/120)*0.07)
+draw_set_color(c_black)
+draw_line_width(global.c_x,global.c_y,global.c_w,global.c_h,room_width)
+
+var text__ = (global.mobile_mode == 0) ? "Space를 눌러/홀드하여 돌아가기" : "화면을 터치/홀드하여 돌아가기"
+draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*0.5-8,text__,64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+
+	if (global.n_setting_button = 9999 || global.n_setting_button = -4) && keyboard_check(vk_space)
+	{
+	global.back_to_game++
+	global.n_setting_button = 9999
+	}
+	
+	if keyboard_check_released(vk_space)
+	{
+		if global.back_to_game <= 120
+		{
+		global.back_to_game = 0
+		global.sync_setting = 0
+		global.cannot_control = 0
+		instance_destroy(obj_button)
+		save_and_load_data(0,0)
+		global.n_setting_button = -4
+		}
+	global.back_to_game = 0
+	}
+	
+draw_set_alpha(global.back_to_game/60)
+draw_line_width(xx,yy+yy_h*0.5,xx+xx_w*(global.back_to_game/120),yy+yy_h*0.5,font_size*96)
+
+
+draw_text_k_scale(xx+64,yy+yy_h*0.69,"마스터 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(xx+64,yy+yy_h*0.79,"효과음 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(xx+64,yy+yy_h*0.89,"음악 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+
+draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.85,"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.88,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+}
 
 
 

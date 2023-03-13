@@ -195,7 +195,15 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 		timeline_index = _timeline_index_
 		timeline_position = 0
 		timeline_loop = false
-		timeline_running = true
+		var time__ = floor(global.music_sync_offset*3*60)
+			if time__ > 0 && global.tutorial_now = 0
+			{
+			alarm[7] = time__
+			}
+			else
+			{
+			timeline_running = true
+			}
 		timeline_speed = 1
 		
 		show_debug_message("timeline")
@@ -410,6 +418,16 @@ global.rewind ++
 	global.check_died = 1
 	global.clock_alpha_2 = 0
 	global.n_progress = global.start_point
+	timeline_running = false
+	var time__ = floor(global.music_sync_offset*3*60)
+		if time__ > 0 && global.tutorial_now = 0
+		{
+		alarm[7] = time__
+		}
+		else
+		{
+		timeline_running = true
+		}
 	timeline_position = global.start_point
 	global.cannot_control = 0
 	player.invincibility_cooltime = 90

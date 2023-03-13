@@ -37,6 +37,9 @@ global.window_width = 1920
 global.window_height = 1080
 global.window_fullscreen = true
 
+global.back_to_game = 0
+global.n_setting_button = -4
+
 
 
 global.select_map = 2 //global.show_music_title = 0로 게임 시작
@@ -170,6 +173,7 @@ global.real_stage_map_highlight_part[0] = 0;
 global.real_detailed_difficulty[0] = 0;
 global.real_requirement_type[0] = 0
 global.real_requirement_number[0] = 0
+global.tutorial_now = 0
 
 //왁굳향 100% 첨가
 global.real_stage_map_name[1] = "왁굳향100% 첨가";
@@ -453,6 +457,7 @@ global.fav_anime = 0
 //현재 로드중인 맵 리스트
 global.n_map_list = 0
 global.b_map_list = 0
+global.b_t_select_map = 0
 
 //맵 리스트 로드
 load_musicList(0)

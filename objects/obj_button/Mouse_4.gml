@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if global.sync_setting = 1
+if global.sync_setting = 1 && sprite_index != spr_square
 {
 image_xscale = 0.15
 image_yscale = 0.15

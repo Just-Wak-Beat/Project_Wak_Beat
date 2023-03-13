@@ -18,10 +18,54 @@ global.fav_anime += (1 - global.fav_anime)*0.1
 
 global.sync_setting_alpha += (global.sync_setting - global.sync_setting_alpha)*0.23
 
-if global.sync_setting = 1
+
+//메인매뉴 돌아가기
+if global.back_to_game > 120
+{
+global.w_alpha = 1
+global.savepoint_text_t_alpha = -0.01
+load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
+global.highlight_time = 0
+play_highlight = 1
+global.select_map = n_stage+2
+global.t_select_map = n_stage+2
+gamestart = 3
+global.t_bg_color = 1
+global.t_bg_color_alpha = 1
+global.back_to_game = 0
+global.show_progress_bar = 0
+global.sync_setting = 0
+global.cannot_control = 0
+audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+audio_stop_sound(global.n_music_instance)
+timeline_running = false
+event_user(0)
+instance_destroy(hitbox_parents)
+instance_destroy(obj_savepoint)
+instance_destroy(obj_savepoint)
+instance_destroy(square_misile)
+instance_destroy(obj_button)
+}
+
+if global.n_setting_button != 9999 && global.n_setting_button != -4
+{
+global.back_to_game = 0
+}
+
+
+//곡 선택 효과음
+if gamestart = 0 && global.b_t_select_map != round(global.t_select_map)
+{
+global.b_t_select_map = round(global.t_select_map)
+audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+}
+
+
+//환경설정 박자 효과음
+if gamestart = 4 && global.sync_setting = 1
 {
 sync_setting_timer ++
-	if sync_setting_timer > 240
+	if sync_setting_timer > 120+global.music_sync_offset*3*60
 	{
 	sync_setting_timer = 0
 	sync_play_part = 0
@@ -219,6 +263,7 @@ gamestart_anime += (-0.01 - gamestart_anime)*0.1
 	instance_create_depth(0,0,0,obj_album_ui)
 	event_user(0)
 	gamestart = 0
+	global.n_progress = 0
 	}
 }
 
