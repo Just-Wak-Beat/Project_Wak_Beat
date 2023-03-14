@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.04"
+global.version = "Beta 2.1"
 global.low_graphics = false;
 global.dev_mode = 1
 global.mobile_mode = 0
@@ -70,6 +70,8 @@ global.t_map_speed = 0
 global.map_speed_y = 0
 global.ui_alpha = 1
 global.t_map_speed_y = 0
+global.map_scroll_ui_position = 0
+global.map_list_ui_position = 0
 
 global.origin_total_map = 12
 global.total_map = global.origin_total_map
@@ -339,7 +341,7 @@ random_dir_laser2 = choose(-1,1)
 
 //알잘딱깔센
 global.real_stage_map_name[11] = "Alzar Takkarsen";
-global.real_stage_map_artist[11] = "BLKFLAGZ, WAKGOOD RECORDS";
+global.real_stage_map_artist[11] = "BLKFLAGZ, WAKGOOD RECORDS (아버 편곡)";
 global.real_stage_map_difficulty[11] = "Expert";
 global.real_stage_map_color[11] = #9b3c5c;
 global.real_stage_map_duration[11] = 7005;

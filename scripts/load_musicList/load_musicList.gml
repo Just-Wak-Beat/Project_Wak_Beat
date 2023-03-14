@@ -111,9 +111,11 @@ function load_musicList(argument0)
 	
 	if global.b_map_list != global.n_map_list
 	{
+	global.map_list_ui_position = global.n_map_list - global.b_map_list
 	code.alarm[3] = 1
 	global.t_select_map = 2
 	global.b_map_list = global.n_map_list
+	audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 	}
 	
 n_stage = 0

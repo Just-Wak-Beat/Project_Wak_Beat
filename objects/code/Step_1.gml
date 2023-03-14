@@ -18,6 +18,8 @@ global.fav_anime += (1 - global.fav_anime)*0.1
 
 global.sync_setting_alpha += (global.sync_setting - global.sync_setting_alpha)*0.23
 
+global.map_scroll_ui_position += (0 - global.map_scroll_ui_position)*0.1
+global.map_list_ui_position += (0 - global.map_list_ui_position)*0.1
 
 //메인매뉴 돌아가기
 if global.back_to_game > 120
@@ -56,6 +58,7 @@ global.back_to_game = 0
 //곡 선택 효과음
 if gamestart = 0 && global.b_t_select_map != round(global.t_select_map)
 {
+global.map_scroll_ui_position = round(global.t_select_map) - global.b_t_select_map
 global.b_t_select_map = round(global.t_select_map)
 audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 }

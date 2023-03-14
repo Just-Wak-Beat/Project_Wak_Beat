@@ -488,7 +488,8 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	
 	
 //alpha text
-draw_text_k_scale(xx+32,global.c_h-100,"Just Wak and Beats ("+string(global.version)+")",64,-1,floor(global.ui_alpha),c_white,0,-1,normal_font,0.5,0.5,0)
+draw_text_k_scale(xx+32,global.c_h-140,"Just Wak and Beats ("+string(global.version)+")",64,-1,floor(global.ui_alpha),c_white,0,-1,normal_font,0.5,0.5,0)
+draw_text_k_scale(xx+32,global.c_h-100,"Presented by ABER",64,-1,floor(global.ui_alpha)*0.6,c_white,0,-1,normal_font,0.4,0.4,0)
 draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
 
 	if global.mobile_mode = 1

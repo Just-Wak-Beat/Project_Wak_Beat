@@ -16,6 +16,7 @@ global.back_to_game = 0
 	
 	if global.sync_setting = 1
 	{
+	global.n_setting_button = -4
 	var yy = camera_get_view_y(view_camera[0])
 	var yy_h = camera_get_view_height(view_camera[0])
 	var xx = camera_get_view_x(view_camera[0])
@@ -67,6 +68,7 @@ global.back_to_game = 0
 	
 	if global.sync_setting = 1
 	{
+	global.n_setting_button = -4
 	global.cannot_control = 1
 	var yy = camera_get_view_y(view_camera[0])
 	var yy_h = camera_get_view_height(view_camera[0])
