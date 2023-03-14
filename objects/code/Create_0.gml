@@ -3,7 +3,7 @@
 global.version = "Beta 2.1"
 global.low_graphics = false;
 global.dev_mode = 1
-global.mobile_mode = 0
+global.mobile_mode = 1
 global.font_ratio_resolution_xx = 1
 alarm[11] = 1
 

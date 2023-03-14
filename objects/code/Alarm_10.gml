@@ -59,4 +59,13 @@ display_ratio[1] = display_width/display_height
 		global.font_ratio_resolution_xx = 1
 		}
 	}
+	
+	
+	if global.dev_mode = 1
+	{
+		for(var i = 0; i <= 7; i++)
+		{
+		global.artifact_owned[i] = 99;
+		}
+	}
 }

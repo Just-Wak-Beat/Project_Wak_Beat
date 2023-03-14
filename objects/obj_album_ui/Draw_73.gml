@@ -55,22 +55,22 @@ draw_sprite_ext(spr_list_name,0,__xx,______yy,1,1,0,c_white,ui_alpha__cal)
 //곡(테마) 선택 버튼 ui
 var cal__xx1 = (global.map_list_ui_position < 0) ? global.map_list_ui_position*64 : 0
 var cal__xx2 = (global.map_list_ui_position > 0) ? global.map_list_ui_position*64 : 0
-draw_sprite_ext(spr_square_half,key_Lpressed,__xx-500+cal__xx1,______yy+80,0.2,0.2,45,c_black,ui_alpha__cal*0.3)
-draw_sprite_ext(spr_square_half,key_Lpressed,__xx-500+cal__xx1,______yy+64,0.2,0.2,45,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_square_half,key_Lpressed,__xx-500+cal__xx1,______yy+80,0.2*global.font_ratio_resolution_xx,0.2,45,c_black,ui_alpha__cal*0.3)
+draw_sprite_ext(spr_square_half,key_Lpressed,__xx-500+cal__xx1,______yy+64,0.2*global.font_ratio_resolution_xx,0.2,45,c_white,ui_alpha__cal)
 
-draw_sprite_ext(spr_square_half,key_Rpressed,__xx+500+cal__xx2,______yy+80,0.2,0.2,225,c_black,ui_alpha__cal*0.3)
-draw_sprite_ext(spr_square_half,key_Rpressed,__xx+500+cal__xx2,______yy+64,0.2,0.2,225,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_square_half,key_Rpressed,__xx+500+cal__xx2,______yy+80,0.2*global.font_ratio_resolution_xx,0.2,225,c_black,ui_alpha__cal*0.3)
+draw_sprite_ext(spr_square_half,key_Rpressed,__xx+500+cal__xx2,______yy+64,0.2*global.font_ratio_resolution_xx,0.2,225,c_white,ui_alpha__cal)
 
 
 var _____yy1 = global.c_y+global.c_h*0.5-(1 - ui_alpha__cal)*1880
 var _____yy2 = global.c_y+global.c_h*0.5+(1 - ui_alpha__cal)*1880
 var cal____yy1 = (global.map_scroll_ui_position < 0) ? global.map_scroll_ui_position*64 : 0
 var cal____yy2 = (global.map_scroll_ui_position > 0) ? global.map_scroll_ui_position*64 : 0
-draw_sprite_ext(spr_triangle,0,__xx,_____yy1+16-960+(cal____yy1),0.1,0.1,0,c_black,ui_alpha__cal*0.3)
-draw_sprite_ext(spr_triangle,0,__xx,_____yy1-960+(cal____yy1),0.1,0.1,0,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_triangle,0,__xx,_____yy1+16-960+(cal____yy1),0.1*global.font_ratio_resolution_xx,0.1,0,c_black,ui_alpha__cal*0.3)
+draw_sprite_ext(spr_triangle,0,__xx,_____yy1-960+(cal____yy1),0.1*global.font_ratio_resolution_xx,0.1,0,c_white,ui_alpha__cal)
 
-draw_sprite_ext(spr_triangle,0,__xx,_____yy2+16+640+(cal____yy2),0.1,-0.1,0,c_black,ui_alpha__cal*0.3)
-draw_sprite_ext(spr_triangle,0,__xx,_____yy2+640+(cal____yy2),0.1,-0.1,0,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_triangle,0,__xx,_____yy2+16+640+(cal____yy2),0.1*global.font_ratio_resolution_xx,-0.1,0,c_black,ui_alpha__cal*0.3)
+draw_sprite_ext(spr_triangle,0,__xx,_____yy2+640+(cal____yy2),0.1*global.font_ratio_resolution_xx,-0.1,0,c_white,ui_alpha__cal)
 
 
 
@@ -101,7 +101,7 @@ draw_text_k_scale(__xx+25,______yy+52,"해금 된 곡",64,-1,ui_alpha__cal*(1-ab
 draw_text_k_scale(global.c_x+32-(1 - ui_alpha__cal)*1880,global.c_y+10,"Artifacts",64,-1,ui_alpha__cal,#171628,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 for(var i = 0; i <= 7; i++)
 {
-draw_sprite_ext(spr_W,i,global.c_x+64+150*i-(1 - ui_alpha__cal)*1880,global.c_y+95,0.15,0.15,20,#5a5257,ui_alpha__cal)
+draw_sprite_ext(spr_W,i,global.c_x+64+150*i-(1 - ui_alpha__cal)*1880,global.c_y+95,0.15*global.font_ratio_resolution_xx,0.15,20,#5a5257,ui_alpha__cal)
 draw_text_k_scale(global.c_x+96+150*i-(1 - ui_alpha__cal)*1880,global.c_y+90,"x"+string(global.artifact_owned[i]),64,-1,ui_alpha__cal,#5a5257,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 }
 
