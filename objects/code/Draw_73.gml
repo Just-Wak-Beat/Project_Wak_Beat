@@ -492,11 +492,20 @@ draw_text_k_scale(xx+32,global.c_h-140,"Just Wak and Beats ("+string(global.vers
 draw_text_k_scale(xx+32,global.c_h-100,"Presented by ABER",64,-1,floor(global.ui_alpha)*0.6,c_white,0,-1,normal_font,0.4,0.4,0)
 draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
 
+
+	if global.n_sync > 0 && global.dev_mode > 0
+	{
+	draw_text_k_scale(xx+32,global.c_y+100,"Music Sync : "+string(global.n_sync),64,-1,0,c_white,0,-1,normal_font,0.5,0.5,0)
+	}
+
+
 	if global.mobile_mode = 1
 	{
 	draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+")",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
 	}
 }
+
+
 
 
 if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1

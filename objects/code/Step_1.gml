@@ -64,6 +64,22 @@ audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 }
 
 
+//음악 싱크 안맞는거 강제 픽스
+if gamestart = 2 && global.n_progress > 0 && audio_is_playing(global.n_music_instance) && global.n_music_instance != -4
+{
+global.automatic_sycn_fixing++
+	if global.automatic_sycn_fixing > 60
+	{
+	global.n_sync = abs(audio_sound_get_track_position(global.n_music_instance)*60 - global.n_progress)
+		if global.n_sync >= 10
+		{
+		audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
+		}
+	global.automatic_sycn_fixing = 0;
+	}
+}
+
+
 //환경설정 박자 효과음
 if gamestart = 4 && global.sync_setting = 1
 {

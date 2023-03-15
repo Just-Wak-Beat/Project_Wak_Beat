@@ -40,6 +40,8 @@ global.window_fullscreen = true
 global.back_to_game = 0
 global.n_setting_button = -4
 
+global.automatic_sycn_fixing = 0
+global.n_sync = 0
 
 
 global.select_map = 2 //global.show_music_title = 0로 게임 시작

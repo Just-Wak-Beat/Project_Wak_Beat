@@ -272,7 +272,7 @@ if discord_presence_update > 0
 	}
 discord_presence_update ++
 	
-	if global.n_progress >= global.music_duration
+	if global.n_progress >= global.music_duration+floor(global.music_sync_offset*3*60)
 	{
 	discord_presence_update = 0
 	}
