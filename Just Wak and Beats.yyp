@@ -186,6 +186,7 @@
     {"id":{"name":"code","path":"objects/code/code.yy",},},
     {"id":{"name":"phony_timeline","path":"timelines/phony_timeline/phony_timeline.yy",},},
     {"id":{"name":"lilpa_hurt","path":"sounds/lilpa_hurt/lilpa_hurt.yy",},},
+    {"id":{"name":"spr_circle_outline_light","path":"sprites/spr_circle_outline_light/spr_circle_outline_light.yy",},},
     {"id":{"name":"load_stage","path":"scripts/load_stage/load_stage.yy",},},
     {"id":{"name":"sparking_sound","path":"sounds/sparking_sound/sparking_sound.yy",},},
     {"id":{"name":"spr_key","path":"sprites/spr_key/spr_key.yy",},},

@@ -7,11 +7,14 @@ global.map_speed_y = 0
 global.turisumo_effect_3 = 0
 global.artifact_type = 0
 
+if global.t_selected_difficulty = 1
+{
 global.savepoint_position[0] = 1800
 global.savepoint_color[0] = #1a1a30
 
 global.savepoint_position[1] = 3900
 global.savepoint_color[1] = #1a1a30
+}
 
 
 var _xx = global.c_w

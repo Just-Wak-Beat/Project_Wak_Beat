@@ -21,6 +21,9 @@ global.sync_setting_alpha += (global.sync_setting - global.sync_setting_alpha)*0
 global.map_scroll_ui_position += (0 - global.map_scroll_ui_position)*0.1
 global.map_list_ui_position += (0 - global.map_list_ui_position)*0.1
 
+global.select_difficulty += (global.t_select_difficulty - global.select_difficulty)*0.22
+global.selected_difficulty += (global.t_selected_difficulty - global.selected_difficulty)*0.22
+
 //메인매뉴 돌아가기
 if global.back_to_game > 120
 {
@@ -38,6 +41,12 @@ global.back_to_game = 0
 global.show_progress_bar = 0
 global.sync_setting = 0
 global.cannot_control = 0
+global.joystick_xx = -4
+global.joystick_yy = -4
+global.joystick_n_xx = -4
+global.joystick_n_yy = -4
+global.scroll_n_m_xx = -1
+global.scroll_n_m_yy = -1
 audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 audio_stop_sound(global.n_music_instance)
 timeline_running = false
@@ -167,10 +176,10 @@ if instance_exists(obj_album_ui)
 global.highlight_time ++
 }
 
-if global.highlight_time > 360 || gamestart != 0
+if global.highlight_time > 360 || (gamestart != 0 && gamestart != 1.1)
 {
 global.highlight_music_volume += (-0.01 - global.highlight_music_volume)*0.05
-	if global.highlight_time > 440 && gamestart = 0 && global.sync_setting_alpha < 0.1
+	if global.highlight_time > 440 && (gamestart = 0 || gamestart = 1.1) && global.sync_setting_alpha < 0.1
 	{
 	play_highlight = 1
 	}

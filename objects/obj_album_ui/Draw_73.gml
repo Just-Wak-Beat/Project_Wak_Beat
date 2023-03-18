@@ -114,15 +114,17 @@ var yy = camera_get_view_y(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
 var xx = camera_get_view_x(view_camera[0])
 var xx_w = camera_get_view_width(view_camera[0])
+var middle_xx = xx+xx_w*0.5;
+var middle_yy = yy+yy_h*0.5;
 
-var dis__ = (1 - abs(y - (yy+yy_h*0.5))/256)
+var dis__ = (1 - abs(y - (middle_yy))/256)
 if dis__ < 0
 {
 dis__ = 0
 }
 
 
-draw_sprite_ext(spr_square,0,x,yy+yy_h*0.5+512+global.mobile_mode*64,dis__*0.5,dis__*0.5,45,c_white,image_alpha)
+draw_sprite_ext(spr_square,0,x,middle_yy+512+global.mobile_mode*64,dis__*0.5,dis__*0.5,45,c_white,image_alpha)
   
 if instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
@@ -130,11 +132,11 @@ var fontsize1 = 0.55*(1+global.mobile_mode*0.3)
 var fontsize2 = 0.65*(1+global.mobile_mode*0.3)
 var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
 
-draw_text_k_scale(x-128-global.mobile_mode*64,yy+yy_h*0.5+620+global.mobile_mode*96,"Rank",64,-1,dis__,c_white,0,0,light_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-draw_text_k_scale(x-128-global.mobile_mode*64,yy+yy_h*0.5+680+global.mobile_mode*96,string(global.n_rank[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(x-128-global.mobile_mode*64,middle_yy+620+global.mobile_mode*96,"Rank",64,-1,dis__,c_white,0,0,light_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+draw_text_k_scale(x-128-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
-draw_text_k_scale(x+128+global.mobile_mode*64,yy+yy_h*0.5+620+global.mobile_mode*96,"아티펙트 수집",64,-1,dis__,c_white,0,0,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
-draw_text_k_scale(x+128+global.mobile_mode*64,yy+yy_h*0.5+680+global.mobile_mode*96,string(global.n_artifact[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(x+128+global.mobile_mode*64,middle_yy+620+global.mobile_mode*96,"아티팩트 수집",64,-1,dis__,c_white,0,0,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+draw_text_k_scale(x+128+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_artifact[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 }
 
 if global.sync_setting_alpha >= 0.01
@@ -147,7 +149,7 @@ draw_line_width(global.c_x,global.c_y,global.c_w,global.c_h,room_width)
 	{
 	var scale = global.sync_setting_circle_scale[i+1]*0.3
 	var sprite__ = (i != 1) ? spr_circle : spr_circle_outline;
-	draw_sprite_ext(sprite__,0,xx+xx_w*0.5+i*256,yy+yy_h*0.5,scale,scale,0,merge_color(c_white,global.player_color,global.setting_beat_w_alpha[i+1]),global.sync_setting_alpha)
+	draw_sprite_ext(sprite__,0,middle_xx+i*256,middle_yy,scale,scale,0,merge_color(c_white,global.player_color,global.setting_beat_w_alpha[i+1]),global.sync_setting_alpha)
 	
 	global.sync_setting_circle_scale[i+1] += (1 - global.sync_setting_circle_scale[i+1])*0.1
 	global.setting_beat_w_alpha[i+1] += (0 - global.setting_beat_w_alpha[i+1])*0.1
@@ -160,10 +162,101 @@ var fullscreen_now = (window_get_fullscreen()) ? " (fullscreen)" : "";
 draw_text_k_scale(xx+64,yy+yy_h*0.85,"해상도  ["+string(window_get_width())+"x"+string(window_get_height())+"]"+string(fullscreen_now),64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 draw_text_k_scale(xx+64,yy+yy_h*0.88,"(화면 리로드시에도, 화면이 끊긴다면 해상도를 낮춰보세요)",64,-1,global.sync_setting_alpha,c_white,0,-1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 
-draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*0.1,"마스터 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*0.2,"효과음 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*0.3,"음악 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(middle_xx,yy+yy_h*0.1,"마스터 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(middle_xx,yy+yy_h*0.2,"효과음 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(middle_xx,yy+yy_h*0.3,"음악 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.85,"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.88,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+}
+
+
+
+//게임 플레이 전 난이도 설정
+if global.select_difficulty > 0
+{
+draw_set_alpha(global.select_difficulty*0.93)
+draw_set_color(c_black)
+draw_line_width(global.c_x,global.c_y,global.c_w,global.c_h,room_width)
+
+
+var scale = 1.2//*(image_xscale - (0.3+global.mobile_mode*0.5))
+var n_difficulty = global.selected_difficulty
+var f_selected = (global.mobile_mode == 1) ? 1.5 : 1+abs(n_difficulty)*0.5
+var s_selected = (global.mobile_mode == 1) ? 1.5 : 1+abs(1-n_difficulty)*0.5
+var icon_scale = 0.2*(image_xscale - (0.3+global.mobile_mode*0.5))
+
+
+var button_1_xx = xx+xx_w*0.32
+var button_2_xx = xx+xx_w*0.68
+	//game start
+	if global.select_difficulty > 0.99
+	{
+		if global.mobile_mode == 0
+		{
+			if keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_up)
+			{
+			global.t_selected_difficulty--
+			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+			}
+		
+			if keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down)
+			{
+			global.t_selected_difficulty++
+			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+			}
+		
+			if global.t_selected_difficulty > 1
+			{
+			global.t_selected_difficulty = 0
+			}
+		
+			if global.t_selected_difficulty < 0
+			{
+			global.t_selected_difficulty = 1
+			}
+		}
+		
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+		code.gamestart = 1
+		global.t_select_difficulty = 0
+		audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+		}
+		
+		if mouse_check_button_pressed(mb_left)
+		{
+			if point_distance(mouse_x,mouse_y,button_1_xx,middle_yy) < 256*f_selected
+			{
+			global.t_selected_difficulty = 1
+			}
+			else if point_distance(mouse_x,mouse_y,button_2_xx,middle_yy) < 256*s_selected
+			{
+			global.t_selected_difficulty = 0
+			}
+			else
+			{
+			code.gamestart = 0
+			global.t_select_difficulty = 0
+			audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+			}
+		}
+	}
+
+
+draw_sprite_ext(spr_circle,0,button_1_xx,middle_yy,scale*f_selected*global.font_ratio_resolution_xx,scale*f_selected,0,merge_color(c_white,c_black,abs(n_difficulty)),global.select_difficulty)
+draw_sprite_ext(spr_music,0,button_1_xx,middle_yy-f_selected*130,icon_scale*f_selected*global.font_ratio_resolution_xx,icon_scale*f_selected,image_angle,merge_color(c_black,c_white,abs(n_difficulty)),global.select_difficulty)
+draw_text_k_scale(button_1_xx,middle_yy-f_selected*64,"Normal",64,-1,global.select_difficulty,merge_color(c_black,c_white,abs(n_difficulty)),0,0,normal_font,0.65*f_selected*global.font_ratio_resolution_xx,0.65*f_selected,0)
+draw_text_k_scale(button_1_xx,middle_yy,"특정 하이라이트 부분에서\n세이브 포인트를 제공합니다",scale*48*f_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(n_difficulty)),0,0,normal_font,0.35*f_selected*global.font_ratio_resolution_xx,0.35*f_selected,0)
+
+
+draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx,scale*s_selected,0,merge_color(c_white,c_black,abs(1-n_difficulty)),global.select_difficulty)
+draw_sprite_ext(spr_heart,0,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
+draw_text_k_scale(button_2_xx,middle_yy-s_selected*64,"Hardcore",64,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.65*s_selected*global.font_ratio_resolution_xx,0.65*s_selected,0)
+draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않는 대신,\n클리어 시,\n아티팩트를 중복하여 획득할 수 있습니다",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
+
+
+//outline
+draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.32,middle_yy,scale*f_selected*global.font_ratio_resolution_xx,scale*f_selected,0,merge_color(c_black,c_white,abs(n_difficulty)),global.select_difficulty)
+draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.68,middle_yy,scale*s_selected*global.font_ratio_resolution_xx,scale*s_selected,0,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
 }

@@ -11,7 +11,7 @@ global.vmove = floor((global.joystick_n_yy - global.joystick_yy)/(global.joystic
 
 
 
-if global.mobile_mode = 1
+if global.mobile_mode = 1 && global.sync_setting = 0
 {
 	for(var i = 0; i < 4; i++)
 	{
@@ -87,6 +87,11 @@ if global.mobile_mode = 1
 }
 
 	
+	
+if keyboard_check_pressed(vk_backspace) || keyboard_check_pressed(vk_escape)
+{
+event_user(2)
+}
 
 
 
@@ -181,32 +186,35 @@ progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 	progress_alpha_sec += (1 - progress_alpha_sec)*0.1
 	}
 	
-	if progress_alpha > 0.98 && global.n_music_id = -4 && global.n_progress = 0
+	if progress_alpha > 0.98
 	{
-	global.start_point = 0
-	global.hp = 5
-	var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
-	global.n_music_id = _audio_asset
-	global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
-	
-	var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
-		if timeline_exists(_timeline_index_)
+		if global.n_music_id = -4 && global.n_progress = 0
 		{
-		timeline_index = _timeline_index_
-		timeline_position = 0
-		timeline_loop = false
-		var time__ = floor(global.music_sync_offset*3*60)
-			if time__ > 0 && global.tutorial_now = 0
+		global.start_point = 0
+		global.hp = 5
+		var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
+		global.n_music_id = _audio_asset
+		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
+	
+		var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
+			if timeline_exists(_timeline_index_)
 			{
-			alarm[7] = time__
-			}
-			else
-			{
-			timeline_running = true
-			}
-		timeline_speed = 1
+			timeline_index = _timeline_index_
+			timeline_position = 0
+			timeline_loop = false
+			var time__ = floor(global.music_sync_offset*3*60)
+				if time__ > 0 && global.tutorial_now = 0
+				{
+				alarm[7] = time__
+				}
+				else
+				{
+				timeline_running = true
+				}
+			timeline_speed = 1
 		
-		show_debug_message("timeline")
+			show_debug_message("timeline")
+			}
 		}
 	}
 	

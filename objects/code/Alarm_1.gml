@@ -156,6 +156,13 @@ global.real_n_rank[global.n_map_id] = global.n_rank[global.n_map_id]
 	global.n_artifact[global.n_map_id] = "완료"
 	global.real_n_artifact[global.n_map_id] = "완료"
 	}
+	else
+	{
+		if global.selected_difficulty = 0
+		{
+		global.artifact_owned[global.artifact_type]++
+		}
+	}
 }
 else
 {
@@ -166,6 +173,13 @@ ini_write_string("custom_n_rank","value",global.n_rank[global.n_map_id])
 	{
 	global.artifact_owned[global.artifact_type]++
 	ini_write_string("custom_n_artifact","value","완료")
+	}
+	else
+	{
+		if global.selected_difficulty = 0
+		{
+		global.artifact_owned[global.artifact_type]++
+		}
 	}
 ini_close()
 }

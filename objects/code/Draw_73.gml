@@ -430,27 +430,34 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		
 		
 		var go_play = false
-		if global.mobile_mode = 1
+		if global.select_difficulty < 0.1
 		{
-			if global.clicking_timer <= 4 && mouse_check_button_released(mb_left)
+			if global.mobile_mode = 1
 			{
-			go_play = true
+				if global.clicking_timer <= 4 && mouse_check_button_released(mb_left)
+				{
+				go_play = true
+				}
 			}
-		}
-		else
-		{
-			if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left)
+			else
 			{
-			go_play = true
+				if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left)
+				{
+				go_play = true
+				}
 			}
 		}
 		
+		//스테이지 선택완료 - 난이도 선택 (게임 시작)
 		if global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && go_play
 		{
-		gamestart = 1
-		audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+		gamestart = 1.1
+		global.t_select_difficulty = 1
+		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 		}
 	
+	
+		//음악 재로드 (음악 선택중 나오는 미리듣기)
 		if changed_music = 1
 		{
 		play_highlight = 1

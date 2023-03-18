@@ -1,10 +1,13 @@
 
+if global.t_selected_difficulty = 1
+{
 global.savepoint_position[0] = 2568
 global.savepoint_color[0] = #237293
 
 
 global.savepoint_position[1] = 5865
 global.savepoint_color[1] = #237293
+}
 
 global.artifact_type = 0
 global.background_color = #9b3c5c

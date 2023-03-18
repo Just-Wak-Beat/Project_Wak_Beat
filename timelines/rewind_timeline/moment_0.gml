@@ -4,11 +4,14 @@ global.background_color = #424650
 global.artifact_type = 7
 
 global.map_color = #d892a6
+if global.t_selected_difficulty = 1
+{
 global.savepoint_position[0] = 4080
 global.savepoint_color[0] = #424650
 
 global.savepoint_position[1] = 5760
 global.savepoint_color[1] = #424650
+}
 
 
 

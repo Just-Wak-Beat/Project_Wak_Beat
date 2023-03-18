@@ -22,7 +22,7 @@ ini_open_protect("JWAB_Beta.ini")
 		
 		for(var i = 0; i <= 7; i++)
 		{
-		//아티펙트 보유 갯수
+		//아티팩트 보유 갯수
 		ini_write_real("artifact_owned",string(i),global.artifact_owned[i]);
 		}
 	
@@ -48,7 +48,7 @@ ini_open_protect("JWAB_Beta.ini")
 		
 		for(var i = 0; i <= 7; i++)
 		{
-		//아티펙트 보유 갯수
+		//아티팩트 보유 갯수
 		global.artifact_owned[i] = ini_read_real("artifact_owned",string(i),0);
 		}
 

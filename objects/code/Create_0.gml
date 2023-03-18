@@ -74,6 +74,10 @@ global.ui_alpha = 1
 global.t_map_speed_y = 0
 global.map_scroll_ui_position = 0
 global.map_list_ui_position = 0
+global.select_difficulty = 0
+global.t_select_difficulty = 0
+global.selected_difficulty = 0
+global.t_selected_difficulty = 0 //맵 난이도 설정 (1 == 노말)
 
 global.origin_total_map = 12
 global.total_map = global.origin_total_map
@@ -475,13 +479,13 @@ global.joystick_xx = -4
 global.joystick_yy = -4
 global.joystick_n_xx = -4
 global.joystick_n_yy = -4
+global.scroll_n_m_xx = -1
+global.scroll_n_m_yy = -1
 global.joystick_dir = 0
 global.joystick_activated = -1
 global.joystick_alpha = 0
 global.joystick_size = 512
 global.scroll_activated = -1
-global.scroll_n_m_xx = -1
-global.scroll_n_m_yy = -1
 global.clicking_timer = 0
 global.clicking_del = 0
 scrolling_map = 0

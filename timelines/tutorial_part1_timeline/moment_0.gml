@@ -1,6 +1,6 @@
 global.savepoint_text_t_alpha = 1
 
-if global.checkpoint_text != "'W' 아티펙트를 획득하여, 다음으로 넘어가기"
+if global.checkpoint_text != "'W' 아티팩트를 획득하여, 다음으로 넘어가기"
 {
 	if global.mobile_mode = 1
 	{
