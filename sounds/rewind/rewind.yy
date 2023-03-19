@@ -18,6 +18,6 @@
   "preload": false,
   "sampleRate": 48000,
   "soundFile": "rewind.wav",
-  "type": 2,
+  "type": 1,
   "volume": 0.61,
 }

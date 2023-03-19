@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if sprite_index = spr_square
+if (global.n_setting_button = -4 || global.n_setting_button = button_id) && sprite_index = spr_square
 {
 //스크롤 바 길이
 var scroll_length = image_xscale*80*64

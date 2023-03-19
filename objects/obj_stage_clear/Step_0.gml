@@ -161,14 +161,17 @@ _ef.image_blend = global.player_color
 		if global.tutorial_n_stage = 1
 		{
 		global.background_color = $FF161510
+		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		}
 		else if global.tutorial_n_stage = 2
 		{
 		global.background_color = $FF331800
+		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		}
 		else if global.tutorial_n_stage = 3
 		{
 		global.background_color = $FF1E2620
+		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		}
 		else
 		{

@@ -70,6 +70,34 @@ bpm_timer ++
 		effect_.speed = 16
 		effect_.image_blend = global.map_color
 		}
+		
+		if global.select_difficulty > 0
+		{
+		var xx = camera_get_view_x(view_camera[0])
+		var xx_w = camera_get_view_width(view_camera[0])
+		
+			repeat(irandom_range(40,50))
+			{
+			var random_dir = irandom_range(0,359);
+			var middle_yy = yy+yy_h*0.5+lengthdir_y(image_xscale*340,random_dir);
+				if global.selected_difficulty == 1
+				{
+				var xx__ = xx+xx_w*0.32+lengthdir_x(image_xscale*340,random_dir);
+				}
+				else
+				{
+				var xx__ = xx+xx_w*0.68+lengthdir_x(image_xscale*340,random_dir);
+				}
+			
+
+			var effect_ = instance_create_depth(xx__,middle_yy,depth-10,movement_effect)
+			effect_.image_xscale = 0.3
+			effect_.image_yscale = 0.3
+			effect_.direction = random_dir
+			effect_.speed = 16
+			effect_.image_blend = c_white
+			}
+		}
 	image_xscale *= 0.8
 	image_yscale *= 0.8
 	w_alpha = 1

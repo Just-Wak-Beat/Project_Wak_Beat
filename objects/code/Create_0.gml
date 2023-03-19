@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.1"
+global.version = "Beta 2.12"
 global.low_graphics = false;
 global.dev_mode = 1
-global.mobile_mode = 1
+global.mobile_mode = 0
 global.font_ratio_resolution_xx = 1
 alarm[11] = 1
 
@@ -77,10 +77,9 @@ global.map_list_ui_position = 0
 global.select_difficulty = 0
 global.t_select_difficulty = 0
 global.selected_difficulty = 0
-global.t_selected_difficulty = 0 //맵 난이도 설정 (1 == 노말)
+global.t_selected_difficulty = 1 //맵 난이도 설정 (1 == 노말)
 
-global.origin_total_map = 12
-global.total_map = global.origin_total_map
+
 global.music_duration = 99999
 global.bpm = 172
 load_data_timer = 0
@@ -106,6 +105,10 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
+
+
+global.origin_total_map = 13
+global.total_map = global.origin_total_map
 //곡 정보
 for(var i = 0; i < global.total_map; i++)
 {
@@ -125,6 +128,7 @@ global.stage_map_audio_name[i] = -4;
 global.stage_bpm[i] = -4;
 global.stage_map_highlight_part[i] = -4
 global.n_rank[i] = "--";
+global.n_rank_hardcore[i] = "--";
 global.n_favorite[i] = -1;
 global.n_artifact[i] = "X";
 global.detailed_difficulty[i] = -4
@@ -144,6 +148,7 @@ global.real_stage_map_audio_name[i] = -4;
 global.real_stage_bpm[i] = -4;
 global.real_stage_map_highlight_part[i] = -4
 global.real_n_rank[i] = "--";
+global.real_n_rank_hardcore[i] = "--";
 global.real_n_favorite[i] = -1;
 global.real_n_artifact[i] = "X";
 global.real_detailed_difficulty[i] = -4
@@ -162,6 +167,7 @@ global.custom_stage_map_audio_name[i] = -4;
 global.custom_stage_bpm[i] = -4;
 global.custom_stage_map_highlight_part[i] = -4
 global.custom_n_rank[i] = "--";
+global.custom_n_rank_hardcore[i] = "--";
 global.custom_n_artifact[i] = "X";
 global.custom_detailed_difficulty[i] = -4
 global.custom_stage_album[i] = -4
@@ -203,8 +209,8 @@ global.real_stage_map_difficulty[2] = "Hard";
 global.real_stage_map_color[2] = #bb631d;
 global.real_stage_map_duration[2] = 5411;
 global.real_stage_map_audio_name[2] = "bamguy";
-global.real_stage_bpm[2] = 151;
-global.real_stage_map_highlight_part[2] = 54.5;
+global.real_stage_bpm[2] = 154;
+global.real_stage_map_highlight_part[2] = 22.7;
 global.real_detailed_difficulty[2] = 3;
 global.real_requirement_type[2] = 0
 global.real_requirement_number[2] = 3
@@ -216,7 +222,7 @@ global.real_stage_map_difficulty[3] = "Expert";
 global.real_stage_map_color[3] = #415c84;
 global.real_stage_map_duration[3] = 4482;
 global.real_stage_map_audio_name[3] = "wakrio";
-global.real_stage_bpm[3] = 128;
+global.real_stage_bpm[3] = 130;
 global.real_stage_map_highlight_part[3] = 48.1;
 global.real_detailed_difficulty[3] = 4;
 global.real_requirement_type[3] = 0
@@ -244,7 +250,7 @@ global.real_stage_map_color[5] = #219cac;
 global.real_stage_map_duration[5] = 5791;
 global.real_stage_map_audio_name[5] = "shelter";
 global.real_stage_bpm[5] = 50;
-global.real_stage_map_highlight_part[5] = 39.34;
+global.real_stage_map_highlight_part[5] = 46.4;
 global.real_detailed_difficulty[5] = 5;
 global.real_requirement_type[5] = 0
 global.real_requirement_number[5] = 4
@@ -272,7 +278,7 @@ turisumo_road_sign_delay = 0
 
 //Re:wind
 global.real_stage_map_name[7] = "RE:WIND";
-global.real_stage_map_artist[7] = "Arranged by 아버 / Original remix by Hyeok, Elestee";
+global.real_stage_map_artist[7] = "Arranged by 아버 / Remix by Hyeok, Elestee";
 global.real_stage_map_difficulty[7] = "Expert";
 global.real_stage_map_color[7] = #d892a6;
 global.real_stage_map_duration[7] = 7495;
@@ -291,8 +297,8 @@ global.real_stage_map_difficulty[8] = "Normal";
 global.real_stage_map_color[8] = #5595ff
 global.real_stage_map_duration[8] = 4316;
 global.real_stage_map_audio_name[8] = "ipad";
-global.real_stage_bpm[8] = 60;
-global.real_stage_map_highlight_part[8] = 0;
+global.real_stage_bpm[8] = 65;
+global.real_stage_map_highlight_part[8] = 30.3;
 global.real_detailed_difficulty[8] = 2;
 global.real_requirement_type[8] = 0
 global.real_requirement_number[8] = 1
@@ -367,6 +373,20 @@ spotlight1_preview_ins = -4
 spotlight2_preview_ins = -4
 
 
+
+
+//겨울봄
+global.real_stage_map_name[12] = "겨울봄 (Winter Spring)";
+global.real_stage_map_artist[12] = "Remix by BAKAINU";
+global.real_stage_map_difficulty[12] = "Normal";
+global.real_stage_map_color[12] = #a594e4;
+global.real_stage_map_duration[12] = 3489.6;
+global.real_stage_map_audio_name[12] = "winter_spring";
+global.real_stage_bpm[12] = 85;
+global.real_stage_map_highlight_part[12] = 33.95;
+global.real_detailed_difficulty[12] = 2;
+global.real_requirement_type[12] = 7
+global.real_requirement_number[12] = 1
 
 
 

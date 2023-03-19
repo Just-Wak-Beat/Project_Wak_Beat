@@ -45,6 +45,7 @@ spotlight2_preview_ins = -4
 progress_icon_alpha = 0
 progress_alpha = 0
 music_title_alpha = 0
+discord_presence_update = 0
 global.show_progress_bar = 0
 global.n_progress = 0
 global.show_music_title = 0

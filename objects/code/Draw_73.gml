@@ -451,9 +451,19 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		//스테이지 선택완료 - 난이도 선택 (게임 시작)
 		if global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && go_play
 		{
-		gamestart = 1.1
-		global.t_select_difficulty = 1
-		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+			if global.real_stage_map_difficulty[n_stage] == "Tutorial"
+			{
+			gamestart = 1;
+			global.t_selected_difficulty = 1;
+			audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+			}
+			else
+			{
+			gamestart = 1.1
+			global.selected_difficulty = 0.5
+			global.t_select_difficulty = 1
+			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+			}
 		}
 	
 	
@@ -598,3 +608,9 @@ draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_si
 
 draw_sprite_ext(spr_circle,0,global.joystick_n_xx,global.joystick_n_yy,joystick_size__*0.35*global.font_ratio_resolution_xx,joystick_size__*0.35,0,c_white,global.joystick_alpha*0.15)
 }
+
+
+
+
+
+

@@ -6,7 +6,6 @@ x -= global.map_speed
 }
 
 image_blend = global.map_color
-x -= global.map_speed
 
 x += falling_hspeed
 y += falling_vspeed
@@ -57,6 +56,11 @@ if warning_timer >= target_time
 		if shake_time >= 60
 		{
 		speed += (-shake_movement*sign(shake_speed) - speed)*0.05*power(2,abs(abs(shake_speed) - 1)-1)
+		}
+		
+		if abs(falling_vspeed) > 0 || abs(falling_hspeed) > 0
+		{
+		x -= global.map_speed
 		}
 	
 		if shake_time >= 118

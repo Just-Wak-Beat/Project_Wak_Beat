@@ -21,6 +21,25 @@ var _image_scale = 640*image_xscale
 	{
 	var _shaking_circle = create_explo_circle(x,y,1,60,2,0,2*image_xscale,0,0,0)
 	_shaking_circle.sprite_index = spr_circle_outline
+	
+		if audio_is_playing(winter_spring)
+		{
+		global.w_alpha = 1
+			for(var i = 0; i < 180; i += 15)
+			{
+			var attack_ef = instance_create_depth(x,y,depth+1,hitbox_2)
+			attack_ef.gravity = 1
+			attack_ef.vspeed = lengthdir_y(32,i)
+			attack_ef.keep_spin_angle = 90-i
+			attack_ef.image_angle = 90-i
+			attack_ef.image_xscale = 0.1
+			attack_ef.image_yscale = 0.1
+			attack_ef.hspeed = lengthdir_x(32,i)
+			attack_ef.w_alpha = 10
+			attack_ef.sprite_index = spr_snow
+			}
+		}
+
 	des = 1
 	}
 
@@ -45,3 +64,4 @@ timer__ ++
 	attack_ef.sprite_index = spr_cross
 	}
 }
+
