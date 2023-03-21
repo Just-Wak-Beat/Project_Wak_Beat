@@ -5,6 +5,9 @@
 ///@param all/fav
 function load_musicList(argument0)
 {
+//load_none_cleared_list();
+//load_unlocked_list();
+	
 	if argument0 = 0
 	{
 	global.total_map = global.origin_total_map
@@ -79,33 +82,42 @@ function load_musicList(argument0)
 		global.requirement_number[i] = 0;
 		}
 	}
-	else if argument0 = 3
+	else if (argument0 == 3)
 	{
-	global.total_map = get_unlocked_list_num();
+	var correction = 0, total_num = 0;
 	
-		for(var i = 0; i < global.total_map; i++)
+	
+		for(var k = 0; k < global.origin_total_map; k++)
 		{
-		var ii = global.unlocked_map_id[i]
-			if ii = -4
+		var __type = global.real_requirement_type[k]
+			if (global.artifact_owned[__type] >= global.real_requirement_number[k])
 			{
-			ii = i
+			var kk = k-correction;
+			global.unlocked_map_id[kk] = k
+			//기존 모든 곡 항목에서 좋아하는 곡 목록으로 데이터 복사
+			global.stage_map_name[kk] = global.real_stage_map_name[k];
+			global.stage_map_artist[kk] = global.real_stage_map_artist[k];
+			global.stage_map_difficulty[kk] = global.real_stage_map_difficulty[k];
+			global.stage_map_color[kk] = global.real_stage_map_color[k];
+			global.stage_map_duration[kk] = global.real_stage_map_duration[k];
+			global.stage_map_audio_name[kk] = global.real_stage_map_audio_name[k];
+			global.stage_bpm[kk] = global.real_stage_bpm[k];
+			global.stage_map_highlight_part[kk] = global.real_stage_map_highlight_part[k];
+			global.n_rank[kk] = global.real_n_rank[k];
+			global.n_favorite[kk] = global.real_n_favorite[k];
+			global.n_artifact[kk] = global.real_n_artifact[k];
+			global.detailed_difficulty[kk] = global.real_detailed_difficulty[k];
+			global.requirement_type[kk] = global.real_requirement_type[k];
+			global.requirement_number[kk] = global.real_requirement_number[k];
+
+			total_num++;
 			}
-		//기존 모든 곡 항목에서 좋아하는 곡 목록으로 데이터 복사
-		global.stage_map_name[i] = global.real_stage_map_name[ii];
-		global.stage_map_artist[i] = global.real_stage_map_artist[ii];
-		global.stage_map_difficulty[i] = global.real_stage_map_difficulty[ii];
-		global.stage_map_color[i] = global.real_stage_map_color[ii];
-		global.stage_map_duration[i] = global.real_stage_map_duration[ii];
-		global.stage_map_audio_name[i] = global.real_stage_map_audio_name[ii];
-		global.stage_bpm[i] = global.real_stage_bpm[ii];
-		global.stage_map_highlight_part[i] = global.real_stage_map_highlight_part[ii];
-		global.n_rank[i] = global.real_n_rank[ii];
-		global.n_favorite[i] = global.real_n_favorite[ii];
-		global.n_artifact[i] = global.real_n_artifact[ii];
-		global.detailed_difficulty[i] = global.real_detailed_difficulty[ii];
-		global.requirement_type[i] = global.real_requirement_type[ii];
-		global.requirement_number[i] = global.real_requirement_number[ii];
+			else
+			{
+			correction++;
+			}
 		}
+	global.total_map = total_num
 	}
 	
 	

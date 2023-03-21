@@ -13,7 +13,7 @@ w_alpha = 0
 }
 
 
-if global.fukurou_snow_effect != 0 || global.ipad_effect != 0
+if global.fukurou_snow_effect != 0 || global.ipad_effect != 0 || audio_is_playing(isedolhyang)
 {
 var _image_scale = 640*image_xscale
 

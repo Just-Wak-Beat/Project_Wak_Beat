@@ -88,11 +88,10 @@ if global.mobile_mode = 1 && global.sync_setting = 0
 
 	
 	
-if keyboard_check_pressed(vk_backspace) || keyboard_check_pressed(vk_escape)
+if keyboard_check_pressed(vk_backspace) || keyboard_check_pressed(vk_escape) || (global.select_difficulty = 0 && mouse_check_button_pressed(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+300) < 80)
 {
 event_user(2)
 }
-
 
 
 //캐릭터 변경

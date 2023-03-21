@@ -66,7 +66,7 @@ global.n_music_instance = -4
 global.map_color = -4
 global.t_bg_color_alpha = 1
 global.t_bg_color = 1
-global.background_color = c_black
+global.background_color = $FF343434
 global.map_speed = 0
 global.t_map_speed = 0
 global.map_speed_y = 0
@@ -107,7 +107,7 @@ global.unlocked_music_num = 0
 
 
 
-global.origin_total_map = 13
+global.origin_total_map = 14
 global.total_map = global.origin_total_map
 //곡 정보
 for(var i = 0; i < global.total_map; i++)
@@ -373,8 +373,6 @@ spotlight1_preview_ins = -4
 spotlight2_preview_ins = -4
 
 
-
-
 //겨울봄
 global.real_stage_map_name[12] = "겨울봄 (Winter Spring)";
 global.real_stage_map_artist[12] = "Remix by BAKAINU";
@@ -385,10 +383,22 @@ global.real_stage_map_audio_name[12] = "winter_spring";
 global.real_stage_bpm[12] = 85;
 global.real_stage_map_highlight_part[12] = 33.95;
 global.real_detailed_difficulty[12] = 2;
-global.real_requirement_type[12] = 7
+global.real_requirement_type[12] = 2
 global.real_requirement_number[12] = 1
 
 
+//이세돌향 첨가
+global.real_stage_map_name[13] = "이세돌향 100% 첨가";
+global.real_stage_map_artist[13] = "제이타지";
+global.real_stage_map_difficulty[13] = "Normal";
+global.real_stage_map_color[13] = #ff69b4;
+global.real_stage_map_duration[13] = 4432;
+global.real_stage_map_audio_name[13] = "isedolhyang";
+global.real_stage_bpm[13] = 85;
+global.real_stage_map_highlight_part[13] = 28.71;
+global.real_detailed_difficulty[13] = 3;
+global.real_requirement_type[13] = 7
+global.real_requirement_number[13] = 2
 
 
 

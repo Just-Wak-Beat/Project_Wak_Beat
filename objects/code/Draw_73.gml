@@ -55,7 +55,7 @@ draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),
 
 
 //music title
-draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-512*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
+draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-600*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
 
 //music credit
 var col = global.map_color
@@ -144,13 +144,6 @@ draw_set_color(c_white)
 
 if global.select_map != 0 && abs(player.image_xscale) < 0.1
 {
-	if gamestart = 0
-	{
-	global.background_color = $FF343434
-	global.t_bg_color = 1
-	global.t_bg_color_alpha = 1
-	}
-	
 	for(var i = 0; i < global.total_map; i++)
 	{
 	var dis___ = 1/abs(global.select_map-2 - i)-0.2
@@ -206,7 +199,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			{
 				if locked_now = 0 && dis_alpha > 0.1
 				{
-				draw_text_k_scale(xx_+96*dis_real,yy_-32,global.n_rank[i],64,-1,dis_alpha,c_white,0,0,normal_font,dis_real,dis_real,0)
+				draw_text_k_scale(xx_+96*dis_real,yy_-64,global.n_rank[i],64,-1,dis_alpha,c_white,0,0,normal_font,dis_real,dis_real,0)
 				
 				if global.n_favorite[i] = 1
 				{
@@ -214,9 +207,9 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 				}
 				
 
-				draw_text_k_scale(xx_+256,yy_-64,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real*global.font_ratio_resolution_xx,dis_real,0)
-				draw_text_k_scale(xx_+256,yy_+32,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
-				draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
+				draw_text_k_scale(xx_+256*dis_real,yy_-90*dis_real,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real*global.font_ratio_resolution_xx,dis_real,0)
+				draw_text_k_scale(xx_+256*dis_real,yy_+35*dis_real,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
+				draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
 					
 					for(var k = 0; k <= global.detailed_difficulty[i]; k++)
 					{
@@ -235,9 +228,9 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 				{
 					if locked_now = 0
 					{
-					draw_text_k_scale(xx_+256,yy_-96,global.stage_map_name[i],64,-1,dis_alpha,c_white,0,-1,normal_font,global.font_ratio_resolution_xx,1,0)
-					draw_text_k_scale(xx_+256,yy_,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6*global.font_ratio_resolution_xx,0.6,0)
-					draw_text_k_scale(global.c_w-64,yy_-32,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75*global.font_ratio_resolution_xx,0.75,0)
+					draw_text_k_scale(xx_+256,yy_-118,global.stage_map_name[i],64,-1,dis_alpha,c_white,0,-1,normal_font,global.font_ratio_resolution_xx,1,0)
+					draw_text_k_scale(xx_+256,yy_+3,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6*global.font_ratio_resolution_xx,0.6,0)
+					draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75*global.font_ratio_resolution_xx,0.75,0)
 					
 						if global.n_favorite[i] = 1
 						{
@@ -285,18 +278,18 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			{
 				if selected_me = 0
 				{
-				draw_sprite_ext(spr_lock,0,xx_+72,yy_,0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+206,yy_-64,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
+				draw_sprite_ext(spr_lock,0,xx_+112*dis_real,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
+				draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 				
-				draw_sprite_ext(spr_W,global.requirement_type[i],xx_+236,yy_+32,0.15,0.15,20,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+				draw_sprite_ext(spr_W,global.requirement_type[i],xx_+276*dis_real,yy_+32*dis_real,global.font_ratio_resolution_xx*0.15*dis_real,0.15*dis_real,20,c_white,global.ui_alpha*dis_real)
+				draw_text_k_scale(xx_+296*dis_real,yy_+32*dis_real,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				}
 				else
 				{
-				draw_sprite_ext(spr_lock,0,xx_+1080,yy_,0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
+				draw_sprite_ext(spr_lock,0,xx_+1080,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
 				draw_text_k_scale(xx_+1156,yy_-64,"해금 조건",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				
-				draw_sprite_ext(spr_W,global.requirement_type[i],xx_+1236,yy_+32,0.15,0.15,20,c_white,global.ui_alpha*dis_real)
+				draw_sprite_ext(spr_W,global.requirement_type[i],xx_+1236,yy_+32,global.font_ratio_resolution_xx*0.15,0.15,20,c_white,global.ui_alpha*dis_real)
 				draw_text_k_scale(xx_+1256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				}
 			}
@@ -430,7 +423,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		
 		
 		var go_play = false
-		if global.select_difficulty < 0.1
+		if global.select_difficulty < 0.1 && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+300) > 80
 		{
 			if global.mobile_mode = 1
 			{

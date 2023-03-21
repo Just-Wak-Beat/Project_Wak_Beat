@@ -31,6 +31,7 @@ ini_open_protect("JWAB_Beta.ini")
 	ini_write_real("master_volume","none",global.master_volume);
 	ini_write_real("bgm_volume","none",global.bgm_volume);
 	ini_write_real("sfx_volume","none",global.sfx_volume);
+	ini_write_real("music_sync_offset","none",global.music_sync_offset);
 	ini_write_real("window_width","none",global.window_width);
 	ini_write_real("window_height","none",global.window_height);
 	ini_write_real("window_fullscreen","none",global.window_fullscreen);
@@ -59,6 +60,7 @@ ini_open_protect("JWAB_Beta.ini")
 	global.master_volume = ini_read_real("master_volume","none",1);
 	global.bgm_volume = ini_read_real("bgm_volume","none",0.5);
 	global.sfx_volume = ini_read_real("sfx_volume","none",1);
+	global.music_sync_offset = ini_read_real("music_sync_offset","none",0);
 	global.window_width = ini_read_real("window_width","none",1920);
 	global.window_height = ini_read_real("window_height","none",1080);
 	global.window_fullscreen = ini_read_real("window_fullscreen","none",true);

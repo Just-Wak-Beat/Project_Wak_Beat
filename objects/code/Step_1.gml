@@ -27,6 +27,9 @@ global.selected_difficulty += (global.t_selected_difficulty - global.selected_di
 //메인매뉴 돌아가기
 if global.back_to_game > 120
 {
+global.background_color = $FF343434
+global.t_bg_color_alpha = 0
+global.t_bg_color = 1
 global.w_alpha = 1
 global.savepoint_text_t_alpha = -0.01
 load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
@@ -284,7 +287,6 @@ global.ui_alpha += (-0.01 - global.ui_alpha)*0.1
 if gamestart = 3
 {
 gamestart_anime += (-0.01 - gamestart_anime)*0.1
-
 	if gamestart_anime <= 0
 	{
 	gamestart_anime = 0

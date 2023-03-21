@@ -51,7 +51,7 @@ global.n_progress = 0
 global.show_music_title = 0
 
 
-load_none_cleared_list();
+//load_none_cleared_list();
 load_unlocked_list();
 
 
