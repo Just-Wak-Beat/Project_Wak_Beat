@@ -112,7 +112,7 @@ global.real_n_rank[global.n_map_id] = global.n_rank[global.n_map_id]
 	}
 	else
 	{
-		if global.selected_difficulty = 0
+		if global.t_selected_difficulty = 0
 		{
 		global.artifact_owned[global.artifact_type]++
 		}
@@ -130,7 +130,7 @@ ini_write_string("custom_n_rank","value",global.n_rank[global.n_map_id])
 	}
 	else
 	{
-		if global.selected_difficulty = 0
+		if global.t_selected_difficulty = 0
 		{
 		global.artifact_owned[global.artifact_type]++
 		}

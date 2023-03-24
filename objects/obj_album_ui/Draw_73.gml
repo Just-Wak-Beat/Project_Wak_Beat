@@ -164,18 +164,26 @@ draw_line_width(global.c_x,global.c_y,global.c_w,global.c_h,room_width)
 	global.setting_beat_w_alpha[i+1] += (0 - global.setting_beat_w_alpha[i+1])*0.1
 	}
 
+if global.mobile_mode != 1
+{
 draw_text_k_scale(xx+64,yy+yy_h*0.7,"화면 리로드",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 draw_text_k_scale(xx+64,yy+yy_h*0.735,"(화면이 끊긴다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,-1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 
 var fullscreen_now = (window_get_fullscreen()) ? " (fullscreen)" : "";
 draw_text_k_scale(xx+64,yy+yy_h*0.85,"해상도  ["+string(window_get_width())+"x"+string(window_get_height())+"]"+string(fullscreen_now),64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 draw_text_k_scale(xx+64,yy+yy_h*0.885,"(화면 리로드시에도, 화면이 끊긴다면 해상도를 낮춰보세요)",64,-1,global.sync_setting_alpha,c_white,0,-1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+}
+else
+{
+draw_text_k_scale(xx+64,yy+yy_h*0.7,"돌아가기",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(xx+64,yy+yy_h*0.85,"게임 종료",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+}
 
-draw_text_k_scale(middle_xx,yy+yy_h*0.1,"마스터 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(middle_xx,yy+yy_h*0.2,"효과음 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(middle_xx,yy+yy_h*0.3,"음악 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(middle_xx,yy+yy_h*(0.1-global.mobile_mode*0.03),"마스터 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(middle_xx,yy+yy_h*(0.2-global.mobile_mode*0.03),"효과음 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(middle_xx,yy+yy_h*(0.3-global.mobile_mode*0.03),"음악 볼륨",64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
-draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.85,"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+draw_text_k_scale(xx+xx_w-64,yy+yy_h*(0.85-global.mobile_mode*0.03),"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.885,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 }
 

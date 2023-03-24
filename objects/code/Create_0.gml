@@ -376,7 +376,7 @@ spotlight2_preview_ins = -4
 //겨울봄
 global.real_stage_map_name[12] = "겨울봄 (Winter Spring)";
 global.real_stage_map_artist[12] = "Remix by BAKAINU";
-global.real_stage_map_difficulty[12] = "Normal";
+global.real_stage_map_difficulty[12] = "Normal (Hardcore)";
 global.real_stage_map_color[12] = #a594e4;
 global.real_stage_map_duration[12] = 3489.6;
 global.real_stage_map_audio_name[12] = "winter_spring";
@@ -390,7 +390,7 @@ global.real_requirement_number[12] = 1
 //이세돌향 첨가
 global.real_stage_map_name[13] = "이세돌향 100% 첨가";
 global.real_stage_map_artist[13] = "제이타지";
-global.real_stage_map_difficulty[13] = "Normal";
+global.real_stage_map_difficulty[13] = "Normal (Hardcore)";
 global.real_stage_map_color[13] = #ff69b4;
 global.real_stage_map_duration[13] = 4432;
 global.real_stage_map_audio_name[13] = "isedolhyang";

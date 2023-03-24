@@ -49,6 +49,7 @@ discord_presence_update = 0
 global.show_progress_bar = 0
 global.n_progress = 0
 global.show_music_title = 0
+global.t_w_alpha = 0
 
 
 //load_none_cleared_list();
