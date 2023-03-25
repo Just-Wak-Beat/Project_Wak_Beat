@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "isedolhyang",
+  "name": "gungsirung",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 512,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 73.87381,
+  "duration": 55.719185,
   "parent": {
     "name": "Musics",
     "path": "folders/사운드/Musics.yy",
   },
   "preload": false,
   "sampleRate": 48000,
-  "soundFile": "isedolhyang.wav",
+  "soundFile": "gungsirung.mp3",
   "type": 1,
   "volume": 1.0,
 }

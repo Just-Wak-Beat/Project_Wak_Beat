@@ -214,6 +214,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 				draw_text_k_scale(xx_+256*dis_real,yy_-90*dis_real,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real*global.font_ratio_resolution_xx,dis_real,0)
 				draw_text_k_scale(xx_+256*dis_real,yy_+35*dis_real,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 				draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
+				draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,global.map_color,0,1,normal_font,0.5*dis_real,0.5*dis_real,0)
 					
 					for(var k = 0; k <= global.detailed_difficulty[i]; k++)
 					{
@@ -235,6 +236,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 					draw_text_k_scale(xx_+256,yy_-118,global.stage_map_name[i],64,-1,dis_alpha,c_white,0,-1,normal_font,global.font_ratio_resolution_xx,1,0)
 					draw_text_k_scale(xx_+256,yy_+3,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6*global.font_ratio_resolution_xx,0.6,0)
 					draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75*global.font_ratio_resolution_xx,0.75,0)
+					draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,c_white,0,1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 					
 						if global.n_favorite[i] = 1
 						{
