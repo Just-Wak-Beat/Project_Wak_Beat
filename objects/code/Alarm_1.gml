@@ -74,7 +74,7 @@ else if global.total_died_here = 4
 {
 	if n_rank_real < 4
 	{
-	target_rank = "D+"
+	target_rank = "C-"
 	}
 }
 else if global.total_died_here = 5

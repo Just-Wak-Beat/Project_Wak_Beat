@@ -24,6 +24,18 @@ global.map_list_ui_position += (0 - global.map_list_ui_position)*0.1
 global.select_difficulty += (global.t_select_difficulty - global.select_difficulty)*0.22
 global.selected_difficulty += (global.t_selected_difficulty - global.selected_difficulty)*0.22
 
+global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
+
+if global.n_progress > 0
+{
+global.rank_display_alpha += (1 - global.rank_display_alpha)*0.1
+}
+else
+{
+global.rank_display_alpha += (0 - global.rank_display_alpha)*0.1
+}
+
+
 //메인매뉴 돌아가기
 if global.back_to_game > 120
 {

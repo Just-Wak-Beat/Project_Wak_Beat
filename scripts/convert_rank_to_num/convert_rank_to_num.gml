@@ -36,7 +36,7 @@ var n_rank_real = 0;
 	{
 	n_rank_real = 5
 	}
-	else if n_rank = "D+"
+	else if n_rank = "C-" || n_rank = "D+"
 	{
 	n_rank_real = 4
 	}

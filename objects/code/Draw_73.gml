@@ -433,14 +433,14 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		{
 			if global.mobile_mode = 1
 			{
-				if global.clicking_timer <= 4 && mouse_check_button_released(mb_left)
+				if global.clicking_timer <= 4 && mouse_check_button_released(mb_left) && mouse_x >= xx+xx_w*0.5
 				{
 				go_play = true
 				}
 			}
 			else
 			{
-				if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left)
+				if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || (mouse_check_button_pressed(mb_left) && mouse_x >= xx+xx_w*0.5)
 				{
 				go_play = true
 				}
@@ -484,7 +484,9 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		}
 		
 		
-		if keyboard_check_pressed(vk_shift) && global.n_map_list != 2 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage]
+		var __added_fav_list = keyboard_check_pressed(vk_shift) || (mouse_check_button_released(mb_left) && mouse_x < xx+xx_w*0.5)
+		
+		if __added_fav_list && global.n_map_list != 2 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage]
 		{
 		global.fav_anime = 0
 		audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
@@ -525,6 +527,12 @@ draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alph
 	{
 	draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+")",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
 	}
+}
+
+if global.rank_display_alpha > 0
+{
+var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+global.rank_display_r_alpha*0.5)
+draw_text_k_scale(xx+xx_w-108,global.c_y+32,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,merge_color(c_white,#bf1a5c,global.rank_display_r_alpha),0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
 }
 
 
@@ -572,7 +580,7 @@ draw_text_k_scale(xx+64,yy+yy_h*(0.79-global.mobile_mode*0.03),"효과음 볼륨
 draw_text_k_scale(xx+64,yy+yy_h*(0.89-global.mobile_mode*0.03),"음악 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 draw_text_k_scale(xx+xx_w-64,yy+yy_h*(0.85-global.mobile_mode*0.03),"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.88,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.885,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 }
 
 

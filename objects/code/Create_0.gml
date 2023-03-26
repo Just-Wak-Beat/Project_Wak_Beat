@@ -39,6 +39,9 @@ global.window_fullscreen = true
 
 global.back_to_game = 0
 global.n_setting_button = -4
+global.rank_display_alpha = 0
+global.rank_display_r_alpha = 0
+global.n_rank_display = "--"
 
 global.automatic_sycn_fixing = 0
 global.n_sync = 0

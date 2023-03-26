@@ -30,8 +30,8 @@ if global.total_map > 0
 	}
 y += (yy+yy_h*0.5 - y)*0.1
 
-image_xscale += (1.3+global.mobile_mode*0.5 - image_xscale)*0.16
-image_yscale += (1.3+global.mobile_mode*0.5 - image_yscale)*0.16
+image_xscale += (1.5+global.mobile_mode*0.3 - image_xscale)*0.16
+image_yscale += (1.5+global.mobile_mode*0.3 - image_yscale)*0.16
 image_angle += (5+angle_moving - image_angle)*0.1
 w_alpha += (0 - w_alpha)*0.1
 
