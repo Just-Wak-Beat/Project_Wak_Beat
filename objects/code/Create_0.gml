@@ -230,6 +230,8 @@ global.real_stage_map_highlight_part[3] = 48.1;
 global.real_detailed_difficulty[3] = 4;
 global.real_requirement_type[3] = 0
 global.real_requirement_number[3] = 4
+global.wakrio_effect = 0
+wakrio_timer = 0
 
 //후쿠로우
 global.real_stage_map_name[4] = "부엉이 (Cover by 아이네 INE)";
@@ -393,7 +395,7 @@ global.real_requirement_number[12] = 1
 //이세돌향 첨가
 global.real_stage_map_name[13] = "이세돌향 100% 첨가";
 global.real_stage_map_artist[13] = "제이타지";
-global.real_stage_map_difficulty[13] = "Normal (Hardcore)";
+global.real_stage_map_difficulty[13] = "Hard (Hardcore)";
 global.real_stage_map_color[13] = #ff69b4;
 global.real_stage_map_duration[13] = 4432;
 global.real_stage_map_audio_name[13] = "isedolhyang";

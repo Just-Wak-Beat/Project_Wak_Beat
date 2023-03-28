@@ -10,6 +10,7 @@ global.artifact_type = 0
 
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
+global.wakrio_effect = 0
 
 
 

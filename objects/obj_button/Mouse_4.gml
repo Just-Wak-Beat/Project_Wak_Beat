@@ -8,17 +8,7 @@ audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
 
 	if button_id = 0
 	{
-		if global.mobile_mode == 1
-		{
-			with(code)
-			{
-				if object_index = code
-				{
-				event_user(2)
-				}
-			}
-		}
-		else
+		if global.mobile_mode != 1
 		{
 		n_screen_width = window_get_width()
 		n_screen_height = window_get_height()

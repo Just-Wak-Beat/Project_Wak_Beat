@@ -101,6 +101,21 @@ else
 
 
 
+if global.t_selected_difficulty == 1
+{
+global.n_rank[global.n_map_id] = target_rank;
+}
+else
+{
+global.n_rank_hardcore[global.n_map_id] = target_rank;
+	if n_rank_real > convert_rank_to_num(global.n_rank[global.n_map_id])
+	{
+	global.n_rank[global.n_map_id] = target_rank;
+	}
+}
+
+
+
 if global.n_map_list != 2
 {
 global.real_n_rank[global.n_map_id] = global.n_rank[global.n_map_id]
@@ -139,18 +154,6 @@ ini_close()
 }
 
 
-if global.t_selected_difficulty == 1
-{
-global.n_rank[global.n_map_id] = target_rank;
-}
-else
-{
-global.n_rank_hardcore[global.n_map_id] = target_rank;
-	if n_rank_real > convert_rank_to_num(global.n_rank[global.n_map_id])
-	{
-	global.n_rank[global.n_map_id] = target_rank;
-	}
-}
 
 
 

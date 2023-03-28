@@ -7,14 +7,13 @@ attack_ef.image_xscale = 0.4
 attack_ef.image_yscale = 0.4
 attack_ef.w_alpha = 10
 
-for(var i = 0; i <= 3; i++)
+
+
+global.t_map_speed = 0
+
+for(var i = 0; i <= 6; i++)
 {
-	if i%2 = 0
-	{
-	create_laser(global.c_x+192-i*64,global.c_h,22.8*i,10,1,2,1,0)
-	}
-	else
-	{
-	create_laser(global.c_x+192-i*64,global.c_y,22.8*i,10,1,2,1,180)
-	}
+create_laser(global.c_w,global.c_y+i*64,60+i*5,26,1,2,1,90)
+create_laser(global.c_w,global.c_h-i*64,60+i*5,26,1,2,1,90)
 }
+

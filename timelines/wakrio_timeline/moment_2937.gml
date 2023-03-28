@@ -11,3 +11,4 @@ attack_ef.w_alpha = 10
 }
 
 global.w_alpha = 1
+global.wakrio_effect = 1

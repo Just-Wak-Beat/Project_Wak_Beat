@@ -1,0 +1,1 @@
+global.wakrio_effect = -1

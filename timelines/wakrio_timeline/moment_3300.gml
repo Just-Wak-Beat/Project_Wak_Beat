@@ -1,3 +1,7 @@
+global.wakrio_effect = 0
+for(var i = 0; i <= 8; i++)
+{
+create_explo_circle(global.c_w-i*512*0.9,global.c_y,90+i*5,400,1,0,0.9,0,0,0)
 
-var random_x = irandom_range(global.c_x,global.c_x+420)
-create_spike_circle(random_x,global.c_h,random_x,irandom_range(global.c_y+256,global.c_h-256),60,0,0,0.2)
+create_explo_circle(global.c_w-i*512*0.9,global.c_h,90+i*5,400,1,0,0.9,0,0,0)
+}

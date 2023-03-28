@@ -283,3 +283,33 @@ alzar_timer2 ++
 	alzar_timer2_stack = 0
 	}
 }
+
+
+
+if global.wakrio_effect != 0
+{
+wakrio_timer++
+	if wakrio_timer > 27
+	{
+		if global.wakrio_effect == 1
+		{
+		var random_x = irandom_range(global.c_x,global.c_x+420)
+		}
+		if global.wakrio_effect == -1
+		{
+		var random_x = irandom_range(global.c_w,global.c_w-420)
+		}
+		
+		if global.wakrio_effect != -2
+		{
+		create_spike_circle(random_x,global.c_h,random_x,irandom_range(global.c_y+256,global.c_h-256),60,0,0,0.2)
+		}
+
+		repeat(irandom_range(1,4))
+		{
+		var laser___ = create_laser(room_width*0.5,room_height*0.5,60,5,3,2,1,180)
+		laser___.image_angle = irandom_range(0,359)
+		}
+	wakrio_timer = 0
+	}
+}

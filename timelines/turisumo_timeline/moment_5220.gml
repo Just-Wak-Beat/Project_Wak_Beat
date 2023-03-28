@@ -1,0 +1,1 @@
+create_laser(global.c_w,global.c_y,60,990,15,5,10,180)

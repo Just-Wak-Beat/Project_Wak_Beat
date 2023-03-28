@@ -456,7 +456,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			global.t_selected_difficulty = 1;
 			audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 			}
-			else if string_pos("(Hardcore)", global.stage_map_difficulty) != 0
+			else if string_pos("(Hardcore)", global.stage_map_difficulty[n_stage]) != 0
 			{
 			gamestart = 1;
 			global.t_selected_difficulty = 0;
