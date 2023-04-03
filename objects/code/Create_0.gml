@@ -17,10 +17,10 @@ alarm[11] = 1
 
 ready = false;
 discord_presence_update = 0
-if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
-{
-//show_error("NekoPresence init fail.", true);
-}
+	if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
+	{
+	//show_error("NekoPresence init fail.", true);
+	}
 
 
 
@@ -93,10 +93,10 @@ loading_now_progress = 0
 
 
 
-for(var i = 0; i <= 7; i++)
-{
-global.artifact_owned[i] = 0;
-}
+	for(var i = 0; i <= 7; i++)
+	{
+		global.artifact_owned[i] = 0;
+	}
 
 
 //좋아하는 곡 총 갯수
@@ -112,70 +112,70 @@ global.unlocked_music_num = 0
 
 global.origin_total_map = 15
 global.total_map = global.origin_total_map
-//곡 정보
-for(var i = 0; i < global.total_map; i++)
-{
-//좋아요 한 곡
-global.fav_map_id[i] = -4;
-//해금된 곡
-global.unlocked_map_id[i] = -4;
+	//곡 정보
+	for(var i = 0; i < global.total_map; i++)
+	{
+		//좋아요 한 곡
+		global.fav_map_id[i] = -4;
+		//해금된 곡
+		global.unlocked_map_id[i] = -4;
 
 
-//실제 리스트에만 표기되는 곡
-global.stage_map_name[i] = -4;
-global.stage_map_artist[i] = -4;
-global.stage_map_difficulty[i] = -4;
-global.stage_map_color[i] = -4;
-global.stage_map_duration[i] = -4;
-global.stage_map_audio_name[i] = -4;
-global.stage_bpm[i] = -4;
-global.stage_map_highlight_part[i] = -4
-global.n_rank[i] = "--";
-global.n_rank_hardcore[i] = "--";
-global.n_favorite[i] = -1;
-global.n_artifact[i] = "X";
-global.detailed_difficulty[i] = -4
-global.requirement_type[i] = -4
-global.requirement_number[i] = -4
-
-
-
-
-//모든곡 정보
-global.real_stage_map_name[i] = -4;
-global.real_stage_map_artist[i] = -4;
-global.real_stage_map_difficulty[i] = -4;
-global.real_stage_map_color[i] = -4;
-global.real_stage_map_duration[i] = -4;
-global.real_stage_map_audio_name[i] = -4;
-global.real_stage_bpm[i] = -4;
-global.real_stage_map_highlight_part[i] = -4
-global.real_n_rank[i] = "--";
-global.real_n_rank_hardcore[i] = "--";
-global.real_n_favorite[i] = -1;
-global.real_n_artifact[i] = "X";
-global.real_detailed_difficulty[i] = -4
-global.real_requirement_type[i] = 2
-global.real_requirement_number[i] = -4
+		//실제 리스트에만 표기되는 곡
+		global.stage_map_name[i] = -4;
+		global.stage_map_artist[i] = -4;
+		global.stage_map_difficulty[i] = -4;
+		global.stage_map_color[i] = -4;
+		global.stage_map_duration[i] = -4;
+		global.stage_map_audio_name[i] = -4;
+		global.stage_bpm[i] = -4;
+		global.stage_map_highlight_part[i] = -4
+		global.n_rank[i] = "--";
+		global.n_rank_hardcore[i] = "--";
+		global.n_favorite[i] = -1;
+		global.n_artifact[i] = "X";
+		global.detailed_difficulty[i] = -4
+		global.requirement_type[i] = -4
+		global.requirement_number[i] = -4
 
 
 
-//커스텀 곡 정보
-global.custom_stage_map_name[i] = -4;
-global.custom_stage_map_artist[i] = -4;
-global.custom_stage_map_difficulty[i] = -4;
-global.custom_map_duration[i] = -4;
-global.custom_stage_map_color[i] = -4;
-global.custom_stage_map_audio_name[i] = -4;
-global.custom_stage_bpm[i] = -4;
-global.custom_stage_map_highlight_part[i] = -4
-global.custom_n_rank[i] = "--";
-global.custom_n_rank_hardcore[i] = "--";
-global.custom_n_artifact[i] = "X";
-global.custom_detailed_difficulty[i] = -4
-global.custom_stage_album[i] = -4
-global.custom_audio_asset[i] = -4
-}
+
+		//모든곡 정보
+		global.real_stage_map_name[i] = -4;
+		global.real_stage_map_artist[i] = -4;
+		global.real_stage_map_difficulty[i] = -4;
+		global.real_stage_map_color[i] = -4;
+		global.real_stage_map_duration[i] = -4;
+		global.real_stage_map_audio_name[i] = -4;
+		global.real_stage_bpm[i] = -4;
+		global.real_stage_map_highlight_part[i] = -4
+		global.real_n_rank[i] = "--";
+		global.real_n_rank_hardcore[i] = "--";
+		global.real_n_favorite[i] = -1;
+		global.real_n_artifact[i] = "X";
+		global.real_detailed_difficulty[i] = -4
+		global.real_requirement_type[i] = 2
+		global.real_requirement_number[i] = -4
+
+
+
+		//커스텀 곡 정보
+		global.custom_stage_map_name[i] = -4;
+		global.custom_stage_map_artist[i] = -4;
+		global.custom_stage_map_difficulty[i] = -4;
+		global.custom_map_duration[i] = -4;
+		global.custom_stage_map_color[i] = -4;
+		global.custom_stage_map_audio_name[i] = -4;
+		global.custom_stage_bpm[i] = -4;
+		global.custom_stage_map_highlight_part[i] = -4
+		global.custom_n_rank[i] = "--";
+		global.custom_n_rank_hardcore[i] = "--";
+		global.custom_n_artifact[i] = "X";
+		global.custom_detailed_difficulty[i] = -4
+		global.custom_stage_album[i] = -4
+		global.custom_audio_asset[i] = -4
+	}
 
 
 //왁트 모르즈비
@@ -225,7 +225,7 @@ global.real_stage_map_difficulty[3] = "Expert";
 global.real_stage_map_color[3] = #415c84;
 global.real_stage_map_duration[3] = 4482;
 global.real_stage_map_audio_name[3] = "wakrio";
-global.real_stage_bpm[3] = 130;
+global.real_stage_bpm[3] = 133;
 global.real_stage_map_highlight_part[3] = 48.1;
 global.real_detailed_difficulty[3] = 4;
 global.real_requirement_type[3] = 0
@@ -438,20 +438,20 @@ global.sync_setting_alpha = 0
 global.music_sync_offset = 0
 sync_setting_timer = 0
 sync_play_part = 0
-for(var i = 0; i <= 2; i++)
-{
-global.sync_setting_circle_scale[i] = 1;
-global.setting_beat_w_alpha[i] = 0
-sync_play[i] = 0
-}
+	for(var i = 0; i <= 2; i++)
+	{
+		global.sync_setting_circle_scale[i] = 1;
+		global.setting_beat_w_alpha[i] = 0
+		sync_play[i] = 0
+	}
 
 
 global.start_point = 0
-for(var i = 0; i <= 5; i++)
-{
-global.savepoint_position[i] = -4
-global.savepoint_color[i] = global.map_color
-}
+	for(var i = 0; i <= 5; i++)
+	{
+		global.savepoint_position[i] = -4
+		global.savepoint_color[i] = global.map_color
+	}
 global.respawn_point_xx = -4
 global.respawn_point_yy = -4
 
@@ -477,10 +477,10 @@ global.check_died = 0
 global.rewind_effect_line_angle = 0
 global.savepoint_text_alpha = 0
 global.savepoint_text_t_alpha = 0
-for(var i = 0; i < 16; i++)
-{
-global.rewind_effect_line_pos[i] = -4
-}
+	for(var i = 0; i < 16; i++)
+	{
+		global.rewind_effect_line_pos[i] = -4
+	}
 
 
 

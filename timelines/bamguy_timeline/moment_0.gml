@@ -7,6 +7,7 @@ global.artifact_type = 0
 
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
+instance_destroy(hitbox_parents)
 
 
 var attack_ef = instance_create_depth(global.c_w,irandom_range(global.c_y,global.c_h),depth+1,hitbox_2)

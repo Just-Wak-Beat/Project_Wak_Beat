@@ -7,6 +7,7 @@ global.artifact_type = 7
 global.fukurou_snow_effect = 1
 
 
+
 if global.low_graphics = false
 {
 	for(var i = 0; i <= 64; i++)

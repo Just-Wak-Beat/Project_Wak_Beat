@@ -3,11 +3,11 @@
 timer = (global.bpm/3600)*5000
 image_blend = $FFE6FFE2
 color_sec = $FF4AB539
-image_speed = 0
+image_speed = 64
 outside_timer = 0
 
 w_alpha = 0
-direction = irandom_range(0,359)
+direction = point_direction(x,y,player.x,player.y)+irandom_range(-45,45)
 t_speed = 0
 t_angle = 0
 image_xscale = 0.2

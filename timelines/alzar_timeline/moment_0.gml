@@ -18,6 +18,7 @@ global.t_map_speed_y = 0
 global.quake_effect = 0
 global.alzar_effect = 0
 global.alzar_effect2 = 0
+instance_destroy(hitbox_parents)
 
 
 var xx = irandom_range(global.c_x, global.c_w)

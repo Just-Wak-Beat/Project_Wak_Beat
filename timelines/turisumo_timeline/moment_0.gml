@@ -1,11 +1,13 @@
 global.t_bg_color = 0
 global.t_bg_color_alpha = 0
 global.background_color = #1a1a30
-global.turisumo_effect = 0
 global.t_map_speed_y = 0
 global.map_speed_y = 0
-global.turisumo_effect_3 = 0
 global.artifact_type = 0
+global.turisumo_effect = 0
+global.turisumo_effect_2 = 0
+global.turisumo_effect_3 = 0
+instance_destroy(hitbox_parents)
 
 if global.t_selected_difficulty = 1
 {

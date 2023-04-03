@@ -8,6 +8,7 @@ global.t_bg_color_alpha = 0
 global.background_color = #5595ff
 global.artifact_type = 3
 global.ipad_effect = 0
+instance_destroy(hitbox_parents)
 
 if global.low_graphics = false
 {
