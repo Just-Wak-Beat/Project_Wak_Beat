@@ -294,11 +294,12 @@ global.w_alpha += (global.t_w_alpha - global.w_alpha)*0.1
 if global.rewind > 0
 {
 
+audio_sound_pitch(global.n_music_instance,global.rewind/90-1)
 	if global.rewind = 1
 	{
 		audio_play_sound(global.die_sfx,0,false,global.master_volume*global.sfx_volume)
 		audio_play_sound(dead_sfx,0,false,global.master_volume*global.sfx_volume*0.2)
-		audio_stop_sound(global.n_music_instance)
+		//audio_stop_sound(global.n_music_instance)
 	}
 	
 	
@@ -420,6 +421,7 @@ if global.rewind > 0
 	
 	if global.rewind > 260
 	{
+		audio_stop_sound(global.n_music_instance)
 		global.total_died_here ++
 		global.w_alpha = 1.1
 		global.hp = 5

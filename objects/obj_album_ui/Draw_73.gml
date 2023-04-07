@@ -278,7 +278,7 @@ draw_text_k_scale(button_1_xx,middle_yy,"특정 하이라이트 부분에서\n�
 draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx,scale*s_selected,0,merge_color(c_white,c_black,abs(1-n_difficulty)),global.select_difficulty)
 draw_sprite_ext(spr_heart,0,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
 draw_text_k_scale(button_2_xx,middle_yy-s_selected*64,"Hardcore",64,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.65*s_selected*global.font_ratio_resolution_xx,0.65*s_selected,0)
-draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않는 대신,\n클리어 시,\n아티팩트를 중복하여 획득할 수 있습니다",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
+draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않고, 무적 쿨타임이 짧은 대신,\n클리어 시,\n아티팩트를 중복하여 획득할 수 있습니다",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
 
 
 //outline

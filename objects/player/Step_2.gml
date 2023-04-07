@@ -3,7 +3,7 @@
 
 if invincibility_cooltime > 0
 {
-	invincibility_cooltime --
+	invincibility_cooltime -= (2-global.t_selected_difficulty)
 }
 else
 {
