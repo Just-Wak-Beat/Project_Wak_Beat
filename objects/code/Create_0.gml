@@ -182,7 +182,7 @@ global.total_map = global.origin_total_map
 global.real_stage_map_name[0] = "왁트모르즈비";
 global.real_stage_map_artist[0] = "영바이브 (아버 편곡)";
 global.real_stage_map_difficulty[0] = "Tutorial";
-global.real_stage_map_color[0] = $FFFFA232;
+global.real_stage_map_color[0] = #1076c8;
 global.real_stage_map_duration[0] = 99999;
 global.real_stage_map_audio_name[0] = "tutorial_part1";
 global.real_stage_bpm[0] = 58;
@@ -410,14 +410,14 @@ global.real_requirement_number[13] = 2
 //궁시렁 리믹스 `
 global.real_stage_map_name[14] = "궁시렁 리믹스";
 global.real_stage_map_artist[14] = "레이지스피크";
-global.real_stage_map_difficulty[14] = "Normal (Hardcore)";
+global.real_stage_map_difficulty[14] = "Normal";
 global.real_stage_map_color[14] = #fbd780;
-global.real_stage_map_duration[14] = 4432;
+global.real_stage_map_duration[14] = 3343;
 global.real_stage_map_audio_name[14] = "gungsirung";
 global.real_stage_bpm[14] = 173;
 global.real_stage_map_highlight_part[14] = 6;
 global.real_detailed_difficulty[14] = 3;
-global.real_requirement_type[14] = 2
+global.real_requirement_type[14] = 3
 global.real_requirement_number[14] = 1
 
 

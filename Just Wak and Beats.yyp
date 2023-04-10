@@ -61,6 +61,7 @@
     {"id":{"name":"ipad","path":"sounds/ipad/ipad.yy",},},
     {"id":{"name":"spr_triangle","path":"sprites/spr_triangle/spr_triangle.yy",},},
     {"id":{"name":"draw_text_kl_scale","path":"scripts/draw_text_kl_scale/draw_text_kl_scale.yy",},},
+    {"id":{"name":"create_circle_misile","path":"scripts/create_circle_misile/create_circle_misile.yy",},},
     {"id":{"name":"hitbox_6","path":"objects/hitbox_6/hitbox_6.yy",},},
     {"id":{"name":"ine_hurt","path":"sounds/ine_hurt/ine_hurt.yy",},},
     {"id":{"name":"bamguy_timeline","path":"timelines/bamguy_timeline/bamguy_timeline.yy",},},
