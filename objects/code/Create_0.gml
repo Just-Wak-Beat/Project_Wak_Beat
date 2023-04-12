@@ -5,6 +5,7 @@ global.low_graphics = false;
 global.dev_mode = 1
 global.mobile_mode = 0
 global.font_ratio_resolution_xx = 1
+global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
 alarm[11] = 1
 
 

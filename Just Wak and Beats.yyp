@@ -193,6 +193,7 @@
     {"id":{"name":"spr_W324","path":"sprites/spr_W324/spr_W324.yy",},},
     {"id":{"name":"obj_button","path":"objects/obj_button/obj_button.yy",},},
     {"id":{"name":"hitbox_13","path":"objects/hitbox_13/hitbox_13.yy",},},
+    {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},},
     {"id":{"name":"wakgoodhyang","path":"sounds/wakgoodhyang/wakgoodhyang.yy",},},
     {"id":{"name":"code","path":"objects/code/code.yy",},},
     {"id":{"name":"phony_timeline","path":"timelines/phony_timeline/phony_timeline.yy",},},

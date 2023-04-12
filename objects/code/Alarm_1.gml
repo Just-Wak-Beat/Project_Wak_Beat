@@ -136,7 +136,7 @@ global.real_n_rank[global.n_map_id] = global.n_rank[global.n_map_id]
 else
 {
 //커스텀 맵 클리어 내역 저장
-ini_open("custom_map_file_"+string(global.n_map_id+1)+".JWABMAP")
+ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+".JWABMAP")
 ini_write_string("custom_n_rank","value",global.n_rank[global.n_map_id])
 	if global.custom_n_artifact[global.n_map_id] != "완료"
 	{

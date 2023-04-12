@@ -42,7 +42,7 @@ draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,glob
 draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80,0.5*global.font_ratio_resolution_xx,0.5,45,c_white,ui_alpha__cal)
 
 //환경설정 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+350,"Setting",64,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+350,"setting",64,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+300+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+300,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 

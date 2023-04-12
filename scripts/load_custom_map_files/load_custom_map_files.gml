@@ -4,9 +4,9 @@ function load_custom_map_files()
 {
 	for(var i = 0; i < load_custom_map_num(); i++)
 	{
-	var directory = string(global.custom_stage_map_audio_name[i])+".ogg"
+	var directory = string(global.custom_map_directory)+string(global.custom_stage_map_audio_name[i])+".ogg"
 	var audio_file = "already_loaded"
-	ini_open("custom_map_file_"+string(i+1)+".JWABMAP")
+	ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+".JWABMAP")
 	if !audio_exists(global.custom_audio_asset[i])
 	{
 	audio_file = audio_create_stream(directory);
@@ -30,7 +30,7 @@ function load_custom_map_files()
 	
 	if !sprite_exists(global.custom_stage_album[i])
 	{
-	global.custom_stage_album[i] = sprite_add("custom_map_album_"+string(i+1)+".png",0,false,false,256,256)
+	global.custom_stage_album[i] = sprite_add(string(global.custom_map_directory)+"custom_map_album_"+string(i+1)+".png",0,false,false,256,256)
 	}
 		
 	show_debug_message(string(global.custom_stage_map_audio_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))

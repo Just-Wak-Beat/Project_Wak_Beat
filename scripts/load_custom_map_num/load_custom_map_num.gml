@@ -6,7 +6,7 @@ var total_num = 0, i = 0;
 	while(true)
 	{
 	i++
-		if file_exists("custom_map_file_"+string(i)+".JWABMAP") //파일 이름은 1번부터 시작
+		if file_exists(string(global.custom_map_directory)+"custom_map_file_"+string(i)+".JWABMAP") //파일 이름은 1번부터 시작
 		{
 		total_num ++
 		}
