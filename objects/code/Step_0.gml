@@ -193,7 +193,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 				global.hp = 5
 				var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
 				global.n_music_id = _audio_asset
-				global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
+				global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
 	
 				var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
 				if timeline_exists(_timeline_index_)
@@ -480,7 +480,7 @@ audio_sound_pitch(global.n_music_instance,global.rewind/90-1)
 			player.x = room_width*0.5
 			player.y = room_height*0.5
 		}
-		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
+		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
 		global.rewind_effect_line_angle = 0
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 	}

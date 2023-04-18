@@ -70,6 +70,8 @@ col = c_white
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7*global.font_ratio_resolution_xx,font_size*0.7,0)
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85*global.font_ratio_resolution_xx,font_size*0.85,0)
 
+draw_sprite_ext(spr_illustrationCG,global.player_skin*3+global.random_illustration,xx+music_title_alpha*430*font_size,yy+yy_h,font_size*2,font_size*2,0,c_white,music_title_alpha)
+
 
 
 for(var i = 0; i <= 5; i++)

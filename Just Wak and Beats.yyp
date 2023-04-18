@@ -64,6 +64,7 @@
     {"id":{"name":"create_circle_misile","path":"scripts/create_circle_misile/create_circle_misile.yy",},},
     {"id":{"name":"hitbox_6","path":"objects/hitbox_6/hitbox_6.yy",},},
     {"id":{"name":"ine_hurt","path":"sounds/ine_hurt/ine_hurt.yy",},},
+    {"id":{"name":"spr_illustrationCG","path":"sprites/spr_illustrationCG/spr_illustrationCG.yy",},},
     {"id":{"name":"bamguy_timeline","path":"timelines/bamguy_timeline/bamguy_timeline.yy",},},
     {"id":{"name":"spr_W","path":"sprites/spr_W/spr_W.yy",},},
     {"id":{"name":"hitbox_11","path":"objects/hitbox_11/hitbox_11.yy",},},

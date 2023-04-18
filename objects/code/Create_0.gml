@@ -33,6 +33,7 @@ global.player_skin = 0
 global.b_player_skin = 0
 global.master_volume = 1
 global.bgm_volume = 0.5
+global.custom_map_volume_control = 1
 global.sfx_volume = 1
 global.window_width = 1920
 global.window_height = 1080
@@ -46,6 +47,7 @@ global.n_rank_display = "--"
 
 global.automatic_sycn_fixing = 0
 global.n_sync = 0
+global.random_illustration = 0
 
 
 global.select_map = 2 //global.show_music_title = 0로 게임 시작

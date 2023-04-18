@@ -34,6 +34,13 @@ if image_yscale < 0
 image_yscale = 0
 }
 
+if abs(t_scale-image_xscale) >= 
+
+10
+{
+image_alpha += (0 - image_alpha)*0.1
+}
+
 image_xscale += (t_scale - image_xscale)*0.1
 image_yscale += (t_scale - image_yscale)*0.1
 

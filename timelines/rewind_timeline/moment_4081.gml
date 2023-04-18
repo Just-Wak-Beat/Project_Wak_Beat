@@ -1,9 +1,9 @@
 global.map_color = #9ed5cb
 if !instance_exists(clock_hitbox)
 {
-clock_hitbox = instance_create_depth(room_width*0.5,room_height*0.5,player.depth-1,hitbox_11)
+clock_hitbox = instance_create_depth(room_width*0.5,room_height*0.5,player.depth-2,hitbox_11)
 clock_hitbox.t_scale = 0
-clock_hitbox.shake_scale = 5
+clock_hitbox.shake_scale = 8
 clock_hitbox.shake_dir = 0
 clock_hitbox.t_angle = -180
 clock_hitbox.sprite_index = spr_clock

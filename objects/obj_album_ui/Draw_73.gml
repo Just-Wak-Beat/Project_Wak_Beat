@@ -138,13 +138,24 @@ var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
   
 if instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
-draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*96,"Normal\nRank",64,-1,dis__,c_white,0,0,light_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*104+8,"Normal\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[code.n_stage]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+
+draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*96+8,"Hardcore\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank_hardcore[code.n_stage]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+
+draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*96+8,"아티팩트 수집",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_artifact[code.n_stage]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+
+
+	
+draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*96,"Normal\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
 draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
-draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*96,"Hardcore\nRank",64,-1,dis__,c_white,0,0,light_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*96,"Hardcore\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
 draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank_hardcore[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
-draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*96,"아티팩트 수집",64,-1,dis__,c_white,0,0,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*96,"아티팩트 수집",64,-1,dis__,c_white,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_artifact[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 }
 

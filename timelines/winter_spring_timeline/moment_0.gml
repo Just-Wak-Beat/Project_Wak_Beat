@@ -5,6 +5,8 @@ global.background_color = #a594e4
 global.map_color = #dcd8fb
 global.artifact_type = 7
 global.fukurou_snow_effect = 1
+global.map_speed = 0
+global.t_map_speed = 0
 
 
 

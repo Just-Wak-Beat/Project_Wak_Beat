@@ -197,10 +197,10 @@ if gamestart = 0
 		global.highlight_time ++
 	}
 
-	if global.highlight_time > 360 || (gamestart != 0 && gamestart != 1.1)
+	if global.highlight_time > 420 || (gamestart != 0 && gamestart != 1.1)
 	{
 		global.highlight_music_volume += (-0.01 - global.highlight_music_volume)*0.05
-		if global.highlight_time > 440 && (gamestart = 0 || gamestart = 1.1) && global.sync_setting_alpha < 0.1
+		if global.highlight_time > 500 && (gamestart = 0 || gamestart = 1.1) && global.sync_setting_alpha < 0.1
 		{
 			play_highlight = 1
 		}
@@ -223,7 +223,7 @@ if gamestart = 0
 	//자동 볼륨 조절
 	if audio_is_playing(global.highlight_music)
 	{
-		audio_sound_gain(global.highlight_music,(1-gamestart_anime)*0.8*global.highlight_music_volume*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),0)
+		audio_sound_gain(global.highlight_music,global.custom_map_volume_control*(1-gamestart_anime)*0.8*global.highlight_music_volume*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),0)
 	}
 
 
@@ -250,6 +250,7 @@ if gamestart = 0
 				global.select_map = 0
 				global.t_select_map = 0
 				global.show_music_title = 1
+				global.random_illustration = (global.n_music_title == "겨울봄 (Winter Spring)") ? 2 : irandom_range(0,1);
 				gamestart = 2
 				global.background_color = c_black
 				global.t_bg_color = 1

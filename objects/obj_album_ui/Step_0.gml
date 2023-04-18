@@ -52,7 +52,7 @@ image_yscale = 0
 image_angle = 0
 }
 
-if global.highlight_time <= 360 && global.highlight_time > 30 && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
+if global.highlight_time <= 440 && global.highlight_time > 30 && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
 bpm_timer ++
 	if bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
@@ -63,7 +63,7 @@ bpm_timer ++
 		repeat(irandom_range(8,10)*5)
 		{
 		var random_dir = irandom_range(0,359)
-		var effect_ = instance_create_depth(x+lengthdir_x(image_xscale*240,random_dir),y+lengthdir_y(image_xscale*240,random_dir),depth+1,movement_effect)
+		var effect_ = instance_create_depth(x+lengthdir_x(image_xscale*250,random_dir),y+lengthdir_y(image_xscale*250,random_dir),depth+1,movement_effect)
 		effect_.image_xscale = 0.3
 		effect_.image_yscale = 0.3
 		effect_.direction = random_dir

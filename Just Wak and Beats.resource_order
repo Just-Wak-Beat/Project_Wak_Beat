@@ -45,6 +45,7 @@
     {"name":"create_circle_misile","order":4,"path":"scripts/create_circle_misile/create_circle_misile.yy",},
     {"name":"hitbox_6","order":6,"path":"objects/hitbox_6/hitbox_6.yy",},
     {"name":"ine_hurt","order":2,"path":"sounds/ine_hurt/ine_hurt.yy",},
+    {"name":"spr_illustrationCG","order":9,"path":"sprites/spr_illustrationCG/spr_illustrationCG.yy",},
     {"name":"bamguy_timeline","order":2,"path":"timelines/bamguy_timeline/bamguy_timeline.yy",},
     {"name":"hitbox_11","order":12,"path":"objects/hitbox_11/hitbox_11.yy",},
     {"name":"tutorial_part4","order":6,"path":"sounds/tutorial_part4/tutorial_part4.yy",},
