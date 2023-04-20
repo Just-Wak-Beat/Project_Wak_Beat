@@ -45,7 +45,7 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	//메인매뉴 돌아가기
 	if global.back_to_game > 120
 	{
-		global.background_color = $FF343434
+		global.background_color = merge_color(global.map_color,c_black,0.9)
 		global.t_bg_color_alpha = 0
 		global.t_bg_color = 1
 		global.w_alpha = 1

@@ -306,7 +306,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	
 	if gamestart != 2
 	{
-	var color__bg = merge_color(#373b40,global.map_color,0.2)
+	var color__bg = merge_color(global.map_color,c_black,0.7)
 	var col_cal = merge_color(color__bg,c_white,global.background_w_alpha)
 	draw_set_color(col_cal)
 	draw_set_alpha(1)

@@ -9,7 +9,7 @@ ui_alpha__cal = 1
 if sprite_exists(sprite_index)
 {
 	var __brighting_col = global.map_color
-	draw_sprite_ext(spr_album,1,x-32,y+32,image_xscale*global.font_ratio_resolution_xx*1.05,image_yscale*1.05,image_angle,merge_color(__brighting_col,c_black,0.7),0.5*image_alpha)
+	draw_sprite_ext(spr_album,1,x-32,y+32,image_xscale*global.font_ratio_resolution_xx*1.05,image_yscale*1.05,image_angle,c_black,0.3*image_alpha)
 	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
 
 	if instance_exists(code) && global.artifact_owned[global.requirement_type[code.n_stage]] < global.requirement_number[code.n_stage]
@@ -20,9 +20,10 @@ if sprite_exists(sprite_index)
 	}
 
 
+	var _walpha__ = (w_alpha*2 > 1) ? 1 : w_alpha*2
 	for(var i = 1; i <= 1.03; i += 0.001)
 	{
-	draw_sprite_ext(spr_album,0,x,y+i,image_xscale*global.font_ratio_resolution_xx*i,image_yscale*i,image_angle,merge_color(__brighting_col,c_white,w_alpha),ui_alpha__cal*0.01+w_alpha*0.3)
+	draw_sprite_ext(spr_album,0,x,y+i,image_xscale*global.font_ratio_resolution_xx*i,image_yscale*i,image_angle,merge_color(global.map_color,c_white,_walpha__),ui_alpha__cal)
 	}
 }
 
@@ -30,15 +31,21 @@ if sprite_exists(sprite_index)
 
 //스탯창 그림자
 var ______yy = global.c_y-(1 - ui_alpha__cal)*1880-abs(global.map_scroll_ui_position)*256
-for(var i = 0; i <= 16; i += 0.5)
-{
-draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+i,global.font_ratio_resolution_xx,1.15,0,#d9d1dc,0.02*ui_alpha__cal)
-draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80+i,0.5*global.font_ratio_resolution_xx,0.5,45,#d9d1dc,0.02*ui_alpha__cal)
-draw_sprite_ext(spr_list_name,0,global.c_w-640*1.4,______yy,global.font_ratio_resolution_xx,1,0,#d9d1dc,0.02*ui_alpha__cal)
-}
+//for(var i = 0; i <= 16; i += 0.5)
+//{
+//draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+i,global.font_ratio_resolution_xx,1.15,0,#d9d1dc,0.02*ui_alpha__cal)
+//draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80+i,0.5*global.font_ratio_resolution_xx,0.5,45,#d9d1dc,0.02*ui_alpha__cal)
+//draw_sprite_ext(spr_list_name,0,global.c_w-640*1.4,______yy,global.font_ratio_resolution_xx,1,0,#d9d1dc,0.02*ui_alpha__cal)
+//}
+draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+16,global.font_ratio_resolution_xx,1.15,0,c_black,0.3*ui_alpha__cal)
+draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80+16,0.5*global.font_ratio_resolution_xx,0.5,45,c_black,0.3*ui_alpha__cal)
 
+
+var gradient_color = merge_color(c_white,c_black,0.1)
 //스텟 창
-draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,global.font_ratio_resolution_xx,1.15,0,c_white,ui_alpha__cal)
+draw_sprite_general(spr_status,0,0,0,sprite_get_width(spr_status),sprite_get_height(spr_status),global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,global.font_ratio_resolution_xx,1.15,0,gradient_color,gradient_color,c_white,c_white,ui_alpha__cal)
+
+
 draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80,0.5*global.font_ratio_resolution_xx,0.5,45,c_white,ui_alpha__cal)
 
 //환경설정 버튼
@@ -56,7 +63,8 @@ __mobile__movement = (__mobile__movement < -1) ? -1 : __mobile__movement;
 var __xx = global.c_w-640*1.4-__mobile__movement*128
 var key_Lpressed = keyboard_check(vk_left)
 var key_Rpressed = keyboard_check(vk_right)
-draw_sprite_ext(spr_list_name,0,__xx,______yy,1,1,0,c_white,ui_alpha__cal)
+//draw_sprite_ext(spr_list_name,0,__xx,______yy,1,1,0,c_white,ui_alpha__cal)
+draw_sprite_general(spr_list_name,0,0,0,sprite_get_width(spr_list_name),sprite_get_height(spr_list_name),__xx-sprite_get_width(spr_list_name)*0.5,______yy,1,1,0,gradient_color,gradient_color,c_white,c_white,ui_alpha__cal)
 
 
 //곡(테마) 선택 버튼 ui
@@ -95,8 +103,8 @@ draw_text_k_scale(__xx+25,______yy+24,"좋아요 한 곡",64,-1,ui_alpha__cal*(1
 }
 if global.n_map_list = 2
 {
-draw_sprite_ext(spr_gear,0,__xx-110,______yy+72,0.12,0.12,15,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
-draw_text_k_scale(__xx+25,______yy+24,"커스텀 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.65*global.font_ratio_resolution_xx,0.65,0)
+draw_sprite_ext(spr_gear,0,__xx-210,______yy+72,0.12,0.12,15,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
+draw_text_k_scale(__xx+25,______yy+24,"유저 제작 커스텀 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.65*global.font_ratio_resolution_xx,0.65,0)
 }
 if global.n_map_list = 3
 {

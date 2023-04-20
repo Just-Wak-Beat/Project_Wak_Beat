@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.21"
+global.version = "Beta 2.3"
 global.low_graphics = false;
 global.dev_mode = 1
-global.mobile_mode = 0
+global.mobile_mode = 1
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
 alarm[11] = 1
@@ -72,7 +72,7 @@ global.n_music_instance = -4
 global.map_color = -4
 global.t_bg_color_alpha = 1
 global.t_bg_color = 1
-global.background_color = $FF343434
+global.background_color = merge_color(global.map_color,c_black,0.9)
 global.map_speed = 0
 global.t_map_speed = 0
 global.map_speed_y = 0

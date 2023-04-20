@@ -16,3 +16,16 @@
   + 플레이어 위치 화살표로 가르키면서 "You" 문구 추가
 - 앨범 일러스트 저작권 표기
 - 궁시렁 리믹스에 "운동" 파트 부분에 JSAB 아령모양 장애물 추가
+
+
+
+
+- 커스텀 맵 기능
+script_execute를 사용해서 제작하면 될듯
+https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Asset_Management/Scripts/script_execute.htm
+
+global.n_progress 이용해서 현재 곡 재생중인 위치 체크하고, global.n_progress값에 따라 메모장에서 코드 불러오는 식으로 진행
+맵 파일 ini로 저장할 때, 
+1. 섹션은 "execute_timeline", key값은 "second"으로 해서 시간 값 불러오고,
+2. 섹션은 "execute_script_name", key값은 string(time값)으로 해서, 실행할 스크립트 이름 불러오고
+3. 섹션은 "execute_script_param"+string(i), key값은 string(time값)으로 해서, parameter 값 받아오기 
