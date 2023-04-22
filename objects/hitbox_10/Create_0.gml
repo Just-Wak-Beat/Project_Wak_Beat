@@ -6,3 +6,9 @@ image_blend = global.map_color
 
 des = 0
 timer__ = 0
+w_alpha = 1
+
+if audio_is_playing(gungsirung)
+{
+w_alpha = 0
+}

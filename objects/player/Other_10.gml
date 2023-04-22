@@ -3,7 +3,7 @@
 w_alpha = 5
 if invincibility_cooltime < 30
 {
-invincibility_cooltime = 30
+invincibility_cooltime = 30+(1-global.t_selected_difficulty)*15
 }
 global.dashing = 1
 global.dash_cooltime = 40
