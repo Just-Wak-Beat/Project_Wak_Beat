@@ -34,6 +34,7 @@ image_xscale += (1.5+global.mobile_mode*0.3 - image_xscale)*0.16
 image_yscale += (1.5+global.mobile_mode*0.3 - image_yscale)*0.16
 image_angle += (5+angle_moving - image_angle)*0.1
 w_alpha += (0 - w_alpha)*0.1
+w_alpha_bg += (0 - w_alpha_bg)*0.1
 
 	if angle_moving_timer%2 = 0
 	{

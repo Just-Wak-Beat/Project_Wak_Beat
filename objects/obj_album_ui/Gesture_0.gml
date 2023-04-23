@@ -1,8 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-//일반 탄막
-image_blend = global.map_color
-
-
-alarm[1] = 1
+clicked_ = 1
+w_alpha = 1
+w_alpha_bg = 1

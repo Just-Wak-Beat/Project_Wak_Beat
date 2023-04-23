@@ -12,3 +12,6 @@ w_alpha = 0
 global.tutorial_n_stage = 0
 angle_moving = 0
 angle_moving_timer = 0
+
+clicked_ = 0
+w_alpha_bg = 0

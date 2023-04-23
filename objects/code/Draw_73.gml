@@ -361,44 +361,44 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		{
 			if global.scroll_activated != -1
 			{
-			global.scroll_n_m_xx = device_mouse_x(global.scroll_activated)
-			global.scroll_n_m_yy = device_mouse_y(global.scroll_activated)
+				global.scroll_n_m_xx = device_mouse_x(global.scroll_activated)
+				global.scroll_n_m_yy = device_mouse_y(global.scroll_activated)
 			
-			global.t_select_map += (global.joystick_yy - global.scroll_n_m_yy)/1080
-			global.reload_n_map_list_value = (global.joystick_xx - global.scroll_n_m_xx)/512
-			global.joystick_xx += (global.scroll_n_m_xx - global.joystick_xx)*0.2
-			global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.2
-			global.select_map += (global.t_select_map - global.select_map)*0.3
+				global.t_select_map += (global.joystick_yy - global.scroll_n_m_yy)/1080
+				global.reload_n_map_list_value = (global.joystick_xx - global.scroll_n_m_xx)/512
+				global.joystick_xx += (global.scroll_n_m_xx - global.joystick_xx)*0.2
+				global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.2
+				global.select_map += (global.t_select_map - global.select_map)*0.3
 			}
 			else
 			{
-			var y_plusment = (global.joystick_yy - global.scroll_n_m_yy)/1080
+				var y_plusment = (global.joystick_yy - global.scroll_n_m_yy)/1080
 				if abs(y_plusment) > 0.01
 				{
-				global.t_select_map += y_plusment
-				global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.3
+					global.t_select_map += y_plusment
+					global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.3
 				}
 				else
 				{
-				global.t_select_map = round(global.t_select_map)
+					global.t_select_map = round(global.t_select_map)
 				}
 				
 				if abs(y_plusment) > 1
 				{
-				global.clicking_timer = 10
+					global.clicking_timer = 10
 				}
 				
-			global.reload_n_map_list_value = (global.scroll_n_m_xx - global.joystick_xx)/512
+				global.reload_n_map_list_value = (global.scroll_n_m_xx - global.joystick_xx)/512
 				if abs(global.reload_n_map_list_value) > 0.5
 				{
-				global.n_map_list += sign(global.reload_n_map_list_value)
-				global.reload_n_map_list_value = sign(global.reload_n_map_list_value)
-				global.joystick_xx = global.scroll_n_m_xx
-				global.clicking_timer = 10
-				event_user(1)
-				scrolling_map = -4
+					global.n_map_list += sign(global.reload_n_map_list_value)
+					global.reload_n_map_list_value = sign(global.reload_n_map_list_value)
+					global.joystick_xx = global.scroll_n_m_xx
+					global.clicking_timer = 10
+					event_user(1)
+					scrolling_map = -4
 				}
-			global.joystick_xx += (global.scroll_n_m_xx - global.joystick_xx)*0.2
+				global.joystick_xx += (global.scroll_n_m_xx - global.joystick_xx)*0.2
 			}
 			
 			
@@ -437,14 +437,14 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			{
 				if global.clicking_timer <= 4 && mouse_check_button_released(mb_left) && mouse_x >= xx+xx_w*0.5
 				{
-				go_play = true
+					go_play = true
 				}
 			}
 			else
 			{
 				if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || (mouse_check_button_pressed(mb_left) && mouse_x >= xx+xx_w*0.5)
 				{
-				go_play = true
+					go_play = true
 				}
 			}
 		}
@@ -454,22 +454,22 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		{
 			if global.real_stage_map_difficulty[n_stage] == "Tutorial"
 			{
-			gamestart = 1;
-			global.t_selected_difficulty = 1;
-			audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+				gamestart = 1;
+				global.t_selected_difficulty = 1;
+				audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 			}
 			else if string_pos("(Hardcore)", global.stage_map_difficulty[n_stage]) != 0
 			{
-			gamestart = 1;
-			global.t_selected_difficulty = 0;
-			audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+				gamestart = 1;
+				global.t_selected_difficulty = 0;
+				audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 			}
 			else
 			{
-			gamestart = 1.1
-			global.selected_difficulty = 0.5
-			global.t_select_difficulty = 1
-			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+				gamestart = 1.1
+				global.selected_difficulty = 0.5
+				global.t_select_difficulty = 1
+				audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 			}
 		}
 	
@@ -477,45 +477,46 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		//음악 재로드 (음악 선택중 나오는 미리듣기)
 		if changed_music = 1
 		{
-		play_highlight = 1
-		obj_album_ui.y = room_height
-		obj_album_ui.image_xscale = 0
-		obj_album_ui.image_yscale = 0
-		obj_album_ui.image_angle = 0
-		load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
+			play_highlight = 1
+			obj_album_ui.y = room_height
+			obj_album_ui.image_xscale = 0
+			obj_album_ui.image_yscale = 0
+			obj_album_ui.image_angle = 0
+			load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
 		}
 		
-		
-		var __added_fav_list = keyboard_check_pressed(vk_shift) || (mouse_check_button_released(mb_left) && mouse_x < xx+xx_w*0.5)
+		var x_plusment = (global.joystick_xx - global.scroll_n_m_xx)/512
+		var __added_fav_list = keyboard_check_pressed(vk_shift) || (obj_album_ui.clicked_ == 1 && mouse_x < xx+xx_w*0.5 && x_plusment < 0.3)
 		
 		if __added_fav_list && global.n_map_list != 2 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage]
 		{
-		global.fav_anime = 0
-		audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
+			obj_album_ui.clicked_ = 0;
+			global.fav_anime = 0
+			audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
 
 			if global.n_map_list != 1
 			{
-			//좋아요 누른 곡 따로 분류
-			add_favorite_music(global.n_map_list);
+				//좋아요 누른 곡 따로 분류
+				add_favorite_music(global.n_map_list);
 		
-			global.real_n_favorite[n_stage] *= -1
+				global.real_n_favorite[n_stage] *= -1
 			}
-			
-			if global.n_map_list = 1
+			else
 			{
-			global.real_n_favorite[global.fav_map_id[n_stage]] *= -1
-			load_musicList(global.n_map_list)
-			load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
+				global.real_n_favorite[global.fav_map_id[n_stage]] *= -1
+				load_musicList(global.n_map_list)
+				load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
 			}
-		global.n_favorite[n_stage] *= -1
-		save_and_load_data(0,0)
+			global.n_favorite[n_stage] *= -1
+			save_and_load_data(0,0)
 		}
 	}
 	
 	
 //alpha text
 draw_text_k_scale(xx+32,global.c_h-140,"Just Wak and Beats ("+string(global.version)+")",64,-1,floor(global.ui_alpha),c_white,0,-1,normal_font,0.5,0.5,0)
-draw_text_k_scale(xx+32,global.c_h-100,"Presented by ABER",64,-1,floor(global.ui_alpha)*0.6,c_white,0,-1,normal_font,0.4,0.4,0)
+var __string__ = (global.mobile_mode == 1) ? program_directory : "Presented by ABER"
+draw_text_k_scale(xx+32,global.c_h-100,__string__,64,-1,floor(global.ui_alpha)*0.6,c_white,0,-1,normal_font,0.4,0.4,0)
 draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
 
 
@@ -527,7 +528,7 @@ draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alph
 
 	if global.mobile_mode = 1
 	{
-	draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+")",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
+	draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+") ",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
 	}
 }
 

@@ -12,3 +12,5 @@ if audio_is_playing(gungsirung)
 {
 w_alpha = 0
 }
+
+alarm[1] = 1
