@@ -5,7 +5,7 @@ if global.hp > 0 && code.gamestart = 2
 {
 	if invincibility_cooltime > 0 && show_invincibility = 1
 	{
-		draw_sprite_ext(spr_circle,0,x,y,0.2,0.2,image_angle,c_white,sign(invincibility_cooltime)*0.2)
+		draw_sprite_ext(spr_circle,0,x,y,0.1,0.1,image_angle,c_white,sign(invincibility_cooltime)*0.2)
 	}
 
 

@@ -13,6 +13,8 @@ function create_circle_misile(argument0,argument1,argument2,argument3,argument4,
 {
 var ins__ = create_square_misile(argument0,argument1,argument2,argument3,argument4,argument5,argument6)
 ins__.sprite_index = spr_circle;
+ins__.image_xscale = argument6*0.5
+ins__.image_yscale = argument6*0.5
 
 return ins__;
 }

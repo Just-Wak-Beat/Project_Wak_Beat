@@ -250,8 +250,8 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 								{
 								var effect_ = instance_create_depth(xx_+160+irandom_range(-global.fav_anime*32,global.fav_anime*32),yy_+irandom_range(-32+global.fav_anime,global.fav_anime*16),obj_album_ui.depth-15,movement_effect)
 								effect_.sprite_index = spr_circle
-								effect_.image_xscale = 0.02
-								effect_.image_yscale = 0.02
+								effect_.image_xscale = 0.01
+								effect_.image_yscale = 0.01
 								effect_.direction = 90
 								effect_.speed = 16-global.fav_anime*10
 								effect_.image_blend = c_white
@@ -622,7 +622,7 @@ draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_si
 	}
 	
 
-draw_sprite_ext(spr_circle,0,global.joystick_n_xx,global.joystick_n_yy,joystick_size__*0.35*global.font_ratio_resolution_xx,joystick_size__*0.35,0,c_white,global.joystick_alpha*0.15)
+draw_sprite_ext(spr_circle,0,global.joystick_n_xx,global.joystick_n_yy,joystick_size__*0.35*global.font_ratio_resolution_xx*0.5,joystick_size__*0.35*0.5,0,c_white,global.joystick_alpha*0.15)
 }
 
 
