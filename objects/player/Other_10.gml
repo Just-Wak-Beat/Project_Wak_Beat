@@ -14,10 +14,10 @@ _ef.image_yscale = 1
 _ef.t_scale = 2
 _ef.image_blend = global.player_color
 
-	repeat(irandom_range(8,10))
+	repeat(irandom_range(8,10)*2)
 	{
-	var random_x = irandom_range(-16,16)
-	var random_y = irandom_range(-16,16)
+	var random_x = irandom_range(-16,16)-global.hmove_speed*2
+	var random_y = irandom_range(-16,16)-global.vmove_speed*2
 	var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
 	effect_.image_xscale = 0.3
 	effect_.image_yscale = 0.3

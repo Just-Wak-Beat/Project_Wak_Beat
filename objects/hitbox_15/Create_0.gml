@@ -6,3 +6,4 @@ image_blend = global.map_color
 
 w_alpha = 1
 timer = 0
+

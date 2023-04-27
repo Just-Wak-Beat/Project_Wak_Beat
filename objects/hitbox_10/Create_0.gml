@@ -10,7 +10,12 @@ w_alpha = 1
 
 if audio_is_playing(gungsirung)
 {
-w_alpha = 0
+	w_alpha = 0
 }
 
 alarm[1] = 1
+
+if audio_is_playing(ipad)
+{
+	sprite_index = spr_cross
+}

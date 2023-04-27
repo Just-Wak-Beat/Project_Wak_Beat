@@ -88,6 +88,7 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	//곡 선택 효과음
 	if gamestart = 0 && global.b_t_select_map != round(global.t_select_map)
 	{
+		global.background_color = merge_color(global.map_color,c_black,0.9)
 		global.map_scroll_ui_position = round(global.t_select_map) - global.b_t_select_map
 		global.b_t_select_map = round(global.t_select_map)
 		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)

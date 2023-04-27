@@ -11,3 +11,4 @@ attack_ef.keep_spin_angle = speed__/2
 attack_ef.image_xscale = 0.35
 attack_ef.image_yscale = 0.35
 attack_ef.w_alpha = 10
+attack_ef.sprite_index = spr_cross

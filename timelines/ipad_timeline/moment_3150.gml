@@ -1,0 +1,1 @@
+create_laser(global.c_x,room_height*0.52,100,300,4,3,3,270)

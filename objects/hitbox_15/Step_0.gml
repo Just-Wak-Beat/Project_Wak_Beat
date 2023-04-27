@@ -8,7 +8,7 @@ if my_id != 0
 	var xx = target.x;
 	var yy = target.y;
 	
-	speed = point_distance(x,y,xx,yy)-sprite_width*0.93
+	speed = point_distance(x,y,xx,yy)-sprite_width*0.89
 	speed = (speed < 0) ? 0 : speed;
 
 	image_angle = point_direction(x,y,xx,yy)+35

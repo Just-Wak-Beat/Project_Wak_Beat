@@ -19,6 +19,7 @@ global.vmove = 0
 
 global.hmove_speed = 0
 global.vmove_speed = 0
+check_stop = 0
 
 global.cannot_control = 0
 
