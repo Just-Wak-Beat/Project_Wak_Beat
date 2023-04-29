@@ -21,9 +21,9 @@ else
 	
 	if auto_shake != 0
 	{
-	timer ++;
-	dir += auto_shake;
-		if timer > image_xscale*240
+		timer ++;
+		dir += auto_shake;
+		if timer >= 60
 		{
 			auto_shake *= -1
 			timer = 0;

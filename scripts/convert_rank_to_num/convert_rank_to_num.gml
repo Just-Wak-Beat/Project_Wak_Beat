@@ -2,59 +2,59 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function convert_rank_to_num(argument0)
 {
-var n_rank = argument0;
-var n_rank_real = 0;
-	if n_rank = "S+"
+var _n_rank = argument0;
+var _n_rank_real = 0;
+	if _n_rank = "S+"
 	{
-	n_rank_real = 12
+	_n_rank_real = 12
 	}
-	else if n_rank = "S"
+	else if _n_rank = "S"
 	{
-	n_rank_real = 11
+	_n_rank_real = 11
 	}
-	else if n_rank = "A+"
+	else if _n_rank = "A+"
 	{
-	n_rank_real = 10
+	_n_rank_real = 10
 	}
-	else if n_rank = "A"
+	else if _n_rank = "A"
 	{
-	n_rank_real = 9
+	_n_rank_real = 9
 	}
-	else if n_rank = "B+"
+	else if _n_rank = "B+"
 	{
-	n_rank_real = 8
+	_n_rank_real = 8
 	}
-	else if n_rank = "B"
+	else if _n_rank = "B"
 	{
-	n_rank_real = 7
+	_n_rank_real = 7
 	}
-	else if n_rank = "C+"
+	else if _n_rank = "C+"
 	{
-	n_rank_real = 6
+	_n_rank_real = 6
 	}
-	else if n_rank = "C"
+	else if _n_rank = "C"
 	{
-	n_rank_real = 5
+	_n_rank_real = 5
 	}
-	else if n_rank = "C-" || n_rank = "D+"
+	else if _n_rank = "C-" || _n_rank = "D+"
 	{
-	n_rank_real = 4
+	_n_rank_real = 4
 	}
-	else if n_rank = "D"
+	else if _n_rank = "D"
 	{
-	n_rank_real = 3
+	_n_rank_real = 3
 	}
-	else if n_rank = "E" || n_rank = "F+" || n_rank = "D-"
+	else if _n_rank = "E" || _n_rank = "F+" || _n_rank = "D-"
 	{
-	n_rank_real = 2
+	_n_rank_real = 2
 	}
-	else if n_rank = "F"
+	else if _n_rank = "F"
 	{
-	n_rank_real = 1
+	_n_rank_real = 1
 	}
 	else
 	{
-	n_rank_real = 0
+	_n_rank_real = 0
 	}
-return n_rank_real;
+return _n_rank_real;
 }

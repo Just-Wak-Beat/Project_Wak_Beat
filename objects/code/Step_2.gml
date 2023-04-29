@@ -308,3 +308,91 @@ if global.wakrio_effect != 0
 		wakrio_timer = 0
 	}
 }
+
+
+if global.master_remix_effect > 0
+{
+	global.master_remix_effect++
+	if global.master_remix_effect > 5
+	{
+		var size = irandom_range(10,5)/10
+		var __circle_ = create_projectile(irandom_range(global.c_x+global.t_map_speed*0.5,global.c_w+global.t_map_speed*10),global.c_y,size,0,size*24,-4,0.5,255,spr_rain)
+		__circle_.image_alpha = 0.8
+		__circle_.image_angle = 165
+		global.master_remix_effect = 1
+	}
+}
+
+if global.master_remix_effect2 > 0
+{
+	global.master_remix_effect2++
+	if global.master_remix_effect2 > 5
+	{
+		var scale = irandom_range(1,10)/10
+		var _misile_ = create_square_misile(irandom_range(global.c_x,global.c_w),global.c_h,2,20/scale,0,0,scale)
+		_misile_.direction = 90
+		_misile_.image_angle = 90
+		_misile_.speed = 68*scale/2
+		global.master_remix_effect2 = 1
+	}
+}
+
+
+if global.master_remix_effect3 > 0
+{
+	master_bpm_timer ++
+	if master_bpm_timer >= (4*3600/global.bpm)+global.music_sync_offset*3*60
+	{
+		view_shake(0.1,20,0,2)
+		master_bpm_timer -=(4*3600/global.bpm)+global.music_sync_offset*3*60
+	}
+}
+
+if global.master_remix_effect4 != 0 && instance_exists(master_hitbox)
+{
+	if global.master_remix_effect4 > 0
+	{
+		if master_hitbox.t_y > room_height*0.5
+		{
+			master_hitbox.t_y -= 5
+		}
+	}
+	else
+	{
+		master_hitbox.t_y -= 5*global.master_remix_effect4
+	}
+}
+
+if global.master_remix_effect5 > 0 && instance_exists(master_hitbox)
+{
+	master_bpm_timer ++
+	if master_bpm_timer >= (2*3600/global.bpm)+global.music_sync_offset*3*60
+	{
+		master_hitbox.w_alpha = 2
+		var angle = master_hitbox.image_angle
+		var _ins__ = create_projectile(master_hitbox.x,master_hitbox.y,master_hitbox.image_xscale,0,lengthdir_x(40,135+angle),lengthdir_y(40,135+angle),0,0,spr_triangle_half)
+		_ins__.image_index = 0
+		_ins__.image_angle = angle
+		
+		var _ins__ = create_projectile(master_hitbox.x,master_hitbox.y,master_hitbox.image_xscale,0,lengthdir_x(40,angle),lengthdir_y(40,angle),0,0,spr_triangle_half)
+		_ins__.image_index = 1
+		_ins__.image_angle = angle
+		
+		var _ins__ = create_projectile(master_hitbox.x,master_hitbox.y,master_hitbox.image_xscale,0,lengthdir_x(40,225+angle),lengthdir_y(40,225+angle),0,0,spr_triangle_half)
+		_ins__.image_index = 2
+		_ins__.image_angle = angle
+		
+		master_hitbox.image_xscale *= 1.2
+		master_hitbox.image_yscale *= 1.2
+		
+		master_bpm_timer -=(2*3600/global.bpm)+global.music_sync_offset*3*60
+	}
+	
+	master_movement_timer ++
+	master_hitbox.t_y += master_movement_dir;
+	if master_movement_timer >= 50
+	{
+		master_movement_dir *= -1
+		master_movement_timer = 0
+	}
+}

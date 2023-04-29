@@ -1,0 +1,1 @@
+global.master_remix_effect = 1

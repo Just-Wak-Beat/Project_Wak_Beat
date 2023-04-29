@@ -113,7 +113,7 @@ global.unlocked_music_num = 0
 
 
 
-global.origin_total_map = 15
+global.origin_total_map = 16
 global.total_map = global.origin_total_map
 	//곡 정보
 	for(var i = 0; i < global.total_map; i++)
@@ -410,7 +410,7 @@ global.real_requirement_number[13] = 2
 
 
 
-//궁시렁 리믹스 `
+//궁시렁 리믹스
 global.real_stage_map_name[14] = "궁시렁 리믹스";
 global.real_stage_map_artist[14] = "레이지스피크";
 global.real_stage_map_difficulty[14] = "Normal";
@@ -425,7 +425,26 @@ global.real_requirement_number[14] = 1
 
 
 
-
+//매스터 리믹스
+global.real_stage_map_name[15] = "매스터 리믹스 (Orchestral Edit)";
+global.real_stage_map_artist[15] = "Team Pangenie";
+global.real_stage_map_difficulty[15] = "Expert";
+global.real_stage_map_color[15] = #333d4b;
+global.real_stage_map_duration[15] = 7291;
+global.real_stage_map_audio_name[15] = "master_remix";
+global.real_stage_bpm[15] = 132;
+global.real_stage_map_highlight_part[15] = 88.8;
+global.real_detailed_difficulty[15] = 7;
+global.real_requirement_type[15] = 3
+global.real_requirement_number[15] = 1
+global.master_remix_effect = 0
+master_bpm_timer = 0
+global.master_remix_effect2 = 0
+global.master_remix_effect3 = 0
+global.master_remix_effect4 = 0
+master_movement_dir = -3
+master_movement_timer = 0
+global.master_remix_effect5 = 0
 
 
 music_title_alpha = 0

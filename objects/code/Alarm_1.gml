@@ -1,7 +1,7 @@
 /// @description Rank System
 // You can write your code in this editor
 var n_rank_real = convert_rank_to_num(global.n_rank[global.n_map_id])
-if global.t_select_difficulty == 0 //하드 코어 모드
+if global.t_selected_difficulty == 0 //하드 코어 모드
 {
 n_rank_real = convert_rank_to_num(global.n_rank_hardcore[global.n_map_id])
 }

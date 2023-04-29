@@ -24,4 +24,6 @@ function create_projectile(argument0,argument1,argument2,argument3,argument4,arg
 	attack_ef.vspeed = argument4
 	attack_ef.hspeed = argument5
 	attack_ef.sprite_index = argument8
+	
+	return attack_ef;
 }

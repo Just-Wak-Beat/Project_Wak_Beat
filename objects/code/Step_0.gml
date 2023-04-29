@@ -446,6 +446,7 @@ audio_sound_pitch(global.n_music_instance,global.rewind/90-1)
 		global.cannot_control = 0
 		player.invincibility_cooltime = 90
 		player.show_invincibility = 1
+		master_bpm_timer = 0
 		instance_destroy(hitbox_parents)
 		instance_destroy(obj_savepoint)
 		instance_destroy(square_misile)

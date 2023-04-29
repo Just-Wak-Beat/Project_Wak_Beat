@@ -20,88 +20,88 @@ if global.total_map > 0
 {
 	if instance_exists(code) && code.gamestart = 1
 	{
-	y += (yy+yy_h*2 - y)*0.1
-	timer ++
+		y += (yy+yy_h*2 - y)*0.1
+		timer ++
 
 		if timer > 120
 		{
-		instance_destroy()
+			instance_destroy()
 		}
 	}
-y += (yy+yy_h*0.5 - y)*0.1
+	y += (yy+yy_h*0.5 - y)*0.1
 
-image_xscale += (1.5+global.mobile_mode*0.3 - image_xscale)*0.16
-image_yscale += (1.5+global.mobile_mode*0.3 - image_yscale)*0.16
-image_angle += (5+angle_moving - image_angle)*0.1
-w_alpha += (0 - w_alpha)*0.1
-w_alpha_bg += (0 - w_alpha_bg)*0.1
+	image_xscale += (1.5+global.mobile_mode*0.3 - image_xscale)*0.16
+	image_yscale += (1.5+global.mobile_mode*0.3 - image_yscale)*0.16
+	image_angle += (5+angle_moving - image_angle)*0.1
+	w_alpha += (0 - w_alpha)*0.1
+	w_alpha_bg += (0 - w_alpha_bg)*0.1
 
 	if angle_moving_timer%2 = 0
 	{
-	angle_moving += (3 - angle_moving)*0.03
+		angle_moving += (3 - angle_moving)*0.03
 	}
 	else
 	{
-	angle_moving += (-3 - angle_moving)*0.03
+		angle_moving += (-3 - angle_moving)*0.03
 	}
 }
 else
 {
-y = room_height
-image_xscale = 0
-image_yscale = 0
-image_angle = 0
+	y = room_height
+	image_xscale = 0
+	image_yscale = 0
+	image_angle = 0
 }
 
 if global.highlight_time <= 440 && global.highlight_time > 30 && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
-bpm_timer ++
+	bpm_timer ++
 	if bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
 	{
-	angle_moving_timer++
-	global.background_w_alpha = 0.05
-	instance_create_depth(global.c_w-640,global.c_y+yy_h*0.47,code.depth-50,circle_effect)
+		angle_moving_timer++
+		global.background_w_alpha = 0.05
+		instance_create_depth(global.c_w-640,global.c_y+yy_h*0.47,code.depth-50,circle_effect)
 		repeat(irandom_range(8,10)*5)
 		{
-		var random_dir = irandom_range(0,359)
-		var effect_ = instance_create_depth(x+lengthdir_x(image_xscale*250,random_dir),y+lengthdir_y(image_xscale*250,random_dir),depth+1,movement_effect)
-		effect_.image_xscale = 0.3
-		effect_.image_yscale = 0.3
-		effect_.direction = random_dir
-		effect_.speed = 16
-		effect_.image_blend = global.map_color
-		}
-		
-		if global.select_difficulty > 0
-		{
-		var xx = camera_get_view_x(view_camera[0])
-		var xx_w = camera_get_view_width(view_camera[0])
-		
-			repeat(irandom_range(40,50))
-			{
-			var random_dir = irandom_range(0,359);
-			var middle_yy = yy+yy_h*0.5+lengthdir_y(image_xscale*340,random_dir);
-				if global.selected_difficulty == 1
-				{
-				var xx__ = xx+xx_w*0.32+lengthdir_x(image_xscale*340,random_dir);
-				}
-				else
-				{
-				var xx__ = xx+xx_w*0.68+lengthdir_x(image_xscale*340,random_dir);
-				}
-			
-
-			var effect_ = instance_create_depth(xx__,middle_yy,depth-10,movement_effect)
+			var random_dir = irandom_range(0,359)
+			var effect_ = instance_create_depth(x+lengthdir_x(image_xscale*250,random_dir),y+lengthdir_y(image_xscale*250,random_dir),depth+1,movement_effect)
 			effect_.image_xscale = 0.3
 			effect_.image_yscale = 0.3
 			effect_.direction = random_dir
 			effect_.speed = 16
-			effect_.image_blend = c_white
+			effect_.image_blend = global.map_color
+		}
+		
+		if global.select_difficulty > 0
+		{
+			var xx = camera_get_view_x(view_camera[0])
+			var xx_w = camera_get_view_width(view_camera[0])
+		
+			repeat(irandom_range(40,50))
+			{
+				var random_dir = irandom_range(0,359);
+				var middle_yy = yy+yy_h*0.5+lengthdir_y(image_xscale*340,random_dir);
+				if global.selected_difficulty == 1
+				{
+					var xx__ = xx+xx_w*0.32+lengthdir_x(image_xscale*340,random_dir);
+				}
+				else
+				{
+					var xx__ = xx+xx_w*0.68+lengthdir_x(image_xscale*340,random_dir);
+				}
+			
+
+				var effect_ = instance_create_depth(xx__,middle_yy,depth-10,movement_effect)
+				effect_.image_xscale = 0.3
+				effect_.image_yscale = 0.3
+				effect_.direction = random_dir
+				effect_.speed = 16
+				effect_.image_blend = c_white
 			}
 		}
-	image_xscale *= 0.8
-	image_yscale *= 0.8
-	w_alpha = 1
-	bpm_timer -= (3600/global.bpm)+global.music_sync_offset*3*60
+		image_xscale *= 0.8
+		image_yscale *= 0.8
+		w_alpha = 1
+		bpm_timer -= (3600/global.bpm)+global.music_sync_offset*3*60
 	}
 }

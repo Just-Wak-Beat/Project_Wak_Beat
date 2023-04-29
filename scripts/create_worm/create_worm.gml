@@ -29,7 +29,8 @@ function create_worm(argument0,argument1,argument2,argument3,argument4,argument5
 			__ins__head.my_id = i;
 			__ins__head.speed = argument7;
 			__ins__head.auto_shake = argument8;
-			__ins__head.dir = argument9-118*argument8;
+			__ins__head.dir = argument9;
+			__ins__head.direction = argument9;
 			for(var ii = 0; ii < argument3; ii++)
 			{
 				__ins__head.id_num[ii] = __ins__head;
@@ -49,4 +50,6 @@ function create_worm(argument0,argument1,argument2,argument3,argument4,argument5
 			__ins__.dir = 0
 		}
 	}
+	
+	return __ins__head;
 }
