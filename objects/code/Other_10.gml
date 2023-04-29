@@ -6,7 +6,7 @@ np_setpresence_more("", "메인 매뉴", false);
 np_setpresence("메인 매뉴", "", "type0", "");
 
 
-global.hp = 5
+
 global.tutorial_now = 0
 global.fukurou_snow_effect = 0
 global.turisumo_effect = 0

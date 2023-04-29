@@ -161,3 +161,4 @@ global.total_died_here = 0
 
 save_and_load_data(0,false)
 alarm[6] = 20
+global.hp = 5
