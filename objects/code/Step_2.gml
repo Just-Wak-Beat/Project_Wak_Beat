@@ -366,7 +366,7 @@ if global.master_remix_effect4 != 0 && instance_exists(master_hitbox)
 if global.master_remix_effect5 > 0 && instance_exists(master_hitbox)
 {
 	master_bpm_timer ++
-	if master_bpm_timer >= (2*3600/global.bpm)+global.music_sync_offset*3*60
+	if master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
 	{
 		master_hitbox.w_alpha = 2
 		var angle = master_hitbox.image_angle
@@ -385,7 +385,7 @@ if global.master_remix_effect5 > 0 && instance_exists(master_hitbox)
 		master_hitbox.image_xscale *= 1.2
 		master_hitbox.image_yscale *= 1.2
 		
-		master_bpm_timer -=(2*3600/global.bpm)+global.music_sync_offset*3*60
+		master_bpm_timer -=(3600/global.bpm)+global.music_sync_offset*3*60
 	}
 	
 	master_movement_timer ++
