@@ -35,6 +35,7 @@ if global.total_map > 0
 	image_angle += (5+angle_moving - image_angle)*0.1
 	w_alpha += (0 - w_alpha)*0.1
 	w_alpha_bg += (0 - w_alpha_bg)*0.1
+	heart_alpha += (-0.01 - heart_alpha)*0.1
 
 	if angle_moving_timer%2 = 0
 	{
@@ -60,17 +61,36 @@ if global.highlight_time <= 440 && global.highlight_time > 30 && code.gamestart 
 	{
 		angle_moving_timer++
 		global.background_w_alpha = 0.05
-		instance_create_depth(global.c_w-640,global.c_y+yy_h*0.47,code.depth-50,circle_effect)
-		repeat(irandom_range(8,10)*5)
+		
+		if angle_moving_timer%2 == 0
 		{
-			var random_dir = irandom_range(0,359)
-			var effect_ = instance_create_depth(x+lengthdir_x(image_xscale*250,random_dir),y+lengthdir_y(image_xscale*250,random_dir),depth+1,movement_effect)
-			effect_.image_xscale = 0.3
-			effect_.image_yscale = 0.3
-			effect_.direction = random_dir
-			effect_.speed = 16
-			effect_.image_blend = global.map_color
+			w_alpha_bg = 0.6
+			
+			for(var i = 0; i < 360; i += 25)
+			{
+				var random_dir = i+image_angle
+				var effect_ = instance_create_depth(x+lengthdir_x(image_xscale*250,random_dir),y+lengthdir_y(image_xscale*250,random_dir),depth+1,movement_effect)
+				effect_.image_xscale = 0.3
+				effect_.image_yscale = 0.3
+				effect_.direction = random_dir
+				effect_.speed = 16
+				effect_.image_blend = global.map_color
+			}
+			
+			repeat(irandom_range(8,10)*5)
+			{
+				var random_dir = irandom_range(0,359)
+				var effect_ = instance_create_depth(x+lengthdir_x(image_xscale*250,random_dir),y+lengthdir_y(image_xscale*250,random_dir),depth+1,movement_effect)
+				effect_.image_xscale = 0.3
+				effect_.image_yscale = 0.3
+				effect_.direction = random_dir
+				effect_.speed = 16
+				effect_.image_blend = global.map_color
+			}
 		}
+		
+		instance_create_depth(global.c_w-640,global.c_y+yy_h*0.47,code.depth-50,circle_effect)
+	
 		
 		if global.select_difficulty > 0
 		{

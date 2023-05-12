@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.3"
+global.version = "Beta 2.4"
 global.low_graphics = false;
 global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
@@ -73,6 +73,10 @@ global.map_color = -4
 global.t_bg_color_alpha = 1
 global.t_bg_color = 1
 global.background_color = merge_color(global.map_color,c_black,0.9)
+	if (global.background_color == c_black)
+	{
+		global.background_color = merge_color(c_white,c_black,0.9)
+	}
 global.map_speed = 0
 global.t_map_speed = 0
 global.map_speed_y = 0
@@ -404,7 +408,7 @@ global.real_stage_map_duration[13] = 4432;
 global.real_stage_map_audio_name[13] = "isedolhyang";
 global.real_stage_bpm[13] = 85;
 global.real_stage_map_highlight_part[13] = 28.71;
-global.real_detailed_difficulty[13] = 3;
+global.real_detailed_difficulty[13] = 4;
 global.real_requirement_type[13] = 7
 global.real_requirement_number[13] = 2
 

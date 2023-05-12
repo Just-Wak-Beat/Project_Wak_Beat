@@ -60,6 +60,9 @@ global.show_music_title = 0
 global.wakrio_effect = 0
 wakrio_timer = 0
 global.t_w_alpha = 0
+load_musicList(global.n_map_list)
+
+
 
 
 

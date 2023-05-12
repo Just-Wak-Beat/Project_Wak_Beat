@@ -46,7 +46,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.2.1.75",
+    "IDEVersion": "2023.4.0.84",
   },
   "resources": [
     {"id":{"name":"tutorial_part4_timeline","path":"timelines/tutorial_part4_timeline/tutorial_part4_timeline.yy",},},

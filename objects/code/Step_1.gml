@@ -45,7 +45,7 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	//메인매뉴 돌아가기
 	if global.back_to_game > 120
 	{
-		global.background_color = merge_color(global.map_color,c_black,0.9)
+		alarm[8] = 1
 		global.t_bg_color_alpha = 0
 		global.t_bg_color = 1
 		global.w_alpha = 1
@@ -88,10 +88,11 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	//곡 선택 효과음
 	if gamestart = 0 && global.b_t_select_map != round(global.t_select_map)
 	{
-		global.background_color = merge_color(global.map_color,c_black,0.9)
 		global.map_scroll_ui_position = round(global.t_select_map) - global.b_t_select_map
 		global.b_t_select_map = round(global.t_select_map)
 		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+		
+		alarm[8] = 1
 	}
 
 

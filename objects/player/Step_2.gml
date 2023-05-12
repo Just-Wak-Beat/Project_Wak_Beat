@@ -11,7 +11,7 @@ else
 }
 
 
-if invincibility_cooltime <= 0 && global.hp > 0
+if invincibility_cooltime <= 0 && global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9)
 {
 	//for(var i = 1; i <= abs(global.hmove_speed)+1; i++)
 	//{

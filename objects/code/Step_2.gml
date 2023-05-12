@@ -382,6 +382,8 @@ if global.master_remix_effect5 > 0 && instance_exists(master_hitbox)
 		_ins__.image_index = 2
 		_ins__.image_angle = angle
 		
+		view_shake(0.1,10,0,2)
+		
 		master_hitbox.image_xscale *= 1.2
 		master_hitbox.image_yscale *= 1.2
 		

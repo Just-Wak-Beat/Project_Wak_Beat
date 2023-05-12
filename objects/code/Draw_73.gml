@@ -70,6 +70,17 @@ col = c_white
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7*global.font_ratio_resolution_xx,font_size*0.7,0)
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85*global.font_ratio_resolution_xx,font_size*0.85,0)
 
+
+var col_1 = merge_color(global.player_color,c_white,0.85)
+draw_set_color(merge_color(global.player_color,c_white,0.85))
+draw_set_alpha(music_title_alpha*0.3)
+draw_line_width(xx+music_title_alpha*780*font_size,yy-128,xx+music_title_alpha*320*font_size,yy+music_title_alpha*xx_w*font_size,600*font_size)
+
+draw_set_color(merge_color(col_1,c_black,0.2))
+draw_set_alpha(music_title_alpha*0.3)
+draw_line_width(xx+music_title_alpha*1080*font_size,yy-128,xx+music_title_alpha*620*font_size,yy+music_title_alpha*xx_w*font_size,300*font_size)
+
+
 draw_sprite_ext(spr_illustrationCG,global.player_skin*3+global.random_illustration,xx+music_title_alpha*430*font_size,yy+yy_h,font_size*2,font_size*2,0,c_white,music_title_alpha)
 
 

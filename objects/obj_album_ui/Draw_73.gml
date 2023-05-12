@@ -29,6 +29,16 @@ if sprite_exists(sprite_index)
 	}
 	
 	draw_sprite_ext(spr_album,1,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,c_white,w_alpha_bg)
+	
+	if heart_alpha > 0
+	{
+		var scale = (10-heart_alpha)/13
+		if (scale < 0)
+		{
+			scale = 0
+		}
+		draw_sprite_ext(spr_heart,0,x,y,image_xscale*global.font_ratio_resolution_xx*scale,image_yscale*scale,image_angle,c_white,heart_alpha)
+	}
 }
 
 
@@ -308,3 +318,4 @@ draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않
 draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.32,middle_yy,scale*f_selected*global.font_ratio_resolution_xx,scale*f_selected,0,merge_color(c_black,c_white,abs(n_difficulty)),global.select_difficulty)
 draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.68,middle_yy,scale*s_selected*global.font_ratio_resolution_xx,scale*s_selected,0,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
 }
+/**/

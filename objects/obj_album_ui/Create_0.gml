@@ -15,3 +15,5 @@ angle_moving_timer = 0
 
 clicked_ = 0
 w_alpha_bg = 0
+
+heart_alpha = 0

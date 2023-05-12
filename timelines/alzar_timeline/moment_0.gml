@@ -29,3 +29,4 @@ _shaking_circle.sprite_index = spr_circle_outline
 
 create_explo_circle(xx,global.c_y+i*64,1+i*2,60,0,0,0.1,2,0,0,-3)
 }
+
