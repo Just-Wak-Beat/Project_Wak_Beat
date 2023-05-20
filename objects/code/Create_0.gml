@@ -117,7 +117,7 @@ global.unlocked_music_num = 0
 
 
 
-global.origin_total_map = 16
+global.origin_total_map = 17
 global.total_map = global.origin_total_map
 	//곡 정보
 	for(var i = 0; i < global.total_map; i++)
@@ -449,6 +449,23 @@ global.master_remix_effect4 = 0
 master_movement_dir = -3
 master_movement_timer = 0
 global.master_remix_effect5 = 0
+
+
+//Promise
+global.real_stage_map_name[16] = "Promise (Cover by 릴파 Lilpa)";
+global.real_stage_map_artist[16] = "Mixing by 공띵 / Original by GrooPark";
+global.real_stage_map_difficulty[16] = "Expert";
+global.real_stage_map_color[16] = #344a87;
+global.real_stage_map_duration[16] = 5453;
+global.real_stage_map_audio_name[16] = "promise";
+global.real_stage_bpm[16] = 165;
+global.real_stage_map_highlight_part[16] = 39.5;
+global.real_detailed_difficulty[16] = 6;
+global.real_requirement_type[16] = 6;
+global.real_requirement_number[16] = 1;
+global.promise_effect = 0
+
+
 
 
 music_title_alpha = 0

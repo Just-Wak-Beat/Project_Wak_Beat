@@ -222,6 +222,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 			if (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
 			{
 				global.n_progress ++
+				audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),0)
 			}
 		}
 		else
@@ -293,8 +294,7 @@ global.w_alpha += (global.t_w_alpha - global.w_alpha)*0.1
 //되감기 이펙트
 if global.rewind > 0
 {
-
-audio_sound_pitch(global.n_music_instance,global.rewind/90-1)
+	audio_sound_pitch(global.n_music_instance,global.rewind/90-1)
 	if global.rewind = 1
 	{
 		audio_play_sound(global.die_sfx,0,false,global.master_volume*global.sfx_volume)

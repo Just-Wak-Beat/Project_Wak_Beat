@@ -6,14 +6,58 @@ image_angle += keep_spin_angle
 
 
 
-if global.fukurou_snow_effect != 0 || global.ipad_effect != 0 || audio_is_playing(isedolhyang)
+
+
+if global.fukurou_snow_effect != 0 || global.ipad_effect != 0 || audio_is_playing(isedolhyang) || audio_is_playing(promise)
 {
 var _image_scale = 640*image_xscale
 
-	if des = 0 && ((y > global.c_h && gravity_direction = 270) || (y < global.c_y && gravity_direction != 270))
+	if des = 0 && ((y > global.c_h && gravity_direction > 180 && gravity_direction < 360) || (y < global.c_y && gravity_direction > 0 && gravity_direction < 180))
 	{
-	var _shaking_circle = create_explo_circle(x,y,1,60,2,0,2*image_xscale,0,0,0)
-	_shaking_circle.sprite_index = spr_circle_outline
+		event_user(0)
+		if audio_is_playing(promise)
+		{
+			var _shaking_circle = create_explo_circle(x,y,1,60,0,0,3.6*image_xscale,0,0,0)
+			_shaking_circle.sprite_index = spr_circle_outline
+			
+			global.w_alpha = 0.3
+			if sprite_index == spr_star
+			{
+				for(var i = 0; i < 180; i += 15)
+				{
+					var attack_ef = instance_create_depth(x,y,depth+1,hitbox_2)
+					attack_ef.speed = 10
+					attack_ef.direction = i
+					attack_ef.keep_spin_angle = 5
+					attack_ef.image_angle = 90-i
+					attack_ef.image_xscale = 0.6
+					attack_ef.image_yscale = 0.6
+					attack_ef.w_alpha = 10
+					attack_ef.sprite_index = spr_square
+				}
+				instance_destroy()
+			}
+			else
+			{
+				for(var i = 0; i < 180; i += 15)
+				{
+					var attack_ef = instance_create_depth(x,y,depth+1,hitbox_2)
+					attack_ef.speed = 10
+					attack_ef.direction = i
+					attack_ef.keep_spin_angle = 5
+					attack_ef.image_angle = 90-i
+					attack_ef.image_xscale = 0.6
+					attack_ef.image_yscale = 0.6
+					attack_ef.w_alpha = 10
+					attack_ef.sprite_index = spr_spuare_outline
+				}
+			}
+		}
+		else
+		{
+			var _shaking_circle = create_explo_circle(x,y,1,60,2,0,2.4*image_xscale,0,0,0)
+			_shaking_circle.sprite_index = spr_circle_outline
+		}
 	
 		if audio_is_playing(winter_spring)
 		{
@@ -36,7 +80,7 @@ var _image_scale = 640*image_xscale
 	des = 1
 	}
 
-	if x+_image_scale < global.c_x || x-_image_scale > global.c_w || y+_image_scale < global.c_y || y-_image_scale > global.c_h
+	if sprite_index != spr_star && (x+_image_scale < global.c_x || x-_image_scale > global.c_w || y+_image_scale < global.c_y || y-_image_scale > global.c_h)
 	{
 		instance_destroy()
 	}
@@ -98,5 +142,45 @@ else
 	else
 	{
 		w_alpha = 0
+	}
+}
+
+
+
+
+
+if sprite_index == spr_star
+{
+	var random_val = irandom_range(0,100);
+	
+	if random_val > 60
+	{
+		var effect_ = instance_create_depth(x+irandom_range(-32,32),y+irandom_range(-32,32),depth+5,movement_effect)
+		effect_.image_xscale = 0.5/(1024/sprite_width)
+		effect_.image_yscale = 0.5/(1024/sprite_width)
+		effect_.direction = (direction != 0) ? direction+irandom_range(140,180) : direction+180
+		effect_.speed = 24
+		effect_.image_blend = global.map_color
+		effect_.sprite_index = spr_circle
+		effect_.image_alpha = 2
+	}
+	
+	if random_val >= 90
+	{
+		var attack_ef = instance_create_depth(x+irandom_range(-32,32),y+irandom_range(-32,32),depth+1,hitbox_2)
+		attack_ef.speed = 20
+		attack_ef.direction = (direction != 0) ? direction+irandom_range(140,180) : direction+180
+		attack_ef.keep_spin_angle = 5
+		attack_ef.image_angle = 90
+		attack_ef.image_xscale = 0.2
+		attack_ef.image_yscale = 0.2
+		attack_ef.w_alpha = 10
+		attack_ef.sprite_index = spr_square
+	}
+	
+	gravity += (0 - gravity)*0.1
+	if (speed > 0)
+	{
+		speed += (6 - speed)*0.1
 	}
 }

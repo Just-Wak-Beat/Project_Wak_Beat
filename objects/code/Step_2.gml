@@ -398,3 +398,26 @@ if global.master_remix_effect5 > 0 && instance_exists(master_hitbox)
 		master_movement_timer = 0
 	}
 }
+
+
+
+if global.promise_effect > 0
+{
+	global.promise_effect ++
+	if global.promise_effect > 21.8*4
+	{
+		var xx = irandom_range(global.c_x+256,global.c_w-256)
+		var scale = irandom_range(10,5)/40
+		var attack_ef = instance_create_depth(xx,global.c_y-irandom_range(320,160),depth+1,hitbox_10)
+		attack_ef.gravity = 15
+		attack_ef.gravity_direction = 270
+		attack_ef.image_xscale = scale
+		attack_ef.image_yscale = scale
+		attack_ef.sprite_index = spr_star
+		attack_ef.w_alpha = 10
+		attack_ef.keep_spin_angle = irandom_range(10,5)/30
+		attack_ef.direction = 270
+		attack_ef.speed = 10
+		global.promise_effect -= 21.8*4
+	}
+}
