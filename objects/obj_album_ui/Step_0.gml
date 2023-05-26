@@ -3,15 +3,15 @@
 var yy = camera_get_view_y(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
 
-if global.n_map_list != 2
-{
-sprite_index = spr_album
-image_index = global.n_map_id+2
-}
-else
-{
-sprite_index = global.custom_stage_album[global.n_map_id]
-}
+	if global.n_map_list != 2
+	{
+		sprite_index = spr_album
+		image_index = global.n_map_id+2
+	}
+	else
+	{
+		sprite_index = global.custom_stage_album[global.n_map_id]
+	}
 x = global.c_x+916-global.mobile_mode*64
 depth = code.depth-100
 image_alpha = global.ui_alpha

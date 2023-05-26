@@ -70,7 +70,7 @@ spin_rad += 10
 
 timer ++
 
-	if timer > (global.bpm/3600)*2000
+	if (touched == 0 && timer > (global.bpm/3600)*2000)
 	{
 		t_speed -= 0.001
 	}
@@ -100,56 +100,70 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 		}
 	}
 
-
-	if timer > (3600/global.bpm)
+	if (touched == 0)
 	{
-		timer -= (3600/global.bpm)
-		if t_speed != 10
+		if (timer > (3600/global.bpm))
 		{
-			image_angle = 360*choose(-1,1)
-			t_speed = 10
-			w_alpha = 1
-			if point_distance(x,y,room_width*0.5,room_height*0.5) > 600
+			timer -= (3600/global.bpm)
+			if t_speed != 10
 			{
-				t_angle = point_direction(x,y,room_width*0.5,room_height*0.5)
+				image_angle = 360*choose(-1,1)
+				t_speed = 10
+				w_alpha = 1
+				if point_distance(x,y,room_width*0.5,room_height*0.5) > 600
+				{
+					t_angle = point_direction(x,y,room_width*0.5,room_height*0.5)
+				}
+				else
+				{
+					t_angle = irandom_range(0,359)
+				}
 			}
-			else
-			{
-				t_angle = irandom_range(0,359)
-			}
+			image_xscale = 0.25
+			image_yscale = 0.25
 		}
-		image_xscale = 0.25
-		image_yscale = 0.25
+
+
+		speed += (t_speed - speed)*0.01
+		direction += (t_angle - direction)*0.01
+		image_xscale += (0.2 - image_xscale)*0.1
+		image_yscale += (0.2 - image_yscale)*0.1
+		image_angle += (0 - image_angle)*0.03
 	}
-
-
-speed += (t_speed - speed)*0.01
-direction += (t_angle - direction)*0.01
-image_angle += (0 - image_angle)*0.03
-image_xscale += (0.2 - image_xscale)*0.1
-image_yscale += (0.2 - image_yscale)*0.1
-w_alpha += (0 - w_alpha)*0.01
+	w_alpha += (0 - w_alpha)*0.01
+	
 
 
 
-	if place_meeting(x,y,player)
+	if (touched == 0 && place_meeting(x,y,player))
 	{
-		global.w_alpha = 1
 		global.savepoint_text_t_alpha = -0.01
-		var _ef = instance_create_depth(x,y,depth+1,explosion_effect)
+		var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)
 		_ef.image_xscale = 1
 		_ef.image_yscale = 1
 		_ef.t_scale = 2
 		_ef.image_blend = global.player_color
+		speed = 0
+		t_speed = 0
+		gravity = 0.6
+		vspeed = -32
+		image_angle = 0
+
+		player.x = room_width*0.5;
+		player.y = room_height*0.5;
+		x = room_width*0.5;
+		y = room_height*0.5;
+		obj_camera.x = room_width*0.5+obj_camera.x-player.x
+		obj_camera.y = room_height*0.5+obj_camera.y-player.y
 
 		repeat(irandom_range(8,10))
 		{
 			var random_x = irandom_range(-16,16)
 			var random_y = irandom_range(-16,16)
-			var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
+			var effect_ = instance_create_depth(room_width*0.5+random_x,room_height*0.5+random_y,depth+1,movement_effect)
 			effect_.image_xscale = 0.3
 			effect_.image_yscale = 0.3
-			effect_.direction = point_direction(x,y,x+random_x,y+random_y)
+			effect_.direction = point_direction(room_width*0.5,room_height*0.5,room_width*0.5+random_x,room_height*0.5+random_y)
 			effect_.speed = 16
 			effect_.image_blend = color_sec
 		}
@@ -162,16 +176,22 @@ w_alpha += (0 - w_alpha)*0.01
 			{
 				global.background_color = $FF161510
 				audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+				global.w_alpha = 1
+				instance_destroy()
 			}
 			else if global.tutorial_n_stage = 2
 			{
 				global.background_color = $FF331800
 				audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+				global.w_alpha = 1
+				instance_destroy()
 			}
 			else if global.tutorial_n_stage = 3
 			{
 				global.background_color = $FF1E2620
 				audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+				global.w_alpha = 1
+				instance_destroy()
 			}
 			else
 			{
@@ -183,5 +203,4 @@ w_alpha += (0 - w_alpha)*0.01
 			event_user(0)
 		}
 	
-		instance_destroy()
 	}

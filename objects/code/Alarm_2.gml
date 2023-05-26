@@ -3,4 +3,4 @@
 load_musicList(global.n_map_list)
 load_custom_map_files()
 
-alarm[4] = 1
+alarm[3] = 1

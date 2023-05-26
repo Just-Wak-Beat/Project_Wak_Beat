@@ -6,7 +6,7 @@ np_setpresence_more("", "메인 매뉴", false);
 np_setpresence("메인 매뉴", "", "type0", "");
 
 
-
+global.check_died = 0
 global.tutorial_now = 0
 global.fukurou_snow_effect = 0
 global.turisumo_effect = 0
@@ -60,7 +60,10 @@ global.show_music_title = 0
 global.wakrio_effect = 0
 wakrio_timer = 0
 global.t_w_alpha = 0
+global.highlight_time = 0
 load_musicList(global.n_map_list)
+
+
 
 
 
@@ -69,6 +72,12 @@ load_musicList(global.n_map_list)
 //load_none_cleared_list();
 load_unlocked_list();
 
+if (saved_n_stage >= 0)
+{
+	global.t_select_map = saved_n_stage
+	global.select_map = saved_n_stage
+	n_stage = saved_n_stage-2
+}
 
-
+alarm[3] = 1
 alarm[10] = 2

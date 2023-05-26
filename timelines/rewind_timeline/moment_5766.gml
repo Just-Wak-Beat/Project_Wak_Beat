@@ -5,7 +5,7 @@ global.t_bg_color_alpha = 1
 
 clock_hitbox.w_alpha = 1
 clock_hitbox_2.w_alpha = 1
-clock_hitbox.automatic_angle = -1
+clock_hitbox.automatic_angle = 2
 
 clock_hitbox.t_scale = 3.3
 clock_hitbox_2.t_scale = 4
@@ -19,11 +19,11 @@ var ins = variable_instance_get(id,"gear_hitbox"+string(i))
 
 	if instance_exists(ins)
 	{
-	create_explo_circle(ins.x,ins.y,0,10,0,0,ins.image_xscale,0,0,0)
+		create_explo_circle(ins.x,ins.y,0,10,0,0,ins.image_xscale,0,0,0)
 	}
 }
 
-
+view_shake(0.1,3,0,0)
 
 
 var scale = 0.5

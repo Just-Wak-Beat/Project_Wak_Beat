@@ -3,7 +3,7 @@
 image_angle += spin_angle
 if time%5 = 0
 {
-create_projectile(x,y,image_xscale,spin_angle,lengthdir_x(_speed,image_angle),lengthdir_y(_speed,image_angle),0,0,sprite_index)
+	create_projectile(x,y,image_xscale,spin_angle,lengthdir_x(_speed,image_angle),lengthdir_y(_speed,image_angle),0,0,sprite_index)
 }
 
 time ++

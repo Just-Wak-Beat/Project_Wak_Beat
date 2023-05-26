@@ -48,11 +48,10 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 		alarm[8] = 1
 		global.t_bg_color_alpha = 0
 		global.t_bg_color = 1
-		global.w_alpha = 1
+		global.w_alpha = global.w_alpha < 1 ? 1 : global.w_alpha
 		global.savepoint_text_t_alpha = -0.01
 		load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
 		global.highlight_time = 0
-		play_highlight = 1
 		global.select_map = n_stage+2
 		global.t_select_map = n_stage+2
 		gamestart = 3

@@ -29,6 +29,7 @@ global.reload_n_map_list_value = 0
 	}
 	
 
-	
+
 load_musicList(global.n_map_list)
 load_custom_map_files()
+

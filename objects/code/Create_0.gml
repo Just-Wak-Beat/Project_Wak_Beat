@@ -31,6 +31,7 @@ discord_presence_update = 0
 //global setting
 global.player_skin = 0
 global.b_player_skin = 0
+global.cannot_control = 0
 global.master_volume = 1
 global.bgm_volume = 0.5
 global.custom_map_volume_control = 1
@@ -57,8 +58,9 @@ global.show_progress_bar = 0
 progress_icon_alpha = 0
 progress_alpha = 0
 progress_alpha_sec = 0
+saved_n_stage = -1
 
-
+global.show_rank = 0
 global.artifact_type = 0
 global.show_music_title = 0
 global.checkpoint_text = -4
@@ -460,7 +462,7 @@ global.real_stage_map_duration[16] = 5453;
 global.real_stage_map_audio_name[16] = "promise";
 global.real_stage_bpm[16] = 165;
 global.real_stage_map_highlight_part[16] = 39.5;
-global.real_detailed_difficulty[16] = 6;
+global.real_detailed_difficulty[16] = 5;
 global.real_requirement_type[16] = 6;
 global.real_requirement_number[16] = 1;
 global.promise_effect = 0

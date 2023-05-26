@@ -272,9 +272,9 @@ var button_2_xx = xx+xx_w*0.68
 		
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
-		code.gamestart = 1
-		global.t_select_difficulty = 0
-		audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+			code.gamestart = 1
+			global.t_select_difficulty = 0
+			audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 		}
 		
 		if mouse_check_button_pressed(mb_left)
@@ -319,3 +319,12 @@ draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.32,middle_yy,scale*f_select
 draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.68,middle_yy,scale*s_selected*global.font_ratio_resolution_xx,scale*s_selected,0,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
 }
 /**/
+
+
+
+
+
+
+draw_set_color(c_white)
+draw_set_alpha(global.w_alpha)
+draw_line_width(0,0,room_width,room_height,5000)

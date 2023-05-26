@@ -5,6 +5,7 @@ image_blend = $FFE6FFE2
 color_sec = $FF4AB539
 image_speed = 64
 outside_timer = 0
+effect_rad = 0
 
 w_alpha = 0
 direction = point_direction(x,y,player.x,player.y)+irandom_range(-45,45)
@@ -12,6 +13,8 @@ t_speed = 0
 t_angle = 0
 image_xscale = 0.2
 image_yscale = 0.2
+touched = 0
+rank_alpha = 1
 
 spin_rad = 0
 for(var i = 6; i < 32; i++)

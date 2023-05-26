@@ -1,6 +1,6 @@
 global.w_alpha = 1
 global.map_color = #c09fb4
-clock_hitbox.automatic_angle = 1
+clock_hitbox.automatic_angle = -2
 
 
 

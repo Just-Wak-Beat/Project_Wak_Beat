@@ -122,6 +122,7 @@
     {"id":{"name":"hit_sfx","path":"sounds/hit_sfx/hit_sfx.yy",},},
     {"id":{"name":"spr_spot_light","path":"sprites/spr_spot_light/spr_spot_light.yy",},},
     {"id":{"name":"spr_rewind_clock","path":"sprites/spr_rewind_clock/spr_rewind_clock.yy",},},
+    {"id":{"name":"show_rank_sfx","path":"sounds/show_rank_sfx/show_rank_sfx.yy",},},
     {"id":{"name":"kick_sfx","path":"sounds/kick_sfx/kick_sfx.yy",},},
     {"id":{"name":"ding_dong","path":"sounds/ding_dong/ding_dong.yy",},},
     {"id":{"name":"jururu_hurt","path":"sounds/jururu_hurt/jururu_hurt.yy",},},

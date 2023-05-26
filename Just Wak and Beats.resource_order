@@ -97,6 +97,7 @@
     {"name":"load_custom_map_files","order":4,"path":"scripts/load_custom_map_files/load_custom_map_files.yy",},
     {"name":"tutorial_part2_timeline","order":4,"path":"timelines/tutorial_part2_timeline/tutorial_part2_timeline.yy",},
     {"name":"spr_spot_light","order":25,"path":"sprites/spr_spot_light/spr_spot_light.yy",},
+    {"name":"show_rank_sfx","order":13,"path":"sounds/show_rank_sfx/show_rank_sfx.yy",},
     {"name":"kick_sfx","order":7,"path":"sounds/kick_sfx/kick_sfx.yy",},
     {"name":"ding_dong","order":2,"path":"sounds/ding_dong/ding_dong.yy",},
     {"name":"jururu_hurt","order":5,"path":"sounds/jururu_hurt/jururu_hurt.yy",},

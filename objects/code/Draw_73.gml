@@ -16,38 +16,38 @@ global.c_h = yy+yy_h-global.real_shake_y
 
 var font_size = global.camera_sx
 
-if global.n_playing_tutorial != 1
+if global.n_playing_tutorial != 1 && global.show_rank = 0
 {
-//progress bar
-draw_set_color(global.map_color)
-draw_set_alpha(progress_alpha*0.1*progress_alpha)
-draw_line_width(xx+xx_w*0.3,yy+font_size*80,xx+xx_w*0.3+progress_icon_alpha*1401*font_size,yy+font_size*80,64*font_size)
+	//progress bar
+	draw_set_color(global.map_color)
+	draw_set_alpha(progress_alpha*0.1*progress_alpha)
+	draw_line_width(xx+xx_w*0.3,yy+font_size*80,xx+xx_w*0.3+progress_icon_alpha*1401*font_size,yy+font_size*80,64*font_size)
 
 
-//n_progress bar
-draw_set_color(c_black)
-draw_set_alpha(progress_alpha*0.25*progress_alpha)
-draw_line_width(xx+xx_w*0.3+font_size*32,yy+font_size*80,xx+xx_w*0.3+progress_icon_alpha*1401*font_size,yy+font_size*80,16*font_size)
+	//n_progress bar
+	draw_set_color(c_black)
+	draw_set_alpha(progress_alpha*0.25*progress_alpha)
+	draw_line_width(xx+xx_w*0.3+font_size*32,yy+font_size*80,xx+xx_w*0.3+progress_icon_alpha*1401*font_size,yy+font_size*80,16*font_size)
 
 
-//icon background (progress bar)
-draw_set_color(global.map_color)
-draw_set_alpha(progress_alpha_sec*0.5)
-draw_line_width(xx+xx_w*0.7-font_size*35,yy+font_size*80,xx+xx_w*0.7+font_size*32,yy+font_size*80,64*font_size)
+	//icon background (progress bar)
+	draw_set_color(global.map_color)
+	draw_set_alpha(progress_alpha_sec*0.5)
+	draw_line_width(xx+xx_w*0.7-font_size*35,yy+font_size*80,xx+xx_w*0.7+font_size*32,yy+font_size*80,64*font_size)
 
-//n_progress player (progress bar)
-var max_player_pos = global.n_progress/global.music_duration
-draw_sprite_ext(spr_player,global.player_skin*7,xx+xx_w*0.29+font_size*32+font_size*(1433.6*max_player_pos),yy+font_size*80,font_size*0.5,font_size*0.5,0,c_white,progress_alpha_sec*0.9)
+	//n_progress player (progress bar)
+	var max_player_pos = global.n_progress/global.music_duration
+	draw_sprite_ext(spr_player,global.player_skin*7,xx+xx_w*0.29+font_size*32+font_size*(1433.6*max_player_pos),yy+font_size*80,font_size*0.5,font_size*0.5,0,c_white,progress_alpha_sec*0.9)
 
-//progress bar icon
-if global.low_graphics = false
-{
-draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1430*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
-draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1436*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
-draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*78*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
-draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*84*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
-}
-draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha)
+	//progress bar icon
+	if global.low_graphics = false
+	{
+		draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1430*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1436*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*78*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*84*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha*0.15)
+	}
+	draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*font_size,yy+font_size*81*progress_icon_alpha,0.13*font_size,0.13*font_size,0,c_white,progress_icon_alpha)
 }
 
 //check point
@@ -55,18 +55,18 @@ draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),
 
 
 //music title
-if global.t_selected_difficulty == 0
-{
-draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-640*font_size,"Hardcore",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
-}
+	if global.t_selected_difficulty == 0
+	{
+		draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-640*font_size,"Hardcore",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
+	}
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-600*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
 
 //music credit
 var col = global.map_color
-if col = c_black
-{
-col = c_white
-}
+	if col = c_black
+	{
+		col = c_white
+	}
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7*global.font_ratio_resolution_xx,font_size*0.7,0)
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85*global.font_ratio_resolution_xx,font_size*0.85,0)
 
@@ -488,12 +488,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		//음악 재로드 (음악 선택중 나오는 미리듣기)
 		if changed_music = 1
 		{
-			play_highlight = 1
-			obj_album_ui.y = room_height
-			obj_album_ui.image_xscale = 0
-			obj_album_ui.image_yscale = 0
-			obj_album_ui.image_angle = 0
-			load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
+			alarm[3] = 1
 		}
 		
 		var x_plusment = (global.joystick_xx - global.scroll_n_m_xx)/512
@@ -502,6 +497,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		if __added_fav_list && global.n_map_list != 2 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage]
 		{
 			obj_album_ui.clicked_ = 0;
+			obj_album_ui.heart_alpha = 10
 			global.fav_anime = 0
 			audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
 
@@ -533,20 +529,20 @@ draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alph
 
 	if global.n_sync > 0 && global.dev_mode > 0
 	{
-	draw_text_k_scale(xx+32,global.c_y+100,"Music Sync : "+string(global.n_sync),64,-1,0,c_white,0,-1,normal_font,0.5,0.5,0)
+		draw_text_k_scale(xx+32,global.c_y+100,"Music Sync : "+string(global.n_sync),64,-1,0,c_white,0,-1,normal_font,0.5,0.5,0)
 	}
 
 
 	if global.mobile_mode = 1
 	{
-	draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+") ",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
+		draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+") ",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
 	}
 }
 
 if global.rank_display_alpha > 0
 {
-var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+global.rank_display_r_alpha*0.5)
-draw_text_k_scale(xx+xx_w-108,global.c_y+32,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,merge_color(c_white,#bf1a5c,global.rank_display_r_alpha),0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
+	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+global.rank_display_r_alpha*0.5)
+	draw_text_k_scale(xx+xx_w-108,global.c_y+32,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,merge_color(c_white,#bf1a5c,global.rank_display_r_alpha),0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
 }
 
 
@@ -554,86 +550,88 @@ draw_text_k_scale(xx+xx_w-108,global.c_y+32,"현재 랭크\n"+string(global.n_ra
 
 if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 {
-var fontsize2 = 0.65*(1+global.mobile_mode*0.3)
-var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
+	var fontsize2 = 0.65*(1+global.mobile_mode*0.3)
+	var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
 
 
-draw_set_alpha(global.sync_setting_alpha*0.93+(global.back_to_game/120)*0.07)
-draw_set_color(c_black)
-draw_line_width(global.c_x,global.c_y,global.c_w,global.c_h,room_width)
+	draw_set_alpha(global.sync_setting_alpha*0.93+(global.back_to_game/120)*0.07)
+	draw_set_color(c_black)
+	draw_line_width(global.c_x,global.c_y,global.c_w,global.c_h,room_width)
 
-var text__ = (global.mobile_mode == 0) ? "Space를 눌러/홀드하여 창 닫기 혹은 매인메뉴로 돌아가기" : "화면을 터치/홀드하여 창 닫기 혹은 매인메뉴로 돌아가기"
-draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*0.5-36,text__,64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	var text__ = (global.mobile_mode == 0) ? "Space를 눌러/홀드하여 창 닫기 혹은 매인메뉴로 돌아가기" : "화면을 터치/홀드하여 창 닫기 혹은 매인메뉴로 돌아가기"
+	draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*0.5-36,text__,64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 	if (global.n_setting_button = 9999 || global.n_setting_button = -4) && keyboard_check(vk_space)
 	{
-	global.back_to_game++
-	global.n_setting_button = 9999
+		global.back_to_game++
+		global.n_setting_button = 9999
 	}
 	
 	if keyboard_check_released(vk_space)
 	{
 		if global.back_to_game <= 120
 		{
-		global.back_to_game = 0
-		global.sync_setting = 0
-		global.cannot_control = 0
-		instance_destroy(obj_button)
-		save_and_load_data(0,0)
-		global.n_setting_button = -4
+			global.back_to_game = 0
+			global.sync_setting = 0
+			global.cannot_control = 0
+			instance_destroy(obj_button)
+			save_and_load_data(0,0)
+			global.n_setting_button = -4
 		}
-	global.back_to_game = 0
+		global.back_to_game = 0
 	}
 	
-draw_set_alpha(global.back_to_game/60)
-draw_line_width(xx,yy+yy_h*0.5,xx+xx_w*(global.back_to_game/120),yy+yy_h*0.5,font_size*96)
+	draw_set_alpha(global.back_to_game/60)
+	draw_line_width(xx,yy+yy_h*0.5,xx+xx_w*(global.back_to_game/120),yy+yy_h*0.5,font_size*96)
 
 
-draw_text_k_scale(xx+64,yy+yy_h*(0.69-global.mobile_mode*0.03),"마스터 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(xx+64,yy+yy_h*(0.79-global.mobile_mode*0.03),"효과음 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(xx+64,yy+yy_h*(0.89-global.mobile_mode*0.03),"음악 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+64,yy+yy_h*(0.69-global.mobile_mode*0.03),"마스터 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+64,yy+yy_h*(0.79-global.mobile_mode*0.03),"효과음 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+64,yy+yy_h*(0.89-global.mobile_mode*0.03),"음악 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
-draw_text_k_scale(xx+xx_w-64,yy+yy_h*(0.85-global.mobile_mode*0.03),"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.885,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+	draw_text_k_scale(xx+xx_w-64,yy+yy_h*(0.85-global.mobile_mode*0.03),"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.885,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 }
 
 
-
-draw_set_color(c_white)
-draw_set_alpha(global.w_alpha)
-draw_line_width(0,0,room_width,room_height,5000)
+if !instance_exists(obj_album_ui)
+{
+	draw_set_color(c_white)
+	draw_set_alpha(global.w_alpha)
+	draw_line_width(0,0,room_width,room_height,5000)
+}
 
 
 
 //조이스틱
 if global.joystick_alpha > 0.01
 {
-var joystick_size_real = global.joystick_size*global.camera_sx
-var joystick_size__ = joystick_size_real/512
-draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_size__*global.font_ratio_resolution_xx,joystick_size__,0,c_white,global.joystick_alpha*0.1)
+	var joystick_size_real = global.joystick_size*global.camera_sx
+	var joystick_size__ = joystick_size_real/512
+	draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_size__*global.font_ratio_resolution_xx,joystick_size__,0,c_white,global.joystick_alpha*0.1)
 
 
 	if global.joystick_activated != -1
 	{
-	var rad__ = joystick_size_real*0.5
-	global.joystick_n_xx = device_mouse_x(global.joystick_activated)
-	global.joystick_n_yy = device_mouse_y(global.joystick_activated)
+		var rad__ = joystick_size_real*0.5
+		global.joystick_n_xx = device_mouse_x(global.joystick_activated)
+		global.joystick_n_yy = device_mouse_y(global.joystick_activated)
 	
-	global.joystick_dir = point_direction(global.joystick_xx,global.joystick_yy,global.joystick_n_xx,global.joystick_n_yy)
+		global.joystick_dir = point_direction(global.joystick_xx,global.joystick_yy,global.joystick_n_xx,global.joystick_n_yy)
 		if point_distance(global.joystick_xx,global.joystick_yy,global.joystick_n_xx,global.joystick_n_yy) > rad__
 		{
-		global.joystick_n_xx = global.joystick_xx+lengthdir_x(rad__,global.joystick_dir)
-		global.joystick_n_yy = global.joystick_yy+lengthdir_y(rad__,global.joystick_dir)
+			global.joystick_n_xx = global.joystick_xx+lengthdir_x(rad__,global.joystick_dir)
+			global.joystick_n_yy = global.joystick_yy+lengthdir_y(rad__,global.joystick_dir)
 		}
 	}
 	else
 	{
-	global.joystick_n_xx += (global.joystick_xx - global.joystick_n_xx)*0.2
-	global.joystick_n_yy += (global.joystick_yy - global.joystick_n_yy)*0.2
+		global.joystick_n_xx += (global.joystick_xx - global.joystick_n_xx)*0.2
+		global.joystick_n_yy += (global.joystick_yy - global.joystick_n_yy)*0.2
 	}
 	
 
-draw_sprite_ext(spr_circle,0,global.joystick_n_xx,global.joystick_n_yy,joystick_size__*0.35*global.font_ratio_resolution_xx*0.5,joystick_size__*0.35*0.5,0,c_white,global.joystick_alpha*0.15)
+	draw_sprite_ext(spr_circle,0,global.joystick_n_xx,global.joystick_n_yy,joystick_size__*0.35*global.font_ratio_resolution_xx*0.5,joystick_size__*0.35*0.5,0,c_white,global.joystick_alpha*0.15)
 }
 
 

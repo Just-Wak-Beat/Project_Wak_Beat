@@ -189,7 +189,9 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 		{
 			if global.n_music_id = -4 && global.n_progress = 0
 			{
+				saved_n_stage = n_stage+2
 				global.start_point = 0
+				global.cannot_control = 0
 				global.hp = 5
 				var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
 				global.n_music_id = _audio_asset
@@ -229,7 +231,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 		{
 			global.n_progress = global.music_duration
 	
-			if !instance_exists(obj_savepoint)
+			if !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear)
 			{
 				if abs(global.map_speed_y) > 0
 				{

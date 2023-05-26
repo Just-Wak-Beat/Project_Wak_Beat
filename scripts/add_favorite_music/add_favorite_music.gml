@@ -12,4 +12,6 @@ var i = get_fav_list_num();
 	{
 	global.fav_map_id[i] = n_stage;
 	}
+	
+	alarm[9] = 5
 }

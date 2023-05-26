@@ -36,9 +36,9 @@ else
 	
 	x -= global.map_speed
 
-	if global.map_speed_y > 18
+	if global.map_speed_y > 20
 	{
-		y += 18
+		y += 20
 	}
 	else
 	{

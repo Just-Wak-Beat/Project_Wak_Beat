@@ -369,6 +369,8 @@ if global.master_remix_effect5 > 0 && instance_exists(master_hitbox)
 	if master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
 	{
 		master_hitbox.w_alpha = 2
+		master_hitbox.image_xscale *= 1.2
+		master_hitbox.image_yscale *= 1.2
 		var angle = master_hitbox.image_angle
 		var _ins__ = create_projectile(master_hitbox.x,master_hitbox.y,master_hitbox.image_xscale,0,lengthdir_x(40,135+angle),lengthdir_y(40,135+angle),0,0,spr_triangle_half)
 		_ins__.image_index = 0
@@ -383,9 +385,6 @@ if global.master_remix_effect5 > 0 && instance_exists(master_hitbox)
 		_ins__.image_angle = angle
 		
 		view_shake(0.1,10,0,2)
-		
-		master_hitbox.image_xscale *= 1.2
-		master_hitbox.image_yscale *= 1.2
 		
 		master_bpm_timer -=(3600/global.bpm)+global.music_sync_offset*3*60
 	}

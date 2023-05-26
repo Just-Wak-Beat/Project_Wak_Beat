@@ -9,12 +9,12 @@ draw_self()
 if global.low_graphics = false
 {
 	shader_set(shFlash)
-	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,c_white,w_alpha)
+	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,c_white,w_alpha*image_alpha)
 	shader_reset()
 
 
 	draw_set_color(c_white)
-	draw_set_alpha(0.2)
+	draw_set_alpha(0.2*image_alpha)
 	for(var i = 6; i < 32; i++)
 	{
 		if i >= 20
@@ -40,6 +40,32 @@ if global.low_graphics = false
 		{
 			draw_set_color(merge_color(image_blend,c_white,w_alpha))
 		}
-		draw_line_width(x+xx2[i],y+yy2[i],x+lengthdir_x(82,-spin_rad),y+lengthdir_y(82,-spin_rad),1.5)
+		draw_line_width(x+xx2[i],y+yy2[i],x+lengthdir_x(82,-spin_rad),y+lengthdir_y(82,-spin_rad),1.5*image_alpha)
 	}
+}
+
+
+
+if (touched > 3)
+{
+	depth = obj_camera.depth-100
+	
+	var xx_ = camera_get_view_x(view_camera[0])
+	var yy_ = camera_get_view_y(view_camera[0])
+	var xx__w = camera_get_view_width(view_camera[0])
+	var yy__h = camera_get_view_height(view_camera[0])
+	var font_size = global.camera_sx
+	var alpha_ = touched-3
+	draw_set_color(c_black)
+	draw_set_alpha(alpha_*0.5)
+	draw_line_width(xx_-64,yy_+yy__h*0.5,xx__w+64,yy_+yy__h*0.5,9999)
+	
+	draw_set_color(merge_color(global.player_color,c_black,0.3))
+	draw_set_alpha(alpha_*0.5)
+	draw_line_width(xx_,yy_+yy__h*0.5,xx__w,yy_+yy__h*0.5,600*font_size)
+
+
+	draw_set_color(c_white)
+	draw_set_alpha(1)
+	draw_circle(x,y,effect_rad,false)
 }

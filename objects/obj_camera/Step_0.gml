@@ -3,9 +3,29 @@
 
 depth = 999999
 
-
-x += (room_width*0.5 - x)*0.15
-y += (room_height*0.5 - y)*0.15
+if (global.show_rank > 0)
+{
+	x += (player.x - x)*0.22
+	y += (player.y - y)*0.22
+	
+	if (global.show_rank == 1)
+	{
+		v_x += (3584*0.7 - v_x)*0.1
+		v_y += (2016*0.7 - v_y)*0.1
+	}
+	else
+	{
+		v_x += (3584 - v_x)*0.3
+		v_y += (2016 - v_y)*0.3
+	}
+}
+else
+{
+	x += (room_width*0.5 - x)*0.15
+	y += (room_height*0.5 - y)*0.15
+	v_x += (3584 - v_x)*0.1
+	v_y += (2016 - v_y)*0.1
+}
 
 x = floor(x)
 y = floor(y)
@@ -13,8 +33,7 @@ y = floor(y)
 global.view_angle_ += (0 - global.view_angle_)*0.1
 
 
-v_x += (3584 - v_x)*0.1
-v_y += (2016 - v_y)*0.1
+
 	if v_x > 3584*0.4
 	{
 		camera_set_view_size(view_camera[0],floor(v_x),floor(v_y));

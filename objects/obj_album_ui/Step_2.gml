@@ -9,12 +9,12 @@ if (global.select_difficulty = 0 && mouse_check_button_released(mb_left) && poin
 		{
 			if object_index = code
 			{
-			event_user(2)
+				event_user(2)
 			}
 		}
 	}
 	else
 	{
-	alarm[2] = 1
+		alarm[2] = 1
 	}
 }
