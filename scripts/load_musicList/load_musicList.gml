@@ -131,5 +131,30 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 	}
 	
+
+	var check_new_song = 0
+	for(var i = 0; i < global.origin_total_map; i++)
+	{
+		if (global.artifact_owned[global.requirement_type[i]] >= global.requirement_number[i])
+		{
+			global.unlocked_music_name[i] = global.real_stage_map_name[i];
+			if (global.unlocked_music_name[i] != global.b_unlocked_music_name[i])
+			{
+				global.unlocked_music_name[i] = global.b_unlocked_music_name[i];
+				global.unlocked_music_name_new_list[check_new_song] = global.real_stage_map_name[i];
+				check_new_song++
+			}
+		}
+	}
+	
+	if (check_new_song > 0)
+	{
+		global.new_unlocked_map_num = check_new_song
+		global.show_new_songs = 1
+		global.t_b_alpha = -0.01
+		//audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+	}
+
+	
 	n_stage = 0
 }

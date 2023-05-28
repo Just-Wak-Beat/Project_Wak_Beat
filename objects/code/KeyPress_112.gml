@@ -6,4 +6,6 @@ if global.dev_mode = 1
 	{
 	global.artifact_owned[i] = 99;
 	}
+	
+	load_musicList(global.n_map_list)
 }

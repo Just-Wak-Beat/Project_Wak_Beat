@@ -163,52 +163,53 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 {
 	for(var i = 0; i < global.total_map; i++)
 	{
-	var dis___ = 1/abs(global.select_map-2 - i)-0.2
-	var dis_alpha = dis___*global.ui_alpha
-	var dis_real = (1 - abs(global.select_map-2 - i)/6)
+		var dis___ = 1/abs(global.select_map-2 - i)-0.2
+		var dis_alpha = dis___*global.ui_alpha
+		var dis_real = (1 - abs(global.select_map-2 - i)/6)
+		
 	
 		if dis_alpha > 0
 		{
-		var selected_me = 0
-		var locked_now = 0
+			var selected_me = 0
+			var locked_now = 0
 			if global.artifact_owned[global.requirement_type[i]] < global.requirement_number[i]
 			{
-			locked_now = 1
+				locked_now = 1
 				if round(global.t_select_map-2 - i) = 0
 				{
-				selected_me = 1
-				draw_set_color(global.map_color)
+					selected_me = 1
+					draw_set_color(global.map_color)
 				}
 				else
 				{
-				draw_set_color(#68646f)
+					draw_set_color(#68646f)
 				}
 			}
 			else
 			{
 				if round(global.t_select_map-2 - i) = 0
 				{
-				selected_me = 1
-				draw_set_color(global.map_color)
+					selected_me = 1
+					draw_set_color(global.map_color)
 				}
 				else
 				{
-				draw_set_color($FFCCCCCC)
+					draw_set_color($FFCCCCCC)
 				}
 			}
 	
-			draw_set_alpha(dis_alpha)
-			var xx_ = global.c_w+2-1920-selected_me*192+(abs(global.select_map-2 - i)*32)
-			var yy_ = global.c_y+yy_h*0.72+256*(i-global.select_map)
-			draw_rectangle(global.c_w,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
+				draw_set_alpha(dis_alpha)
+				var xx_ = global.c_w+2-1920-selected_me*192+(abs(global.select_map-2 - i)*32)
+				var yy_ = global.c_y+yy_h*0.72+256*(i-global.select_map)
+				draw_rectangle(global.c_w,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
 
 			//옆에 살짝 큰 사각형
 			if selected_me = 0 && dis_alpha*3 > 0
 			{
-			draw_set_color(global.map_color)
-			draw_set_alpha(dis_alpha*3)
-			draw_rectangle(xx_+192*dis_real,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
-			draw_set_alpha(dis_alpha)
+				draw_set_color(global.map_color)
+				draw_set_alpha(dis_alpha*3)
+				draw_rectangle(xx_+192*dis_real,yy_-128+(abs(global.select_map-2 - i)*16),xx_,global.c_y+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),false)
+				draw_set_alpha(dis_alpha)
 			}
 			
 			//title
@@ -216,27 +217,27 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			{
 				if locked_now = 0 && dis_alpha > 0.1
 				{
-				draw_text_k_scale(xx_+96*dis_real,yy_-64,global.n_rank[i],64,-1,dis_alpha,c_white,0,0,normal_font,dis_real,dis_real,0)
+					draw_text_k_scale(xx_+96*dis_real,yy_-64,global.n_rank[i],64,-1,dis_alpha,c_white,0,0,normal_font,dis_real,dis_real,0)
 				
-				if global.n_favorite[i] = 1
-				{
-				draw_sprite_ext(spr_heart,0,xx_+96*dis_real,yy_+64*dis_real,0.1*dis_real,0.1*dis_real,0,c_white,dis_alpha)
-				}
+					if global.n_favorite[i] = 1
+					{
+						draw_sprite_ext(spr_heart,0,xx_+96*dis_real,yy_+64*dis_real,0.1*dis_real,0.1*dis_real,0,c_white,dis_alpha)
+					}
 				
 
-				draw_text_k_scale(xx_+256*dis_real,yy_-90*dis_real,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real*global.font_ratio_resolution_xx,dis_real,0)
-				draw_text_k_scale(xx_+256*dis_real,yy_+35*dis_real,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
-				draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
-				draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,global.map_color,0,1,normal_font,0.5*dis_real,0.5*dis_real,0)
+					draw_text_k_scale(xx_+256*dis_real,yy_-90*dis_real,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real*global.font_ratio_resolution_xx,dis_real,0)
+					draw_text_k_scale(xx_+256*dis_real,yy_+35*dis_real,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
+					draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
+					draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,global.map_color,0,1,normal_font,0.5*dis_real,0.5*dis_real,0)
 					
 					for(var k = 0; k <= global.detailed_difficulty[i]; k++)
 					{
-					draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320+32-k*40)*dis_real,yy_+(32+(abs(global.select_map-2 - i)*16))*dis_real,false)
+						draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320+32-k*40)*dis_real,yy_+(32+(abs(global.select_map-2 - i)*16))*dis_real,false)
 					}
 				
 					for(var k = 7; k > global.detailed_difficulty[i]; k--)
 					{
-					draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320+32-k*40)*dis_real,yy_+(32+(abs(global.select_map-2 - i)*16))*dis_real,true)
+						draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320+32-k*40)*dis_real,yy_+(32+(abs(global.select_map-2 - i)*16))*dis_real,true)
 					}
 				}
 			}
@@ -246,26 +247,26 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 				{
 					if locked_now = 0
 					{
-					draw_text_k_scale(xx_+256,yy_-118,global.stage_map_name[i],64,-1,dis_alpha,c_white,0,-1,normal_font,global.font_ratio_resolution_xx,1,0)
-					draw_text_k_scale(xx_+256,yy_+3,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6*global.font_ratio_resolution_xx,0.6,0)
-					draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75*global.font_ratio_resolution_xx,0.75,0)
-					draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,c_white,0,1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+						draw_text_k_scale(xx_+256,yy_-118,global.stage_map_name[i],64,-1,dis_alpha,c_white,0,-1,normal_font,global.font_ratio_resolution_xx,1,0)
+						draw_text_k_scale(xx_+256,yy_+3,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6*global.font_ratio_resolution_xx,0.6,0)
+						draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75*global.font_ratio_resolution_xx,0.75,0)
+						draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,c_white,0,1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 					
 						if global.n_favorite[i] = 1
 						{
-						draw_sprite_ext(spr_heart,0,xx_+160,yy_,0.2*global.fav_anime,0.2*global.fav_anime,0,c_white,1)
+							draw_sprite_ext(spr_heart,0,xx_+160,yy_,0.2*global.fav_anime,0.2*global.fav_anime,0,c_white,1)
 						
 							if global.fav_anime <= 0.9 && audio_is_playing(favorite_sfx)
 							{
 								repeat(choose(2,3))
 								{
-								var effect_ = instance_create_depth(xx_+160+irandom_range(-global.fav_anime*32,global.fav_anime*32),yy_+irandom_range(-32+global.fav_anime,global.fav_anime*16),obj_album_ui.depth-15,movement_effect)
-								effect_.sprite_index = spr_circle
-								effect_.image_xscale = 0.01
-								effect_.image_yscale = 0.01
-								effect_.direction = 90
-								effect_.speed = 16-global.fav_anime*10
-								effect_.image_blend = c_white
+									var effect_ = instance_create_depth(xx_+160+irandom_range(-global.fav_anime*32,global.fav_anime*32),yy_+irandom_range(-32+global.fav_anime,global.fav_anime*16),obj_album_ui.depth-15,movement_effect)
+									effect_.sprite_index = spr_circle
+									effect_.image_xscale = 0.01
+									effect_.image_yscale = 0.01
+									effect_.direction = 90
+									effect_.speed = 16-global.fav_anime*10
+									effect_.image_blend = c_white
 								}
 							}
 						}
@@ -273,12 +274,12 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 					
 						for(var k = 0; k <= global.detailed_difficulty[i]; k++)
 						{
-						draw_rectangle(global.c_w-320+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320-32+k*40,yy_+(52+(abs(global.select_map-2 - i)*16))*dis_real,false)
+							draw_rectangle(global.c_w-320+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320-32+k*40,yy_+(52+(abs(global.select_map-2 - i)*16))*dis_real,false)
 						}
 				
 						for(var k = 7; k > global.detailed_difficulty[i]; k--)
 						{
-						draw_rectangle(global.c_w-320+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320-32+k*40,yy_+(52+(abs(global.select_map-2 - i)*16))*dis_real,true)
+							draw_rectangle(global.c_w-320+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320-32+k*40,yy_+(52+(abs(global.select_map-2 - i)*16))*dis_real,true)
 						}
 					}
 				}
@@ -288,7 +289,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			draw_set_color(global.map_color)
 			for(var ii = 0; ii <= 6; ii++)
 			{
-			draw_rectangle(global.c_w-ii,yy_+ii-128+(abs(global.select_map-2 - i)*16),xx_+ii,global.c_y-ii+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),true)
+				draw_rectangle(global.c_w-ii,yy_+ii-128+(abs(global.select_map-2 - i)*16),xx_+ii,global.c_y-ii+yy_h*0.72+128+256*(i-global.select_map)-(abs(global.select_map-2 - i)*16),true)
 			}
 			
 			
@@ -297,48 +298,50 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			{
 				if selected_me = 0
 				{
-				draw_sprite_ext(spr_lock,0,xx_+112*dis_real,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
+					draw_sprite_ext(spr_lock,0,xx_+112*dis_real,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
+					draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 				
-				draw_sprite_ext(spr_W,global.requirement_type[i],xx_+276*dis_real,yy_+32*dis_real,global.font_ratio_resolution_xx*0.15*dis_real,0.15*dis_real,20,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+296*dis_real,yy_+32*dis_real,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+					draw_sprite_ext(spr_W,global.requirement_type[i],xx_+276*dis_real,yy_+32*dis_real,global.font_ratio_resolution_xx*0.15*dis_real,0.15*dis_real,20,c_white,global.ui_alpha*dis_real)
+					draw_text_k_scale(xx_+296*dis_real,yy_+32*dis_real,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				}
 				else
 				{
-				draw_sprite_ext(spr_lock,0,xx_+1080,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+1156,yy_-64,"해금 조건",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+					draw_sprite_ext(spr_lock,0,xx_+1080,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
+					draw_text_k_scale(xx_+1156,yy_-64,"해금 조건",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				
-				draw_sprite_ext(spr_W,global.requirement_type[i],xx_+1236,yy_+32,global.font_ratio_resolution_xx*0.15,0.15,20,c_white,global.ui_alpha*dis_real)
-				draw_text_k_scale(xx_+1256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+					draw_sprite_ext(spr_W,global.requirement_type[i],xx_+1236,yy_+32,global.font_ratio_resolution_xx*0.15,0.15,20,c_white,global.ui_alpha*dis_real)
+					draw_text_k_scale(xx_+1256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				}
 			}
 		}
 	}
 	
+
+	
 	if gamestart != 2
 	{
-	var color__bg = merge_color(global.map_color,c_black,0.7)
-	var col_cal = merge_color(color__bg,c_white,global.background_w_alpha)
-	draw_set_color(col_cal)
-	draw_set_alpha(1)
-	draw_line_width(global.c_w-3070-gamestart_anime*2300,global.c_y,global.c_w-3070-gamestart_anime*2300,global.c_y+yy_h,2000)
+		var color__bg = merge_color(global.map_color,c_black,0.7)
+		var col_cal = merge_color(color__bg,c_white,global.background_w_alpha)
+		draw_set_color(col_cal)
+		draw_set_alpha(1)
+		draw_line_width(global.c_w-3070-gamestart_anime*2300,global.c_y,global.c_w-3070-gamestart_anime*2300,global.c_y+yy_h,2000)
 	
-	var scale = (2.8+gamestart_anime*5)*0.5
-	draw_sprite_ext(circle_x2048,1,global.c_w-640,global.c_y+yy_h*0.47,scale,scale,0,col_cal,1)
+		var scale = (2.8+gamestart_anime*5)*0.5
+		draw_sprite_ext(circle_x2048,1,global.c_w-640,global.c_y+yy_h*0.47,scale,scale,0,col_cal,1)
 	
-	//var xx__ = global.c_w-640
-	//var yy__ = global.c_y+yy_h*0.47
-	//draw_set_alpha(1)
-	//draw_set_color(merge_color(global.map_color,c_white,global.background_w_alpha*10))
-	//var scale = 2.7+gamestart_anime*5
-	//for(var i = -6; i <= 6; i++)
-	//{
-	//draw_circle(xx__,yy__+i,1024*0.5*scale,true)
-	//draw_circle(xx__+i,yy__,1024*0.5*scale,true)
-	//draw_circle(xx__+i,yy__+i,1024*0.5*scale,true)
-	//draw_circle(xx__-i,yy__-i,1024*0.5*scale,true)
-	//}
-	draw_sprite_ext(circle_x2048,0,global.c_w-640,global.c_y+yy_h*0.47,scale,scale,0,merge_color(global.map_color,c_white,global.background_w_alpha*10),1)
+		//var xx__ = global.c_w-640
+		//var yy__ = global.c_y+yy_h*0.47
+		//draw_set_alpha(1)
+		//draw_set_color(merge_color(global.map_color,c_white,global.background_w_alpha*10))
+		//var scale = 2.7+gamestart_anime*5
+		//for(var i = -6; i <= 6; i++)
+		//{
+		//draw_circle(xx__,yy__+i,1024*0.5*scale,true)
+		//draw_circle(xx__+i,yy__,1024*0.5*scale,true)
+		//draw_circle(xx__+i,yy__+i,1024*0.5*scale,true)
+		//draw_circle(xx__-i,yy__-i,1024*0.5*scale,true)
+		//}
+		draw_sprite_ext(circle_x2048,0,global.c_w-640,global.c_y+yy_h*0.47,scale,scale,0,merge_color(global.map_color,c_white,global.background_w_alpha*10),1)
 	}
 	
 	var changed_music = 0
@@ -348,24 +351,24 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		{
 			if (keyboard_check_pressed(vk_down)|| mouse_wheel_down())
 			{
-			changed_music = 1
-			global.t_select_map ++
+				changed_music = 1
+				global.t_select_map ++
 			}
 	
 			if (keyboard_check_pressed(vk_up) || mouse_wheel_up())
 			{
-			changed_music = 1
-			global.t_select_map --
+				changed_music = 1
+				global.t_select_map --
 			}
 			
 			if global.t_select_map <= 1
 			{
-			global.t_select_map = global.total_map+1
+				global.t_select_map = global.total_map+1
 			}
 	
 			if global.t_select_map > global.total_map+1
 			{
-			global.t_select_map = 2
+				global.t_select_map = 2
 			}
 		}
 		else

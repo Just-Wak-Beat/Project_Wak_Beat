@@ -138,11 +138,11 @@ draw_text_k_scale(global.c_x+96+150*i-(1 - ui_alpha__cal)*1880,global.c_y+90,"x"
 
 
 
-
-var yy = camera_get_view_y(view_camera[0])
-var yy_h = camera_get_view_height(view_camera[0])
 var xx = camera_get_view_x(view_camera[0])
 var xx_w = camera_get_view_width(view_camera[0])
+var yy = camera_get_view_y(view_camera[0])
+var yy_h = camera_get_view_height(view_camera[0])
+
 var middle_xx = xx+xx_w*0.5;
 var middle_yy = yy+yy_h*0.5;
 
@@ -322,9 +322,61 @@ draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.68,middle_yy,scale*s_select
 
 
 
+draw_set_color(c_black)
+draw_set_alpha(global.b_alpha)
+draw_line_width(0,0,room_width,room_height,5000)
 
 
+if (global.show_new_songs > 0)
+{
+	if (global.t_b_alpha != -0.02)
+	{
+		global.t_b_alpha = 0.9
+	}
+	
+	if (global.t_b_alpha == 0.9 && instance_exists(code) && code.gamestart != 4 && global.b_alpha > 0.8)
+	{
+		code.gamestart = 4
+	}
+	var scale = 2
+	draw_set_color(c_white)
+	draw_set_alpha((global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100))
+	draw_line_width(middle_xx-global.show_new_songs*1.5,yy+yy_h*0.2,middle_xx+global.show_new_songs*1.5,yy+yy_h*0.2,5)
+	draw_text_k_scale(middle_xx,yy+yy_h*0.1,"새로운 곡!",scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
+	
+	for(var i = 0; i < global.new_unlocked_map_num; i++)
+	{
+		draw_text_k_scale(middle_xx,yy+yy_h*0.3-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,c_white,0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+	}
+	
+
+	if (mouse_wheel_up() && global.t_new_song_scroll > 0)
+	{
+		global.t_new_song_scroll -= 150;
+	}
+	
+	if (mouse_wheel_down() && global.t_new_song_scroll < global.new_unlocked_map_num*150-300)
+	{
+		global.t_new_song_scroll += 150;
+	}
+	
+	if keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left)
+	{
+		global.t_b_alpha = -0.02
+		code.gamestart = 0
+	}
+	
+	if (global.t_b_alpha == -0.02)
+	{
+		global.show_new_songs += (-1 - global.show_new_songs)*0.1
+	}
+	else
+	{
+		global.show_new_songs += (100 - global.show_new_songs)*0.1
+	}
+}
 
 draw_set_color(c_white)
 draw_set_alpha(global.w_alpha)
 draw_line_width(0,0,room_width,room_height,5000)
+

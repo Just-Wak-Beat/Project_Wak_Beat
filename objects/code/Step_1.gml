@@ -1,10 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if global.dev_mode = 1
-{
-room_speed = 60+keyboard_check(ord("V"))*60
-}
+	if global.dev_mode = 1
+	{
+		room_speed = 60+keyboard_check(ord("V"))*60
+	}
 
 
 global.camera_sx = camera_get_view_width(view_camera[0])/3584

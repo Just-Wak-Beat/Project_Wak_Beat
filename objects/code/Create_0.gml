@@ -99,9 +99,6 @@ loading_now_progress = 0
 
 
 
-
-
-
 	for(var i = 0; i <= 7; i++)
 	{
 		global.artifact_owned[i] = 0;
@@ -117,10 +114,9 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-
-
 global.origin_total_map = 17
 global.total_map = global.origin_total_map
+
 	//곡 정보
 	for(var i = 0; i < global.total_map; i++)
 	{
@@ -128,6 +124,13 @@ global.total_map = global.origin_total_map
 		global.fav_map_id[i] = -4;
 		//해금된 곡
 		global.unlocked_map_id[i] = -4;
+		
+		
+		//새로운 곡 표시에 포함될 곡 (커스텀 곡은 제외)
+		global.unlocked_music_name[i] = "";
+		global.b_unlocked_music_name[i] = "";
+		global.unlocked_music_name_new_list[i] = "";
+		global.new_unlocked_map_num = 0
 
 
 		//실제 리스트에만 표기되는 곡
@@ -503,12 +506,17 @@ global.respawn_point_yy = -4
 
 global.camera_sx = -4
 global.w_alpha = 0
+global.b_alpha = 0
 global.t_w_alpha = -0.01
+global.t_b_alpha = -0.01
 
 
 global.rewind = 0
 global.clock_alpha_1 = 0
 global.clock_alpha_2 = 0
+global.new_song_scroll = 0
+global.t_new_song_scroll = 0
+global.show_new_songs = 0
 
 global.c_w = -4
 global.c_h = -4

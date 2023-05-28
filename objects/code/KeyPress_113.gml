@@ -23,4 +23,6 @@ if global.dev_mode = 1
 	global.n_artifact[i] = "X";
 	global.real_n_artifact[i] = "X";
 	}
+	
+	load_musicList(global.n_map_list)
 }

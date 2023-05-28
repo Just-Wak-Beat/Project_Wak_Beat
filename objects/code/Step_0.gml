@@ -288,7 +288,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 		}
 	}
 
-
+global.b_alpha += (global.t_b_alpha - global.b_alpha)*0.1
 global.w_alpha += (global.t_w_alpha - global.w_alpha)*0.1
 
 
