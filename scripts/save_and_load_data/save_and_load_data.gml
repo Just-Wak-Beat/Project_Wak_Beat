@@ -10,12 +10,23 @@ ini_open_protect("JWAB_Beta.ini")
 
 	if argument0 = 0
 	{
+		//플레이어 스킨
+		ini_write_real("n_player_skin","none",global.n_player_skin);
+		for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
+		{
+			ini_write_string("unlocked_player_skin",string(i),global.unlocked_player_skin[i]);
+		}
+		
 		for(var i = 0; i < global.total_map; i++)
 		{
 			//인게임 정보 (맵)
 			ini_write_string("n_rank",string(i),global.real_n_rank[i]);
 			ini_write_string("n_rank_hardcore",string(i),global.real_n_rank_hardcore[i]);
 			ini_write_string("n_artifact",string(i),global.real_n_artifact[i]);
+			
+			ini_write_string("unlocked_music_name",string(i),global.unlocked_music_name[i]);
+			ini_write_string("b_unlocked_music_name",string(i),global.b_unlocked_music_name[i]);
+
 			ini_write_real("n_favorite",string(i),global.real_n_favorite[i]);
 			ini_write_real("fav_map_id",string(i),global.fav_map_id[i]);
 			ini_write_real("unlocked_map_id",string(i),global.unlocked_map_id[i]);
@@ -38,6 +49,15 @@ ini_open_protect("JWAB_Beta.ini")
 	}
 	else
 	{
+		//플레이어 스킨
+		global.n_player_skin = ini_read_real("n_player_skin","none",-4);
+		global.player_skin = floor(global.n_player_skin/3)
+		for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
+		{
+			global.unlocked_player_skin[i] = ini_read_real("unlocked_player_skin",string(i),0);
+		}
+		
+		
 		for(var i = 0; i < global.total_map; i++)
 		{
 			//인게임 정보 (맵)
@@ -47,6 +67,9 @@ ini_open_protect("JWAB_Beta.ini")
 			global.real_n_favorite[i] = ini_read_real("n_favorite",string(i),-1);
 			global.fav_map_id[i] = ini_read_real("fav_map_id",string(i),-4);
 			global.unlocked_map_id[i] = ini_read_real("unlocked_map_id",string(i),-4);
+			
+			global.unlocked_music_name[i] = ini_read_string("unlocked_music_name",string(i),"");
+			global.b_unlocked_music_name[i] = ini_read_string("b_unlocked_music_name",string(i),"");
 		}
 		
 		for(var i = 0; i <= 7; i++)

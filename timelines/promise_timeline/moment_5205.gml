@@ -2,6 +2,7 @@ instance_destroy(hitbox_3)
 global.w_alpha = 1
 global.t_map_speed_y = 0
 global.promise_effect = 0
+global.master_remix_effect = 0
 
 
 

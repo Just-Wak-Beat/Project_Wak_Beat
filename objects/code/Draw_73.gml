@@ -80,8 +80,10 @@ draw_set_color(merge_color(col_1,c_black,0.2))
 draw_set_alpha(music_title_alpha*0.3)
 draw_line_width(xx+music_title_alpha*1080*font_size,yy-128,xx+music_title_alpha*620*font_size,yy+music_title_alpha*xx_w*font_size,300*font_size)
 
-
-draw_sprite_ext(spr_illustrationCG,global.player_skin*3+global.random_illustration,xx+music_title_alpha*430*font_size,yy+yy_h,font_size*2,font_size*2,0,c_white,music_title_alpha)
+if global.n_player_skin > 0
+{
+	draw_sprite_ext(spr_illustrationCG,global.n_player_skin,xx+music_title_alpha*430*font_size,yy+yy_h,font_size*2,font_size*2,0,c_white,music_title_alpha)
+}
 
 
 

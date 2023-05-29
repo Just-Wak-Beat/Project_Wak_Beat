@@ -96,9 +96,42 @@ global.music_duration = 99999
 global.bpm = 172
 load_data_timer = 0
 loading_now_progress = 0
+global.character_setting = 0
 
 
-
+global.n_player_skin = -4
+global.n_select_skin = 0
+global.t_n_select_skin = 0
+global.acquired_skin = -4
+	for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
+	{
+		global.unlocked_player_skin[i] = 0
+		global.unlocked_player_skin_name[i] = ""
+	}
+	
+	global.unlocked_player_skin_name[0] = "우왁굳"
+	global.unlocked_player_skin_name[1] = "돚거"
+	global.unlocked_player_skin_name[2] = "우왁굳 (왁굳향100%)"
+	global.unlocked_player_skin_name[3] = "아이네 (엔젤)"
+	global.unlocked_player_skin_name[4] = "아이네"
+	global.unlocked_player_skin_name[5] = "아이네 (X-Mas)"
+	global.unlocked_player_skin_name[6] = "비챤"
+	global.unlocked_player_skin_name[7] = "비챤 (테디 베어)"
+	global.unlocked_player_skin_name[8] = "비챤 (X-Mas)"
+	global.unlocked_player_skin_name[9] = "고세구 (메이드)"
+	global.unlocked_player_skin_name[10] = "고세구"
+	global.unlocked_player_skin_name[11] = "고세구 (X-Mas)"
+	global.unlocked_player_skin_name[12] = "릴파 (수녀)"
+	global.unlocked_player_skin_name[13] = "릴파"
+	global.unlocked_player_skin_name[14] = "릴파 (X-Mas)"
+	global.unlocked_player_skin_name[15] = "주르르"
+	global.unlocked_player_skin_name[16] = "주르르 (셔츠)"
+	global.unlocked_player_skin_name[17] = "주르르 (X-Mas)"
+	global.unlocked_player_skin_name[18] = "징버거 (여름)"
+	global.unlocked_player_skin_name[19] = "징버거"
+	global.unlocked_player_skin_name[20] = "징버거 (X-Mas)"
+	
+	
 	for(var i = 0; i <= 7; i++)
 	{
 		global.artifact_owned[i] = 0;

@@ -251,7 +251,6 @@ if gamestart = 0
 				global.select_map = 0
 				global.t_select_map = 0
 				global.show_music_title = 1
-				global.random_illustration = (global.n_music_title == "겨울봄 (Winter Spring)") ? 2 : irandom_range(0,1);
 				gamestart = 2
 				global.background_color = c_black
 				global.t_bg_color = 1

@@ -16,7 +16,7 @@ for(var i = 0; i < 180; i += 30)
 
 
 
-var attack_ef = instance_create_depth(xx,global.c_y-irandom_range(320,0),depth+1,hitbox_10)
+var attack_ef = instance_create_depth(xx,global.c_y-irandom_range(220,0),depth+1,hitbox_10)
 attack_ef.gravity = 5
 attack_ef.gravity_direction = 270
 attack_ef.image_xscale = 1.1

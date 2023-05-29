@@ -1,6 +1,6 @@
 /// @description Global setting (환경설정)
 // You can write your code in this editor
-
+global.t_b_alpha = -0.01
 if global.t_select_difficulty = 0
 {
 	if gamestart = 0 || gamestart = 4

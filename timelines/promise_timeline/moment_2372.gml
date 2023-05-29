@@ -2,7 +2,7 @@ global.w_alpha = 1
 global.t_map_speed = 9
 global.t_bg_color_alpha = 0.5
 
-var xx = irandom_range(room_width*0.8,global.c_w+900)
+var xx = irandom_range(room_width*0.8,global.c_w+500)
 for(var i = 0; i < 180; i += 15)
 {
 	var attack_ef = instance_create_depth(xx,global.c_y,depth+1,hitbox_2)
@@ -18,7 +18,7 @@ for(var i = 0; i < 180; i += 15)
 
 
 
-var attack_ef = instance_create_depth(xx,global.c_y-irandom_range(320,0),depth+1,hitbox_10)
+var attack_ef = instance_create_depth(xx,global.c_y-irandom_range(220,0),depth+1,hitbox_10)
 attack_ef.gravity = 5+abs(xx - global.c_w)/256
 attack_ef.gravity_direction = 270
 attack_ef.image_xscale = 1

@@ -13,4 +13,5 @@ if global.dev_mode = 1
 	}
 
 	load_musicList(global.n_map_list)
+	global.t_b_alpha = -0.01;
 }

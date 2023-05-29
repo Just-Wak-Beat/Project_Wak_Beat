@@ -5,6 +5,11 @@
 	//애니메이션
 	if (touched == 1)
 	{
+		player.x = room_width*0.5;
+		player.y = room_height*0.5;
+		x = room_width*0.5;
+
+		
 		image_angle += (360 - image_angle)*0.03
 		
 		

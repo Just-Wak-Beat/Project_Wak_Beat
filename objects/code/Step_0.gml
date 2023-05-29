@@ -90,7 +90,14 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	
 	if keyboard_check_pressed(vk_backspace) || keyboard_check_pressed(vk_escape)
 	{
-		event_user(2)
+		if global.character_setting > 0
+		{
+			event_user(3)
+		}
+		else
+		{
+			event_user(2)
+		}
 	}
 
 

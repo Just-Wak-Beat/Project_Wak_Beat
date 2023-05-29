@@ -1,8 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.player_skin ++
-
-if global.player_skin > 7
+with(code)
 {
-global.player_skin = 0
+	if object_index = code
+	{
+		event_user(3)
+	}
 }

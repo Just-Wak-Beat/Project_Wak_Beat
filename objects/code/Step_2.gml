@@ -313,10 +313,28 @@ if global.master_remix_effect > 0
 	global.master_remix_effect++
 	if global.master_remix_effect > 5
 	{
-		var size = irandom_range(10,5)/10
-		var __circle_ = create_projectile(irandom_range(global.c_x+global.t_map_speed*0.5,global.c_w+global.t_map_speed*10),global.c_y,size,0,size*24,-4,0.5,255,spr_rain)
-		__circle_.image_alpha = 0.8
-		__circle_.image_angle = 165
+		if audio_is_playing(promise)
+		{
+			if (abs(global.map_speed) > 0)
+			{
+				var size = irandom_range(10,5)/600
+				var __circle_ = create_projectile(global.c_w,irandom_range(global.c_y,global.c_h),size,0,0,-size*abs(global.map_speed),abs(global.map_speed)/15,180,spr_circle)
+				__circle_.image_alpha = 0.2
+			}
+			else
+			{
+				var size = irandom_range(10,5)/600
+				var __circle_ = create_projectile(irandom_range(global.c_x+global.t_map_speed*0.5,global.c_w+global.t_map_speed*10),global.c_y,size,0,size*24,0,0.5,270,spr_circle)
+				__circle_.image_alpha = 0.2
+			}
+		}
+		else
+		{
+			var size = irandom_range(10,5)/10
+			var __circle_ = create_projectile(irandom_range(global.c_x+global.t_map_speed*0.5,global.c_w+global.t_map_speed*10),global.c_y,size,0,size*24,-4,0.5,255,spr_rain)
+			__circle_.image_alpha = 0.8
+			__circle_.image_angle = 165
+		}
 		global.master_remix_effect = 1
 	}
 }

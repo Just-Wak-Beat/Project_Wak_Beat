@@ -62,6 +62,7 @@ wakrio_timer = 0
 global.t_w_alpha = 0
 global.highlight_time = 0
 load_musicList(global.n_map_list)
+global.t_b_alpha = -0.01
 
 
 
