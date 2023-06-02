@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if global.sync_setting == 0 && global.character_setting == 0
+if (global.sync_setting == 0 && global.character_setting == 0 && code.gamestart == 0)
 {
 	if global.n_map_list != 2
 	{

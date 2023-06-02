@@ -7,6 +7,21 @@ image_angle += keep_spin_angle
 
 
 
+if audio_is_playing(ipad)
+{
+	if (vspeed > 0 && y > global.c_h-128)
+	{
+		for(var i = -2; i <= 2; i++)
+		{
+			show_debug_message("created")
+			create_cylinder(x+i*68,global.c_h-8*abs(vspeed)*(1+abs(i)),depth+15,0.5,1,64,270,0)
+		}
+	
+		instance_destroy()
+	}
+}
+
+
 
 if global.fukurou_snow_effect != 0 || global.ipad_effect != 0 || audio_is_playing(isedolhyang) || audio_is_playing(promise)
 {
@@ -58,6 +73,7 @@ var _image_scale = 640*image_xscale
 			var _shaking_circle = create_explo_circle(x,y,1,60,2,0,2.4*image_xscale,0,0,0)
 			_shaking_circle.sprite_index = spr_circle_outline
 		}
+	
 	
 		if audio_is_playing(winter_spring)
 		{

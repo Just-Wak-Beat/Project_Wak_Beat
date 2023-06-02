@@ -142,6 +142,7 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 			{
 				global.b_unlocked_music_name[i] = global.unlocked_music_name[i];
 				global.unlocked_music_name_new_list[check_new_song] = global.real_stage_map_name[i];
+				global.unlocked_music_name_new_list_color[check_new_song] = merge_color(global.real_stage_map_color[i],c_white,0.5);
 				check_new_song++
 			}
 		}
@@ -155,6 +156,7 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 		if (global.acquired_skin >= 0)
 		{
 			global.unlocked_music_name_new_list[check_new_song] = "새로운 캐릭터 획득! - "+string(global.unlocked_player_skin_name[global.acquired_skin])
+			global.unlocked_music_name_new_list_color[check_new_song] = c_white;
 			global.unlocked_player_skin[global.acquired_skin] = 1;
 			global.acquired_skin = -4
 			check_new_song++

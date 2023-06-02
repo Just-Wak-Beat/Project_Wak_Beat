@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.4"
+global.version = "Beta 2.5"
 global.low_graphics = false;
 global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
@@ -163,6 +163,7 @@ global.total_map = global.origin_total_map
 		global.unlocked_music_name[i] = "";
 		global.b_unlocked_music_name[i] = "";
 		global.unlocked_music_name_new_list[i] = "";
+		global.unlocked_music_name_new_list_color[i] = c_white;
 		global.new_unlocked_map_num = 0
 
 

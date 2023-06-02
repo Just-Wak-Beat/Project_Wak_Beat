@@ -82,7 +82,7 @@ draw_line_width(xx+music_title_alpha*1080*font_size,yy-128,xx+music_title_alpha*
 
 if global.n_player_skin > 0
 {
-	draw_sprite_ext(spr_illustrationCG,global.n_player_skin,xx+music_title_alpha*430*font_size,yy+yy_h,font_size*2,font_size*2,0,c_white,music_title_alpha)
+	draw_sprite_ext(spr_illustrationCG,global.n_player_skin,xx+music_title_alpha*430*font_size,yy+yy_h,font_size*2*global.font_ratio_resolution_xx,font_size*2,0,c_white,music_title_alpha)
 }
 
 

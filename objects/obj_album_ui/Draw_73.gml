@@ -335,14 +335,14 @@ draw_line_width(0,0,room_width,room_height,5000)
 
 if instance_exists(code)
 {
-	if (global.show_new_songs > 0 && (code.gamestart == 0 || code.gamestart == 4))
+	if (global.show_new_songs > 0 && (code.gamestart == 0 || code.gamestart >= 4))
 	{
 		if (global.t_b_alpha != -0.02)
 		{
 			global.t_b_alpha = 0.9
 		}
 	
-		if (global.t_b_alpha == 0.9 && instance_exists(code) && code.gamestart != 4 && global.b_alpha > 0.8)
+		if (global.t_b_alpha == 0.9 && instance_exists(code) && code.gamestart == 0 && global.b_alpha > 0.8)
 		{
 			code.gamestart = 4
 		}
@@ -354,7 +354,7 @@ if instance_exists(code)
 	
 		for(var i = 0; i < global.new_unlocked_map_num; i++)
 		{
-			draw_text_k_scale(middle_xx,yy+yy_h*0.3-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,c_white,0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+			draw_text_k_scale(middle_xx,yy+yy_h*0.3-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
 		}
 	
 
@@ -371,7 +371,8 @@ if instance_exists(code)
 		if global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left))
 		{
 			global.t_b_alpha = -0.02
-			code.gamestart = 0
+			code.gamestart = 5
+			alarm[4] = 30
 		}
 	
 		if (global.t_b_alpha == -0.02)
@@ -385,7 +386,7 @@ if instance_exists(code)
 	}
 	else
 	{
-		if (global.t_b_alpha == -0.02 && code.gamestart == 4)
+		if (global.t_b_alpha == -0.02 && code.gamestart >= 4)
 		{
 			code.gamestart = 0
 		}

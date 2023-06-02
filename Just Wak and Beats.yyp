@@ -49,6 +49,7 @@
     "IDEVersion": "2023.4.0.84",
   },
   "resources": [
+    {"id":{"name":"spr_circle_cylinder","path":"sprites/spr_circle_cylinder/spr_circle_cylinder.yy",},},
     {"id":{"name":"tutorial_part4_timeline","path":"timelines/tutorial_part4_timeline/tutorial_part4_timeline.yy",},},
     {"id":{"name":"glow_sfx","path":"sounds/glow_sfx/glow_sfx.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
@@ -62,6 +63,7 @@
     {"id":{"name":"spr_star","path":"sprites/spr_star/spr_star.yy",},},
     {"id":{"name":"spr_triangle","path":"sprites/spr_triangle/spr_triangle.yy",},},
     {"id":{"name":"draw_text_kl_scale","path":"scripts/draw_text_kl_scale/draw_text_kl_scale.yy",},},
+    {"id":{"name":"hitbox_17","path":"objects/hitbox_17/hitbox_17.yy",},},
     {"id":{"name":"create_circle_misile","path":"scripts/create_circle_misile/create_circle_misile.yy",},},
     {"id":{"name":"hitbox_6","path":"objects/hitbox_6/hitbox_6.yy",},},
     {"id":{"name":"ine_hurt","path":"sounds/ine_hurt/ine_hurt.yy",},},
@@ -94,6 +96,7 @@
     {"id":{"name":"square_misile","path":"objects/square_misile/square_misile.yy",},},
     {"id":{"name":"promise","path":"sounds/promise/promise.yy",},},
     {"id":{"name":"rewinding_sfx","path":"sounds/rewinding_sfx/rewinding_sfx.yy",},},
+    {"id":{"name":"create_cylinder","path":"scripts/create_cylinder/create_cylinder.yy",},},
     {"id":{"name":"shelter_timeline","path":"timelines/shelter_timeline/shelter_timeline.yy",},},
     {"id":{"name":"dead_explosion","path":"objects/dead_explosion/dead_explosion.yy",},},
     {"id":{"name":"obj_stage_clear","path":"objects/obj_stage_clear/obj_stage_clear.yy",},},
