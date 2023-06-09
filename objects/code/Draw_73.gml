@@ -466,7 +466,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		}
 		
 		//스테이지 선택완료 - 난이도 선택 (게임 시작)
-		if global.sync_setting_alpha < 0.1 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && go_play
+		if global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && go_play
 		{
 			if global.real_stage_map_difficulty[n_stage] == "Tutorial"
 			{
@@ -544,7 +544,7 @@ draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alph
 	}
 }
 
-if global.rank_display_alpha > 0
+if global.rank_display_alpha > 0 && global.show_rank != 0
 {
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+global.rank_display_r_alpha*0.5)
 	draw_text_k_scale(xx+xx_w-108,global.c_y+32,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,merge_color(c_white,#bf1a5c,global.rank_display_r_alpha),0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)

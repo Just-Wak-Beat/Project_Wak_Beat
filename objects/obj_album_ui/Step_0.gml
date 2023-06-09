@@ -16,7 +16,7 @@ x = global.c_x+916-global.mobile_mode*64
 depth = code.depth-100
 image_alpha = global.ui_alpha
 
-if global.total_map > 0
+if (global.title_menu_animation2 == 1 && global.total_map > 0)
 {
 	if instance_exists(code) && code.gamestart = 1
 	{
@@ -54,9 +54,20 @@ else
 	image_angle = 0
 }
 
-if global.highlight_time <= 440 && global.highlight_time > 30 && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
+
+if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_title_menu == 0) || (global.show_title_menu > 0 && beating_animation == 1) || global.overtime_highlight_song == 1) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
 	bpm_timer ++
+	
+	if (beat_sound == 0 && bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60-2)
+	{
+		if (global.show_title_menu != 0)
+		{
+			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume*power(global.show_title_menu,10)*loading_now)
+			beat_sound = 1
+		}
+	}
+	
 	if bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
 	{
 		angle_moving_timer++
@@ -123,5 +134,6 @@ if global.highlight_time <= 440 && global.highlight_time > 30 && code.gamestart 
 		image_yscale *= 0.8
 		w_alpha = 1
 		bpm_timer -= (3600/global.bpm)+global.music_sync_offset*3*60
+		beat_sound = 0
 	}
 }

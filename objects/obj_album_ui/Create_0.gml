@@ -17,3 +17,18 @@ clicked_ = 0
 w_alpha_bg = 0
 
 heart_alpha = 0
+
+
+//메인메뉴 애니메이션 재생
+beat_sound = 0
+beating_animation = 0
+loading_now = -1
+blind_xx_start = 0
+blind_xx_final = 0
+ding_dong_animation = 0
+
+if global.title_menu_animation1 = 0
+{
+	alarm[8] = 60
+	alarm[11] = 15
+}

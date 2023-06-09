@@ -494,7 +494,27 @@ if instance_exists(code)
 	}
 }
 
+
+
 draw_set_color(c_white)
 draw_set_alpha(global.w_alpha)
 draw_line_width(0,0,room_width,room_height,5000)
 
+
+
+if (global.show_title_menu != 0)
+{
+	draw_set_color(c_black)
+	draw_set_alpha(1)
+	draw_line_width(0,0,room_width,room_height,5000)
+	draw_sprite_ext(spr_W,0,middle_xx,middle_yy,image_xscale*0.4,image_yscale*0.4,0,c_white,1)
+}
+
+
+if (global.title_menu_animation1 >= 1)
+{
+	var color_blind = (global.map_color == c_black) ? merge_color(c_white,c_black,0.9) : global.map_color;
+	draw_set_color(color_blind)
+	draw_set_alpha(1)
+	draw_rectangle(xx+xx_w*blind_xx_start,yy,xx+xx_w*blind_xx_final,xx_w,false)
+}

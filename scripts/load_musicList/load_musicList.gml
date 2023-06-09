@@ -132,45 +132,48 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 	}
 	
 
-	var check_new_song = 0;
-	for(var i = 0; i < global.origin_total_map; i++)
+	if (global.title_menu_animation1 == -1)
 	{
-		if (global.artifact_owned[global.real_requirement_type[i]] >= global.real_requirement_number[i])
+		var check_new_song = 0;
+		for(var i = 0; i < global.origin_total_map; i++)
 		{
-			global.unlocked_music_name[i] = global.real_stage_map_name[i];
-			if (global.unlocked_music_name[i] != global.b_unlocked_music_name[i])
+			if (global.artifact_owned[global.real_requirement_type[i]] >= global.real_requirement_number[i])
 			{
-				global.b_unlocked_music_name[i] = global.unlocked_music_name[i];
-				global.unlocked_music_name_new_list[check_new_song] = global.real_stage_map_name[i];
-				global.unlocked_music_name_new_list_color[check_new_song] = merge_color(global.real_stage_map_color[i],c_white,0.5);
+				global.unlocked_music_name[i] = global.real_stage_map_name[i];
+				if (global.unlocked_music_name[i] != global.b_unlocked_music_name[i])
+				{
+					global.b_unlocked_music_name[i] = global.unlocked_music_name[i];
+					global.unlocked_music_name_new_list[check_new_song] = global.real_stage_map_name[i];
+					global.unlocked_music_name_new_list_color[check_new_song] = merge_color(global.real_stage_map_color[i],c_white,0.5);
+					check_new_song++
+				}
+			}
+		
+			show_debug_message(global.unlocked_music_name[i])
+		}
+	
+		if (check_new_song > 0 || (global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 0))
+		{
+			//신 스킨 획득 메시지 출력
+			if (global.acquired_skin >= 0)
+			{
+				global.unlocked_music_name_new_list[check_new_song] = "새로운 캐릭터 획득! - "+string(global.unlocked_player_skin_name[global.acquired_skin])
+				global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+				global.unlocked_player_skin[global.acquired_skin] = 1;
+				global.acquired_skin = -4
 				check_new_song++
 			}
-		}
 		
-		show_debug_message(global.unlocked_music_name[i])
-	}
-	
-	if (check_new_song > 0 || (global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 0))
-	{
-		//신 스킨 획득 메시지 출력
-		if (global.acquired_skin >= 0)
-		{
-			global.unlocked_music_name_new_list[check_new_song] = "새로운 캐릭터 획득! - "+string(global.unlocked_player_skin_name[global.acquired_skin])
-			global.unlocked_music_name_new_list_color[check_new_song] = c_white;
-			global.unlocked_player_skin[global.acquired_skin] = 1;
-			global.acquired_skin = -4
-			check_new_song++
+			global.new_unlocked_map_num = check_new_song;
+			global.show_new_songs = 1;
+			global.t_b_alpha = -0.01;
+			global.t_new_song_scroll = 0
+			global.new_song_scroll = 0
+			//audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		}
-		
-		global.new_unlocked_map_num = check_new_song;
-		global.show_new_songs = 1;
-		global.t_b_alpha = -0.01;
-		global.t_new_song_scroll = 0
-		global.new_song_scroll = 0
-		//audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
-	}
 	
 
 	
-	n_stage = 0
+		n_stage = 0
+	}
 }

@@ -5,7 +5,7 @@ if global.t_selected_difficulty == 0 //하드 코어 모드
 {
 n_rank_real = convert_rank_to_num(global.n_rank_hardcore[global.n_map_id])
 }
-
+global.overtime_highlight_song = 0
 
 var target_rank = "--";
 if global.total_died_here = 0

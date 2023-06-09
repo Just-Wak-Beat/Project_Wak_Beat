@@ -6,6 +6,13 @@ global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
+
+//메인메뉴 애니메이션 재생
+global.show_title_menu = 1
+global.title_menu_animation1 = 0
+global.title_menu_animation2 = 0
+global.overtime_highlight_song = 1
+
 alarm[11] = 1
 
 
@@ -110,7 +117,7 @@ global.acquired_skin = -4
 	}
 	
 	global.unlocked_player_skin_name[0] = "우왁굳"
-	global.unlocked_player_skin_name[1] = "돚거"
+	global.unlocked_player_skin_name[1] = "ㅁ거"
 	global.unlocked_player_skin_name[2] = "우왁굳 (왁굳향100%)"
 	global.unlocked_player_skin_name[3] = "아이네 (엔젤)"
 	global.unlocked_player_skin_name[4] = "아이네"

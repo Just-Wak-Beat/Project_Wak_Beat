@@ -89,7 +89,12 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	{
 		global.map_scroll_ui_position = round(global.t_select_map) - global.b_t_select_map
 		global.b_t_select_map = round(global.t_select_map)
-		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+		
+		if (global.title_menu_animation1 == -1)
+		{
+			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+			global.overtime_highlight_song = 0
+		}
 		
 		alarm[8] = 1
 	}
@@ -197,27 +202,33 @@ if gamestart = 0
 	{
 		global.highlight_time ++
 	}
-
-	if global.highlight_time > 420 || (gamestart != 0 && gamestart != 1.1)
+	
+	
+	
+	var target_time_to_replay = 420+sign(global.overtime_highlight_song)*450
+	
+	
+	if (global.highlight_time > target_time_to_replay) || (gamestart != 0 && gamestart != 1.1)
 	{
 		global.highlight_music_volume += (-0.01 - global.highlight_music_volume)*0.05
-		if global.highlight_time > 500 && (gamestart = 0 || gamestart = 1.1) && global.sync_setting_alpha < 0.1
+		if (global.highlight_time > target_time_to_replay+80) && (gamestart = 0 || gamestart = 1.1) && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1
 		{
 			play_highlight = 1
+			global.overtime_highlight_song = 0
 		}
 	}
 	else
 	{
-		global.highlight_music_volume += (1 - global.highlight_music_volume)*0.05
+		global.highlight_music_volume += (1-global.show_title_menu - global.highlight_music_volume)*0.05
 	}
 
-	if play_highlight = 1 && instance_exists(obj_album_ui)
+	if play_highlight = 1 && instance_exists(obj_album_ui) && global.show_title_menu < 1
 	{
 		global.highlight_time = 0
 		obj_album_ui.bpm_timer = 0
 		audio_stop_sound(global.highlight_music)
 		var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
-		global.highlight_music = audio_play_sound(_audio_asset,0,false,0,global.stage_map_highlight_part[n_stage])
+		global.highlight_music = audio_play_sound(_audio_asset,0,false,0,global.stage_map_highlight_part[n_stage]-sign(global.show_title_menu)*3)
 		play_highlight = 0
 	}
 	
