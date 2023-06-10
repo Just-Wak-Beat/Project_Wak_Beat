@@ -13,12 +13,14 @@ ins.w_alpha = 1
 }
 
 
-clock_hitbox.t_angle += 90
+clock_hitbox.t_angle -= 30
+clock_hitbox.image_xscale += 0.5 clock_hitbox.image_yscale += 0.5 clock_hitbox_2.image_xscale += 0.5 clock_hitbox_2.image_yscale += 0.5
 clock_hitbox.w_alpha = 1
 clock_hitbox.automatic_angle = 2
 view_shake(0.1,3,0,0)
 global.w_alpha = 1
 global.map_color = #e5a49d
+
 
 
 

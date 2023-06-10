@@ -232,7 +232,7 @@ if global.sync_setting_alpha >= 0.01
 
 
 //게임 플레이 전 난이도 설정
-if global.select_difficulty > 0
+if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 {
 	draw_set_alpha(global.select_difficulty*0.93)
 	draw_set_color(c_black)
@@ -350,7 +350,7 @@ if instance_exists(code)
 		draw_set_color(c_white)
 		draw_set_alpha((global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100))
 		draw_line_width(middle_xx-global.show_new_songs*1.5,yy+yy_h*0.2,middle_xx+global.show_new_songs*1.5,yy+yy_h*0.2,5)
-		draw_text_k_scale(middle_xx,yy+yy_h*0.1,"New!",scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
+		draw_text_k_scale(middle_xx,yy+yy_h*0.1,global.notice_title,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
 	
 		for(var i = 0; i < global.new_unlocked_map_num; i++)
 		{

@@ -1,8 +1,9 @@
 /// @description n_map_list setting
 // You can write your code in this editor
 
-
-global.reload_n_map_list_value = 0
+if (global.title_menu_animation1 == -1)
+{
+	global.reload_n_map_list_value = 0
 	if keyboard_check_pressed(vk_left)
 	{
 		global.n_map_list--
@@ -30,6 +31,6 @@ global.reload_n_map_list_value = 0
 	
 
 
-load_musicList(global.n_map_list)
-load_custom_map_files()
-
+	load_musicList(global.n_map_list)
+	load_custom_map_files()
+}

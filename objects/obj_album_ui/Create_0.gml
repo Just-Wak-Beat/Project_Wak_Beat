@@ -20,7 +20,6 @@ heart_alpha = 0
 
 
 //메인메뉴 애니메이션 재생
-beat_sound = 0
 beating_animation = 0
 loading_now = -1
 blind_xx_start = 0

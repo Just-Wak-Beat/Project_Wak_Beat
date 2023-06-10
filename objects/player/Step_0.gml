@@ -149,51 +149,53 @@ else
 	global.hmove_speed += (global.hmove*(14+global.dashing*62)+random_dash*64 - global.hmove_speed)*0.3
 	global.vmove_speed += (global.vmove*(14+global.dashing*62) - global.vmove_speed)*0.3
 
-	if global.mobile_mode != 1
+	if (global.cannot_control == 0)
 	{
-		var ff_angle = 180
-		if global.player_skin = 1
+		if global.mobile_mode != 1
 		{
-			ff_angle = 360
-		}
+			var ff_angle = 180
+			if global.player_skin = 1
+			{
+				ff_angle = 360
+			}
 	
-		if abs(global.hmove) = 1 && global.vmove = 0
-		{
-			image_angle = ff_angle
-		}
+			if abs(global.hmove) = 1 && global.vmove = 0
+			{
+				image_angle = ff_angle
+			}
 
-		if global.hmove = 0 && abs(global.vmove) = 1
-		{
-			image_angle = -ff_angle
-		}
+			if global.hmove = 0 && abs(global.vmove) = 1
+			{
+				image_angle = -ff_angle
+			}
 		
-		if global.hmove != 0 && global.vmove != 0
-		{
-			image_angle = 45+90*sign(global.vmove+global.hmove)
-			t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)
-			t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)
+			if global.hmove != 0 && global.vmove != 0
+			{
+				image_angle = 45+90*sign(global.vmove+global.hmove)
+				t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)
+				t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)
+			}
+			else
+			{
+				t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)-abs(global.vmove)*(0.2+global.dashing*0.5)
+				t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)+abs(global.vmove)*(0.2+global.dashing*0.5)
+			}
 		}
 		else
 		{
-			t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)-abs(global.vmove)*(0.2+global.dashing*0.5)
-			t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)+abs(global.vmove)*(0.2+global.dashing*0.5)
+			image_angle += (sign(global.joystick_activated+1)*global.joystick_dir - image_angle)*0.2
+			t_xscale = 1+sign(global.joystick_activated+1)*(0.2+global.dashing*0.5)
+			t_yscale = 1-sign(global.joystick_activated+1)*(0.2+global.dashing*0.5)
 		}
 	}
-	else
-	{
-		image_angle += (sign(global.joystick_activated+1)*global.joystick_dir - image_angle)*0.2
-		t_xscale = 1+sign(global.joystick_activated+1)*(0.2+global.dashing*0.5)
-		t_yscale = 1-sign(global.joystick_activated+1)*(0.2+global.dashing*0.5)
-	}
 
 
-
-	if global.cannot_control = 0 && keyboard_check(vk_left)
+	if (global.cannot_control == 0 && keyboard_check(vk_left))
 	{
 		global.hmove = -1
 	}
 
-	if global.cannot_control = 0 && keyboard_check(vk_right)
+	if (global.cannot_control == 0 && keyboard_check(vk_right))
 	{
 		global.hmove = 1
 	}
@@ -201,19 +203,19 @@ else
 
 
 
-	if global.cannot_control = 0 && keyboard_check(vk_up)
+	if (global.cannot_control == 0 && keyboard_check(vk_up))
 	{
 		global.vmove = -1
 	}
 
-	if global.cannot_control = 0 && keyboard_check(vk_down)
+	if (global.cannot_control == 0 && keyboard_check(vk_down))
 	{
 		global.vmove = 1
 	}
 
 
 
-	if abs(global.hmove)+abs(global.vmove) > 0 && global.dashing < 0.2
+	if (abs(global.hmove)+abs(global.vmove) > 0 && global.dashing < 0.2)
 	{
 		var effect_ = instance_create_depth(x+irandom_range(-16,16),y+irandom_range(-16,16),depth+1,movement_effect)
 		effect_.image_xscale = 0.3
@@ -225,7 +227,7 @@ else
 
 
 
-	if keyboard_check_released(vk_left) || keyboard_check_released(vk_right) || keyboard_check_released(vk_up) || keyboard_check_released(vk_down) || global.cannot_control = 1
+	if (keyboard_check_released(vk_left) || keyboard_check_released(vk_right) || keyboard_check_released(vk_up) || keyboard_check_released(vk_down) || global.cannot_control == 1)
 	{
 		global.hmove = 0
 		global.vmove = 0
@@ -237,18 +239,18 @@ else
 	//체력에 따른 이미지 설정
 	player.image_index = global.player_skin*7+(5-global.hp)
 
-	if global.dash_cooltime > 0
+	if (global.dash_cooltime > 0)
 	{
 		global.dash_cooltime --
 	}
 
 	global.dashing += (-0.01 - global.dashing)*0.15
-	if global.dashing <= 0.1
+	if (global.dashing <= 0.1)
 	{
 		global.dashing = 0
 	}
 
-	if global.cannot_control = 0 && global.dash_cooltime <= 0 && keyboard_check_pressed(vk_space)
+	if (global.cannot_control = 0 && global.dash_cooltime <= 0 && keyboard_check_pressed(vk_space))
 	{
 		event_user(0)
 	}

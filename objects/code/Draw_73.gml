@@ -347,7 +347,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 	}
 	
 	var changed_music = 0
-	if gamestart = 0
+	if gamestart = 0 && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1
 	{
 		if global.mobile_mode = 0
 		{
@@ -499,7 +499,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		var x_plusment = (global.joystick_xx - global.scroll_n_m_xx)/512
 		var __added_fav_list = keyboard_check_pressed(vk_shift) || (obj_album_ui.clicked_ == 1 && mouse_x < xx+xx_w*0.5 && x_plusment < 0.3)
 		
-		if __added_fav_list && global.n_map_list != 2 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage]
+		if __added_fav_list && global.n_map_list != 2 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && global.title_menu_animation1 == -1
 		{
 			obj_album_ui.clicked_ = 0;
 			obj_album_ui.heart_alpha = 10

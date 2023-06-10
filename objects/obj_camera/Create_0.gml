@@ -13,6 +13,10 @@ global.real_shake_y = 0
 
 v_x = 3584
 v_y = 2016
-
+tv_x = 3584
+tv_y = 2016
 view_shake_xx = 0
 view_shake_yy = 0
+
+global.camera_slow_zoom = 0
+global.n_camera_zoom = 1

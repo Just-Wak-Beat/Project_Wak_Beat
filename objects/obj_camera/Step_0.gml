@@ -15,17 +15,23 @@ if (global.show_rank > 0)
 	}
 	else
 	{
-		v_x += (3584 - v_x)*0.3
-		v_y += (2016 - v_y)*0.3
+		v_x += (tv_x - v_x)*0.3
+		v_y += (tv_y - v_y)*0.3
 	}
 }
 else
 {
 	x += (room_width*0.5 - x)*0.15
 	y += (room_height*0.5 - y)*0.15
-	v_x += (3584 - v_x)*0.1
-	v_y += (2016 - v_y)*0.1
+	v_x += (tv_x - v_x)*0.1
+	v_y += (tv_y - v_y)*0.1
 }
+
+
+global.n_camera_zoom += global.camera_slow_zoom
+tv_x = 3584*global.n_camera_zoom
+tv_y = 2016*global.n_camera_zoom
+
 
 x = floor(x)
 y = floor(y)

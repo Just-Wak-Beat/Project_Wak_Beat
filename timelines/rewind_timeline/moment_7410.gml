@@ -13,3 +13,4 @@ instance_destroy(gear_hitbox10)
 
 global.t_bg_color = 0
 global.t_bg_color_alpha = 0
+global.n_camera_zoom = 1

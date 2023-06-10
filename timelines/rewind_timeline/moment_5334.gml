@@ -1,5 +1,6 @@
 global.w_alpha = 0.1
-clock_hitbox.t_angle -= 90
+clock_hitbox.t_angle += 30
+clock_hitbox.image_xscale += 0.5 clock_hitbox.image_yscale += 0.5 clock_hitbox_2.image_xscale += 0.5 clock_hitbox_2.image_yscale += 0.5
 clock_hitbox.w_alpha = 1
 
 var scale = 0.5

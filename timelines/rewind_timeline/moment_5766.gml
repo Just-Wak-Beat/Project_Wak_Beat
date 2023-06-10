@@ -1,6 +1,11 @@
 global.w_alpha = 10
 
 global.t_bg_color = 1
+obj_camera.v_x = 3584
+obj_camera.v_y = 2016
+obj_camera.tv_x = 3584
+obj_camera.tv_y = 2016
+camera_set_view_size(view_camera[0],floor(obj_camera.v_x),floor(obj_camera.v_y));
 global.t_bg_color_alpha = 1
 
 clock_hitbox.w_alpha = 1

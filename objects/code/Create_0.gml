@@ -110,7 +110,7 @@ global.n_player_skin = -4
 global.n_select_skin = 0
 global.t_n_select_skin = 0
 global.acquired_skin = -4
-	for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
+	for(var i = 0; i < sprite_get_number(spr_illustrationCG)*2; i++)
 	{
 		global.unlocked_player_skin[i] = 0
 		global.unlocked_player_skin_name[i] = ""

@@ -58,18 +58,15 @@ else
 if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_title_menu == 0) || (global.show_title_menu > 0 && beating_animation == 1) || global.overtime_highlight_song == 1) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
 	bpm_timer ++
-	
-	if (beat_sound == 0 && bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60-2)
-	{
-		if (global.show_title_menu != 0)
-		{
-			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume*power(global.show_title_menu,10)*loading_now)
-			beat_sound = 1
-		}
-	}
+
 	
 	if bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
 	{
+		if (global.title_menu_animation2 == 1)
+		{
+			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume*power(global.show_title_menu,10)*loading_now,0.13)
+		}
+		
 		angle_moving_timer++
 		global.background_w_alpha = 0.05
 		
@@ -134,6 +131,5 @@ if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_t
 		image_yscale *= 0.8
 		w_alpha = 1
 		bpm_timer -= (3600/global.bpm)+global.music_sync_offset*3*60
-		beat_sound = 0
 	}
 }
