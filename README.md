@@ -4,28 +4,7 @@
 <img src = "imgs/spr_W.png">
 <h1> Just Wak & Beats </h1>
   
-  
 
-
-#### - 총 다운로드 수
-
-![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/total?color=866AFF)
-
-</br>
-
-#### - 게임 다운로드 
-
-[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT2.5m/Just.Wak.and.Beats.2.5.apk?color=98FF6A&label=Android&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT2.5m/Just.Wak.and.Beats.2.5.apk)
-
-[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT2.04/Just.Wak.and.Beats.Beta.2.04.zip?color=6AE2FF&label=Windows&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT2.04/Just.Wak.and.Beats.Beta.2.04.zip)
-
-</br></br>
-
-#### - 디스코드 (채팅 금지 되어있음 [개발 일지용])
-
-[![](https://discordapp.com/api/guilds/958378000414568558/embed.png?style=banner2)](https://discord.gg/hzbCTRemqq)
-
-</br></br>
   
 
 
@@ -60,9 +39,10 @@
 
 <b> 여러 유저들이 직적 제작한 커스텀 유저맵을 플레이 해보세요! (추후 업데이트 예정) </b>
 
-
-  
 </br></br>
+
+
+
   
 <img src = "imgs/comp4.gif"></br>
 
@@ -72,6 +52,29 @@
   
 </br></br>
 
+
+  
+<img src = "imgs/spr_W.png">
+
+#### - 총 다운로드 수
+
+![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/total?color=866AFF)
+
+</br>
+
+#### - 게임 다운로드 
+
+[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT2.5m/Just.Wak.and.Beats.2.5.apk?color=98FF6A&label=Android&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT2.5m/Just.Wak.and.Beats.2.5.apk)
+
+[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT2.04/Just.Wak.and.Beats.Beta.2.04.zip?color=6AE2FF&label=Windows&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT2.04/Just.Wak.and.Beats.Beta.2.04.zip)
+
+</br></br>
+
+#### - 디스코드 (채팅 금지 되어있음 [개발 일지용])
+
+[![](https://discordapp.com/api/guilds/958378000414568558/embed.png?style=banner2)](https://discord.gg/hzbCTRemqq)
+
+</br></br>
 
 
 </div>
