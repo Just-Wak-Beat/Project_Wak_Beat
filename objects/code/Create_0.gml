@@ -12,6 +12,7 @@ global.show_title_menu = 1
 global.title_menu_animation1 = 0
 global.title_menu_animation2 = 0
 global.overtime_highlight_song = 1
+global.show_credit = 1
 
 alarm[11] = 1
 

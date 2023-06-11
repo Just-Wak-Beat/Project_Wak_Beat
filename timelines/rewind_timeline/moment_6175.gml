@@ -27,6 +27,8 @@ global.map_color = #edcb8e
 
 global.camera_slow_zoom = -0.0005
 
+global.n_camera_zoom = 1
+
 
 
 for(var i = 1; i <= 13; i++)

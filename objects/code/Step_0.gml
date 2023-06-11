@@ -71,7 +71,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	
 			var is_clicked_joystick = device_mouse_check_button_released(global.joystick_activated, mb_left);
 			var is_clicked_scroll = device_mouse_check_button_released(global.scroll_activated, mb_left);
-			if is_clicked_joystick
+			if is_clicked_joystick || global.cannot_control == 0
 			{
 				global.joystick_activated = -1
 				global.vmove = 0

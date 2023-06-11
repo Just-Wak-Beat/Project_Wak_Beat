@@ -132,6 +132,7 @@
     {"name":"cleared_sfx","order":3,"path":"sounds/cleared_sfx/cleared_sfx.yy",},
     {"name":"load_none_cleared_list","order":4,"path":"scripts/load_none_cleared_list/load_none_cleared_list.yy",},
     {"name":"spr_status","order":4,"path":"sprites/spr_status/spr_status.yy",},
+    {"name":"Sprite49","order":10,"path":"sprites/Sprite49/Sprite49.yy",},
     {"name":"jing_hurt","order":6,"path":"sounds/jing_hurt/jing_hurt.yy",},
     {"name":"favorite_sfx","order":6,"path":"sounds/favorite_sfx/favorite_sfx.yy",},
     {"name":"ini_close_protect","order":2,"path":"scripts/ini_close_protect/ini_close_protect.yy",},

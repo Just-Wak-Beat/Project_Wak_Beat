@@ -149,44 +149,42 @@ else
 	global.hmove_speed += (global.hmove*(14+global.dashing*62)+random_dash*64 - global.hmove_speed)*0.3
 	global.vmove_speed += (global.vmove*(14+global.dashing*62) - global.vmove_speed)*0.3
 
-	if (global.cannot_control == 0)
-	{
-		if global.mobile_mode != 1
-		{
-			var ff_angle = 180
-			if global.player_skin = 1
-			{
-				ff_angle = 360
-			}
-	
-			if abs(global.hmove) = 1 && global.vmove = 0
-			{
-				image_angle = ff_angle
-			}
 
-			if global.hmove = 0 && abs(global.vmove) = 1
-			{
-				image_angle = -ff_angle
-			}
+	if global.mobile_mode != 1
+	{
+		var ff_angle = 180
+		if global.player_skin = 1
+		{
+			ff_angle = 360
+		}
+	
+		if abs(global.hmove) = 1 && global.vmove = 0
+		{
+			image_angle = ff_angle
+		}
+
+		if global.hmove = 0 && abs(global.vmove) = 1
+		{
+			image_angle = -ff_angle
+		}
 		
-			if global.hmove != 0 && global.vmove != 0
-			{
-				image_angle = 45+90*sign(global.vmove+global.hmove)
-				t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)
-				t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)
-			}
-			else
-			{
-				t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)-abs(global.vmove)*(0.2+global.dashing*0.5)
-				t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)+abs(global.vmove)*(0.2+global.dashing*0.5)
-			}
+		if global.hmove != 0 && global.vmove != 0
+		{
+			image_angle = 45+90*sign(global.vmove+global.hmove)
+			t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)
+			t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)
 		}
 		else
 		{
-			image_angle += (sign(global.joystick_activated+1)*global.joystick_dir - image_angle)*0.2
-			t_xscale = 1+sign(global.joystick_activated+1)*(0.2+global.dashing*0.5)
-			t_yscale = 1-sign(global.joystick_activated+1)*(0.2+global.dashing*0.5)
+			t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)-abs(global.vmove)*(0.2+global.dashing*0.5)
+			t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)+abs(global.vmove)*(0.2+global.dashing*0.5)
 		}
+	}
+	else
+	{
+		image_angle += (sign(global.joystick_activated+1)*global.joystick_dir - image_angle)*0.2
+		t_xscale = 1+sign(global.joystick_activated+1)*(0.2+global.dashing*0.5)
+		t_yscale = 1-sign(global.joystick_activated+1)*(0.2+global.dashing*0.5)
 	}
 
 

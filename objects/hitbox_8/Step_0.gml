@@ -13,6 +13,7 @@ y_movement_timer = 0
 
 y_movement += y_movement_dir
 
+
 if global.low_graphics = false
 {
 w_alpha += (-0.01 - w_alpha)*0.15

@@ -282,7 +282,7 @@ if global.alzar_effect2 = 1
 if global.wakrio_effect != 0
 {
 	wakrio_timer++
-	if wakrio_timer > 27
+	if wakrio_timer > 27.09766
 	{
 		if global.wakrio_effect == 1
 		{
@@ -303,7 +303,7 @@ if global.wakrio_effect != 0
 			var laser___ = create_laser(room_width*0.5,room_height*0.5,60,5,3,2,1,180)
 			laser___.image_angle = irandom_range(0,359)
 		}
-		wakrio_timer = 0
+		wakrio_timer -= 27.09766
 	}
 }
 

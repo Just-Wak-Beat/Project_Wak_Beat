@@ -1,4 +1,3 @@
 /// @description Insert description here
 // You can write your code in this editor
-image_speed = 0
-t_scaling = 0
+global.show_credit = 0

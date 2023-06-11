@@ -1,5 +1,15 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (global.show_credit == 1)
+{
+	credit_text_alpha += (1.1 - credit_text_alpha)*0.025
+}
+else
+{
+	credit_text_alpha += (-0.01 - credit_text_alpha)*0.05
+}
+
+
 if global.show_title_menu != 0 && global.show_title_menu < 1
 {
 	global.show_title_menu -= 0.001
@@ -29,15 +39,19 @@ if ding_dong_animation > 0 && ding_dong_animation < 50
 
 if (ding_dong_animation == 5)
 {
-	var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth-10,explosion_effect)
-	_ef.image_xscale = 4
-	_ef.image_yscale = 4
-	_ef.t_scale = 8
+	var random_xx = irandom_range(global.c_x+960,room_width*0.5)
+	var random_yy = irandom_range(room_height*0.5,global.c_h-960)
+	var _ef = instance_create_depth(random_xx,random_yy,depth-10,explosion_effect)
+	_ef.image_xscale = 1
+	_ef.image_yscale = 1
+	_ef.t_scale = 2
 	_ef.image_blend = c_white
 }
 else if (ding_dong_animation == 25)
 {
-	var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth-10,explosion_effect)
+	var random_xx = irandom_range(room_width*0.6,global.c_w-960)
+	var random_yy = irandom_range(global.c_y+960,room_height*0.5)
+	var _ef = instance_create_depth(random_xx,random_yy,depth-10,explosion_effect)
 	_ef.image_xscale = 2
 	_ef.image_yscale = 2
 	_ef.t_scale = 4

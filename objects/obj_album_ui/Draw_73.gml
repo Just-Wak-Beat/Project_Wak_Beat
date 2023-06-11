@@ -508,6 +508,14 @@ if (global.show_title_menu != 0)
 	draw_set_alpha(1)
 	draw_line_width(0,0,room_width,room_height,5000)
 	draw_sprite_ext(spr_W,0,middle_xx,middle_yy,image_xscale*0.4,image_yscale*0.4,0,c_white,1)
+	
+	if (credit_text_alpha > 0)
+	{
+		draw_text_k_scale(middle_xx,middle_yy-480,"Presented by",64,-1,credit_text_alpha,c_white,0,0,normal_font,0.7,global.font_ratio_resolution_xx*0.7,0)
+		
+		draw_sprite_ext(Sprite49,0,middle_xx,middle_yy,1.1,global.font_ratio_resolution_xx*1.1,0,c_white,credit_text_alpha)
+		draw_text_k_scale(middle_xx-32,middle_yy+190,"Studio",64,-1,credit_text_alpha,c_white,0,0,normal_font,0.8,global.font_ratio_resolution_xx*0.8,0)
+	}
 }
 
 

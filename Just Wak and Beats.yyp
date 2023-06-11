@@ -159,6 +159,7 @@
     {"id":{"name":"movement_effect","path":"objects/movement_effect/movement_effect.yy",},},
     {"id":{"name":"load_none_cleared_list","path":"scripts/load_none_cleared_list/load_none_cleared_list.yy",},},
     {"id":{"name":"spr_status","path":"sprites/spr_status/spr_status.yy",},},
+    {"id":{"name":"Sprite49","path":"sprites/Sprite49/Sprite49.yy",},},
     {"id":{"name":"jing_hurt","path":"sounds/jing_hurt/jing_hurt.yy",},},
     {"id":{"name":"favorite_sfx","path":"sounds/favorite_sfx/favorite_sfx.yy",},},
     {"id":{"name":"ini_close_protect","path":"scripts/ini_close_protect/ini_close_protect.yy",},},

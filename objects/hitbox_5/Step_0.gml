@@ -39,7 +39,7 @@ w_alpha = 0.3
 		if instance_exists(hitbox_8)
 		{
 		hitbox_8.w_alpha = 1
-		hitbox_8.image_xscale = 0.8
+		//hitbox_8.image_xscale = 0.8
 		hitbox_8.image_yscale = 0.8
 		global.w_alpha = 0.15
 		}

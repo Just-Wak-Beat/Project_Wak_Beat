@@ -16,4 +16,11 @@ repeat(irandom_range(8,10)*5)
 	effect_.image_blend = global.map_color
 }
 
+
+var _ef = instance_create_depth(xx,yy,depth-10,explosion_effect)
+_ef.image_xscale = 2
+_ef.image_yscale = 2
+_ef.t_scale = 4
+_ef.image_blend = c_white
+
 alarm[6] = 30
