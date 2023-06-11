@@ -19,7 +19,7 @@
   
 </br></br>
 
-
+#  ‍ 
   
 <img src = "imgs/comp2.gif"></br>
 
@@ -31,7 +31,7 @@
   
 </br></br>
 
-
+#  ‍ 
   
 <img src = "imgs/comp3.gif"></br>
 
@@ -40,7 +40,7 @@
 </br></br>
 
 
-
+#  ‍ 
   
 <img src = "imgs/comp4.gif"></br>
 
@@ -51,6 +51,7 @@
 </br></br>
 
 
+#  ‍ 
   
 <img src = "imgs/spr_W.png">
 
