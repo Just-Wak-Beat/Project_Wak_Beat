@@ -1,11 +1,7 @@
 <div align = "center">
   
 
-<img src = "imgs/spr_W.png">
-<h1> Just Wak & Beats </h1>
-  
 
-  
 
 
 </br></br>
