@@ -106,7 +106,11 @@ load_data_timer = 0
 loading_now_progress = 0
 global.character_setting = 0
 
-
+global.level = 0
+global.exp = 0
+global.exp_for_draw = 0
+global.exp_w_alpha = 0
+global.max_exp = 1000
 global.n_player_skin = -4
 global.n_select_skin = 0
 global.t_n_select_skin = 0

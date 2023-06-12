@@ -61,6 +61,7 @@
     {"name":"Yoong","order":13,"path":"sounds/Yoong/Yoong.yy",},
     {"name":"tutorial_part1","order":3,"path":"sounds/tutorial_part1/tutorial_part1.yy",},
     {"name":"obj_album_ui","order":5,"path":"objects/obj_album_ui/obj_album_ui.yy",},
+    {"name":"spr_level_bar","order":11,"path":"sprites/spr_level_bar/spr_level_bar.yy",},
     {"name":"isedolhyang","order":16,"path":"sounds/isedolhyang/isedolhyang.yy",},
     {"name":"winter_spring","order":15,"path":"sounds/winter_spring/winter_spring.yy",},
     {"name":"tutorial_part2","order":4,"path":"sounds/tutorial_part2/tutorial_part2.yy",},

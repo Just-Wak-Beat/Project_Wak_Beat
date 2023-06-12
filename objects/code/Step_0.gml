@@ -1,6 +1,27 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
+//레벨 시스템
+if (global.ui_alpha >= 1)
+{
+	if (global.exp > global.max_exp && global.exp_for_draw >= global.max_exp)
+	{
+		global.level++;
+		global.exp -= global.max_exp;
+		global.exp_for_draw = 0;
+		global.exp_w_alpha = 1;
+		global.max_exp += 50;
+	}
+	
+	global.exp_for_draw += (global.exp - global.exp_for_draw)*0.1;
+	global.exp_w_alpha += (0 - global.exp_w_alpha)*0.1;
+}
+
+
+
+
+
 //조이스틱
 global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_alpha)*0.15
 	if global.joystick_activated != -1

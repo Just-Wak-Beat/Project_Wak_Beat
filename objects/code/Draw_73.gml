@@ -73,7 +73,7 @@ draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,
 
 var col_1 = merge_color(global.player_color,c_white,0.85)
 draw_set_color(merge_color(global.player_color,c_white,0.85))
-draw_set_alpha(music_title_alpha*0.3)
+draw_set_alpha(music_title_alpha)
 draw_line_width(xx+music_title_alpha*780*font_size,yy-128,xx+music_title_alpha*320*font_size,yy+music_title_alpha*xx_w*font_size,600*font_size)
 
 draw_set_color(merge_color(col_1,c_black,0.2))

@@ -46,6 +46,11 @@ ini_open_protect("JWAB_Beta.ini")
 		ini_write_real("window_width","none",global.window_width);
 		ini_write_real("window_height","none",global.window_height);
 		ini_write_real("window_fullscreen","none",global.window_fullscreen);
+		
+		//레벨
+		ini_write_real("level","none",global.level);
+		ini_write_real("exp","none",global.exp);
+		ini_write_real("max_exp","none",global.max_exp);
 	}
 	else
 	{
@@ -95,6 +100,12 @@ ini_open_protect("JWAB_Beta.ini")
 		window_set_max_width(global.window_width)
 		window_set_max_height(global.window_height)
 		surface_resize(application_surface, display_get_width (), display_get_height ());
+		
+		
+		//레벨
+		global.level = ini_read_real("level","none",0);
+		global.exp = ini_read_real("exp","none",0);
+		global.max_exp = ini_read_real("max_exp","none",1000);
 	}
 
 	ini_close_protect()

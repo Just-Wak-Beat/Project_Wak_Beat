@@ -3,7 +3,7 @@
 
 if (global.select_difficulty = 0 && mouse_check_button_released(mb_left))
 {
-	if point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+300) < 80
+	if point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+400) < 80
 	{
 		if global.sync_setting <= 0 && global.character_setting <= 0
 		{
@@ -22,7 +22,7 @@ if (global.select_difficulty = 0 && mouse_check_button_released(mb_left))
 			alarm[2] = 1
 		}
 	}
-	else if point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+560) < 80
+	else if point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80
 	{
 		if global.sync_setting <= 0 && global.character_setting <= 0
 		{

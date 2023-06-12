@@ -62,16 +62,23 @@ draw_sprite_general(spr_status,0,0,0,sprite_get_width(spr_status),sprite_get_hei
 
 draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80,0.5*global.font_ratio_resolution_xx,0.5,45,c_white,ui_alpha__cal)
 
+
+//레벨 바
+draw_sprite_ext(spr_level_bar,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,0,#171628,ui_alpha__cal)
+draw_sprite_part_ext(spr_level_bar,0,0,0,(global.exp_for_draw/global.max_exp)*1760,64,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,merge_color(merge_color(c_white,global.player_color,0.5+(global.exp/global.max_exp)*0.5),c_white,global.exp_w_alpha),ui_alpha__cal)
+draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level"+string(global.level),64,-1,ui_alpha__cal,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+
+
 //환경설정 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+350,"setting",64,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
-draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+300+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
-draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+300,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
+draw_text_k_scale(global.c_x+104,global.c_y+450,"setting",64,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
+draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
 
 //캐릭터 변경 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+600,"Character",64,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
-draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+560+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
-draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+560,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
+draw_text_k_scale(global.c_x+104,global.c_y+700,"Character",64,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
+draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
 
 
@@ -507,7 +514,7 @@ if (global.show_title_menu != 0)
 	draw_set_color(c_black)
 	draw_set_alpha(1)
 	draw_line_width(0,0,room_width,room_height,5000)
-	draw_sprite_ext(spr_W,0,middle_xx,middle_yy,image_xscale*0.4,image_yscale*0.4,0,c_white,1)
+	draw_sprite_ext(spr_W,0,middle_xx,middle_yy,global.font_ratio_resolution_xx*image_xscale*0.4,image_yscale*0.4,0,c_white,1)
 	
 	if (credit_text_alpha > 0)
 	{

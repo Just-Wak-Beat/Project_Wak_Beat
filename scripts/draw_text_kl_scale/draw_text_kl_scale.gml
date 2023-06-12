@@ -68,10 +68,9 @@ function draw_text_kl_scale(argument0, argument1, argument2, argument3, argument
 	if argument3 > 0 && argument4 < 0
 	{
 	//컬러설정
-	if global.graphics_for_code != 1
-	{
+
 		draw_set_color($FF191919&$ffffff);
-		for(var i = 1; i < argument10*3; i+= argument10*1.5)
+		for(var i = 1; i <= 3; i += 1)
 		{
 		//i = argument10
 		draw_text_ext_transformed(argument0+i,argument1,argument2,argument3,99999999999,argument10,argument11,argument12);
@@ -79,7 +78,7 @@ function draw_text_kl_scale(argument0, argument1, argument2, argument3, argument
 		draw_text_ext_transformed(argument0-i,argument1,argument2,argument3,99999999999,argument10,argument11,argument12);
 		draw_text_ext_transformed(argument0,argument1-i,argument2,argument3,99999999999,argument10,argument11,argument12);
 		}
-	}
+	
 	
 	
 
@@ -91,13 +90,12 @@ function draw_text_kl_scale(argument0, argument1, argument2, argument3, argument
 
 	if argument3 > 0 && argument4 > 0
 	{
-		if global.graphics_for_code != 1
-		{
+
 		draw_set_color($FF191919&$ffffff);
 		
 			if argument10 > 0.5
 			{
-				for(var i = 1; i < argument10*3; i+= argument10*1.5)
+				for(var i = 1; i <= 3; i += 1)
 				{
 				//i = argument10
 				draw_text_ext_transformed(argument0+i,argument1,argument2,argument3,argument4,argument10,argument11,argument12);
@@ -117,7 +115,7 @@ function draw_text_kl_scale(argument0, argument1, argument2, argument3, argument
 				draw_text_ext_transformed(argument0,argument1-i,argument2,argument3,argument4,argument10,argument11,argument12);
 				}
 			}
-		}
+		
 
 
 	//컬러설정
