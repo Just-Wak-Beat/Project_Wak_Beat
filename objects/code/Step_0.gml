@@ -480,6 +480,7 @@ if global.rewind > 0
 		instance_destroy(hitbox_parents)
 		instance_destroy(obj_savepoint)
 		instance_destroy(square_misile)
+		instance_destroy(obj_stage_clear)
 	
 		if global.fukurou_snow_effect != 0
 		{

@@ -9,5 +9,7 @@
 
 if instance_exists(obj_album_ui) && depth < obj_album_ui.depth+10
 {
-draw_self()
+	shader_set(shFlash)
+	draw_self()
+	shader_reset()
 }

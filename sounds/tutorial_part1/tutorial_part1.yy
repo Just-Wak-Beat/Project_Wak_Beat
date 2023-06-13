@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "tutorial_part1",
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "musics",
+    "path": "audiogroups/musics",
   },
   "bitDepth": 1,
   "bitRate": 512,

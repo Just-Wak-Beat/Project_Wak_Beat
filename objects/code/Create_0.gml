@@ -17,6 +17,16 @@ global.show_credit = 1
 alarm[11] = 1
 
 
+//텍스쳐 및 오디오 로딩
+for(var i = 0; i <= 4; i++)
+{
+	audio_group_load(i)
+}
+
+texturegroup_load("UI")
+texturegroup_load("hitbox_shapes")
+texturegroup_load("effects")
+
 ////////////////////////////////////////////////
 //show_debug_overlay(true)
 

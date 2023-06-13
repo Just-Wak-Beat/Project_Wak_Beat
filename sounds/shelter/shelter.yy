@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "shelter",
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "musics",
+    "path": "audiogroups/musics",
   },
   "bitDepth": 1,
   "bitRate": 512,

@@ -6,9 +6,10 @@
 ///@param quicksave
 function save_and_load_data(argument0,argument1)
 {
-ini_open_protect("JWAB_Beta.ini")
+	var file_name = (global.dev_mode == 1) ? "JWAB_Beta.ini" : "JWAB_ClosedBeta.ini"
+	ini_open_protect(file_name)
 
-	if argument0 = 0
+	if (argument0 == 0)
 	{
 		//플레이어 스킨
 		ini_write_real("n_player_skin","none",global.n_player_skin);
@@ -17,6 +18,7 @@ ini_open_protect("JWAB_Beta.ini")
 			ini_write_string("unlocked_player_skin",string(i),global.unlocked_player_skin[i]);
 		}
 		
+
 		for(var i = 0; i < global.total_map; i++)
 		{
 			//인게임 정보 (맵)
@@ -37,6 +39,7 @@ ini_open_protect("JWAB_Beta.ini")
 			//아티팩트 보유 갯수
 			ini_write_real("artifact_owned",string(i),global.artifact_owned[i]);
 		}
+		
 	
 		//환경설정
 		ini_write_real("master_volume","none",global.master_volume);
@@ -63,24 +66,27 @@ ini_open_protect("JWAB_Beta.ini")
 		}
 		
 		
-		for(var i = 0; i < global.total_map; i++)
+		if (argument1 >= 1)
 		{
-			//인게임 정보 (맵)
-			global.real_n_rank[i] = ini_read_string("n_rank",string(i),"--");
-			global.real_n_rank_hardcore[i] = ini_read_string("n_rank_hardcore",string(i),"--");
-			global.real_n_artifact[i] = ini_read_string("n_artifact",string(i),"X");
-			global.real_n_favorite[i] = ini_read_real("n_favorite",string(i),-1);
-			global.fav_map_id[i] = ini_read_real("fav_map_id",string(i),-4);
-			global.unlocked_map_id[i] = ini_read_real("unlocked_map_id",string(i),-4);
+			for(var i = 0; i < global.total_map; i++)
+			{
+				//인게임 정보 (맵)
+				global.real_n_rank[i] = ini_read_string("n_rank",string(i),"--");
+				global.real_n_rank_hardcore[i] = ini_read_string("n_rank_hardcore",string(i),"--");
+				global.real_n_artifact[i] = ini_read_string("n_artifact",string(i),"X");
+				global.real_n_favorite[i] = ini_read_real("n_favorite",string(i),-1);
+				global.fav_map_id[i] = ini_read_real("fav_map_id",string(i),-4);
+				global.unlocked_map_id[i] = ini_read_real("unlocked_map_id",string(i),-4);
 			
-			global.unlocked_music_name[i] = ini_read_string("unlocked_music_name",string(i),"");
-			global.b_unlocked_music_name[i] = ini_read_string("b_unlocked_music_name",string(i),"");
-		}
+				global.unlocked_music_name[i] = ini_read_string("unlocked_music_name",string(i),"");
+				global.b_unlocked_music_name[i] = ini_read_string("b_unlocked_music_name",string(i),"");
+			}
 		
-		for(var i = 0; i <= 7; i++)
-		{
-			//아티팩트 보유 갯수
-			global.artifact_owned[i] = ini_read_real("artifact_owned",string(i),0);
+			for(var i = 0; i <= 7; i++)
+			{
+				//아티팩트 보유 갯수
+				global.artifact_owned[i] = ini_read_real("artifact_owned",string(i),0);
+			}
 		}
 
 		
@@ -99,7 +105,7 @@ ini_open_protect("JWAB_Beta.ini")
 		window_set_size(global.window_width,global.window_height)
 		window_set_max_width(global.window_width)
 		window_set_max_height(global.window_height)
-		surface_resize(application_surface, display_get_width (), display_get_height ());
+		surface_resize(application_surface, display_get_width(), display_get_height());
 		
 		
 		//레벨

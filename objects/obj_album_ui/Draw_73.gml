@@ -70,13 +70,13 @@ draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level"
 
 
 //환경설정 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+450,"setting",64,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+450,"setting"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
 
 //캐릭터 변경 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+700,"Character",64,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+700,"Character"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
@@ -255,7 +255,7 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 
 	var button_1_xx = xx+xx_w*0.32
 	var button_2_xx = xx+xx_w*0.68
-	//game start
+	//game start (난이도 선택 완료후 진짜로 시작)
 	if global.select_difficulty > 0.99
 	{
 		if global.mobile_mode == 0
@@ -283,33 +283,42 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 			}
 		}
 		
-		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
-		{
-			code.gamestart = 1
-			global.t_select_difficulty = 0
-			audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
-		}
 		
-		if mouse_check_button_pressed(mb_left)
+		if (global.t_selected_difficulty == 1 || (global.t_selected_difficulty != 1 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*2))
 		{
-			if point_distance(mouse_x,mouse_y,button_1_xx,middle_yy) < 256*f_selected
+			if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 			{
-				global.t_selected_difficulty = 1
 				code.gamestart = 1
+				global.t_select_difficulty = 0
 				audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 			}
-			else if point_distance(mouse_x,mouse_y,button_2_xx,middle_yy) < 256*s_selected
+		
+			if mouse_check_button_pressed(mb_left)
 			{
-				global.t_selected_difficulty = 0
-				code.gamestart = 1
-				audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+				if point_distance(mouse_x,mouse_y,button_1_xx,middle_yy) < 256*f_selected
+				{
+					global.t_selected_difficulty = 1
+					code.gamestart = 1
+					audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+					global.t_select_difficulty = 0
+				}
+				else if point_distance(mouse_x,mouse_y,button_2_xx,middle_yy) < 256*s_selected
+				{
+					global.t_selected_difficulty = 0
+					if (global.level >= (global.detailed_difficulty[global.n_map_id]+1)*2)
+					{
+						code.gamestart = 1
+						audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+						global.t_select_difficulty = 0
+					}
+				}
+				else
+				{
+					code.gamestart = 0
+					audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+					global.t_select_difficulty = 0
+				}
 			}
-			else
-			{
-				code.gamestart = 0
-				audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
-			}
-			global.t_select_difficulty = 0
 		}
 	}
 	
@@ -325,6 +334,14 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 	draw_sprite_ext(spr_heart,0,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
 	draw_text_k_scale(button_2_xx,middle_yy-s_selected*64,"Hardcore",64,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.65*s_selected*global.font_ratio_resolution_xx,0.65*s_selected,0)
 	draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않고, 무적 쿨타임이 짧은 대신,\n클리어 시,\n아티팩트를 중복하여 획득할 수 있습니다",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
+	
+	var unlock_level = (global.detailed_difficulty[global.n_map_id]+1)*2;
+	if (global.level < unlock_level)
+	{
+		draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,c_black,global.select_difficulty*0.7)
+		draw_sprite_ext(spr_lock,1,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
+		draw_text_k_scale(button_2_xx,middle_yy,"해금 조건\n"+string(unlock_level)+"레벨 이상",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_white,c_black,abs(1-n_difficulty)*0.5),0,0,normal_font,0.5*s_selected*global.font_ratio_resolution_xx,0.5*s_selected,0)
+	}
 
 
 	//outline

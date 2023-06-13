@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (global.select_difficulty = 0 && mouse_check_button_released(mb_left))
+if (global.select_difficulty = 0)
 {
-	if point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+400) < 80
+	if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+400) < 80) || keyboard_check_pressed(vk_tab)
 	{
 		if global.sync_setting <= 0 && global.character_setting <= 0
 		{
@@ -22,7 +22,7 @@ if (global.select_difficulty = 0 && mouse_check_button_released(mb_left))
 			alarm[2] = 1
 		}
 	}
-	else if point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80
+	else if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80) || keyboard_check_pressed(ord("Q"))
 	{
 		if global.sync_setting <= 0 && global.character_setting <= 0
 		{

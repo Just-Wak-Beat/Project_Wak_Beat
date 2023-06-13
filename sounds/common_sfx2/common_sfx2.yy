@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "common_sfx2",
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "common_sfx",
+    "path": "audiogroups/common_sfx",
   },
   "bitDepth": 1,
   "bitRate": 512,

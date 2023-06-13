@@ -100,7 +100,7 @@ if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_t
 		instance_create_depth(global.c_w-640,global.c_y+yy_h*0.47,code.depth-50,circle_effect)
 	
 		
-		if global.select_difficulty > 0
+		if global.select_difficulty > 0.1
 		{
 			var xx = camera_get_view_x(view_camera[0])
 			var xx_w = camera_get_view_width(view_camera[0])
@@ -109,7 +109,7 @@ if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_t
 			{
 				var random_dir = irandom_range(0,359);
 				var middle_yy = yy+yy_h*0.5+lengthdir_y(image_xscale*340,random_dir);
-				if global.selected_difficulty == 1
+				if global.t_selected_difficulty == 1
 				{
 					var xx__ = xx+xx_w*0.32+lengthdir_x(image_xscale*340,random_dir);
 				}

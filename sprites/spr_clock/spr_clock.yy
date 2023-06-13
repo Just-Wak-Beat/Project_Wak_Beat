@@ -69,8 +69,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "hitbox_shapes",
+    "path": "texturegroups/hitbox_shapes",
   },
   "type": 0,
   "VTile": false,

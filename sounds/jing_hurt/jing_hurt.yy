@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "jing_hurt",
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "voice_sfx",
+    "path": "audiogroups/voice_sfx",
   },
   "bitDepth": 1,
   "bitRate": 512,

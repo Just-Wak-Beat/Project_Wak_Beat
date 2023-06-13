@@ -135,7 +135,7 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 
 
 
-	if (touched == 0 && place_meeting(x,y,player))
+	if (touched == 0 && global.hp > 0 && place_meeting(x,y,player))
 	{
 		global.savepoint_text_t_alpha = -0.01
 		var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)

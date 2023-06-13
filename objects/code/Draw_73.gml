@@ -465,7 +465,7 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 			}
 		}
 		
-		//스테이지 선택완료 - 난이도 선택 (게임 시작)
+		//스테이지 선택완료 - 난이도 선택창 (게임 시작)
 		if global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && go_play
 		{
 			if global.real_stage_map_difficulty[n_stage] == "Tutorial"

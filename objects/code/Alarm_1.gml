@@ -102,7 +102,7 @@ else
 
 
 //경험치 증가
-global.exp += global.detailed_difficulty[global.n_map_id]*global.music_duration*0.003*convert_rank_to_num(global.n_rank_display)*(1.5 - global.t_selected_difficulty*0.5);
+global.exp += (global.detailed_difficulty[global.n_map_id]+1)*global.music_duration*0.003*convert_rank_to_num(global.n_rank_display)*(1.5 - global.t_selected_difficulty*0.5);
 global.exp_w_alpha = 1
 
 
