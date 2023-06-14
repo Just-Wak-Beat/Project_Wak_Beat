@@ -366,13 +366,13 @@ global.real_requirement_number[7] = 1
 //아이패드
 global.real_stage_map_name[8] = "아이패드";
 global.real_stage_map_artist[8] = "뾰복";
-global.real_stage_map_difficulty[8] = "Normal";
+global.real_stage_map_difficulty[8] = "Hard";
 global.real_stage_map_color[8] = #5595ff
 global.real_stage_map_duration[8] = 4316;
 global.real_stage_map_audio_name[8] = "ipad";
 global.real_stage_bpm[8] = 130;
 global.real_stage_map_highlight_part[8] = 30.3;
-global.real_detailed_difficulty[8] = 2;
+global.real_detailed_difficulty[8] = 3;
 global.real_requirement_type[8] = 0
 global.real_requirement_number[8] = 1
 global.ipad_random_xx = -4

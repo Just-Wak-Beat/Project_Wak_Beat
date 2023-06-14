@@ -138,32 +138,46 @@
 	{
 		view_shake(0.1,1.5,0.1,0)
 
-		global.yoong_laser_dir += random_dir_laser*0.5
-		global.yoong_laser_dir2 += random_dir_laser2*0.5
 
-		if global.yoong_laser_dir2 > 170
+		if instance_exists(hitbox_7) && instance_exists(hitbox_3)
 		{
-			random_dir_laser2 = -1
-		}
-
-		if global.yoong_laser_dir2 < 10
-		{
-			random_dir_laser2 = 1
-		}
-
-		if global.yoong_laser_dir > 170
-		{
-			random_dir_laser = -1
-		}
-
-		if global.yoong_laser_dir < 10
-		{
-			random_dir_laser = 1
-		}
-
-		if instance_exists(hitbox_7)
-		{
-			if cre_now1 = 1
+			var target_ins = -4
+			with(hitbox_3)
+			{
+				if (object_index == hitbox_3 && image_alpha >= 1)
+				{
+					target_ins = id
+				}
+			}
+			
+			if (target_ins != -4)
+			{
+				global.yoong_laser_dir = target_ins.image_angle+90
+				global.yoong_laser_dir2 = target_ins.image_angle+90
+			
+			
+				if (cre_now1 == 1 || cre_now2 == 1) && instance_number(explosion_effect) < 32 
+				{
+					for(var i = 2000; i > 1000; i -= 10)
+					{
+						var dir_xx = wakgood_shouting.x+lengthdir_x(i,global.yoong_laser_dir)
+						var dir_yy = wakgood_shouting.y+lengthdir_y(i,global.yoong_laser_dir)
+			
+						if (dir_xx <= global.c_w && dir_xx >= global.c_x && dir_yy >= global.c_y && dir_yy <= global.c_w)
+						{
+							var _ef = instance_create_depth(dir_xx+irandom_range(-520,520),dir_yy+irandom_range(-520,520),depth+1,explosion_effect)
+							_ef.image_xscale = 1
+							_ef.image_yscale = 1
+							_ef.t_scale = irandom_range(10,60)/10
+							_ef.image_blend = c_white
+					
+							break;
+						}
+					}
+				}
+			}
+			
+			if (cre_now1 == 1)
 			{
 				var attack_ef = instance_create_depth(wakgood_shouting.x+irandom_range(-64,64),wakgood_shouting.y+irandom_range(-64,64),depth+1,hitbox_2)
 				attack_ef.direction = global.yoong_laser_dir+irandom_range(-50,50)
@@ -174,7 +188,7 @@
 				attack_ef.w_alpha = 10
 			}
 		
-			if cre_now2 = 1
+			if (cre_now2 == 1)
 			{
 				var attack_ef = instance_create_depth(wakgood_shouting.x+irandom_range(-64,64),wakgood_shouting.y+irandom_range(-64,64),depth+1,hitbox_2)
 				attack_ef.direction = global.yoong_laser_dir2+irandom_range(-50,50)
@@ -184,6 +198,7 @@
 				attack_ef.image_yscale = 0.4
 				attack_ef.w_alpha = 10
 			}
+			
 		}
 	}
 
