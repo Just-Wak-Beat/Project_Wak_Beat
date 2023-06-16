@@ -8,6 +8,7 @@ global.t_bg_color = 0.6
 global.t_bg_color_alpha = 0.6
 
 
+
 var attack_ef = instance_create_depth(wakgood_shouting.x,wakgood_shouting.y,depth+1,hitbox_2)
 attack_ef.direction = global.yoong_laser_dir
 attack_ef.speed = 32

@@ -18,7 +18,7 @@ if (global.exp > global.max_exp)
 	}
 	else if (global.n_music_title == "RE:WIND")
 	{
-		global.acquired_skin = choose(4,7,10,13,15,16,19)
+		global.acquired_skin = choose(7,10,13,15,16,19)
 	}
 	else if (global.n_music_title == "아이패드")
 	{
@@ -43,5 +43,9 @@ if (global.exp > global.max_exp)
 	else if (global.n_music_title == "Promise (Cover by 릴파 Lilpa)")
 	{
 		global.acquired_skin = 12
+	}
+	else if (global.n_music_title == "고멤가요제 MASHUP (아이네 INE)")
+	{
+		global.acquired_skin = 4
 	}
 }

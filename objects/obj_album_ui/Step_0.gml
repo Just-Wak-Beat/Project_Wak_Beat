@@ -13,7 +13,7 @@ var yy_h = camera_get_view_height(view_camera[0])
 	}
 	else
 	{
-		if (sprite_index != global.custom_stage_album[global.n_map_id])
+		if (global.n_map_id >= 0 && sprite_index != global.custom_stage_album[global.n_map_id])
 		{
 			var spr_width = sprite_get_width(global.custom_stage_album[global.n_map_id]);
 			var spr_height = sprite_get_height(global.custom_stage_album[global.n_map_id]);
@@ -92,7 +92,7 @@ if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_t
 		{
 			w_alpha_bg = 0.6
 			
-			if (global.n_rank[global.n_map_id] == "S+")
+			if (global.n_map_id >= 0 && global.n_rank[global.n_map_id] == "S+")
 			{
 				var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
 				_ef.image_index = 6

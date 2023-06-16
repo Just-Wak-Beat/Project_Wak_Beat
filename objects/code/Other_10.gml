@@ -5,7 +5,8 @@
 np_setpresence_more("", "메인 매뉴", false);
 np_setpresence("메인 매뉴", "", "type0", "");
 
-
+window_set_cursor(cr_default)
+global.gomem_mashup_effect_arrow_alpha = 0
 global.check_died = 0
 global.tutorial_now = 0
 global.fukurou_snow_effect = 0
@@ -14,6 +15,7 @@ global.turisumo_effect_2 = 0
 global.turisumo_effect_scale = 0
 global.t_turisumo_effect_scale = 0
 global.master_remix_effect = 0
+global.gomem_mashup_effect = 0
 global.turisumo_effect_3 = 0
 turisumo_bpm_timer = 0
 turisumo_road_sign_delay = 0
@@ -38,6 +40,7 @@ random_dir_laser2 = choose(-1,1)
 master_bpm_timer = 0
 global.alzar_effect = 0
 global.alzar_effect2 = 0
+global.gomem_mashup_effect_dir = 0
 alzar_timer = 0
 alzar_timer2 = 0
 alzar_timer2_stack = 0

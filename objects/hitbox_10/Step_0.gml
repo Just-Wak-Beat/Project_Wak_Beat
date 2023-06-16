@@ -25,7 +25,7 @@ if audio_is_playing(ipad)
 
 if global.fukurou_snow_effect != 0 || global.ipad_effect != 0 || audio_is_playing(isedolhyang) || audio_is_playing(promise)
 {
-var _image_scale = 640*image_xscale
+var _image_scale = 900*image_xscale
 
 	if image_alpha >= 1 && des = 0 && ((y > global.c_h && gravity_direction > 180 && gravity_direction < 360) || (y < global.c_y && gravity_direction == 90))
 	{

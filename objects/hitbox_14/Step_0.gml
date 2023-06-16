@@ -30,12 +30,12 @@ y += global.map_speed_y
 
 
 
-if global.map_speed > 0 && x < global.c_x-640*image_xscale
+if global.map_speed > 0 && x < global.c_x-1280*image_xscale
 {
 	instance_destroy()
 }
 
-if global.map_speed < 0 && x > global.c_w+640*image_xscale
+if global.map_speed < 0 && x > global.c_w+1280*image_xscale
 {
 	instance_destroy()
 }

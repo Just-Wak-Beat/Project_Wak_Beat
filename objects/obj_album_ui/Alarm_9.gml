@@ -3,3 +3,5 @@
 global.show_title_menu -= 0.001
 loading_now = 0
 
+
+global.background_color = merge_color(global.map_color,c_black,0.9)

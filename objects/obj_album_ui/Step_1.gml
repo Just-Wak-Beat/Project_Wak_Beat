@@ -3,6 +3,7 @@
 if (global.show_credit == 1)
 {
 	credit_text_alpha += (1.1 - credit_text_alpha)*0.025
+	window_set_cursor(cr_none)
 }
 else
 {

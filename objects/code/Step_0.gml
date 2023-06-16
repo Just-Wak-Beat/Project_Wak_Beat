@@ -18,6 +18,10 @@ if (global.ui_alpha >= 1)
 	global.exp_w_alpha += (0 - global.exp_w_alpha)*0.1;
 }
 
+if (global.level < 0)
+{
+	global.level = 0
+}
 
 
 

@@ -1,0 +1,1 @@
+global.t_bg_color_alpha = 1

@@ -451,3 +451,102 @@ if global.promise_effect > 0
 		global.promise_effect -= 21.8*4
 	}
 }
+
+
+
+if global.gomem_mashup_effect > 0
+{
+	
+	if (global.gomem_mashup_effect == 1)
+	{
+		global.gomem_mashup_effect_arrow_alpha += (-0.01 - global.gomem_mashup_effect_arrow_alpha)*0.1
+		master_bpm_timer ++
+		if master_bpm_timer >= (3600/global.bpm)*2+global.music_sync_offset*3*60
+		{
+			var random_x = room_width*0.8
+			create_spike_circle(random_x,global.c_y,random_x,irandom_range(global.c_y+512,global.c_h-512),60,0,0,0.2)
+
+			global.t_bg_color_alpha = 1
+			view_shake(0.1,5,0,2)
+			
+			master_bpm_timer -=(3600/global.bpm)*2+global.music_sync_offset*3*60
+		}
+	}
+	else if (global.gomem_mashup_effect == 2 || global.gomem_mashup_effect == 3)
+	{
+		global.gomem_mashup_effect_arrow_alpha += (-0.01 - global.gomem_mashup_effect_arrow_alpha)*0.1
+		master_bpm_timer ++
+		if master_bpm_timer >= (3600/global.bpm)*2+global.music_sync_offset*3*60
+		{
+			var random_yy = irandom_range(room_height*0.5,room_height*0.5-256+(gomem_mashup_effect_dir_updown*512))
+			var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
+			var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
+			var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
+			create_cylinder(random_xx,random_yy,player.depth-15,1,60,64*dir,0,180*angle)
+			
+			if (global.gomem_mashup_effect == 3)
+			{
+				create_laser(global.c_x,global.c_y,60,26,4,2,10,180)
+				create_laser(global.c_w,global.c_y,60,26,4,2,10,180)
+			}
+			
+			gomem_mashup_effect_dir_updown *= -1
+			master_bpm_timer -=(3600/global.bpm)*2+global.music_sync_offset*3*60
+		}
+	}
+	else if (global.gomem_mashup_effect >= 4 && global.gomem_mashup_effect <= 7)
+	{
+		global.gomem_mashup_effect_arrow_alpha += (0.99 - global.gomem_mashup_effect_arrow_alpha)*0.1
+		master_bpm_timer ++
+		if master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
+		{
+			global.gomem_mashup_effect_arrow_alpha = 2
+			if (global.gomem_mashup_effect != 6 && global.gomem_mashup_effect != 7)
+			{
+				var random_yy = room_height*0.5-16+(gomem_mashup_effect_dir_updown*32)
+				var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
+				var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
+				var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
+				create_cylinder(random_xx,random_yy,code.depth,0.7,60,64*dir,0,180*angle)
+				view_shake(0.1,1,0,2)
+
+				global.t_bg_color_alpha = 0.3
+				gomem_mashup_effect_dir_updown_timer ++
+				if (gomem_mashup_effect_dir_updown_timer >= 2)
+				{
+					gomem_mashup_effect_dir_updown *= -1
+					gomem_mashup_effect_dir_updown_timer = 0
+				}
+				gomem_mashup_effect_dir_updown2 *= -1
+				master_bpm_timer -=(3600/global.bpm)+global.music_sync_offset*3*60
+			}
+			else if (global.gomem_mashup_effect == 6)
+			{
+				gomem_mashup_effect_dir_updown2 *= -1
+				global.t_bg_color_alpha = 0.3
+				var random_x = room_width*0.5+gomem_mashup_effect_dir_updown2*1200
+				create_spike_circle(random_x,global.c_y,random_x,irandom_range(global.c_y+512,global.c_h-512),60,0,0,0.2)
+				master_bpm_timer -= (3600/global.bpm)*2+global.music_sync_offset*3*60
+			}
+			else if (global.gomem_mashup_effect == 7)
+			{
+				gomem_mashup_effect_dir_updown2 *= -1
+				global.w_alpha = 0.3
+				master_bpm_timer -= (3600/global.bpm)*4+global.music_sync_offset*3*60
+			}
+			
+			if (global.gomem_mashup_effect == 5 || global.gomem_mashup_effect == 6 || global.gomem_mashup_effect == 7)
+			{
+				for(var i = -2; i < 8; i++)
+				{
+					var spike_xx = global.c_x-128*gomem_mashup_effect_dir_updown2+i*512
+					var ins_spike = create_cylinder(spike_xx,global.c_y+360,code.depth,0.5,1,256,90,180)
+					ins_spike.sprite_index = spr_triangle
+					var ins_spike = create_cylinder(spike_xx-256,global.c_h-360,code.depth,0.5,1,256,270,0)
+					ins_spike.sprite_index = spr_triangle
+					view_shake(0.1,1,1,2)
+				}
+			}
+		}
+	}
+}

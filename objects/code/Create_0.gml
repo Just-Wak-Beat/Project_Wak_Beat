@@ -169,7 +169,7 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-global.origin_total_map = 17
+global.origin_total_map = 18
 global.total_map = global.origin_total_map
 
 	//곡 정보
@@ -225,6 +225,10 @@ global.total_map = global.origin_total_map
 		global.real_detailed_difficulty[i] = -4
 		global.real_requirement_type[i] = 2
 		global.real_requirement_number[i] = -4
+		
+		
+		// 해당 곡 플레이 횟수 기록 (오리지널 스테이지만 기록됨)
+		global.real_stage_playtime[i] = -4
 
 
 
@@ -525,6 +529,28 @@ global.real_detailed_difficulty[16] = 5;
 global.real_requirement_type[16] = 6;
 global.real_requirement_number[16] = 1;
 global.promise_effect = 0
+
+
+
+//고멤가요제 MASHUP
+global.real_stage_map_name[17] = "고멤가요제 MASHUP (아이네 INE)";
+global.real_stage_map_artist[17] = "고단씨, 타라맛스";
+global.real_stage_map_difficulty[17] = "Expert";
+global.real_stage_map_color[17] = #10043f;
+global.real_stage_map_duration[17] = 6778;
+global.real_stage_map_audio_name[17] = "gomem_mashup";
+global.real_stage_bpm[17] = 140;
+global.real_stage_map_highlight_part[17] = 43.5;
+global.real_detailed_difficulty[17] = 7;
+global.real_requirement_type[17] = 4;
+global.real_requirement_number[17] = 1;
+global.gomem_mashup_effect = 0
+global.gomem_mashup_effect_dir = 0
+gomem_mashup_effect_dir_updown = -1
+gomem_mashup_effect_dir_updown_timer = 0
+gomem_mashup_effect_dir_updown2 = -1
+global.gomem_mashup_effect_arrow_alpha = 0
+
 
 
 

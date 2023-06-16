@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-w_alpha += (0 - w_alpha)*0.1
+w_alpha += (0 - w_alpha)*0.3
 
 if my_id != 0
 {

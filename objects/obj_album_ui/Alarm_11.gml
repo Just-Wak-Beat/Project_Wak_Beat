@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-code.n_stage = irandom_range(1,global.total_map-1)
+
+//메인매뉴 처음 노래 선택
+event_user(1)
 global.b_t_select_map = code.n_stage+2
 global.t_select_map = code.n_stage+2
 

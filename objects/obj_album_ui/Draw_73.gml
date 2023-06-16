@@ -303,6 +303,7 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 					global.t_selected_difficulty = 1
 					code.gamestart = 1
 					audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+					window_set_cursor(cr_none)
 					global.t_select_difficulty = 0
 				}
 				else if point_distance(mouse_x,mouse_y,button_2_xx,middle_yy) < 256*s_selected
@@ -311,6 +312,7 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 					if (global.level >= (global.detailed_difficulty[global.n_map_id]+1)*2)
 					{
 						code.gamestart = 1
+						window_set_cursor(cr_none)
 						audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 						global.t_select_difficulty = 0
 					}

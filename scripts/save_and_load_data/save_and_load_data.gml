@@ -32,6 +32,8 @@ function save_and_load_data(argument0,argument1)
 			ini_write_real("n_favorite",string(i),global.real_n_favorite[i]);
 			ini_write_real("fav_map_id",string(i),global.fav_map_id[i]);
 			ini_write_real("unlocked_map_id",string(i),global.unlocked_map_id[i]);
+			
+			ini_write_real("real_stage_playtime",string(i),global.real_stage_playtime[i]);
 		}
 		
 		for(var i = 0; i <= 7; i++)
@@ -80,6 +82,8 @@ function save_and_load_data(argument0,argument1)
 			
 				global.unlocked_music_name[i] = ini_read_string("unlocked_music_name",string(i),"");
 				global.b_unlocked_music_name[i] = ini_read_string("b_unlocked_music_name",string(i),"");
+				
+				global.real_stage_playtime[i] = ini_read_real("real_stage_playtime",string(i),0);
 			}
 		
 			for(var i = 0; i <= 7; i++)

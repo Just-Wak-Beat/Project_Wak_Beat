@@ -2,7 +2,7 @@
 // You can write your code in this editor
 global.title_menu_animation1++
 
-
+window_set_cursor(cr_default)
 
 if (global.title_menu_animation1 >= 3)
 {

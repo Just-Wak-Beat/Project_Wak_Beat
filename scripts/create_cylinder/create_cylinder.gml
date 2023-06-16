@@ -19,5 +19,5 @@ function create_cylinder(argument0,argument1,argument2,argument3,argument4,argum
 	ins__.t_speed = argument5
 	ins__.direction = argument6
 	ins__.image_angle = argument7
-	
+	return ins__;
 }
