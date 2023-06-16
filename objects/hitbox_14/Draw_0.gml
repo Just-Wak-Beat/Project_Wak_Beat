@@ -9,8 +9,8 @@ if global.low_graphics = false
 {
 	for(var i = 0.01; i <= 1.5; i += 0.01)
 	{
-	var color__ = merge_color(light_color,c_white,(1-abs(i)/1.5))
-	draw_sprite_ext(sprite_index,1,x,y,image_xscale*i,image_yscale*i,image_angle,color__,0.01*image_alpha)
+		var color__ = merge_color(light_color,c_white,(1-abs(i)/1.5))
+		draw_sprite_ext(sprite_index,1,x,y,image_xscale*i,image_yscale*i,image_angle,color__,0.01*image_alpha)
 	}
 }
 draw_sprite_ext(sprite_index,1,x,y,image_xscale,image_yscale,image_angle,c_white,image_alpha)

@@ -173,8 +173,6 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 			//audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		}
 	
-
-	
 		n_stage = 0
 	}
 }

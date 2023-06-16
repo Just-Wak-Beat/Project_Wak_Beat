@@ -1,0 +1,28 @@
+{
+  "FolderOrderSettings": [
+    {"name":"스프라이트","order":1,"path":"folders/스프라이트.yy",},
+    {"name":"타일 세트","order":2,"path":"folders/타일 세트.yy",},
+    {"name":"사운드","order":3,"path":"folders/사운드.yy",},
+    {"name":"경로","order":4,"path":"folders/경로.yy",},
+    {"name":"스크립트","order":5,"path":"folders/스크립트.yy",},
+    {"name":"셰이더","order":6,"path":"folders/셰이더.yy",},
+    {"name":"글꼴","order":7,"path":"folders/글꼴.yy",},
+    {"name":"타임라인","order":8,"path":"folders/타임라인.yy",},
+    {"name":"오브젝트","order":9,"path":"folders/오브젝트.yy",},
+    {"name":"룸","order":10,"path":"folders/룸.yy",},
+    {"name":"시퀀스","order":11,"path":"folders/시퀀스.yy",},
+    {"name":"애니메이션 곡선","order":12,"path":"folders/애니메이션 곡선.yy",},
+    {"name":"메모장","order":13,"path":"folders/메모장.yy",},
+    {"name":"확장","order":14,"path":"folders/확장.yy",},
+    {"name":"Particle Systems","order":15,"path":"folders/Particle Systems.yy",},
+    {"name":"UI&Camera","order":1,"path":"folders/스크립트/UI&Camera.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"add_log","order":2,"path":"scripts/add_log/add_log.yy",},
+    {"name":"send_much","order":4,"path":"scripts/send_much/send_much.yy",},
+    {"name":"send_all","order":5,"path":"scripts/send_all/send_all.yy",},
+    {"name":"obj_client_info","order":2,"path":"objects/obj_client_info/obj_client_info.yy",},
+    {"name":"send_one","order":3,"path":"scripts/send_one/send_one.yy",},
+    {"name":"obj_nope","order":1,"path":"objects/obj_nope/obj_nope.yy",},
+  ],
+}

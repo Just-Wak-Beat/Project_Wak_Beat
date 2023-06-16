@@ -3,14 +3,32 @@
 var yy = camera_get_view_y(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
 
+
+
 	if global.n_map_list != 2
 	{
 		sprite_index = spr_album
 		image_index = global.n_map_id+2
+		image_scale = 1;
 	}
 	else
 	{
-		sprite_index = global.custom_stage_album[global.n_map_id]
+		if (sprite_index != global.custom_stage_album[global.n_map_id])
+		{
+			var spr_width = sprite_get_width(global.custom_stage_album[global.n_map_id]);
+			var spr_height = sprite_get_height(global.custom_stage_album[global.n_map_id]);
+			var max_sprite_size = (spr_width > spr_height) ? spr_width : spr_height;
+			var cal_val = 512/max_sprite_size
+			if (cal_val <= 1)
+			{
+				image_scale = 512/max_sprite_size;
+				image_xscale = image_scale;
+				image_yscale = image_scale;
+			
+				sprite_index = global.custom_stage_album[global.n_map_id];
+				sprite_set_offset(sprite_index,spr_width*0.5,spr_height*0.5)
+			}
+		}
 	}
 x = global.c_x+916-global.mobile_mode*64
 depth = code.depth-100
@@ -73,6 +91,16 @@ if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_t
 		if angle_moving_timer%2 == 0
 		{
 			w_alpha_bg = 0.6
+			
+			if (global.n_rank[global.n_map_id] == "S+")
+			{
+				var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
+				_ef.image_index = 6
+				_ef.image_xscale = 2
+				_ef.image_yscale = 2
+				_ef.t_scale = 5
+				_ef.image_blend = c_white
+			}
 			
 			for(var i = 0; i < 360; i += 25)
 			{

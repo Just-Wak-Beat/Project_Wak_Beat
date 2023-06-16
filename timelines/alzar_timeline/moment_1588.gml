@@ -1,5 +1,5 @@
 global.t_bg_color_alpha = 1
-global.background_color = #9b3c5c
+global.background_color = #c54a3d
 
 var xx = irandom_range(global.c_x, global.c_w)
 for(var i = 0; i <= 64; i++)

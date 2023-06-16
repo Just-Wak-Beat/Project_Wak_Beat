@@ -10,7 +10,10 @@ if sprite_exists(sprite_index)
 {
 	var __brighting_col = global.map_color
 	draw_sprite_ext(spr_album,1,x-32,y+32,image_xscale*global.font_ratio_resolution_xx*1.05,image_yscale*1.05,image_angle,c_black,0.3*image_alpha)
-	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
+	
+	var xscale = image_xscale*image_scale
+	var yscale = image_yscale*image_scale
+	draw_sprite_ext(sprite_index,image_index,x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
 
 	if instance_exists(code) && global.artifact_owned[global.requirement_type[code.n_stage]] < global.requirement_number[code.n_stage]
 	{
@@ -70,7 +73,7 @@ draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level"
 
 
 //환경설정 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+450,"setting"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+450,"setting"+((global.mobile_mode == 1) ? "" : "\n[ESC]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 

@@ -3,7 +3,7 @@
 
 if (global.select_difficulty = 0)
 {
-	if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+400) < 80) || keyboard_check_pressed(vk_tab)
+	if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+400) < 80)
 	{
 		if global.sync_setting <= 0 && global.character_setting <= 0
 		{

@@ -19,6 +19,7 @@ w_alpha_bg = 0
 
 heart_alpha = 0
 
+image_scale = 1
 
 //메인메뉴 애니메이션 재생
 beating_animation = 0

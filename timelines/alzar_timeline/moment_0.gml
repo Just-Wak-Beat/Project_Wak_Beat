@@ -10,7 +10,7 @@ global.savepoint_color[1] = #237293
 }
 
 global.artifact_type = 0
-global.background_color = #9b3c5c
+global.background_color = #c54a3d
 global.t_bg_color = -15
 global.t_bg_color_alpha = 1
 global.t_map_speed = 0
