@@ -106,18 +106,6 @@ global.exp += (global.detailed_difficulty[global.n_map_id]+1)*global.music_durat
 global.exp_w_alpha = 1
 
 global.real_stage_playtime[global.n_map_id] ++;
-if global.t_selected_difficulty == 1
-{
-	global.n_rank[global.n_map_id] = target_rank;
-}
-else
-{
-	global.n_rank_hardcore[global.n_map_id] = target_rank;
-	if n_rank_real > convert_rank_to_num(global.n_rank[global.n_map_id])
-	{
-		global.n_rank[global.n_map_id] = target_rank;
-	}
-}
 
 
 
@@ -125,7 +113,7 @@ if global.n_map_list != 2
 {
 	global.real_n_rank[global.n_map_id] = target_rank
 	
-	if global.real_n_artifact[global.n_map_id] != "완료"
+	if global.real_n_rank[global.n_map_id] == "--"
 	{
 		global.artifact_owned[global.artifact_type]++
 		global.n_artifact[global.n_map_id] = "완료"
@@ -141,22 +129,37 @@ if global.n_map_list != 2
 }
 else
 {
-//커스텀 맵 클리어 내역 저장
-ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+".JWABMAP")
-ini_write_string("custom_n_rank","value",global.n_rank[global.n_map_id])
+	//커스텀 맵 클리어 내역 저장
+	ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+".JWABMAP")
+	ini_write_string("custom_n_rank","value",global.n_rank[global.n_map_id])
 	if global.custom_n_artifact[global.n_map_id] != "완료"
 	{
-	global.artifact_owned[global.artifact_type]++
-	ini_write_string("custom_n_artifact","value","완료")
+		global.artifact_owned[global.artifact_type]++
+		ini_write_string("custom_n_artifact","value","완료")
 	}
 	else
 	{
 		if global.t_selected_difficulty = 0
 		{
-		global.artifact_owned[global.artifact_type]++
+			global.artifact_owned[global.artifact_type]++
 		}
 	}
-ini_close()
+	ini_close()
+}
+
+
+
+if global.t_selected_difficulty == 1
+{
+	global.n_rank[global.n_map_id] = target_rank;
+}
+else
+{
+	global.n_rank_hardcore[global.n_map_id] = target_rank;
+	if n_rank_real > convert_rank_to_num(global.n_rank[global.n_map_id])
+	{
+		global.n_rank[global.n_map_id] = target_rank;
+	}
 }
 
 

@@ -1,8 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 2.5"
+global.version = "Beta 3.0"
 global.low_graphics = false;
-global.dev_mode = 1
+global.dev_mode = 0
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";

@@ -102,6 +102,7 @@
     {"name":"shelter","order":8,"path":"sounds/shelter/shelter.yy",},
     {"name":"tutorial_part3","order":5,"path":"sounds/tutorial_part3/tutorial_part3.yy",},
     {"name":"load_custom_map_files","order":4,"path":"scripts/load_custom_map_files/load_custom_map_files.yy",},
+    {"name":"Sprite51","order":12,"path":"sprites/Sprite51/Sprite51.yy",},
     {"name":"tutorial_part2_timeline","order":4,"path":"timelines/tutorial_part2_timeline/tutorial_part2_timeline.yy",},
     {"name":"spr_spot_light","order":26,"path":"sprites/spr_spot_light/spr_spot_light.yy",},
     {"name":"show_rank_sfx","order":13,"path":"sounds/show_rank_sfx/show_rank_sfx.yy",},

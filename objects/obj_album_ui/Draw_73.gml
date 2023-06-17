@@ -69,11 +69,11 @@ draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y
 //레벨 바
 draw_sprite_ext(spr_level_bar,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,0,#171628,ui_alpha__cal)
 draw_sprite_part_ext(spr_level_bar,0,0,0,(global.exp_for_draw/global.max_exp)*1760,64,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,merge_color(merge_color(c_white,global.player_color,0.5+(global.exp/global.max_exp)*0.5),c_white,global.exp_w_alpha),ui_alpha__cal)
-draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level"+string(global.level),64,-1,ui_alpha__cal,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level "+string(global.level),64,-1,ui_alpha__cal,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 
 
 //환경설정 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+450,"setting"+((global.mobile_mode == 1) ? "" : "\n[ESC]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+450,"Setting"+((global.mobile_mode == 1) ? "" : "\n[ESC]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
@@ -540,10 +540,10 @@ if (global.show_title_menu != 0)
 	
 	if (credit_text_alpha > 0)
 	{
-		draw_text_k_scale(middle_xx,middle_yy-480,"Presented by",64,-1,credit_text_alpha,c_white,0,0,normal_font,0.7,global.font_ratio_resolution_xx*0.7,0)
+		draw_text_k_scale(middle_xx,middle_yy-480,"Presented by",64,-1,credit_text_alpha,c_white,0,0,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
 		
-		draw_sprite_ext(Sprite49,0,middle_xx,middle_yy,1.1,global.font_ratio_resolution_xx*1.1,0,c_white,credit_text_alpha)
-		draw_text_k_scale(middle_xx-32,middle_yy+190,"Studio",64,-1,credit_text_alpha,c_white,0,0,normal_font,0.8,global.font_ratio_resolution_xx*0.8,0)
+		draw_sprite_ext(Sprite49,0,middle_xx,middle_yy,global.font_ratio_resolution_xx*1.1,1.1,0,c_white,credit_text_alpha)
+		draw_text_k_scale(middle_xx-32,middle_yy+190,"Studio",64,-1,credit_text_alpha,c_white,0,0,normal_font,global.font_ratio_resolution_xx*0.8,0.8,0)
 	}
 }
 

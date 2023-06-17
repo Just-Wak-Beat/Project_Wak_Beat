@@ -128,6 +128,7 @@
     {"id":{"name":"shelter","path":"sounds/shelter/shelter.yy",},},
     {"id":{"name":"tutorial_part3","path":"sounds/tutorial_part3/tutorial_part3.yy",},},
     {"id":{"name":"load_custom_map_files","path":"scripts/load_custom_map_files/load_custom_map_files.yy",},},
+    {"id":{"name":"Sprite51","path":"sprites/Sprite51/Sprite51.yy",},},
     {"id":{"name":"tutorial_part2_timeline","path":"timelines/tutorial_part2_timeline/tutorial_part2_timeline.yy",},},
     {"id":{"name":"hit_sfx","path":"sounds/hit_sfx/hit_sfx.yy",},},
     {"id":{"name":"spr_spot_light","path":"sprites/spr_spot_light/spr_spot_light.yy",},},
