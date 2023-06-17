@@ -67,14 +67,14 @@
 
 <img src = "https://i.namu.wiki/i/5_EcvDoWyxeLt9pwmk7gee3dHfhG1bsRdiIAYlPt0CrZImenrS3-m3A_S3XM7VDTWn-sI-fysbagnf845BTJY4TsYFOD-LzdiWDwtAMVlxNJdSudXbuc7L0eAz144rZSTaPgJza7vbA-kHGdFOZAGg.svg"></br>
 
-[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT2.5m/Just.Wak.and.Beats.2.5.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT2.5m/Just.Wak.and.Beats.2.5.apk)
+[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT3.0/Just.Wak.and.Beats.4.0.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT3.0/Just.Wak.and.Beats.4.0.apk)
 
 
 </br></br></br>
 
 <img src = "https://i.namu.wiki/i/NtJcyi9idyd0cVnhg7U-hNy0gglul4_sIHT4XXQVZ4YUtFKScAaXFefjFM2gPBJtcgrEJrNB5lbOXxyr3DsPKd6xggeNX82qX2t_SJeGgC4vo9CkUAUnY_O4b2FnbBtWMJPJsPb0IEVDSYwQLnI6rg.svg"></br>
 
-[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT2.04/Just.Wak.and.Beats.Beta.2.04.zip?color=6AE2FF&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT2.04/Just.Wak.and.Beats.Beta.2.04.zip)
+[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT3.0/Just.Wak.and.Beats.Beta.3.0.zip?color=6AE2FF&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT3.0/Just.Wak.and.Beats.Beta.3.0.zip)
 
 </br></br>
 
