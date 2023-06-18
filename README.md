@@ -67,7 +67,7 @@
 
 <img src = "https://i.namu.wiki/i/5_EcvDoWyxeLt9pwmk7gee3dHfhG1bsRdiIAYlPt0CrZImenrS3-m3A_S3XM7VDTWn-sI-fysbagnf845BTJY4TsYFOD-LzdiWDwtAMVlxNJdSudXbuc7L0eAz144rZSTaPgJza7vbA-kHGdFOZAGg.svg"></br>
 
-[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT3.0/Just.Wak.and.Beats.3.0.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT3.0/Just.Wak.and.Beats.3.0.apk)
+[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT3.0/Just.Wak.and.Beats.3.1.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT3.0/Just.Wak.and.Beats.3.1.apk)
 
 
 </br></br></br>
