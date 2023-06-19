@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 3.0"
+global.version = "Beta 3.1"
 global.low_graphics = false;
 global.dev_mode = 0
 global.mobile_mode = (os_type == 0) ? 0 : 1;
@@ -13,6 +13,8 @@ global.title_menu_animation1 = 0
 global.title_menu_animation2 = 0
 global.overtime_highlight_song = 1
 global.show_credit = 1
+
+
 
 alarm[11] = 1
 
@@ -58,7 +60,9 @@ global.window_width = 1920
 global.window_height = 1080
 global.window_fullscreen = true
 
+
 global.back_to_game = 0
+global.map_end_volumedown = 0
 global.n_setting_button = -4
 global.rank_display_alpha = 0
 global.rank_display_r_alpha = 0
@@ -310,7 +314,7 @@ global.real_stage_map_name[4] = "부엉이 (Cover by 아이네 INE)";
 global.real_stage_map_artist[4] = "Original by KOKIA / Inst by Kupon";
 global.real_stage_map_difficulty[4] = "Easy";
 global.real_stage_map_color[4] = #3d333e;
-global.real_stage_map_duration[4] = 7600;
+global.real_stage_map_duration[4] = 4800;
 global.real_stage_map_audio_name[4] = "fukurou";
 global.real_stage_bpm[4] = 45;
 global.real_stage_map_highlight_part[4] = 46;
@@ -654,6 +658,7 @@ global.b_t_select_map = 0
 
 //맵 리스트 로드
 load_musicList(0)
+n_stage = 0
 alarm[2] = 3
 
 
@@ -666,6 +671,7 @@ global.joystick_n_xx = -4
 global.joystick_n_yy = -4
 global.scroll_n_m_xx = -1
 global.scroll_n_m_yy = -1
+global.random_seed = -4
 global.joystick_dir = 0
 global.joystick_activated = -1
 global.joystick_alpha = 0

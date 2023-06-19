@@ -55,18 +55,18 @@ draw_text_k_scale(xx+xx_w*0.5,yy+font_size*(140+global.savepoint_text_alpha*32),
 
 
 //music title
-	if global.t_selected_difficulty == 0
-	{
-		draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-640*font_size,"Hardcore",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
-	}
+if global.t_selected_difficulty == 0
+{
+	draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-640*font_size,"Hardcore",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
+}
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-600*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
 
 //music credit
 var col = global.map_color
-	if col = c_black
-	{
-		col = c_white
-	}
+if col = c_black
+{
+	col = c_white
+}
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7*global.font_ratio_resolution_xx,font_size*0.7,0)
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85*global.font_ratio_resolution_xx,font_size*0.85,0)
 
@@ -540,7 +540,7 @@ draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alph
 
 	if global.mobile_mode = 1
 	{
-		draw_text_k_scale(xx+32,global.c_h-32,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+") ",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
+		draw_text_k_scale(xx+32,global.c_h-42,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+") ",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
 	}
 }
 

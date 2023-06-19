@@ -4,6 +4,6 @@ with(code)
 {
 	if object_index = code
 	{
-	event_user(2)
+		event_user(2)
 	}
 }

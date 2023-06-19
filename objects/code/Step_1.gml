@@ -1,11 +1,26 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-	if global.dev_mode = 1
-	{
-		room_speed = 60+keyboard_check(ord("V"))*60
-	}
+if global.dev_mode = 1
+{
+	room_speed = 60+keyboard_check(ord("V"))*60
+}
 
+
+if (global.random_seed >= 0)
+{
+	global.random_seed++;
+	random_set_seed(global.random_seed)
+}
+
+if instance_exists(obj_stage_clear)
+{
+	global.map_end_volumedown += (-0.01 - global.map_end_volumedown)*0.05
+}
+else
+{
+	global.map_end_volumedown += (1 - global.map_end_volumedown)*0.1
+}
 
 global.camera_sx = camera_get_view_width(view_camera[0])/3584
 

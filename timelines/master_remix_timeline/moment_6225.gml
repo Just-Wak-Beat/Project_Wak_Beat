@@ -5,10 +5,10 @@ master_hitbox.image_yscale *= 1.2
 master_hitbox.w_alpha = 2
 master_hitbox.t_y = room_height*0.5
 
-var start_angle = 45
+var start_angle = 35
 for(var i = 0; i < 4; i++)
 {
-	create_worm(master_hitbox.x,master_hitbox.y,player.depth+15,5,spr_triangle,0.2,spr_triangle_empty,10,-4,start_angle+i*90)
+	create_worm(master_hitbox.x,master_hitbox.y,player.depth+15,8,spr_triangle,0.2,spr_triangle_empty,15,-4,start_angle+i*90)
 }
 
 

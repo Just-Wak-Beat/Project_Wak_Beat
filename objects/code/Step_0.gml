@@ -187,6 +187,11 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 		if global.show_music_title < 240
 		{
 			music_title_alpha += (1 - music_title_alpha)*0.1
+			
+			if (global.t_selected_difficulty != 0 && global.random_seed == -4)
+			{
+				global.random_seed = 0;
+			}
 		}
 		else
 		{
@@ -256,7 +261,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 			if (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
 			{
 				global.n_progress ++
-				audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),0)
+				audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1)*global.map_end_volumedown,0)
 			}
 		}
 		else

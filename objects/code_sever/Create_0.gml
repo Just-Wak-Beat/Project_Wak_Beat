@@ -5,7 +5,7 @@ server_port = 12520;
 is_server = false;
 index = 0;
 cli_num = 0
-randomize()
+
 enum DATA 
 {
 	INIT_DATA,

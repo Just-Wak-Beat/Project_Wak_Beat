@@ -9,6 +9,8 @@ window_set_cursor(cr_default)
 global.gomem_mashup_effect_arrow_alpha = 0
 global.check_died = 0
 global.tutorial_now = 0
+global.random_seed = -4
+randomize()
 global.fukurou_snow_effect = 0
 global.turisumo_effect = 0
 global.turisumo_effect_2 = 0
