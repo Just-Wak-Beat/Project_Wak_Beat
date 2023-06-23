@@ -13,7 +13,7 @@ if (global.random_seed >= 0)
 	random_set_seed(global.random_seed)
 }
 
-if instance_exists(obj_stage_clear)
+if (instance_exists(obj_stage_clear) && global.n_music_title != "왁트모르즈비")
 {
 	global.map_end_volumedown += (-0.01 - global.map_end_volumedown)*0.05
 }
@@ -115,8 +115,8 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	}
 
 
-	//음악 싱크 안맞는거 강제 픽스
-	if gamestart = 2 && global.n_progress > 0 && audio_is_playing(global.n_music_instance) && global.n_music_instance != -4
+	//음악(오디오) 싱크 안맞는거 강제 픽스
+	if gamestart = 2 && global.n_progress < global.music_duration && global.n_progress > 0 && audio_is_playing(global.n_music_instance) && global.n_music_instance != -4
 	{
 		global.automatic_sycn_fixing++
 		if global.automatic_sycn_fixing > 60

@@ -2,7 +2,7 @@
 // You can write your code in this editor
 global.version = "Beta 3.1"
 global.low_graphics = false;
-global.dev_mode = 0
+global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
@@ -173,7 +173,7 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-global.origin_total_map = 18
+global.origin_total_map = 19
 global.total_map = global.origin_total_map
 
 	//곡 정보
@@ -558,6 +558,22 @@ global.gomem_mashup_effect_arrow_alpha = 0
 
 
 
+
+//유하
+global.real_stage_map_name[18] = "유하";
+global.real_stage_map_artist[18] = "ruhungsu 루형수포쓰";
+global.real_stage_map_difficulty[18] = "Hard";
+global.real_stage_map_color[18] = #5595ff;
+global.real_stage_map_duration[18] = 4242;
+global.real_stage_map_audio_name[18] = "yuha";
+global.real_stage_bpm[18] = 89;
+global.real_stage_map_highlight_part[18] = 2;
+global.real_detailed_difficulty[18] = 4;
+global.real_requirement_type[18] = 3;
+global.real_requirement_number[18] = 2;
+global.yuha_effect1 = 0
+global.yuha_effect2 = 0
+global.yuha_effect3 = 0
 
 music_title_alpha = 0
 

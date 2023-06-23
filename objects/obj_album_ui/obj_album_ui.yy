@@ -25,8 +25,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "오브젝트",
-    "path": "folders/오브젝트.yy",
+    "name": "ui",
+    "path": "folders/오브젝트/ui.yy",
   },
   "parentObjectId": null,
   "persistent": false,

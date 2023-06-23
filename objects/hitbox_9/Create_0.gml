@@ -9,6 +9,7 @@ warning_timer = 0
 //target_time = 0
 des = 0
 w_alpha = 0
-
+t_angle = 0
+t_speed = 0
 
 alarm[1] = 1

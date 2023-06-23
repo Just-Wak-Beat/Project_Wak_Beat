@@ -1,0 +1,1 @@
+hitbox_7.t_y = room_height*2

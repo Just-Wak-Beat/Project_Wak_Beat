@@ -267,6 +267,12 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 		else
 		{
 			global.n_progress = global.music_duration
+			
+			if (global.n_music_title != "왁트모르즈비")
+			{
+				timeline_running = false
+			}
+	
 	
 			if !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear)
 			{

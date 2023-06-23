@@ -6,7 +6,7 @@
 
 var dis_ = abs(warning_timer - target_time)
 
-if dis_ > 120
+if dis_ >= 60
 {
 image_alpha = 0.35
 }

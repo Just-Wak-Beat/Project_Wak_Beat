@@ -110,9 +110,11 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 				image_angle = 360*choose(-1,1)
 				t_speed = 10
 				w_alpha = 1
-				if point_distance(x,y,room_width*0.5,room_height*0.5) > 600
+				if (point_distance(x,y,room_width*0.5,room_height*0.5) > 200)
 				{
-					t_angle = point_direction(x,y,room_width*0.5,room_height*0.5)
+					var tmp = point_direction(x,y,room_width*0.5,room_height*0.5);
+					t_angle = tmp
+					timer -= (3600/global.bpm)
 				}
 				else
 				{

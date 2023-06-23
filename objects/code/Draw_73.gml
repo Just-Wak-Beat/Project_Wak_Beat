@@ -6,11 +6,11 @@ var yy = camera_get_view_y(view_camera[0])
 var xx_w = camera_get_view_width(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
 
-global.c_x = xx-global.real_shake_x
-global.c_y = yy-global.real_shake_y
+global.c_x = room_width*0.5-xx_w*0.5
+global.c_y = room_height*0.5-yy_h*0.5
 
-global.c_w = xx+xx_w-global.real_shake_x
-global.c_h = yy+yy_h-global.real_shake_y
+global.c_w = room_width*0.5+xx_w*0.5
+global.c_h = room_height*0.5+yy_h*0.5
 
 
 
@@ -570,6 +570,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	{
 		global.back_to_game++
 		global.n_setting_button = 9999
+		global.hp = 5
 	}
 	
 	if keyboard_check_released(vk_space)

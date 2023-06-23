@@ -29,6 +29,9 @@ global.phony_effect = 0
 global.rewind = 0
 global.clock_alpha_1 = 0
 global.clock_alpha_2 = 0
+global.yuha_effect1 = 0
+global.yuha_effect2 = 0
+global.yuha_effect3 = 0
 phony_y = 0
 phony_t_y = 1
 phony_y_timer = 0
@@ -68,7 +71,10 @@ global.t_w_alpha = 0
 global.highlight_time = 0
 load_musicList(global.n_map_list)
 global.t_b_alpha = -0.01
-
+global.scroll_n_m_xx = -4
+global.joystick_xx = -4
+global.scroll_n_m_yy = -4
+global.joystick_yy = -4
 
 
 

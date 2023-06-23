@@ -550,3 +550,108 @@ if global.gomem_mashup_effect > 0
 		}
 	}
 }
+
+
+if global.yuha_effect1 > 0
+{
+	master_bpm_timer ++
+	if master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
+	{
+		repeat(choose(2,3))
+		{
+			while(true)
+			{
+				var random_xx = irandom_range(0,27)*132;
+				var random_yy = irandom_range(0,15)*132;
+	
+				if ((abs(random_xx-1848) > 660 || abs(random_yy-1056) >= 660) && instance_position(random_xx,random_yy,hitbox_9) == noone)
+				{
+					create_explo_square(global.c_x+random_xx,global.c_y+random_yy,60,8888,0,0,2);
+					break;
+				}
+			}
+		}
+
+		if (global.yuha_effect1 == 2)
+		{
+			var ins_tmp = -4;
+			while(true)
+			{
+				var ins_tmp = instance_find(hitbox_9,irandom(instance_number(hitbox_9)-1));
+				if (instance_exists(ins_tmp) && ins_tmp.des_time != 120)
+				{
+					break;
+				}
+			}
+
+			if (instance_exists(ins_tmp))
+			{
+				var tmp = choose(-1,1)
+				ins_tmp.w_alpha = 2;
+				ins_tmp.t_angle = tmp;
+				ins_tmp.des_time = 100;
+				ins_tmp.warning_timer = 60;
+				ins_tmp.image_xscale *= 2;
+				ins_tmp.image_yscale *= 2;
+				ins_tmp.image_blend = #5595ff
+				ins_tmp.depth -= 52
+				var tmp2 = create_projectile_spin(ins_tmp.x,ins_tmp.y,spr_square,0.5,60,tmp,0,24);
+				tmp2.image_angle = point_direction(ins_tmp.x,ins_tmp.y,room_width*0.5,room_height*0.5)-tmp*45
+				view_shake(1,5,0,2)
+			}
+		}
+		
+		if (global.yuha_effect2 == 1)
+		{
+			var ins_tmp = -4;
+			while(true)
+			{
+				var ins_tmp = instance_find(hitbox_9,irandom(instance_number(hitbox_9)-1));
+				if (instance_exists(ins_tmp) && ins_tmp.des_time != 120)
+				{
+					break;
+				}
+			}
+
+			if (instance_exists(ins_tmp))
+			{
+				var dir = point_direction(ins_tmp.x,ins_tmp.y,room_width*0.5,room_height*0.5)
+				if (abs(dir-270) <= 45)
+				{
+					dir = 270;
+				}
+				else if (abs(dir-90) < 45)
+				{
+					dir = 90;
+				}
+				else if (abs(dir-180) <= 45)
+				{
+					dir = 180;
+				}
+				else
+				{
+					dir = 0;
+				}
+				
+				ins_tmp.t_speed = 48
+				ins_tmp.direction = dir;
+				ins_tmp.w_alpha = 2;
+				ins_tmp.des_time = 120;
+				ins_tmp.warning_timer = 120;
+				ins_tmp.image_blend = #5595ff
+				ins_tmp.depth -= 52
+				create_laser(ins_tmp.x,ins_tmp.y,60,20,1,2,1,dir-90)
+				global.w_alpha = 0.3
+			}
+		}
+		
+		if (global.yuha_effect3 == 1)
+		{
+			create_laser(irandom_range(global.c_x,global.c_w),global.c_y,60,26,4,2,1,180)
+		}
+		
+		
+		master_bpm_timer -= global.yuha_effect1*(3600/global.bpm)+global.music_sync_offset*3*60
+	}
+}
+
