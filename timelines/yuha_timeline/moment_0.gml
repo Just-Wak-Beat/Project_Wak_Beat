@@ -16,3 +16,4 @@ global.t_bg_color = 0.3
 global.t_bg_color_alpha = 0
 global.t_map_speed = 0
 global.map_speed = 0
+global.n_camera_zoom = 1

@@ -1,11 +1,16 @@
 /// @description Insert description here
 // You can write your code in this editor
+
 global.t_b_alpha = -0.01
 if global.t_select_difficulty = 0
 {
 	var n_skin = (global.n_player_skin >= 0) ? global.n_player_skin : 0
+	
+	
 	global.t_n_select_skin = n_skin
 	global.n_select_skin = n_skin
+	
+	
 	global.character_setting ++
 
 	if global.character_setting > 1

@@ -1,5 +1,5 @@
 global.t_w_alpha = 2
-
+global.n_camera_zoom = 0.5
 global.yuha_effect1 = 0.5
 while(true)
 {

@@ -562,13 +562,13 @@ global.gomem_mashup_effect_arrow_alpha = 0
 //유하
 global.real_stage_map_name[18] = "유하";
 global.real_stage_map_artist[18] = "ruhungsu 루형수포쓰";
-global.real_stage_map_difficulty[18] = "Hard";
+global.real_stage_map_difficulty[18] = "Hard (Hardcore)";
 global.real_stage_map_color[18] = #5595ff;
 global.real_stage_map_duration[18] = 4242;
 global.real_stage_map_audio_name[18] = "yuha";
 global.real_stage_bpm[18] = 89;
 global.real_stage_map_highlight_part[18] = 2;
-global.real_detailed_difficulty[18] = 4;
+global.real_detailed_difficulty[18] = 3;
 global.real_requirement_type[18] = 3;
 global.real_requirement_number[18] = 2;
 global.yuha_effect1 = 0

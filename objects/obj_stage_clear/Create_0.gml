@@ -15,6 +15,7 @@ image_xscale = 0.2
 image_yscale = 0.2
 touched = 0
 rank_alpha = 1
+once_in = 0
 
 spin_rad = 0
 for(var i = 6; i < 32; i++)

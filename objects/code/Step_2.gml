@@ -580,7 +580,16 @@ if global.yuha_effect1 > 0
 				var ins_tmp = instance_find(hitbox_9,irandom(instance_number(hitbox_9)-1));
 				if (instance_exists(ins_tmp) && ins_tmp.des_time != 120)
 				{
-					break;
+					var xx = camera_get_view_x(view_camera[0])
+					var yy = camera_get_view_y(view_camera[0])
+
+					var xx_w = camera_get_view_width(view_camera[0])
+					var yy_h = camera_get_view_height(view_camera[0])
+					
+					if (ins_tmp.x >= xx && ins_tmp.x <= xx+xx_w && ins_tmp.y >= yy && ins_tmp.y <= yy+yy_h)
+					{
+						break;
+					}
 				}
 			}
 

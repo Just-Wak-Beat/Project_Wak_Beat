@@ -29,9 +29,14 @@ blind_xx_final = 0
 ding_dong_animation = 0
 credit_text_alpha = -1
 
+
 if global.title_menu_animation1 = 0
 {
 	alarm[5] = 240
 	alarm[8] = 360
 	alarm[11] = 315
 }
+
+
+
+global.can_show = 0.1

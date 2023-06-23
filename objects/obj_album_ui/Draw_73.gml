@@ -338,7 +338,7 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 	draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,merge_color(c_white,c_black,abs(1-n_difficulty)),global.select_difficulty)
 	draw_sprite_ext(spr_heart,0,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
 	draw_text_k_scale(button_2_xx,middle_yy-s_selected*64,"Hardcore",64,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.65*s_selected*global.font_ratio_resolution_xx,0.65*s_selected,0)
-	draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않고 무적 쿨타임이 짧아지며,\n랜덤한 패턴이 등장합니다.\n\n클리어 시,\n많은 경험치와 아티팩트를 중복하여 획득할 수 있습니다.",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
+	draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않고 무적 쿨타임이 짧아지며,\n랜덤한 패턴과 새로운 패턴이 등장합니다.\n\n클리어 시,\n많은 경험치와 아티팩트를 중복하여 획득할 수 있으며,\n특정 캐릭터를 획득할 수 있습니다.",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
 	
 	if (global.n_map_id >= 0)
 	{
@@ -360,74 +360,13 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 
 
 
+
 draw_set_color(c_black)
 draw_set_alpha(global.b_alpha)
 draw_line_width(0,0,room_width,room_height,5000)
 
-
 if instance_exists(code)
 {
-	if (global.show_new_songs > 0 && (code.gamestart == 0 || code.gamestart >= 4))
-	{
-		if (global.t_b_alpha != -0.02)
-		{
-			global.t_b_alpha = 0.9
-		}
-	
-		if (global.t_b_alpha == 0.9 && instance_exists(code) && code.gamestart == 0 && global.b_alpha > 0.8)
-		{
-			code.gamestart = 4
-		}
-		var scale = 2
-		draw_set_color(c_white)
-		draw_set_alpha((global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100))
-		draw_line_width(middle_xx-global.show_new_songs*1.5,yy+yy_h*0.2,middle_xx+global.show_new_songs*1.5,yy+yy_h*0.2,5)
-		draw_text_k_scale(middle_xx,yy+yy_h*0.1,global.notice_title,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
-	
-		for(var i = 0; i < global.new_unlocked_map_num; i++)
-		{
-			draw_text_k_scale(middle_xx,yy+yy_h*0.3-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
-		}
-	
-
-		if (mouse_wheel_up() && global.t_new_song_scroll > 0)
-		{
-			global.t_new_song_scroll -= 150;
-		}
-	
-		if (mouse_wheel_down() && global.t_new_song_scroll < global.new_unlocked_map_num*150-300)
-		{
-			global.t_new_song_scroll += 150;
-		}
-	
-		if global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left))
-		{
-			global.t_b_alpha = -0.02
-			code.gamestart = 5
-			alarm[4] = 30
-		}
-	
-		if (global.t_b_alpha == -0.02)
-		{
-			global.show_new_songs += (-1 - global.show_new_songs)*0.1
-		}
-		else
-		{
-			global.show_new_songs += (100 - global.show_new_songs)*0.1
-		}
-	}
-	else
-	{
-		if (global.t_b_alpha == -0.02 && code.gamestart >= 4)
-		{
-			code.gamestart = 0
-		}
-	}
-	
-	
-	
-	
-	
 	if global.character_setting > 0
 	{
 		var scale = 2
@@ -474,46 +413,79 @@ if instance_exists(code)
 					skin_name = "???";
 					draw_sprite_ext(spr_lock,0,middle_xx-n_skin__*640+i*640,middle_yy,global.font_ratio_resolution_xx*0.5*_dis_scale*1.3,0.5*_dis_scale*1.3,0,c_white,__alpha*_dis_scale)
 				}
+				else
+				{
+					var unlock_anime_alpha = global.unlocked_player_skin[i]-1;
+					
+					if (global.unlocked_player_skin[i] == 2)
+					{
+						audio_play_sound(glow_sfx,0,false,global.master_volume*global.sfx_volume)
+						audio_play_sound(show_rank_sfx,0,false,global.sfx_volume*global.master_volume)
+					}
+					
+					if (global.unlocked_player_skin[i] > 1)
+					{
+						global.unlocked_player_skin[i] += (0.99 - global.unlocked_player_skin[i])*0.07
+					}
+					else
+					{
+						if (global.can_show == 0)
+						{
+							global.acquired_skin = -4
+							global.unlocked_player_skin[i] = 1;
+							event_user(0)
+							global.can_show = 0.1
+						}
+					}
+					shader_set(shFlash)
+					draw_sprite_ext(spr_illustrationCG,i,middle_xx-n_skin__*640+i*640,middle_yy+256*_dis_scale*1.3,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,c_white,unlock_anime_alpha*__alpha*_dis_scale)
+					shader_reset()
+				}
 				
 				draw_text_k_scale(middle_xx-n_skin__*640+i*640,yy+yy_h*0.76,skin_name,scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,0,normal_font,0.27*global.font_ratio_resolution_xx*scale*_dis_scale,0.27*scale*_dis_scale,0)
 			}
 		}
-		
-		if mouse_check_button_pressed(mb_left)
+
+
+		if (global.can_show == 1)
 		{
-			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
-			if (mouse_x >= middle_xx+400)
+			if mouse_check_button_pressed(mb_left)
 			{
-				global.t_n_select_skin++
+				audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+				if (mouse_x >= middle_xx+400)
+				{
+					global.t_n_select_skin++
+				}
+				else if (mouse_x <= middle_xx-400)
+				{
+					global.t_n_select_skin--
+				}
+				else
+				{
+					event_user(0)
+				}
 			}
-			else if (mouse_x <= middle_xx-400)
+		
+			if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left))
 			{
-				global.t_n_select_skin--
+				audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+				global.t_n_select_skin += keyboard_check_pressed(vk_right)-keyboard_check_pressed(vk_left)
 			}
-			else
+		
+			if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space))
 			{
 				event_user(0)
 			}
-		}
 		
-		if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left))
-		{
-			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
-			global.t_n_select_skin += keyboard_check_pressed(vk_right)-keyboard_check_pressed(vk_left)
-		}
 		
-		if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space))
-		{
-			event_user(0)
-		}
-		
-		if (global.t_n_select_skin >= sprite_get_number(spr_illustrationCG))
-		{
-			global.t_n_select_skin = 0
-		}
-		else if global.t_n_select_skin < 0
-		{
-			global.t_n_select_skin = sprite_get_number(spr_illustrationCG)-1;
+			if (global.t_n_select_skin >= sprite_get_number(spr_illustrationCG))
+			{
+				global.t_n_select_skin = 0
+			}
+			else if global.t_n_select_skin < 0
+			{
+				global.t_n_select_skin = sprite_get_number(spr_illustrationCG)-1;
+			}
 		}
 		
 		
@@ -523,6 +495,68 @@ if instance_exists(code)
 		
 		draw_sprite_ext(spr_square_half,key_Rpressed,middle_xx+(__alpha)*600,16+middle_yy,0.2*global.font_ratio_resolution_xx*scale,0.2*scale,225,c_black,ui_alpha__cal*0.3)
 		draw_sprite_ext(spr_square_half,key_Rpressed,middle_xx+(__alpha)*600,middle_yy,0.2*global.font_ratio_resolution_xx*scale,0.2*scale,225,c_white,ui_alpha__cal)
+	}
+	
+	
+	
+	if (global.can_show == 1)
+	{
+		if (global.show_new_songs > 0 && (code.gamestart == 0 || code.gamestart >= 4))
+		{
+			if (global.t_b_alpha != -0.02)
+			{
+				global.t_b_alpha = 0.9
+			}
+	
+			if (global.t_b_alpha == 0.9 && instance_exists(code) && code.gamestart == 0 && global.b_alpha > 0.8)
+			{
+				code.gamestart = 4
+			}
+			var scale = 2
+			draw_set_color(c_white)
+			draw_set_alpha((global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100))
+			draw_line_width(middle_xx-global.show_new_songs*1.5,yy+yy_h*0.2,middle_xx+global.show_new_songs*1.5,yy+yy_h*0.2,5)
+			draw_text_k_scale(middle_xx,yy+yy_h*0.1,global.notice_title,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
+	
+			for(var i = 0; i < global.new_unlocked_map_num; i++)
+			{
+				draw_text_k_scale(middle_xx,yy+yy_h*0.3-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+			}
+	
+
+			if (mouse_wheel_up() && global.t_new_song_scroll > 0)
+			{
+				global.t_new_song_scroll -= 150;
+			}
+	
+			if (mouse_wheel_down() && global.t_new_song_scroll < global.new_unlocked_map_num*150-300)
+			{
+				global.t_new_song_scroll += 150;
+			}
+	
+			if global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left))
+			{
+				global.t_b_alpha = -0.02
+				code.gamestart = 5
+				alarm[4] = 30
+			}
+	
+			if (global.t_b_alpha == -0.02)
+			{
+				global.show_new_songs += (-1 - global.show_new_songs)*0.1
+			}
+			else
+			{
+				global.show_new_songs += (100 - global.show_new_songs)*0.1
+			}
+		}
+		else
+		{
+			if (global.t_b_alpha == -0.02 && code.gamestart >= 4)
+			{
+				code.gamestart = 0
+			}
+		}
 	}
 }
 

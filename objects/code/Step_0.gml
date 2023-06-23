@@ -23,7 +23,26 @@ if (global.level < 0)
 	global.level = 0
 }
 
-
+//캐릭터 획득 애니메이션 재생
+if (global.title_menu_animation2 == 1 && instance_exists(obj_album_ui) && global.can_show < 1)
+{
+	if (global.w_alpha < 0.01 && global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 3 && global.character_setting != 1)
+	{
+		var n_skin = global.acquired_skin;
+		global.t_n_select_skin = n_skin
+		global.n_select_skin = n_skin
+		global.character_setting = 1
+		gamestart = 4
+		global.t_b_alpha = 0.9
+		global.can_show = 0
+		//global.w_alpha = 10
+	}
+	
+	if (global.can_show > 0)
+	{
+		global.can_show += 0.1;
+	}
+}
 
 
 //조이스틱

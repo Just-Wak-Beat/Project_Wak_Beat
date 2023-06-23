@@ -156,12 +156,11 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 		{
 			global.notice_title = "New!";
 			//신 스킨 획득 메시지 출력
-			if (global.acquired_skin >= 0)
+			if (global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 0)
 			{
-				global.unlocked_music_name_new_list[check_new_song] = "레벨업! - 새로운 캐릭터 획득 ["+string(global.unlocked_player_skin_name[global.acquired_skin])+"]";
+				global.unlocked_music_name_new_list[check_new_song] = "새로운 캐릭터 획득 - "+string(global.unlocked_player_skin_name[global.acquired_skin]);
 				global.unlocked_music_name_new_list_color[check_new_song] = c_white;
-				global.unlocked_player_skin[global.acquired_skin] = 1;
-				global.acquired_skin = -4
+				global.unlocked_player_skin[global.acquired_skin] = 3;
 				check_new_song++
 			}
 		
