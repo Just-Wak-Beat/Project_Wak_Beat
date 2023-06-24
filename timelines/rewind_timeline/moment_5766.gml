@@ -10,10 +10,15 @@ global.t_bg_color_alpha = 1
 
 clock_hitbox.w_alpha = 1
 clock_hitbox_2.w_alpha = 1
-clock_hitbox.automatic_angle = 2
+clock_hitbox.automatic_angle = 2 if(global.t_selected_difficulty == 0){clock_hitbox_3.automatic_angle = 0.2}
 
 clock_hitbox.t_scale = 3.3
 clock_hitbox_2.t_scale = 4
+
+if (global.t_selected_difficulty == 0)
+{
+	clock_hitbox_3.t_scale = clock_hitbox.t_scale*1.01
+}
 
 global.map_color = #f5f4b0
 

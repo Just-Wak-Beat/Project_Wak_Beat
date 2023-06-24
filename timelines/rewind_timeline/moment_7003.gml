@@ -1,6 +1,6 @@
 global.w_alpha = 1
 global.map_color = #c09fb4
-clock_hitbox.automatic_angle = -2
+clock_hitbox.automatic_angle = -2 if(global.t_selected_difficulty == 0){clock_hitbox_3.automatic_angle = -0.2}
 
 
 

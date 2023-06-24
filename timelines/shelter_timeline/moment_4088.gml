@@ -13,3 +13,9 @@ square_outline_hitbox1.w_alpha = 1
 
 square_outline_hitbox2.t_scale = 25
 square_outline_hitbox2.w_alpha = 1
+
+
+if (global.t_selected_difficulty == 0)
+{
+	create_projectile_spin(room_width*0.5,room_height*0.5,spr_square,0.4,1100,11,0,10)
+}

@@ -13,3 +13,9 @@ for(var i = 0; i < 5; i++)
 }
 
 
+
+
+if (global.t_selected_difficulty == 0)
+{
+	clock_hitbox_3.automatic_angle = 0
+}

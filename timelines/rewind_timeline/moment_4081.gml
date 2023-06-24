@@ -18,6 +18,17 @@ clock_hitbox_2.t_angle = 0
 clock_hitbox_2.sprite_index = spr_clock
 clock_hitbox_2.image_index = 2
 
+	if (global.t_selected_difficulty == 0)
+	{
+		clock_hitbox_3 = instance_create_depth(room_width*0.5,room_height*0.5,player.depth-1,hitbox_11)
+		clock_hitbox_3.t_scale = clock_hitbox.t_scale*1.01
+		clock_hitbox_3.shake_scale = 0
+		clock_hitbox_3.shake_dir = 0
+		clock_hitbox_3.t_angle = 0
+		clock_hitbox_3.sprite_index = spr_clock
+		clock_hitbox_3.image_index = 0
+	}
+
 
 heart_hitbox = instance_create_depth(room_width*0.5,room_height*0.5,player.depth-1,hitbox_11)
 heart_hitbox.sprite_index = spr_heart

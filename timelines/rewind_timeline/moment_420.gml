@@ -9,3 +9,7 @@ clock_hitbox.t_angle = -360-180
 
 
 clock_hitbox_2.t_scale = -0.01
+if (global.t_selected_difficulty == 0)
+{
+	clock_hitbox_3.t_scale = -0.01
+}

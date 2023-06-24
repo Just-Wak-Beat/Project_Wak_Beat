@@ -1,5 +1,9 @@
 instance_destroy(clock_hitbox)
 instance_destroy(clock_hitbox_2)
+if (global.t_selected_difficulty == 0)
+{
+	instance_destroy(clock_hitbox_3)
+}
 instance_destroy(gear_hitbox1)
 instance_destroy(gear_hitbox2)
 instance_destroy(gear_hitbox3)
