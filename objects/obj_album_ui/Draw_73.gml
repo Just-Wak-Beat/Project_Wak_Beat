@@ -417,10 +417,30 @@ if instance_exists(code)
 				{
 					var unlock_anime_alpha = global.unlocked_player_skin[i]-1;
 					
-					if (global.unlocked_player_skin[i] == 2)
+					if (global.unlocked_player_skin[i] > 1.8)
 					{
-						audio_play_sound(glow_sfx,0,false,global.master_volume*global.sfx_volume)
-						audio_play_sound(show_rank_sfx,0,false,global.sfx_volume*global.master_volume)
+						if !instance_exists(explosion_effect)
+						{
+							audio_play_sound(glow_sfx,0,false,global.master_volume*global.sfx_volume)
+							audio_play_sound(show_rank_sfx,0,false,global.sfx_volume*global.master_volume)
+							var _ef = instance_create_depth(middle_xx,middle_yy,depth-20,explosion_effect)
+							_ef.image_index = 6
+							_ef.image_xscale = 2
+							_ef.image_yscale = 2
+							_ef.t_scale = 5
+							_ef.image_blend = c_white
+			
+							for(var ii = 0; ii < 360; ii += 25)
+							{
+								var random_dir = ii+image_angle
+								var effect_ = instance_create_depth(middle_xx+lengthdir_x(128,random_dir),middle_yy+lengthdir_y(128,random_dir),depth-20,movement_effect)
+								effect_.image_xscale = 0.3
+								effect_.image_yscale = 0.3
+								effect_.direction = random_dir
+								effect_.speed = 16
+								effect_.image_blend = global.map_color
+							}
+						}
 					}
 					
 					if (global.unlocked_player_skin[i] > 1)

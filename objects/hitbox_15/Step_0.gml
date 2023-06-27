@@ -19,7 +19,8 @@ else
 	direction = dir
 	image_angle = dir+35
 	
-	if auto_shake != 0
+
+	if (auto_shake != 0)
 	{
 		timer ++;
 		dir += auto_shake;
@@ -29,6 +30,8 @@ else
 			timer = 0;
 		}
 	}
+	
+
 	
 	if global.dev_mode == 1
 	{
