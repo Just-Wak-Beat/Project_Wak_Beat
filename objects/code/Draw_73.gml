@@ -462,14 +462,14 @@ if global.select_map != 0 && abs(player.image_xscale) < 0.1
 		{
 			if global.mobile_mode = 1
 			{
-				if global.clicking_timer <= 4 && mouse_check_button_released(mb_left) && mouse_x >= xx+xx_w*0.5
+				if ((global.can_show == 0 || global.can_show == 1) && global.clicking_timer <= 4 && mouse_check_button_released(mb_left) && mouse_x >= xx+xx_w*0.5)
 				{
 					go_play = true
 				}
 			}
 			else
 			{
-				if keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || (mouse_check_button_pressed(mb_left) && mouse_x >= xx+xx_w*0.5)
+				if ((global.can_show == 0 || global.can_show == 1) && (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter) || (mouse_check_button_pressed(mb_left) && mouse_x >= xx+xx_w*0.5)))
 				{
 					go_play = true
 				}
