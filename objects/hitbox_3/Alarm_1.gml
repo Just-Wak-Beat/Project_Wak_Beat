@@ -7,3 +7,9 @@ distance = room_height
 }
 
 
+can_draw = 1
+
+if (saved_xscale >= 4)
+{
+	image_xscale = saved_xscale
+}

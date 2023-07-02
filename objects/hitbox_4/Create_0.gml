@@ -10,3 +10,4 @@ warning_timer = 0
 des = 0
 w_alpha = 0
 shake_time = 0
+scale_up_effect = 1

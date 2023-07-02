@@ -21,7 +21,7 @@ laser__.target_time = argument2
 laser__.des_time = argument3
 laser__.shake_scale = argument4
 laser__.shake_dir = argument5
-laser__.image_xscale = argument6
+laser__.saved_xscale = argument6
 
 if abs(argument7) > 3
 {

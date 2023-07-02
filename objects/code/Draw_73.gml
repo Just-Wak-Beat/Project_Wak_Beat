@@ -70,7 +70,10 @@ if global.t_selected_difficulty == 0
 {
 	draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-640*font_size,"Hardcore",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
 }
+
+draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-608*font_size,global.n_music_title,64,-1,music_title_alpha*0.3,c_black,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
 draw_text_k_scale(xx+xx_w-music_title_alpha*128*font_size,yy+yy_h-600*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
+
 
 //music credit
 var col = global.map_color

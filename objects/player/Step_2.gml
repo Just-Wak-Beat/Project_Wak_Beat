@@ -65,8 +65,8 @@ if hurt != -4
 	
 	if hurt_hspeed != 0 || hurt_vspeed != 0
 	{
-		global.hmove_speed = -sign(hurt_hspeed)*16
-		global.vmove_speed = -sign(hurt_vspeed)*16
+		global.hmove_speed = -sign(hurt_hspeed)*32
+		global.vmove_speed = -sign(hurt_vspeed)*32
 	}
 
 	global.cannot_control = 1

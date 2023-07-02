@@ -6,10 +6,10 @@
 var col = global.map_color
 if col = c_black && image_alpha < 1
 {
-col = c_white
+	col = c_white
 }
-draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,col,image_alpha)
+draw_sprite_ext(sprite_index,image_index,x,y,image_xscale*scale_up_effect,image_yscale*scale_up_effect,image_angle,col,image_alpha)
 if w_alpha > 0
 {
-draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,c_white,w_alpha)
+	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale*scale_up_effect,image_yscale*scale_up_effect,image_angle,c_white,w_alpha*image_alpha)
 }

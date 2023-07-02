@@ -140,7 +140,7 @@ else
 
 
 	var random_dash = 0
-	if (global.hmove = 0 && global.vmove = 0)
+	if (global.hmove == 0 && global.vmove == 0 && global.cannot_control == 0)
 	{
 		random_dash = global.dashing
 		image_angle += (0 - image_angle)*0.3
@@ -248,8 +248,13 @@ else
 		global.dashing = 0
 	}
 
-	if (global.cannot_control = 0 && global.dash_cooltime <= 0 && keyboard_check_pressed(vk_space))
+	if (global.cannot_control == 0 && global.dash_cooltime <= 0 && keyboard_check_pressed(vk_space))
 	{
 		event_user(0)
+	}
+	
+	if (global.cannot_control == 1)
+	{
+		image_angle += 10*sign(hurt_hspeed)
 	}
 }

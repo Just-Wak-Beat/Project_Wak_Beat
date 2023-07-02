@@ -25,7 +25,7 @@ view_shake(0.1,shake_scale,3,shake_dir)
 w_alpha = 0.3
 	if global.n_music_name = "wakrio" && global.n_progress >= 2930
 	{
-		for(var i = 0; i < 360; i += 30)
+		for(var i = 0; i < 360; i += 30-(1-global.t_selected_difficulty)*15)
 		{
 		var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
 		attack_ef.direction = i
@@ -46,7 +46,7 @@ w_alpha = 0.3
 	}
 	else
 	{
-		for(var i = 0; i < 360; i += 15)
+		for(var i = 0; i < 360; i += 20-(1-global.t_selected_difficulty)*10)
 		{
 		var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
 		attack_ef.direction = i

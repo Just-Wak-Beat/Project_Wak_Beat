@@ -370,6 +370,17 @@ if global.rewind > 0
 	if global.rewind = 91
 	{
 		audio_play_sound(rewinding_sfx,0,false,global.master_volume*global.sfx_volume)
+		timeline_running = false
+	}
+	
+	if global.rewind >= 91
+	{
+		with(hitbox_parents)
+		{
+			speed += (0 - speed)*0.05
+		}
+		global.t_map_speed += (0 - global.t_map_speed)*0.05
+		global.t_map_speed_y += (0 - global.t_map_speed_y)*0.05
 	}
 	
 	

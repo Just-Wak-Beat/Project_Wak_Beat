@@ -11,5 +11,5 @@ des = 0
 w_alpha = 0
 t_angle = 0
 t_speed = 0
-
+scale_up_effect = 1
 alarm[1] = 1

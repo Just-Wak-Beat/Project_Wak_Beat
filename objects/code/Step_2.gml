@@ -139,7 +139,7 @@
 		view_shake(0.1,1.5,0.1,0)
 
 
-		if instance_exists(hitbox_7) && instance_exists(hitbox_3)
+		if ((instance_exists(hitbox_7) && instance_exists(hitbox_3)) || global.n_progress >= 4100)
 		{
 			var target_ins = -4
 			with(hitbox_3)
@@ -148,6 +148,11 @@
 				{
 					target_ins = id
 				}
+			}
+			
+			if (global.n_progress >= 4100)
+			{
+				target_ins = wakgood_shouting
 			}
 			
 			if (target_ins != -4)

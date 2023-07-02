@@ -25,10 +25,13 @@ if warning_timer = target_time-1
 }
 
 
+
+
 if warning_timer = target_time
 {
 	w_alpha = 2
 	image_alpha = 1
+	scale_up_effect = 1.05
 }
 
 
@@ -40,6 +43,7 @@ if warning_timer >= target_time && des = 0
 
 if warning_timer-target_time > des_time
 {
+	scale_up_effect += (1 - scale_up_effect)*0.1
 	des = 1
 	speed += (t_speed - speed)*0.1
 	if abs(speed - t_speed) < 0.1
@@ -63,5 +67,12 @@ if warning_timer-target_time > des_time
 	if image_xscale <= 0
 	{
 		instance_destroy()
+	}
+}
+else
+{
+	if (image_alpha < 1 && warning_timer%15 == 0)
+	{
+		w_alpha = 1
 	}
 }

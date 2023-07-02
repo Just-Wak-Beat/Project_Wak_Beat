@@ -15,6 +15,7 @@ draw_circle(x,y+ii,image_xscale*48*image_yscale,false)
 
 
 draw_set_alpha(image_alpha*0.4*0.05)
+draw_circle(x,y,image_xscale*96,true)
 	for(var i = -2; i <= 2; i++)
 	{
 	draw_circle(x+i,y,image_xscale*96,true)

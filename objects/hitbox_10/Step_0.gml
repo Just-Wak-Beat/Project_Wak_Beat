@@ -5,6 +5,11 @@ x -= global.map_speed
 image_angle += keep_spin_angle
 
 
+if (sprite_index == spr_triangle_half)
+{
+	image_xscale += 0.01
+	image_yscale += 0.01
+}
 
 
 if audio_is_playing(ipad)
@@ -45,8 +50,8 @@ var _image_scale = 900*image_xscale
 					attack_ef.direction = i
 					attack_ef.keep_spin_angle = 5
 					attack_ef.image_angle = 90-i
-					attack_ef.image_xscale = 0.6
-					attack_ef.image_yscale = 0.6
+					attack_ef.image_xscale = 0.85
+					attack_ef.image_yscale = 0.85
 					attack_ef.w_alpha = 10
 					attack_ef.sprite_index = spr_square
 				}
