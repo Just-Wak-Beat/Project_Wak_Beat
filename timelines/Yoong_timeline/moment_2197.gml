@@ -1,4 +1,14 @@
 
+if (global.t_selected_difficulty == 0)
+{
+	for(var i = 0; i < 4; i++)
+	{
+		var _laser = create_laser(room_width*0.5,room_height*0.5,60,260,4,2,1,0.5)
+		_laser.image_angle = i*90;
+	}
+}
+
+
 for(var i = -5; i <= 5; i++)
 {
 var scale = 1

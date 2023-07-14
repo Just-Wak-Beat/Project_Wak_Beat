@@ -268,7 +268,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 					{
 						timeline_running = true
 					}
-					timeline_speed = 1
+					timeline_speed = 1+(global.t_selected_difficulty == -1 ? 0.12 : 0)
 		
 					show_debug_message("timeline")
 				}
@@ -279,8 +279,14 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 		{
 			if (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
 			{
-				global.n_progress ++
+				global.n_progress ++;
 				audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1)*global.map_end_volumedown,0)
+				
+				if (global.t_selected_difficulty == -1)
+				{
+					global.n_progress += 0.12;
+					audio_sound_pitch(global.n_music_instance,1.12)
+				}
 			}
 		}
 		else
@@ -378,6 +384,11 @@ if global.rewind > 0
 		with(hitbox_parents)
 		{
 			speed += (0 - speed)*0.05
+			
+			if variable_instance_exists(other,"keep_spin_angle")
+			{
+				keep_spin_angle += (0 - keep_spin_angle)*0.05
+			}
 		}
 		global.t_map_speed += (0 - global.t_map_speed)*0.05
 		global.t_map_speed_y += (0 - global.t_map_speed_y)*0.05

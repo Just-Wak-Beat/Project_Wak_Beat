@@ -69,6 +69,7 @@
     {"name":"tutorial_part2","order":4,"path":"sounds/tutorial_part2/tutorial_part2.yy",},
     {"name":"circle_x2048","order":1,"path":"sprites/circle_x2048/circle_x2048.yy",},
     {"name":"load_custom_map_num","order":3,"path":"scripts/load_custom_map_num/load_custom_map_num.yy",},
+    {"name":"check_distance","order":5,"path":"scripts/check_distance/check_distance.yy",},
     {"name":"spr_snow","order":31,"path":"sprites/spr_snow/spr_snow.yy",},
     {"name":"common_sfx2","order":12,"path":"sounds/common_sfx2/common_sfx2.yy",},
     {"name":"hex_to_dec","order":3,"path":"scripts/hex_to_dec/hex_to_dec.yy",},

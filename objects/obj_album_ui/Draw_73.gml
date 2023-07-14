@@ -251,8 +251,15 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 
 	var scale = 1.2//*(image_xscale - (0.3+global.mobile_mode*0.5))
 	var n_difficulty = global.selected_difficulty
-	var f_selected = (global.mobile_mode == 1) ? 1.8 : 1+abs(n_difficulty)*0.5
-	var s_selected = (global.mobile_mode == 1) ? 1.8 : 1+abs(1-n_difficulty)*0.5
+	var dis_temp1 = check_distance(1-abs(n_difficulty),1);
+	var dis_temp2 = check_distance(1-abs(1-n_difficulty),1);
+	var dis_temp3 = check_distance(1-abs(-1-n_difficulty),1);
+	var color_temp1 = merge_color(c_black,c_white,dis_temp1)
+	var color_temp2 = merge_color(c_black,c_white,dis_temp2)
+	var color_temp3 = merge_color(c_black,c_white,dis_temp3)
+	var f_selected = (global.mobile_mode == 1) ? 1.8 : 1+dis_temp1*0.5
+	var s_selected = (global.mobile_mode == 1) ? 1.8 : 1+dis_temp2*0.5
+	var t_selected = (global.mobile_mode == 1) ? 1.8 : 1+dis_temp3*0.5
 	var icon_scale = 0.2*(image_xscale - (0.3+global.mobile_mode*0.5))
 
 
@@ -328,17 +335,23 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 	}
 	
 
+	draw_text(xx+64,yy+64,n_difficulty)
+	draw_sprite_ext(spr_circle,0,button_1_xx,middle_yy,scale*f_selected*global.font_ratio_resolution_xx*0.5,scale*f_selected*0.5,0,merge_color(c_white,c_black,dis_temp1),global.select_difficulty)
+	draw_sprite_ext(spr_music,0,button_1_xx,middle_yy-f_selected*130,icon_scale*f_selected*global.font_ratio_resolution_xx,icon_scale*f_selected,image_angle,merge_color(c_black,c_white,dis_temp1),global.select_difficulty)
+	draw_text_k_scale(button_1_xx,middle_yy-f_selected*64,"Normal",64,-1,global.select_difficulty,color_temp1,0,0,normal_font,0.65*f_selected*global.font_ratio_resolution_xx,0.65*f_selected,0)
+	draw_text_k_scale(button_1_xx,middle_yy,"특정 하이라이트 부분에서\n세이브 포인트를 제공합니다",scale*48*f_selected,-1,global.select_difficulty,color_temp1,0,0,normal_font,0.35*f_selected*global.font_ratio_resolution_xx,0.35*f_selected,0)
 
-	draw_sprite_ext(spr_circle,0,button_1_xx,middle_yy,scale*f_selected*global.font_ratio_resolution_xx*0.5,scale*f_selected*0.5,0,merge_color(c_white,c_black,abs(n_difficulty)),global.select_difficulty)
-	draw_sprite_ext(spr_music,0,button_1_xx,middle_yy-f_selected*130,icon_scale*f_selected*global.font_ratio_resolution_xx,icon_scale*f_selected,image_angle,merge_color(c_black,c_white,abs(n_difficulty)),global.select_difficulty)
-	draw_text_k_scale(button_1_xx,middle_yy-f_selected*64,"Normal",64,-1,global.select_difficulty,merge_color(c_black,c_white,abs(n_difficulty)),0,0,normal_font,0.65*f_selected*global.font_ratio_resolution_xx,0.65*f_selected,0)
-	draw_text_k_scale(button_1_xx,middle_yy,"특정 하이라이트 부분에서\n세이브 포인트를 제공합니다",scale*48*f_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(n_difficulty)),0,0,normal_font,0.35*f_selected*global.font_ratio_resolution_xx,0.35*f_selected,0)
-
-
-	draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,merge_color(c_white,c_black,abs(1-n_difficulty)),global.select_difficulty)
-	draw_sprite_ext(spr_heart,0,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
-	draw_text_k_scale(button_2_xx,middle_yy-s_selected*64,"Hardcore",64,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.65*s_selected*global.font_ratio_resolution_xx,0.65*s_selected,0)
-	draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않고 무적 쿨타임이 짧아지며,\n랜덤한 패턴과 새로운 패턴이 등장합니다.\n\n클리어 시,\n많은 경험치와 아티팩트를 중복하여 획득할 수 있으며,\n특정 캐릭터를 획득할 수 있습니다.",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_black,c_white,abs(1-n_difficulty)),0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
+	
+	draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,merge_color(c_white,c_black,dis_temp2),global.select_difficulty)
+	draw_sprite_ext(spr_heart,0,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,color_temp2,global.select_difficulty)
+	draw_text_k_scale(button_2_xx,middle_yy-s_selected*64,"Hardcore",64,-1,global.select_difficulty,color_temp2,0,0,normal_font,0.65*s_selected*global.font_ratio_resolution_xx,0.65*s_selected,0)
+	draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않고 무적 쿨타임이 짧아지며,\n랜덤한 패턴과 새로운 패턴이 등장합니다.\n\n클리어 시,\n많은 경험치와 아티팩트를 중복하여 획득할 수 있으며,\n특정 캐릭터를 획득할 수 있습니다.",scale*48*s_selected,-1,global.select_difficulty,color_temp2,0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
+	
+	
+	//draw_sprite_ext(spr_circle,0,middle_xx,middle_yy+yy_h*0.15,scale*t_selected*global.font_ratio_resolution_xx*0.5,scale*t_selected*0.5,0,merge_color(c_white,c_black,dis_temp3),global.select_difficulty)
+	//draw_sprite_ext(spr_star,0,middle_xx,middle_yy+yy_h*0.15-t_selected*130,icon_scale*t_selected*global.font_ratio_resolution_xx,icon_scale*t_selected,image_angle,color_temp3,global.select_difficulty)
+	//draw_text_k_scale(middle_xx,middle_yy+yy_h*0.15-t_selected*64,"Nightcore",64,-1,global.select_difficulty,merge_color(c_black,c_white,dis_temp3),0,0,normal_font,0.65*t_selected*global.font_ratio_resolution_xx,0.65*t_selected,0)
+	//draw_text_k_scale(middle_xx,middle_yy+yy_h*0.15,"특정 하이라이트 부분에서\n세이브 포인트를 제공하며,\n음악의 속도가 조금 빨라집니다.",scale*48*t_selected,-1,global.select_difficulty,color_temp3,0,0,normal_font,0.35*t_selected*global.font_ratio_resolution_xx,0.35*t_selected,0)
 	
 	if (global.n_map_id >= 0)
 	{
@@ -346,15 +359,16 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 		if (global.level < unlock_level)
 		{
 			draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,c_black,global.select_difficulty*0.7)
-			draw_sprite_ext(spr_lock,1,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
+			draw_sprite_ext(spr_lock,1,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,color_temp2,global.select_difficulty)
 			draw_text_k_scale(button_2_xx,middle_yy,"해금 조건\n"+string(unlock_level)+"레벨 이상",scale*48*s_selected,-1,global.select_difficulty,merge_color(c_white,c_black,abs(1-n_difficulty)*0.5),0,0,normal_font,0.5*s_selected*global.font_ratio_resolution_xx,0.5*s_selected,0)
 		}
 	}
 
 
 	//outline
-	draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.32,middle_yy,scale*f_selected*global.font_ratio_resolution_xx,scale*f_selected,0,merge_color(c_black,c_white,abs(n_difficulty)),global.select_difficulty)
-	draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.68,middle_yy,scale*s_selected*global.font_ratio_resolution_xx,scale*s_selected,0,merge_color(c_black,c_white,abs(1-n_difficulty)),global.select_difficulty)
+	draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.32,middle_yy,scale*f_selected*global.font_ratio_resolution_xx,scale*f_selected,0,color_temp1,global.select_difficulty)
+	draw_sprite_ext(spr_circle_outline_light,0,xx+xx_w*0.68,middle_yy,scale*s_selected*global.font_ratio_resolution_xx,scale*s_selected,0,color_temp2,global.select_difficulty)
+	//draw_sprite_ext(spr_circle_outline_light,0,middle_xx,middle_yy+yy_h*0.15,scale*t_selected*global.font_ratio_resolution_xx,scale*t_selected,0,color_temp3,global.select_difficulty)
 }
 /**/
 
