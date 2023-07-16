@@ -116,14 +116,14 @@ for(var i = 0; i <= 5; i++)
 		{
 			if abs(global.map_speed_y) > 0
 			{
-			var save_ = instance_create_depth(0,0,player.depth+1,obj_savepoint)
+			var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
 			save_.n_savepoint_position = global.savepoint_position[i]
 			save_.n_color = global.savepoint_color[i]
 			save_.image_angle = 90
 			}
 			else
 			{
-			var save_ = instance_create_depth(room_width,0,player.depth+1,obj_savepoint)
+			var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
 			save_.n_savepoint_position = global.savepoint_position[i]
 			save_.n_color = global.savepoint_color[i]
 			}
@@ -175,7 +175,7 @@ draw_set_color(c_white)
 
 
 
-if global.select_map != 0 && abs(player.image_xscale) < 0.1
+if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 {
 	for(var i = 0; i < global.total_map; i++)
 	{

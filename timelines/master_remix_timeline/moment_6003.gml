@@ -1,7 +1,7 @@
 var start_angle = 0
 for(var i = 0; i < 4; i++)
 {
-	create_worm(master_hitbox.x,master_hitbox.y,player.depth+15,8,spr_triangle,0.2,spr_triangle_empty,15,-4,start_angle+i*90)
+	create_worm(master_hitbox.x,master_hitbox.y,obj_player.depth+15,8,spr_triangle,0.2,spr_triangle_empty,15,-4,start_angle+i*90)
 }
 
 for(var i = 0; i < 360; i += 15)

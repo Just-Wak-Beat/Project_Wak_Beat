@@ -8,7 +8,7 @@ outside_timer = 0
 effect_rad = 0
 
 w_alpha = 0
-direction = point_direction(x,y,player.x,player.y)+irandom_range(-45,45)
+direction = point_direction(x,y,obj_player.x,obj_player.y)+irandom_range(-45,45)
 t_speed = 0
 t_angle = 0
 image_xscale = 0.2

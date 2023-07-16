@@ -4,16 +4,16 @@
 if image_angle = 0
 {
 x -= 16
-	if global.hp > 0 && player.x+player.image_xscale*32 >= x
+	if global.hp > 0 && obj_player.x+obj_player.image_xscale*32 >= x
 	{
 	audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 	global.w_alpha = 1
-	global.respawn_point_xx = player.x
-	global.respawn_point_yy = player.y
+	global.respawn_point_xx = obj_player.x
+	global.respawn_point_yy = obj_player.y
 
 		if global.n_progress >= global.music_duration
 		{
-		instance_create_depth(room_width+128,irandom_range(0,room_height),player.depth-1,obj_stage_clear)
+		instance_create_depth(room_width+128,irandom_range(0,room_height),obj_player.depth-1,obj_stage_clear)
 		global.show_progress_bar = 0
 	
 		instance_destroy(hitbox_parents)
@@ -34,16 +34,16 @@ x -= 16
 else
 {
 y += 9
-	if global.hp > 0 && player.y-player.image_yscale*32 <= y
+	if global.hp > 0 && obj_player.y-obj_player.image_yscale*32 <= y
 	{
 	audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 	global.w_alpha = 1
-	global.respawn_point_xx = player.x
-	global.respawn_point_yy = player.y
+	global.respawn_point_xx = obj_player.x
+	global.respawn_point_yy = obj_player.y
 
 		if global.n_progress >= global.music_duration
 		{
-		instance_create_depth(irandom_range(0,room_width),-128,player.depth-1,obj_stage_clear)
+		instance_create_depth(irandom_range(0,room_width),-128,obj_player.depth-1,obj_stage_clear)
 		global.show_progress_bar = 0
 	
 		instance_destroy(hitbox_parents)

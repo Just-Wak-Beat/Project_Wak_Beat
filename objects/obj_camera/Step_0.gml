@@ -5,8 +5,8 @@ depth = 999999
 
 if (global.show_rank > 0)
 {
-	x += (player.x - x)*0.22
-	y += (player.y - y)*0.22
+	x += (obj_player.x - x)*0.22
+	y += (obj_player.y - y)*0.22
 	
 	if (global.show_rank == 1)
 	{

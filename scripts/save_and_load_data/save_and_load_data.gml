@@ -24,6 +24,8 @@ function save_and_load_data(argument0,argument1)
 			//인게임 정보 (맵)
 			ini_write_string("n_rank",string(i),global.real_n_rank[i]);
 			ini_write_string("n_rank_hardcore",string(i),global.real_n_rank_hardcore[i]);
+			ini_write_string("real_n_score",string(i),global.real_n_score[i]);
+			ini_write_string("real_n_score_hardcore",string(i),global.real_n_score_hardcore[i]);
 			ini_write_string("n_artifact",string(i),global.real_n_artifact[i]);
 			
 			ini_write_string("unlocked_music_name",string(i),global.unlocked_music_name[i]);
@@ -56,6 +58,9 @@ function save_and_load_data(argument0,argument1)
 		ini_write_real("level","none",global.level);
 		ini_write_real("exp","none",global.exp);
 		ini_write_real("max_exp","none",global.max_exp);
+		
+		//닉네임
+		ini_write_string("nickname","none",global.nickname);
 	}
 	else
 	{
@@ -75,6 +80,8 @@ function save_and_load_data(argument0,argument1)
 				//인게임 정보 (맵)
 				global.real_n_rank[i] = ini_read_string("n_rank",string(i),"--");
 				global.real_n_rank_hardcore[i] = ini_read_string("n_rank_hardcore",string(i),"--");
+				global.real_n_score[i] = ini_read_string("real_n_score",string(i),"--");
+				global.real_n_score_hardcore[i] = ini_read_string("real_n_score_hardcore",string(i),"--");
 				global.real_n_artifact[i] = ini_read_string("n_artifact",string(i),"X");
 				global.real_n_favorite[i] = ini_read_real("n_favorite",string(i),-1);
 				global.fav_map_id[i] = ini_read_real("fav_map_id",string(i),-4);
@@ -116,6 +123,9 @@ function save_and_load_data(argument0,argument1)
 		global.level = ini_read_real("level","none",0);
 		global.exp = ini_read_real("exp","none",0);
 		global.max_exp = ini_read_real("max_exp","none",1000);
+		
+		//닉네임
+		global.nickname = ini_read_string("nickname","none","");
 	}
 
 	ini_close_protect()

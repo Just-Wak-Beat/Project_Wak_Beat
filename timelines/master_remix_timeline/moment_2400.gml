@@ -1,2 +1,2 @@
-create_worm(room_width*0.3,global.c_h,player.depth-15,5,spr_triangle,0.2,spr_triangle_empty,15,2,90)
-create_worm(room_width*0.7,global.c_h,player.depth-15,5,spr_triangle,0.2,spr_triangle_empty,15,2,90)
+create_worm(room_width*0.3,global.c_h,obj_player.depth-15,5,spr_triangle,0.2,spr_triangle_empty,15,2,90)
+create_worm(room_width*0.7,global.c_h,obj_player.depth-15,5,spr_triangle,0.2,spr_triangle_empty,15,2,90)

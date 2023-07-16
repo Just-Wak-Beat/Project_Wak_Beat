@@ -31,3 +31,6 @@ w_alpha = 0
 
 died_xx = 0
 died_yy = 0
+
+
+crossed_obstacle_cooldown = 0

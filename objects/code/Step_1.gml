@@ -1,6 +1,44 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (automatic_reload_leaderboard > 0)
+{
+	automatic_reload_leaderboard ++;
+	if (automatic_reload_leaderboard%10 == 0)
+	{
+		event_user(5)
+	}
+	
+	if (automatic_reload_leaderboard == 1)
+	{
+		global.unlocked_music_name_new_list_rightside[0] = "";
+		global.notice_title_sub = ""
+	}
+	
+	if (automatic_reload_leaderboard == 2)
+	{
+		event_user(5)
+		global.show_new_songs = 1;
+	}
+	
+	if (automatic_reload_leaderboard == 30)
+	{
+		LootLockerReset()
+		LootLockerSetPlayerName("");
+		LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),0);
+		event_user(5)
+	}
+	
+	if (automatic_reload_leaderboard == 40)
+	{
+		LootLockerSetPlayerName(string(global.nickname));
+	}
+
+	if (automatic_reload_leaderboard > 180)
+	{
+		automatic_reload_leaderboard = 0
+	}
+}
 
 
 if (global.random_seed >= 0)
@@ -220,10 +258,10 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	var target_time_to_replay = 420+sign(global.overtime_highlight_song)*450
 	
 	
-	if (global.highlight_time > target_time_to_replay) || (gamestart != 0 && gamestart != 1.1)
+	if (global.highlight_time > target_time_to_replay) || (gamestart != 0 && gamestart != 1.1 && global.show_new_songs <= 0)
 	{
 		global.highlight_music_volume += (-0.01 - global.highlight_music_volume)*0.05
-		if (global.highlight_time > target_time_to_replay+80) && (gamestart = 0 || gamestart = 1.1) && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1
+		if (global.highlight_time > target_time_to_replay+80) && (((gamestart = 0 || gamestart = 1.1) && (global.sync_setting_alpha < 0.1) && global.title_menu_animation1 == -1)  || global.show_new_songs > 0)
 		{
 			play_highlight = 1
 			global.overtime_highlight_song = 0
@@ -346,12 +384,12 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	{
 		if !instance_exists(obj_stage_clear)
 		{
-			instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),player.depth-1,obj_stage_clear)
+			instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),obj_player.depth-1,obj_stage_clear)
 		}
 	}
 
 
-	if player.image_xscale < 0.1
+	if obj_player.image_xscale < 0.1
 	{
 		instance_destroy(obj_stage_clear)
 	}

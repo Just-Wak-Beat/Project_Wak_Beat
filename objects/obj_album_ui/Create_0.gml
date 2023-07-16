@@ -40,3 +40,6 @@ if global.title_menu_animation1 = 0
 
 
 global.can_show = 0.1
+
+
+holding_now = 0

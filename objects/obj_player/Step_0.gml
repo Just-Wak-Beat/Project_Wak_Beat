@@ -235,7 +235,7 @@ else
 
 
 	//체력에 따른 이미지 설정
-	player.image_index = global.player_skin*7+(5-global.hp)
+	obj_player.image_index = global.player_skin*7+(5-global.hp)
 
 	if (global.dash_cooltime > 0)
 	{

@@ -1,6 +1,6 @@
 global.master_remix_effect2 = 1
 
-master_hitbox = instance_create_depth(room_width*0.5,global.c_h+640,player.depth-1,hitbox_11)
+master_hitbox = instance_create_depth(room_width*0.5,global.c_h+640,obj_player.depth-1,hitbox_11)
 master_hitbox.sprite_index = spr_master
 master_hitbox.t_scale = 2
 master_hitbox.image_xscale = 2

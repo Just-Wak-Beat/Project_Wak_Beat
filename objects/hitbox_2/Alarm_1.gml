@@ -4,7 +4,7 @@ if sprite_index != spr_circle_half && sprite_index != spr_triangle_half
 {
 	var random_x = irandom_range(-24,24)
 	var random_y = irandom_range(-24,24)
-	var effect_ = instance_create_depth(x+random_x,y+random_y,player.depth-15,movement_effect)
+	var effect_ = instance_create_depth(x+random_x,y+random_y,obj_player.depth-15,movement_effect)
 	effect_.image_xscale = 5/(1024/sprite_width)
 	effect_.image_yscale = 5/(1024/sprite_width)
 	effect_.direction = direction

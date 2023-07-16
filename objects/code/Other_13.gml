@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description 스킨 설정
 // You can write your code in this editor
 
 global.t_b_alpha = -0.01
@@ -30,8 +30,8 @@ else
 {
 	if gamestart = 1.1
 	{
-	gamestart = 0
-	global.t_select_difficulty = 0
-	audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+		gamestart = 0
+		global.t_select_difficulty = 0
+		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 	}
 }

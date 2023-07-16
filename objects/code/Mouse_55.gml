@@ -4,5 +4,5 @@
 
 for(var i = -2; i <= 2; i++)
 {
-	create_cylinder(room_width*0.5+i*68,global.c_h-16*abs(12)*(1+abs(i)),player.depth-15,0.5,60,64,270,0)
+	create_cylinder(room_width*0.5+i*68,global.c_h-16*abs(12)*(1+abs(i)),obj_player.depth-15,0.5,60,64,270,0)
 }

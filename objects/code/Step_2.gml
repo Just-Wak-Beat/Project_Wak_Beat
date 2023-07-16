@@ -64,7 +64,7 @@
 		global.turisumo_effect++
 		if global.turisumo_effect > 5
 		{
-			var attack_ef = instance_create_depth(irandom_range(global.c_x,global.c_w),global.c_h,player.depth-10,hitbox_2)
+			var attack_ef = instance_create_depth(irandom_range(global.c_x,global.c_w),global.c_h,obj_player.depth-10,hitbox_2)
 			attack_ef.vspeed = irandom_range(-50,-20)/2
 			attack_ef.gravity = 1
 			attack_ef.keep_spin_angle = irandom_range(-2,2)
@@ -81,7 +81,7 @@
 		global.turisumo_effect_2++
 		if global.turisumo_effect_2 > 120/global.map_speed_y
 		{
-			var attack_ef = instance_create_depth(global.c_x,global.c_y,player.depth-10,hitbox_12)
+			var attack_ef = instance_create_depth(global.c_x,global.c_y,obj_player.depth-10,hitbox_12)
 			attack_ef.t_scale = 0.25
 			attack_ef.t_x = global.c_x+256+global.turisumo_effect_scale
 			attack_ef.t_y = global.c_y
@@ -89,7 +89,7 @@
 			attack_ef.w_alpha = 10
 	
 	
-			var attack_ef = instance_create_depth(global.c_w,global.c_y,player.depth-10,hitbox_12)
+			var attack_ef = instance_create_depth(global.c_w,global.c_y,obj_player.depth-10,hitbox_12)
 			attack_ef.t_scale = 0.25
 			attack_ef.t_x = global.c_w-256-global.turisumo_effect_scale
 			attack_ef.t_y = global.c_y
@@ -487,7 +487,7 @@ if global.gomem_mashup_effect > 0
 			var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
 			var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
 			var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
-			create_cylinder(random_xx,random_yy,player.depth-15,1,60,64*dir,0,180*angle)
+			create_cylinder(random_xx,random_yy,obj_player.depth-15,1,60,64*dir,0,180*angle)
 			
 			if (global.gomem_mashup_effect == 3)
 			{

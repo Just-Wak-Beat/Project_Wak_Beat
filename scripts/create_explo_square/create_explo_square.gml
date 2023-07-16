@@ -15,7 +15,7 @@ var xx = argument0
 var yy = argument1
 
 	
-var laser__ = instance_create_depth(xx,yy,player.depth-1,hitbox_9)
+var laser__ = instance_create_depth(xx,yy,obj_player.depth-1,hitbox_9)
 laser__.target_time = argument2
 laser__.des_time = argument3
 laser__.shake_scale = argument4

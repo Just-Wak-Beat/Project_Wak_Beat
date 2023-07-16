@@ -70,7 +70,7 @@ function draw_text_k_scale(argument0, argument1, argument2, argument3, argument4
 	draw_set_font(argument9);
 	//컬러설정
 	draw_set_color(argument6&$ffffff);
-	draw_text_ext_transformed(argument0,argument1,argument2,argument3,99999999999,argument10,argument11,argument12);
+	draw_text_ext_transformed(argument0,argument1+argument11*32,argument2,argument3,99999999999,argument10,argument11,argument12);
 	}
 
 	if argument3 > 0 && argument4 > 0
@@ -79,7 +79,7 @@ function draw_text_k_scale(argument0, argument1, argument2, argument3, argument4
 	draw_set_font(argument9);
 	//컬러설정
 	draw_set_color(argument6&$ffffff);
-	draw_text_ext_transformed(argument0,argument1,argument2,argument3,argument4,argument10,argument11,argument12);
+	draw_text_ext_transformed(argument0,argument1+argument11*32,argument2,argument3,argument4,argument10,argument11,argument12);
 	}
 
 

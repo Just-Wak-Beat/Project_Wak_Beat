@@ -69,7 +69,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 			var xx_w = camera_get_view_width(view_camera[0])
 
 
-			if instance_exists(player) && player.image_xscale > 0
+			if instance_exists(obj_player) && obj_player.image_xscale > 0
 			{
 				if global.hp > 0
 				{
@@ -86,9 +86,9 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 					{
 						if global.dash_cooltime <= 0 && is_click
 						{
-							with(player)
+							with(obj_player)
 							{
-								if object_index = player
+								if object_index = obj_player
 								{
 									event_user(0)
 								}
@@ -131,24 +131,12 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	}
 
 	
-	
-	if keyboard_check_pressed(vk_backspace) || keyboard_check_pressed(vk_escape)
-	{
-		if global.character_setting > 0
-		{
-			event_user(3)
-		}
-		else
-		{
-			event_user(2)
-		}
-	}
 
 
 	//캐릭터 변경
 	if global.b_player_skin != global.player_skin
 	{
-		player.image_index = global.player_skin*7+(5-global.hp)
+		obj_player.image_index = global.player_skin*7+(5-global.hp)
 		global.player_color = $FF4AB539
 		global.die_sfx = wakgood_hurt
 	
@@ -303,14 +291,14 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 			{
 				if abs(global.map_speed_y) > 0
 				{
-					var save_ = instance_create_depth(0,0,player.depth+1,obj_savepoint)
+					var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
 					save_.n_savepoint_position = 99999
 					save_.n_color = c_black
 					save_.image_angle = 90
 				}
 				else
 				{
-					var save_ = instance_create_depth(room_width,0,player.depth+1,obj_savepoint)
+					var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
 					save_.n_savepoint_position = 99999
 					save_.n_color = c_black
 				}
@@ -399,10 +387,10 @@ if global.rewind > 0
 	{
 		for(var i = 0; i < 360; i += 45)
 		{
-			var ef__ = instance_create_depth(player.died_xx,player.died_yy,depth-1,dead_explosion)
+			var ef__ = instance_create_depth(obj_player.died_xx,obj_player.died_yy,depth-1,dead_explosion)
 			ef__.direction = i;
 			ef__.speed = 24;
-			ef__.image_xscale = 1.5
+			ef__.image_xscale = 1
 		}
 	}
 	global.rewind ++
@@ -530,8 +518,8 @@ if global.rewind > 0
 		}
 		timeline_position = global.start_point
 		global.cannot_control = 0
-		player.invincibility_cooltime = 90
-		player.show_invincibility = 1
+		obj_player.invincibility_cooltime = 90
+		obj_player.show_invincibility = 1
 		master_bpm_timer = 0
 		instance_destroy(hitbox_parents)
 		instance_destroy(obj_savepoint)
@@ -560,13 +548,13 @@ if global.rewind > 0
 	
 		if global.respawn_point_xx != -4
 		{
-			player.x = global.respawn_point_xx
-			player.y = global.respawn_point_yy
+			obj_player.x = global.respawn_point_xx
+			obj_player.y = global.respawn_point_yy
 		}
 		else
 		{
-			player.x = room_width*0.5
-			player.y = room_height*0.5
+			obj_player.x = room_width*0.5
+			obj_player.y = room_height*0.5
 		}
 		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
 		global.rewind_effect_line_angle = 0

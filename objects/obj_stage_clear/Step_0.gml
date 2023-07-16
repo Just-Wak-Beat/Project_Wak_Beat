@@ -77,7 +77,7 @@ timer ++
 
 	if outside_timer > 360
 	{
-		instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),player.depth-1,obj_stage_clear)
+		instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),obj_player.depth-1,obj_stage_clear)
 		instance_destroy()
 	}
 
@@ -137,7 +137,7 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 
 
 
-	if (touched == 0 && global.hp > 0 && place_meeting(x,y,player))
+	if (touched == 0 && global.hp > 0 && place_meeting(x,y,obj_player))
 	{
 		global.savepoint_text_t_alpha = -0.01
 		var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)
@@ -151,12 +151,12 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 		vspeed = -32
 		image_angle = 0
 
-		player.x = room_width*0.5;
-		player.y = room_height*0.5;
+		obj_player.x = room_width*0.5;
+		obj_player.y = room_height*0.5;
 		x = room_width*0.5;
 		y = room_height*0.5;
-		obj_camera.x = room_width*0.5+obj_camera.x-player.x
-		obj_camera.y = room_height*0.5+obj_camera.y-player.y
+		obj_camera.x = room_width*0.5+obj_camera.x-obj_player.x
+		obj_camera.y = room_height*0.5+obj_camera.y-obj_player.y
 
 		repeat(irandom_range(8,10))
 		{

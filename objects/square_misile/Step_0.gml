@@ -27,7 +27,7 @@ if stop_create < 60
 	if timer%floor(target_time) = 0
 	{
 		var t_ins__ = (sprite_index != spr_circle) ? hitbox_9 : hitbox_4;
-		var laser__ = instance_create_depth(x,y,player.depth-1,t_ins__)
+		var laser__ = instance_create_depth(x,y,obj_player.depth-1,t_ins__)
 		laser__.target_time = target_time
 		laser__.des_time = des_time
 		laser__.shake_scale = shake_scale

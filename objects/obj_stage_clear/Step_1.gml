@@ -5,15 +5,15 @@
 	//애니메이션
 	if (touched == 1)
 	{
-		player.x = room_width*0.5;
-		player.y = room_height*0.5;
+		obj_player.x = room_width*0.5;
+		obj_player.y = room_height*0.5;
 		x = room_width*0.5;
 
 		
 		image_angle += (360 - image_angle)*0.03
 		
 		
-		if (y > player.y)
+		if (y > obj_player.y)
 		{
 			var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)
 			_ef.image_xscale = 1

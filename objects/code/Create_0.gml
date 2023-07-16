@@ -1,11 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version = "Beta 3.1"
+global.version_real = "3.1";
+global.version = "Beta "+string(global.version_real);
 global.low_graphics = false;
 global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
+global.nickname = ""
 
 //메인메뉴 애니메이션 재생
 global.show_title_menu = 1
@@ -82,6 +84,8 @@ progress_alpha = 0
 progress_alpha_sec = 0
 saved_n_stage = -1
 
+global.notice_title = ""
+global.notice_title_sub = ""
 global.show_rank = 0
 global.artifact_type = 0
 global.show_music_title = 0
@@ -113,6 +117,7 @@ global.t_select_difficulty = 0
 global.selected_difficulty = 0
 global.t_selected_difficulty = 1 //맵 난이도 설정 (1 == 노말)
 
+global.crossed_obstacle_num = 0
 
 global.music_duration = 99999
 global.bpm = 172
@@ -176,6 +181,18 @@ global.unlocked_music_num = 0
 global.origin_total_map = 19
 global.total_map = global.origin_total_map
 
+automatic_reload_leaderboard = 0
+
+	//리더보드
+	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"false","JWAB_map1_1");
+	for(var i = 0; i < global.origin_total_map*2; i++)
+	{
+		LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version_real),"true",string(16145+i));
+	}
+
+	LootLockerSetPlayerName(string(global.nickname));
+
+
 	//곡 정보
 	for(var i = 0; i < global.total_map; i++)
 	{
@@ -189,6 +206,7 @@ global.total_map = global.origin_total_map
 		global.unlocked_music_name[i] = "";
 		global.b_unlocked_music_name[i] = "";
 		global.unlocked_music_name_new_list[i] = "";
+		global.unlocked_music_name_new_list_rightside[i] = "";
 		global.unlocked_music_name_new_list_color[i] = c_white;
 		global.new_unlocked_map_num = 0
 
@@ -204,6 +222,8 @@ global.total_map = global.origin_total_map
 		global.stage_map_highlight_part[i] = -4
 		global.n_rank[i] = "--";
 		global.n_rank_hardcore[i] = "--";
+		global.n_score[i] = "--";
+		global.n_score_hardcore[i] = "--";
 		global.n_favorite[i] = -1;
 		global.n_artifact[i] = "X";
 		global.detailed_difficulty[i] = -4
@@ -224,6 +244,8 @@ global.total_map = global.origin_total_map
 		global.real_stage_map_highlight_part[i] = -4
 		global.real_n_rank[i] = "--";
 		global.real_n_rank_hardcore[i] = "--";
+		global.real_n_score[i] = "--";
+		global.real_n_score_hardcore[i] = "--";
 		global.real_n_favorite[i] = -1;
 		global.real_n_artifact[i] = "X";
 		global.real_detailed_difficulty[i] = -4
@@ -247,6 +269,8 @@ global.total_map = global.origin_total_map
 		global.custom_stage_map_highlight_part[i] = -4
 		global.custom_n_rank[i] = "--";
 		global.custom_n_rank_hardcore[i] = "--";
+		global.custom_n_score[i] = "--";
+		global.custom_n_score_hardcore[i] = "--";
 		global.custom_n_artifact[i] = "X";
 		global.custom_detailed_difficulty[i] = -4
 		global.custom_stage_album[i] = -4

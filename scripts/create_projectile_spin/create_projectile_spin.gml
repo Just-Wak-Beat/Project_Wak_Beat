@@ -12,7 +12,7 @@
 ///@param speed
 function create_projectile_spin(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7)
 {
-	var _ins_ = instance_create_depth(argument0,argument1,player.depth+15,hitbox_16)
+	var _ins_ = instance_create_depth(argument0,argument1,obj_player.depth+15,hitbox_16)
 	_ins_.sprite_index = argument2
 	_ins_.image_xscale = argument3
 	_ins_.target_time = argument4

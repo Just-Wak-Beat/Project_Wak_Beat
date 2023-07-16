@@ -19,7 +19,7 @@ _laser_.image_angle = 270
 var _laser_ = create_laser(room_width*0.5,room_height*0.5,75,900,4,2,1,-0.5)
 _laser_.image_angle = 90
 
-var wakrio_ = instance_create_depth(room_width*0.5,-room_height,player.depth-10,hitbox_8)
+var wakrio_ = instance_create_depth(room_width*0.5,-room_height,obj_player.depth-10,hitbox_8)
 wakrio_.t_x = room_width*0.5
 wakrio_.t_y = -room_height
 

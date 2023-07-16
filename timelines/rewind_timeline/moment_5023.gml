@@ -1,6 +1,6 @@
 if (global.t_selected_difficulty == 0 && !instance_exists(clock_hitbox_3))
 {
-	clock_hitbox_3 = instance_create_depth(room_width*0.5,room_height*0.5,player.depth-1,hitbox_11)
+	clock_hitbox_3 = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-1,hitbox_11)
 	clock_hitbox_3.t_scale = clock_hitbox.t_scale*1.01
 	clock_hitbox_3.shake_scale = 0
 	clock_hitbox_3.shake_dir = 0
