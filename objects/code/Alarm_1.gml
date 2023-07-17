@@ -115,7 +115,7 @@ var temp_score = ((convert_rank_to_num(target_rank))*100+global.crossed_obstacle
 if (global.t_selected_difficulty == 1)
 {
 	global.n_rank[global.n_map_id] = target_rank;
-	if (global.n_map_list != 2 && (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id]))
+	if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id]))
 	{
 		LootLockerSetPlayerName(string(global.nickname));
 		LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
@@ -128,7 +128,7 @@ if (global.t_selected_difficulty == 1)
 else
 {
 	global.n_rank_hardcore[global.n_map_id] = target_rank;
-	if (global.n_map_list != 2 && (global.real_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.real_n_score_hardcore[global.n_map_id]))
+	if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.real_n_score_hardcore[global.n_map_id]))
 	{
 		LootLockerSetPlayerName(string(global.nickname));
 		LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));

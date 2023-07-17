@@ -8,17 +8,16 @@ if (automatic_reload_leaderboard > 0)
 	{
 		event_user(5)
 	}
-	
-	if (automatic_reload_leaderboard == 1)
-	{
-		global.unlocked_music_name_new_list_rightside[0] = "";
-		global.notice_title_sub = ""
-	}
-	
+
 	if (automatic_reload_leaderboard == 2)
 	{
 		event_user(5)
 		global.show_new_songs = 1;
+		
+		if (global.b_loaded_ranking == global.n_map_id)
+		{
+			automatic_reload_leaderboard = 0;
+		}
 	}
 	
 	if (automatic_reload_leaderboard == 30)
@@ -26,6 +25,7 @@ if (automatic_reload_leaderboard > 0)
 		LootLockerReset()
 		LootLockerSetPlayerName("");
 		LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),0);
+		global.b_loaded_ranking = global.n_map_id
 		event_user(5)
 	}
 	

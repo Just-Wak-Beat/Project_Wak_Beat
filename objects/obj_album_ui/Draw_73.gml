@@ -646,6 +646,11 @@ if instance_exists(code)
 				{
 					global.t_selected_difficulty = 1
 				}
+				
+				if (string_pos("(Hardcore)", global.stage_map_difficulty[code.n_stage]) != 0)
+				{
+					global.t_selected_difficulty = 0
+				}
 			}
 			else if (global.notice_title == "잠시만요!")
 			{
@@ -740,6 +745,7 @@ if instance_exists(code)
 				global.t_b_alpha = -0.01
 				global.unlocked_music_name_new_list_rightside[0] = "";
 				global.notice_title_sub = ""
+				global.notice_title = ""
 				code.gamestart = 0
 			}
 		}

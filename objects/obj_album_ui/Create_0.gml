@@ -28,6 +28,7 @@ blind_xx_start = 0
 blind_xx_final = 0
 ding_dong_animation = 0
 credit_text_alpha = -1
+global.b_loaded_ranking = -1
 
 
 if global.title_menu_animation1 = 0
@@ -40,6 +41,7 @@ if global.title_menu_animation1 = 0
 
 
 global.can_show = 0.1
+global.open_ranking = 0
 
 
 holding_now = 0

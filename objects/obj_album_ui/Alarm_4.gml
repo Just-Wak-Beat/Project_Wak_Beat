@@ -9,6 +9,7 @@ global.joystick_yy = -4
 
 if (global.show_new_songs > 0)
 {
+	global.notice_title = ""
 	global.t_b_alpha = -0.01
 	global.show_new_songs = 0
 	global.unlocked_music_name_new_list_rightside[0] = "";

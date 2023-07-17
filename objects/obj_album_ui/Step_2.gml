@@ -32,14 +32,7 @@ if (global.select_difficulty = 0 && global.show_new_songs <= 0)
 	}
 	else if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+920) < 80) || keyboard_check_pressed(vk_tab)
 	{
-		if (global.nickname != "")
-		{
-			if global.sync_setting <= 0 && global.character_setting <= 0
-			{
-				code.automatic_reload_leaderboard = 1
-			}
-		}
-		else
+		if (global.nickname == "")
 		{
 			global.notice_title = "잠시만요!";
 			global.notice_title_sub = "온라인 랭킹에 사용할 이름을 설정해주세요!";
@@ -54,6 +47,11 @@ if (global.select_difficulty = 0 && global.show_new_songs <= 0)
 			global.unlocked_music_name_new_list_color[3] = merge_color(c_black,c_white,0.4);
 			global.show_new_songs = 1;
 			global.new_unlocked_map_num = 4;
+		}
+		else
+		{
+			code.automatic_reload_leaderboard = 1
+			global.open_ranking = 1;
 		}
 	}
 }
