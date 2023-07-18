@@ -65,14 +65,14 @@
 
 #### - 게임 다운로드 
 
-<img src = "https://i.namu.wiki/i/qoVN3uFwlcDW3REN61Qn3qCecim8J4K5FsTbjDpF1uwX3ZkZSRDbBwTij6MsjnfwyrD_7bHbPmCmGOE6jv5ZzPLqqjJF3mthWRTJRUFyQBQdHtN5pRwh-P_uUu_9oATmXCmTO0PszG5Xctl_IazP6Q.svg"></br>
+<img src = "https://i.namu.wiki/i/ohtOPT4Qx5A3cIxcedFRdqM__VQSrxFJLLEnINvodvC8JWVwZGazq4woyTmM5km4wDdeYZERpwBUnF8AuhC5Q6qaZxNOEsY8WCSgSJzslvdvaMdqDZt39vgVsLLx1rv2aOnk8gVTGAtq67Tw6h-11Q.svg"></br>
 
 [![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT3.0/Just.Wak.and.Beats.3.1.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT3.0/Just.Wak.and.Beats.3.1.apk)
 
 
 </br></br></br>
 
-<img src = "https://i.namu.wiki/i/NtJcyi9idyd0cVnhg7U-hNy0gglul4_sIHT4XXQVZ4YUtFKScAaXFefjFM2gPBJtcgrEJrNB5lbOXxyr3DsPKd6xggeNX82qX2t_SJeGgC4vo9CkUAUnY_O4b2FnbBtWMJPJsPb0IEVDSYwQLnI6rg.svg"></br>
+<img src = "https://i.namu.wiki/i/Tm1ueyPBwuBus_eFjlRuj27m8HViwE18BG_bhORWtD8ku8qByWu-7K65Tfg_gbW9lX20wj4szrUXboKMMbCEaEKG8qXobpjnYhQK9_hQptsXIQweZKXfbWEivr2jO6azf6yNyvT-6_CfBPsIVdRYJA.svg"></br>
 
 [![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT3.0/Just.Wak.and.Beats.Beta.3.0.zip?color=6AE2FF&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT3.0/Just.Wak.and.Beats.Beta.3.0.zip)
 
