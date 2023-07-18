@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "3.1";
+global.version_real = "3.2";
 global.version = "Beta "+string(global.version_real);
 global.low_graphics = false;
 global.dev_mode = 1
@@ -61,7 +61,8 @@ global.sfx_volume = 1
 global.window_width = 1920
 global.window_height = 1080
 global.window_fullscreen = true
-
+global.sc_img_for_pause = -4;
+global.paused = 0
 
 global.back_to_game = 0
 global.map_end_volumedown = 0
@@ -83,6 +84,7 @@ progress_icon_alpha = 0
 progress_alpha = 0
 progress_alpha_sec = 0
 saved_n_stage = -1
+automatic_loading_cancel = 0
 
 global.notice_title = ""
 global.notice_title_sub = ""
@@ -178,16 +180,17 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-global.origin_total_map = 19
+global.origin_total_map = 21
 global.total_map = global.origin_total_map
 
 automatic_reload_leaderboard = 0
 
 	//리더보드
 	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"false","JWAB_map1_1");
-	for(var i = 0; i < global.origin_total_map*2; i++)
+	for(var i = 0; i < global.origin_total_map; i++)
 	{
-		LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version_real),"true",string(16145+i));
+		LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version_real),"true","JWAB_map"+string(i+1)+"_1");
+		LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version_real),"true","JWAB_map"+string(i+1)+"_2");
 	}
 
 	LootLockerSetPlayerName(string(global.nickname));
@@ -603,6 +606,36 @@ music_title_alpha = 0
 
 
 
+//로키
+global.real_stage_map_name[19] = "로키 ROKI (Cover by 비챤 VIichan)";
+global.real_stage_map_artist[19] = "Mixing by Min / Original by mikitoP";
+global.real_stage_map_difficulty[19] = "Hard";
+global.real_stage_map_color[19] = #424278;
+global.real_stage_map_duration[19] = 4738;
+global.real_stage_map_audio_name[19] = "roki";
+global.real_stage_bpm[19] = 157;
+global.real_stage_map_highlight_part[19] = 52.05;
+global.real_detailed_difficulty[19] = 5;
+global.real_requirement_type[19] = 1;
+global.real_requirement_number[19] = 3;
+
+
+
+//금목서
+global.real_stage_map_name[20] = "금목서 Kinmokusei (Cover by 비챤 VIichan)";
+global.real_stage_map_artist[20] = "Original by Kujira";
+global.real_stage_map_difficulty[20] = "Hard";
+global.real_stage_map_color[20] = #f2aca0;
+global.real_stage_map_duration[20] = 6474;
+global.real_stage_map_audio_name[20] = "kinmoku";
+global.real_stage_bpm[20] = 120;
+global.real_stage_map_highlight_part[20] = 90.8;
+global.real_detailed_difficulty[20] = 3;
+global.real_requirement_type[20] = 3;
+global.real_requirement_number[20] = 2;
+
+
+
 
 global.player_color = $FF4AB539
 global.n_progress = 0
@@ -630,7 +663,7 @@ global.respawn_point_xx = -4
 global.respawn_point_yy = -4
 
 
-global.camera_sx = -4
+//global.camera_sx = -4
 global.w_alpha = 0
 global.b_alpha = 0
 global.t_w_alpha = -0.01

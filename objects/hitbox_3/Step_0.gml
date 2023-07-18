@@ -20,7 +20,7 @@ else
 
 warning_timer ++
 
-if warning_timer < target_time-1
+if warning_timer < round(target_time-1)
 {
 	image_yscale = distance
 	image_alpha += 0.35/(target_time-1)
@@ -35,13 +35,13 @@ if warning_timer < target_time-1
 	}
 }
 
-if warning_timer = target_time-1
+if warning_timer = round(target_time-1)
 {
 	image_yscale = draw_reloading_anime
 	draw_reloading_anime = 0
 }
 
-if warning_timer >= target_time
+if warning_timer >= round(target_time)
 {
 	image_angle += auto_spin
 	image_yscale += ((distance+32)/64 - image_yscale)*0.5

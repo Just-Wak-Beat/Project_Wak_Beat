@@ -54,7 +54,7 @@ if (touched > 3)
 	var yy_ = camera_get_view_y(view_camera[0])
 	var xx__w = camera_get_view_width(view_camera[0])
 	var yy__h = camera_get_view_height(view_camera[0])
-	var font_size = global.camera_sx
+	var font_size = global.converted_view_ratio
 	var alpha_ = touched-3
 	draw_set_color(c_black)
 	draw_set_alpha(alpha_*0.5)

@@ -1,6 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
+
+//자동 리로드 리더보드
 if (automatic_reload_leaderboard > 0)
 {
 	automatic_reload_leaderboard ++;
@@ -56,7 +59,7 @@ else
 	global.map_end_volumedown += (1 - global.map_end_volumedown)*0.1
 }
 
-global.camera_sx = camera_get_view_width(view_camera[0])/3584
+//global.camera_sx = camera_get_view_width(view_camera[0])/3584
 
 global.savepoint_text_alpha += (global.savepoint_text_t_alpha - global.savepoint_text_alpha)*0.1
 
@@ -92,7 +95,7 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 
 
 	//메인매뉴 돌아가기
-	if global.back_to_game > 120
+	if (global.back_to_game > 120)
 	{
 		alarm[8] = 1
 		global.t_bg_color_alpha = 0
@@ -116,6 +119,7 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 		global.joystick_n_yy = -4
 		global.scroll_n_m_xx = -1
 		global.scroll_n_m_yy = -1
+		global.hp = 5
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		audio_stop_sound(global.n_music_instance)
 		timeline_running = false
@@ -152,15 +156,18 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	//음악(오디오) 싱크 안맞는거 강제 픽스
 	if gamestart = 2 && global.n_progress < global.music_duration && global.n_progress > 0 && audio_is_playing(global.n_music_instance) && global.n_music_instance != -4
 	{
-		global.automatic_sycn_fixing++
-		if global.automatic_sycn_fixing > 60
+		if (timeline_running != false)
 		{
-			global.n_sync = abs(audio_sound_get_track_position(global.n_music_instance)*60 - global.n_progress)
-			if global.n_sync >= 10
+			global.automatic_sycn_fixing++
+			if global.automatic_sycn_fixing > 60
 			{
-				audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
+				global.n_sync = abs(audio_sound_get_track_position(global.n_music_instance)*60 - global.n_progress)
+				if global.n_sync >= 10
+				{
+					audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
+				}
+				global.automatic_sycn_fixing = 0;
 			}
-			global.automatic_sycn_fixing = 0;
 		}
 	}
 
@@ -261,7 +268,7 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	if (global.highlight_time > target_time_to_replay) || (gamestart != 0 && gamestart != 1.1 && global.show_new_songs <= 0)
 	{
 		global.highlight_music_volume += (-0.01 - global.highlight_music_volume)*0.05
-		if (global.highlight_time > target_time_to_replay+80) && (((gamestart = 0 || gamestart = 1.1) && (global.sync_setting_alpha < 0.1) && global.title_menu_animation1 == -1)  || global.show_new_songs > 0)
+		if (global.highlight_time > target_time_to_replay+80) && (((gamestart == 0 || gamestart == 1.1) && (global.sync_setting_alpha < 0.1) && global.title_menu_animation1 == -1)  || global.show_new_songs > 0)
 		{
 			play_highlight = 1
 			global.overtime_highlight_song = 0
@@ -272,7 +279,7 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 		global.highlight_music_volume += (1-global.show_title_menu - global.highlight_music_volume)*0.05
 	}
 
-	if play_highlight = 1 && instance_exists(obj_album_ui) && global.show_title_menu < 1
+	if (play_highlight == 1 && instance_exists(obj_album_ui) && global.show_title_menu < 1)
 	{
 		global.highlight_time = 0
 		obj_album_ui.bpm_timer = 0
@@ -370,7 +377,10 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 		if gamestart_anime <= 0
 		{
 			gamestart_anime = 0
-			instance_create_depth(0,0,0,obj_album_ui)
+			if !instance_exists(obj_album_ui)
+			{
+				instance_create_depth(0,0,0,obj_album_ui)
+			}
 			event_user(0)
 			gamestart = 0
 			global.n_progress = 0

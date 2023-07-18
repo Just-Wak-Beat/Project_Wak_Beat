@@ -13,6 +13,7 @@ if x < xx+16
 	if (once_in >= 120)
 	{
 		x = xx+16
+		t_angle = -t_angle+irandom_range(-15,15)
 	}
 	else
 	{
@@ -25,6 +26,7 @@ if x > xx+xx_w-16
 	if (once_in >= 120)
 	{
 		x = xx+xx_w-16
+		t_angle = -t_angle+irandom_range(-15,15)
 	}
 	else
 	{
@@ -37,6 +39,7 @@ if y > yy+yy_h-16
 	if (once_in >= 120)
 	{
 		y = yy+yy_h-16
+		t_angle = -t_angle+irandom_range(-15,15)
 	}
 	else
 	{
@@ -49,6 +52,7 @@ if y < yy+16
 	if (once_in >= 120)
 	{
 		y = yy+16
+		t_angle = -t_angle+irandom_range(-15,15)
 	}
 	else
 	{

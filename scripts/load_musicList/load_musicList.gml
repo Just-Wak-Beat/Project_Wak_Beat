@@ -25,6 +25,9 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 			global.stage_bpm[i] = global.real_stage_bpm[i];
 			global.stage_map_highlight_part[i] = global.real_stage_map_highlight_part[i];
 			global.n_rank[i] = global.real_n_rank[i];
+			global.n_rank_hardcore[i] = global.real_n_rank_hardcore[i];
+			global.n_score[i] = global.real_n_score[i];
+			global.n_score_hardcore[i] = global.real_n_score_hardcore[i];
 			global.n_favorite[i] = global.real_n_favorite[i];
 			global.n_artifact[i] = global.real_n_artifact[i];
 			global.detailed_difficulty[i] = global.real_detailed_difficulty[i];
@@ -53,6 +56,9 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 			global.stage_bpm[i] = global.real_stage_bpm[ii];
 			global.stage_map_highlight_part[i] = global.real_stage_map_highlight_part[ii];
 			global.n_rank[i] = global.real_n_rank[ii];
+			global.n_rank_hardcore[i] = global.real_n_rank_hardcore[ii];
+			global.n_score[i] = global.real_n_score[ii];
+			global.n_score_hardcore[i] = global.real_n_score_hardcore[ii];
 			global.n_favorite[i] = global.real_n_favorite[ii];
 			global.n_artifact[i] = global.real_n_artifact[ii];
 			global.detailed_difficulty[i] = global.real_detailed_difficulty[ii];
@@ -76,6 +82,9 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 			global.stage_bpm[i] = global.custom_stage_bpm[i];
 			global.stage_map_highlight_part[i] = global.custom_stage_map_highlight_part[i];
 			global.n_rank[i] = global.custom_n_rank[i];
+			global.n_rank_hardcore[i] = global.custom_n_rank_hardcore[i];
+			global.n_score[i] = global.custom_n_score[i];
+			global.n_score_hardcore[i] = global.custom_n_score_hardcore[i];
 			global.n_favorite[i] = -1;
 			global.n_artifact[i] = global.custom_n_artifact[i];
 			global.detailed_difficulty[i] = global.custom_detailed_difficulty[i];
@@ -105,6 +114,9 @@ global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 				global.stage_bpm[kk] = global.real_stage_bpm[k];
 				global.stage_map_highlight_part[kk] = global.real_stage_map_highlight_part[k];
 				global.n_rank[kk] = global.real_n_rank[k];
+				global.n_rank_hardcore[kk] = global.real_n_rank_hardcore[k];
+				global.n_score[kk] = global.real_n_score[k];
+				global.n_score_hardcore[kk] = global.real_n_score_hardcore[k];
 				global.n_favorite[kk] = global.real_n_favorite[k];
 				global.n_artifact[kk] = global.real_n_artifact[k];
 				global.detailed_difficulty[kk] = global.real_detailed_difficulty[k];

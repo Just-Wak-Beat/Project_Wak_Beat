@@ -27,16 +27,19 @@ else
 	v_y += (tv_y - v_y)*0.1
 }
 
+if (global.paused == 0)
+{
+	global.n_camera_zoom += global.camera_slow_zoom
 
-global.n_camera_zoom += global.camera_slow_zoom
-tv_x = 3584*global.n_camera_zoom
-tv_y = 2016*global.n_camera_zoom
+	tv_x = 3584*global.n_camera_zoom
+	tv_y = 2016*global.n_camera_zoom
 
 
-x = floor(x)
-y = floor(y)
+	x = floor(x)
+	y = floor(y)
 
-global.view_angle_ += (0 - global.view_angle_)*0.1
+	global.view_angle_ += (0 - global.view_angle_)*0.1
+
 
 
 
@@ -46,6 +49,7 @@ global.view_angle_ += (0 - global.view_angle_)*0.1
 	}
 	else
 	{
+		v_x = 3584*0.4
 		camera_set_view_size(view_camera[0],floor(3584*0.4),floor(2016*0.4));
 	}
 
@@ -58,27 +62,31 @@ global.view_angle_ += (0 - global.view_angle_)*0.1
 	{
 		global.t_shake_y = 0
 	}
-global.t_shake_x += (0 - global.t_shake_x)*0.1
-global.t_shake_y += (0 - global.t_shake_y)*0.1
-global.real_shake_x += (global.t_shake_x*global.shake_x - global.real_shake_x)*0.1
-global.real_shake_y += (global.t_shake_y*global.shake_y - global.real_shake_y)*0.1
-global.shake_time ++
+	global.t_shake_x += (0 - global.t_shake_x)*0.1
+	global.t_shake_y += (0 - global.t_shake_y)*0.1
+	global.real_shake_x += (global.t_shake_x*global.shake_x - global.real_shake_x)*0.1
+	global.real_shake_y += (global.t_shake_y*global.shake_y - global.real_shake_y)*0.1
+	global.shake_time ++
 
-	if global.shake_time > 1
-	{
-		global.shake_x = -global.shake_x
-		global.shake_y = -global.shake_y
-		global.shake_time = 0
-	}
+		if global.shake_time > 1
+		{
+			global.shake_x = -global.shake_x
+			global.shake_y = -global.shake_y
+			global.shake_time = 0
+		}
 
 
-	if global.sync_setting_alpha <= 0.01
-	{
-		x += global.real_shake_x
-		y += global.real_shake_y
-		camera_set_view_angle(view_camera[0],global.view_angle_)
-	}
-	else
-	{
-		camera_set_view_angle(view_camera[0],0)
-	}
+		if global.sync_setting_alpha <= 0.01
+		{
+			x += global.real_shake_x
+			y += global.real_shake_y
+			camera_set_view_angle(view_camera[0],global.view_angle_)
+		}
+		else
+		{
+			camera_set_view_angle(view_camera[0],0)
+		}
+	
+	
+	global.converted_view_ratio = v_x/3584;
+}

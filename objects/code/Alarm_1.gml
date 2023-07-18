@@ -5,6 +5,7 @@ var n_rank_real = convert_rank_to_num(global.n_rank[global.n_map_id])
 	{
 		n_rank_real = convert_rank_to_num(global.n_rank_hardcore[global.n_map_id])
 	}
+	
 global.overtime_highlight_song = 0
 
 var target_rank = "--";
@@ -108,36 +109,6 @@ global.exp_w_alpha = 1
 global.real_stage_playtime[global.n_map_id] ++;
 
 
-var temp_score = ((convert_rank_to_num(target_rank))*100+global.crossed_obstacle_num)*100
-
-
-
-if (global.t_selected_difficulty == 1)
-{
-	global.n_rank[global.n_map_id] = target_rank;
-	if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id]))
-	{
-		LootLockerSetPlayerName(string(global.nickname));
-		LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
-		LootLockerSetPlayerName(string(global.nickname));
-		
-		global.real_n_score[global.n_map_id] = temp_score
-		global.n_score = temp_score
-	}
-}
-else
-{
-	global.n_rank_hardcore[global.n_map_id] = target_rank;
-	if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.real_n_score_hardcore[global.n_map_id]))
-	{
-		LootLockerSetPlayerName(string(global.nickname));
-		LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
-		LootLockerSetPlayerName(string(global.nickname));
-
-		global.real_n_score_hardcore[global.n_map_id] = temp_score
-		global.n_score = temp_score
-	}
-}
 
 
 
@@ -145,7 +116,45 @@ else
 
 if global.n_map_list != 2
 {
-	global.real_n_rank[global.n_map_id] = target_rank;
+	var temp_score = ((convert_rank_to_num(target_rank))*100+global.crossed_obstacle_num)*100
+	if (global.t_selected_difficulty == 1)
+	{
+		global.n_rank[global.n_map_id] = target_rank;
+		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id]))
+		{
+			LootLockerSetPlayerName(string(global.nickname));
+			LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
+			LootLockerSetPlayerName(string(global.nickname));
+		
+			global.real_n_score[global.n_map_id] = temp_score
+			global.n_score = temp_score
+		}
+	}
+	else
+	{
+		global.n_rank_hardcore[global.n_map_id] = target_rank;
+		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.real_n_score_hardcore[global.n_map_id]))
+		{
+			LootLockerSetPlayerName(string(global.nickname));
+			LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
+			LootLockerSetPlayerName(string(global.nickname));
+
+			global.real_n_score_hardcore[global.n_map_id] = temp_score
+			global.n_score = temp_score
+		}
+	}
+
+	
+	
+	if (global.t_selected_difficulty == 0)
+	{
+		global.real_n_rank_hardcore[global.n_map_id] = target_rank;
+	}
+	else
+	{
+		global.real_n_rank[global.n_map_id] = target_rank;
+	}
+
 	
 	if (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id])
 	{
@@ -160,7 +169,7 @@ if global.n_map_list != 2
 	}
 	else
 	{
-		if global.t_selected_difficulty = 0
+		if (global.t_selected_difficulty == 0)
 		{
 			global.artifact_owned[global.artifact_type]++
 		}
@@ -168,10 +177,26 @@ if global.n_map_list != 2
 }
 else
 {
-	if (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id])
+	var temp_score = ((convert_rank_to_num(target_rank))*100+global.crossed_obstacle_num)*100
+	if (global.t_selected_difficulty == 1)
 	{
-		global.real_n_score[global.n_map_id] = temp_score;
+		global.custom_n_rank[global.n_map_id] = target_rank;
+		if (global.nickname != "" && global.n_map_list != 2 && (global.custom_n_score[global.n_map_id] == "--" || temp_score > global.custom_n_score[global.n_map_id]))
+		{
+			global.custom_n_score[global.n_map_id] = temp_score
+			global.n_score = temp_score
+		}
 	}
+	else
+	{
+		global.custom_n_rank_hardcore[global.n_map_id] = target_rank;
+		if (global.nickname != "" && global.n_map_list != 2 && (global.custom_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.custom_n_score_hardcore[global.n_map_id]))
+		{
+			global.custom_n_score_hardcore[global.n_map_id] = temp_score
+			global.n_score = temp_score
+		}
+	}
+	
 	
 	//커스텀 맵 클리어 내역 저장
 	ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+".JWABMAP")
@@ -179,6 +204,7 @@ else
 	ini_write_string("n_rank_hardcore","value",global.n_rank_hardcore[global.n_map_id])
 	ini_write_string("custom_n_score","value",global.n_score[global.n_map_id])
 	ini_write_string("n_score_hardcore","value",global.n_score_hardcore[global.n_map_id])
+	
 	if global.custom_n_artifact[global.n_map_id] != "완료"
 	{
 		global.artifact_owned[global.artifact_type]++

@@ -1,6 +1,27 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//인게임중에 설정 열기
+if (global.sync_setting == 0 && global.paused == 0 && global.n_progress > 0 && music_title_alpha <= 0 && progress_alpha >= 0.99)
+{
+	if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
+	{
+		event_user(2)
+	}
+}
+
+if (gamestart == 1.1)
+{
+	if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
+	{
+		gamestart = 0
+		global.t_select_difficulty = 0
+		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+		window_set_cursor(cr_none)
+	}
+}
+
+
 
 //레벨 시스템
 if (global.ui_alpha >= 1)
@@ -244,6 +265,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 				var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
 				if timeline_exists(_timeline_index_)
 				{
+					window_set_cursor(cr_none)
 					timeline_index = _timeline_index_
 					timeline_position = 0
 					timeline_loop = false
@@ -265,7 +287,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	
 		if global.n_progress < global.music_duration
 		{
-			if (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
+			if (global.paused == 0 && audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
 			{
 				global.n_progress ++;
 				audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1)*global.map_end_volumedown,0)
@@ -320,10 +342,10 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 		if discord_presence_update%60 = 0 && global.n_progress < global.music_duration
 		{
 			np_update();
-			var time_sec = floor(global.stage_map_duration[n_stage]/60)
+			var time_sec = floor(global.stage_map_duration[global.n_map_id]/60)
 			var n_time_sec = floor(global.n_progress/60)
-			var album_id = "album"+string(n_stage+1)
-			if n_stage+1 > sprite_get_number(spr_album)-2
+			var album_id = "album"+string(global.n_map_id+1)
+			if global.n_map_id+1 > sprite_get_number(spr_album)-2
 			{
 				album_id = "album0"
 			}
@@ -334,7 +356,14 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 			}
 	
 			np_setpresence_more("","", false);
-			np_setpresence("["+string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec))+"]",string(global.stage_map_name[n_stage]), string(album_id), "type"+string(global.artifact_type));
+			if (global.paused == 0)
+			{
+				np_setpresence("["+string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec))+"]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
+			}
+			else
+			{
+				np_setpresence("[Paused]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
+			}
 		}
 		discord_presence_update ++
 	

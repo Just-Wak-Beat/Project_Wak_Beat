@@ -25,14 +25,14 @@ else
 
 warning_timer ++
 
-if warning_timer = target_time-1
+if (warning_timer == round(target_time-1))
 {
 	image_xscale = 0
 	image_yscale = 0
 }
 
 
-if warning_timer = target_time
+if (warning_timer == round(target_time))
 {
 	if shake_scale > 0
 	{
@@ -44,7 +44,7 @@ if warning_timer = target_time
 }
 
 
-if warning_timer >= target_time
+if (warning_timer >= round(target_time))
 {
 	scale_up_effect += (1 - scale_up_effect)*0.1
 	if shake_movement != 0

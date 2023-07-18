@@ -1,19 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if invincibility_cooltime > 0
-{
-	invincibility_cooltime -= (2-global.t_selected_difficulty)
-}
-else
-{
-	show_invincibility = 0
-}
 
 
 if (global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9))
 {
-	
 	var i = 1
 	var ii = 1
 	var _placed_obj = instance_place(x+i*sign(global.hmove_speed),y+ii*sign(global.vmove_speed),hitbox_parents)
@@ -64,7 +55,7 @@ if (global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9))
 			{
 				global.crossed_obstacle_num ++;
 				crossed_obstacle_cooldown = 1;
-				alarm[1] = 5
+				alarm[1] = 11
 			}
 		}
 	}

@@ -1,0 +1,1 @@
+global.artifact_type = 2

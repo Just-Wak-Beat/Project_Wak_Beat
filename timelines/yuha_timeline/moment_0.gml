@@ -1,3 +1,7 @@
+global.yuha_effect1 = 0
+global.yuha_effect2 = 0
+global.yuha_effect3 = 0
+
 
 if global.t_selected_difficulty = 1
 {
@@ -17,3 +21,5 @@ global.t_bg_color_alpha = 0
 global.t_map_speed = 0
 global.map_speed = 0
 global.n_camera_zoom = 1
+
+

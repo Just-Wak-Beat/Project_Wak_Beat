@@ -84,10 +84,12 @@ draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660+16,0.17*g
 draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
 //리더보드 랭크 순위 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+950,"Ranking"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
-draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
-draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
-
+if global.n_map_list != 2
+{
+	draw_text_k_scale(global.c_x+104,global.c_y+950,"Ranking"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+	draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
+	draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
+}
 
 
 
@@ -182,24 +184,40 @@ var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
 if instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
 	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Normal\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[code.n_stage]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	if (global.n_score[global.n_map_id] != "--")
+	{
+		draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+	}
 
 	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Hardcore\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank_hardcore[code.n_stage]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank_hardcore[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	if (global.n_score_hardcore[global.n_map_id] != "--")
+	{
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score_hardcore[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+	}
 
 	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*64+8,"아티팩트 수집",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
-	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_artifact[code.n_stage]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_artifact[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
-	
+
 	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Normal\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	if (global.n_score[global.n_map_id] != "--")
+	{
+		draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+	}
 
 	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Hardcore\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank_hardcore[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank_hardcore[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	if (global.n_score_hardcore[global.n_map_id] != "--")
+	{
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score_hardcore[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+	}
 
 	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*64,"아티팩트 수집",64,-1,dis__,c_white,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
-	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_artifact[code.n_stage]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_artifact[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 }
 
 if global.sync_setting_alpha >= 0.01
@@ -247,7 +265,7 @@ if global.sync_setting_alpha >= 0.01
 
 
 //게임 플레이 전 난이도 설정
-if global.select_difficulty > 0 && global.title_menu_animation1 == -1
+if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 {
 	draw_set_alpha(global.select_difficulty*0.93)
 	draw_set_color(c_black)
@@ -299,31 +317,36 @@ if global.select_difficulty > 0 && global.title_menu_animation1 == -1
 		}
 		
 		
-		if (global.t_selected_difficulty == 1 || (global.n_map_id >= 0 && global.t_selected_difficulty != 1 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*2))
+
+		if (global.t_selected_difficulty == 1 || (global.n_map_id >= 0 && global.t_selected_difficulty != 1))
 		{
 			if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 			{
 				code.gamestart = 1
+				global.paused = 0
 				global.t_select_difficulty = 0
 				audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+				window_set_cursor(cr_none)
 			}
 		
 			if mouse_check_button_pressed(mb_left)
 			{
-				if point_distance(mouse_x,mouse_y,button_1_xx,middle_yy) < 256*f_selected
+				if (point_distance(mouse_x,mouse_y,button_1_xx,middle_yy) < 256*f_selected)
 				{
 					global.t_selected_difficulty = 1
 					code.gamestart = 1
+					global.paused = 0
 					audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 					window_set_cursor(cr_none)
 					global.t_select_difficulty = 0
 				}
-				else if point_distance(mouse_x,mouse_y,button_2_xx,middle_yy) < 256*s_selected
+				else if (point_distance(mouse_x,mouse_y,button_2_xx,middle_yy) < 256*s_selected)
 				{
 					global.t_selected_difficulty = 0
 					if (global.n_map_id >= 0 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*2)
 					{
 						code.gamestart = 1
+						global.paused = 0
 						window_set_cursor(cr_none)
 						audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
 						global.t_select_difficulty = 0
@@ -609,7 +632,7 @@ if instance_exists(code)
 				global.t_new_song_scroll -= 150;
 			}
 	
-			if (mouse_wheel_down() && global.t_new_song_scroll < global.new_unlocked_map_num*150-300)
+			if (mouse_wheel_down() && global.t_new_song_scroll < global.new_unlocked_map_num*150-1500)
 			{
 				global.t_new_song_scroll += 150;
 			}
@@ -619,6 +642,7 @@ if instance_exists(code)
 				if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_up))
 				{
 					global.t_selected_difficulty--
+					global.b_loaded_ranking = -1
 					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 					
 					code.automatic_reload_leaderboard = 1
@@ -626,6 +650,7 @@ if instance_exists(code)
 				else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down))
 				{
 					global.t_selected_difficulty++
+					global.b_loaded_ranking = -1
 					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 
 					code.automatic_reload_leaderboard = 1
@@ -654,6 +679,13 @@ if instance_exists(code)
 			}
 			else if (global.notice_title == "잠시만요!")
 			{
+				if (holding_now > 0)
+				{
+					draw_set_color(c_white)
+					draw_set_alpha(holding_now/100)
+					draw_line_width(global.c_x,yy+yy_h*0.55,global.c_x+global.c_w*(holding_now/180),yy+yy_h*0.55,15)
+				}
+				
 				if (keyboard_check_pressed(vk_escape))
 				{
 					global.t_b_alpha = -0.02
@@ -675,29 +707,18 @@ if instance_exists(code)
 						}
 						else
 						{
-							keyboard_string = string_delete(keyboard_string,16,10);
+							keyboard_string = string_delete(keyboard_string,16,1);
 							can_usable = 1
 						}
 					
-						if holding_now != -1 && (keyboard_check(vk_enter) || mouse_check_button(mb_left))
+						if (holding_now != -1 && keyboard_check(vk_space))
 						{
 							holding_now++;
-							
-							draw_set_color(c_white)
-							draw_set_alpha(holding_now/100)
-							draw_line_width(global.c_x,yy+yy_h*0.55,global.c_x+global.c_w*(holding_now/180),yy+yy_h*0.55,15)
 						}
 						
-						if (keyboard_check_released(vk_enter) || mouse_check_button_released(mb_left))
+						if (keyboard_check_released(vk_space))
 						{
 							holding_now = 0
-						}
-					}
-					else
-					{
-						if (keyboard_check(vk_enter) || mouse_check_button(mb_left) || keyboard_check(vk_anykey))
-						{
-							keyboard_string = "";
 						}
 					}
 				
@@ -715,7 +736,7 @@ if instance_exists(code)
 					holding_now = -1
 				}
 			}
-			else if global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_enter) || mouse_check_button_pressed(mb_left))
+			else if global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left))
 			{
 				global.t_b_alpha = -0.02
 				code.gamestart = 5

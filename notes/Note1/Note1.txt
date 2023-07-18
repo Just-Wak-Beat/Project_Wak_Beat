@@ -29,3 +29,14 @@ global.n_progress 이용해서 현재 곡 재생중인 위치 체크하고, glob
 1. 섹션은 "execute_timeline", key값은 "second"으로 해서 시간 값 불러오고,
 2. 섹션은 "execute_script_name", key값은 string(time값)으로 해서, 실행할 스크립트 이름 불러오고
 3. 섹션은 "execute_script_param"+string(i), key값은 string(time값)으로 해서, parameter 값 받아오기 
+
+
+
+
+
+
+//관리 (디스코드)
+https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications%2F1060792404300546049%2Foauth2%2Fgeneral
+
+//관리 (리더보드)
+https://console.lootlocker.com/leaderboards?after=16184

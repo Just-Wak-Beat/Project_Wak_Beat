@@ -28,7 +28,7 @@ if global.t_select_difficulty = 0
 }
 else
 {
-	if gamestart = 1.1
+	if gamestart == 1.1
 	{
 		gamestart = 0
 		global.t_select_difficulty = 0

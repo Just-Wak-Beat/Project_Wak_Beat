@@ -11,16 +11,17 @@ if global.t_select_difficulty = 0
 		gamestart = 4
 		global.sync_setting++
 		global.back_to_game = 0
-		if global.sync_setting > 1
+		if (global.sync_setting > 1)
 		{
 			global.sync_setting = 0
 			gamestart = 0
 			instance_destroy(obj_button)
 			save_and_load_data(0,0)
 			audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+			window_set_cursor(cr_none)
 		}
 	
-		if global.sync_setting = 1
+		if (global.sync_setting == 1)
 		{
 			global.n_setting_button = -4
 			var yy = camera_get_view_y(view_camera[0])
@@ -56,6 +57,8 @@ if global.t_select_difficulty = 0
 			buttom_ui.button_id = 5
 			buttom_ui.sprite_index = spr_square
 			buttom_ui.alarm[11] = 1
+			
+			window_set_cursor(cr_default)
 		}
 	}
 	else if (gamestart = 2 && global.n_progress > 1 && global.cannot_control = 0)
@@ -69,10 +72,14 @@ if global.t_select_difficulty = 0
 			instance_destroy(obj_button)
 			save_and_load_data(0,0)
 			audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+			window_set_cursor(cr_none)
 		}
 	
 		if global.sync_setting = 1
 		{
+			screen_save(string(working_directory)+"datafile_sc.png");
+			global.sc_img_for_pause = sprite_add(string(working_directory)+"datafile_sc.png",0,false,false,0,0);
+			
 			global.n_setting_button = -4
 			global.cannot_control = 1
 			var yy = camera_get_view_y(view_camera[0])
@@ -103,12 +110,14 @@ if global.t_select_difficulty = 0
 			buttom_ui.button_id = 5
 			buttom_ui.sprite_index = spr_square
 			buttom_ui.alarm[11] = 1
+			
+			window_set_cursor(cr_default)
 		}
 	}
 }
 else
 {
-	if gamestart = 1.1
+	if (gamestart == 1.1)
 	{
 		gamestart = 0
 		global.t_select_difficulty = 0

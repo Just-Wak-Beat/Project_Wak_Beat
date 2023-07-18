@@ -4,12 +4,14 @@
 
 np_setpresence_more("", "메인 매뉴", false);
 np_setpresence("메인 매뉴", "", "type0", "");
-
+automatic_loading_cancel = 0
 window_set_cursor(cr_default)
 global.gomem_mashup_effect_arrow_alpha = 0
 global.check_died = 0
 global.tutorial_now = 0
 global.random_seed = -4
+global.paused = 0
+instance_activate_all()
 randomize()
 global.fukurou_snow_effect = 0
 global.turisumo_effect = 0
@@ -77,7 +79,7 @@ global.scroll_n_m_xx = -4
 global.joystick_xx = -4
 global.scroll_n_m_yy = -4
 global.joystick_yy = -4
-
+instance_destroy(hitbox_parents)
 
 
 

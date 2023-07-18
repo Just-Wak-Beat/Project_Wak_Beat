@@ -9,4 +9,5 @@ n_screen_width = 0
 n_screen_height = 0
 scroll_value = 0
 scroll_activated = 0
+can_draw = 0
 alarm[1] = 1

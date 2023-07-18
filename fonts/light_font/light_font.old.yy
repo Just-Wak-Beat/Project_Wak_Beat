@@ -11,7 +11,7 @@
   "charset": 0,
   "first": 0,
   "fontName": "배달의민족 한나체 Air",
-  "glyphOperations": 0,
+  "glyphOperations": 4,
   "glyphs": {
     "32": {"character":32,"h":78,"offset":0,"shift":22,"w":22,"x":2,"y":2,},
     "10": {"character":10,"h":78,"offset":0,"shift":22,"w":0,"x":1114,"y":1122,},
