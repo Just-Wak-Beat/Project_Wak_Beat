@@ -13,7 +13,7 @@ function load_stage(argument0,argument1,argument2,argument3,argument4,argument5)
 	global.n_music_title = argument0
 	global.n_music_artist = argument1
 	global.n_music_name = argument2
-	if global.n_map_list == 2
+	if (global.n_map_list == 2)
 	{
 		global.map_color = hex_to_color(argument3,1)
 

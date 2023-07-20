@@ -14,8 +14,11 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 
 if (instance_exists(obj_album_ui) && obj_album_ui.holding_now != -1 && global.can_show == 1 && global.notice_title == "잠시만요!")
 {
-	if (global.show_new_songs > 0 && (gamestart == 0 || gamestart >= 4))
+	if (string_length(global.nickname) <= 15 && string_length(global.nickname) >= 3)
 	{
-		obj_album_ui.holding_now++;
+		if (global.show_new_songs > 0 && (gamestart == 0 || gamestart >= 4))
+		{
+			obj_album_ui.holding_now++;
+		}
 	}
 }

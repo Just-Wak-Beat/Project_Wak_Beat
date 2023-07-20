@@ -422,7 +422,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 				}
 				
 				global.reload_n_map_list_value = (global.scroll_n_m_xx - global.joystick_xx)/512
-				if abs(global.reload_n_map_list_value) > 0.5
+				if abs(global.reload_n_map_list_value) > 0.5 && y_plusment < 0.3
 				{
 					global.n_map_list += sign(global.reload_n_map_list_value)
 					global.reload_n_map_list_value = sign(global.reload_n_map_list_value)
@@ -444,24 +444,22 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 			
 			if global.t_select_map <= 1
 			{
-			global.t_select_map = 2
+				global.t_select_map = 2
 			}
 	
 			if global.t_select_map > global.total_map+1
 			{
-			global.t_select_map = global.total_map+1
+				global.t_select_map = global.total_map+1
 			}
 		}
 
-	
+
 		n_stage = round(global.t_select_map-2)
 		
 		if n_stage < 0
 		{
-		n_stage = 0
+			n_stage = 0
 		}
-		
-		
 		
 		var go_play = false
 		if global.select_difficulty < 0.1 && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+300) > 80
@@ -485,7 +483,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		//스테이지 선택완료 - 난이도 선택창 (게임 시작)
 		if (global.show_new_songs <= 0 && global.t_b_alpha != -0.02 && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && go_play)
 		{
-			if global.real_stage_map_difficulty[global.n_map_id] == "Tutorial"
+			if (global.real_stage_map_difficulty[global.n_map_id] == "Tutorial")
 			{
 				gamestart = 1;
 				window_set_cursor(cr_none)
@@ -513,7 +511,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		//음악 재로드 (음악 선택중 나오는 미리듣기)
 		if changed_music = 1
 		{
-			alarm[3] = 1
+			event_user(6)
 		}
 		
 		var x_plusment = (global.joystick_xx - global.scroll_n_m_xx)/512
@@ -530,14 +528,12 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 			{
 				//좋아요 누른 곡 따로 분류
 				add_favorite_music(global.n_map_list);
-		
 				global.real_n_favorite[n_stage] *= -1
 			}
 			else
 			{
 				global.real_n_favorite[global.fav_map_id[n_stage]] *= -1
 				load_musicList(global.n_map_list)
-				load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
 			}
 			global.n_favorite[n_stage] *= -1
 			save_and_load_data(0,0)

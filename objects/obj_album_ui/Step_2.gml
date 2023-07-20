@@ -31,7 +31,7 @@ if global.n_map_list != 2
 				}
 			}
 		}
-		else if (global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+920) < 80) || keyboard_check_pressed(vk_tab)))
+		else if (global.n_map_list != 2 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial" && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+920) < 80) || keyboard_check_pressed(vk_tab)))
 		{
 			if (global.nickname == "")
 			{
@@ -51,7 +51,7 @@ if global.n_map_list != 2
 				
 				if (global.mobile_mode == 1 && !keyboard_virtual_status())
 				{
-					keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false);
+					keyboard_virtual_show(kbv_type_ascii, kbv_returnkey_default, kbv_autocapitalize_none, false);
 				}
 			}
 			else

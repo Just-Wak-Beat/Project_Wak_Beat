@@ -12,6 +12,6 @@ if instance_exists(obj_album_ui)
 }
 else
 {
-	alarm[3] = 1
+	alarm[2] = 1
 }
 

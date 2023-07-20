@@ -45,3 +45,5 @@ global.open_ranking = 0
 
 
 holding_now = 0
+
+keyboard_input_display = 0

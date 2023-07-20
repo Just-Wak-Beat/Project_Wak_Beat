@@ -61,6 +61,8 @@ function save_and_load_data(argument0,argument1)
 		
 		//닉네임
 		ini_write_string("nickname","none",global.nickname);
+		//베타테스터
+		ini_write_real("beta_tester","none",global.beta_tester);
 	}
 	else
 	{
@@ -126,6 +128,8 @@ function save_and_load_data(argument0,argument1)
 		
 		//닉네임
 		global.nickname = ini_read_string("nickname","none","");
+		//베타테스터
+		global.beta_tester = ini_read_real("beta_tester","none",0);
 	}
 
 	ini_close_protect()

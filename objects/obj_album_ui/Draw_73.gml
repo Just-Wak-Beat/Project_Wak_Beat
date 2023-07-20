@@ -84,7 +84,7 @@ draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660+16,0.17*g
 draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
 //리더보드 랭크 순위 버튼
-if global.n_map_list != 2
+if (global.n_map_list != 2 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial")
 {
 	draw_text_k_scale(global.c_x+104,global.c_y+950,"Ranking"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 	draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
@@ -594,7 +594,7 @@ if instance_exists(code)
 	
 			for(var i = 0; i < global.new_unlocked_map_num; i++)
 			{
-				if (global.unlocked_music_name_new_list_rightside[0] == "")
+				if (global.unlocked_music_name_new_list_rightside[i] == "")
 				{
 					draw_text_k_scale(middle_xx,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
 				}
@@ -603,7 +603,7 @@ if instance_exists(code)
 					if (code.automatic_reload_leaderboard == 0)
 					{
 						draw_text_k_scale(middle_xx-640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
-						draw_text_k_scale(middle_xx+640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list_rightside[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+						draw_text_k_scale(middle_xx+640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list_rightside[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color_rightside[i],0,1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
 					}
 					else
 					{
@@ -695,22 +695,9 @@ if instance_exists(code)
 				else
 				{
 					var can_usable = 0
-					if (keyboard_string != "")
+
+					if (string_length(global.nickname) <= 15 && string_length(global.nickname) >= 3)
 					{
-						if (string_length(keyboard_string) <= 15)
-						{
-							keyboard_string = string_replace_all(keyboard_string," ","");
-							if (string_length(keyboard_string) >= 3)
-							{
-								can_usable = 1;
-							}
-						}
-						else
-						{
-							keyboard_string = string_delete(keyboard_string,16,1);
-							can_usable = 1
-						}
-					
 						if (holding_now != -1 && keyboard_check(vk_space))
 						{
 							holding_now++;
@@ -721,8 +708,45 @@ if instance_exists(code)
 							holding_now = 0
 						}
 					}
-				
-					global.unlocked_music_name_new_list[1] = keyboard_string+"|";
+					
+					if (string_length(keyboard_string))
+					{
+						global.nickname = (global.nickname+keyboard_string)
+						
+						if (string_length(global.nickname) <= 15)
+						{
+							global.nickname = string_replace_all(global.nickname," ","")
+						}
+						else
+						{
+							global.nickname = string_delete(global.nickname,16,1);
+						}
+						
+						if (global.mobile_mode == 1 && (keyboard_string == "\n" || keyboard_string == "\r"))
+						{
+							global.nickname = string_delete(global.nickname,string_length(global.nickname)-1,1);
+							keyboard_input_display = 999
+							keyboard_virtual_hide()
+						}
+						
+						if (keyboard_string == "\b")
+						{
+							global.nickname = string_delete(global.nickname,string_length(global.nickname)-1,1);
+						}
+
+						keyboard_string = "";
+					}
+					
+					if (keyboard_input_display < 900)
+					{
+						keyboard_input_display ++;
+					}
+					if (keyboard_input_display >= 40)
+					{
+						keyboard_input_display = -40
+					}
+					
+					global.unlocked_music_name_new_list[1] = string(global.nickname)+((keyboard_input_display < 0) ? "|" : "");
 					global.unlocked_music_name_new_list_color[1] = merge_color(c_black,c_white,0.7);
 				}
 				

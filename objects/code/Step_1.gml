@@ -3,6 +3,7 @@
 
 
 
+
 //자동 리로드 리더보드
 if (automatic_reload_leaderboard > 0)
 {

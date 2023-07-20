@@ -95,5 +95,5 @@ if (saved_n_stage >= 0)
 	n_stage = saved_n_stage-2
 }
 
-alarm[3] = 1
+event_user(6)
 alarm[10] = 2

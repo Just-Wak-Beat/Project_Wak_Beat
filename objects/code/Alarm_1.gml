@@ -103,7 +103,8 @@ else
 
 
 //경험치 증가
-global.exp += (global.detailed_difficulty[global.n_map_id]+1)*global.music_duration*0.003*convert_rank_to_num(global.n_rank_display)*(1.5 - global.t_selected_difficulty*0.5);
+var temp_exp = (global.detailed_difficulty[global.n_map_id]+1)*global.music_duration*0.003*convert_rank_to_num(global.n_rank_display)*(1.5 - global.t_selected_difficulty*0.5);
+global.exp += temp_exp;
 global.exp_w_alpha = 1
 
 global.real_stage_playtime[global.n_map_id] ++;
@@ -122,9 +123,18 @@ if global.n_map_list != 2
 		global.n_rank[global.n_map_id] = target_rank;
 		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id]))
 		{
-			LootLockerSetPlayerName(string(global.nickname));
+			var temp_nickname = string(global.nickname)
+			if (global.dev_mode == 1)
+			{
+				temp_nickname = temp_nickname+"[*_ABER]0";
+			}
+			else if (global.beta_tester == 1)
+			{
+				temp_nickname = temp_nickname+"[*_ABER]1";
+			}
+			LootLockerSetPlayerName(string(temp_nickname));
 			LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
-			LootLockerSetPlayerName(string(global.nickname));
+			LootLockerSetPlayerName(string(temp_nickname));
 		
 			global.real_n_score[global.n_map_id] = temp_score
 			global.n_score = temp_score
@@ -135,9 +145,18 @@ if global.n_map_list != 2
 		global.n_rank_hardcore[global.n_map_id] = target_rank;
 		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.real_n_score_hardcore[global.n_map_id]))
 		{
-			LootLockerSetPlayerName(string(global.nickname));
+			var temp_nickname = string(global.nickname)
+			if (global.dev_mode == 1)
+			{
+				temp_nickname = temp_nickname+"[*_ABER]0";
+			}
+			else if (global.beta_tester == 1)
+			{
+				temp_nickname = temp_nickname+"[*_ABER]1";
+			}
+			LootLockerSetPlayerName(string(temp_nickname));
 			LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
-			LootLockerSetPlayerName(string(global.nickname));
+			LootLockerSetPlayerName(string(temp_nickname));
 
 			global.real_n_score_hardcore[global.n_map_id] = temp_score
 			global.n_score = temp_score
@@ -222,7 +241,10 @@ else
 
 
 
-
+global.result_exp = temp_score
+global.result_score = temp_score
+global.result_rank = global.n_rank_display
+global.result_obstacle = global.crossed_obstacle_num
 
 
 

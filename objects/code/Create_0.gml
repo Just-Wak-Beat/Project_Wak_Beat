@@ -15,7 +15,11 @@ global.title_menu_animation1 = 0
 global.title_menu_animation2 = 0
 global.overtime_highlight_song = 1
 global.show_credit = 1
-
+global.beta_tester = 0
+if (string_pos("Beta",global.version) != 0)
+{
+	global.beta_tester = 1
+}
 
 
 alarm[11] = 1
@@ -70,6 +74,10 @@ global.n_setting_button = -4
 global.rank_display_alpha = 0
 global.rank_display_r_alpha = 0
 global.n_rank_display = "--"
+global.result_exp = 0
+global.result_obstacle = 0
+global.result_score = 0
+global.result_rank = 0
 
 global.automatic_sycn_fixing = 0
 global.n_sync = 0
@@ -211,6 +219,7 @@ automatic_reload_leaderboard = 0
 		global.unlocked_music_name_new_list[i] = "";
 		global.unlocked_music_name_new_list_rightside[i] = "";
 		global.unlocked_music_name_new_list_color[i] = c_white;
+		global.unlocked_music_name_new_list_color_rightside[i] = c_white;
 		global.new_unlocked_map_num = 0
 
 
@@ -732,7 +741,7 @@ global.b_t_select_map = 0
 //맵 리스트 로드
 load_musicList(0)
 n_stage = 0
-alarm[2] = 3
+event_user(7)
 
 
 
