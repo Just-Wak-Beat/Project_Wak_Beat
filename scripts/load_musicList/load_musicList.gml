@@ -88,8 +88,8 @@ function load_musicList(argument0)
 			global.n_favorite[i] = -1;
 			global.n_artifact[i] = global.custom_n_artifact[i];
 			global.detailed_difficulty[i] = global.custom_detailed_difficulty[i];
-			global.requirement_type[i] = 0;
-			global.requirement_number[i] = 0;
+			global.requirement_type[i] = global.custom_requirement_type[i];
+			global.requirement_number[i] = global.custom_requirement_number[i];
 		}
 	}
 	else if (argument0 == 3)

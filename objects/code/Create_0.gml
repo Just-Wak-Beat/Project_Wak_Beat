@@ -173,7 +173,7 @@ global.acquired_skin = -4
 	global.unlocked_player_skin_name[20] = "징버거 (X-Mas)"
 	
 	
-	for(var i = 0; i <= 7; i++)
+	for(var i = 0; i <= 11; i++)
 	{
 		global.artifact_owned[i] = 0;
 	}
@@ -261,7 +261,7 @@ automatic_reload_leaderboard = 0
 		global.real_n_favorite[i] = -1;
 		global.real_n_artifact[i] = "X";
 		global.real_detailed_difficulty[i] = -4
-		global.real_requirement_type[i] = 2
+		global.real_requirement_type[i] = -4
 		global.real_requirement_number[i] = -4
 		
 		
@@ -285,6 +285,8 @@ automatic_reload_leaderboard = 0
 		global.custom_n_score_hardcore[i] = "--";
 		global.custom_n_artifact[i] = "X";
 		global.custom_detailed_difficulty[i] = -4
+		global.custom_requirement_type[i] = -4
+		global.custom_requirement_number[i] = -4
 		global.custom_stage_album[i] = -4
 		global.custom_audio_asset[i] = -4
 	}
@@ -475,7 +477,7 @@ global.real_stage_map_difficulty[11] = "Expert";
 global.real_stage_map_color[11] = #c54a3d;
 global.real_stage_map_duration[11] = 7005;
 global.real_stage_map_audio_name[11] = "alzar";
-global.real_stage_bpm[11] = 128;
+global.real_stage_bpm[11] = 129;
 global.real_stage_map_highlight_part[11] = 43.36;
 global.real_detailed_difficulty[11] = 4;
 global.real_requirement_type[11] = 0
@@ -618,15 +620,16 @@ music_title_alpha = 0
 //로키
 global.real_stage_map_name[19] = "로키 ROKI (Cover by 비챤 VIichan)";
 global.real_stage_map_artist[19] = "Mixing by Min / Original by mikitoP";
-global.real_stage_map_difficulty[19] = "Hard";
+global.real_stage_map_difficulty[19] = "Expert";
 global.real_stage_map_color[19] = #424278;
 global.real_stage_map_duration[19] = 4738;
 global.real_stage_map_audio_name[19] = "roki";
 global.real_stage_bpm[19] = 157;
 global.real_stage_map_highlight_part[19] = 52.05;
-global.real_detailed_difficulty[19] = 5;
+global.real_detailed_difficulty[19] = 6;
 global.real_requirement_type[19] = 1;
 global.real_requirement_number[19] = 3;
+global.roki_effect1 = 0
 
 
 
@@ -640,7 +643,7 @@ global.real_stage_map_audio_name[20] = "kinmoku";
 global.real_stage_bpm[20] = 120;
 global.real_stage_map_highlight_part[20] = 90.8;
 global.real_detailed_difficulty[20] = 3;
-global.real_requirement_type[20] = 3;
+global.real_requirement_type[20] = 11;
 global.real_requirement_number[20] = 2;
 
 

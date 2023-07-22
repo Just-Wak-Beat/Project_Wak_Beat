@@ -11,6 +11,7 @@ global.check_died = 0
 global.tutorial_now = 0
 global.random_seed = -4
 global.paused = 0
+
 instance_activate_all()
 randomize()
 global.fukurou_snow_effect = 0
@@ -49,6 +50,7 @@ random_dir_laser2 = choose(-1,1)
 master_bpm_timer = 0
 global.alzar_effect = 0
 global.alzar_effect2 = 0
+global.roki_effect1 = 0
 global.gomem_mashup_effect_dir = 0
 alzar_timer = 0
 alzar_timer2 = 0
@@ -79,6 +81,8 @@ global.scroll_n_m_xx = -4
 global.joystick_xx = -4
 global.scroll_n_m_yy = -4
 global.joystick_yy = -4
+global.crossed_obstacle_num = 0
+global.total_died_here = 0
 instance_destroy(hitbox_parents)
 
 

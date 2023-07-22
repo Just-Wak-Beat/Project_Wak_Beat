@@ -1,0 +1,1 @@
+square2.w_alpha = 10

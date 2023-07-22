@@ -1,0 +1,1 @@
+global.roki_effect1 = 0

@@ -19,6 +19,8 @@ function load_custom_map_files()
 			global.custom_stage_map_highlight_part[i] = ini_read_real("custom_stage_map_highlight_part","value",-4)
 			global.custom_n_rank[i] = ini_read_string("custom_n_rank","value",-4)
 			global.custom_detailed_difficulty[i] = ini_read_real("custom_detailed_difficulty","value",0)
+			global.custom_requirement_type[i] = ini_read_real("custom_requirement_type","value",-4)
+			global.custom_requirement_number[i] = ini_read_real("custom_requirement_number","value",-4)
 			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
 			global.custom_audio_asset[i] = audio_file;
 			global.custom_map_duration[i] = floor(audio_sound_length(audio_file)*60);

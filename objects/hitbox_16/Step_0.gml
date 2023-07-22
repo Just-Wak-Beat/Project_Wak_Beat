@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 image_angle += spin_angle
-if time%5 = 0
+if time%(create_delay) = 0
 {
 	create_projectile(x,y,image_xscale,spin_angle,lengthdir_x(_speed,image_angle),lengthdir_y(_speed,image_angle),0,0,sprite_index)
 }

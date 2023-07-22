@@ -1,0 +1,1 @@
+create_laser(room_width*0.5,global.c_y,60,5,4,2,5,180)

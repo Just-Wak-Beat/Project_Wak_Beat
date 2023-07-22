@@ -31,7 +31,20 @@ if global.n_map_list != 2
 				}
 			}
 		}
-		else if (global.n_map_list != 2 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial" && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+920) < 80) || keyboard_check_pressed(vk_tab)))
+		else if (global.n_map_list != 2 && global.show_new_songs <= 0 && mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80)
+		{
+			if (global.artifact_owned[global.requirement_type[code.n_stage]] >= global.requirement_number[code.n_stage])
+			{
+				if (global.sync_setting == 0 && global.character_setting == 0 && code.gamestart == 0)
+				{
+					clicked_ = 1
+					heart_alpha = 10
+					w_alpha = 1
+					w_alpha_bg = 1
+				}
+			}
+		}
+		else if (global.n_map_list != 2 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial" && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1170) < 80) || keyboard_check_pressed(vk_tab)))
 		{
 			if (global.nickname == "")
 			{

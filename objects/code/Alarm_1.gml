@@ -13,91 +13,55 @@ if global.total_died_here = 0
 {
 	if global.hp = 5
 	{
-		if n_rank_real < 12
-		{
-			target_rank = "S+"
-		}
+		target_rank = "S+"
 	}
 	else if global.hp = 4
 	{
-		if n_rank_real < 11
-		{
-			target_rank = "S"
-		}
+		target_rank = "S"
 	}
 	else if (global.hp = 3 || global.hp = 2)
 	{
-		if n_rank_real < 10
-		{
-			target_rank = "A+"
-		}
+		target_rank = "A+"
 	}
 	else
 	{
-		if n_rank_real < 9
-		{
-			target_rank = "A"
-		}
+		target_rank = "A"
 	}
 }
 else if global.total_died_here = 1
 {
 	if global.hp >= 3 && global.hp <= 5
 	{
-		if n_rank_real < 8
-		{
-			target_rank = "B+"
-		}
+		target_rank = "B+"
 	}
 	else
 	{
-		if n_rank_real < 7
-		{
-			target_rank = "B"
-		}
+		target_rank = "B"
 	}
 }
 else if global.total_died_here = 2
 {
-	if n_rank_real < 6
-	{
-		target_rank = "C+"
-	}
+	target_rank = "C+"
 }
 else if global.total_died_here = 3
 {
-	if n_rank_real < 5
-	{
-		target_rank = "C"
-	}
+	target_rank = "C"
 }
 else if global.total_died_here = 4
 {
-	if n_rank_real < 4
-	{
-		target_rank = "C-"
-	}
+	target_rank = "C-"
 }
 else if global.total_died_here = 5
 {
-	if n_rank_real < 3
-	{
-		target_rank = "D"
-	}
+	target_rank = "D"
 }
 else if global.total_died_here = 6
 {
-	if n_rank_real < 2
-	{
-		target_rank = "D-"
-	}
+	target_rank = "D-"
 }
 else
 {
-	if n_rank_real < 1
-	{
-		target_rank = "F"
-	}
+	target_rank = "F"
 }
 
 
@@ -117,10 +81,15 @@ global.real_stage_playtime[global.n_map_id] ++;
 
 if global.n_map_list != 2
 {
-	var temp_score = ((convert_rank_to_num(target_rank))*100+global.crossed_obstacle_num)*100
+	var converted_rank_to_num = convert_rank_to_num(target_rank)
+	var temp_score = ((converted_rank_to_num)*100+global.crossed_obstacle_num)*100
 	if (global.t_selected_difficulty == 1)
 	{
-		global.n_rank[global.n_map_id] = target_rank;
+		if (converted_rank_to_num > convert_rank_to_num(global.n_rank[global.n_map_id]))
+		{
+			global.n_rank[global.n_map_id] = target_rank;
+		}
+		
 		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id]))
 		{
 			var temp_nickname = string(global.nickname)
@@ -142,7 +111,11 @@ if global.n_map_list != 2
 	}
 	else
 	{
-		global.n_rank_hardcore[global.n_map_id] = target_rank;
+		if (converted_rank_to_num > convert_rank_to_num(global.n_rank_hardcore[global.n_map_id]))
+		{
+			global.n_rank_hardcore[global.n_map_id] = target_rank;
+		}
+		
 		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.real_n_score_hardcore[global.n_map_id]))
 		{
 			var temp_nickname = string(global.nickname)
@@ -196,10 +169,15 @@ if global.n_map_list != 2
 }
 else
 {
-	var temp_score = ((convert_rank_to_num(target_rank))*100+global.crossed_obstacle_num)*100
+	var converted_rank_to_num = convert_rank_to_num(target_rank)
+	var temp_score = ((converted_rank_to_num)*100+global.crossed_obstacle_num)*100
 	if (global.t_selected_difficulty == 1)
 	{
-		global.custom_n_rank[global.n_map_id] = target_rank;
+		if (converted_rank_to_num > convert_rank_to_num(global.custom_n_rank[global.n_map_id]))
+		{
+			global.custom_n_rank[global.n_map_id] = target_rank;
+		}
+		
 		if (global.nickname != "" && global.n_map_list != 2 && (global.custom_n_score[global.n_map_id] == "--" || temp_score > global.custom_n_score[global.n_map_id]))
 		{
 			global.custom_n_score[global.n_map_id] = temp_score
@@ -208,7 +186,11 @@ else
 	}
 	else
 	{
-		global.custom_n_rank_hardcore[global.n_map_id] = target_rank;
+		if (converted_rank_to_num > convert_rank_to_num(global.custom_n_rank_hardcore[global.n_map_id]))
+		{
+			global.custom_n_rank_hardcore[global.n_map_id] = target_rank;
+		}
+		
 		if (global.nickname != "" && global.n_map_list != 2 && (global.custom_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.custom_n_score_hardcore[global.n_map_id]))
 		{
 			global.custom_n_score_hardcore[global.n_map_id] = temp_score
@@ -249,8 +231,7 @@ global.result_obstacle = global.crossed_obstacle_num
 
 
 
-global.crossed_obstacle_num = 0
-global.total_died_here = 0
+
 
 save_and_load_data(0,false)
 alarm[6] = 20

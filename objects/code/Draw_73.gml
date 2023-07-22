@@ -191,7 +191,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		{
 			var selected_me = 0
 			var locked_now = 0
-			if global.artifact_owned[global.requirement_type[i]] < global.requirement_number[i]
+			if (global.artifact_owned[global.requirement_type[i]] < global.requirement_number[i])
 			{
 				locked_now = 1
 				if round(global.t_select_map-2 - i) = 0
@@ -317,19 +317,35 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 			{
 				if selected_me = 0
 				{
-					draw_sprite_ext(spr_lock,0,xx_+112*dis_real,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-					draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
+					if (global.requirement_type[i] != 11)
+					{
+						draw_sprite_ext(spr_lock,0,xx_+96*dis_real,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
+						draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 				
-					draw_sprite_ext(spr_W,global.requirement_type[i],xx_+276*dis_real,yy_+32*dis_real,global.font_ratio_resolution_xx*0.15*dis_real,0.15*dis_real,20,c_white,global.ui_alpha*dis_real)
-					draw_text_k_scale(xx_+296*dis_real,yy_+32*dis_real,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+						draw_sprite_ext(spr_W,global.requirement_type[i],xx_+276*dis_real,yy_+32*dis_real,global.font_ratio_resolution_xx*0.15*dis_real,0.15*dis_real,20,c_white,global.ui_alpha*dis_real)
+						draw_text_k_scale(xx_+296*dis_real,yy_+32*dis_real,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+					}
+					else
+					{
+						draw_sprite_ext(spr_lock,0,xx_+96*dis_real,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
+						draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"개발 중",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
+					}
 				}
 				else
 				{
-					draw_sprite_ext(spr_lock,0,xx_+1080,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-					draw_text_k_scale(xx_+1156,yy_-64,"해금 조건",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+					if (global.requirement_type[i] != 11)
+					{
+						draw_sprite_ext(spr_lock,0,xx_+1080,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
+						draw_text_k_scale(xx_+1156,yy_-64,"해금 조건",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				
-					draw_sprite_ext(spr_W,global.requirement_type[i],xx_+1236,yy_+32,global.font_ratio_resolution_xx*0.15,0.15,20,c_white,global.ui_alpha*dis_real)
-					draw_text_k_scale(xx_+1256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+						draw_sprite_ext(spr_W,global.requirement_type[i],xx_+1236,yy_+32,global.font_ratio_resolution_xx*0.15,0.15,20,c_white,global.ui_alpha*dis_real)
+						draw_text_k_scale(xx_+1256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+					}
+					else
+					{
+						draw_sprite_ext(spr_lock,0,xx_+1080,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
+						draw_text_k_scale(xx_+1156,yy_-64,"개발 중",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+					}
 				}
 			}
 		}
@@ -410,9 +426,29 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 				{
 					global.t_select_map += y_plusment
 					global.joystick_yy += (global.scroll_n_m_yy - global.joystick_yy)*0.3
+					
+					if global.t_select_map <= 1
+					{
+						global.t_select_map = global.total_map+1
+					}
+	
+					if global.t_select_map > global.total_map+1
+					{
+						global.t_select_map = 2
+					}
 				}
 				else
 				{
+					if global.t_select_map <= 1
+					{
+						global.t_select_map = global.total_map+1
+					}
+	
+					if global.t_select_map > global.total_map+1
+					{
+						global.t_select_map = 2
+					}
+					
 					global.t_select_map = round(global.t_select_map)
 				}
 				

@@ -31,7 +31,7 @@
 
 	global.new_song_scroll += (global.t_new_song_scroll - global.new_song_scroll)*0.1
 	
-	if (global.paused == 0)
+	if (global.paused == 0 && global.rewind <= 0)
 	{
 		if global.fukurou_snow_effect > 0
 		{
@@ -696,6 +696,53 @@
 		
 		
 				master_bpm_timer -= global.yuha_effect1*(3600/global.bpm)+global.music_sync_offset*3*60
+			}
+		}
+		
+		
+		
+		
+		if global.roki_effect1 > 0
+		{
+			master_bpm_timer ++
+			if master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
+			{
+				if (global.roki_effect1 == 1)
+				{
+					var attack_ef = instance_create_depth(global.c_w,irandom_range(global.c_y+32,global.c_h-32),depth+1,hitbox_2)
+					attack_ef.direction = 180
+					attack_ef.speed = 24
+					attack_ef.keep_spin_angle = 2
+					attack_ef.image_xscale = 0.4
+					attack_ef.image_yscale = 0.4
+					attack_ef.w_alpha = 10
+				
+				
+					create_laser(global.c_w,irandom_range(global.c_y+32,global.c_h-32),60,15,4,2,1,90)
+				}
+				else
+				{
+					var attack_ef = instance_create_depth(global.c_w,irandom_range(global.c_y+32,global.c_h-32),depth+1,hitbox_2)
+					attack_ef.direction = 180
+					attack_ef.speed = 24
+					attack_ef.keep_spin_angle = 2
+					attack_ef.image_xscale = 0.4
+					attack_ef.image_yscale = 0.4
+					attack_ef.w_alpha = 10
+					
+					var attack_ef = instance_create_depth(global.c_x,irandom_range(global.c_y+32,global.c_h-32),depth+1,hitbox_2)
+					attack_ef.direction = 0
+					attack_ef.speed = 24
+					attack_ef.keep_spin_angle = 2
+					attack_ef.image_xscale = 0.4
+					attack_ef.image_yscale = 0.4
+					attack_ef.w_alpha = 10
+					
+					create_laser(irandom_range(global.c_x+32,global.c_w-32),global.c_y,60,15,4,2,1,180)
+				}
+				
+				master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*3*60
+			
 			}
 		}
 	}
