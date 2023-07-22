@@ -37,7 +37,7 @@
   
 <img src = "imgs/comp3.gif"></br>
 
-<b> 여러 유저들이 직적 제작한 커스텀 유저맵을 플레이 해보세요! (추후 업데이트 예정) </b>
+<b> 여러 유저들이 직접 제작한 커스텀 유저맵을 플레이 해보세요! (추후 업데이트 예정) </b>
 
 </br></br>
 
@@ -65,7 +65,7 @@
 
 #### - 게임 다운로드 
 
-<img src = "https://i.namu.wiki/i/ohtOPT4Qx5A3cIxcedFRdqM__VQSrxFJLLEnINvodvC8JWVwZGazq4woyTmM5km4wDdeYZERpwBUnF8AuhC5Q6qaZxNOEsY8WCSgSJzslvdvaMdqDZt39vgVsLLx1rv2aOnk8gVTGAtq67Tw6h-11Q.svg"></br>
+<img src = "https://i.namu.wiki/i/LAfQUu8A99Hbq5VlgIkbrB9ZFzat7t2zAhfzcQgSJZdTO9P9QXA6yRpbB6tvkUA3Ziw3x-LBYiScDn-8ehcfmG4SneqbWK5RuLmUDxWyPTPjsSwa67nrsadvDOW0vHghql7eFYEk8MwRW5V-ok2yhw.svg"></br>
 
 [![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT3.0/Just.Wak.and.Beats.3.1.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT3.0/Just.Wak.and.Beats.3.1.apk)
 
