@@ -1,6 +1,6 @@
 global.t_bg_color_alpha = 1
 
-var xx = irandom_range(global.c_x, global.c_w)
+var xx = obj_player.x+choose(-1,1)*irandom_range(320, 1280)
 for(var i = 0; i <= 64; i++)
 {
 var _shaking_circle = create_explo_circle(xx,global.c_y+i*64,1+i*2,60,0,0,0.18,2,0,0,3)
@@ -18,7 +18,7 @@ _ins.image_angle = 180
 _ins.vspeed = 92.16*0.5
 
 
-var xx = irandom_range(global.c_x, global.c_w)
+var xx = obj_player.x+choose(-1,1)*irandom_range(320, 1280)
 for(var i = 0; i <= 64; i++)
 {
 var _shaking_circle = create_explo_circle(xx,global.c_y+i*64,1+i*2,60,0,0,0.18,2,0,0,3)

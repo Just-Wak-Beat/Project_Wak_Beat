@@ -274,14 +274,25 @@
 				{
 					spotlight1_preview_ins = create_laser(spotlight1.x,spotlight1.y,9999,10,0.1,0,2,angle__1)
 					spotlight1_preview_ins.image_angle = angle__1+45
+					spotlight1_preview_ins.image_xscale = 1
+					spotlight1_preview_ins.image_yscale = 64
 		
 					spotlight2_preview_ins = create_laser(spotlight2.x,spotlight2.y,9999,10,0.1,0,2,angle__2)
 					spotlight2_preview_ins.image_angle = angle__2-45
+					spotlight2_preview_ins.image_xscale = 1
+					spotlight2_preview_ins.image_yscale = 64
 				}
 				else
 				{
 					spotlight1_preview_ins.image_angle = angle__1+45
+					spotlight1_preview_ins.image_xscale = 1
+					spotlight1_preview_ins.image_yscale = 64
+					spotlight1_preview_ins.image_alpha = 0.4
+					
 					spotlight2_preview_ins.image_angle = angle__2-45
+					spotlight2_preview_ins.image_xscale = 1
+					spotlight2_preview_ins.image_yscale = 64
+					spotlight2_preview_ins.image_alpha = 0.4
 				}
 	
 				if (spotlight1.t_angle > 50 || spotlight1.t_angle < -150)
