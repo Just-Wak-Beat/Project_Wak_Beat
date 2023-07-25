@@ -1,1 +1,0 @@
-square.automatic_angle = 0

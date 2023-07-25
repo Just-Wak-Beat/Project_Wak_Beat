@@ -2,7 +2,8 @@
 // You can write your code in this editor
 
 
-
+var most_played_index = 0;
+var most_played_playtime = 0;
 var total_playtime = 0;
 
 
@@ -11,6 +12,11 @@ for(var i = 1; i < global.origin_total_map; i++)
 {
 	total_playtime += global.real_stage_playtime[i];
 	show_debug_message(global.real_stage_playtime[i]);
+	if (most_played_playtime < global.real_stage_playtime[i])
+	{
+		most_played_index = i;
+		most_played_playtime = global.real_stage_playtime[i];
+	}
 }
 
 show_debug_message("모든 곡 총 플레이 횟수 : "+string(total_playtime));
@@ -36,3 +42,20 @@ var index2 = irandom_range(0,global.origin_total_map+total_playtime*2-1)
 show_debug_message("n = "+string(index2)+" / "+string(probablity[index2]));
 var return_value = probablity[index2];
 code.n_stage = return_value;
+
+
+if (global.nickname != "")
+{
+	var temp_nickname = string(global.nickname)
+	if (global.dev_mode == 1)
+	{
+		temp_nickname = temp_nickname+"[*_ABER]0";
+	}
+	else if (global.beta_tester == 1)
+	{
+		temp_nickname = temp_nickname+"[*_ABER]1";
+	}
+	LootLockerSetPlayerName(string(temp_nickname));
+	LootLockerSubmitScore("Most_played_map",real(most_played_index));
+	LootLockerSetPlayerName(string(temp_nickname));
+}

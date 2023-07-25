@@ -108,27 +108,27 @@ for(var i = 0; i <= 5; i++)
 {
 	if global.savepoint_position[i] != -4
 	{
-	var _xx_ = xx+xx_w*0.3+font_size*32+1433.6*font_size*(global.savepoint_position[i]/global.music_duration)
+		var _xx_ = xx+xx_w*0.3+font_size*32+1433.6*font_size*(global.savepoint_position[i]/global.music_duration)
 	
-	draw_set_color(global.map_color)
-	draw_set_alpha(progress_alpha_sec*0.9)
-	draw_line_width(_xx_,yy+font_size*50,_xx_,yy+font_size*70,4*font_size)
-	draw_line_width(_xx_,yy+font_size*90,_xx_,yy+font_size*110,4*font_size)
+		draw_set_color(global.map_color)
+		draw_set_alpha(progress_alpha_sec*0.9)
+		draw_line_width(_xx_,yy+font_size*50,_xx_,yy+font_size*70,4*font_size)
+		draw_line_width(_xx_,yy+font_size*90,_xx_,yy+font_size*110,4*font_size)
 	
 		if global.n_progress = global.savepoint_position[i] && !audio_is_playing(cleared_sfx)
 		{
 			if abs(global.map_speed_y) > 0
 			{
-			var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
-			save_.n_savepoint_position = global.savepoint_position[i]
-			save_.n_color = global.savepoint_color[i]
-			save_.image_angle = 90
+				var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
+				save_.n_savepoint_position = global.savepoint_position[i]
+				save_.n_color = global.savepoint_color[i]
+				save_.image_angle = 90
 			}
 			else
 			{
-			var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
-			save_.n_savepoint_position = global.savepoint_position[i]
-			save_.n_color = global.savepoint_color[i]
+				var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
+				save_.n_savepoint_position = global.savepoint_position[i]
+				save_.n_color = global.savepoint_color[i]
 			}
 		}
 	}
@@ -137,40 +137,40 @@ for(var i = 0; i <= 5; i++)
 
 if global.clock_alpha_1 > 0
 {
-var clock_scale = (2 - global.clock_alpha_1)*font_size*4
-var clock_alpha = global.clock_alpha_2*global.clock_alpha_1
+	var clock_scale = (2 - global.clock_alpha_1)*font_size*4
+	var clock_alpha = global.clock_alpha_2*global.clock_alpha_1
 
 	if clock_scale <= 0
 	{
-	clock_scale = 0
+		clock_scale = 0
 	}
 
 	for(var i = -15; i <= 15; i++)
 	{
-	draw_sprite_ext(spr_clock,1,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha*0.02)
-	draw_sprite_ext(spr_clock,1,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha*0.02)
+		draw_sprite_ext(spr_clock,1,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha*0.02)
+		draw_sprite_ext(spr_clock,1,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha*0.02)
 
-	draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
-	draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
+		draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
+		draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.02)
 
-	draw_sprite_ext(spr_clock,0,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha*0.02)
-	draw_sprite_ext(spr_clock,0,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha*0.02)
+		draw_sprite_ext(spr_clock,0,xx+xx_w*0.5,yy+yy_h*0.5+i*font_size*global.clock_alpha_1,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha*0.02)
+		draw_sprite_ext(spr_clock,0,xx+xx_w*0.5+i*font_size*global.clock_alpha_1,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha*0.02)
 	}
-draw_sprite_ext(spr_clock,1,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha)
+	draw_sprite_ext(spr_clock,1,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,0,c_white,clock_alpha)
 
-draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.5)
+	draw_sprite_ext(spr_rewind_clock,0,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale,clock_scale,0,c_white,clock_alpha*0.5)
 
-draw_sprite_ext(spr_clock,0,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha)
+	draw_sprite_ext(spr_clock,0,xx+xx_w*0.5,yy+yy_h*0.5,clock_scale*0.5,clock_scale*0.5,global.rewind*13,c_white,clock_alpha)
 
 
 
-draw_set_color(c_white)
+	draw_set_color(c_white)
 	for(var i = 0; i < 16; i++)
 	{
 		for(var ii = -16; ii < 16; ii++)
 		{
-		draw_set_alpha((global.rewind*0.001+clock_alpha/(1+i))*0.02)
-		draw_line_width(xx,yy+global.rewind_effect_line_pos[i]-global.rewind_effect_line_angle+ii,xx+xx_w,yy+global.rewind_effect_line_pos[i]+global.rewind_effect_line_angle+ii,(i*4)*font_size)
+			draw_set_alpha((global.rewind*0.001+clock_alpha/(1+i))*0.02)
+			draw_line_width(xx,yy+global.rewind_effect_line_pos[i]-global.rewind_effect_line_angle+ii,xx+xx_w,yy+global.rewind_effect_line_pos[i]+global.rewind_effect_line_angle+ii,(i*4)*font_size)
 		}
 	}
 }
