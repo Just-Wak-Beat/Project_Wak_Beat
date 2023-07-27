@@ -90,7 +90,7 @@ if (global.n_map_list != 2)
 	draw_sprite_ext(spr_heart,global.player_skin,global.c_x+100,global.c_y+910+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 	draw_sprite_ext(spr_heart,global.player_skin,global.c_x+100,global.c_y+910,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 	
-	if (global.real_stage_map_difficulty[global.n_map_id] != "Tutorial")
+	if (global.n_map_id >= 0 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial")
 	{
 		draw_text_k_scale(global.c_x+104,global.c_y+1210,"Ranking"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 		draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+1170+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
@@ -679,7 +679,7 @@ if instance_exists(code)
 					global.t_selected_difficulty = 1
 				}
 				
-				if (string_pos("(Hardcore)", global.stage_map_difficulty[code.n_stage]) != 0)
+				if (code.n_stage >= 0 && string_pos("(Hardcore)", global.stage_map_difficulty[code.n_stage]) != 0)
 				{
 					global.t_selected_difficulty = 0
 				}
@@ -693,7 +693,7 @@ if instance_exists(code)
 					draw_line_width(global.c_x,yy+yy_h*0.55,global.c_x+global.c_w*(holding_now/180),yy+yy_h*0.55,15)
 				}
 				
-				if (keyboard_check_pressed(vk_escape))
+				if (keyboard_check_pressed(vk_escape) || (global.mobile_mode == 1 && keyboard_check_pressed(vk_backspace)))
 				{
 					global.t_b_alpha = -0.02
 					code.gamestart = 5
@@ -731,14 +731,14 @@ if instance_exists(code)
 						
 						if (global.mobile_mode == 1 && (keyboard_string == "\n" || keyboard_string == "\r"))
 						{
-							global.nickname = string_delete(global.nickname,string_length(global.nickname)-1,1);
+							global.nickname = string_delete(global.nickname,string_length(global.nickname),1);
 							keyboard_input_display = 999
 							keyboard_virtual_hide()
 						}
 						
 						if (keyboard_string == "\b")
 						{
-							global.nickname = string_delete(global.nickname,string_length(global.nickname)-1,1);
+							global.nickname = string_delete(global.nickname,string_length(global.nickname),1);
 						}
 
 						keyboard_string = "";
@@ -763,7 +763,6 @@ if instance_exists(code)
 					global.t_b_alpha = -0.02
 					code.gamestart = 5
 					alarm[4] = 30
-					global.nickname = keyboard_string;
 					holding_now = -1
 				}
 			}

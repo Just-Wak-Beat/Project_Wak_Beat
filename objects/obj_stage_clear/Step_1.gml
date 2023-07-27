@@ -67,6 +67,8 @@
 		if (image_angle > 300)
 		{
 			global.t_w_alpha += 0.01;
+			w_alpha += 0.1;
+			obj_player.w_alpha += 0.1;
 		}
 
 

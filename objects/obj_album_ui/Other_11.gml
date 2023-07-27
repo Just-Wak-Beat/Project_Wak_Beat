@@ -55,7 +55,7 @@ if (global.nickname != "")
 	{
 		temp_nickname = temp_nickname+"[*_ABER]1";
 	}
-	LootLockerSetPlayerName(string(temp_nickname));
-	LootLockerSubmitScore("Most_played_map",real(most_played_index));
-	LootLockerSetPlayerName(string(temp_nickname));
+	rank_temp_val1 = temp_nickname
+	rank_temp_val2 = most_played_index
+	alarm[1] = 600
 }

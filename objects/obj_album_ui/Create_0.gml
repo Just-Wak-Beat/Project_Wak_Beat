@@ -12,7 +12,7 @@ w_alpha = 0
 global.tutorial_n_stage = 0
 angle_moving = 0
 angle_moving_timer = 0
-
+//global.story_mode = 1
 n_shake_power = 0
 clicked_ = 0
 w_alpha_bg = 0
@@ -47,3 +47,9 @@ global.open_ranking = 0
 holding_now = 0
 
 keyboard_input_display = 0
+
+
+
+//ranking
+rank_temp_val1 = 0
+rank_temp_val2 = 0
