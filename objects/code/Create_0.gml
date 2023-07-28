@@ -1,9 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "4.0";
+global.version_real = "4.1";
 global.version = "Beta "+string(global.version_real);
+global.beta_tester = 1
+
 global.low_graphics = false;
-global.dev_mode = 0
+global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
@@ -16,10 +18,8 @@ global.title_menu_animation2 = 0
 global.overtime_highlight_song = 1
 global.show_credit = 1
 global.beta_tester = 0
-if (string_pos("Beta",global.version) != 0)
-{
-	global.beta_tester = 1
-}
+
+
 
 
 alarm[11] = 1
@@ -48,7 +48,6 @@ discord_presence_update = 0
 	{
 	//show_error("NekoPresence init fail.", true);
 	}
-
 
 
 
@@ -91,7 +90,7 @@ global.show_progress_bar = 0
 progress_icon_alpha = 0
 progress_alpha = 0
 progress_alpha_sec = 0
-saved_n_stage = -1
+saved_n_stage = 2
 automatic_loading_cancel = 0
 
 global.notice_title = ""
@@ -120,6 +119,7 @@ global.t_map_speed = 0
 global.map_speed_y = 0
 global.ui_alpha = 1
 global.t_map_speed_y = 0
+global.can_change_music_list = 0
 global.map_scroll_ui_position = 0
 global.map_list_ui_position = 0
 global.select_difficulty = 0
@@ -188,20 +188,21 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-global.origin_total_map = 21
-global.total_map = global.origin_total_map
+var total_original_map = 21;
+global.origin_total_map = total_original_map;
+global.total_map = total_original_map;
 
-automatic_reload_leaderboard = 0
+automatic_reload_leaderboard = 0;
 
 	//리더보드
-	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"false","JWAB_map1_1");
+	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"true","JWAB_map1_1");
 	for(var i = 0; i < global.origin_total_map; i++)
 	{
-		LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version_real),"true","JWAB_map"+string(i+1)+"_1");
-		LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version_real),"true","JWAB_map"+string(i+1)+"_2");
+		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map"+string(i+1)+"_1");
+		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map"+string(i+1)+"_2");
 	}
 
-	LootLockerSetPlayerName(string(global.nickname));
+
 
 
 	//곡 정보
@@ -220,7 +221,7 @@ automatic_reload_leaderboard = 0
 		global.unlocked_music_name_new_list_rightside[i] = "";
 		global.unlocked_music_name_new_list_color[i] = c_white;
 		global.unlocked_music_name_new_list_color_rightside[i] = c_white;
-		global.new_unlocked_map_num = 0
+		global.new_unlocked_map_num = 0;
 
 
 		//실제 리스트에만 표기되는 곡
@@ -238,9 +239,9 @@ automatic_reload_leaderboard = 0
 		global.n_score_hardcore[i] = "--";
 		global.n_favorite[i] = -1;
 		global.n_artifact[i] = "X";
-		global.detailed_difficulty[i] = -4
-		global.requirement_type[i] = -4
-		global.requirement_number[i] = -4
+		global.detailed_difficulty[i] = -4;
+		global.requirement_type[i] = -4;
+		global.requirement_number[i] = -4;
 
 
 
@@ -331,6 +332,7 @@ global.real_stage_map_highlight_part[2] = 22.7;
 global.real_detailed_difficulty[2] = 3;
 global.real_requirement_type[2] = 0
 global.real_requirement_number[2] = 3
+global.bamguy_effect = 0
 
 //왁리오
 global.real_stage_map_name[3] = "왁리오 (Wak'Lio)";
@@ -713,7 +715,7 @@ global.highlight_time = 0
 global.highlight_music = -4;
 global.highlight_music_volume = 0;
 play_highlight = 1
-n_stage = 0
+n_stage = 2
 gamestart = 0
 gamestart_anime = 0
 instance_create_depth(0,0,0,obj_album_ui)

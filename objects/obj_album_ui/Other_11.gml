@@ -46,7 +46,7 @@ code.n_stage = return_value;
 
 if (global.nickname != "")
 {
-	var temp_nickname = string(global.nickname)
+	var temp_nickname = string_replace_all(global.nickname," ","")
 	if (global.dev_mode == 1)
 	{
 		temp_nickname = temp_nickname+"[*_ABER]0";
@@ -57,5 +57,5 @@ if (global.nickname != "")
 	}
 	rank_temp_val1 = temp_nickname
 	rank_temp_val2 = most_played_index
-	alarm[1] = 600
+	alarm[1] = 1200
 }

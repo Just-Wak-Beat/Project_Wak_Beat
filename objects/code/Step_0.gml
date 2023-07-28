@@ -287,7 +287,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	
 		if global.n_progress < global.music_duration
 		{
-			if (global.paused == 0 && audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
+			if global.paused == 0 && (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
 			{
 				global.n_progress ++;
 				audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1)*global.map_end_volumedown,0)
@@ -587,6 +587,11 @@ if global.rewind > 0
 		}
 		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
 		global.rewind_effect_line_angle = 0
+		
+		if (global.t_selected_difficulty == 0)
+		{
+			global.total_died_here = 0
+		}
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 	}
 }

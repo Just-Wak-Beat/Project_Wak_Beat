@@ -38,7 +38,7 @@
 			global.fukurou_snow_effect++
 			if global.fukurou_snow_effect > 10
 			{
-				var __circle_ = create_explo_circle(irandom_range(global.c_x+global.t_map_speed*0.5,global.c_w+global.t_map_speed*10),global.c_y,irandom_range(1,30),7200,0,0,0.05,2,4,0)
+				var __circle_ = create_explo_circle(irandom_range(global.c_x+global.t_map_speed*0.5,global.c_w+global.t_map_speed*10),global.c_y,irandom_range(1,30),7200,0,0,(audio_is_playing(winter_spring) != true) ? 0.05 : 0.15,2,4,0)
 				if audio_is_playing(winter_spring)
 				{
 					__circle_.sprite_index = spr_snow
@@ -105,7 +105,7 @@
 			}
 		}
 
-			global.turisumo_effect_scale += (global.t_turisumo_effect_scale - global.turisumo_effect_scale)*0.01
+		global.turisumo_effect_scale += (global.t_turisumo_effect_scale - global.turisumo_effect_scale)*0.01
 		if global.turisumo_effect_2 > 0
 		{
 			global.turisumo_effect_2++
@@ -126,6 +126,22 @@
 				attack_ef.keep_spin_angle = 15
 				attack_ef.w_alpha = 10
 				global.turisumo_effect_2 = 1
+			}
+		}
+		
+		
+		if global.bamguy_effect > 0
+		{
+			master_bpm_timer ++
+			if master_bpm_timer >= (4*3600/global.bpm)+global.music_sync_offset*3*60
+			{
+				for(var i = 0; i < 5; i++)
+				{
+					var ins_spike = create_cylinder(global.c_x+256,global.c_y-128+i*256,code.depth,0.5,1,256,180,270)
+					ins_spike.sprite_index = spr_triangle
+				}
+				view_shake(0.1,1,0,1)
+				master_bpm_timer -= (4*3600/global.bpm)+global.music_sync_offset*3*60
 			}
 		}
 

@@ -27,6 +27,21 @@ if (global.title_menu_animation1 >= 3)
 
 	
 	global.new_unlocked_map_num = check_new_song;
+	
+	global.nickname = string_replace_all(global.nickname," ","");
+
+
+	var temp_nickname = string(global.nickname)
+	if (global.dev_mode == 1)
+	{
+		temp_nickname = temp_nickname+"[*_ABER]0";
+	}
+	else if (global.beta_tester == 1)
+	{
+		temp_nickname = temp_nickname+"[*_ABER]1";
+	}
+	LootLockerSetPlayerName(string(temp_nickname));
+	LootLockerTurnOnAutoRefresh();
 }
 else
 {
@@ -43,3 +58,5 @@ if (global.title_menu_animation1 == 2)
 	bpm_timer += 10
 	angle_moving_timer = 0
 }
+
+global.can_change_music_list = 1;

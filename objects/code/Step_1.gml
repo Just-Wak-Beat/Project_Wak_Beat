@@ -7,9 +7,13 @@
 //자동 리로드 리더보드
 if (automatic_reload_leaderboard > 0)
 {
+	var leaderboard_list_id = "JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);
+	
+
 	automatic_reload_leaderboard ++;
 	if (automatic_reload_leaderboard%10 == 0)
 	{
+		//var test = LootLockerGetHighscoresTop(leaderboard_list_id,"");
 		event_user(5)
 	}
 
@@ -24,21 +28,54 @@ if (automatic_reload_leaderboard > 0)
 		}
 	}
 	
-	if (automatic_reload_leaderboard == 30)
+	if (automatic_reload_leaderboard == 170)
 	{
-		LootLockerReset()
-		LootLockerSetPlayerName("");
-		LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),0);
-		global.b_loaded_ranking = global.n_map_id
+		//LootLockerReset()
+		var temp_nickname = string_replace_all(global.nickname," ","")
+		if (global.dev_mode == 1)
+		{
+			temp_nickname = temp_nickname+"[*_ABER]0";
+		}
+		else if (global.beta_tester == 1)
+		{
+			temp_nickname = temp_nickname+"[*_ABER]1";
+		}
+		var target_score = global.real_n_score[global.n_map_id];
+		if (global.t_selected_difficulty == 0)
+		{
+			target_score = global.real_n_score_hardcore[global.n_map_id];
+		}
+		if (target_score == "--")
+		{
+			temp_nickname = "";
+		}
+		
+
+
+		LootLockerSubmitScore(leaderboard_list_id,target_score);
+		
+
+
+		global.b_loaded_ranking = global.n_map_id;
 		event_user(5)
 	}
 	
-	if (automatic_reload_leaderboard == 40)
+	if (automatic_reload_leaderboard == 180)
 	{
-		LootLockerSetPlayerName(string(global.nickname));
+		var temp_nickname = string_replace_all(global.nickname," ","")
+		if (global.dev_mode == 1)
+		{
+			temp_nickname = temp_nickname+"[*_ABER]0";
+		}
+		else if (global.beta_tester == 1)
+		{
+			temp_nickname = temp_nickname+"[*_ABER]1";
+		}
+
+		//LootLockerSetPlayerName(string(temp_nickname));
 	}
 
-	if (automatic_reload_leaderboard > 180)
+	if (automatic_reload_leaderboard > 250)
 	{
 		automatic_reload_leaderboard = 0
 	}
@@ -374,6 +411,15 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 
 	if gamestart = 3
 	{
+		if global.t_select_map <= 1
+		{
+			global.t_select_map = global.total_map+1
+		}
+	
+		if global.t_select_map > global.total_map+1
+		{
+			global.t_select_map = 2
+		}
 		gamestart_anime += (-0.01 - gamestart_anime)*0.1
 		if gamestart_anime <= 0
 		{

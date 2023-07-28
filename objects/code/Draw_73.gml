@@ -452,20 +452,23 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 					global.t_select_map = round(global.t_select_map)
 				}
 				
-				if abs(y_plusment) > 1
+				if (abs(y_plusment) > 1)
 				{
 					global.clicking_timer = 10
 				}
 				
 				global.reload_n_map_list_value = (global.scroll_n_m_xx - global.joystick_xx)/512
-				if abs(global.reload_n_map_list_value) > 0.5 && y_plusment < 0.3
+				if (abs(global.reload_n_map_list_value) > 0.5 && y_plusment < 0.3)
 				{
-					global.n_map_list += sign(global.reload_n_map_list_value)
-					global.reload_n_map_list_value = sign(global.reload_n_map_list_value)
-					global.joystick_xx = global.scroll_n_m_xx
-					global.clicking_timer = 10
-					event_user(1)
-					scrolling_map = -4
+					if (global.can_change_music_list == 1)
+					{
+						global.n_map_list += sign(global.reload_n_map_list_value);
+					}
+					global.reload_n_map_list_value = sign(global.reload_n_map_list_value);
+					global.joystick_xx = global.scroll_n_m_xx;
+					global.clicking_timer = 10;
+					event_user(1);
+					scrolling_map = -4;
 				}
 				global.joystick_xx += (global.scroll_n_m_xx - global.joystick_xx)*0.2
 			}
@@ -476,20 +479,19 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 				scrolling_map = round(global.t_select_map)
 				changed_music = 1
 			}
-			
-			
-			if global.t_select_map <= 1
-			{
-				global.t_select_map = 2
-			}
-	
-			if global.t_select_map > global.total_map+1
-			{
-				global.t_select_map = global.total_map+1
-			}
 		}
 
 
+
+		if global.t_select_map <= 1
+		{
+			global.t_select_map = global.total_map+1
+		}
+	
+		if global.t_select_map > global.total_map+1
+		{
+			global.t_select_map = 2
+		}
 		n_stage = round(global.t_select_map-2)
 		
 		if n_stage < 0
@@ -560,7 +562,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 			global.fav_anime = 0
 			audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
 
-			if global.n_map_list != 1
+			if (global.n_map_list != 1)
 			{
 				//좋아요 누른 곡 따로 분류
 				add_favorite_music(global.n_map_list);

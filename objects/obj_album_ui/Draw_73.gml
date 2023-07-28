@@ -188,7 +188,7 @@ var fontsize1 = 0.55*(1+global.mobile_mode*0.3)
 var fontsize2 = 0.65*(1+global.mobile_mode*0.3)
 var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
   
-if instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
+if global.n_map_id >= 0 && instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
 	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Normal\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
 	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
@@ -329,11 +329,14 @@ if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 		{
 			if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 			{
-				code.gamestart = 1
-				global.paused = 0
-				global.t_select_difficulty = 0
-				audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
-				window_set_cursor(cr_none)
+				if (global.t_selected_difficulty = 1 || (global.t_selected_difficulty = 0 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*2))
+				{
+					code.gamestart = 1
+					global.paused = 0
+					global.t_select_difficulty = 0
+					audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+					window_set_cursor(cr_none)
+				}
 			}
 		
 			if mouse_check_button_pressed(mb_left)
@@ -646,27 +649,31 @@ if instance_exists(code)
 			
 			if (global.notice_title == "Ranking")
 			{
-				if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_up))
+				if (code.automatic_reload_leaderboard == 0)
 				{
-					global.t_selected_difficulty--
-					global.b_loaded_ranking = -1
-					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
-					
-					code.automatic_reload_leaderboard = 1
-				}
-				else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down))
-				{
-					global.t_selected_difficulty++
-					global.b_loaded_ranking = -1
-					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+					if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_up))
+					{
+						global.t_selected_difficulty--
+						global.b_loaded_ranking = -1
+						audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 
-					code.automatic_reload_leaderboard = 1
-				}
-				else if global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left))
-				{
-					global.t_b_alpha = -0.02
-					code.gamestart = 5
-					alarm[4] = 30
+						code.automatic_reload_leaderboard = 1
+					}
+					else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down))
+					{
+						global.t_selected_difficulty++
+						global.b_loaded_ranking = -1
+						audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+
+
+						code.automatic_reload_leaderboard = 1
+					}
+					else if (global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left)))
+					{
+						global.t_b_alpha = -0.02
+						code.gamestart = 5
+						alarm[4] = 30
+					}
 				}
 				
 				
@@ -695,9 +702,10 @@ if instance_exists(code)
 				
 				if (keyboard_check_pressed(vk_escape) || (global.mobile_mode == 1 && keyboard_check_pressed(vk_backspace)))
 				{
-					global.t_b_alpha = -0.02
-					code.gamestart = 5
-					alarm[4] = 30
+					global.nickname = "";
+					global.t_b_alpha = -0.02;
+					code.gamestart = 5;
+					alarm[4] = 30;
 				}
 				else
 				{
@@ -716,6 +724,11 @@ if instance_exists(code)
 						}
 					}
 					
+					if (keyboard_check_pressed(vk_backspace))
+					{
+						global.nickname = string_delete(global.nickname,string_length(global.nickname),5);
+					}
+					
 					if (string_length(keyboard_string))
 					{
 						global.nickname = (global.nickname+keyboard_string)
@@ -726,19 +739,13 @@ if instance_exists(code)
 						}
 						else
 						{
-							global.nickname = string_delete(global.nickname,16,1);
+							global.nickname = string_delete(global.nickname,16,string_length(global.nickname)-15);
 						}
 						
 						if (global.mobile_mode == 1 && (keyboard_string == "\n" || keyboard_string == "\r"))
 						{
-							global.nickname = string_delete(global.nickname,string_length(global.nickname),1);
 							keyboard_input_display = 999
 							keyboard_virtual_hide()
-						}
-						
-						if (keyboard_string == "\b")
-						{
-							global.nickname = string_delete(global.nickname,string_length(global.nickname),1);
 						}
 
 						keyboard_string = "";
@@ -760,6 +767,7 @@ if instance_exists(code)
 				
 				if holding_now > 180
 				{
+					global.nickname = string_replace_all(global.nickname," ","")
 					global.t_b_alpha = -0.02
 					code.gamestart = 5
 					alarm[4] = 30

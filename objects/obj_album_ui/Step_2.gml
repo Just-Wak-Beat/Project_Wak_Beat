@@ -44,7 +44,7 @@ if global.n_map_list != 2
 				}
 			}
 		}
-		else if (global.n_map_list != 2 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial" && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1170) < 80) || keyboard_check_pressed(vk_tab)))
+		else if (global.n_map_list != 2 && global.n_map_id >= 0 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial" && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1170) < 80) || keyboard_check_pressed(vk_tab)))
 		{
 			if (global.nickname == "")
 			{
@@ -59,6 +59,16 @@ if global.n_map_list != 2
 				global.unlocked_music_name_new_list_color[2] = c_white
 				global.unlocked_music_name_new_list[3] = "[이후 변경이 불가능하니 신중하게 정해주세요]";
 				global.unlocked_music_name_new_list_color[3] = merge_color(c_black,c_white,0.4);
+				
+				global.unlocked_music_name_new_list_rightside[0] = "";
+				global.unlocked_music_name_new_list_color_rightside[0] = c_white;
+				global.unlocked_music_name_new_list_rightside[1] = "";
+				global.unlocked_music_name_new_list_color_rightside[1] = c_white;
+				global.unlocked_music_name_new_list_rightside[2] = "";
+				global.unlocked_music_name_new_list_color_rightside[2] = c_white;
+				global.unlocked_music_name_new_list_rightside[3] = "";
+				global.unlocked_music_name_new_list_color_rightside[3] = c_white;
+				
 				global.show_new_songs = 1;
 				global.new_unlocked_map_num = 4;
 				

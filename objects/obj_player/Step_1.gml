@@ -18,11 +18,32 @@ if global.b_hp != global.hp
 			}
 			else if (global.hp = 3 || global.hp = 2)
 			{
-				global.n_rank_display = "A+"
+				if (global.t_selected_difficulty == 0)
+				{
+					if (global.hp = 3)
+					{
+						global.n_rank_display = "A+"
+					}
+					else
+					{
+						global.n_rank_display = "A"
+					}
+				}
+				else
+				{
+					global.n_rank_display = "A+"
+				}
 			}
 			else
 			{
-				global.n_rank_display = "A"
+				if (global.t_selected_difficulty == 0)
+				{
+					global.n_rank_display = "A"
+				}
+				else
+				{
+					global.n_rank_display = "B+"
+				}
 			}
 		}
 		else if global.total_died_here = 1

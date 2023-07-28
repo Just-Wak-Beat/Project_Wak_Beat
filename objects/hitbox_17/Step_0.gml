@@ -29,7 +29,7 @@ if (warning_timer = target_time-1)
 if warning_timer >= target_time
 {
 	if (can_move == 0)
-		{
+	{
 		if point_distance(x,y,xstart,ystart) <= 10
 		{
 			can_move = 1

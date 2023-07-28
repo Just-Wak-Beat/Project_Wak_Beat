@@ -2,7 +2,7 @@
 // You can write your code in this editor
 y = room_height
 image_speed = 0
-
+outside_of_window = -4
 image_xscale = 0
 image_yscale = 0
 image_index = 1

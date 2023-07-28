@@ -11,6 +11,7 @@ global.check_died = 0
 global.tutorial_now = 0
 global.random_seed = -4
 global.paused = 0
+global.bamguy_effect = 0
 
 instance_activate_all()
 randomize()

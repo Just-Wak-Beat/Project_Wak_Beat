@@ -32,6 +32,7 @@ if(asyncStatus == 0)
     var text = ds_map_find_value(async_load, "result");
     var data = json_parse(text);
 
+
     if(global.LLdevelopmentMode == true)
     {
         show_debug_message(string(data));
