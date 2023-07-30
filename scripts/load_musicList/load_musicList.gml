@@ -136,7 +136,12 @@ function load_musicList(argument0)
 	
 	if global.b_map_list != global.n_map_list
 	{
+		
 		n_stage = 0
+		saved_n_stage = 2
+		global.n_map_id = 0
+		global.t_select_map = 2
+		global.select_map = 2
 		global.map_list_ui_position = global.n_map_list - global.b_map_list
 		with(code)
 		{

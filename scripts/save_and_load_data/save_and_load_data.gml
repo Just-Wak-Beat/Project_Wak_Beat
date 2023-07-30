@@ -63,6 +63,7 @@ function save_and_load_data(argument0,argument1)
 		ini_write_string("nickname","none",global.nickname);
 		//베타테스터
 		ini_write_real("beta_tester","none",global.beta_tester);
+		ini_write_real("force_wipe_nickname","none",global.force_wipe_nickname);
 	}
 	else
 	{
@@ -130,6 +131,7 @@ function save_and_load_data(argument0,argument1)
 		global.nickname = ini_read_string("nickname","none","");
 		//베타테스터
 		global.beta_tester = ini_read_real("beta_tester","none",0);
+		global.force_wipe_nickname = ini_read_real("force_wipe_nickname","none",1);
 	}
 
 	ini_close_protect()

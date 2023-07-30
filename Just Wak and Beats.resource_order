@@ -89,6 +89,7 @@
     {"name":"load_musicList","order":2,"path":"scripts/load_musicList/load_musicList.yy",},
     {"name":"draw_text_k_scale","order":1,"path":"scripts/draw_text_k_scale/draw_text_k_scale.yy",},
     {"name":"spr_rain","order":33,"path":"sprites/spr_rain/spr_rain.yy",},
+    {"name":"spr_W52","order":39,"path":"sprites/spr_W52/spr_W52.yy",},
     {"name":"wakgood_hurt","order":1,"path":"sounds/wakgood_hurt/wakgood_hurt.yy",},
     {"name":"ding","order":1,"path":"sounds/ding/ding.yy",},
     {"name":"wakrio_timeline","order":1,"path":"timelines/wakrio_timeline/wakrio_timeline.yy",},

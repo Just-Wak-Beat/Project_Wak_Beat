@@ -27,34 +27,50 @@ w_alpha = 0.3
 	{
 		for(var i = 0; i < 360; i += 30-(1-global.t_selected_difficulty)*15)
 		{
-		var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
-		attack_ef.direction = i
-		attack_ef.speed = 24
-		attack_ef.keep_spin_angle = 2
-		attack_ef.image_xscale = 0.2*t_scale
-		attack_ef.image_yscale = 0.2*t_scale
-		attack_ef.w_alpha = 10
+			var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
+			attack_ef.direction = i
+			attack_ef.speed = 24
+			attack_ef.keep_spin_angle = 2
+			attack_ef.image_xscale = 0.2*t_scale
+			attack_ef.image_yscale = 0.2*t_scale
+			attack_ef.w_alpha = 10
 		}
 		
 		if instance_exists(hitbox_8)
 		{
-		hitbox_8.w_alpha = 1
-		//hitbox_8.image_xscale = 0.8
-		hitbox_8.image_yscale = 0.8
-		global.w_alpha = 0.15
+			hitbox_8.w_alpha = 1
+			//hitbox_8.image_xscale = 0.8
+			hitbox_8.image_yscale = 0.8
+			global.w_alpha = 0.15
 		}
 	}
 	else
 	{
-		for(var i = 0; i < 360; i += 20-(1-global.t_selected_difficulty)*10)
+		if global.n_music_name = "isedolhyang"
 		{
-		var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
-		attack_ef.direction = i
-		attack_ef.speed = 24
-		attack_ef.keep_spin_angle = 2
-		attack_ef.image_xscale = 0.2*t_scale
-		attack_ef.image_yscale = 0.2*t_scale
-		attack_ef.w_alpha = 10
+			for(var i = 0; i < 360; i += 20)
+			{
+				var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
+				attack_ef.direction = i
+				attack_ef.speed = 24
+				attack_ef.keep_spin_angle = 2
+				attack_ef.image_xscale = 0.2*t_scale
+				attack_ef.image_yscale = 0.2*t_scale
+				attack_ef.w_alpha = 10
+			}
+		}
+		else
+		{
+			for(var i = 0; i < 360; i += 20-(1-global.t_selected_difficulty)*10)
+			{
+				var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
+				attack_ef.direction = i
+				attack_ef.speed = 24
+				attack_ef.keep_spin_angle = 2
+				attack_ef.image_xscale = 0.2*t_scale
+				attack_ef.image_yscale = 0.2*t_scale
+				attack_ef.w_alpha = 10
+			}
 		}
 	}
 instance_destroy()

@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+if (global.force_wipe_nickname != b_force_wipe_nickname)
+{
+	global.nickname = "";
+	global.force_wipe_nickname = b_force_wipe_nickname;
+}
 
 
 
@@ -158,6 +162,7 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 		global.scroll_n_m_xx = -1
 		global.scroll_n_m_yy = -1
 		global.hp = 5
+		global.total_died_here = 0;
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		audio_stop_sound(global.n_music_instance)
 		timeline_running = false

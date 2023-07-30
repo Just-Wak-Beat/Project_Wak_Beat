@@ -120,7 +120,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 			}
 			else
 			{
-				if is_click
+				if (is_click && global.can_change_music_list == 1 && gamestart == 0)
 				{
 					global.joystick_xx = device_mouse_x(i)
 					global.joystick_yy = device_mouse_y(i)

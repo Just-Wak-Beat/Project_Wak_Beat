@@ -115,6 +115,7 @@
     {"id":{"name":"load_musicList","path":"scripts/load_musicList/load_musicList.yy",},},
     {"id":{"name":"draw_text_k_scale","path":"scripts/draw_text_k_scale/draw_text_k_scale.yy",},},
     {"id":{"name":"spr_rain","path":"sprites/spr_rain/spr_rain.yy",},},
+    {"id":{"name":"spr_W52","path":"sprites/spr_W52/spr_W52.yy",},},
     {"id":{"name":"wakgood_hurt","path":"sounds/wakgood_hurt/wakgood_hurt.yy",},},
     {"id":{"name":"ding","path":"sounds/ding/ding.yy",},},
     {"id":{"name":"wakrio_timeline","path":"timelines/wakrio_timeline/wakrio_timeline.yy",},},

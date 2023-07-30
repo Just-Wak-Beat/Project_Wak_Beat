@@ -5,7 +5,7 @@ global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1
 
 global.low_graphics = false;
-global.dev_mode = 1
+global.dev_mode = 0
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
@@ -18,6 +18,10 @@ global.title_menu_animation2 = 0
 global.overtime_highlight_song = 1
 global.show_credit = 1
 global.beta_tester = 0
+
+//닉네임 강제 초기화는 b_force_wipe_nickname 값을 수정하면 가능
+b_force_wipe_nickname = 0
+global.force_wipe_nickname = 1
 
 
 
