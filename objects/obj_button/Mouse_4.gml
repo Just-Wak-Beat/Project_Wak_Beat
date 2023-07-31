@@ -6,7 +6,7 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && glob
 	image_yscale = 0.15
 	audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
 
-	if button_id = 0
+	if (button_id == 0)
 	{
 		if global.mobile_mode != 1
 		{
@@ -17,40 +17,44 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && glob
 			window_set_size(window_get_width(),window_get_height())
 			alarm[0] = 30
 		}
+		else
+		{
+			alarm[10] = 60
+		}
 	}
-	else if button_id = 1
+	else if (button_id == 1)
 	{
 		if global.mobile_mode == 0
 		{
-			if window_get_width() = 1920
+			set_window_size(window_get_width(),window_get_height(),window_get_fullscreen(),0);
+		}
+	}
+	else if (button_id == 6)
+	{
+		if (global.mobile_mode == 0)
+		{
+			if (code.gamestart = 2 && global.n_progress > 1)
 			{
-				if window_get_fullscreen() = false
+				//곡 리스타트
+				event_user(2);
+				with(code)
 				{
-					window_set_fullscreen(true)
+					event_user(2);
 				}
-				else
-				{
-					window_set_fullscreen(false)
-					window_set_size(1280,720)
-				}
-			}
-			else if window_get_width() = 1280
-			{
-				window_set_size(1600,900)
-			}
-			else if window_get_width() = 1600
-			{
-				window_set_size(1760,1020)
 			}
 			else
 			{
-				window_set_size(1920,1080)
+				alarm[10] = 60
 			}
 		}
 		else
 		{
-			save_and_load_data(0,0)
-			alarm[10] = 30
+			//곡 리스타트
+			event_user(2);
+			with(code)
+			{
+				event_user(2);
+			}
 		}
 	}
 }

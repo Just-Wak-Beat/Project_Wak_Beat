@@ -186,6 +186,7 @@
     {"name":"spr_album","order":2,"path":"sprites/spr_album/spr_album.yy",},
     {"name":"obj_camera","order":2,"path":"objects/obj_camera/obj_camera.yy",},
     {"name":"segu_hurt","order":4,"path":"sounds/segu_hurt/segu_hurt.yy",},
+    {"name":"set_window_size","order":4,"path":"scripts/set_window_size/set_window_size.yy",},
     {"name":"spr_joystick","order":8,"path":"sprites/spr_joystick/spr_joystick.yy",},
     {"name":"spr_master","order":37,"path":"sprites/spr_master/spr_master.yy",},
     {"name":"tutorial_part1_timeline","order":3,"path":"timelines/tutorial_part1_timeline/tutorial_part1_timeline.yy",},

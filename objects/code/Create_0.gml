@@ -70,6 +70,7 @@ global.window_height = 1080
 global.window_fullscreen = true
 global.sc_img_for_pause = -4;
 global.paused = 0
+global.restart_stage = 0
 
 global.back_to_game = 0
 global.map_end_volumedown = 0

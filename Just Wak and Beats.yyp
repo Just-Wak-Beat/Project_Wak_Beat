@@ -225,6 +225,7 @@
     {"id":{"name":"add_favorite_music","path":"scripts/add_favorite_music/add_favorite_music.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"segu_hurt","path":"sounds/segu_hurt/segu_hurt.yy",},},
+    {"id":{"name":"set_window_size","path":"scripts/set_window_size/set_window_size.yy",},},
     {"id":{"name":"spr_joystick","path":"sprites/spr_joystick/spr_joystick.yy",},},
     {"id":{"name":"spr_master","path":"sprites/spr_master/spr_master.yy",},},
     {"id":{"name":"tutorial_part1_timeline","path":"timelines/tutorial_part1_timeline/tutorial_part1_timeline.yy",},},

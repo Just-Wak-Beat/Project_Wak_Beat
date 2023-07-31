@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 global.t_b_alpha = -0.01
-if global.t_select_difficulty = 0
+if global.can_change_music_list == 1 && global.t_select_difficulty = 0
 {
 	var n_skin = (global.n_player_skin >= 0) ? global.n_player_skin : 0
 	

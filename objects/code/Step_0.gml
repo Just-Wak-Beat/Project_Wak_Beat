@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 //인게임중에 설정 열기
-if (global.sync_setting == 0 && global.paused == 0 && global.n_progress > 0 && music_title_alpha <= 0 && progress_alpha >= 0.99)
+if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && global.n_progress > 0 && music_title_alpha <= 0 && progress_alpha >= 0.99)
 {
 	if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
 	{
@@ -396,6 +396,7 @@ if global.rewind > 0
 		timeline_running = false
 	}
 	
+	
 	if global.rewind >= 91
 	{
 		with(hitbox_parents)
@@ -524,36 +525,36 @@ if global.rewind > 0
 	
 	if global.rewind > 260
 	{
-		audio_stop_sound(global.n_music_instance)
-		global.total_died_here ++
-		global.w_alpha = 1.1
-		global.hp = 5
-		global.quake_effect = 0
-		global.rewind = 0
-		global.ipad_effect = 0
-		global.clock_alpha_1 = 0
-		global.check_died = 1
-		global.clock_alpha_2 = 0
-		global.n_progress = global.start_point
-		timeline_running = false
-		var time__ = floor(global.music_sync_offset*3*60)
+		audio_stop_sound(global.n_music_instance);
+		global.total_died_here ++;
+		global.w_alpha = 1.1;
+		global.hp = 5;
+		global.quake_effect = 0;
+		global.rewind = 0;
+		global.ipad_effect = 0;
+		global.clock_alpha_1 = 0;
+		global.check_died = 1;
+		global.clock_alpha_2 = 0;
+		global.n_progress = global.start_point;
+		timeline_running = false;
+		var time__ = floor(global.music_sync_offset*3*60);
 		if time__ > 0 && global.tutorial_now = 0
 		{
-			alarm[7] = time__
+			alarm[7] = time__;
 		}
 		else
 		{
-			timeline_running = true
+			timeline_running = true;
 		}
-		timeline_position = global.start_point
-		global.cannot_control = 0
-		obj_player.invincibility_cooltime = 90
-		obj_player.show_invincibility = 1
-		master_bpm_timer = 0
-		instance_destroy(hitbox_parents)
-		instance_destroy(obj_savepoint)
-		instance_destroy(square_misile)
-		instance_destroy(obj_stage_clear)
+		timeline_position = global.start_point;
+		global.cannot_control = 0;
+		obj_player.invincibility_cooltime = 90;
+		obj_player.show_invincibility = 1;
+		master_bpm_timer = 0;
+		instance_destroy(hitbox_parents);
+		instance_destroy(obj_savepoint);
+		instance_destroy(square_misile);
+		instance_destroy(obj_stage_clear);
 	
 		if global.fukurou_snow_effect != 0
 		{
@@ -592,6 +593,17 @@ if global.rewind > 0
 		{
 			global.total_died_here = 0
 		}
-		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
+		
+		
+		//곡 리스타트
+		if (global.restart_stage == 1)
+		{
+			global.restart_stage = 0;
+			global.respawn_point_xx = room_width*0.5;
+			global.respawn_point_yy = room_height*0.5;
+			global.start_point = 0;
+			global.total_died_here = 0;
+		}
 	}
 }
