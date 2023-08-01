@@ -5,7 +5,7 @@ global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1
 
 global.low_graphics = false;
-global.dev_mode = 0
+global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
@@ -48,10 +48,10 @@ texturegroup_load("effects")
 
 ready = false;
 discord_presence_update = 0
-	if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
-	{
-	//show_error("NekoPresence init fail.", true);
-	}
+if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
+{
+//show_error("NekoPresence init fail.", true);
+}
 
 
 
