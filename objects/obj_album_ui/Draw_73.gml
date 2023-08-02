@@ -633,6 +633,7 @@ if instance_exists(code)
 							}
 
 							draw_text_k_scale(middle_xx,yy+yy_h*0.5,temp_str,scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+							break;
 						}
 					}
 				}

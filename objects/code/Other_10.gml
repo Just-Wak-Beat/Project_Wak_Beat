@@ -84,6 +84,7 @@ global.scroll_n_m_yy = -4
 global.joystick_yy = -4
 global.crossed_obstacle_num = 0
 global.total_died_here = 0
+global.n_rank_display = "S+"
 instance_destroy(hitbox_parents)
 
 

@@ -33,6 +33,7 @@
   "ResourceOrderSettings": [
     {"name":"spr_circle_cylinder","order":20,"path":"sprites/spr_circle_cylinder/spr_circle_cylinder.yy",},
     {"name":"tutorial_part4_timeline","order":6,"path":"timelines/tutorial_part4_timeline/tutorial_part4_timeline.yy",},
+    {"name":"lockdown","order":24,"path":"sounds/lockdown/lockdown.yy",},
     {"name":"glow_sfx","order":9,"path":"sounds/glow_sfx/glow_sfx.yy",},
     {"name":"spr_player","order":3,"path":"sprites/spr_player/spr_player.yy",},
     {"name":"fukurou","order":7,"path":"sounds/fukurou/fukurou.yy",},
@@ -89,7 +90,7 @@
     {"name":"load_musicList","order":2,"path":"scripts/load_musicList/load_musicList.yy",},
     {"name":"draw_text_k_scale","order":1,"path":"scripts/draw_text_k_scale/draw_text_k_scale.yy",},
     {"name":"spr_rain","order":33,"path":"sprites/spr_rain/spr_rain.yy",},
-    {"name":"spr_W52","order":39,"path":"sprites/spr_W52/spr_W52.yy",},
+    {"name":"spr_W52","order":13,"path":"sprites/spr_W52/spr_W52.yy",},
     {"name":"wakgood_hurt","order":1,"path":"sounds/wakgood_hurt/wakgood_hurt.yy",},
     {"name":"ding","order":1,"path":"sounds/ding/ding.yy",},
     {"name":"wakrio_timeline","order":1,"path":"timelines/wakrio_timeline/wakrio_timeline.yy",},

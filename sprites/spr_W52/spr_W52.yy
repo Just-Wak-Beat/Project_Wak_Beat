@@ -40,8 +40,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "hitbox_shapes",
-    "path": "folders/스프라이트/hitbox_shapes.yy",
+    "name": "ui",
+    "path": "folders/스프라이트/ui.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

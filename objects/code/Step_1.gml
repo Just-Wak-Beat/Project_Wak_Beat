@@ -12,29 +12,36 @@ if (global.force_wipe_nickname != b_force_wipe_nickname)
 if (automatic_reload_leaderboard > 0)
 {
 	var leaderboard_list_id = "JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);
-	
-
 	automatic_reload_leaderboard ++;
-	if (automatic_reload_leaderboard%10 == 0)
-	{
-		//var test = LootLockerGetHighscoresTop(leaderboard_list_id,"");
-		event_user(5)
-	}
 
 	if (automatic_reload_leaderboard == 2)
 	{
-		event_user(5)
+		LootLockerReset();
+		for(var i = 0; i < global.total_map; i++)
+		{
+			global.unlocked_music_name_new_list[i] = "";
+			global.unlocked_music_name_new_list_rightside[i] = "";
+			global.unlocked_music_name_new_list_color[i] = c_white;
+			global.unlocked_music_name_new_list_color_rightside[i] = c_white;
+		}
+		
+		
+		show_debug_message("showing ranking now")
+		var temp_difficulty_str = (global.t_selected_difficulty == 0) ? " (Hardcore)" : "";
+		global.notice_title = "Ranking";
+		global.notice_title_sub = "<    "+string(global.n_music_title+temp_difficulty_str)+"    >";
 		global.show_new_songs = 1;
+		
 		
 		if (global.b_loaded_ranking == global.n_map_id)
 		{
 			automatic_reload_leaderboard = 0;
+			event_user(5);
 		}
 	}
 	
 	if (automatic_reload_leaderboard == 170)
 	{
-		//LootLockerReset()
 		var temp_nickname = string_replace_all(global.nickname," ","")
 		if (global.dev_mode == 1)
 		{
@@ -54,33 +61,19 @@ if (automatic_reload_leaderboard > 0)
 			temp_nickname = "";
 		}
 		
-
-
+		LootLockerSetPlayerName("");
 		LootLockerSubmitScore(leaderboard_list_id,target_score);
+		LootLockerSetPlayerName("");
 		
 
 
 		global.b_loaded_ranking = global.n_map_id;
-		event_user(5)
 	}
 	
-	if (automatic_reload_leaderboard == 180)
-	{
-		var temp_nickname = string_replace_all(global.nickname," ","")
-		if (global.dev_mode == 1)
-		{
-			temp_nickname = temp_nickname+"[*_ABER]0";
-		}
-		else if (global.beta_tester == 1)
-		{
-			temp_nickname = temp_nickname+"[*_ABER]1";
-		}
 
-		//LootLockerSetPlayerName(string(temp_nickname));
-	}
-
-	if (automatic_reload_leaderboard > 250)
+	if (automatic_reload_leaderboard > 300)
 	{
+		event_user(5)
 		automatic_reload_leaderboard = 0
 	}
 }

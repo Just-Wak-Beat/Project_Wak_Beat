@@ -2,15 +2,6 @@
 // You can write your code in this editor
 
 
-
-show_debug_message("showing ranking now")
-var temp_difficulty_str = (global.t_selected_difficulty == 0) ? " (Hardcore)" : "";
-global.notice_title = "Ranking";
-global.notice_title_sub = "<    "+string(global.n_music_title+temp_difficulty_str)+"    >";
-
-
-
-
 for(var i = 0; i < 100; i++)
 {
 	show_debug_message(LLHighscoresTopNamesList()[i]);
@@ -104,9 +95,9 @@ for(var i = 0; i < 11; i++)
 			}
 			
 			
-			var temp_score = LLPlayerScore();
+			var temp_score = (global.t_selected_difficulty == 0) ? global.real_n_score_hardcore : global.real_n_score;
 			
-			var temp_rank = LLPlayerRank();
+			var temp_rank = (global.t_selected_difficulty == 0) ? global.real_n_rank_hardcore : global.real_n_rank;
 			temp_rank = (temp_rank == "" || check_under_ten(temp_rank)) ? "--" : temp_rank;
 			
 			temp_score = (temp_rank == "--" || check_under_ten(temp_score)) ? "--" : temp_score;

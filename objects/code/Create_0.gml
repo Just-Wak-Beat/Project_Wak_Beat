@@ -193,7 +193,7 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-var total_original_map = 21;
+var total_original_map = 22;
 global.origin_total_map = total_original_map;
 global.total_map = total_original_map;
 
@@ -484,7 +484,7 @@ global.real_stage_map_difficulty[11] = "Expert";
 global.real_stage_map_color[11] = #c54a3d;
 global.real_stage_map_duration[11] = 7005;
 global.real_stage_map_audio_name[11] = "alzar";
-global.real_stage_bpm[11] = 129;
+global.real_stage_bpm[11] = 130;
 global.real_stage_map_highlight_part[11] = 43.36;
 global.real_detailed_difficulty[11] = 4;
 global.real_requirement_type[11] = 0
@@ -652,6 +652,21 @@ global.real_stage_map_highlight_part[20] = 90.8;
 global.real_detailed_difficulty[20] = 3;
 global.real_requirement_type[20] = 11;
 global.real_requirement_number[20] = 2;
+
+
+//락다운
+global.real_stage_map_name[21] = "Lockdown (락다운)";
+global.real_stage_map_artist[21] = "Remix by Mitsutoki";
+global.real_stage_map_difficulty[21] = "Experts";
+global.real_stage_map_color[21] = c_black;
+global.real_stage_map_duration[21] = 6474;
+global.real_stage_map_audio_name[21] = "lockdown";
+global.real_stage_bpm[21] = 133;
+global.real_stage_map_highlight_part[21] = 29.2;
+global.real_detailed_difficulty[21] = 7;
+global.real_requirement_type[21] = 7;
+global.real_requirement_number[21] = 2;
+
 
 
 

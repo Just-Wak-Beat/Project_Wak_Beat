@@ -56,6 +56,7 @@
   "resources": [
     {"id":{"name":"spr_circle_cylinder","path":"sprites/spr_circle_cylinder/spr_circle_cylinder.yy",},},
     {"id":{"name":"tutorial_part4_timeline","path":"timelines/tutorial_part4_timeline/tutorial_part4_timeline.yy",},},
+    {"id":{"name":"lockdown","path":"sounds/lockdown/lockdown.yy",},},
     {"id":{"name":"glow_sfx","path":"sounds/glow_sfx/glow_sfx.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"fukurou","path":"sounds/fukurou/fukurou.yy",},},
