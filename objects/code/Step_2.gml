@@ -772,4 +772,104 @@
 			
 			}
 		}
+		
+		
+		
+		if (global.lockdown_effect1 > 0)
+		{
+			master_bpm_timer ++
+			if master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*2*60
+			{
+				if (global.lockdown_effect1 == 1)
+				{
+					hitbox_8.w_alpha = 1;
+				}
+				
+				repeat(irandom_range(1,3))
+				{
+					if (global.lockdown_effect1 == 1)
+					{
+						var laser___ = create_laser(hitbox_8.x,hitbox_8.y,60,5,3,2,1,180)
+						laser___.image_angle = irandom_range(0,359)
+					}
+					var _random_sel_xy_ = choose(0,1,2,3)
+					if (_random_sel_xy_ == 0)
+					{
+						var random_x = irandom_range(global.c_x,global.c_w)
+						var random_y = global.c_y
+					}
+					else if (_random_sel_xy_ == 1)
+					{
+						var random_x = global.c_w
+						var random_y = irandom_range(global.c_y,global.c_h)
+					}
+					else if (_random_sel_xy_ == 2)
+					{
+						var random_x = irandom_range(global.c_x,global.c_w)
+						var random_y = global.c_h
+					}
+					else
+					{
+						var random_x = global.c_x
+						var random_y = irandom_range(global.c_y,global.c_h)
+					}
+					var attack_ef = instance_create_depth(random_x,random_y,hitbox_8.depth+1,hitbox_2);
+					attack_ef.direction = point_direction(random_x,random_y,hitbox_8.x,hitbox_8.y);
+					attack_ef.speed = irandom_range(10,14);
+					attack_ef.keep_spin_angle = 2;
+					attack_ef.image_xscale = 0.4;
+					attack_ef.image_yscale = 0.4;
+					attack_ef.w_alpha = 10;
+				}
+				
+				master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*2*60
+			}
+		}
+		
+		if (global.lockdown_effect2 > 0 && instance_exists(pipe_ef))
+		{
+			var tmp_angle = pipe_ef.image_angle+90;
+			var laser_tmp = create_laser(spike_ef.x,spike_ef.y,60,12,1,2,1,tmp_angle-90);
+			laser_tmp.auto_angle = pipe_ef.image_angle;
+			create_arrow_laser(spike_ef.x+lengthdir_x(400,tmp_angle),spike_ef.y+lengthdir_y(400,tmp_angle),obj_player.depth-15,0.8,tmp_angle,96,true,10,60);
+			global.lockdown_effect2 = 0;
+		}
+		
+		if (global.lockdown_effect3 > 0)
+		{
+			master_bpm_timer ++
+			if master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*2*60
+			{
+				if (global.lockdown_effect3 == 1)
+				{
+					global.lockdown_effect2 = 1;
+				}
+				else if (global.lockdown_effect3 == 2)
+				{
+					global.lockdown_effect2 = 1;
+				}
+				else if (global.lockdown_effect3 == 3)
+				{
+					global.lockdown_effect2 = 1;
+				}
+				else
+				{
+					pipe_ef.image_xscale *= 1.01;
+					pipe_ef.image_yscale *= 0.7;
+					pipe_ef.w_alpha = 1;
+					spike_ef.direction += 180;
+					spike_ef.w_alpha = 1;
+					
+					var ins__tmp = create_spike_circle(spike_ef.x,spike_ef.y,spike_ef.x,spike_ef.y,60,0,0,0.35);
+					ins__tmp.depth = spike_ef.depth+15;
+				}
+				
+				global.lockdown_effect3++;
+				if (global.lockdown_effect3 > 4)
+				{
+					global.lockdown_effect3 = 1;
+				}
+				master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*2*60
+			}
+		}
 	}

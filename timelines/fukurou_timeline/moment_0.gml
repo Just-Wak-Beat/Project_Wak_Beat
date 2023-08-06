@@ -9,6 +9,6 @@ global.artifact_type = 1
 
 for(var i = 0; i <= 64; i++)
 {
-var _shaking_circle = create_explo_circle(global.c_x+i*64,global.c_y+64,1+i*10,7200,0,0,0.18,2,0,0)
-_shaking_circle.direction = 90
+	var _shaking_circle = create_explo_circle(global.c_x+i*64,global.c_y+64,1+i*10,7200,0,0,0.18,2,0,0)
+	_shaking_circle.direction = 90
 }

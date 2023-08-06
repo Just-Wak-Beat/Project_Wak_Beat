@@ -4,11 +4,11 @@
 
 if global.low_graphics = false
 {
-w_alpha += (-0.01 - w_alpha)*0.15
+	w_alpha += (-0.01 - w_alpha)*0.15
 }
 else
 {
-w_alpha = 0
+	w_alpha = 0
 }
 image_angle += 15
 
@@ -16,13 +16,13 @@ warning_timer ++
 
 if warning_timer%10 = 0 && abs(warning_timer - target_time) < 120
 {
-w_alpha = 1
+	w_alpha = 1
 }
 
 if warning_timer = target_time
 {
-view_shake(0.1,shake_scale,3,shake_dir)
-w_alpha = 0.3
+	view_shake(0.1,shake_scale,3,shake_dir)
+	w_alpha = 0.3
 	if global.n_music_name = "wakrio" && global.n_progress >= 2930
 	{
 		for(var i = 0; i < 360; i += 30-(1-global.t_selected_difficulty)*15)

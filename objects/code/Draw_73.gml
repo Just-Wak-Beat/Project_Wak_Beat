@@ -647,7 +647,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	draw_set_color(c_black)
 	draw_line_width(global.c_x,global.c_y,global.c_w,global.c_h,room_width)
 
-	var text__ = (global.mobile_mode == 0) ? "Space를 눌러/홀드하여 창 닫기 혹은 매인메뉴로 돌아가기" : "화면을 터치/홀드하여 창 닫기 혹은 매인메뉴로 돌아가기"
+	var text__ = (global.mobile_mode == 0) ? "Space를 눌러/홀드하여 창 닫기 혹은 메인메뉴로 돌아가기" : "화면을 터치/홀드하여 창 닫기 혹은 메인메뉴로 돌아가기"
 	draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*0.5-36-global.mobile_mode*8,text__,64,-1,global.sync_setting_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 	if (global.n_setting_button = 9999 || global.n_setting_button = -4) && keyboard_check(vk_space)

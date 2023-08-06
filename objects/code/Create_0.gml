@@ -196,7 +196,7 @@ global.unlocked_music_num = 0
 var total_original_map = 22;
 global.origin_total_map = total_original_map;
 global.total_map = total_original_map;
-
+outside_of_window = -4
 automatic_reload_leaderboard = 0;
 
 	//리더보드
@@ -659,15 +659,17 @@ global.real_stage_map_name[21] = "Lockdown (락다운)";
 global.real_stage_map_artist[21] = "Remix by Mitsutoki";
 global.real_stage_map_difficulty[21] = "Experts";
 global.real_stage_map_color[21] = c_black;
-global.real_stage_map_duration[21] = 6474;
+global.real_stage_map_duration[21] = 4530;
 global.real_stage_map_audio_name[21] = "lockdown";
 global.real_stage_bpm[21] = 133;
 global.real_stage_map_highlight_part[21] = 29.2;
 global.real_detailed_difficulty[21] = 7;
 global.real_requirement_type[21] = 7;
 global.real_requirement_number[21] = 2;
-
-
+global.lockdown_effect1 = 0
+global.lockdown_effect2 = 0
+global.lockdown_effect3 = 0
+pipe_ef = -4
 
 
 

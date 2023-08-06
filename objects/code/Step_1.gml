@@ -7,6 +7,24 @@ if (global.force_wipe_nickname != b_force_wipe_nickname)
 }
 
 
+//게임이 포커스 되지 않았을 때 소리 재생 X
+if !window_has_focus()
+{
+	if (outside_of_window == -4)
+	{
+		outside_of_window = global.master_volume;
+		global.master_volume = 0;
+	}
+}
+else
+{
+	if (outside_of_window != -4)
+	{
+		global.master_volume = outside_of_window;
+		outside_of_window = -4;
+	}
+}
+
 
 //자동 리로드 리더보드
 if (automatic_reload_leaderboard > 0)

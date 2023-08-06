@@ -14,7 +14,7 @@ automatic_angle_real = 0
 noneuse_t_x = 0
 if is_undefined("t_x")
 {
-noneuse_t_x = 1
+	noneuse_t_x = 1
 }
 t_x = xstart
 t_y = ystart

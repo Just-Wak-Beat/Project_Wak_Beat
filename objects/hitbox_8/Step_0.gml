@@ -1,27 +1,61 @@
 /// @description Insert description here
 // You can write your code in this editor
-x += (t_x - x)*0.25
-y += (t_y+y_movement - y)*0.25
+if (t_x == -4)
+{
+	x = t_y.x;
+	y = t_y.y;
+	
+	image_xscale += (t_y.t_scale*1.5 - image_xscale)*0.1
+	image_yscale += (t_y.t_scale*1.5 - image_yscale)*0.1
+	
+	image_angle += (direction-90 - image_angle)*0.133
+}
+else
+{
+	x += (t_x - x)*0.25
+	y += (t_y+y_movement - y)*0.25
+	
+	image_xscale += (t_scale - image_xscale)*0.1
+	image_yscale += (t_scale - image_yscale)*0.1
+}
 
 y_movement_timer ++
 
 if y_movement_timer > 60
 {
-y_movement_dir *= -1
-y_movement_timer = 0
+	y_movement_dir *= -1
+	y_movement_timer = 0
 }
 
-y_movement += y_movement_dir
+	y_movement += y_movement_dir
 
 
 if global.low_graphics = false
 {
-w_alpha += (-0.01 - w_alpha)*0.15
+	w_alpha += (-0.01 - w_alpha)*0.15
 }
 else
 {
-w_alpha = 0
+	w_alpha = 0
 }
 
-image_xscale += (1 - image_xscale)*0.1
-image_yscale += (1 - image_yscale)*0.1
+
+
+if (sprite_index == spr_circle_spike)
+{
+	if (instance_number(hitbox_8) == 1)
+	{
+		if (lockdown_effect == 0 && t_scale <= 1)
+		{
+			t_scale = 0.5;
+			lockdown_effect = 1;
+		}
+		t_scale += 0.0001;
+		image_angle += 5/t_scale;
+	}
+	else
+	{
+		direction -= 2;
+		image_angle += (direction - image_angle)*0.1
+	}
+}

@@ -2,27 +2,27 @@
 // You can write your code in this editor
 if gravity = 0
 {
-x -= global.map_speed
-y += global.map_speed_y
+	x -= global.map_speed
+	y += global.map_speed_y
 }
 
 if sprite_index != spr_circle_half
 {
-image_angle += keep_spin_angle
+	image_angle += keep_spin_angle
 }
 else
 {
-speed = 50
+	speed = 50
 }
 
 
 if global.low_graphics = false
 {
-w_alpha += (-0.01 - w_alpha)*0.15
+	w_alpha += (-0.01 - w_alpha)*0.15
 }
 else
 {
-w_alpha = 0
+	w_alpha = 0
 }
 
 
@@ -47,3 +47,15 @@ if (sprite_index == spr_circle_half)
 }
 
 
+
+
+if (audio_is_playing(lockdown) && point_distance(x,y,room_width*0.5,room_height*0.5) <= 256)
+{
+	if (instance_exists(hitbox_8))
+	{
+		hitbox_8.w_alpha = 1;
+		hitbox_8.image_xscale *= 1.1;
+		hitbox_8.image_yscale *= 1.1;
+	}
+	instance_destroy()
+}

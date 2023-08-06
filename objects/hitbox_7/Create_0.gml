@@ -6,3 +6,5 @@ image_speed = 0
 
 w_alpha = 0
 scale_down = 0
+can_draw = 0
+alarm[0] = 1

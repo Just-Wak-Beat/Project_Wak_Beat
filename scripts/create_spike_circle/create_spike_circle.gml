@@ -19,7 +19,7 @@ var yy = argument1
 var laser__ = instance_create_depth(xx,yy,obj_player.depth-10,hitbox_5)
 if argument2 = -4
 {
-laser__.speed = argument3
+	laser__.speed = argument3
 }
 laser__.t_x = argument2
 laser__.t_y = argument3

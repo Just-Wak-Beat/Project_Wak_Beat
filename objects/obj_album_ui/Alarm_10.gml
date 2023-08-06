@@ -1,18 +1,25 @@
 /// @description 처음 알림 메시지
 // You can write your code in this editor
+if (global.dev_mode == 1)
+{
+	global.artifact_owned[11] = 99999
+}
+
+
+
 global.title_menu_animation1++
 
 window_set_cursor(cr_default)
 
 if (global.title_menu_animation1 >= 3)
 {
-	global.title_menu_animation1 = -1
+	global.title_menu_animation1 = -1;
 	
 	
 	global.notice_title = "조작법 가이드";
 	global.show_new_songs = 1;
 	
-	var check_new_song = 0
+	var check_new_song = 0;
 	
 	//공지사항 메시지
 	global.unlocked_music_name_new_list[check_new_song] = (global.mobile_mode == 0) ? "키보드 방향키 - 선택" : "화면 스크롤 - 선택"
