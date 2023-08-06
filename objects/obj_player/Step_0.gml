@@ -248,6 +248,7 @@ if (global.paused == 0)
 		{
 			global.dash_cooltime --
 		}
+		
 
 		global.dashing += (-0.01 - global.dashing)*0.15
 		if (global.dashing <= 0.1)

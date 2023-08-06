@@ -117,7 +117,7 @@ global.t_bg_color = 1
 global.background_color = merge_color(global.map_color,c_black,0.9)
 	if (global.background_color == c_black)
 	{
-		global.background_color = merge_color(c_white,c_black,0.9)
+		global.background_color = merge_color(c_white,c_black,0.95)
 	}
 global.map_speed = 0
 global.t_map_speed = 0
@@ -245,8 +245,8 @@ automatic_reload_leaderboard = 0;
 		global.n_favorite[i] = -1;
 		global.n_artifact[i] = "X";
 		global.detailed_difficulty[i] = -4;
-		global.requirement_type[i] = -4;
-		global.requirement_number[i] = -4;
+		global.obtainable_type[i] = -4;
+		global.requirement_level[i] = -4;
 
 
 
@@ -267,8 +267,8 @@ automatic_reload_leaderboard = 0;
 		global.real_n_favorite[i] = -1;
 		global.real_n_artifact[i] = "X";
 		global.real_detailed_difficulty[i] = -4
-		global.real_requirement_type[i] = -4
-		global.real_requirement_number[i] = -4
+		global.real_obtainable_type[i] = -4
+		global.real_requirement_level[i] = -4
 		
 		
 		// 해당 곡 플레이 횟수 기록 (오리지널 스테이지만 기록됨)
@@ -291,8 +291,8 @@ automatic_reload_leaderboard = 0;
 		global.custom_n_score_hardcore[i] = "--";
 		global.custom_n_artifact[i] = "X";
 		global.custom_detailed_difficulty[i] = -4
-		global.custom_requirement_type[i] = -4
-		global.custom_requirement_number[i] = -4
+		global.custom_obtainable_type[i] = -4
+		global.custom_requirement_level[i] = -4
 		global.custom_stage_album[i] = -4
 		global.custom_audio_asset[i] = -4
 	}
@@ -308,8 +308,8 @@ global.real_stage_map_audio_name[0] = "tutorial_part1";
 global.real_stage_bpm[0] = 58;
 global.real_stage_map_highlight_part[0] = 0;
 global.real_detailed_difficulty[0] = 0;
-global.real_requirement_type[0] = 0
-global.real_requirement_number[0] = 0
+global.real_obtainable_type[0] = 0
+global.real_requirement_level[0] = 0
 global.tutorial_now = 0
 
 //왁굳향 100% 첨가
@@ -322,8 +322,8 @@ global.real_stage_map_audio_name[1] = "wakgoodhyang";
 global.real_stage_bpm[1] = 82;
 global.real_stage_map_highlight_part[1] = 21;
 global.real_detailed_difficulty[1] = 2;
-global.real_requirement_type[1] = 0
-global.real_requirement_number[1] = 1
+global.real_obtainable_type[1] = 0
+global.real_requirement_level[1] = 0
 
 //밤가이
 global.real_stage_map_name[2] = "밤가이!!";
@@ -334,9 +334,9 @@ global.real_stage_map_duration[2] = 5411;
 global.real_stage_map_audio_name[2] = "bamguy";
 global.real_stage_bpm[2] = 154;
 global.real_stage_map_highlight_part[2] = 22.7;
-global.real_detailed_difficulty[2] = 3;
-global.real_requirement_type[2] = 0
-global.real_requirement_number[2] = 3
+global.real_detailed_difficulty[2] = 2;
+global.real_obtainable_type[2] = 0
+global.real_requirement_level[2] = 2
 global.bamguy_effect = 0
 
 //왁리오
@@ -348,9 +348,9 @@ global.real_stage_map_duration[3] = 4482;
 global.real_stage_map_audio_name[3] = "wakrio";
 global.real_stage_bpm[3] = 133;
 global.real_stage_map_highlight_part[3] = 48.1;
-global.real_detailed_difficulty[3] = 4;
-global.real_requirement_type[3] = 0
-global.real_requirement_number[3] = 4
+global.real_detailed_difficulty[3] = 3.5;
+global.real_obtainable_type[3] = 0
+global.real_requirement_level[3] = 2
 global.wakrio_effect = 0
 wakrio_timer = 0
 
@@ -363,9 +363,9 @@ global.real_stage_map_duration[4] = 4800;
 global.real_stage_map_audio_name[4] = "fukurou";
 global.real_stage_bpm[4] = 45;
 global.real_stage_map_highlight_part[4] = 46;
-global.real_detailed_difficulty[4] = 1;
-global.real_requirement_type[4] = 0
-global.real_requirement_number[4] = 1
+global.real_detailed_difficulty[4] = 0.5;
+global.real_obtainable_type[4] = 1
+global.real_requirement_level[4] = 1
 global.fukurou_snow_effect = 0
 
 //뒤틀린 사랑
@@ -377,9 +377,9 @@ global.real_stage_map_duration[5] = 5791;
 global.real_stage_map_audio_name[5] = "shelter";
 global.real_stage_bpm[5] = 100;
 global.real_stage_map_highlight_part[5] = 46.4;
-global.real_detailed_difficulty[5] = 5;
-global.real_requirement_type[5] = 0
-global.real_requirement_number[5] = 4
+global.real_detailed_difficulty[5] = 4;
+global.real_obtainable_type[5] = 0
+global.real_requirement_level[5] = 5
 
 //느그란 또리스모
 global.real_stage_map_name[6] = "느그란 또리스모";
@@ -390,9 +390,9 @@ global.real_stage_map_duration[6] = 6188;
 global.real_stage_map_audio_name[6] = "turisumo";
 global.real_stage_bpm[6] = 160;
 global.real_stage_map_highlight_part[6] = 6;
-global.real_detailed_difficulty[6] = 2;
-global.real_requirement_type[6] = 0
-global.real_requirement_number[6] = 2
+global.real_detailed_difficulty[6] = 2.5;
+global.real_obtainable_type[6] = 8
+global.real_requirement_level[6] = 3
 global.turisumo_effect = 0
 global.turisumo_effect_2 = 0
 global.turisumo_effect_scale = 0
@@ -411,9 +411,9 @@ global.real_stage_map_duration[7] = 7495;
 global.real_stage_map_audio_name[7] = "rewind";
 global.real_stage_bpm[7] = 75;
 global.real_stage_map_highlight_part[7] = 12.70;
-global.real_detailed_difficulty[7] = 5;
-global.real_requirement_type[7] = 1
-global.real_requirement_number[7] = 1
+global.real_detailed_difficulty[7] = 3.5;
+global.real_obtainable_type[7] = 7
+global.real_requirement_level[7] = 4
 
 
 //아이패드
@@ -426,8 +426,8 @@ global.real_stage_map_audio_name[8] = "ipad";
 global.real_stage_bpm[8] = 130;
 global.real_stage_map_highlight_part[8] = 30.3;
 global.real_detailed_difficulty[8] = 3;
-global.real_requirement_type[8] = 0
-global.real_requirement_number[8] = 1
+global.real_obtainable_type[8] = 3
+global.real_requirement_level[8] = 3
 global.ipad_random_xx = -4
 global.ipad_random_xspeed = -4
 global.ipad_random_yspeed = -4
@@ -443,9 +443,9 @@ global.real_stage_map_duration[9] = 5136;
 global.real_stage_map_audio_name[9] = "phony";
 global.real_stage_bpm[9] = 170;
 global.real_stage_map_highlight_part[9] = 15.72;
-global.real_detailed_difficulty[9] = 2;
-global.real_requirement_type[9] = 0
-global.real_requirement_number[9] = 1
+global.real_detailed_difficulty[9] = 2.5;
+global.real_obtainable_type[9] = 2
+global.real_requirement_level[9] = 1
 global.phony_effect = 0
 phony_y = 0
 phony_t_y = 1
@@ -463,9 +463,9 @@ global.real_stage_map_duration[10] = 4749;
 global.real_stage_map_audio_name[10] = "Yoong";
 global.real_stage_bpm[10] = 176;
 global.real_stage_map_highlight_part[10] = 16.1;
-global.real_detailed_difficulty[10] = 6;
-global.real_requirement_type[10] = 0
-global.real_requirement_number[10] = 6
+global.real_detailed_difficulty[10] = 4.5;
+global.real_obtainable_type[10] = 0
+global.real_requirement_level[10] = 8
 global.quake_effect = 0
 global.yoong_laser_dir = 0
 global.yoong_laser_dir2 = 0
@@ -486,9 +486,9 @@ global.real_stage_map_duration[11] = 7005;
 global.real_stage_map_audio_name[11] = "alzar";
 global.real_stage_bpm[11] = 130;
 global.real_stage_map_highlight_part[11] = 43.36;
-global.real_detailed_difficulty[11] = 4;
-global.real_requirement_type[11] = 0
-global.real_requirement_number[11] = 5
+global.real_detailed_difficulty[11] = 3.5;
+global.real_obtainable_type[11] = 0
+global.real_requirement_level[11] = 4
 global.alzar_effect = 0
 global.alzar_effect2 = 0
 alzar_timer = 0
@@ -509,8 +509,8 @@ global.real_stage_map_audio_name[12] = "winter_spring";
 global.real_stage_bpm[12] = 85;
 global.real_stage_map_highlight_part[12] = 33.95;
 global.real_detailed_difficulty[12] = 2;
-global.real_requirement_type[12] = 2
-global.real_requirement_number[12] = 1
+global.real_obtainable_type[12] = 7
+global.real_requirement_level[12] = 5
 
 
 //이세돌향 첨가
@@ -522,9 +522,9 @@ global.real_stage_map_duration[13] = 4432;
 global.real_stage_map_audio_name[13] = "isedolhyang";
 global.real_stage_bpm[13] = 85;
 global.real_stage_map_highlight_part[13] = 28.71;
-global.real_detailed_difficulty[13] = 4;
-global.real_requirement_type[13] = 7
-global.real_requirement_number[13] = 2
+global.real_detailed_difficulty[13] = 3;
+global.real_obtainable_type[13] = 7
+global.real_requirement_level[13] = 7
 
 
 
@@ -537,9 +537,9 @@ global.real_stage_map_duration[14] = 3343;
 global.real_stage_map_audio_name[14] = "gungsirung";
 global.real_stage_bpm[14] = 173;
 global.real_stage_map_highlight_part[14] = 6;
-global.real_detailed_difficulty[14] = 3;
-global.real_requirement_type[14] = 3
-global.real_requirement_number[14] = 1
+global.real_detailed_difficulty[14] = 2;
+global.real_obtainable_type[14] = 14
+global.real_requirement_level[14] = 6
 
 
 
@@ -552,9 +552,9 @@ global.real_stage_map_duration[15] = 7291;
 global.real_stage_map_audio_name[15] = "master_remix";
 global.real_stage_bpm[15] = 132;
 global.real_stage_map_highlight_part[15] = 88.8;
-global.real_detailed_difficulty[15] = 7;
-global.real_requirement_type[15] = 0
-global.real_requirement_number[15] = 7
+global.real_detailed_difficulty[15] = 6;
+global.real_obtainable_type[15] = 0
+global.real_requirement_level[15] = 11
 global.master_remix_effect = 0
 master_bpm_timer = 0
 global.master_remix_effect2 = 0
@@ -568,15 +568,15 @@ global.master_remix_effect5 = 0
 //Promise
 global.real_stage_map_name[16] = "Promise (Cover by 릴파 Lilpa)";
 global.real_stage_map_artist[16] = "Mixing by 공띵 / Original by GrooPark";
-global.real_stage_map_difficulty[16] = "Expert";
+global.real_stage_map_difficulty[16] = "Hard";
 global.real_stage_map_color[16] = #344a87;
 global.real_stage_map_duration[16] = 5453;
 global.real_stage_map_audio_name[16] = "promise";
 global.real_stage_bpm[16] = 165;
 global.real_stage_map_highlight_part[16] = 39.5;
-global.real_detailed_difficulty[16] = 5;
-global.real_requirement_type[16] = 6;
-global.real_requirement_number[16] = 1;
+global.real_detailed_difficulty[16] = 3;
+global.real_obtainable_type[16] = 4;
+global.real_requirement_level[16] = 6;
 global.promise_effect = 0
 
 
@@ -590,9 +590,9 @@ global.real_stage_map_duration[17] = 6778;
 global.real_stage_map_audio_name[17] = "gomem_mashup";
 global.real_stage_bpm[17] = 140;
 global.real_stage_map_highlight_part[17] = 43.5;
-global.real_detailed_difficulty[17] = 7;
-global.real_requirement_type[17] = 4;
-global.real_requirement_number[17] = 1;
+global.real_detailed_difficulty[17] = 4.5;
+global.real_obtainable_type[17] = 7;
+global.real_requirement_level[17] = 9;
 global.gomem_mashup_effect = 0
 global.gomem_mashup_effect_dir = 0
 gomem_mashup_effect_dir_updown = -1
@@ -614,8 +614,8 @@ global.real_stage_map_audio_name[18] = "yuha";
 global.real_stage_bpm[18] = 89;
 global.real_stage_map_highlight_part[18] = 2;
 global.real_detailed_difficulty[18] = 3;
-global.real_requirement_type[18] = 3;
-global.real_requirement_number[18] = 2;
+global.real_obtainable_type[18] = 3;
+global.real_requirement_level[18] = 8;
 global.yuha_effect1 = 0
 global.yuha_effect2 = 0
 global.yuha_effect3 = 0
@@ -633,9 +633,9 @@ global.real_stage_map_duration[19] = 4738;
 global.real_stage_map_audio_name[19] = "roki";
 global.real_stage_bpm[19] = 157;
 global.real_stage_map_highlight_part[19] = 52.05;
-global.real_detailed_difficulty[19] = 6;
-global.real_requirement_type[19] = 1;
-global.real_requirement_number[19] = 3;
+global.real_detailed_difficulty[19] = 5.5;
+global.real_obtainable_type[19] = 10;
+global.real_requirement_level[19] = 10;
 global.roki_effect1 = 0
 
 
@@ -650,8 +650,8 @@ global.real_stage_map_audio_name[20] = "kinmoku";
 global.real_stage_bpm[20] = 120;
 global.real_stage_map_highlight_part[20] = 90.8;
 global.real_detailed_difficulty[20] = 3;
-global.real_requirement_type[20] = 11;
-global.real_requirement_number[20] = 2;
+global.real_obtainable_type[20] = 99;
+global.real_requirement_level[20] = 9999;
 
 
 //락다운
@@ -663,12 +663,18 @@ global.real_stage_map_duration[21] = 4530;
 global.real_stage_map_audio_name[21] = "lockdown";
 global.real_stage_bpm[21] = 133;
 global.real_stage_map_highlight_part[21] = 29.2;
-global.real_detailed_difficulty[21] = 7;
-global.real_requirement_type[21] = 7;
-global.real_requirement_number[21] = 2;
+global.real_detailed_difficulty[21] = 6.5;
+global.real_obtainable_type[21] = 7;
+global.real_requirement_level[21] = 12;
 global.lockdown_effect1 = 0
 global.lockdown_effect2 = 0
 global.lockdown_effect3 = 0
+global.lockdown_effect4 = 0
+global.lockdown_effect5 = 0
+lockdown_effect4_1 = 0
+lockdown_effect5_1 = 0
+lockdown_effect5_2 = 0
+lockdown_effect5_3 = 0
 pipe_ef = -4
 
 

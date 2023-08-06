@@ -5,15 +5,15 @@ if (t_x == -4)
 	x = t_y.x;
 	y = t_y.y;
 	
-	image_xscale += (t_y.t_scale*1.5 - image_xscale)*0.1
-	image_yscale += (t_y.t_scale*1.5 - image_yscale)*0.1
+	image_xscale += (t_y.t_scale - image_xscale)*0.1
+	image_yscale += (t_y.t_scale - image_yscale)*0.1
 	
-	image_angle += (direction-90 - image_angle)*0.133
+	image_angle += (direction - image_angle)*0.133
 }
 else
 {
-	x += (t_x - x)*0.25
-	y += (t_y+y_movement - y)*0.25
+	x += (t_x - x)*0.1
+	y += (t_y+y_movement - y)*0.1
 	
 	image_xscale += (t_scale - image_xscale)*0.1
 	image_yscale += (t_scale - image_yscale)*0.1
@@ -50,12 +50,11 @@ if (sprite_index == spr_circle_spike)
 			t_scale = 0.5;
 			lockdown_effect = 1;
 		}
-		t_scale += 0.0001;
+		t_scale += 0.0002;
 		image_angle += 5/t_scale;
 	}
 	else
 	{
-		direction -= 2;
 		image_angle += (direction - image_angle)*0.1
 	}
 }

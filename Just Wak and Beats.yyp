@@ -147,6 +147,7 @@
     {"id":{"name":"send_one","path":"scripts/send_one/send_one.yy",},},
     {"id":{"name":"hitbox_18","path":"objects/hitbox_18/hitbox_18.yy",},},
     {"id":{"name":"create_arrow_laser","path":"scripts/create_arrow_laser/create_arrow_laser.yy",},},
+    {"id":{"name":"Note3","path":"notes/Note3/Note3.yy",},},
     {"id":{"name":"kick_sfx","path":"sounds/kick_sfx/kick_sfx.yy",},},
     {"id":{"name":"spr_pipe","path":"sprites/spr_pipe/spr_pipe.yy",},},
     {"id":{"name":"ding_dong","path":"sounds/ding_dong/ding_dong.yy",},},

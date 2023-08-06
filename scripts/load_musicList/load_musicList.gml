@@ -31,8 +31,8 @@ function load_musicList(argument0)
 			global.n_favorite[i] = global.real_n_favorite[i];
 			global.n_artifact[i] = global.real_n_artifact[i];
 			global.detailed_difficulty[i] = global.real_detailed_difficulty[i];
-			global.requirement_type[i] = global.real_requirement_type[i];
-			global.requirement_number[i] = global.real_requirement_number[i];
+			global.obtainable_type[i] = global.real_obtainable_type[i];
+			global.requirement_level[i] = global.real_requirement_level[i];
 		}
 	}
 	else if argument0 = 1
@@ -62,8 +62,8 @@ function load_musicList(argument0)
 			global.n_favorite[i] = global.real_n_favorite[ii];
 			global.n_artifact[i] = global.real_n_artifact[ii];
 			global.detailed_difficulty[i] = global.real_detailed_difficulty[ii];
-			global.requirement_type[i] = global.real_requirement_type[ii];
-			global.requirement_number[i] = global.real_requirement_number[ii];
+			global.obtainable_type[i] = global.real_obtainable_type[ii];
+			global.requirement_level[i] = global.real_requirement_level[ii];
 		}
 	}
 	else if argument0 = 2
@@ -88,8 +88,8 @@ function load_musicList(argument0)
 			global.n_favorite[i] = -1;
 			global.n_artifact[i] = global.custom_n_artifact[i];
 			global.detailed_difficulty[i] = global.custom_detailed_difficulty[i];
-			global.requirement_type[i] = global.custom_requirement_type[i];
-			global.requirement_number[i] = global.custom_requirement_number[i];
+			global.obtainable_type[i] = global.custom_obtainable_type[i];
+			global.requirement_level[i] = global.custom_requirement_level[i];
 		}
 	}
 	else if (argument0 == 3)
@@ -99,8 +99,8 @@ function load_musicList(argument0)
 	
 		for(var k = 0; k < global.origin_total_map; k++)
 		{
-			var __type = global.real_requirement_type[k]
-			if (global.artifact_owned[__type] >= global.real_requirement_number[k])
+			var __type = global.real_obtainable_type[k]
+			if (global.artifact_owned[__type] >= global.real_requirement_level[k])
 			{
 				var kk = k-correction;
 				global.unlocked_map_id[kk] = k
@@ -120,8 +120,8 @@ function load_musicList(argument0)
 				global.n_favorite[kk] = global.real_n_favorite[k];
 				global.n_artifact[kk] = global.real_n_artifact[k];
 				global.detailed_difficulty[kk] = global.real_detailed_difficulty[k];
-				global.requirement_type[kk] = global.real_requirement_type[k];
-				global.requirement_number[kk] = global.real_requirement_number[k];
+				global.obtainable_type[kk] = global.real_obtainable_type[k];
+				global.requirement_level[kk] = global.real_requirement_level[k];
 
 				total_num++;
 			}
@@ -202,7 +202,7 @@ function load_musicList(argument0)
 		
 		for(var i = 0; i < global.origin_total_map; i++)
 		{
-			if (global.artifact_owned[global.real_requirement_type[i]] >= global.real_requirement_number[i])
+			if (global.level >= global.real_requirement_level[i])
 			{
 				global.unlocked_music_name[i] = global.real_stage_map_name[i];
 				if (global.unlocked_music_name[i] != global.b_unlocked_music_name[i])

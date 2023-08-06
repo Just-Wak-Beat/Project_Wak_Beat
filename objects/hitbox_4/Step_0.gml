@@ -5,6 +5,17 @@ if audio_is_playing(Yoong)
 	x -= global.map_speed
 }
 
+if audio_is_playing(lockdown)
+{
+	if (global.n_progress >= 2653)
+	{
+		if (direction == 0 || direction == 180)
+		{
+			y += global.map_speed_y;
+		}
+	}
+}
+
 image_blend = global.map_color
 
 x += falling_hspeed

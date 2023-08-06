@@ -32,7 +32,7 @@ if (global.ui_alpha >= 1)
 		global.exp -= global.max_exp;
 		global.exp_for_draw = 0;
 		global.exp_w_alpha = 1;
-		global.max_exp += 50;
+		global.max_exp += 10;
 	}
 	
 	global.exp_for_draw += (global.exp - global.exp_for_draw)*0.1;

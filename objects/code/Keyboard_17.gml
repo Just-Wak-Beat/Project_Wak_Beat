@@ -4,11 +4,15 @@ if global.dev_mode = 1
 {
 	if (keyboard_check_pressed(ord("H")))
 	{
-		global.level --
+		global.level--;
 	}
 	else if (keyboard_check_pressed(ord("E")))
 	{
 		global.hp = 0
+	}
+	else if (keyboard_check_pressed(ord("Y")))
+	{
+		global.level++;
 	}
 	else if (keyboard_check_pressed(ord("F")))
 	{

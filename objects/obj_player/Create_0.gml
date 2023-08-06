@@ -11,8 +11,10 @@ hurt_hspeed = 0
 hurt_vspeed = 0
 hurt_coolitme = 0
 show_invincibility = 0
-
+kirakira_alpha = -1
+kirakira_effect = 0
 invincibility_cooltime = 0
+n_max_map_speed = 0
 
 global.hmove = 0
 global.vmove = 0

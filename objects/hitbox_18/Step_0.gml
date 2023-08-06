@@ -13,14 +13,18 @@ if (timer == t_timer)
 	
 	if (attack_effect == true)
 	{
-		repeat(irandom_range(14,20))
+		repeat(irandom_range(7,10))
 		{
-			var effect_ = instance_create_depth(x+irandom_range(-64,64),y+irandom_range(-64,64),depth-10,movement_effect);
-			effect_.image_xscale = image_xscale*1.5;
-			effect_.image_yscale = image_xscale*1.5;
-			effect_.direction = direction+irandom_range(-45,45);
-			effect_.speed = t_speed*0.5;
+			var random_x = irandom_range(-24,24);
+			var random_y = irandom_range(-24,24);
+			var effect_ = instance_create_depth(x+random_x,y+random_y,obj_player.depth-15,movement_effect);
+			effect_.image_xscale = 0.07;
+			effect_.image_yscale = 0.07;
+			effect_.direction = direction;
+			effect_.speed = 24;
 			effect_.image_blend = global.map_color;
+			effect_.sprite_index = spr_circle;
+			effect_.image_alpha = 2;
 		}
 	}
 }
@@ -34,7 +38,7 @@ if (timer >= t_timer)
 	if (speed < 15)
 	{
 		speed += (0 - speed)*0.1;
-		image_alpha += (-0.01 - image_alpha)*0.1
+		image_alpha += (-0.01 - image_alpha)*0.2
 		if (image_alpha <= 0)
 		{
 			instance_destroy();

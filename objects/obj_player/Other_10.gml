@@ -6,7 +6,7 @@ w_alpha = 5
 		invincibility_cooltime = 30+(1-global.t_selected_difficulty)*15
 	}
 
-var n_max_map_speed = (global.map_speed > global.map_speed_y) ? global.map_speed : global.map_speed_y
+n_max_map_speed = (global.map_speed > global.map_speed_y) ? global.map_speed : global.map_speed_y
 
 global.dashing = 1
 global.dash_cooltime = 40-n_max_map_speed*0.2

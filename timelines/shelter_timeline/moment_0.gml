@@ -1,7 +1,7 @@
 if global.t_selected_difficulty = 1
 {
-global.savepoint_position[0] = 2356
-global.savepoint_color[0] = #0c463f
+	global.savepoint_position[0] = 2356
+	global.savepoint_color[0] = #0c463f
 }
 global.t_bg_color = 1
 global.t_bg_color_alpha = 0

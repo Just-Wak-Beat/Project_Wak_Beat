@@ -33,7 +33,7 @@ if global.n_map_list != 2
 		}
 		else if (global.n_map_list != 2 && global.show_new_songs <= 0 && mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80)
 		{
-			if (global.artifact_owned[global.requirement_type[code.n_stage]] >= global.requirement_number[code.n_stage])
+			if (global.level >= global.requirement_level[code.n_stage])
 			{
 				if (global.sync_setting == 0 && global.character_setting == 0 && code.gamestart == 0)
 				{

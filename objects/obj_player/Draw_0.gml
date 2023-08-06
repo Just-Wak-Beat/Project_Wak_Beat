@@ -15,8 +15,15 @@ if global.hp > 0 && code.gamestart = 2
 
 	draw_sprite_ext(sprite_index,(global.player_skin*7),x,y,image_xscale,image_yscale,image_angle,c_white,image_alpha*0.3)
 	draw_sprite_ext(sprite_index,(global.player_skin*7)+6,x,y,image_xscale,image_yscale,image_angle,c_white,image_alpha)
-	draw_self()
 
+	if (kirakira_alpha > 0)
+	{
+		draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,merge_color(image_blend,#df1a62,0.8),kirakira_alpha)
+	}
+	else
+	{
+		draw_self()
+	}
 	shader_set(shFlash)
 	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,c_white,w_alpha)
 	shader_reset()
@@ -24,5 +31,10 @@ if global.hp > 0 && code.gamestart = 2
 	if invincibility_cooltime > 0 && show_invincibility = 1
 	{
 		draw_circular_bar(x,y,invincibility_cooltime,90,c_white,53,0.98,6)
+	}
+	
+	if (global.dash_cooltime > 0)
+	{
+		draw_circular_bar(x,y,global.dash_cooltime,40-n_max_map_speed*0.2,global.player_color,60,0.9,3)
 	}
 }

@@ -1,8 +1,8 @@
-spike_ef.t_y = room_height*0.75
+spike_ef.t_y = room_height*0.5
 global.lockdown_effect1 = 0
 instance_destroy(hitbox_2)
 global.w_alpha = 1
-pipe_ef = instance_create_depth(room_width*0.5,room_height*0.5,hitbox_8.depth+1,hitbox_8)
+pipe_ef = instance_create_depth(room_width*0.5,room_height*0.5,spike_ef.depth+1,hitbox_8)
 pipe_ef.t_x = -4;
 pipe_ef.t_y = spike_ef;
 pipe_ef.image_xscale = 0;

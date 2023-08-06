@@ -33,7 +33,7 @@ if (audio_is_playing(promise) && sprite_index == spr_spuare_outline)
 
 if (timer > 120)
 {
-	image_alpha += (-0.01 - image_alpha)*0.1
+	image_alpha += (-0.01 - image_alpha)*0.2
 	if (image_alpha <= 0)
 	{
 		instance_destroy()

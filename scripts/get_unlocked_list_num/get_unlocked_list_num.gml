@@ -5,7 +5,7 @@ function get_unlocked_list_num()
 	var cal = 0
 	for(var i = 0; i < global.origin_total_map; i++)
 	{
-		if (global.artifact_owned[global.real_requirement_type[i]] >= global.real_requirement_number[i])
+		if (global.level >= global.real_requirement_level[i])
 		{
 			cal ++
 		}

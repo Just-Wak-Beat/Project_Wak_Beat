@@ -115,6 +115,7 @@
     {"name":"show_rank_sfx","order":13,"path":"sounds/show_rank_sfx/show_rank_sfx.yy",},
     {"name":"hitbox_18","order":19,"path":"objects/hitbox_18/hitbox_18.yy",},
     {"name":"create_arrow_laser","order":10,"path":"scripts/create_arrow_laser/create_arrow_laser.yy",},
+    {"name":"Note3","order":2,"path":"notes/Note3/Note3.yy",},
     {"name":"kick_sfx","order":7,"path":"sounds/kick_sfx/kick_sfx.yy",},
     {"name":"spr_pipe","order":38,"path":"sprites/spr_pipe/spr_pipe.yy",},
     {"name":"ding_dong","order":2,"path":"sounds/ding_dong/ding_dong.yy",},

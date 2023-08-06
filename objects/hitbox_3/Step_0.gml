@@ -35,6 +35,13 @@ if (target_time != 9999)
 		{
 			image_xscale += saved_xscale/target_time
 		}
+		
+		if variable_instance_exists(id,"auto_angle")
+		{
+			x = auto_angle.x;
+			y = auto_angle.y;
+			image_angle = auto_angle.direction+auto_angle_plusment;;
+		}
 	}
 }
 
@@ -90,3 +97,6 @@ if des > 0
 		}
 	}
 }
+
+
+

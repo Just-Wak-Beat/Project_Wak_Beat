@@ -191,7 +191,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		{
 			var selected_me = 0
 			var locked_now = 0
-			if (global.artifact_owned[global.requirement_type[i]] < global.requirement_number[i])
+			if (global.level < global.requirement_level[i])
 			{
 				locked_now = 1
 				if round(global.t_select_map-2 - i) = 0
@@ -249,12 +249,18 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 					draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
 					draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,global.map_color,0,1,normal_font,0.5*dis_real,0.5*dis_real,0)
 					
-					for(var k = 0; k <= global.detailed_difficulty[i]; k++)
+					for(var k = 0; global.detailed_difficulty[i] != 0 && k <= global.detailed_difficulty[i]; k++)
 					{
-						draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320+32-k*40)*dis_real,yy_+(32+(abs(global.select_map-2 - i)*16))*dis_real,false)
+						var square_scale = 1;
+						if (floor(global.detailed_difficulty[i]) != global.detailed_difficulty[i] && k == global.detailed_difficulty[i]-0.5)
+						{
+							square_scale = 1.5;
+						}
+
+						draw_rectangle(global.c_w-(320+32-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320-k*40)*dis_real,yy_+(32*square_scale+(abs(global.select_map-2 - i)*16))*dis_real,false)
 					}
 				
-					for(var k = 7; k > global.detailed_difficulty[i]; k--)
+					for(var k = 7; k >= global.detailed_difficulty[i]-1; k--)
 					{
 						draw_rectangle(global.c_w-(320-k*40)*dis_real,yy_+(64+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-(320+32-k*40)*dis_real,yy_+(32+(abs(global.select_map-2 - i)*16))*dis_real,true)
 					}
@@ -291,12 +297,18 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 						}
 					
 					
-						for(var k = 0; k <= global.detailed_difficulty[i]; k++)
+						for(var k = 0; global.detailed_difficulty[i] != 0 && k <= global.detailed_difficulty[i]; k++)
 						{
-							draw_rectangle(global.c_w-320+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320-32+k*40,yy_+(52+(abs(global.select_map-2 - i)*16))*dis_real,false)
+							var square_scale = 1;
+							if (floor(global.detailed_difficulty[i]) != global.detailed_difficulty[i] && k == global.detailed_difficulty[i]-0.5)
+							{
+								square_scale = 1.25;
+							}
+						
+							draw_rectangle(global.c_w-320-32+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320+k*40,yy_+(52*square_scale+(abs(global.select_map-2 - i)*16))*dis_real,false)
 						}
 				
-						for(var k = 7; k > global.detailed_difficulty[i]; k--)
+						for(var k = 7; k >= global.detailed_difficulty[i]-1; k--)
 						{
 							draw_rectangle(global.c_w-320+k*40,yy_+(84+(abs(global.select_map-2 - i)*16))*dis_real,global.c_w-320-32+k*40,yy_+(52+(abs(global.select_map-2 - i)*16))*dis_real,true)
 						}
@@ -317,13 +329,13 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 			{
 				if selected_me = 0
 				{
-					if (global.requirement_type[i] != 11)
+					if (global.obtainable_type[i] != 99)
 					{
 						draw_sprite_ext(spr_lock,0,xx_+96*dis_real,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
 						draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"해금 조건",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 				
-						draw_sprite_ext(spr_W,global.requirement_type[i],xx_+276*dis_real,yy_+32*dis_real,global.font_ratio_resolution_xx*0.15*dis_real,0.15*dis_real,20,c_white,global.ui_alpha*dis_real)
-						draw_text_k_scale(xx_+296*dis_real,yy_+32*dis_real,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+						draw_sprite_ext(spr_lock,0,xx_+276*dis_real,yy_+32*dis_real,global.font_ratio_resolution_xx*0.15*dis_real,0.15*dis_real,20,c_white,global.ui_alpha*dis_real)
+						draw_text_k_scale(xx_+320*dis_real,yy_,string(global.requirement_level[i])+"레벨 이상",64,-1,dis_alpha,c_white,0,-1,normal_font,dis_real*0.5*global.font_ratio_resolution_xx,dis_real*0.5,0)
 					}
 					else
 					{
@@ -333,13 +345,13 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 				}
 				else
 				{
-					if (global.requirement_type[i] != 11)
+					if (global.obtainable_type[i] != 99)
 					{
 						draw_sprite_ext(spr_lock,0,xx_+1080,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
 						draw_text_k_scale(xx_+1156,yy_-64,"해금 조건",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 				
-						draw_sprite_ext(spr_W,global.requirement_type[i],xx_+1236,yy_+32,global.font_ratio_resolution_xx*0.15,0.15,20,c_white,global.ui_alpha*dis_real)
-						draw_text_k_scale(xx_+1256,yy_+32,"x"+string(global.requirement_number[i]),64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+						//draw_sprite_ext(spr_W,global.obtainable_type[i],xx_+1236,yy_+32,global.font_ratio_resolution_xx*0.15,0.15,20,c_white,global.ui_alpha*dis_real)
+						draw_text_k_scale(xx_+1200,yy_,string(global.requirement_level[i])+"레벨 이상",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 					}
 					else
 					{
@@ -519,7 +531,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		}
 		
 		//스테이지 선택완료 - 난이도 선택창 (게임 시작)
-		if (global.show_new_songs <= 0 && global.t_b_alpha != -0.02 && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && go_play)
+		if (global.show_new_songs <= 0 && global.t_b_alpha != -0.02 && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1 && global.level >= global.requirement_level[n_stage] && go_play)
 		{
 			if (global.real_stage_map_difficulty[global.n_map_id] == "Tutorial")
 			{
@@ -555,7 +567,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		var x_plusment = (global.joystick_xx - global.scroll_n_m_xx)/512
 		var __added_fav_list = keyboard_check_pressed(vk_shift) || (obj_album_ui.clicked_ == 1 && mouse_x < xx+xx_w*0.5 && x_plusment < 0.3)
 		
-		if __added_fav_list && global.n_map_list != 2 && global.artifact_owned[global.requirement_type[n_stage]] >= global.requirement_number[n_stage] && global.title_menu_animation1 == -1
+		if __added_fav_list && global.n_map_list != 2 && global.level >= global.requirement_level[n_stage] && global.title_menu_animation1 == -1
 		{
 			obj_album_ui.clicked_ = 0;
 			obj_album_ui.heart_alpha = 10

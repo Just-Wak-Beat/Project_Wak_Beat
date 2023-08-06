@@ -13,9 +13,15 @@ if sprite_exists(sprite_index)
 	
 	var xscale = image_xscale*image_scale
 	var yscale = image_yscale*image_scale
+	//draw_self랑 같은 코드
 	draw_sprite_ext(sprite_index,image_index,x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
+	if (global.obtainable_type[code.n_stage] != 99)
+	{
+		draw_sprite_ext(spr_W52,global.obtainable_type[code.n_stage],x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
+		draw_sprite_ext(spr_W52,(global.obtainable_type[code.n_stage] >= 8) ? 17 : 16,x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
+	}
 
-	if instance_exists(code) && global.artifact_owned[global.requirement_type[code.n_stage]] < global.requirement_number[code.n_stage]
+	if instance_exists(code) && global.level < global.requirement_level[code.n_stage]
 	{
 		__brighting_col = #68646f
 		draw_sprite_ext(spr_album,1,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,__brighting_col,0.5*image_alpha)
@@ -331,7 +337,7 @@ if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 		{
 			if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 			{
-				if (global.t_selected_difficulty = 1 || (global.t_selected_difficulty = 0 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*2))
+				if (global.t_selected_difficulty = 1 || (global.t_selected_difficulty = 0 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*4))
 				{
 					code.gamestart = 1
 					global.paused = 0
@@ -355,7 +361,7 @@ if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 				else if (point_distance(mouse_x,mouse_y,button_2_xx,middle_yy) < 256*s_selected)
 				{
 					global.t_selected_difficulty = 0
-					if (global.n_map_id >= 0 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*2)
+					if (global.n_map_id >= 0 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*4)
 					{
 						code.gamestart = 1
 						global.paused = 0
@@ -396,7 +402,7 @@ if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 	
 	if (global.n_map_id >= 0)
 	{
-		var unlock_level = (global.detailed_difficulty[global.n_map_id]+1)*2;
+		var unlock_level = (global.detailed_difficulty[global.n_map_id]+1)*4;
 		if (global.level < unlock_level)
 		{
 			draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,c_black,global.select_difficulty*0.7)

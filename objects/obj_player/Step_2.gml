@@ -25,11 +25,12 @@ if (global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9))
 			
 						if invincibility_cooltime != 90
 						{
-						w_alpha = 2
-						global.hp -= sign(global.show_progress_bar)
-						invincibility_cooltime = 90
-						show_invincibility = 1
-						audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6)
+							kirakira_effect = 1;
+							w_alpha = 2
+							global.hp -= sign(global.show_progress_bar)
+							invincibility_cooltime = 90
+							show_invincibility = 1
+							audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6)
 			
 							repeat(irandom_range(8,10))
 							{
@@ -85,5 +86,20 @@ if hurt != -4
 		hurt = -4
 		global.cannot_control = 0
 		hurt_coolitme = 0
+	}
+}
+
+if (kirakira_effect > 0)
+{
+	if (kirakira_effect%15)
+	{
+		kirakira_alpha *= -1;
+	}
+	
+	kirakira_effect ++
+	if (kirakira_effect > 120)
+	{
+		kirakira_effect = 0;
+		kirakira_alpha = -1;
 	}
 }

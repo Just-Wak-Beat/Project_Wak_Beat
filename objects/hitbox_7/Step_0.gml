@@ -23,7 +23,7 @@ else if (scale_down < 0)
 	scale_down += (-0.001 - scale_down)*0.05;
 	if scale_down > -15
 	{
-		image_alpha += (-0.01 - image_alpha)*0.1
+		image_alpha += (-0.01 - image_alpha)*0.2
 		if (image_alpha <= 0)
 		{
 			instance_destroy();
