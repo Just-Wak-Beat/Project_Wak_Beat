@@ -2,7 +2,21 @@
 // You can write your code in this editor
 
 
-
+if (global.show_credit > 1)
+{
+	if (credit_text_alpha <= 0)
+	{
+		if (keyboard_check(vk_anykey))
+		{
+			credit_text_alpha2 = 1;
+			credit_text_alpha3 = 1;
+			credit_text_alpha4 = 1;
+			global.show_credit = 0;
+			alarm[8] = 80;
+			alarm[11] = 35;
+		}
+	}
+}
 
 
 if (global.show_credit == 1)
@@ -10,9 +24,47 @@ if (global.show_credit == 1)
 	credit_text_alpha += (1.1 - credit_text_alpha)*0.025
 	window_set_cursor(cr_none)
 }
-else
+else if (global.show_credit == 2)
 {
 	credit_text_alpha += (-0.01 - credit_text_alpha)*0.05
+	if (credit_text_alpha <= 0)
+	{
+		if (credit_text_alpha2 < 0)
+		{
+			credit_text_alpha2 = 0;
+			audio_play_sound(glow_sfx,0,false,global.master_volume*global.sfx_volume)
+		}
+		credit_text_alpha2 += (1.01 - credit_text_alpha2)*0.025
+	}
+		
+	if (credit_text_alpha2 >= 0.9)
+	{
+		global.show_credit = 3
+	}
+}
+else if (global.show_credit == 3)
+{
+	credit_text_alpha3 += (1.01 - credit_text_alpha3)*0.025
+	if (credit_text_alpha3 >= 0.9)
+	{
+		global.show_credit = 4
+	}
+}
+else if (global.show_credit == 4)
+{
+	credit_text_alpha4 += (1.01 - credit_text_alpha4)*0.025
+	if (credit_text_alpha4 >= 0.99)
+	{
+		global.show_credit = 0
+		alarm[8] = 80
+		alarm[11] = 35
+	}
+}
+else
+{
+	credit_text_alpha4 += (-0.01 - credit_text_alpha4)*0.05
+	credit_text_alpha3 += (-0.01 - credit_text_alpha3)*0.05
+	credit_text_alpha2 += (-0.01 - credit_text_alpha2)*0.05
 }
 
 

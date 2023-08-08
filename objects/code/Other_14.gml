@@ -4,7 +4,6 @@
 
 if (global.t_selected_difficulty == 0)
 {
-	global.can_show = 0;
 	if (global.n_music_title == "왁트모르즈비")
 	{
 		global.acquired_skin = 0

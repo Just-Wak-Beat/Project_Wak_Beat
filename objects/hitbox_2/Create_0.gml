@@ -5,5 +5,5 @@
 image_blend = global.map_color
 
 timer = 0
-
+des = 0
 alarm[1] = 1

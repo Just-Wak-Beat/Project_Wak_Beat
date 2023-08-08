@@ -4,7 +4,7 @@ spike_ef.x = room_width*0.5;
 spike_ef.t_x = room_width*0.5;
 spike_ef.y = global.c_h+512;
 spike_ef.t_y = global.c_h-256;
-lockdown_effect5_3 = 0;
+
 
 
 for(var i = -10; i <= 10; i++)

@@ -13,7 +13,7 @@ global.t_bg_color_alpha = 0
 global.t_bg_color = 0
 global.t_map_speed = 0
 global.map_speed = 0
-global.artifact_type = 7
+global.artifact_type = irandom_range(1,6)
 
 
 while(true)

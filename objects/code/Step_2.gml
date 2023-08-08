@@ -815,6 +815,7 @@
 					}
 					var attack_ef = instance_create_depth(random_x,random_y,hitbox_8.depth+1,hitbox_2);
 					attack_ef.direction = point_direction(random_x,random_y,hitbox_8.x,hitbox_8.y);
+					attack_ef.sprite_index = spr_circle_spike
 					attack_ef.speed = irandom_range(10,14);
 					attack_ef.keep_spin_angle = 2;
 					attack_ef.image_xscale = 0.4;
@@ -1021,7 +1022,27 @@
 				master_bpm_timer++;
 				if (master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*2*60)
 				{
-					create_laser(irandom_range(global.c_x,global.c_w),global.c_y,60,26,4,2,2,180)
+					if (lockdown_effect5_3 <= 2)
+					{
+						create_laser(irandom_range(global.c_x,global.c_w),global.c_y,60,26,4,2,2,180)
+					}
+					
+					if (lockdown_effect5_3 == 2)
+					{
+						var attack_ef = instance_create_depth(irandom_range(global.c_x,global.c_w),global.c_y-100,obj_player.depth-10,hitbox_2)
+						attack_ef.sprite_index = spr_circle_spike;
+						attack_ef.keep_spin_angle = irandom_range(-2,2);
+						attack_ef.image_xscale = 0.25;
+						attack_ef.image_yscale = 0.25;
+						attack_ef.w_alpha = 10;
+						attack_ef.direction = 90;
+						attack_ef.gravity = 0.1;
+					}
+					
+					if (lockdown_effect5_3 == 3)
+					{
+						create_laser(irandom_range(global.c_x,global.c_w),global.c_y,60,26,4,2,1,180)
+					}
 					master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*2*60
 				}
 			}

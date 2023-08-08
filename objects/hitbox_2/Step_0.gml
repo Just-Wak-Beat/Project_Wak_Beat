@@ -48,14 +48,29 @@ if (sprite_index == spr_circle_half)
 
 
 
-
-if (audio_is_playing(lockdown) && point_distance(x,y,room_width*0.5,room_height*0.5) <= 256)
+if (audio_is_playing(lockdown) && global.map_speed_y <= 1)
 {
-	if (instance_exists(hitbox_8))
+	if (image_xscale > 0)
 	{
-		hitbox_8.w_alpha = 1;
-		hitbox_8.image_xscale *= 1.1;
-		hitbox_8.image_yscale *= 1.1;
+		image_xscale -= 0.002;
+		image_yscale -= 0.002;
 	}
-	instance_destroy()
+	
+	if (instance_exists(hitbox_8) && point_distance(x,y,hitbox_8.x,hitbox_8.y) <= 256)
+	{
+		image_xscale += (0 - image_xscale)*0.1
+		image_yscale += (0 - image_yscale)*0.1
+		if (des == 0)
+		{
+			des = 1
+			hitbox_8.w_alpha = 1;
+			hitbox_8.image_xscale *= 1.1;
+			hitbox_8.image_yscale *= 1.1;
+		}
+		
+		if (image_xscale <= 0)
+		{
+			instance_destroy();
+		}
+	}
 }

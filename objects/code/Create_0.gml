@@ -151,31 +151,75 @@ global.t_n_select_skin = 0
 global.acquired_skin = -4
 	for(var i = 0; i < sprite_get_number(spr_illustrationCG)*2; i++)
 	{
-		global.unlocked_player_skin[i] = 0
-		global.unlocked_player_skin_name[i] = ""
+		global.unlocked_player_skin[i] = 0;
+		global.unlocked_player_skin_name[i] = "";
+		global.unlocked_player_skin_require_type[i] = 0;
+		global.unlocked_player_skin_require_num[i] = 0;
 	}
 	
 	global.unlocked_player_skin_name[0] = "우왁굳"
+	global.unlocked_player_skin_require_type[0] = 0;
+	global.unlocked_player_skin_require_num[0] = 4;
 	global.unlocked_player_skin_name[1] = "ㅁ거"
+	global.unlocked_player_skin_require_type[1] = 0;
+	global.unlocked_player_skin_require_num[1] = 4;
 	global.unlocked_player_skin_name[2] = "우왁굳 (왁굳향100%)"
+	global.unlocked_player_skin_require_type[2] = 0;
+	global.unlocked_player_skin_require_num[2] = 1;
 	global.unlocked_player_skin_name[3] = "아이네 (엔젤)"
+	global.unlocked_player_skin_require_type[3] = 1;
+	global.unlocked_player_skin_require_num[3] = 2;
 	global.unlocked_player_skin_name[4] = "아이네"
+	global.unlocked_player_skin_require_type[4] = 1;
+	global.unlocked_player_skin_require_num[4] = 2;
 	global.unlocked_player_skin_name[5] = "아이네 (X-Mas)"
+	global.unlocked_player_skin_require_type[5] = 1;
+	global.unlocked_player_skin_require_num[5] = 2;
 	global.unlocked_player_skin_name[6] = "비챤"
+	global.unlocked_player_skin_require_type[6] = 2;
+	global.unlocked_player_skin_require_num[6] = 2;
 	global.unlocked_player_skin_name[7] = "비챤 (테디 베어)"
+	global.unlocked_player_skin_require_type[7] = 2;
+	global.unlocked_player_skin_require_num[7] = 2;
 	global.unlocked_player_skin_name[8] = "비챤 (X-Mas)"
+	global.unlocked_player_skin_require_type[8] = 2;
+	global.unlocked_player_skin_require_num[8] = 2;
 	global.unlocked_player_skin_name[9] = "고세구 (메이드)"
+	global.unlocked_player_skin_require_type[9] = 3;
+	global.unlocked_player_skin_require_num[9] = 2;
 	global.unlocked_player_skin_name[10] = "고세구"
+	global.unlocked_player_skin_require_type[10] = 3;
+	global.unlocked_player_skin_require_num[10] = 2;
 	global.unlocked_player_skin_name[11] = "고세구 (X-Mas)"
+	global.unlocked_player_skin_require_type[11] = 3;
+	global.unlocked_player_skin_require_num[11] = 2;
 	global.unlocked_player_skin_name[12] = "릴파 (수녀)"
+	global.unlocked_player_skin_require_type[12] = 4;
+	global.unlocked_player_skin_require_num[12] = 2;
 	global.unlocked_player_skin_name[13] = "릴파"
+	global.unlocked_player_skin_require_type[13] = 4;
+	global.unlocked_player_skin_require_num[13] = 2;
 	global.unlocked_player_skin_name[14] = "릴파 (X-Mas)"
+	global.unlocked_player_skin_require_type[14] = 4;
+	global.unlocked_player_skin_require_num[14] = 2;
 	global.unlocked_player_skin_name[15] = "주르르"
+	global.unlocked_player_skin_require_type[15] = 5;
+	global.unlocked_player_skin_require_num[15] = 2;
 	global.unlocked_player_skin_name[16] = "주르르 (셔츠)"
+	global.unlocked_player_skin_require_type[16] = 5;
+	global.unlocked_player_skin_require_num[16] = 2;
 	global.unlocked_player_skin_name[17] = "주르르 (X-Mas)"
+	global.unlocked_player_skin_require_type[17] = 5;
+	global.unlocked_player_skin_require_num[17] = 2;
 	global.unlocked_player_skin_name[18] = "징버거 (여름)"
+	global.unlocked_player_skin_require_type[18] = 6;
+	global.unlocked_player_skin_require_num[18] = 2;
 	global.unlocked_player_skin_name[19] = "징버거"
+	global.unlocked_player_skin_require_type[19] = 6;
+	global.unlocked_player_skin_require_num[19] = 2;
 	global.unlocked_player_skin_name[20] = "징버거 (X-Mas)"
+	global.unlocked_player_skin_require_type[20] = 6;
+	global.unlocked_player_skin_require_num[20] = 2;
 	
 	
 	for(var i = 0; i <= 11; i++)
@@ -391,7 +435,7 @@ global.real_stage_map_audio_name[6] = "turisumo";
 global.real_stage_bpm[6] = 160;
 global.real_stage_map_highlight_part[6] = 6;
 global.real_detailed_difficulty[6] = 2.5;
-global.real_obtainable_type[6] = 8
+global.real_obtainable_type[6] = 9
 global.real_requirement_level[6] = 3
 global.turisumo_effect = 0
 global.turisumo_effect_2 = 0
@@ -412,8 +456,8 @@ global.real_stage_map_audio_name[7] = "rewind";
 global.real_stage_bpm[7] = 75;
 global.real_stage_map_highlight_part[7] = 12.70;
 global.real_detailed_difficulty[7] = 3.5;
-global.real_obtainable_type[7] = 7
-global.real_requirement_level[7] = 4
+global.real_obtainable_type[7] = 8;
+global.real_requirement_level[7] = 4;
 
 
 //아이패드
@@ -426,12 +470,12 @@ global.real_stage_map_audio_name[8] = "ipad";
 global.real_stage_bpm[8] = 130;
 global.real_stage_map_highlight_part[8] = 30.3;
 global.real_detailed_difficulty[8] = 3;
-global.real_obtainable_type[8] = 3
-global.real_requirement_level[8] = 3
-global.ipad_random_xx = -4
-global.ipad_random_xspeed = -4
-global.ipad_random_yspeed = -4
-global.ipad_effect = 0
+global.real_obtainable_type[8] = 3;
+global.real_requirement_level[8] = 3;
+global.ipad_random_xx = -4;
+global.ipad_random_xspeed = -4;
+global.ipad_random_yspeed = -4;
+global.ipad_effect = 0;
 
 
 //Phony
@@ -509,22 +553,22 @@ global.real_stage_map_audio_name[12] = "winter_spring";
 global.real_stage_bpm[12] = 85;
 global.real_stage_map_highlight_part[12] = 33.95;
 global.real_detailed_difficulty[12] = 2;
-global.real_obtainable_type[12] = 7
-global.real_requirement_level[12] = 5
+global.real_obtainable_type[12] = 8;
+global.real_requirement_level[12] = 5;
 
 
 //이세돌향 첨가
 global.real_stage_map_name[13] = "이세돌향 100% 첨가";
 global.real_stage_map_artist[13] = "제이타지";
 global.real_stage_map_difficulty[13] = "Hard (Hardcore)";
-global.real_stage_map_color[13] = #ff69b4;
+global.real_stage_map_color[13] = $FF7D5EEE;
 global.real_stage_map_duration[13] = 4432;
 global.real_stage_map_audio_name[13] = "isedolhyang";
 global.real_stage_bpm[13] = 85;
 global.real_stage_map_highlight_part[13] = 28.71;
 global.real_detailed_difficulty[13] = 3;
-global.real_obtainable_type[13] = 7
-global.real_requirement_level[13] = 7
+global.real_obtainable_type[13] = 8;
+global.real_requirement_level[13] = 7;
 
 
 
@@ -538,8 +582,8 @@ global.real_stage_map_audio_name[14] = "gungsirung";
 global.real_stage_bpm[14] = 173;
 global.real_stage_map_highlight_part[14] = 6;
 global.real_detailed_difficulty[14] = 2;
-global.real_obtainable_type[14] = 14
-global.real_requirement_level[14] = 6
+global.real_obtainable_type[14] = 15;
+global.real_requirement_level[14] = 6;
 
 
 
@@ -591,7 +635,7 @@ global.real_stage_map_audio_name[17] = "gomem_mashup";
 global.real_stage_bpm[17] = 140;
 global.real_stage_map_highlight_part[17] = 43.5;
 global.real_detailed_difficulty[17] = 4.5;
-global.real_obtainable_type[17] = 7;
+global.real_obtainable_type[17] = 1;
 global.real_requirement_level[17] = 9;
 global.gomem_mashup_effect = 0
 global.gomem_mashup_effect_dir = 0
@@ -634,7 +678,7 @@ global.real_stage_map_audio_name[19] = "roki";
 global.real_stage_bpm[19] = 157;
 global.real_stage_map_highlight_part[19] = 52.05;
 global.real_detailed_difficulty[19] = 5.5;
-global.real_obtainable_type[19] = 10;
+global.real_obtainable_type[19] = 11;
 global.real_requirement_level[19] = 10;
 global.roki_effect1 = 0
 
@@ -664,7 +708,7 @@ global.real_stage_map_audio_name[21] = "lockdown";
 global.real_stage_bpm[21] = 133;
 global.real_stage_map_highlight_part[21] = 29.2;
 global.real_detailed_difficulty[21] = 6.5;
-global.real_obtainable_type[21] = 7;
+global.real_obtainable_type[21] = 8;
 global.real_requirement_level[21] = 12;
 global.lockdown_effect1 = 0
 global.lockdown_effect2 = 0

@@ -99,8 +99,7 @@ function load_musicList(argument0)
 	
 		for(var k = 0; k < global.origin_total_map; k++)
 		{
-			var __type = global.real_obtainable_type[k]
-			if (global.artifact_owned[__type] >= global.real_requirement_level[k])
+			if (global.level >= global.real_requirement_level[k])
 			{
 				var kk = k-correction;
 				global.unlocked_map_id[kk] = k
@@ -188,10 +187,11 @@ function load_musicList(argument0)
 			global.unlocked_music_name_new_list_color[check_new_song] = merge_color(c_white,c_black,0.2);
 			check_new_song++;
 		
-			global.unlocked_music_name_new_list[check_new_song] = "___________________";
+			global.unlocked_music_name_new_list[check_new_song] = "___";
 			global.unlocked_music_name_new_list_rightside[check_new_song] = "";
 			global.unlocked_music_name_new_list_color[check_new_song] = c_white;
 			check_new_song++;
+			
 			global.result_score = 0;
 			global.show_new_songs = 1;
 			global.t_b_alpha = -0.01;
@@ -221,14 +221,14 @@ function load_musicList(argument0)
 		if (check_new_song > 0 || (global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 0))
 		{
 			//신 스킨 획득 메시지 출력
-			if (global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 0)
-			{
-				global.unlocked_music_name_new_list[check_new_song] = "새로운 캐릭터 획득 - "+string(global.unlocked_player_skin_name[global.acquired_skin]);
-				global.unlocked_music_name_new_list_color[check_new_song] = c_white;
-				global.unlocked_music_name_new_list_rightside[check_new_song] = "";
-				global.unlocked_player_skin[global.acquired_skin] = 3;
-				check_new_song++
-			}
+		//	if (global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 0)
+		//	{
+		//		global.unlocked_music_name_new_list[check_new_song] = "새로운 캐릭터 획득 - "+string(global.unlocked_player_skin_name[global.acquired_skin]);
+		//		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		//		global.unlocked_music_name_new_list_rightside[check_new_song] = "";
+		//		global.unlocked_player_skin[global.acquired_skin] = 3;
+		//		check_new_song++
+		//	}
 			global.new_unlocked_map_num = check_new_song;
 			//audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		}

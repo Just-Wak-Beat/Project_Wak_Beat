@@ -44,27 +44,6 @@ if (global.level < 0)
 	global.level = 0
 }
 
-//캐릭터 획득 애니메이션 재생
-if (global.title_menu_animation2 == 1 && instance_exists(obj_album_ui) && global.can_show < 1)
-{
-	if (global.w_alpha < 0.01 && global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 3 && global.character_setting != 1)
-	{
-		var n_skin = global.acquired_skin;
-		global.t_n_select_skin = n_skin
-		global.n_select_skin = n_skin
-		global.character_setting = 1
-		gamestart = 4
-		global.t_b_alpha = 0.9
-		global.can_show = 0
-		//global.w_alpha = 10
-	}
-	
-	if (global.can_show > 0)
-	{
-		global.can_show += 0.1;
-	}
-}
-
 
 //조이스틱
 global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_alpha)*0.15
@@ -199,7 +178,6 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 
 	if global.n_music_title = "왁트모르즈비"
 	{
-		global.hp = 5
 		global.n_playing_tutorial = 1
 	}
 	else
@@ -390,7 +368,7 @@ if global.rewind > 0
 	}
 	
 	
-	if global.rewind = 91
+	if global.rewind = 51
 	{
 		audio_play_sound(rewinding_sfx,0,false,global.master_volume*global.sfx_volume)
 		timeline_running = false
@@ -423,7 +401,7 @@ if global.rewind > 0
 			ef__.image_xscale = 1
 		}
 	}
-	global.rewind ++
+	global.rewind += (global.rewind < 162) ? 2 : 1;
 		
 	for(var i = 0; i < 16; i++)
 	{
@@ -536,21 +514,19 @@ if global.rewind > 0
 		global.check_died = 1;
 		global.clock_alpha_2 = 0;
 		global.n_progress = global.start_point;
-		timeline_running = false;
-		var time__ = floor(global.music_sync_offset*3*60);
-		if time__ > 0 && global.tutorial_now = 0
-		{
-			alarm[7] = time__;
-		}
-		else
-		{
-			timeline_running = true;
-		}
-		timeline_position = global.start_point;
 		global.cannot_control = 0;
 		obj_player.invincibility_cooltime = 90;
 		obj_player.show_invincibility = 1;
 		master_bpm_timer = 0;
+		global.lockdown_effect1 = 0
+		global.lockdown_effect2 = 0
+		global.lockdown_effect3 = 0
+		global.lockdown_effect4 = 0
+		global.lockdown_effect5 = 0
+		lockdown_effect4_1 = 0
+		lockdown_effect5_1 = 0
+		lockdown_effect5_2 = 0
+		lockdown_effect5_3 = 0
 		instance_destroy(hitbox_parents);
 		instance_destroy(obj_savepoint);
 		instance_destroy(square_misile);
@@ -594,6 +570,19 @@ if global.rewind > 0
 			global.total_died_here = 0
 		}
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
+		
+		timeline_running = false;
+		var time__ = floor(global.music_sync_offset*3*60);
+		if time__ > 0 && global.tutorial_now = 0
+		{
+			alarm[7] = time__;
+		}
+		else
+		{
+			timeline_running = true;
+		}
+		timeline_position = global.start_point;
+		
 		
 		
 		//곡 리스타트

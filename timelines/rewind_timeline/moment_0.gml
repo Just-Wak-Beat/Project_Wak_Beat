@@ -1,7 +1,7 @@
 global.t_bg_color = 1
 global.t_bg_color_alpha = 0
 global.background_color = #424650
-global.artifact_type = 7
+global.artifact_type = irandom_range(1,6)
 
 global.map_color = #d892a6
 if global.t_selected_difficulty = 1

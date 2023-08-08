@@ -14,10 +14,11 @@ if (global.t_selected_difficulty != 1)
 }
 
 global.n_camera_zoom = 0.8
-
+master_bpm_timer = 0
 
 if (global.total_died_here > 0)
 {
+	global.lockdown_effect1 = 2
 	spike_ef = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-10,hitbox_8)
 	spike_ef.t_x = room_width*0.5;
 	spike_ef.t_y = room_height*0.5;
