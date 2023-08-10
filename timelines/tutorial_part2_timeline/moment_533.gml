@@ -5,6 +5,10 @@ global.n_progress = 0
 timeline_running = false
 if global.tutorial_n_stage = 2
 {
+	obj_player.x = room_width*0.3
+	global.t_w_alpha = 0;
+	global.cannot_control = 0;
+	global.w_alpha = 1
 	load_stage("왁트모르즈비","영바이브 (아버 편곡)","tutorial_part3",$FFFFA232,5411,60)
 }
 else

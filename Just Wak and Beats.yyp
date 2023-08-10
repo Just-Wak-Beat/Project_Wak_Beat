@@ -112,6 +112,7 @@
     {"id":{"name":"create_cylinder","path":"scripts/create_cylinder/create_cylinder.yy",},},
     {"id":{"name":"shelter_timeline","path":"timelines/shelter_timeline/shelter_timeline.yy",},},
     {"id":{"name":"dead_explosion","path":"objects/dead_explosion/dead_explosion.yy",},},
+    {"id":{"name":"show_nickname_setting","path":"scripts/show_nickname_setting/show_nickname_setting.yy",},},
     {"id":{"name":"obj_stage_clear","path":"objects/obj_stage_clear/obj_stage_clear.yy",},},
     {"id":{"name":"kinmoku_timeline","path":"timelines/kinmoku_timeline/kinmoku_timeline.yy",},},
     {"id":{"name":"load_musicList","path":"scripts/load_musicList/load_musicList.yy",},},

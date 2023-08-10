@@ -12,12 +12,13 @@ global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
 global.nickname = ""
 
 //메인메뉴 애니메이션 재생
-global.show_title_menu = 1
-global.title_menu_animation1 = 0
-global.title_menu_animation2 = 0
-global.overtime_highlight_song = 1
-global.show_credit = 1
-global.beta_tester = 0
+global.show_title_menu = 1;
+global.title_menu_animation1 = 0;
+global.title_menu_animation2 = 0;
+global.overtime_highlight_song = 1;
+global.show_credit = 1;
+global.beta_tester = 0;
+global.tutorial_played = 0;
 
 //닉네임 강제 초기화는 b_force_wipe_nickname 값을 수정하면 가능
 b_force_wipe_nickname = 0
@@ -247,8 +248,8 @@ automatic_reload_leaderboard = 0;
 	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"true","JWAB_map1_1");
 	for(var i = 0; i < global.origin_total_map; i++)
 	{
-		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map"+string(i+1)+"_1");
-		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map"+string(i+1)+"_2");
+		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map_"+string(i+1)+"_1");
+		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map_"+string(i+1)+"_2");
 	}
 
 

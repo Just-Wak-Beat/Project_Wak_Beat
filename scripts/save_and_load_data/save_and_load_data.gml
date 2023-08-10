@@ -6,7 +6,7 @@
 ///@param quicksave
 function save_and_load_data(argument0,argument1)
 {
-	var file_name = (global.dev_mode == 1) ? "JWAB_Beta.ini" : "JWAB_ClosedBeta.ini"
+	var file_name = (global.dev_mode == 1) ? "JWAB_Beta.ini" : "JWAB_OpenBeta.ini"
 	ini_open_protect(file_name)
 
 	if (argument0 == 0)
@@ -65,6 +65,7 @@ function save_and_load_data(argument0,argument1)
 		//베타테스터
 		ini_write_real("beta_tester","none",global.beta_tester);
 		ini_write_real("force_wipe_nickname","none",global.force_wipe_nickname);
+		ini_write_real("tutorial_played","none",global.tutorial_played);
 	}
 	else
 	{
@@ -130,6 +131,7 @@ function save_and_load_data(argument0,argument1)
 		//베타테스터
 		global.beta_tester = ini_read_real("beta_tester","none",0);
 		global.force_wipe_nickname = ini_read_real("force_wipe_nickname","none",1);
+		global.tutorial_played = ini_read_real("tutorial_played","none",0);
 	}
 
 	ini_close_protect()

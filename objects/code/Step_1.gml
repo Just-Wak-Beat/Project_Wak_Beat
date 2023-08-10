@@ -29,7 +29,7 @@ else
 //자동 리로드 리더보드
 if (automatic_reload_leaderboard > 0)
 {
-	var leaderboard_list_id = "JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);
+	var leaderboard_list_id = "JWAB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);
 	automatic_reload_leaderboard ++;
 
 	if (automatic_reload_leaderboard == 2)
@@ -80,7 +80,7 @@ if (automatic_reload_leaderboard > 0)
 		}
 		
 		LootLockerSetPlayerName("");
-		LootLockerSubmitScore(leaderboard_list_id,target_score);
+		LootLockerSubmitScore(leaderboard_list_id,0);
 		LootLockerSetPlayerName("");
 		
 
@@ -330,7 +330,10 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 	}
 	else
 	{
-		global.highlight_music_volume += (1-global.show_title_menu - global.highlight_music_volume)*0.05
+		if (global.tutorial_played > 0)
+		{
+			global.highlight_music_volume += (1-global.show_title_menu - global.highlight_music_volume)*0.05
+		}
 	}
 
 	if (play_highlight == 1 && instance_exists(obj_album_ui) && global.show_title_menu < 1)

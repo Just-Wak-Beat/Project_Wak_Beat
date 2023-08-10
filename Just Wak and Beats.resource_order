@@ -86,6 +86,7 @@
     {"name":"create_cylinder","order":9,"path":"scripts/create_cylinder/create_cylinder.yy",},
     {"name":"shelter_timeline","order":8,"path":"timelines/shelter_timeline/shelter_timeline.yy",},
     {"name":"dead_explosion","order":1,"path":"objects/dead_explosion/dead_explosion.yy",},
+    {"name":"show_nickname_setting","order":5,"path":"scripts/show_nickname_setting/show_nickname_setting.yy",},
     {"name":"obj_stage_clear","order":5,"path":"objects/obj_stage_clear/obj_stage_clear.yy",},
     {"name":"kinmoku_timeline","order":23,"path":"timelines/kinmoku_timeline/kinmoku_timeline.yy",},
     {"name":"load_musicList","order":2,"path":"scripts/load_musicList/load_musicList.yy",},

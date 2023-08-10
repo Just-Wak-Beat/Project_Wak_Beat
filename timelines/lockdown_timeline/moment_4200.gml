@@ -1,0 +1,9 @@
+global.lockdown_effect1 = 0
+global.lockdown_effect2 = 0
+global.lockdown_effect3 = 0
+global.lockdown_effect4 = 0
+global.lockdown_effect5 = 0
+lockdown_effect4_1 = 0
+lockdown_effect5_1 = 0
+lockdown_effect5_2 = 0
+lockdown_effect5_3 = 0

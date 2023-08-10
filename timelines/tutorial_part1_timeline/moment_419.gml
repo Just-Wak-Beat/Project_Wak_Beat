@@ -11,9 +11,3 @@ attack_ef.w_alpha = 10
 
 
 
-if !instance_exists(obj_stage_clear) && global.tutorial_n_stage = 0
-{
-instance_create_depth(global.c_w+128,room_height*0.5,obj_player.depth-1,obj_stage_clear)
-
-global.checkpoint_text = "'W' 아티팩트를 획득하여, 다음으로 넘어가기"
-}

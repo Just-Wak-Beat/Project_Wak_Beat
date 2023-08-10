@@ -88,7 +88,7 @@ else
 
 
 //경험치 증가
-var temp_exp = (global.detailed_difficulty[global.n_map_id]+1)*global.music_duration*0.003*convert_rank_to_num(global.n_rank_display)*(1.5 - global.t_selected_difficulty*0.5)+global.crossed_obstacle_num*50;
+var temp_exp = (global.detailed_difficulty[global.n_map_id])*global.music_duration*0.003*convert_rank_to_num(global.n_rank_display)*(1.5 - global.t_selected_difficulty*0.5)+global.crossed_obstacle_num*50;
 global.exp += temp_exp;
 global.exp_w_alpha = 1
 
@@ -113,7 +113,7 @@ if global.n_map_list != 2
 		
 		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id]))
 		{
-			LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
+			LootLockerSubmitScore("JWAB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
 
 			global.real_n_score[global.n_map_id] = temp_score
 			global.n_score = temp_score
@@ -128,11 +128,11 @@ if global.n_map_list != 2
 		
 		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.real_n_score_hardcore[global.n_map_id]))
 		{
-			LootLockerSubmitScore("JWAB_map"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
+			LootLockerSubmitScore("JWAB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
 
 
 			global.real_n_score_hardcore[global.n_map_id] = temp_score
-			global.n_score = temp_score
+			global.n_score_hardcore = temp_score
 		}
 	}
 
@@ -191,7 +191,7 @@ else
 		if (global.nickname != "" && global.n_map_list != 2 && (global.custom_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.custom_n_score_hardcore[global.n_map_id]))
 		{
 			global.custom_n_score_hardcore[global.n_map_id] = temp_score
-			global.n_score = temp_score
+			global.n_score_hardcore = temp_score
 		}
 		
 		if (converted_rank_to_num > convert_rank_to_num(global.custom_n_rank_hardcore[global.n_map_id]))

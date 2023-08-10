@@ -11,7 +11,3 @@ attack_ef.w_alpha = 10
 
 
 
-if !instance_exists(obj_stage_clear) && global.tutorial_n_stage = 1
-{
-instance_create_depth(global.c_w+128,room_height*0.5,obj_player.depth-1,obj_stage_clear)
-}

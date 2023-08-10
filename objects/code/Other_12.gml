@@ -37,9 +37,12 @@ if global.can_change_music_list == 1 && global.t_select_difficulty = 0
 			var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.94,depth,obj_button)
 			buttom_ui.button_id = 1
 			
-			//곡 리스타트 / 게임 종료
-			var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.053,depth,obj_button)
-			buttom_ui.button_id = 6
+			if (global.tutorial_played > 0)
+			{
+				//곡 리스타트 / 게임 종료
+				var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.053,depth,obj_button)
+				buttom_ui.button_id = 6
+			}
 	
 			//마스터 볼륨
 			var buttom_ui = instance_create_depth(xx+xx_w*0.5,yy+yy_h*0.15,depth,obj_button)
@@ -115,9 +118,12 @@ if global.can_change_music_list == 1 && global.t_select_difficulty = 0
 			buttom_ui.sprite_index = spr_square
 			buttom_ui.alarm[11] = 1
 			
-			//곡 리스타트 / 게임 종료
-			var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.053,depth,obj_button)
-			buttom_ui.button_id = 6
+			if (global.tutorial_played > 0)
+			{
+				//곡 리스타트 / 게임 종료
+				var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.053,depth,obj_button)
+				buttom_ui.button_id = 6
+			}
 			
 			window_set_cursor(cr_default)
 		}

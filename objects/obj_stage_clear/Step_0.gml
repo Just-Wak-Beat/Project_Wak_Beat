@@ -126,9 +126,16 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 			image_yscale = 0.25
 		}
 
-
-		speed += (t_speed - speed)*0.01
-		direction += (t_angle - direction)*0.01
+		if (global.tutorial_now > 0)
+		{
+			x += (global.c_w-200 - x)*0.05
+			y += (room_height*0.5 - y)*0.05
+		}
+		else
+		{
+			speed += (t_speed - speed)*0.01
+			direction += (t_angle - direction)*0.01
+		}
 		image_xscale += (0.2 - image_xscale)*0.1
 		image_yscale += (0.2 - image_yscale)*0.1
 		image_angle += (0 - image_angle)*0.03
@@ -151,6 +158,7 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 		gravity = 0.6
 		vspeed = -32
 		image_angle = 0
+		alarm[2] = 120
 
 		obj_player.x = room_width*0.5;
 		obj_player.y = room_height*0.5;
@@ -171,39 +179,5 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 			effect_.image_blend = color_sec
 		}
 	
-		if global.n_playing_tutorial = 1
-		{
-			global.tutorial_n_stage++
-	
-			if global.tutorial_n_stage = 1
-			{
-				global.background_color = $FF161510
-				audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
-				global.w_alpha = 1
-				instance_destroy()
-			}
-			else if global.tutorial_n_stage = 2
-			{
-				global.background_color = $FF331800
-				audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
-				global.w_alpha = 1
-				instance_destroy()
-			}
-			else if global.tutorial_n_stage = 3
-			{
-				global.background_color = $FF1E2620
-				audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
-				global.w_alpha = 1
-				instance_destroy()
-			}
-			else
-			{
-				event_user(0)
-			}
-		}
-		else
-		{
-			event_user(0)
-		}
-	
+		event_user(0)
 	}

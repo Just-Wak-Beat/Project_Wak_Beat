@@ -65,7 +65,7 @@ if global.n_playing_tutorial != 1 && global.show_rank = 0
 draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx,global.converted_view_ratio/2*(global.mobile_mode*0.5+1),0)
 
 
-if (music_title_alpha > 0)
+if (music_title_alpha > 0 && global.tutorial_played >= 0)
 {
 	//music title
 	if global.t_selected_difficulty == 0
@@ -86,18 +86,18 @@ if (music_title_alpha > 0)
 	draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7*global.font_ratio_resolution_xx,font_size*0.7,0)
 	draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85*global.font_ratio_resolution_xx,font_size*0.85,0)
 
-
-	var col_1 = merge_color(global.player_color,c_white,0.85)
-	draw_set_color(merge_color(global.player_color,c_white,0.85))
-	draw_set_alpha(music_title_alpha)
-	draw_line_width(xx+music_title_alpha*global.converted_view_ratio*780*font_size,yy-global.converted_view_ratio*128,xx+music_title_alpha*global.converted_view_ratio*320*font_size,yy+music_title_alpha*xx_w*font_size,global.converted_view_ratio*600*font_size)
-
-	draw_set_color(merge_color(col_1,c_black,0.2))
-	draw_set_alpha(music_title_alpha*0.3)
-	draw_line_width(xx+music_title_alpha*global.converted_view_ratio*1080*font_size,yy-global.converted_view_ratio*128,xx+music_title_alpha*global.converted_view_ratio*620*font_size,yy+music_title_alpha*xx_w*font_size,global.converted_view_ratio*300*font_size)
-
 	if global.n_player_skin > 0
 	{
+		var col_1 = merge_color(global.player_color,c_white,0.85)
+		draw_set_color(merge_color(global.player_color,c_white,0.85))
+		draw_set_alpha(music_title_alpha)
+		draw_line_width(xx+music_title_alpha*global.converted_view_ratio*780*font_size,yy-global.converted_view_ratio*128,xx+music_title_alpha*global.converted_view_ratio*320*font_size,yy+music_title_alpha*xx_w*font_size,global.converted_view_ratio*600*font_size)
+
+		draw_set_color(merge_color(col_1,c_black,0.2))
+		draw_set_alpha(music_title_alpha*0.3)
+		draw_line_width(xx+music_title_alpha*global.converted_view_ratio*1080*font_size,yy-global.converted_view_ratio*128,xx+music_title_alpha*global.converted_view_ratio*620*font_size,yy+music_title_alpha*xx_w*font_size,global.converted_view_ratio*300*font_size)
+
+
 		draw_sprite_ext(spr_illustrationCG,global.n_player_skin,xx+music_title_alpha*global.converted_view_ratio*430*font_size,yy+yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,c_white,music_title_alpha)
 	}
 }
@@ -629,7 +629,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	}
 }
 
-if global.rank_display_alpha > 0
+if (global.rank_display_alpha > 0 && global.tutorial_played > 0)
 {
 	var temp_col = merge_color(c_white,#bf1a5c,global.rank_display_r_alpha)
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+global.rank_display_r_alpha*0.5)
@@ -664,8 +664,26 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 
 	if (global.n_setting_button = 9999 || global.n_setting_button = -4) && keyboard_check(vk_space)
 	{
-		global.back_to_game++
 		global.n_setting_button = 9999
+		if (global.tutorial_played > 0)
+		{
+			global.back_to_game++
+		}
+		else
+		{
+			global.sync_setting = 0
+			global.cannot_control = 0
+			instance_destroy(obj_button)
+			save_and_load_data(0,0)
+			global.n_setting_button = -4
+			
+			//일시정지 효과 해제
+			if (global.paused == 1)
+			{
+				global.paused = -1;
+			}
+			global.back_to_game = 0
+		}
 	}
 	
 	if keyboard_check_released(vk_space)
@@ -698,7 +716,10 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	draw_text_k_scale(xx+xx_w-64,yy+yy_h*(0.85-global.mobile_mode*0.03),"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.885,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 	
-	draw_text_k_scale(xx+170,yy+yy_h*0.03,"곡 리스타트",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	if (global.tutorial_played > 0)
+	{
+		draw_text_k_scale(xx+170,yy+yy_h*0.03,"곡 리스타트",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	}
 }
 
 

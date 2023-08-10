@@ -17,15 +17,16 @@ touched = 0
 rank_alpha = 1
 once_in = 0
 
+
 spin_rad = 0
 for(var i = 6; i < 32; i++)
 {
-xx[i] = lengthdir_x(66,spin_rad)
-yy[i] = lengthdir_y(66,spin_rad)
+	xx[i] = lengthdir_x(66,spin_rad)
+	yy[i] = lengthdir_y(66,spin_rad)
 
-xx2[i] = lengthdir_x(82,spin_rad)
-yy2[i] = lengthdir_y(82,spin_rad)
+	xx2[i] = lengthdir_x(82,spin_rad)
+	yy2[i] = lengthdir_y(82,spin_rad)
 
-xx3[i] = lengthdir_x(82,spin_rad)
-yy3[i] = lengthdir_y(82,spin_rad)
+	xx3[i] = lengthdir_x(82,spin_rad)
+	yy3[i] = lengthdir_y(82,spin_rad)
 }
