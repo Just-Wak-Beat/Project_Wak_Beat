@@ -16,6 +16,7 @@ image_yscale = 0.2
 touched = 0
 rank_alpha = 1
 once_in = 0
+timer_del = 0
 
 
 spin_rad = 0

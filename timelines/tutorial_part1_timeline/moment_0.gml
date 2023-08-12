@@ -1,6 +1,6 @@
 global.savepoint_text_t_alpha = 1
 
-if global.checkpoint_text != "'W' 아티팩트를 획득하여, 다음으로 넘어가기"
+if (!instance_exists(obj_stage_clear))
 {
 	global.checkpoint_text = "리듬에 맞춰 등장하는 탄막을 피하기"
 }

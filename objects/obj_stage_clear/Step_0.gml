@@ -75,30 +75,8 @@ timer ++
 		t_speed -= 0.001
 	}
 
-	if outside_timer > 360
-	{
-		instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),obj_player.depth-1,obj_stage_clear)
-		instance_destroy()
-	}
 
 
-var xx__ = camera_get_view_x(view_camera[0])
-var yy__ = camera_get_view_y(view_camera[0])
-
-var xx_w__ = camera_get_view_width(view_camera[0])
-var yy_h__ = camera_get_view_height(view_camera[0])
-
-	if x < xx__+16 || x > xx__+xx_w__-16 || y > yy__+yy_h__-16 || y < yy__+16
-	{
-		outside_timer ++
-	}
-	else
-	{
-		if outside_timer > 0
-		{
-			outside_timer --
-		}
-	}
 
 	if (touched == 0)
 	{
@@ -128,8 +106,9 @@ var yy_h__ = camera_get_view_height(view_camera[0])
 
 		if (global.tutorial_now > 0)
 		{
-			x += (global.c_w-200 - x)*0.05
+			timer_del += (instance_exists(hitbox_parents)) ? 1 : 0;
 			y += (room_height*0.5 - y)*0.05
+			x += (global.c_w-200 - x)*0.05
 		}
 		else
 		{

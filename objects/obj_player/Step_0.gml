@@ -267,3 +267,17 @@ if (global.paused == 0)
 		}
 	}
 }
+
+
+if (global.tutorial_played <= 0 && (global.hmove_speed > 2 || global.vmove_speed > 2))
+{
+	if (global.checkpoint_text == "왼쪽 화면을 터치해 조이스틱으로 이동하기" || global.checkpoint_text == "방향키를 눌러 이동하기")
+	{
+		tutorial_mes ++;
+		if (tutorial_mes > 120)
+		{
+			global.checkpoint_text = "'W' 아티팩트를 획득하여, 다음으로 넘어가기";
+			tutorial_mes = 0;
+		}
+	}
+}

@@ -844,14 +844,14 @@ if (global.show_title_menu != 0)
 }
 
 
-if (global.tutorial_played <= 0 && (global.title_menu_animation1 == -1 || global.title_menu_animation1 >= 2))
+if (global.tutorial_played <= 0 && blind_xx_final > 0.99)
 {
-	if (global.tutorial_played > -100)
+	if (global.tutorial_played > -160)
 	{
 		global.tutorial_played -= 0.2;
 	}
 	draw_set_color(c_black)
-	draw_set_alpha(100+global.tutorial_played)
+	draw_set_alpha(160+global.tutorial_played)
 	draw_rectangle(xx,yy,xx+xx_w,yy+yy_h,false)
 }
 
