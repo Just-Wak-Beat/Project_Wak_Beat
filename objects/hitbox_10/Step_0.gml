@@ -18,11 +18,24 @@ if audio_is_playing(ipad)
 	{
 		for(var i = -2; i <= 2; i++)
 		{
-			show_debug_message("created")
-			create_cylinder(x+i*68,global.c_h-8*abs(vspeed)*(1+abs(i)),depth+15,0.5,1,64,270,0)
+			show_debug_message("created");
+			create_cylinder(x+i*68,global.c_h-8*abs(vspeed)*(1+abs(i)),depth+15,0.5,1,64,270,0);
+		}
+		
+		repeat(irandom_range(8,12))
+		{
+			var attack_ef = instance_create_depth(x,y+128+irandom_range(-64,64),obj_player.depth+15,hitbox_2);
+			attack_ef.sprite_index = spr_circle;
+			attack_ef.keep_spin_angle = irandom_range(-2,2);
+			attack_ef.image_xscale = 0.04;
+			attack_ef.image_yscale = 0.04;
+			attack_ef.w_alpha = 10;
+			attack_ef.gravity = 1;
+			attack_ef.vspeed = -vspeed*0.8+irandom_range(-5,5);
+			attack_ef.hspeed = irandom_range(-25,25)/2;
 		}
 	
-		instance_destroy()
+		instance_destroy();
 	}
 }
 
@@ -127,8 +140,8 @@ timer__ ++
 
 if audio_is_playing(gungsirung)
 {
-w_alpha += 1/60
-timer__ ++
+	w_alpha += 1/60
+	timer__ ++
 	if timer__ > 60
 	{
 		var _shaking_circle = create_explo_circle(x,y,1,60,2,0,2*image_xscale,0,0,0)
@@ -136,14 +149,14 @@ timer__ ++
 		
 		for(var i = 0; i < 360; i += 60)
 		{
-		var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
-		attack_ef.direction = i+image_angle
-		attack_ef.speed = 24
-		attack_ef.keep_spin_angle = 2
-		attack_ef.image_xscale = 0.04
-		attack_ef.image_yscale = 0.04
-		attack_ef.w_alpha = 10
-		attack_ef.sprite_index = spr_triangle
+			var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
+			attack_ef.direction = i+image_angle
+			attack_ef.speed = 24
+			attack_ef.keep_spin_angle = 2
+			attack_ef.image_xscale = 0.12
+			attack_ef.image_yscale = 0.12
+			attack_ef.w_alpha = 10
+			attack_ef.sprite_index = spr_triangle
 		}
 		
 		var _ef = instance_create_depth(x,y,depth+1,explosion_effect)

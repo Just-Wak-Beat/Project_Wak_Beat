@@ -24,15 +24,30 @@ if (gamestart == 1.1)
 
 
 //레벨 시스템
-if (global.ui_alpha >= 1)
+if (global.ui_alpha >= 1 && instance_exists(obj_album_ui) && global.show_new_songs <= 0)
 {
-	if (global.exp > global.max_exp && global.exp_for_draw >= global.max_exp)
+	if (global.exp > global.max_exp && abs(global.exp_for_draw-global.max_exp) <= 2)
 	{
 		global.level++;
 		global.exp -= global.max_exp;
 		global.exp_for_draw = 0;
 		global.exp_w_alpha = 1;
 		global.max_exp += 10;
+		
+		if (global.level == 1)
+		{
+			show_guide("파트너 시스템");
+		}
+		
+		if (global.level == 3)
+		{
+			show_guide("보스 배틀 스테이지");
+		}
+		
+		if (global.level == 6)
+		{
+			show_guide("고정 하드코어 스테이지");
+		}
 	}
 	
 	global.exp_for_draw += (global.exp - global.exp_for_draw)*0.1;

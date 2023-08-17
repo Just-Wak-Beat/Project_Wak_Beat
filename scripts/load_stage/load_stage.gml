@@ -30,8 +30,15 @@ function load_stage(argument0,argument1,argument2,argument3,argument4,argument5)
 	
 	
 	//hardcore 태그가 붙은 곡은 자동 난이도 설정
-	if instance_exists(code) && string_pos("(Hardcore)", global.stage_map_difficulty[code.n_stage]) != 0
+	if instance_exists(code)
 	{
-		global.t_selected_difficulty = 0;
+		if (string_pos("(Hardcore)", global.stage_map_difficulty[code.n_stage]) != 0)
+		{
+			global.t_selected_difficulty = 0;
+		}
+		else if (string_pos("(Boss)", global.stage_map_difficulty[code.n_stage]) != 0)
+		{
+			global.t_selected_difficulty = 1;
+		}
 	}
 }

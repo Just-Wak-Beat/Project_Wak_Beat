@@ -1,8 +1,8 @@
 
-if global.t_selected_difficulty = 1
+if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {
-global.savepoint_position[0] = 1680
-global.savepoint_color[0] = #fbd780
+	global.savepoint_position[0] = 1680
+	global.savepoint_color[0] = #fbd780
 }
 
 

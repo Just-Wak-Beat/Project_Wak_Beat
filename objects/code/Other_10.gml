@@ -71,6 +71,7 @@ global.lockdown_effect5 = 0
 lockdown_effect4_1 = 0
 lockdown_effect5_1 = 0
 lockdown_effect5_2 = 0
+total_stack_direction_plusment = 0
 lockdown_effect5_3 = 0
 global.hmove_speed = 0
 global.vmove_speed = 0

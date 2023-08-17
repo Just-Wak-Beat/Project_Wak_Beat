@@ -19,6 +19,7 @@ global.overtime_highlight_song = 1;
 global.show_credit = 1;
 global.beta_tester = 0;
 global.tutorial_played = 0;
+global.boss_battle = 0
 
 //닉네임 강제 초기화는 b_force_wipe_nickname 값을 수정하면 가능
 b_force_wipe_nickname = 0
@@ -101,6 +102,7 @@ automatic_loading_cancel = 0
 
 global.notice_title = ""
 global.notice_title_sub = ""
+global.saved_notice_title = ""
 global.show_rank = 0
 global.artifact_type = 0
 global.show_music_title = 0
@@ -387,7 +389,7 @@ global.bamguy_effect = 0
 //왁리오
 global.real_stage_map_name[3] = "왁리오 (Wak'Lio)";
 global.real_stage_map_artist[3] = "Team Pangenie (아버 편곡)";
-global.real_stage_map_difficulty[3] = "Expert";
+global.real_stage_map_difficulty[3] = "Expert (Boss)";
 global.real_stage_map_color[3] = #415c84;
 global.real_stage_map_duration[3] = 4482;
 global.real_stage_map_audio_name[3] = "wakrio";
@@ -502,7 +504,7 @@ phony_y_timer = 0
 //융터르
 global.real_stage_map_name[10] = "융터르";
 global.real_stage_map_artist[10] = "CLTH";
-global.real_stage_map_difficulty[10] = "Expert";
+global.real_stage_map_difficulty[10] = "Expert (Boss)";
 global.real_stage_map_color[10] = c_black
 global.real_stage_map_duration[10] = 4749;
 global.real_stage_map_audio_name[10] = "Yoong";
@@ -591,7 +593,7 @@ global.real_requirement_level[14] = 6;
 //매스터 리믹스
 global.real_stage_map_name[15] = "매스터 리믹스 (Orchestral Edit)";
 global.real_stage_map_artist[15] = "Team Pangenie";
-global.real_stage_map_difficulty[15] = "Expert";
+global.real_stage_map_difficulty[15] = "Expert (Boss)";
 global.real_stage_map_color[15] = #333d4b;
 global.real_stage_map_duration[15] = 7291;
 global.real_stage_map_audio_name[15] = "master_remix";
@@ -702,7 +704,7 @@ global.real_requirement_level[20] = 9999;
 //락다운
 global.real_stage_map_name[21] = "Lockdown (락다운)";
 global.real_stage_map_artist[21] = "Remix by Mitsutoki";
-global.real_stage_map_difficulty[21] = "Experts";
+global.real_stage_map_difficulty[21] = "Experts (Boss)";
 global.real_stage_map_color[21] = c_black;
 global.real_stage_map_duration[21] = 4530;
 global.real_stage_map_audio_name[21] = "lockdown";
@@ -721,6 +723,10 @@ lockdown_effect5_1 = 0
 lockdown_effect5_2 = 0
 lockdown_effect5_3 = 0
 pipe_ef = -4
+pipe_target_angle = irandom_range(-40,40);
+b_direction_plusment = 0
+total_stack_direction_plusment = 0
+
 
 
 

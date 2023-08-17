@@ -1,7 +1,7 @@
-if global.t_selected_difficulty = 1
+if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {
-global.savepoint_position[0] = 2160
-global.savepoint_color[0] = c_black
+	global.savepoint_position[0] = 2160
+	global.savepoint_color[0] = c_black
 }
 global.artifact_type = 0
 

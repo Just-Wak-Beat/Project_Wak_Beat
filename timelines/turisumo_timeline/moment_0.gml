@@ -9,13 +9,13 @@ global.turisumo_effect_2 = 0
 global.turisumo_effect_3 = 0
 instance_destroy(hitbox_parents)
 
-if global.t_selected_difficulty = 1
+if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {
-global.savepoint_position[0] = 1800
-global.savepoint_color[0] = #1a1a30
+	global.savepoint_position[0] = 1800
+	global.savepoint_color[0] = #1a1a30
 
-global.savepoint_position[1] = 3900
-global.savepoint_color[1] = #1a1a30
+	global.savepoint_position[1] = 3900
+	global.savepoint_color[1] = #1a1a30
 }
 
 

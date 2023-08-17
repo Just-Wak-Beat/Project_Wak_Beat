@@ -80,13 +80,13 @@ draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level 
 
 
 //환경설정 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+450,"Setting"+((global.mobile_mode == 1) ? "" : "\n[ESC]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+450,"환경설정"+((global.mobile_mode == 1) ? "" : "\n[ESC]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
 
 //캐릭터 변경 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+700,"Character"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+700,"파트너"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
@@ -99,7 +99,7 @@ if (global.n_map_list != 2)
 	
 	if (global.n_map_id >= 0 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial")
 	{
-		draw_text_k_scale(global.c_x+104,global.c_y+1210,"Ranking"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+		draw_text_k_scale(global.c_x+104,global.c_y+1210,"온라인랭킹"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 		draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+1170+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 		draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+1170,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 	}
@@ -435,7 +435,7 @@ if instance_exists(code)
 		var __alpha = global.b_alpha/0.9
 		draw_set_color(c_white)
 		draw_line_width(middle_xx-(__alpha)*150,yy+yy_h*0.2,middle_xx+(__alpha)*150,yy+yy_h*0.2,5)
-		draw_text_k_scale(middle_xx,yy+yy_h*0.1,"Character",scale*48,-1,__alpha,c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
+		draw_text_k_scale(middle_xx,yy+yy_h*0.1,"파트너",scale*48,-1,__alpha,c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
 		
 		global.n_select_skin += (global.t_n_select_skin - global.n_select_skin)*0.1
 		for(var i = 0; i < 21; i++)
@@ -775,6 +775,16 @@ if instance_exists(code)
 			}
 			global.show_new_songs += (100 - global.show_new_songs)*0.1
 		}
+		
+		
+		if (global.saved_notice_title == "파트너 시스템")
+		{
+			draw_sprite_ext(spr_W,global.player_skin,global.c_x+100+320*(global.show_new_songs/100),global.c_y+660+16,0.17*global.font_ratio_resolution_xx*(global.show_new_songs/50),0.17*(global.show_new_songs/50),0,c_black,0.3*ui_alpha__cal)
+			draw_sprite_ext(spr_W,global.player_skin,global.c_x+100+320*(global.show_new_songs/100),global.c_y+660,0.17*global.font_ratio_resolution_xx*(global.show_new_songs/50),0.17*(global.show_new_songs/50),0,c_white,ui_alpha__cal)
+			
+			draw_text_k_scale(global.c_x+104+320*(global.show_new_songs/100),global.c_y+700+64*(global.show_new_songs/100),"파트너"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx*(global.show_new_songs/50),0.5*(global.show_new_songs/50),0)
+		}
+
 	}
 	else
 	{
@@ -788,6 +798,7 @@ if instance_exists(code)
 		}
 	}
 }
+
 
 
 

@@ -217,7 +217,7 @@ function load_musicList(argument0)
 			show_debug_message(global.unlocked_music_name[i])
 		}
 	
-		if (check_new_song > 0 || (global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 0))
+		if (check_new_song > 0)
 		{
 			//신 스킨 획득 메시지 출력
 		//	if (global.acquired_skin >= 0 && global.unlocked_player_skin[global.acquired_skin] == 0)

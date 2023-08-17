@@ -56,6 +56,7 @@
   "resources": [
     {"id":{"name":"spr_circle_cylinder","path":"sprites/spr_circle_cylinder/spr_circle_cylinder.yy",},},
     {"id":{"name":"tutorial_part4_timeline","path":"timelines/tutorial_part4_timeline/tutorial_part4_timeline.yy",},},
+    {"id":{"name":"spr_circle_dot_outline","path":"sprites/spr_circle_dot_outline/spr_circle_dot_outline.yy",},},
     {"id":{"name":"lockdown","path":"sounds/lockdown/lockdown.yy",},},
     {"id":{"name":"glow_sfx","path":"sounds/glow_sfx/glow_sfx.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
@@ -143,6 +144,7 @@
     {"id":{"name":"tutorial_part2_timeline","path":"timelines/tutorial_part2_timeline/tutorial_part2_timeline.yy",},},
     {"id":{"name":"Sprite5556","path":"sprites/Sprite5556/Sprite5556.yy",},},
     {"id":{"name":"hit_sfx","path":"sounds/hit_sfx/hit_sfx.yy",},},
+    {"id":{"name":"show_guide","path":"scripts/show_guide/show_guide.yy",},},
     {"id":{"name":"spr_spot_light","path":"sprites/spr_spot_light/spr_spot_light.yy",},},
     {"id":{"name":"spr_rewind_clock","path":"sprites/spr_rewind_clock/spr_rewind_clock.yy",},},
     {"id":{"name":"show_rank_sfx","path":"sounds/show_rank_sfx/show_rank_sfx.yy",},},

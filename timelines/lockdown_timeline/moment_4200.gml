@@ -7,3 +7,11 @@ lockdown_effect4_1 = 0
 lockdown_effect5_1 = 0
 lockdown_effect5_2 = 0
 lockdown_effect5_3 = 0
+
+with(hitbox_3)
+{
+	if (object_index == hitbox_3 && target_time == 9999)
+	{
+		instance_destroy()
+	}
+}

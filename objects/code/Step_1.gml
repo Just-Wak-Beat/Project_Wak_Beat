@@ -97,6 +97,87 @@ if (automatic_reload_leaderboard > 0)
 }
 
 
+//가이드 메시지
+if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
+{
+	global.t_b_alpha = -0.01;
+	global.t_new_song_scroll = 0;
+	global.new_song_scroll = 0;
+	global.show_new_songs = 1;
+	
+	var check_new_song = 0;
+	if (global.saved_notice_title == "조작법 가이드")
+	{
+		global.unlocked_music_name_new_list[check_new_song] = (global.mobile_mode == 0) ? "키보드 방향키 - 선택" : "화면 스크롤 - 선택";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	
+		global.unlocked_music_name_new_list[check_new_song] = (global.mobile_mode == 0) ? "Enter혹은 Space - 확인" : "화면 터치 - 확인";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	}
+	else if (global.saved_notice_title == "파트너 시스템")
+	{
+		global.unlocked_music_name_new_list[check_new_song] = "스테이지를 클리어하게 되면 얻게되는 '아티팩트'를 소모하여";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	
+		global.unlocked_music_name_new_list[check_new_song] = "메인메뉴 좌측 있는 '파트너'탭에서 왁타버스 멤버를 해금할 수 있습니다";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+		
+		global.unlocked_music_name_new_list[check_new_song] = "해금된 멤버는 파트너로 합류하며, 파트너 장착시 특수 효과를 얻을 수 있습니다";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+		
+		global.unlocked_music_name_new_list[check_new_song] = "(이때, 각 파트너들은 해금 전엔 능력을 미리 볼 수 없습니다)";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	}
+	else if (global.saved_notice_title == "고정 하드코어 스테이지")
+	{
+		global.unlocked_music_name_new_list[check_new_song] = "고정 하드코어 스테이지는 난이도 옆에 '(Hardcore)'태그가 붙은 곡을 의미합니다.";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	
+		global.unlocked_music_name_new_list[check_new_song] = "이러한 곡들은 하드코어 모드로만 플레이 가능합니다.";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	}
+	else if (global.saved_notice_title == "보스 배틀 스테이지")
+	{
+		global.unlocked_music_name_new_list[check_new_song] = "보스 배틀 스테이지는 난이도 옆에 '(Boss)'태그가 붙은 곡을 의미합니다.";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	
+		global.unlocked_music_name_new_list[check_new_song] = "이러한 곡들은 최초 클리어 전까진 세이브 포인트가 없는 노멀 모드가 적용되며";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+		
+		global.unlocked_music_name_new_list[check_new_song] = "최초 클리어 이후, 세이브 포인트가 존재하는 노멀 모드와 하드코어 모드를 선택할 수 있습니다.";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	}
+	
+	for(var i = 0; i < check_new_song; i++)
+	{
+		global.unlocked_music_name_new_list_rightside[i] = "";
+		global.unlocked_music_name_new_list_color_rightside[i] = c_white;
+	}
+	
+	global.notice_title = global.saved_notice_title;
+	
+	global.new_unlocked_map_num = check_new_song;
+	global.can_show_guide_mes = -1;
+}
+
+
+
+
+
+
+
+
 if (global.random_seed >= 0)
 {
 	global.random_seed++;

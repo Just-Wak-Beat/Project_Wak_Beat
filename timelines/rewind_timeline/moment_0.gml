@@ -4,13 +4,13 @@ global.background_color = #424650
 global.artifact_type = irandom_range(1,6)
 
 global.map_color = #d892a6
-if global.t_selected_difficulty = 1
+if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {
-global.savepoint_position[0] = 4080
-global.savepoint_color[0] = #424650
+	global.savepoint_position[0] = 4080
+	global.savepoint_color[0] = #424650
 
-global.savepoint_position[1] = 5760
-global.savepoint_color[1] = #424650
+	global.savepoint_position[1] = 5760
+	global.savepoint_color[1] = #424650
 }
 
 

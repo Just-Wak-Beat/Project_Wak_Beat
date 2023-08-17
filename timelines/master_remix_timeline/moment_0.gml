@@ -3,10 +3,10 @@ global.artifact_type = 0
 global.map_color = #333d4b
 global.background_color = #4c515c
 
-if global.t_selected_difficulty = 1
+if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {
-global.savepoint_position[0] = 1669
-global.savepoint_position[1] = 3528
+	global.savepoint_position[0] = 1669
+	global.savepoint_position[1] = 3528
 }
 
 global.t_bg_color = 0.3

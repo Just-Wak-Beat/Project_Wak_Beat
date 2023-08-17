@@ -35,34 +35,45 @@ if (target_time != 9999)
 		{
 			image_xscale += saved_xscale/target_time
 		}
-		
-		if variable_instance_exists(id,"auto_angle")
+	}
+}
+
+if variable_instance_exists(id,"auto_angle")
+{
+	x = auto_angle.x;
+	y = auto_angle.y;
+	image_angle = auto_angle.image_angle+auto_angle_plusment;
+	if (audio_is_playing(lockdown))
+	{
+		if (saved_xscale == 2.5)
 		{
-			x = auto_angle.x;
-			y = auto_angle.y;
-			image_angle = auto_angle.direction+auto_angle_plusment;;
+			image_xscale = saved_xscale*auto_angle.image_xscale
+		}
+		else
+		{
+			image_xscale = 0;
 		}
 	}
 }
 
-if warning_timer = round(target_time-1)
+if (warning_timer == round(target_time-1))
 {
 	image_yscale = draw_reloading_anime
 	draw_reloading_anime = 0
 }
 
-if warning_timer >= round(target_time)
+if (warning_timer >= round(target_time))
 {
 	image_angle += auto_spin
 	image_yscale += ((distance+32)/64 - image_yscale)*0.5
-	if des = 0
+	if (des == 0)
 	{
 		image_alpha = 1
 		image_xscale = saved_xscale
 
-		if image_yscale >= distance/64
+		if (image_yscale >= distance/64)
 		{
-			if shake_scale > 0
+			if (shake_scale > 0)
 			{
 				var shake_dir_temp = shake_dir;
 				if (image_angle == 0 || image_angle == 180)

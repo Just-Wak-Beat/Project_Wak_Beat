@@ -68,10 +68,15 @@ draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoi
 if (music_title_alpha > 0 && global.tutorial_played >= 0)
 {
 	//music title
-	if global.t_selected_difficulty == 0
+	if (global.t_selected_difficulty == 0)
 	{
 		draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*640*font_size,"Hardcore",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
 	}
+	else if (global.boss_battle == 1)
+	{
+		draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*640*font_size,"Boss",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
+	}
+	
 
 	draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*608*font_size,global.n_music_title,64,-1,music_title_alpha*0.3,c_black,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
 	draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*600*font_size,global.n_music_title,64,-1,music_title_alpha,$FFBACDDB,0,1,normal_font,font_size*2*global.font_ratio_resolution_xx,font_size*2,0)
@@ -533,19 +538,28 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		//스테이지 선택완료 - 난이도 선택창 (게임 시작)
 		if (global.show_new_songs <= 0 && global.t_b_alpha != -0.02 && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1 && global.level >= global.requirement_level[n_stage] && go_play)
 		{
-			if (global.real_stage_map_difficulty[global.n_map_id] == "Tutorial")
+			if (global.real_stage_map_difficulty[global.n_map_id] == "Tutorial" || (string_pos("(Boss)", global.stage_map_difficulty[global.n_map_id]) != 0 && global.n_score[global.n_map_id] == "--"))
 			{
 				gamestart = 1;
 				window_set_cursor(cr_none)
 				global.t_selected_difficulty = 1;
 				audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+				if (string_pos("(Boss)", global.stage_map_difficulty[global.n_map_id]) != 0 && global.n_score[global.n_map_id] == "--")
+				{
+					global.boss_battle = 1;
+				}
+				else
+				{
+					global.boss_battle = 0;
+				}
 			}
-			else if string_pos("(Hardcore)", global.stage_map_difficulty[global.n_map_id]) != 0
+			else if (string_pos("(Hardcore)", global.stage_map_difficulty[global.n_map_id]) != 0)
 			{
 				gamestart = 1;
 				window_set_cursor(cr_none)
 				global.t_selected_difficulty = 0;
 				audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2)
+				global.boss_battle = 0;
 			}
 			else
 			{
@@ -554,6 +568,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 				global.selected_difficulty = 0.5
 				global.t_select_difficulty = 1
 				audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+				global.boss_battle = 0;
 			}
 		}
 	

@@ -2,11 +2,12 @@
 // You can write your code in this editor
 
 
-if (global.show_credit > 1)
+
+if (keyboard_check(vk_anykey))
 {
 	if (credit_text_alpha <= 0)
 	{
-		if (keyboard_check(vk_anykey))
+		if (global.show_credit > 1)
 		{
 			credit_text_alpha2 = 1;
 			credit_text_alpha3 = 1;
@@ -16,7 +17,16 @@ if (global.show_credit > 1)
 			alarm[11] = 35;
 		}
 	}
+	else
+	{
+		if (global.show_credit <= 1)
+		{
+			credit_text_alpha = 1;
+			global.show_credit = 2;
+		}
+	}
 }
+
 
 
 if (global.show_credit == 1)

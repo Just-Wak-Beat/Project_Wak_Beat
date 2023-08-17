@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-if (global.show_credit == 1)
-{
-	global.show_credit = 2
-}
+
+
+image_xscale = saved_xscale
+image_alpha = 0.35
+image_yscale = distance

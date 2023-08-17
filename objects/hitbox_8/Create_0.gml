@@ -11,3 +11,5 @@ lockdown_effect = 0
 
 direction = 360*6
 image_angle = 360*6
+
+t_direction_plusment = 0

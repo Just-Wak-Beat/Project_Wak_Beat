@@ -21,3 +21,5 @@ view_shake_yy = 0
 global.camera_slow_zoom = 0
 global.n_camera_zoom = 1
 global.converted_view_ratio = 1
+
+global.can_show_guide_mes = 0

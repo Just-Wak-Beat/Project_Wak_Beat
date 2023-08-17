@@ -12,7 +12,7 @@ if global.dev_mode = 1
 	}
 	else if (keyboard_check_pressed(ord("Y")))
 	{
-		global.level++;
+		global.exp = global.max_exp+1;
 	}
 	else if (keyboard_check_pressed(ord("F")))
 	{

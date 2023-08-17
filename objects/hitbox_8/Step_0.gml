@@ -8,7 +8,22 @@ if (t_x == -4)
 	image_xscale += (t_y.t_scale - image_xscale)*0.1
 	image_yscale += (t_y.t_scale - image_yscale)*0.1
 	
-	image_angle += (direction - image_angle)*0.133
+	if (audio_is_playing(lockdown))
+	{
+		if (t_direction_plusment != 0)
+		{
+			image_angle += t_direction_plusment;
+			direction += t_direction_plusment;
+		}
+		else
+		{
+			image_angle += (direction - image_angle)*0.1
+		}
+	}
+	else
+	{
+		image_angle += (direction - image_angle)*0.133
+	}
 }
 else
 {
@@ -52,9 +67,5 @@ if (sprite_index == spr_circle_spike)
 		}
 		t_scale += 0.0002;
 		image_angle += 5/t_scale;
-	}
-	else
-	{
-		image_angle += (direction - image_angle)*0.1
 	}
 }

@@ -796,21 +796,21 @@
 					if (_random_sel_xy_ == 0)
 					{
 						var random_x = irandom_range(global.c_x,global.c_w)
-						var random_y = global.c_y
+						var random_y = global.c_y-320
 					}
 					else if (_random_sel_xy_ == 1)
 					{
-						var random_x = global.c_w
+						var random_x = global.c_w+320
 						var random_y = irandom_range(global.c_y,global.c_h)
 					}
 					else if (_random_sel_xy_ == 2)
 					{
 						var random_x = irandom_range(global.c_x,global.c_w)
-						var random_y = global.c_h
+						var random_y = global.c_h+320
 					}
 					else
 					{
-						var random_x = global.c_x
+						var random_x = global.c_x-320
 						var random_y = irandom_range(global.c_y,global.c_h)
 					}
 					var attack_ef = instance_create_depth(random_x,random_y,hitbox_8.depth+1,hitbox_2);
@@ -913,7 +913,19 @@
 				{
 					if (lockdown_effect4_1 == 0)
 					{
-						pipe_ef.direction = irandom_range(-40,40);
+						var tmp_val = irandom_range(-1,1);
+						pipe_ef.t_direction_plusment = tmp_val;
+						b_direction_plusment = tmp_val;
+						if (b_direction_plusment == t_direction_plusment)
+						{
+							total_stack_direction_plusment ++;
+						}
+						if (total_stack_direction_plusment > 2)
+						{
+							pipe_ef.t_direction_plusment *= -1;
+							b_direction_plusment *= -1;
+							total_stack_direction_plusment = 0
+						}
 						lockdown_effect4_1 = 4;
 					}
 				}
@@ -937,6 +949,7 @@
 				}
 				else if (global.lockdown_effect4 == 2)
 				{
+					pipe_ef.t_direction_plusment = 0;
 					global.lockdown_effect2 = 1;
 					if (global.map_speed_y <= 1)
 					{
@@ -958,7 +971,7 @@
 					{
 						var attack_ef = instance_create_depth(spike_ef.x,spike_ef.y,depth+1,hitbox_6)
 						attack_ef.direction = i
-						attack_ef.speed = 24+global.map_speed_y*0.7
+						attack_ef.speed = 24+global.map_speed_y*0.84
 						attack_ef.keep_spin_angle = 2
 						attack_ef.image_xscale = 0.2*0.3
 						attack_ef.image_yscale = 0.2*0.3

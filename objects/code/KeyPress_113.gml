@@ -22,7 +22,10 @@ if global.dev_mode = 1
 		global.real_n_rank_hardcore[i] = "--";
 		global.n_artifact[i] = "X";
 		global.real_n_artifact[i] = "X";
-	
+		global.n_score[i] = "--";
+		global.n_score_hardcore[i] = "--";
+		global.real_n_score[i] = "--";
+		global.real_n_score_hardcore[i] = "--";
 
 		global.b_unlocked_music_name[i] = "";
 		global.new_unlocked_map_num = 0
