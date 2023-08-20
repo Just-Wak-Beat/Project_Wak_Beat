@@ -21,6 +21,12 @@ if warning_timer%10 = 0 && abs(warning_timer - target_time) < 120
 
 if warning_timer = target_time
 {
+	var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
+	_ef.image_xscale = 1
+	_ef.image_yscale = 1
+	_ef.t_scale = 2
+	_ef.image_blend = c_white
+		
 	view_shake(0.1,shake_scale,3,shake_dir)
 	w_alpha = 0.3
 	if global.n_music_name = "wakrio" && global.n_progress >= 2930
@@ -34,14 +40,6 @@ if warning_timer = target_time
 			attack_ef.image_xscale = 0.2*t_scale
 			attack_ef.image_yscale = 0.2*t_scale
 			attack_ef.w_alpha = 10
-		}
-		
-		if instance_exists(hitbox_8)
-		{
-			hitbox_8.w_alpha = 1
-			//hitbox_8.image_xscale = 0.8
-			hitbox_8.image_yscale = 0.8
-			global.w_alpha = 0.15
 		}
 	}
 	else
@@ -73,7 +71,7 @@ if warning_timer = target_time
 			}
 		}
 	}
-instance_destroy()
+	instance_destroy()
 }
 
 
@@ -83,8 +81,8 @@ image_yscale += (t_scale - image_yscale)*0.2
 
 if t_x != -4
 {
-x += (t_x - x)*0.15
-y += (t_y - y)*0.15
+	x += (t_x - x)*0.15
+	y += (t_y - y)*0.15
 }
 
 

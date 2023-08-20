@@ -10,4 +10,6 @@ attack_ef.image_yscale = 0.4
 attack_ef.w_alpha = 10
 }
 
+
+
 global.w_alpha = 1

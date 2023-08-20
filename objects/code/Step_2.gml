@@ -133,15 +133,15 @@
 		if global.bamguy_effect > 0
 		{
 			master_bpm_timer ++
-			if master_bpm_timer >= (4*3600/global.bpm)+global.music_sync_offset*3*60
+			if master_bpm_timer >= (3600/global.bpm)*2+global.music_sync_offset*3*60
 			{
-				for(var i = 0; i < 5; i++)
+				for(var i = 0; i <= 9; i++)
 				{
-					var ins_spike = create_cylinder(global.c_x+256,global.c_y-128+i*256,code.depth,0.5,1,256,180,270)
+					var ins_spike = create_cylinder(global.c_x,global.c_y-128+i*256,code.depth,0.5,1,32,180,270)
 					ins_spike.sprite_index = spr_triangle
 				}
-				view_shake(0.1,1,0,1)
-				master_bpm_timer -= (4*3600/global.bpm)+global.music_sync_offset*3*60
+				view_shake(6,6,0,1)
+				master_bpm_timer -= (3600/global.bpm)*2+global.music_sync_offset*3*60
 			}
 		}
 
@@ -370,9 +370,23 @@
 					var random_x = irandom_range(global.c_w,global.c_w-420)
 				}
 		
-				if global.wakrio_effect != -2
+				if (global.wakrio_effect != -2 && instance_exists(hitbox_8))
 				{
-					create_spike_circle(random_x,global.c_h,random_x,irandom_range(global.c_y+256,global.c_h-256),60,0,0,0.2)
+					for(var i = 0; i < 360; i += 15)
+					{
+						var attack_ef = instance_create_depth(hitbox_8.x,hitbox_8.y,depth+1,hitbox_2)
+						attack_ef.direction = i
+						attack_ef.speed = 6
+						attack_ef.keep_spin_angle = 2
+						attack_ef.image_xscale = 0.4
+						attack_ef.image_yscale = 0.4
+						attack_ef.w_alpha = 10
+					}
+					
+					hitbox_8.w_alpha = 1
+					//hitbox_8.image_xscale = 0.8
+					hitbox_8.image_yscale = 0.8
+					global.w_alpha = 0.15
 				}
 
 				repeat(irandom_range(1,4))
