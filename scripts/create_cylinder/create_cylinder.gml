@@ -10,7 +10,8 @@
 ///@param t_speed
 ///@param direction
 ///@param angle
-function create_cylinder(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7)
+///@param fast_movement
+function create_cylinder(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8)
 {
 	var ins__ = instance_create_depth(argument0,argument1,argument2,hitbox_17)
 	ins__.image_xscale = argument3
@@ -19,5 +20,6 @@ function create_cylinder(argument0,argument1,argument2,argument3,argument4,argum
 	ins__.t_speed = argument5
 	ins__.direction = argument6
 	ins__.image_angle = argument7
+	ins__.fast_movement = argument8
 	return ins__;
 }

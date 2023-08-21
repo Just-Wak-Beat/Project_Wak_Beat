@@ -23,3 +23,5 @@ global.n_camera_zoom = 1
 global.converted_view_ratio = 1
 
 global.can_show_guide_mes = 0
+
+alarm[1] = 30

@@ -2,16 +2,13 @@
 // You can write your code in this editor
 
 
-for(var i = 0; i < 100; i++)
-{
-	show_debug_message(LLHighscoresTopNamesList()[i]);
-}
 
 
 var in_top_ten = 0;
 for(var i = 0; i < 11; i++)
 {
 	var temp_name = LLHighscoresTopNamesList()[i];
+	show_debug_message(temp_name);
 	var certain_text_code_inserted = string_pos("[*_ABER]",temp_name)
 	var add_nametag = "";
 	if (certain_text_code_inserted != 0)
@@ -66,6 +63,7 @@ for(var i = 0; i < 11; i++)
 		if (in_top_ten == 0)
 		{
 			var temp_name = global.nickname;
+			show_debug_message(temp_name);
 			var add_nametag = "";
 			var certain_text_code_inserted = string_pos("[*_ABER]",temp_name)
 			if (certain_text_code_inserted != 0)
@@ -95,10 +93,10 @@ for(var i = 0; i < 11; i++)
 			}
 			
 			
-			var temp_score = (global.t_selected_difficulty == 0) ? global.real_n_score_hardcore : global.real_n_score;
+			var temp_score = (global.t_selected_difficulty == 0) ? global.real_n_score_hardcore[global.n_map_id] : global.real_n_score[global.n_map_id];
 			
-			var temp_rank = (global.t_selected_difficulty == 0) ? global.real_n_rank_hardcore : global.real_n_rank;
-			temp_rank = (temp_rank == "" || check_under_ten(temp_rank)) ? "--" : temp_rank;
+			var temp_rank = LLPlayerRank();
+			temp_rank = (temp_rank == "" || check_under_ten(real(temp_rank))) ? "--" : temp_rank;
 			
 			temp_score = (temp_rank == "--" || check_under_ten(temp_score)) ? "--" : temp_score;
 

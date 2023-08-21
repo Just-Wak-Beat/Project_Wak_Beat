@@ -115,9 +115,6 @@ function save_and_load_data(argument0,argument1)
 		global.window_height = ini_read_real("window_height","none",1080);
 		global.window_fullscreen = ini_read_real("window_fullscreen","none",true);
 	
-	
-
-		set_window_size(global.window_width,global.window_height,global.window_fullscreen,1);
 
 		
 		

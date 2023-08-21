@@ -399,6 +399,7 @@ global.real_detailed_difficulty[3] = 3.5;
 global.real_obtainable_type[3] = 0
 global.real_requirement_level[3] = 2
 global.wakrio_effect = 0
+global.wakrio_effect2 = 0
 wakrio_timer = 0
 
 //후쿠로우

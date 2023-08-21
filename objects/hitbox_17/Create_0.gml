@@ -6,3 +6,4 @@ warning_timer = 0
 image_alpha = 0
 alarm[1] = 1
 can_move = 0
+p_speed = 0

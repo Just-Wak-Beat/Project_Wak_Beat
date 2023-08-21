@@ -19,7 +19,7 @@ if audio_is_playing(ipad)
 		for(var i = -2; i <= 2; i++)
 		{
 			show_debug_message("created");
-			create_cylinder(x+i*68,global.c_h-8*abs(vspeed)*(1+abs(i)),depth+15,0.5,1,64,270,0);
+			create_cylinder(x+i*68,global.c_h-8*abs(vspeed)*(1+abs(i)),depth+15,0.5,1,64,270,0,false);
 		}
 		
 		repeat(irandom_range(8,12))

@@ -26,7 +26,7 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && glob
 	{
 		if global.mobile_mode == 0
 		{
-			set_window_size(window_get_width(),window_get_height(),window_get_fullscreen(),0);
+			set_window_size(window_get_width(),window_get_height(),window_get_fullscreen(),false);
 		}
 	}
 	else if (button_id == 6)

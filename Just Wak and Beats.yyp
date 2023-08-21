@@ -109,6 +109,7 @@
     {"id":{"name":"hitbox_8","path":"objects/hitbox_8/hitbox_8.yy",},},
     {"id":{"name":"square_misile","path":"objects/square_misile/square_misile.yy",},},
     {"id":{"name":"promise","path":"sounds/promise/promise.yy",},},
+    {"id":{"name":"spr_spike_cylinder","path":"sprites/spr_spike_cylinder/spr_spike_cylinder.yy",},},
     {"id":{"name":"rewinding_sfx","path":"sounds/rewinding_sfx/rewinding_sfx.yy",},},
     {"id":{"name":"create_cylinder","path":"scripts/create_cylinder/create_cylinder.yy",},},
     {"id":{"name":"shelter_timeline","path":"timelines/shelter_timeline/shelter_timeline.yy",},},

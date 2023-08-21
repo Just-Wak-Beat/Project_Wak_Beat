@@ -137,7 +137,7 @@
 			{
 				for(var i = 0; i <= 9; i++)
 				{
-					var ins_spike = create_cylinder(global.c_x,global.c_y-128+i*256,code.depth,0.5,1,32,180,270)
+					var ins_spike = create_cylinder(global.c_x,global.c_y-128+i*256,code.depth,0.5,1,32,180,270,true)
 					ins_spike.sprite_index = spr_triangle
 				}
 				view_shake(6,6,0,1)
@@ -356,44 +356,91 @@
 
 
 
-		if global.wakrio_effect != 0
+		if (global.wakrio_effect != 0 || global.wakrio_effect2 > 0)
 		{
 			wakrio_timer++
-			if wakrio_timer > 27.09766
+			if (wakrio_timer > 27.09766)
 			{
-				if global.wakrio_effect == 1
+				if (global.wakrio_effect != 0)
 				{
-					var random_x = irandom_range(global.c_x,global.c_x+420)
-				}
-				if global.wakrio_effect == -1
-				{
-					var random_x = irandom_range(global.c_w,global.c_w-420)
-				}
-		
-				if (global.wakrio_effect != -2 && instance_exists(hitbox_8))
-				{
-					for(var i = 0; i < 360; i += 15)
+					if global.wakrio_effect == 1
 					{
-						var attack_ef = instance_create_depth(hitbox_8.x,hitbox_8.y,depth+1,hitbox_2)
-						attack_ef.direction = i
-						attack_ef.speed = 6
-						attack_ef.keep_spin_angle = 2
-						attack_ef.image_xscale = 0.4
-						attack_ef.image_yscale = 0.4
-						attack_ef.w_alpha = 10
+						var random_x = irandom_range(global.c_x,global.c_x+420)
 					}
+					if global.wakrio_effect == -1
+					{
+						var random_x = irandom_range(global.c_w,global.c_w-420)
+					}
+		
+					if (global.wakrio_effect != -2 && instance_exists(hitbox_8))
+					{
+						for(var i = 0; i < 360; i += 15)
+						{
+							var attack_ef = instance_create_depth(hitbox_8.x,hitbox_8.y,depth+1,hitbox_2)
+							attack_ef.direction = i
+							attack_ef.speed = 6
+							attack_ef.keep_spin_angle = 2
+							attack_ef.image_xscale = 0.4
+							attack_ef.image_yscale = 0.4
+							attack_ef.w_alpha = 10
+						}
 					
-					hitbox_8.w_alpha = 1
-					//hitbox_8.image_xscale = 0.8
-					hitbox_8.image_yscale = 0.8
-					global.w_alpha = 0.15
-				}
+						hitbox_8.w_alpha = 1
+						//hitbox_8.image_xscale = 0.8
+						hitbox_8.image_yscale = 0.8
+						global.w_alpha = 0.15
+					}
 
-				repeat(irandom_range(1,4))
-				{
-					var laser___ = create_laser(room_width*0.5,room_height*0.5,60,5,3,2,1,180)
-					laser___.image_angle = irandom_range(0,359)
+					repeat(irandom_range(1,4))
+					{
+						var laser___ = create_laser(room_width*0.5,room_height*0.5,60,5,3,2,1,180)
+						laser___.image_angle = irandom_range(0,359)
+					}
 				}
+				
+				
+				if (global.wakrio_effect2 > 0)
+				{
+					for(var i = 0; i < 17; i++)
+					{
+						if (global.wakrio_effect2 == 1)
+						{
+							var ins_tmp = create_cylinder(-128+i*260,global.c_h-400,code.depth,0.9,1,128,270,0,true);
+							ins_tmp.sprite_index = spr_spike_cylinder;
+					
+							var ins_tmp = create_cylinder(-128+i*260,global.c_y+400,code.depth,0.9,1,128,90,180,true);
+							ins_tmp.sprite_index = spr_spike_cylinder;
+							
+							var ins_tmp = create_cylinder(i*260,global.c_h-200,code.depth,0.9,1,128,270,0,true);
+							ins_tmp.sprite_index = spr_spike_cylinder;
+					
+							var ins_tmp = create_cylinder(i*260,global.c_y+200,code.depth,0.9,1,128,90,180,true);
+							ins_tmp.sprite_index = spr_spike_cylinder;
+						}
+						else
+						{
+							var ins_tmp = create_cylinder(i*260,global.c_h-400,code.depth,0.9,1,128,270,0,true);
+							ins_tmp.sprite_index = spr_spike_cylinder;
+					
+							var ins_tmp = create_cylinder(i*260,global.c_y+400,code.depth,0.9,1,128,90,180,true);
+							ins_tmp.sprite_index = spr_spike_cylinder;
+							
+							var ins_tmp = create_cylinder(-128+i*260,global.c_h-200,code.depth,0.9,1,128,270,0,true);
+							ins_tmp.sprite_index = spr_spike_cylinder;
+					
+							var ins_tmp = create_cylinder(-128+i*260,global.c_y+200,code.depth,0.9,1,128,90,180,true);
+							ins_tmp.sprite_index = spr_spike_cylinder;
+						}
+					}
+					global.wakrio_effect2 ++;
+					if (global.wakrio_effect2 > 2)
+					{
+						global.wakrio_effect2 = 1;
+					}
+				}
+				
+				
+				
 				wakrio_timer -= 27.09766
 			}
 		}
@@ -558,7 +605,7 @@
 					var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
 					var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
 					var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
-					create_cylinder(random_xx,random_yy,obj_player.depth-15,1,60,64*dir,0,180*angle)
+					create_cylinder(random_xx,random_yy,obj_player.depth-15,1,60,64*dir,0,180*angle,false)
 			
 					if (global.gomem_mashup_effect == 3)
 					{
@@ -583,7 +630,7 @@
 						var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
 						var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
 						var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
-						create_cylinder(random_xx,random_yy,code.depth,0.7,60,64*dir,0,180*angle)
+						create_cylinder(random_xx,random_yy,code.depth,0.7,60,64*dir,0,180*angle,false)
 						view_shake(0.1,1,0,2)
 
 						global.t_bg_color_alpha = 0.3
@@ -616,9 +663,9 @@
 						for(var i = -2; i < 8; i++)
 						{
 							var spike_xx = global.c_x-128*gomem_mashup_effect_dir_updown2+i*512
-							var ins_spike = create_cylinder(spike_xx,global.c_y+360,code.depth,0.5,1,256,90,180)
+							var ins_spike = create_cylinder(spike_xx,global.c_y+360,code.depth,0.5,1,256,90,180,true)
 							ins_spike.sprite_index = spr_triangle
-							var ins_spike = create_cylinder(spike_xx-256,global.c_h-360,code.depth,0.5,1,256,270,0)
+							var ins_spike = create_cylinder(spike_xx-256,global.c_h-360,code.depth,0.5,1,256,270,0,true)
 							ins_spike.sprite_index = spr_triangle
 							view_shake(0.1,1,1,2)
 						}

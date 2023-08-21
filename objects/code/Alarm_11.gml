@@ -17,3 +17,4 @@ else
 {
 	global.custom_map_directory = string(working_directory)+"\\Custom map files\\";
 }
+
