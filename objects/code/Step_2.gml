@@ -386,9 +386,21 @@
 						}
 					
 						hitbox_8.w_alpha = 1
-						//hitbox_8.image_xscale = 0.8
+						hitbox_8.image_xscale = 0.8
 						hitbox_8.image_yscale = 0.8
 						global.w_alpha = 0.15
+						
+						var _ef = instance_create_depth(hitbox_8.x,hitbox_8.y,hitbox_8.depth+1,explosion_effect)
+						_ef.image_xscale = 3
+						_ef.image_yscale = 3
+						_ef.t_scale = 4
+						_ef.image_blend = c_white
+						
+						var _ef = instance_create_depth(hitbox_8.x,hitbox_8.y,hitbox_8.depth+1,explosion_effect)
+						_ef.image_xscale = 3.7
+						_ef.image_yscale = 3.7
+						_ef.t_scale = 6
+						_ef.image_blend = c_white
 					}
 
 					repeat(irandom_range(1,4))

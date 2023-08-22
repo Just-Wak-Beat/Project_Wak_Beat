@@ -26,6 +26,7 @@ if warning_timer = target_time
 	_ef.image_yscale = 1
 	_ef.t_scale = 2
 	_ef.image_blend = c_white
+	global.w_alpha = 0.8
 		
 	view_shake(0.1,shake_scale,3,shake_dir)
 	w_alpha = 0.3
@@ -37,8 +38,8 @@ if warning_timer = target_time
 			attack_ef.direction = i
 			attack_ef.speed = 24
 			attack_ef.keep_spin_angle = 2
-			attack_ef.image_xscale = 0.2*t_scale
-			attack_ef.image_yscale = 0.2*t_scale
+			attack_ef.image_xscale = 0.25*t_scale
+			attack_ef.image_yscale = 0.25*t_scale
 			attack_ef.w_alpha = 10
 		}
 	}
@@ -52,8 +53,8 @@ if warning_timer = target_time
 				attack_ef.direction = i
 				attack_ef.speed = 24
 				attack_ef.keep_spin_angle = 2
-				attack_ef.image_xscale = 0.2*t_scale
-				attack_ef.image_yscale = 0.2*t_scale
+				attack_ef.image_xscale = 0.25*t_scale
+				attack_ef.image_yscale = 0.25*t_scale
 				attack_ef.w_alpha = 10
 			}
 		}
@@ -65,8 +66,8 @@ if warning_timer = target_time
 				attack_ef.direction = i
 				attack_ef.speed = 24
 				attack_ef.keep_spin_angle = 2
-				attack_ef.image_xscale = 0.2*t_scale
-				attack_ef.image_yscale = 0.2*t_scale
+				attack_ef.image_xscale = 0.25*t_scale
+				attack_ef.image_yscale = 0.25*t_scale
 				attack_ef.w_alpha = 10
 			}
 		}

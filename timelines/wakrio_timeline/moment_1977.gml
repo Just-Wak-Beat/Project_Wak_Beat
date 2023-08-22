@@ -23,3 +23,7 @@ var wakrio_ = instance_create_depth(room_width*0.5,-room_height,obj_player.depth
 wakrio_.t_x = room_width*0.5
 wakrio_.t_y = -room_height
 
+global.wakrio_effect2 = 0
+global.w_alpha = 1
+global.map_color = $FFEEFF6D
+global.background_color = #00111b

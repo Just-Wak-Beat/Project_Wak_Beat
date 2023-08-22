@@ -4,7 +4,7 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 	global.savepoint_color[0] = c_black
 }
 global.artifact_type = 0
-
+global.map_color = $FF1650FF
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
 instance_destroy(hitbox_parents)

@@ -20,6 +20,7 @@ global.turisumo_effect = 0
 global.turisumo_effect_2 = 0
 global.turisumo_effect_scale = 0
 global.t_turisumo_effect_scale = 0
+global.wakrio_effect2 = 0
 global.master_remix_effect = 0
 global.gomem_mashup_effect = 0
 global.turisumo_effect_3 = 0
