@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
+image_blend = global.map_color
 if global.low_graphics = false
 {
 	w_alpha += (-0.01 - w_alpha)*0.15

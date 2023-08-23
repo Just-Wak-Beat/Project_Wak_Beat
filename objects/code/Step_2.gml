@@ -374,15 +374,16 @@
 		
 					if (global.wakrio_effect != -2 && instance_exists(hitbox_8))
 					{
-						for(var i = 0; i < 360; i += 15)
+						for(var i = global.wakrio_effect2*15; i < 360+global.wakrio_effect2*15; i += 30)
 						{
-							var attack_ef = instance_create_depth(hitbox_8.x,hitbox_8.y,depth+1,hitbox_2)
-							attack_ef.direction = i
-							attack_ef.speed = 6
-							attack_ef.keep_spin_angle = 2
-							attack_ef.image_xscale = 0.4
-							attack_ef.image_yscale = 0.4
-							attack_ef.w_alpha = 10
+							var attack_ef = instance_create_depth(hitbox_8.x,hitbox_8.y,depth+1,hitbox_2);
+							attack_ef.direction = i;
+							attack_ef.speed = 10;
+							attack_ef.keep_spin_angle = 2;
+							attack_ef.image_xscale = 0.2;
+							attack_ef.image_yscale = 0.2;
+							attack_ef.w_alpha = 10;
+							attack_ef.sprite_index = spr_circle_outline;
 						}
 					
 						hitbox_8.w_alpha = 1

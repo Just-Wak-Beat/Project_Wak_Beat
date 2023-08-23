@@ -1,3 +1,1 @@
-create_laser(room_width*0.5,global.c_y,60,26,4,2,4,180)
-
-
+create_explo_circle(room_width*0.5,room_height*0.5,60,10,0.8,0,2.5,0,0,0,0)

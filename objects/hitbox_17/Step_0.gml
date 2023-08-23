@@ -67,19 +67,19 @@ if warning_timer >= target_time
 	
 	if (can_move == 1)
 	{
-		x += (xstart - x)*0.2;
-		y += (ystart - y)*0.2;
-		
-		if (speed < 0)
-		{
-			speed = 0;
-		}
 		if (fast_movement == true)
 		{
 			speed += (t_speed - speed)*0.1
 		}
 		else
 		{
+			x += (xstart - x)*0.2;
+			y += (ystart - y)*0.2;
+			if (speed < 0)
+			{
+				speed = 0;
+			}
+			
 			p_speed += (t_speed - p_speed)*0.1
 			if (abs(p_speed-t_speed) < 0.1)
 			{

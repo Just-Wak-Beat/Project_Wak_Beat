@@ -1,5 +1,5 @@
 global.wakrio_effect = -1
-
+global.t_w_alpha = -0.1
 
 for(var i = 0; i < 360; i += 15)
 {
@@ -12,5 +12,6 @@ for(var i = 0; i < 360; i += 15)
 	attack_ef.w_alpha = 10
 }
 
-
+global.background_color = #00111b
+global.map_color = $FFEEFF6D
 global.w_alpha = 1
