@@ -65,14 +65,14 @@
 
 #### - 게임 다운로드 
 
-<img src = "imgs/android.png"></br>
+<img src = "imgs/android.png" width = "200px"></br>
 
 [![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT4.0/Just.Wak.and.Beats.4.0.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT4.0/Just.Wak.and.Beats.4.0.apk)
 
 
 </br></br></br>
 
-<img src = "imgs/windows.png"></br>
+<img src = "imgs/windows.png" width = "200px"></br>
 
 [![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/CBT4.0/Just.Wak.and.Beats.Beta.4.0.zip?color=6AE2FF&label=Download&style=for-the-badge)](https://github.com/ABER1047/Just_Wak_and_Beats/releases/download/CBT4.0/Just.Wak.and.Beats.Beta.4.0.zip)
 
