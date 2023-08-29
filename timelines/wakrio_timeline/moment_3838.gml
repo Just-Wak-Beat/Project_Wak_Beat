@@ -21,6 +21,7 @@ for(var i = 0; i < 360; i += 5)
 	attack_ef.w_alpha = 10
 }
 
+global.wakrio_effect2 = 0;
 
 
 

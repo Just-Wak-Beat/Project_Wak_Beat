@@ -31,6 +31,7 @@ global.ipad_random_xspeed = -4
 global.ipad_random_yspeed = -4
 global.ipad_effect = 0
 global.phony_effect = 0
+global.wakrio_effect3 = 0
 global.rewind = 0
 global.clock_alpha_1 = 0
 global.clock_alpha_2 = 0
