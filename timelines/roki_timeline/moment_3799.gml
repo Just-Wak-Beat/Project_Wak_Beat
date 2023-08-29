@@ -9,3 +9,5 @@ square.automatic_angle = 0
 square2.w_alpha = 10
 square2.t_scale = 0
 square2.automatic_angle = 0
+
+camera_focus_on(room_width*0.5+160,room_height*0.5,0.9)

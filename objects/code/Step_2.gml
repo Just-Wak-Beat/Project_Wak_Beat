@@ -383,9 +383,14 @@
 							attack_ef.image_xscale = 0.2;
 							attack_ef.image_yscale = 0.2;
 							attack_ef.w_alpha = 10;
-							attack_ef.sprite_index = spr_circle_outline;
+							attack_ef.sprite_index = spr_circle_spike2;
 						}
-					
+						global.wakrio_effect2 ++;
+						
+						if (global.wakrio_effect2 > 1)
+						{
+							global.wakrio_effect2 = 0;
+						}
 						hitbox_8.w_alpha = 1
 						hitbox_8.image_xscale = 0.8
 						hitbox_8.image_yscale = 0.8
@@ -411,46 +416,6 @@
 					}
 				}
 				
-				
-				if (global.wakrio_effect2 > 0)
-				{
-					for(var i = 0; i < 17; i++)
-					{
-						if (global.wakrio_effect2 == 1)
-						{
-							var ins_tmp = create_cylinder(-128+i*260,global.c_h-400,code.depth,0.9,1,128,270,0,true);
-							ins_tmp.sprite_index = spr_spike_cylinder;
-					
-							var ins_tmp = create_cylinder(-128+i*260,global.c_y+400,code.depth,0.9,1,128,90,180,true);
-							ins_tmp.sprite_index = spr_spike_cylinder;
-							
-							var ins_tmp = create_cylinder(i*260,global.c_h-200,code.depth,0.9,1,128,270,0,true);
-							ins_tmp.sprite_index = spr_spike_cylinder;
-					
-							var ins_tmp = create_cylinder(i*260,global.c_y+200,code.depth,0.9,1,128,90,180,true);
-							ins_tmp.sprite_index = spr_spike_cylinder;
-						}
-						else
-						{
-							var ins_tmp = create_cylinder(i*260,global.c_h-400,code.depth,0.9,1,128,270,0,true);
-							ins_tmp.sprite_index = spr_spike_cylinder;
-					
-							var ins_tmp = create_cylinder(i*260,global.c_y+400,code.depth,0.9,1,128,90,180,true);
-							ins_tmp.sprite_index = spr_spike_cylinder;
-							
-							var ins_tmp = create_cylinder(-128+i*260,global.c_h-200,code.depth,0.9,1,128,270,0,true);
-							ins_tmp.sprite_index = spr_spike_cylinder;
-					
-							var ins_tmp = create_cylinder(-128+i*260,global.c_y+200,code.depth,0.9,1,128,90,180,true);
-							ins_tmp.sprite_index = spr_spike_cylinder;
-						}
-					}
-					global.wakrio_effect2 ++;
-					if (global.wakrio_effect2 > 2)
-					{
-						global.wakrio_effect2 = 1;
-					}
-				}
 				
 				
 				
@@ -1015,7 +980,7 @@
 						var tmp_val = irandom_range(-1,1);
 						pipe_ef.t_direction_plusment = tmp_val;
 						b_direction_plusment = tmp_val;
-						if (b_direction_plusment == t_direction_plusment)
+						if (b_direction_plusment == pipe_ef.t_direction_plusment)
 						{
 							total_stack_direction_plusment ++;
 						}

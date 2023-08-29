@@ -7,6 +7,8 @@ global.artifact_type = 0
 global.map_color = $FF1650FF
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
+global.camera_slow_zoom = 0.00025
+global.n_camera_zoom = 0.7
 instance_destroy(hitbox_parents)
 
 

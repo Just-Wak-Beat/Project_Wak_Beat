@@ -14,8 +14,8 @@ for(var i = 0; i < 360; i += 90)
 
 
 
-square2 = instance_create_depth(global.c_w-640,room_height*0.5,obj_player.depth-1,hitbox_11)
-square2.sprite_index = spr_square
+square2 = instance_create_depth(global.c_w-640,room_height*0.5,obj_player.depth-3,hitbox_11)
+square2.sprite_index = spr_spuare_outline
 square2.t_scale = 5
 square2.shake_scale = 0
 square2.shake_dir = 0

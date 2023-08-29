@@ -11,3 +11,5 @@ tmp.image_angle = 180
 
 var tmp = create_laser(global.c_w-640,room_height*0.5,1,80,1,0,1,-0.9)
 tmp.image_angle = 0
+
+camera_focus_on(square2.x,square2.y,0.8)

@@ -676,7 +676,7 @@ music_title_alpha = 0
 //로키
 global.real_stage_map_name[19] = "로키 ROKI (Cover by 비챤 VIichan)";
 global.real_stage_map_artist[19] = "Mixing by Min / Original by mikitoP";
-global.real_stage_map_difficulty[19] = "Expert";
+global.real_stage_map_difficulty[19] = "Expert (Boss)";
 global.real_stage_map_color[19] = #424278;
 global.real_stage_map_duration[19] = 4738;
 global.real_stage_map_audio_name[19] = "roki";

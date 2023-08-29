@@ -21,8 +21,16 @@ if (global.show_rank > 0)
 }
 else
 {
-	x += (room_width*0.5 - x)*0.15
-	y += (room_height*0.5 - y)*0.15
+	if (global.camera_target_x == -4)
+	{
+		x += (room_width*0.5 - x)*0.15
+		y += (room_height*0.5 - y)*0.15
+	}
+	else
+	{
+		x += (global.camera_target_x - x)*0.3
+		y += (global.camera_target_y - y)*0.3
+	}
 	v_x += (tv_x - v_x)*0.1
 	v_y += (tv_y - v_y)*0.1
 }

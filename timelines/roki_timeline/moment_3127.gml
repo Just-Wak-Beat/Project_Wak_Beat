@@ -10,3 +10,5 @@ global.roki_effect1 = 2
 master_bpm_timer = (3600/global.bpm)+global.music_sync_offset*3*60
 global.w_alpha = 0.5
 square.w_alpha = 10
+
+camera_focus_on(room_width*0.5-160,room_height*0.5,0.9)

@@ -16,7 +16,7 @@ function create_laser(argument0,argument1,argument2,argument3,argument4,argument
 	var yy = argument1
 
 	
-	var laser__ = instance_create_depth(xx,yy,code.depth-2,hitbox_3)
+	var laser__ = instance_create_depth(xx,yy,obj_player.depth-1,hitbox_3)
 	laser__.target_time = argument2
 	laser__.des_time = argument3
 	laser__.shake_scale = argument4

@@ -7,7 +7,7 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 	global.savepoint_color[0] = #424278
 }
 
-
+camera_focus_on(-4,-4,1)
 global.artifact_type = 6
 global.map_color = #424278
 global.background_color = #424278

@@ -1,5 +1,5 @@
-square = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-1,hitbox_11)
-square.sprite_index = spr_square
+square = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-3,hitbox_11)
+square.sprite_index = spr_spuare_outline
 square.t_scale = 5
 square.shake_scale = 0
 square.shake_dir = 0
@@ -15,3 +15,4 @@ for(var i = 0; i < 360; i += 90)
 	tmp.image_angle = i
 }
 
+camera_focus_on(-4,-4,0.8)
