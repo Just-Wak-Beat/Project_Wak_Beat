@@ -9,6 +9,6 @@ attack_ef.image_yscale = 0.4
 attack_ef.w_alpha = 10
 }
 
-camera_focus_on(room_width*0.5+320,room_height*0.5,0.8)
+
 
 global.w_alpha = 1
