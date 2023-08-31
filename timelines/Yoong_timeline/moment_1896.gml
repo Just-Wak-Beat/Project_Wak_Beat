@@ -6,6 +6,7 @@ global.w_alpha = 1
 global.quake_effect = 1
 global.t_bg_color = 0.6
 global.t_bg_color_alpha = 0.6
+camera_focus_on(-4,-4,1)
 
 
 

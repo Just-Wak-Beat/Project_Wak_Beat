@@ -2,7 +2,8 @@ global.w_alpha = 1
 global.t_map_speed = 1
 global.t_bg_color_alpha = 0.5
 
-
+global.camera_slow_zoom = 0.0001
+camera_focus_on(-4,-4,0.8)
 
 var attack_ef = instance_create_depth(irandom_range(global.c_x,global.c_w),global.c_y,depth+1,hitbox_10)
 attack_ef.gravity = 0.5

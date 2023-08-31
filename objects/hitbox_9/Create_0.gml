@@ -12,4 +12,5 @@ w_alpha = 0
 t_angle = 0
 t_speed = 0
 scale_up_effect = 1
+can_draw = 0
 alarm[1] = 1

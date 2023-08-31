@@ -122,7 +122,7 @@ var _image_scale = 900*image_xscale
 
 if global.ipad_effect != 0
 {
-timer__ ++
+	timer__ ++
 	if timer__%15 = 0
 	{
 		var attack_ef = instance_create_depth(x,y,depth+1,hitbox_2)
@@ -153,8 +153,8 @@ if audio_is_playing(gungsirung)
 			attack_ef.direction = i+image_angle
 			attack_ef.speed = 24
 			attack_ef.keep_spin_angle = 2
-			attack_ef.image_xscale = 0.12
-			attack_ef.image_yscale = 0.12
+			attack_ef.image_xscale = 0.3
+			attack_ef.image_yscale = 0.3
 			attack_ef.w_alpha = 10
 			attack_ef.sprite_index = spr_triangle
 		}
@@ -163,7 +163,7 @@ if audio_is_playing(gungsirung)
 		_ef.image_xscale = 2
 		_ef.image_yscale = 2
 		_ef.t_scale = 2
-		_ef.image_blend = global.map_color
+		_ef.image_blend = c_white
 		instance_destroy()
 	}
 }

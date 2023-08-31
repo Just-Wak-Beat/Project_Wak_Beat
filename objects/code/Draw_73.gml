@@ -53,16 +53,16 @@ if global.n_playing_tutorial != 1 && global.show_rank = 0
 	//progress bar icon
 	if global.low_graphics = false
 	{
-		draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1430*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
-		draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1436*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
-		draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*78*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
-		draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*84*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1430*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1436*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*78*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*84*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
 	}
-	draw_sprite_ext(spr_W,global.artifact_type,xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha)
+	draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha)
 }
 
 //check point
-draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx,global.converted_view_ratio/2*(global.mobile_mode*0.5+1),0)
+draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx*font_size,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*font_size,0)
 
 
 if (music_title_alpha > 0 && global.tutorial_played >= 0)
@@ -93,32 +93,33 @@ if (music_title_alpha > 0 && global.tutorial_played >= 0)
 
 	if global.n_player_skin > 0
 	{
-		var col_1 = merge_color(global.player_color,c_white,0.85)
-		draw_set_color(merge_color(global.player_color,c_white,0.85))
 		draw_set_alpha(music_title_alpha)
+		draw_set_color(merge_color(global.player_color,c_black,0.85))
 		draw_line_width(xx+music_title_alpha*global.converted_view_ratio*780*font_size,yy-global.converted_view_ratio*128,xx+music_title_alpha*global.converted_view_ratio*320*font_size,yy+music_title_alpha*xx_w*font_size,global.converted_view_ratio*600*font_size)
-
-		draw_set_color(merge_color(col_1,c_black,0.2))
-		draw_set_alpha(music_title_alpha*0.3)
-		draw_line_width(xx+music_title_alpha*global.converted_view_ratio*1080*font_size,yy-global.converted_view_ratio*128,xx+music_title_alpha*global.converted_view_ratio*620*font_size,yy+music_title_alpha*xx_w*font_size,global.converted_view_ratio*300*font_size)
+	
 
 
+		shader_set(shFlash);
+		draw_sprite_ext(spr_illustrationCG,global.n_player_skin,xx+music_title_alpha*(3-music_title_alpha*2)*global.converted_view_ratio*430*font_size,yy+yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,global.player_color,music_title_alpha)
+		shader_reset();
+		
+		
 		draw_sprite_ext(spr_illustrationCG,global.n_player_skin,xx+music_title_alpha*global.converted_view_ratio*430*font_size,yy+yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,c_white,music_title_alpha)
 	}
 }
 
 
-
+//progress bar - save point
 for(var i = 0; i <= 5; i++)
 {
 	if global.savepoint_position[i] != -4
 	{
-		var _xx_ = xx+xx_w*0.3+font_size*32+1433.6*font_size*(global.savepoint_position[i]/global.music_duration)
+		var _xx_ = xx+xx_w*0.3+font_size*32+global.converted_view_ratio*(1433.6*font_size*(global.savepoint_position[i]/global.music_duration))
 	
 		draw_set_color(global.map_color)
 		draw_set_alpha(progress_alpha_sec*0.9)
-		draw_line_width(_xx_,yy+font_size*50,_xx_,yy+font_size*70,4*font_size)
-		draw_line_width(_xx_,yy+font_size*90,_xx_,yy+font_size*110,4*font_size)
+		draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*50,_xx_,yy+global.converted_view_ratio*font_size*70,4*font_size)
+		draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*90,_xx_,yy+global.converted_view_ratio*font_size*110,4*font_size)
 	
 		if global.n_progress = global.savepoint_position[i] && !audio_is_playing(cleared_sfx)
 		{
@@ -252,7 +253,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 					draw_text_k_scale(xx_+256*dis_real,yy_-90*dis_real,global.stage_map_name[i],64,-1,dis_alpha,global.map_color,0,-1,normal_font,dis_real*global.font_ratio_resolution_xx,dis_real,0)
 					draw_text_k_scale(xx_+256*dis_real,yy_+35*dis_real,global.stage_map_artist[i],64,-1,dis_alpha,global.map_color,0,-1,light_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 					draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,global.map_color,0,1,normal_font,0.75*dis_real,0.75*dis_real,0)
-					draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,global.map_color,0,1,normal_font,0.5*dis_real,0.5*dis_real,0)
+					draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(floor(global.stage_bpm[i]))+"BPM",64,-1,dis_alpha,global.map_color,0,1,normal_font,0.5*dis_real,0.5*dis_real,0)
 					
 					for(var k = 0; global.detailed_difficulty[i] != 0 && k <= global.detailed_difficulty[i]; k++)
 					{
@@ -280,7 +281,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 						draw_text_k_scale(xx_+256,yy_-118,global.stage_map_name[i],64,-1,dis_alpha,c_white,0,-1,normal_font,global.font_ratio_resolution_xx,1,0)
 						draw_text_k_scale(xx_+256,yy_+3,global.stage_map_artist[i],64,-1,dis_alpha,c_white,0,-1,light_font,0.6*global.font_ratio_resolution_xx,0.6,0)
 						draw_text_k_scale(global.c_w-55*dis_real,yy_-47*dis_real,string(global.stage_map_difficulty[i]),64,-1,dis_alpha,c_white,0,1,normal_font,0.75*global.font_ratio_resolution_xx,0.75,0)
-						draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(global.stage_bpm[i])+"BPM",64,-1,dis_alpha,c_white,0,1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+						draw_text_k_scale(global.c_w-55*dis_real,yy_-108*dis_real,string(floor(global.stage_bpm[i]))+"BPM",64,-1,dis_alpha,c_white,0,1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 					
 						if global.n_favorite[i] = 1
 						{

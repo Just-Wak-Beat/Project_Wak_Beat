@@ -6,7 +6,7 @@ function show_nickname_setting()
 	global.notice_title_sub = "온라인 랭킹에 사용할 이름을 설정해주세요!";
 	global.unlocked_music_name_new_list[0] = "";
 	global.unlocked_music_name_new_list_color[0] = c_white
-	global.unlocked_music_name_new_list[1] = "(입력이 완료되었다면 화면을 꾹 홀드하거나, Space를 홀드하여 주세요)";
+	global.unlocked_music_name_new_list[1] = "";
 	keyboard_string = "";
 	global.unlocked_music_name_new_list_color[1] = merge_color(c_black,c_white,0.7);
 	global.unlocked_music_name_new_list[2] = "(입력이 완료되었다면 화면을 꾹 홀드하거나, Space를 홀드하여 주세요)";

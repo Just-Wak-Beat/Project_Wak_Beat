@@ -4,7 +4,7 @@ wakgood_shouting.image_xscale = 2
 wakgood_shouting.image_yscale = 2
 global.w_alpha = 1
 global.quake_effect = 1
-
+camera_focus_on(-4,-4,1)
 
 
 

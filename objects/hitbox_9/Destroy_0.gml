@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 
-if (global.yuha_effect1 > 0 && global.t_selected_difficulty == 0)
+if (can_draw == 1 && global.yuha_effect1 > 0 && global.t_selected_difficulty == 0)
 {
 	for(var i = 0; i < 360; i += 60)
 	{
@@ -15,4 +15,10 @@ if (global.yuha_effect1 > 0 && global.t_selected_difficulty == 0)
 		attack_ef.w_alpha = 10
 	}
 	global.w_alpha = 0.15
+	
+	var _ef = instance_create_depth(x,y,obj_player.depth-20,explosion_effect)
+	_ef.image_xscale = 1.5
+	_ef.image_yscale = 1.5
+	_ef.t_scale = 3
+	_ef.image_blend = c_white
 }

@@ -1,5 +1,6 @@
 global.w_alpha = 1
 global.t_bg_color_alpha = 0.5
+camera_focus_on(-4,-4,1)
 var xx = irandom_range(room_width*0.8,global.c_w+500)
 for(var i = 0; i < 180; i += 15)
 {

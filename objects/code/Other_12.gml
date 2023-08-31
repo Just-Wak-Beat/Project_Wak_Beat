@@ -4,7 +4,7 @@
 global.t_b_alpha = -0.01
 
 
-if global.can_change_music_list == 1 && global.t_select_difficulty = 0
+if (global.can_change_music_list == 1 && global.t_select_difficulty = 0)
 {
 	if (gamestart = 0 || gamestart = 4)
 	{

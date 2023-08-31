@@ -1,4 +1,4 @@
-
+camera_focus_on(-4,-4,1)
 if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {
 	global.savepoint_position[0] = 1722

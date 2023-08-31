@@ -64,7 +64,7 @@ if warning_timer-target_time > des_time
 		effect_.image_alpha = 2
 	}
 
-	if image_xscale <= 0
+	if (image_xscale <= 0)
 	{
 		instance_destroy()
 	}

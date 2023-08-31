@@ -23,3 +23,4 @@ var _misile_ = create_square_misile(global.c_w+160,random_y,5,20/scale,0,0,scale
 _misile_.direction = 180
 _misile_.image_angle = 180
 _misile_.speed = (64+4)*scale/5
+camera_focus_on(-4,-4,0.8)

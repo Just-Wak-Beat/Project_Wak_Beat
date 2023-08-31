@@ -13,7 +13,10 @@
     "name": "hitbox",
     "path": "folders/오브젝트/hitbox.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "hitbox_parents",
+    "path": "objects/hitbox_parents/hitbox_parents.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

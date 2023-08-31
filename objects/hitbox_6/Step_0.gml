@@ -7,17 +7,17 @@ image_blend = global.map_color
 image_angle += keep_spin_angle
 if global.low_graphics = false
 {
-w_alpha += (-0.01 - w_alpha)*0.15
+	w_alpha += (-0.01 - w_alpha)*0.15
 }
 else
 {
-w_alpha = 0
+	w_alpha = 0
 }
 
 if speed > 0
 {
 	if x < -900 || x > room_width+900 || y < -900 || y > room_height+900
 	{
-	instance_destroy()
+		instance_destroy()
 	}
 }

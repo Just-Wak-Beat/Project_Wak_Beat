@@ -17,9 +17,9 @@ if sprite_exists(sprite_index)
 	draw_sprite_ext(sprite_index,image_index,x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
 	if (global.obtainable_type[code.n_stage] != 99)
 	{
-		draw_sprite_ext(spr_W52,(global.obtainable_type[code.n_stage] >= 9) ? 21 : 20,x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,global.map_color,image_alpha)
-		draw_sprite_ext(spr_W52,global.obtainable_type[code.n_stage],x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
-		draw_sprite_ext(spr_W52,(global.obtainable_type[code.n_stage] >= 9) ? 19 : 18,x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
+		draw_sprite_ext(spr_W52,(global.obtainable_type[code.n_stage] >= 9) ? 21 : 20,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,global.map_color,image_alpha)
+		draw_sprite_ext(spr_W52,global.obtainable_type[code.n_stage],x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
+		draw_sprite_ext(spr_W52,(global.obtainable_type[code.n_stage] >= 9) ? 19 : 18,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
 	}
 
 	if instance_exists(code) && global.level < global.requirement_level[code.n_stage]
@@ -74,8 +74,9 @@ draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y
 
 
 //레벨 바
+var tmp_exp_color = (global.exp/global.max_exp > 1) ? 1 : global.exp/global.max_exp;
 draw_sprite_ext(spr_level_bar,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,0,#171628,ui_alpha__cal)
-draw_sprite_part_ext(spr_level_bar,0,0,0,(global.exp_for_draw/global.max_exp)*1760,64,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,merge_color(merge_color(c_white,global.player_color,0.5+(global.exp/global.max_exp)*0.5),c_white,global.exp_w_alpha),ui_alpha__cal)
+draw_sprite_part_ext(spr_level_bar,0,0,0,(global.exp_for_draw/global.max_exp)*1760,64,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,merge_color(merge_color(c_white,global.player_color,0.5+(tmp_exp_color)*0.5),c_white,global.exp_w_alpha),ui_alpha__cal)
 draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level "+string(global.level),64,-1,ui_alpha__cal,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 
 
@@ -391,7 +392,7 @@ if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 
 	
 	draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,merge_color(c_white,c_black,dis_temp2),global.select_difficulty)
-	draw_sprite_ext(spr_heart,0,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,color_temp2,global.select_difficulty)
+	draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,color_temp2,global.select_difficulty)
 	draw_text_k_scale(button_2_xx,middle_yy-s_selected*64,"Hardcore",64,-1,global.select_difficulty,color_temp2,0,0,normal_font,0.65*s_selected*global.font_ratio_resolution_xx,0.65*s_selected,0)
 	draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않고 무적 쿨타임이 짧아지며,\n랜덤한 패턴과 새로운 패턴이 등장합니다.\n\n클리어 시,\n많은 경험치와 아티팩트를 중복하여 획득할 수 있으며,\n특정 캐릭터를 획득할 수 있습니다.",scale*48*s_selected,-1,global.select_difficulty,color_temp2,0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
 	

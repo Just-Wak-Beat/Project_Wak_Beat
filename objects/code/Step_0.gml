@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 //인게임중에 설정 열기
-if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && global.n_progress > 0 && music_title_alpha <= 0 && progress_alpha >= 0.99)
+if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
 {
 	if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
 	{
@@ -201,7 +201,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	}
 
 
-	if global.show_music_title > 0
+	if (global.show_music_title > 0 && global.paused == 0)
 	{
 		global.show_music_title ++
 
@@ -574,9 +574,11 @@ if global.rewind > 0
 	
 		if global.turisumo_effect != 0
 		{
+			var tmp_xx = (room_width - 3584)*0.5
+			var tmp_yy = (room_height + 2016)*0.5
 			for(var i = 0; i <= 64; i++)
 			{
-				var _shaking_circle = create_explo_circle(global.c_x+i*128,global.c_h+128,1+i*5,7200,0,0,0.5,2,0,0)
+				var _shaking_circle = create_explo_circle(tmp_xx+i*128,tmp_yy+128,1+i*5,7200,0,0,0.5,2,0,0)
 				_shaking_circle.direction = 90
 			}
 		}

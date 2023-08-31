@@ -1,0 +1,1 @@
+camera_focus_on(room_width*0.5-120,room_height*0.5,global.n_camera_zoom)

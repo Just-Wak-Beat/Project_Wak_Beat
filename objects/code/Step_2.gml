@@ -602,13 +602,16 @@
 			{
 				global.gomem_mashup_effect_arrow_alpha += (-0.01 - global.gomem_mashup_effect_arrow_alpha)*0.1
 				master_bpm_timer ++
-				if master_bpm_timer >= (3600/global.bpm)*2+global.music_sync_offset*3*60
+				if (master_bpm_timer >= (3600/global.bpm)*2+global.music_sync_offset*3*60)
 				{
-					var random_yy = irandom_range(room_height*0.5,room_height*0.5-256+(gomem_mashup_effect_dir_updown*512))
-					var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
-					var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
-					var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
-					create_cylinder(random_xx,random_yy,obj_player.depth-15,1,60,64*dir,0,180*angle,false)
+					if (global.n_camera_zoom == 1)
+					{
+						var random_yy = irandom_range(room_height*0.5,room_height*0.5-256+(gomem_mashup_effect_dir_updown*512))
+						var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
+						var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
+						var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
+						create_cylinder(random_xx,random_yy,obj_player.depth-15,1,60,64*dir,0,180*angle,false)
+					}
 			
 					if (global.gomem_mashup_effect == 3)
 					{
@@ -624,16 +627,19 @@
 			{
 				global.gomem_mashup_effect_arrow_alpha += (0.99 - global.gomem_mashup_effect_arrow_alpha)*0.1
 				master_bpm_timer ++
-				if master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60
+				if (master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*3*60)
 				{
 					global.gomem_mashup_effect_arrow_alpha = 2
 					if (global.gomem_mashup_effect != 6 && global.gomem_mashup_effect != 7)
 					{
-						var random_yy = room_height*0.5-16+(gomem_mashup_effect_dir_updown*32)
-						var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
-						var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
-						var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
-						create_cylinder(random_xx,random_yy,code.depth,0.7,60,64*dir,0,180*angle,false)
+						if (global.n_camera_zoom == 1)
+						{
+							var random_yy = room_height*0.5-16+(gomem_mashup_effect_dir_updown*32)
+							var random_xx = (global.gomem_mashup_effect_dir != 1) ? global.c_x : global.c_w
+							var dir = (global.gomem_mashup_effect_dir != 1) ? 1 : -1
+							var angle = (gomem_mashup_effect_dir_updown != 1) ? 0 : 1;
+							create_cylinder(random_xx,random_yy,code.depth,0.7,60,64*dir,0,180*angle,false)
+						}
 						view_shake(0.1,1,0,2)
 
 						global.t_bg_color_alpha = 0.3
@@ -666,10 +672,10 @@
 						for(var i = -2; i < 8; i++)
 						{
 							var spike_xx = global.c_x-128*gomem_mashup_effect_dir_updown2+i*512
-							var ins_spike = create_cylinder(spike_xx,global.c_y+360,code.depth,0.5,1,256,90,180,true)
-							ins_spike.sprite_index = spr_triangle
-							var ins_spike = create_cylinder(spike_xx-256,global.c_h-360,code.depth,0.5,1,256,270,0,true)
-							ins_spike.sprite_index = spr_triangle
+							var ins_spike = create_cylinder(spike_xx,global.c_y+560,code.depth,1,1,256,90,180,true)
+							ins_spike.sprite_index = spr_spike_cylinder
+							var ins_spike = create_cylinder(spike_xx-256,global.c_h-560,code.depth,1,1,256,270,0,true)
+							ins_spike.sprite_index = spr_spike_cylinder
 							view_shake(0.1,1,1,2)
 						}
 					}

@@ -1,7 +1,7 @@
 /// @description Reset discord presence
 // You can write your code in this editor
 
-
+camera_focus_on(-4,-4,1)
 np_setpresence_more("", "메인 매뉴", false);
 np_setpresence("메인 매뉴", "", "type0", "");
 automatic_loading_cancel = 0

@@ -79,6 +79,7 @@
     {"id":{"name":"hitbox_6","path":"objects/hitbox_6/hitbox_6.yy",},},
     {"id":{"name":"ine_hurt","path":"sounds/ine_hurt/ine_hurt.yy",},},
     {"id":{"name":"spr_illustrationCG","path":"sprites/spr_illustrationCG/spr_illustrationCG.yy",},},
+    {"id":{"name":"spr_triangle_empty_bold","path":"sprites/spr_triangle_empty_bold/spr_triangle_empty_bold.yy",},},
     {"id":{"name":"hitbox_15","path":"objects/hitbox_15/hitbox_15.yy",},},
     {"id":{"name":"bamguy_timeline","path":"timelines/bamguy_timeline/bamguy_timeline.yy",},},
     {"id":{"name":"LootLockerLeaderboards","path":"extensions/LootLockerLeaderboards/LootLockerLeaderboards.yy",},},

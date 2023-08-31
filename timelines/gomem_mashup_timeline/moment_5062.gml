@@ -8,5 +8,5 @@ global.gomem_mashup_effect = 4
 master_bpm_timer = 0
 global.gomem_mashup_effect_dir = 1
 global.w_alpha = 10
-global.map_color = #10043f
+global.map_color = #ff216f
 global.background_color = #bf8beb

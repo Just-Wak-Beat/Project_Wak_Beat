@@ -2,6 +2,7 @@ global.t_map_speed_y = 11
 global.w_alpha = 1
 global.promise_effect = 1
 global.master_remix_effect = 1
+camera_focus_on(-4,-4,1)
 var xx = irandom_range(global.c_x+256,global.c_w-256)
 for(var i = 0; i < 180; i += 30)
 {

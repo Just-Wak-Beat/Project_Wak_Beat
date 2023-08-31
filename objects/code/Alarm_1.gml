@@ -155,7 +155,7 @@ if global.n_map_list != 2
 	if (global.real_n_rank[global.n_map_id] == "--" || global.artifact_owned[0] == 0)
 	{
 		global.artifact_owned[global.artifact_type]++
-		global.n_artifact[global.n_map_id] = "완료";
+		global.obtainable_type[global.n_map_id] = "완료";
 		global.real_n_artifact[global.n_map_id] = "완료";
 	}
 	else
