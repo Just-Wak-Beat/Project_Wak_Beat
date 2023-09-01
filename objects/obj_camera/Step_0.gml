@@ -50,15 +50,15 @@ if (global.paused == 0)
 
 
 
-
+	var view_zoom_ratio = (instance_exists(obj_player) && obj_player.image_xscale > 0) ? 0.95 : 1;
 	if v_x > 3584*0.4
 	{
-		camera_set_view_size(view_camera[0],floor(v_x),floor(v_y));
+		camera_set_view_size(view_camera[0],floor(v_x)*view_zoom_ratio,floor(v_y)*view_zoom_ratio);
 	}
 	else
 	{
 		v_x = 3584*0.4
-		camera_set_view_size(view_camera[0],floor(3584*0.4),floor(2016*0.4));
+		camera_set_view_size(view_camera[0],floor(3584*0.4)*view_zoom_ratio,floor(2016*0.4)*view_zoom_ratio);
 	}
 
 	if global.t_shake_x <= 0.01
@@ -96,5 +96,5 @@ if (global.paused == 0)
 		}
 	
 	
-	global.converted_view_ratio = v_x/3584;
+	global.converted_view_ratio = (v_x/3584)*view_zoom_ratio;
 }

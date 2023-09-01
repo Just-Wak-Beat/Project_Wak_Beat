@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if sprite_index != spr_circle_half && sprite_index != spr_triangle_half
+if (sprite_index != spr_circle_half && sprite_index != spr_triangle_half && sprite_index != spr_rain)
 {
 	if (sprite_index == spr_circle_spike)
 	{

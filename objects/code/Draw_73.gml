@@ -665,7 +665,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
 	if (sprite_exists(global.sc_img_for_pause) && global.sync_setting == 1)
 	{
-		draw_sprite_ext(global.sc_img_for_pause,0,xx,yy,global.converted_view_ratio*1.869,global.converted_view_ratio*1.869,0,c_white,1);
+		draw_sprite_ext(global.sc_img_for_pause,0,xx,yy,global.converted_view_ratio*1.8,global.converted_view_ratio*1.8,0,c_white,1);
 	}
 
 	

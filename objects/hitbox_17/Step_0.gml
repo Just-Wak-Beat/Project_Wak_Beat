@@ -63,34 +63,28 @@ if (warning_timer >= target_time)
 {
 	if (can_move == 0)
 	{
-		if point_distance(x,y,xstart,ystart) <= 10
+		if (fast_movement == true)
 		{
-			can_move = 1
-			w_alpha = 1
+			var tmp_xx = xstart+lengthdir_x(128,direction);
+			var tmp_yy = ystart+lengthdir_y(128,direction);
+			x += (tmp_xx - x)*0.33
+			y += (tmp_yy - y)*0.33
+				
+			if (point_distance(x,y,tmp_xx,tmp_yy) <= 32)
+			{
+				can_move = 1
+				w_alpha = 1
+			}
 		}
 		else
 		{
-			if (fast_movement == true)
+			x += (xstart - x)*0.1
+			y += (ystart - y)*0.1
+			
+			if point_distance(x,y,xstart,ystart) <= 10
 			{
-				var tmp_xx = xstart+lengthdir_x(64,direction);
-				var tmp_yy = ystart+lengthdir_y(64,direction);
-				x += (tmp_xx - x)*0.33
-				y += (tmp_yy - y)*0.33
-				
-				if (point_distance(x,y,tmp_xx,tmp_yy) <= 10)
-				{
-					can_move = 1
-				}
-				
-				if (w_alpha <= 0 && point_distance(x,y,xstart,ystart) <= 32)
-				{
-					w_alpha = 1
-				}
-			}
-			else
-			{
-				x += (xstart - x)*0.1
-				y += (ystart - y)*0.1
+				can_move = 1
+				w_alpha = 1
 			}
 		}
 	}
