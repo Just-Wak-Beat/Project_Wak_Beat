@@ -1,3 +1,9 @@
+heart_hitbox.image_angle = 180
+heart_hitbox.image_index = 3
+heart_hitbox.image_xscale = 0
+heart_hitbox.image_yscale = 0
+global.map_color = #8fb8fd
+
 for(var i = 0; i < 360; i += 16)
 {
 	var attack_ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,hitbox_2)
@@ -14,16 +20,5 @@ _ef.image_xscale = 3.7
 _ef.image_yscale = 3.7
 _ef.t_scale = 6
 _ef.image_blend = c_white
-
-heart_hitbox = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-1,hitbox_11)
-heart_hitbox.sprite_index = spr_W
-heart_hitbox.t_scale = 1
-heart_hitbox.shake_scale = 0
-heart_hitbox.shake_dir = 0
-heart_hitbox.t_angle = 0
-heart_hitbox.image_angle = 180
-heart_hitbox.image_index = 2
-global.map_color = #b8cba7
-
 
 global.w_alpha = 1

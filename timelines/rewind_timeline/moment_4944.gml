@@ -13,3 +13,6 @@ if (global.t_selected_difficulty == 0)
 	clock_hitbox_3.t_scale = clock_hitbox.t_scale*1.01
 	clock_hitbox_3.w_alpha = 1
 }
+
+global.map_color = #b8cba7
+global.w_alpha = 1

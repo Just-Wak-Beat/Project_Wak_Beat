@@ -11,5 +11,6 @@ w_alpha = 0
 alarm[1] = 1
 
 image_xscale = 0
+image_yscale = 0
 can_draw = 0
 draw_reloading_anime = 0

@@ -14,4 +14,7 @@ if (saved_xscale >= 4)
 	image_xscale = saved_xscale
 }
 
-
+if (target_time == 9999)
+{
+	image_yscale = distance
+}
