@@ -17,6 +17,7 @@ n_shake_power = 0
 clicked_ = 0
 w_alpha_bg = 0
 
+loading_color_changing = 0
 heart_alpha = 0
 
 image_scale = 1

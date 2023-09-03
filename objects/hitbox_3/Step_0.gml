@@ -24,7 +24,7 @@ if (target_time != 9999)
 {
 	if (warning_timer < round(target_time-1))
 	{
-		if (xstart == room_width*0.5 && ystart == room_height*0.5)
+		if (xstart == room_width*0.5 && ystart == room_height*0.5 && !audio_is_playing(wakrio))
 		{
 			image_xscale = saved_xscale*0.9;
 			image_yscale += (distance/640)/60;
