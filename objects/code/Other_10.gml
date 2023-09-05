@@ -35,6 +35,7 @@ global.wakrio_effect3 = 0
 global.rewind = 0
 global.clock_alpha_1 = 0
 global.clock_alpha_2 = 0
+global.automatic_camera_movement = 0
 global.yuha_effect1 = 0
 global.yuha_effect2 = 0
 global.yuha_effect3 = 0

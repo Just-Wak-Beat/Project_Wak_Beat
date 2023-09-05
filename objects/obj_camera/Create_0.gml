@@ -1,7 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
+global.automatic_camera_movement = 0
+global.auto_camera_move_xx = 0
+global.auto_camera_move_yy = 0
+auto_c_move_timer = 0
+auto_c_move_timer2 = 0
 global.view_angle_ = 0
 global.shake_x = 0
 global.shake_y = 0

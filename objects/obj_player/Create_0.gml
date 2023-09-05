@@ -16,6 +16,9 @@ kirakira_effect = 0
 invincibility_cooltime = 0
 n_max_map_speed = 0
 tutorial_mes = 0
+show_player_pos = 0
+player_pos_alpha = 0
+player_pos_w_alpha = 0
 
 global.hmove = 0
 global.vmove = 0

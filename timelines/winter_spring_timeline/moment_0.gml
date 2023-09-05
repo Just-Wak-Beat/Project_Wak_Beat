@@ -7,6 +7,7 @@ global.artifact_type = irandom_range(1,6)
 global.fukurou_snow_effect = 1
 global.map_speed = 0
 global.t_map_speed = 0
+global.automatic_camera_movement = 3;
 
 
 

@@ -1,7 +1,7 @@
 global.yuha_effect1 = 0
 global.yuha_effect2 = 0
 global.yuha_effect3 = 0
-
+global.automatic_camera_movement = 3;
 
 if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {

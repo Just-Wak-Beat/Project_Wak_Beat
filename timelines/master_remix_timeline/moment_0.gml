@@ -18,3 +18,4 @@ global.master_remix_effect5 = 0
 master_movement_dir = -3
 master_movement_timer = 0
 global.master_remix_effect4 = 0
+global.automatic_camera_movement = 3;

@@ -46,15 +46,17 @@ if (global.paused == 0)
 	
 	if global.select_map != 0
 	{
-		image_xscale = 0
-		image_yscale = 0
-		x = room_width*0.5
-		y = room_height*0.5
+		image_xscale = 0;
+		image_yscale = 0;
+		x = room_width*0.5;
+		y = room_height*0.5;
 	}
 	else
 	{
-		if image_xscale = 0
+		if (image_xscale == 0)
 		{
+			show_player_pos = 241;
+			player_pos_alpha = 1;
 			audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 
 			var _ef = instance_create_depth(x,y,depth+1,explosion_effect)

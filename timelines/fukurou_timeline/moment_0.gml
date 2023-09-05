@@ -6,6 +6,7 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 global.t_bg_color = 0
 global.t_bg_color_alpha = 0
 global.artifact_type = 1
+global.automatic_camera_movement = 3;
 
 for(var i = 0; i <= 64; i++)
 {

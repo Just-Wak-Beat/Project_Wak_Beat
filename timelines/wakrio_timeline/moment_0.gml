@@ -11,7 +11,7 @@ global.artifact_type = 0
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
 global.wakrio_effect = 0
-
+global.automatic_camera_movement = 2;
 
 
 create_laser(irandom_range(global.c_x,global.c_w),global.c_y,60,26,4,2,2,180)

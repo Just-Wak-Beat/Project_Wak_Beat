@@ -14,7 +14,7 @@ global.t_bg_color = 0
 global.t_map_speed = 0
 global.map_speed = 0
 global.master_remix_effect = 1
-
+global.automatic_camera_movement = 3
 
 
 var random_y = irandom_range(global.c_y+128,global.c_h-128)

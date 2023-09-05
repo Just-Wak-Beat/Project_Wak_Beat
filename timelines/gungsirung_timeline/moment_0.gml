@@ -6,6 +6,7 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 }
 
 
+global.automatic_camera_movement = 2;
 global.artifact_type = 6
 global.map_color = #fbd780
 global.background_color = #d7bb2c
