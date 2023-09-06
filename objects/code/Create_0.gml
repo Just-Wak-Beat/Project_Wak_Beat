@@ -3,7 +3,8 @@
 global.version_real = "4.1";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1
-
+surf_screen = -4;
+global.blackout_alpha = 0;
 global.low_graphics = false;
 global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
@@ -848,3 +849,9 @@ global.scroll_activated = -1
 global.clicking_timer = 0
 global.clicking_del = 0
 scrolling_map = 0
+
+
+
+
+
+

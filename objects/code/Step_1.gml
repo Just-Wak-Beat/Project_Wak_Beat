@@ -1,5 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+//화면 흑백 효과
+if (global.blackout_alpha > 0)
+{
+	global.blackout_alpha -= 0.05;
+}
+
 if (global.force_wipe_nickname != b_force_wipe_nickname)
 {
 	global.nickname = "";

@@ -34,6 +34,7 @@
     {"name":"spr_circle_cylinder","order":21,"path":"sprites/spr_circle_cylinder/spr_circle_cylinder.yy",},
     {"name":"tutorial_part4_timeline","order":6,"path":"timelines/tutorial_part4_timeline/tutorial_part4_timeline.yy",},
     {"name":"spr_circle_dot_outline","order":41,"path":"sprites/spr_circle_dot_outline/spr_circle_dot_outline.yy",},
+    {"name":"shader","order":1,"path":"shaders/shader/shader.yy",},
     {"name":"lockdown","order":24,"path":"sounds/lockdown/lockdown.yy",},
     {"name":"glow_sfx","order":9,"path":"sounds/glow_sfx/glow_sfx.yy",},
     {"name":"spr_player","order":3,"path":"sprites/spr_player/spr_player.yy",},

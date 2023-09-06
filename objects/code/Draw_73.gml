@@ -1,5 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
+var surface_ratio = 1.8;
+var view_zoom_ratio = (instance_exists(obj_player) && obj_player.image_xscale > 0) ? 0.95 : 1;
+var tmp_c_x = (obj_camera.v_x/3584);
 var xx = camera_get_view_x(view_camera[0]);
 var yy = camera_get_view_y(view_camera[0]);
 
@@ -665,7 +668,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
 	if (sprite_exists(global.sc_img_for_pause) && global.sync_setting == 1)
 	{
-		draw_sprite_ext(global.sc_img_for_pause,0,xx,yy,global.converted_view_ratio*1.8,global.converted_view_ratio*1.8,0,c_white,1);
+		draw_sprite_ext(global.sc_img_for_pause,0,xx,yy,global.converted_view_ratio*surface_ratio,global.converted_view_ratio*surface_ratio,0,c_white,1);
 	}
 
 	
@@ -784,3 +787,26 @@ if global.joystick_alpha > 0.01
 
 
 
+
+
+
+
+
+
+
+
+
+/*if (surf_screen != -4 && surface_exists(surf_screen))
+{
+	if (global.blackout_alpha > 0)
+	{
+		//화면 흑백
+		shader_set(shader)
+		draw_surface_ext(surf_screen,xx,yy,tmp_c_x*surface_ratio,tmp_c_x*surface_ratio,0,c_white,global.blackout_alpha)
+		shader_reset()
+	}
+}
+else
+{
+	surf_screen = surface_create(xx_w,yy_h);
+}*/

@@ -124,6 +124,10 @@ if (global.paused == 0)
 			camera_set_view_angle(view_camera[0],0)
 		}
 	
+	/*if (global.blackout_alpha > 0 && surface_exists(code.surf_screen))
+	{
+		surface_copy(code.surf_screen,0,0,application_surface)
+	}*/
 	
 	global.converted_view_ratio = (v_x/3584)*view_zoom_ratio;
 }
