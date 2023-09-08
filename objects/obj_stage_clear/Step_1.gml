@@ -1,18 +1,82 @@
 /// @description Insert description here
 // You can write your code in this editor
+depth = obj_player.depth-320;
 	
+//애니메이션
+if (touched >= 1)
+{
+	var tmp_dis = abs(y - obj_player.y)/960;
+	tmp_dis = (sprite_index == obj_player && tmp_dis < 1) ? 1 : tmp_dis;
+	image_xscale = tmp_dis;
+	image_yscale = tmp_dis;
+}
 	
-	//애니메이션
-	if (touched == 1)
+if (touched == 1)
+{
+	if (play_unlock_animation == 0)
+	{
+		obj_player.y = room_height*0.5;
+	}
+	
+	if (play_unlock_animation < 300)
 	{
 		obj_player.x = room_width*0.5;
-		obj_player.y = room_height*0.5;
+		obj_player.image_angle += (0 - obj_player.image_angle)*0.06
 		x = room_width*0.5;
+		if (vspeed <= 0)
+		{
+			effect_rad += (160 - effect_rad)*0.1;
+		}
+	}
 
+	
+	image_angle += (360 - image_angle)*0.03
+	if (play_unlock_animation >= 1)
+	{
+		vspeed = 0;
+		gravity = 0;
+		play_unlock_animation ++;
+			
+		if (play_unlock_animation%45 == 0 && play_unlock_animation < 300)
+		{
+			var tmp_ins = instance_create_depth(x,y,depth+1,obj_shine_ef)
+			tmp_ins.target = id;
+		}
 		
-		image_angle += (360 - image_angle)*0.03
+		if (play_unlock_animation == 360)
+		{
+			var _ef = instance_create_depth(x,y,depth+1,explosion_effect);
+			_ef.image_xscale = 1;
+			_ef.image_yscale = 1;
+			_ef.t_scale = 2;
+			_ef.image_blend = c_white;
+				
+			repeat(irandom_range(8,10))
+			{
+				var random_x = irandom_range(-16,16)
+				var random_y = irandom_range(-16,16)
+				var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
+				effect_.image_xscale = 0.3
+				effect_.image_yscale = 0.3
+				effect_.direction = point_direction(x,y,x+random_x,y+random_y)
+				effect_.speed = 16
+				effect_.image_blend = c_white
+			}
+			play_unlock_animation = -1;
+			w_alpha = 10;
+			image_index *= global.artifact_type*7;
+			sprite_index = spr_player;
+			vspeed = 1;
+			image_angle = 360;
+		}
 		
-		
+		if (play_unlock_animation < 9999)
+		{
+			obj_player.y += (room_height*0.5+256 - obj_player.y)*0.05;
+		}
+	}
+	else
+	{
 		if (y > obj_player.y)
 		{
 			var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)
@@ -41,6 +105,7 @@
 			global.show_rank = 2
 		}
 		
+		
 
 		if (image_angle > 190 && image_angle <= 200)
 		{
@@ -48,7 +113,7 @@
 			_ef.image_xscale = 1
 			_ef.image_yscale = 1
 			_ef.t_scale = 2
-			_ef.image_blend = global.player_color
+			_ef.image_blend = c_white
 
 			repeat(irandom_range(8,10))
 			{
@@ -70,37 +135,32 @@
 			w_alpha += 0.1;
 			obj_player.w_alpha += 0.1;
 		}
-
-
-		if (effect_rad < 160)
-		{
-			effect_rad += 1+effect_rad*0.2;
-		}
 	}
+}
 	
-	if (touched == 2)
-	{
-		var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)
-		_ef.image_xscale = 1
-		_ef.image_yscale = 1
-		_ef.t_scale = 2
-		_ef.image_blend = global.player_color
+if (touched == 2)
+{
+	var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)
+	_ef.image_xscale = 1
+	_ef.image_yscale = 1
+	_ef.t_scale = 2
+	_ef.image_blend = global.player_color
 
-		repeat(irandom_range(8,10))
-		{
-			var random_x = irandom_range(-16,16)
-			var random_y = irandom_range(-16,16)
-			var effect_ = instance_create_depth(room_width*0.5+random_x,room_height*0.5+random_y,depth+1,movement_effect)
-			effect_.image_xscale = 0.3
-			effect_.image_yscale = 0.3
-			effect_.direction = point_direction(room_width*0.5,room_height*0.5,room_width*0.5+random_x,room_height*0.5+random_y)
-			effect_.speed = 16
-			effect_.image_blend = color_sec
-		}
-		
-		global.t_w_alpha = 5000
-		w_alpha = 10
-		touched = 3
-		alarm[1] = 30
+	repeat(irandom_range(8,10))
+	{
+		var random_x = irandom_range(-16,16)
+		var random_y = irandom_range(-16,16)
+		var effect_ = instance_create_depth(room_width*0.5+random_x,room_height*0.5+random_y,depth+1,movement_effect)
+		effect_.image_xscale = 0.3
+		effect_.image_yscale = 0.3
+		effect_.direction = point_direction(room_width*0.5,room_height*0.5,room_width*0.5+random_x,room_height*0.5+random_y)
+		effect_.speed = 16
+		effect_.image_blend = color_sec
 	}
+		
+	global.t_w_alpha = 5000
+	w_alpha = 10
+	touched = 3
+	alarm[1] = 30
+}
 	

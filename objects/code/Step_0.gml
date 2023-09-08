@@ -14,10 +14,10 @@ if (gamestart == 1.1)
 {
 	if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
 	{
-		gamestart = 0
-		global.t_select_difficulty = 0
-		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
-		window_set_cursor(cr_none)
+		gamestart = 0;
+		global.t_select_difficulty = 0;
+		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
+		window_set_cursor(cr_none);
 	}
 }
 

@@ -8,6 +8,7 @@ if image_angle = 0
 	{
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		global.w_alpha = 1
+		global.automatic_camera_movement = 0
 		global.respawn_point_xx = obj_player.x
 		global.respawn_point_yy = obj_player.y
 

@@ -9,21 +9,24 @@ function load_custom_map_files()
 		ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+".JWABMAP")
 		if !audio_exists(global.custom_audio_asset[i])
 		{
-			audio_file = audio_create_stream(directory);
-			global.custom_stage_map_name[i] = ini_read_string("custom_stage_map_name","value","Undefined")
-			global.custom_stage_map_artist[i] = ini_read_string("custom_stage_map_artist","value","Undefined")
-			global.custom_stage_map_difficulty[i] = ini_read_string("custom_stage_map_difficulty","value","Undefined")
-			global.custom_stage_map_color[i] = ini_read_string("custom_stage_map_color","value",c_black)
-			global.custom_stage_map_audio_name[i] = ini_read_string("custom_stage_map_audio_name","value",-4)
-			global.custom_stage_bpm[i] = ini_read_real("custom_stage_bpm","value",180)
-			global.custom_stage_map_highlight_part[i] = ini_read_real("custom_stage_map_highlight_part","value",-4)
-			global.custom_n_rank[i] = ini_read_string("custom_n_rank","value",-4)
-			global.custom_detailed_difficulty[i] = ini_read_real("custom_detailed_difficulty","value",0)
-			global.custom_obtainable_type[i] = ini_read_real("custom_obtainable_type","value",-4)
-			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
-			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
-			global.custom_audio_asset[i] = audio_file;
-			global.custom_map_duration[i] = floor(audio_sound_length(audio_file)*60);
+			if (file_exists(directory))
+			{
+				audio_file = audio_create_stream(directory);
+				global.custom_stage_map_name[i] = ini_read_string("custom_stage_map_name","value","Undefined")
+				global.custom_stage_map_artist[i] = ini_read_string("custom_stage_map_artist","value","Undefined")
+				global.custom_stage_map_difficulty[i] = ini_read_string("custom_stage_map_difficulty","value","Undefined")
+				global.custom_stage_map_color[i] = ini_read_string("custom_stage_map_color","value",c_black)
+				global.custom_stage_map_audio_name[i] = ini_read_string("custom_stage_map_audio_name","value",-4)
+				global.custom_stage_bpm[i] = ini_read_real("custom_stage_bpm","value",180)
+				global.custom_stage_map_highlight_part[i] = ini_read_real("custom_stage_map_highlight_part","value",-4)
+				global.custom_n_rank[i] = ini_read_string("custom_n_rank","value",-4)
+				global.custom_detailed_difficulty[i] = ini_read_real("custom_detailed_difficulty","value",0)
+				global.custom_obtainable_type[i] = ini_read_real("custom_obtainable_type","value",-4)
+				global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
+				global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
+				global.custom_audio_asset[i] = audio_file;
+				global.custom_map_duration[i] = floor(audio_sound_length(audio_file)*60);
+			}
 		}
 		else
 		{

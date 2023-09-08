@@ -51,7 +51,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.6.0.92",
+    "IDEVersion": "2023.8.0.98",
   },
   "resources": [
     {"id":{"name":"spr_circle_cylinder","path":"sprites/spr_circle_cylinder/spr_circle_cylinder.yy",},},
@@ -141,6 +141,7 @@
     {"id":{"name":"spr_jururu","path":"sprites/spr_jururu/spr_jururu.yy",},},
     {"id":{"name":"get_unlocked_list_num","path":"scripts/get_unlocked_list_num/get_unlocked_list_num.yy",},},
     {"id":{"name":"percentage_k","path":"scripts/percentage_k/percentage_k.yy",},},
+    {"id":{"name":"obj_shine_ef","path":"objects/obj_shine_ef/obj_shine_ef.yy",},},
     {"id":{"name":"camera_focus_on","path":"scripts/camera_focus_on/camera_focus_on.yy",},},
     {"id":{"name":"Yoong_timeline","path":"timelines/Yoong_timeline/Yoong_timeline.yy",},},
     {"id":{"name":"shelter","path":"sounds/shelter/shelter.yy",},},
@@ -270,6 +271,7 @@
     {"id":{"name":"create_spike_circle","path":"scripts/create_spike_circle/create_spike_circle.yy",},},
     {"id":{"name":"spr_alzar","path":"sprites/spr_alzar/spr_alzar.yy",},},
     {"id":{"name":"create_projectile","path":"scripts/create_projectile/create_projectile.yy",},},
+    {"id":{"name":"shine_ef","path":"sprites/shine_ef/shine_ef.yy",},},
     {"id":{"name":"spr_explosion","path":"sprites/spr_explosion/spr_explosion.yy",},},
     {"id":{"name":"spr_korea_univ","path":"sprites/spr_korea_univ/spr_korea_univ.yy",},},
     {"id":{"name":"Main","path":"rooms/Main/Main.yy",},},
@@ -277,6 +279,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"Main","path":"rooms/Main/Main.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"UI","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

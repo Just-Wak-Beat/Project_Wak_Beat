@@ -59,3 +59,13 @@ if global.hp > 0 && code.gamestart = 2
 		draw_circular_bar(x,y,global.dash_cooltime,40-n_max_map_speed*0.2,global.player_color,60,0.9,3)
 	}
 }
+
+
+
+
+if (instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0)
+{
+	draw_set_color(c_black);
+	draw_set_alpha(obj_stage_clear.effect_rad/150);
+	draw_line_width(0,0,room_width,room_height,9999);
+}

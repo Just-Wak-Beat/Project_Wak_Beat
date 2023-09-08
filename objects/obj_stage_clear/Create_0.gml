@@ -3,7 +3,7 @@
 timer = (global.bpm/3600)*5000
 image_blend = $FFE6FFE2
 color_sec = $FF4AB539
-image_speed = 64
+image_speed = 0
 outside_timer = 0
 effect_rad = 0
 
@@ -17,7 +17,7 @@ touched = 0
 rank_alpha = 1
 once_in = 0
 timer_del = 0
-
+play_unlock_animation = 1
 
 spin_rad = 0
 for(var i = 6; i < 32; i++)

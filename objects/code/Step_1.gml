@@ -1,5 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (global.dev_mode == 1)
+{
+	global.tutorial_played = 1;
+}
 
 //화면 흑백 효과
 if (global.blackout_alpha > 0)

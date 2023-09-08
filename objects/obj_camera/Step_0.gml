@@ -32,8 +32,8 @@ depth = 999999
 
 if (global.show_rank > 0)
 {
-	x += (obj_player.x - x)*0.22
-	y += (obj_player.y - y)*0.22
+	x += (room_width*0.5 - x)*0.22
+	y += (room_height*0.5 - y)*0.22
 	
 	if (global.show_rank == 1)
 	{

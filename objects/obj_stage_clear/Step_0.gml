@@ -44,23 +44,23 @@ spin_rad += 10
 
 	for(var i = 6; i < 32; i++)
 	{
-		xx[i] += (lengthdir_x(66,spin_rad*0.5) - xx[i])*0.02*i
-		yy[i] += (lengthdir_y(66,spin_rad*0.5) - yy[i])*0.02*i
+		xx[i] += (lengthdir_x(60+image_xscale*32,spin_rad*0.5) - xx[i])*0.02*i
+		yy[i] += (lengthdir_y(60+image_xscale*32,spin_rad*0.5) - yy[i])*0.02*i
 
 		xx[i] = floor(xx[i])
 		yy[i] = floor(yy[i])
 
 
-		xx2[i] += (lengthdir_x(82,-spin_rad) - xx2[i])*0.02*i
-		yy2[i] += (lengthdir_y(82,-spin_rad) - yy2[i])*0.02*i
+		xx2[i] += (lengthdir_x(76+image_xscale*32,-spin_rad) - xx2[i])*0.02*i
+		yy2[i] += (lengthdir_y(76+image_xscale*32,-spin_rad) - yy2[i])*0.02*i
 
 		xx2[i] = floor(xx2[i])
 		yy2[i] = floor(yy2[i])
 
 
 
-		xx3[i] += (lengthdir_x(66,spin_rad*0.5+180) - xx3[i])*0.02*i
-		yy3[i] += (lengthdir_y(66,spin_rad*0.5+180) - yy3[i])*0.02*i
+		xx3[i] += (lengthdir_x(60+image_xscale*32,spin_rad*0.5+180) - xx3[i])*0.02*i
+		yy3[i] += (lengthdir_y(60+image_xscale*32,spin_rad*0.5+180) - yy3[i])*0.02*i
 
 		xx3[i] = floor(xx3[i])
 		yy3[i] = floor(yy3[i])
@@ -134,8 +134,11 @@ timer ++
 		_ef.image_blend = global.player_color
 		speed = 0
 		t_speed = 0
-		gravity = 0.6
-		vspeed = -32
+		if (play_unlock_animation == 0)
+		{
+			gravity = 0.6
+			vspeed = -32
+		}
 		image_angle = 0
 		alarm[2] = 120
 
