@@ -15,6 +15,15 @@ if global.dev_mode != 1
 }
 else
 {
-	global.custom_map_directory = string(working_directory)+"\\Custom map files\\";
+	var directory_tmp = program_directory
+	if (!directory_exists(program_directory))
+	{
+		directory_tmp = temp_directory
+	}
+	if (!directory_exists(temp_directory))
+	{
+		directory_tmp = working_directory
+	}
+	global.custom_map_directory = string(directory_tmp)+"\\Custom map files\\";
 }
 

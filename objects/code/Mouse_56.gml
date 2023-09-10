@@ -19,7 +19,7 @@ global.n_setting_button = -4
 
 
 
-if (instance_exists(obj_album_ui) && obj_album_ui.holding_now != -1 && global.notice_title == "잠시만요!")
+if (instance_exists(obj_album_ui) && obj_album_ui.holding_now != -1 && global.notice_title == "게임을 시작하기 전...")
 {
 	if (global.show_new_songs > 0 && (gamestart == 0 || gamestart >= 4))
 	{

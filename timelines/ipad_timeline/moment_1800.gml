@@ -21,7 +21,7 @@ if (global.t_selected_difficulty == 0)
 		attack_ef.image_yscale = 0.04;
 		attack_ef.w_alpha = 10;
 		attack_ef.gravity = 1;
-		attack_ef.vspeed = -vspeed*0.8+irandom_range(-5,5);
+		attack_ef.vspeed = -8+irandom_range(-5,5);
 		attack_ef.hspeed = irandom_range(-25,25)/2;
 	}
 	
@@ -34,7 +34,7 @@ if (global.t_selected_difficulty == 0)
 		attack_ef.image_yscale = 0.04;
 		attack_ef.w_alpha = 10;
 		attack_ef.gravity = 1;
-		attack_ef.vspeed = -vspeed*0.8+irandom_range(-5,5);
+		attack_ef.vspeed = -8+irandom_range(-5,5);
 		attack_ef.hspeed = irandom_range(-25,25)/2;
 	}
 }

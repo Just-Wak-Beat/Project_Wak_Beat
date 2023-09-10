@@ -208,6 +208,7 @@
     {"id":{"name":"turisumo","path":"sounds/turisumo/turisumo.yy",},},
     {"id":{"name":"fukurou_timeline","path":"timelines/fukurou_timeline/fukurou_timeline.yy",},},
     {"id":{"name":"gungsirung","path":"sounds/gungsirung/gungsirung.yy",},},
+    {"id":{"name":"artifact_get","path":"sounds/artifact_get/artifact_get.yy",},},
     {"id":{"name":"yuha_timeline","path":"timelines/yuha_timeline/yuha_timeline.yy",},},
     {"id":{"name":"hitbox_3","path":"objects/hitbox_3/hitbox_3.yy",},},
     {"id":{"name":"spr_triangle_half","path":"sprites/spr_triangle_half/spr_triangle_half.yy",},},

@@ -32,9 +32,6 @@ depth = 999999
 
 if (global.show_rank > 0)
 {
-	x += (room_width*0.5 - x)*0.22
-	y += (room_height*0.5 - y)*0.22
-	
 	if (global.show_rank == 1)
 	{
 		v_x += (3584*0.7 - v_x)*0.1

@@ -422,11 +422,10 @@ if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 /**/
 
 
-
-
 draw_set_color(c_black)
 draw_set_alpha(global.b_alpha)
 draw_line_width(0,0,room_width,room_height,5000)
+
 
 if instance_exists(code)
 {
@@ -447,6 +446,39 @@ if instance_exists(code)
 			var n_is_selected = (i == global.t_n_select_skin) ? 1.3 : 1
 			var _dis_scale = (1-(abs(i-global.n_select_skin)/5))*n_is_selected
 			var skin_name = global.unlocked_player_skin_name[i] 
+			
+			if (!unlocked)
+			{
+				if (global.unlocked_player_skin[i] < 1.01)
+				{
+					global.unlock_partner_animation_queue = 0;
+					global.unlocked_player_skin[i] = 1;
+				}
+				else
+				{
+					if (n_is_selected == 1.3)
+					{
+						if (global.unlocked_player_skin[i] == 3)
+						{
+							var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect);
+							_ef.image_xscale = 3;
+							_ef.image_yscale = 3;
+							_ef.t_scale = 5;
+							_ef.image_blend = (i/7);
+							audio_play_sound(glow_sfx,0,false,global.master_volume*global.sfx_volume);
+						}
+							
+							
+						global.unlocked_player_skin[i] += (1 - global.unlocked_player_skin[i])*0.1;
+					}
+						
+					if (global.unlock_partner_animation_queue == 0)
+					{
+						global.unlock_partner_animation_queue = 1;
+						global.t_n_select_skin = i;
+					}
+				}
+			}
 			
 			if (_dis_scale > 0.1)
 			{
@@ -494,7 +526,7 @@ if instance_exists(code)
 
 
 
-		if mouse_check_button_pressed(mb_left)
+		if (mouse_check_button_pressed(mb_left) && global.unlock_partner_animation_queue == 0)
 		{
 			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 			if (mouse_x >= middle_xx+400)
@@ -671,7 +703,7 @@ if instance_exists(code)
 				global.t_selected_difficulty = 0
 			}
 		}
-		else if (global.notice_title == "잠시만요!")
+		else if (global.notice_title == "게임을 시작하기 전...")
 		{
 			if (holding_now > 0)
 			{
@@ -778,7 +810,7 @@ if instance_exists(code)
 		}
 		
 		
-		if (global.saved_notice_title == "파트너 시스템")
+		if (global.saved_notice_title == "파트너 해금!")
 		{
 			draw_sprite_ext(spr_W,global.player_skin,global.c_x+100+320*(global.show_new_songs/100),global.c_y+660+16,0.17*global.font_ratio_resolution_xx*(global.show_new_songs/50),0.17*(global.show_new_songs/50),0,c_black,0.3*ui_alpha__cal)
 			draw_sprite_ext(spr_W,global.player_skin,global.c_x+100+320*(global.show_new_songs/100),global.c_y+660,0.17*global.font_ratio_resolution_xx*(global.show_new_songs/50),0.17*(global.show_new_songs/50),0,c_white,ui_alpha__cal)

@@ -133,7 +133,7 @@ function load_musicList(argument0)
 	}
 	
 	
-	if global.b_map_list != global.n_map_list
+	if (global.b_map_list != global.n_map_list)
 	{
 		n_stage = 0
 		saved_n_stage = 2

@@ -36,7 +36,7 @@ if (global.ui_alpha >= 1 && instance_exists(obj_album_ui) && global.show_new_son
 		
 		if (global.level == 1)
 		{
-			show_guide("파트너 시스템");
+			show_guide("파트너 해금!");
 		}
 		
 		if (global.level == 3)
@@ -410,6 +410,7 @@ if global.rewind > 0
 	{
 		with(hitbox_parents)
 		{
+			gravity = 0;
 			speed += (0 - speed)*0.05
 			
 			if variable_instance_exists(other,"keep_spin_angle")
@@ -535,33 +536,18 @@ if global.rewind > 0
 	if global.rewind > 260
 	{
 		audio_stop_sound(global.n_music_instance);
-		global.total_died_here ++;
 		global.w_alpha = 1.1;
 		global.hp = 5;
 		global.quake_effect = 0;
 		global.rewind = 0;
-		global.ipad_effect = 0;
-		global.clock_alpha_1 = 0;
-		global.check_died = 1;
-		global.clock_alpha_2 = 0;
-		global.n_progress = global.start_point;
 		global.cannot_control = 0;
 		obj_player.invincibility_cooltime = 90;
 		obj_player.show_invincibility = 1;
-		master_bpm_timer = 0;
-		global.lockdown_effect1 = 0
-		global.lockdown_effect2 = 0
-		global.lockdown_effect3 = 0
-		global.lockdown_effect4 = 0
-		global.lockdown_effect5 = 0
-		lockdown_effect4_1 = 0
-		lockdown_effect5_1 = 0
-		lockdown_effect5_2 = 0
-		lockdown_effect5_3 = 0
 		instance_destroy(hitbox_parents);
 		instance_destroy(obj_savepoint);
 		instance_destroy(square_misile);
 		instance_destroy(obj_stage_clear);
+		event_user(8);
 	
 		if global.fukurou_snow_effect != 0
 		{
@@ -622,11 +608,20 @@ if global.rewind > 0
 		//곡 리스타트
 		if (global.restart_stage == 1)
 		{
+			global.map_color = global.stage_map_color[global.n_map_id];
+			global.start_point = 0;
 			global.restart_stage = 0;
 			global.respawn_point_xx = room_width*0.5;
 			global.respawn_point_yy = room_height*0.5;
-			global.start_point = 0;
 			global.total_died_here = 0;
+			global.check_died = 0;
+			global.n_progress = 0;
+		}
+		else
+		{
+			global.total_died_here ++;
+			global.n_progress = global.start_point;
+			global.check_died = 1;
 		}
 	}
 }

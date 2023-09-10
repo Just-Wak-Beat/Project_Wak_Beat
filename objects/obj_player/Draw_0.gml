@@ -30,7 +30,7 @@ if global.hp > 0 && code.gamestart = 2
 
 		var tmp_scale = (1+player_pos_w_alpha*0.5)*0.12;
 		draw_sprite_ext(spr_square_half,0,x,y-96*global.converted_view_ratio,global.converted_view_ratio*global.font_ratio_resolution_xx*tmp_scale,global.converted_view_ratio*tmp_scale,135,merge_color(c_white,global.player_color,tmp_player_pos_w_alpha),player_pos_alpha)
-		draw_text_k_scale(x,y-160*global.converted_view_ratio,"You",64,-1,player_pos_alpha,c_white,0,0,normal_font,0.55*global.font_ratio_resolution_xx*global.converted_view_ratio,0.55*global.converted_view_ratio,0)
+		draw_text_k_scale(x,y-160*global.converted_view_ratio,"너",64,-1,player_pos_alpha,c_white,0,0,normal_font,0.55*global.font_ratio_resolution_xx*global.converted_view_ratio,0.55*global.converted_view_ratio,0)
 	}
 	else
 	{
@@ -63,9 +63,9 @@ if global.hp > 0 && code.gamestart = 2
 
 
 
-if (instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0)
+if (instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0 && obj_stage_clear.touched > 0)
 {
 	draw_set_color(c_black);
-	draw_set_alpha(obj_stage_clear.effect_rad/150);
+	draw_set_alpha(abs(obj_stage_clear.y-y)/255);
 	draw_line_width(0,0,room_width,room_height,9999);
 }

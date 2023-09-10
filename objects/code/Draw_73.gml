@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-var surface_ratio = 1.8;
+var surface_ratio = 1.8+global.n_camera_zoom*0.02;
 var view_zoom_ratio = (instance_exists(obj_player) && obj_player.image_xscale > 0) ? 0.95 : 1;
 var tmp_c_x = (obj_camera.v_x/3584);
 var xx = camera_get_view_x(view_camera[0]);
@@ -648,7 +648,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	}
 }
 
-if (global.rank_display_alpha > 0 && global.tutorial_played > 0)
+if (global.rank_display_alpha > 0 && global.tutorial_played > 0 && ((instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0) || !instance_exists(obj_stage_clear)))
 {
 	var temp_col = merge_color(c_white,#bf1a5c,global.rank_display_r_alpha)
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+global.rank_display_r_alpha*0.5)
@@ -747,7 +747,13 @@ if !instance_exists(obj_album_ui)
 	draw_set_color(c_white)
 	draw_set_alpha(global.w_alpha)
 	draw_line_width(0,0,room_width,room_height,5000)
+	
+	draw_set_color(c_black)
+	draw_set_alpha(global.b_alpha)
+	draw_line_width(0,0,room_width,room_height,5000)
 }
+
+
 
 
 

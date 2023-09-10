@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-ini_open("custom_map_file_1.JWABMAP")
+ini_open("custom_map_file_1.ini")
 ini_write_string("custom_stage_map_name","value","test_name");
 ini_write_string("custom_stage_map_artist","value","test_artist");
 ini_write_string("custom_stage_map_difficulty","value","Undefined");

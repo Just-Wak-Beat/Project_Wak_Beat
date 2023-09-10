@@ -127,21 +127,13 @@ if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
 		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
 		check_new_song ++
 	}
-	else if (global.saved_notice_title == "파트너 시스템")
+	else if (global.saved_notice_title == "파트너 해금!")
 	{
-		global.unlocked_music_name_new_list[check_new_song] = "스테이지를 클리어하게 되면 얻게되는 '아티팩트'를 소모하여";
+		global.unlocked_music_name_new_list[check_new_song] = "음악 속에 갇혀있던 멤버를 구출했습니다!";
 		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
 		check_new_song ++
 	
-		global.unlocked_music_name_new_list[check_new_song] = "메인메뉴 좌측 있는 '파트너'탭에서 왁타버스 멤버를 해금할 수 있습니다";
-		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
-		check_new_song ++
-		
-		global.unlocked_music_name_new_list[check_new_song] = "해금된 멤버는 파트너로 합류하며, 파트너 장착시 특수 효과를 얻을 수 있습니다";
-		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
-		check_new_song ++
-		
-		global.unlocked_music_name_new_list[check_new_song] = "(이때, 각 파트너들은 해금 전엔 능력을 미리 볼 수 없습니다)";
+		global.unlocked_music_name_new_list[check_new_song] = "메인메뉴 좌측 있는 '파트너'탭에서 해금된 멤버를 확인할 수 있습니다";
 		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
 		check_new_song ++
 	}
@@ -434,7 +426,10 @@ global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
 		obj_album_ui.bpm_timer = 0
 		audio_stop_sound(global.highlight_music)
 		var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
-		global.highlight_music = audio_play_sound(_audio_asset,0,false,0,global.stage_map_highlight_part[n_stage]-sign(global.show_title_menu)*3)
+		if (audio_exists(_audio_asset))
+		{
+			global.highlight_music = audio_play_sound(_audio_asset,0,false,0,global.stage_map_highlight_part[n_stage]-sign(global.show_title_menu)*3);
+		}
 		play_highlight = 0
 	}
 	

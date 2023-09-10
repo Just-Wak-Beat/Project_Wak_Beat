@@ -125,14 +125,14 @@ if (global.paused == 0)
 				check_stop = 1
 				repeat(irandom_range(8,10))
 				{
-				var random_x = irandom_range(-16,16)+global.hmove_speed*20
-				var random_y = irandom_range(-16,16)+global.vmove_speed*20
-				var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
-				effect_.image_xscale = 0.3
-				effect_.image_yscale = 0.3
-				effect_.direction = point_direction(x,y,x+random_x,y+random_y)
-				effect_.speed = 16
-				effect_.image_blend = global.player_color
+					var random_x = irandom_range(-16,16)+global.hmove_speed*20
+					var random_y = irandom_range(-16,16)+global.vmove_speed*20
+					var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
+					effect_.image_xscale = 0.3
+					effect_.image_yscale = 0.3
+					effect_.direction = point_direction(x,y,x+random_x,y+random_y)
+					effect_.speed = 16
+					effect_.image_blend = global.player_color
 				}
 			}
 		}

@@ -1,37 +1,38 @@
 /// @description Insert description here
 // You can write your code in this editor
-if global.n_map_list != 2
+
+if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock_partner_animation_queue == 0)
 {
-	if (global.select_difficulty = 0 && global.show_new_songs <= 0)
+	if (((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+400) < 80 || keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))))
 	{
-		if (((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+400) < 80 || keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))))
+		with(code)
 		{
-			with(code)
+			if object_index = code
 			{
-				if object_index = code
+				if (global.character_setting <= 0)
 				{
-					if (global.character_setting <= 0)
-					{
-						event_user(2)
-					}
-					else
-					{
-						event_user(3)
-					}
+					event_user(2)
 				}
-			}
-		}
-		else if (global.sync_setting <= 0 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80) || keyboard_check_pressed(ord("Q"))))
-		{
-			with(code)
-			{
-				if object_index = code
+				else
 				{
 					event_user(3)
 				}
 			}
 		}
-		else if (global.n_map_list != 2 && global.show_new_songs <= 0 && mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80)
+	}
+	else if (global.sync_setting <= 0 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80) || keyboard_check_pressed(ord("Q"))))
+	{
+		with(code)
+		{
+			if object_index = code
+			{
+				event_user(3)
+			}
+		}
+	}
+	else if global.n_map_list != 2
+	{
+		if (global.n_map_list != 2 && global.show_new_songs <= 0 && mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80)
 		{
 			if (global.level >= global.requirement_level[code.n_stage])
 			{

@@ -154,17 +154,10 @@ if global.n_map_list != 2
 	
 	if (global.real_n_rank[global.n_map_id] == "--" || global.artifact_owned[0] == 0)
 	{
-		global.artifact_owned[global.artifact_type]++
 		global.obtainable_type[global.n_map_id] = "완료";
 		global.real_n_artifact[global.n_map_id] = "완료";
 	}
-	else
-	{
-		if (global.t_selected_difficulty == 0)
-		{
-			global.artifact_owned[global.artifact_type]++
-		}
-	}
+
 	
 	
 	if (global.t_selected_difficulty == 0)
@@ -210,24 +203,17 @@ else
 	
 	
 	//커스텀 맵 클리어 내역 저장
-	ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+".JWABMAP")
+	ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+".ini")
 	ini_write_string("custom_n_rank","value",global.n_rank[global.n_map_id])
 	ini_write_string("n_rank_hardcore","value",global.n_rank_hardcore[global.n_map_id])
 	ini_write_string("custom_n_score","value",global.n_score[global.n_map_id])
 	ini_write_string("n_score_hardcore","value",global.n_score_hardcore[global.n_map_id])
 	
-	if global.custom_n_artifact[global.n_map_id] != "완료"
+	if (global.custom_n_artifact[global.n_map_id] != "완료")
 	{
-		global.artifact_owned[global.artifact_type]++
 		ini_write_string("custom_n_artifact","value","완료")
 	}
-	else
-	{
-		if global.t_selected_difficulty = 0
-		{
-			global.artifact_owned[global.artifact_type]++
-		}
-	}
+
 	ini_close()
 }
 
