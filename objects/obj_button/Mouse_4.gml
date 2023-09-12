@@ -49,8 +49,12 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && glob
 		}
 		else
 		{
-			//곡 리스타트
-			event_user(2);
+			if (code.gamestart = 2 && global.n_progress > 1)
+			{
+				//곡 리스타트
+				event_user(2);
+			}
+			
 			with(code)
 			{
 				event_user(2);

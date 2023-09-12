@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "4.1";
+global.version_real = "4.9";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1
 surf_screen = -4;
@@ -35,7 +35,7 @@ alarm[11] = 1
 //텍스쳐 및 오디오 로딩
 for(var i = 0; i <= 4; i++)
 {
-	audio_group_load(i)
+	audio_group_load(i);
 }
 
 texturegroup_load("UI")
@@ -229,6 +229,7 @@ global.acquired_skin = -4
 	for(var i = 0; i <= 11; i++)
 	{
 		global.artifact_owned[i] = 0;
+		global.guide_showed[i] = 0;
 	}
 
 

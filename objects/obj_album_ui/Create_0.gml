@@ -9,6 +9,7 @@ image_index = 1
 bpm_timer = 0
 timer = 0
 w_alpha = 0
+global.touch_to_skip = 0;
 global.tutorial_n_stage = 0
 angle_moving = 0
 angle_moving_timer = 0

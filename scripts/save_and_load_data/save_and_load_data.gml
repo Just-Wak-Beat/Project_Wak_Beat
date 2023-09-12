@@ -38,10 +38,11 @@ function save_and_load_data(argument0,argument1)
 			ini_write_real("real_stage_playtime",string(i),global.real_stage_playtime[i]);
 		}
 		
-		for(var i = 0; i <= 7; i++)
+		for(var i = 0; i <= 11; i++)
 		{
 			//아티팩트 보유 갯수
 			ini_write_real("artifact_owned",string(i),global.artifact_owned[i]);
+			ini_write_real("guide_showed",string(i),global.guide_showed[i]);
 		}
 		
 	
@@ -98,10 +99,11 @@ function save_and_load_data(argument0,argument1)
 				global.real_stage_playtime[i] = ini_read_real("real_stage_playtime",string(i),0);
 			}
 		
-			for(var i = 0; i <= 7; i++)
+			for(var i = 0; i <= 11; i++)
 			{
 				//아티팩트 보유 갯수
 				global.artifact_owned[i] = ini_read_real("artifact_owned",string(i),0);
+				global.guide_showed[i] = ini_read_real("guide_showed",string(i),0);
 			}
 		}
 

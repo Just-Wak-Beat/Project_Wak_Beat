@@ -1,10 +1,10 @@
 /// @description Rank System
 // You can write your code in this editor
 var n_rank_real = convert_rank_to_num(global.n_rank[global.n_map_id])
-	if global.t_selected_difficulty == 0 //하드 코어 모드
-	{
-		n_rank_real = convert_rank_to_num(global.n_rank_hardcore[global.n_map_id])
-	}
+if global.t_selected_difficulty == 0 //하드 코어 모드
+{
+	n_rank_real = convert_rank_to_num(global.n_rank_hardcore[global.n_map_id])
+}
 	
 global.overtime_highlight_song = 0
 
@@ -90,8 +90,10 @@ else
 //경험치 증가
 if (global.level != 0)
 {
-	var temp_exp = (global.detailed_difficulty[global.n_map_id])*global.music_duration*0.003*convert_rank_to_num(global.n_rank_display)*(1.5 - global.t_selected_difficulty*0.5)+global.crossed_obstacle_num*50;
+	var temp_exp = (global.detailed_difficulty[global.n_map_id])*global.music_duration*0.003*convert_rank_to_num(target_rank)*(1.5 - global.t_selected_difficulty*0.5)+global.crossed_obstacle_num*50;
 	global.exp += temp_exp;
+	
+	show_debug_message("exp +"+string(temp_exp));
 }
 else
 {

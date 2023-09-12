@@ -110,7 +110,7 @@ if (can_play_animation == 1)
 				w_alpha += (0 - w_alpha)*0.01;
 				if (play_unlock_animation >= 1850)
 				{
-					w_alpha += (0 - w_alpha)*0.1;
+					w_alpha += (0 - w_alpha)*0.003;
 				}
 			}
 			

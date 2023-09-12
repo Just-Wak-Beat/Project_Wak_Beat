@@ -24,9 +24,9 @@ if (gamestart == 1.1)
 
 
 //레벨 시스템
-if (global.ui_alpha >= 1 && instance_exists(obj_album_ui) && global.show_new_songs <= 0)
+if (global.ui_alpha >= 1 && instance_exists(obj_album_ui) && global.t_b_alpha <= 0)
 {
-	if (global.exp > global.max_exp && abs(global.exp_for_draw-global.max_exp) <= 2)
+	if (floor(global.exp_for_draw/100) >= floor(global.max_exp/100))
 	{
 		global.level++;
 		global.exp -= global.max_exp;
@@ -34,19 +34,22 @@ if (global.ui_alpha >= 1 && instance_exists(obj_album_ui) && global.show_new_son
 		global.exp_w_alpha = 1;
 		global.max_exp += 10;
 		
-		if (global.level == 1)
+		if (global.level == 1 && global.guide_showed[0] == 0)
 		{
 			show_guide("파트너 해금!");
+			global.guide_showed[0] = 1;
 		}
 		
-		if (global.level == 3)
+		if (global.level == 3 && global.guide_showed[1] == 0)
 		{
 			show_guide("보스 배틀 스테이지");
+			global.guide_showed[1] = 1;
 		}
 		
-		if (global.level == 6)
+		if (global.level == 6 && global.guide_showed[2] == 0)
 		{
 			show_guide("고정 하드코어 스테이지");
+			global.guide_showed[2] = 1;
 		}
 	}
 	

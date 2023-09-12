@@ -260,11 +260,12 @@ if global.sync_setting_alpha >= 0.01
 		draw_text_k_scale(xx+64,yy+yy_h*0.85-8,"해상도  ["+string(window_get_width())+"x"+string(window_get_height())+"]"+string(fullscreen_now),64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		draw_text_k_scale(xx+64,yy+yy_h*0.885-8,"화면 리로드시에도, 화면이 끊긴다면 해상도를 낮춰보세요",64,-1,global.sync_setting_alpha,c_white,0,-1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 
+
 		draw_text_k_scale(xx+170,yy+yy_h*0.03,"게임 종료",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 	else
 	{
-		draw_text_k_scale(xx+64,yy+yy_h*0.7-8,"돌아가기",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+170,yy+yy_h*0.03,"창 닫기",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		draw_text_k_scale(xx+64,yy+yy_h*0.85-8,"게임 종료",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 

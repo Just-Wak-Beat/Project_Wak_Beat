@@ -3,7 +3,7 @@
 
 
 
-if (keyboard_check(vk_anykey))
+if (keyboard_check(vk_anykey) || global.touch_to_skip == 1)
 {
 	if (credit_text_alpha <= 0)
 	{
@@ -25,6 +25,7 @@ if (keyboard_check(vk_anykey))
 			global.show_credit = 2;
 		}
 	}
+	global.touch_to_skip = 0;
 }
 
 

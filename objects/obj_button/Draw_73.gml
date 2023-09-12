@@ -60,6 +60,12 @@ if (can_draw == 1)
 		draw_sprite_ext(spr_square,0,x,y,image_xscale*80*global.font_ratio_resolution_xx,image_yscale,0,c_white,image_alpha)
 		draw_sprite_ext(spr_square,0,x+image_xscale*64*((scroll_value/100)*80-40)*global.font_ratio_resolution_xx,y,0.2*1.6*global.converted_view_ratio,image_yscale*5,0,global.player_color,image_alpha)
 	}
+	
+	if sprite_index = spr_triangle
+	{
+		draw_sprite_ext(spr_triangle_empty_bold,0,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-90,c_white,image_alpha)
+		draw_sprite_ext(spr_circle,0,x-16,y,image_xscale*global.font_ratio_resolution_xx*0.15,image_yscale*0.15,-90,global.player_color,image_alpha)
+	}
 }
 
 //if global.n_setting_button = button_id
