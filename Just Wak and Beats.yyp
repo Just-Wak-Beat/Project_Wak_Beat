@@ -173,6 +173,7 @@
     {"id":{"name":"Note4","path":"notes/Note4/Note4.yy",},},
     {"id":{"name":"spr_circle_half","path":"sprites/spr_circle_half/spr_circle_half.yy",},},
     {"id":{"name":"hitbox_7","path":"objects/hitbox_7/hitbox_7.yy",},},
+    {"id":{"name":"create_userdata_code","path":"scripts/create_userdata_code/create_userdata_code.yy",},},
     {"id":{"name":"ini_open_protect","path":"scripts/ini_open_protect/ini_open_protect.yy",},},
     {"id":{"name":"spr_music","path":"sprites/spr_music/spr_music.yy",},},
     {"id":{"name":"bamguy","path":"sounds/bamguy/bamguy.yy",},},

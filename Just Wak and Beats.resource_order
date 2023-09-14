@@ -140,6 +140,7 @@
     {"name":"Note4","order":3,"path":"notes/Note4/Note4.yy",},
     {"name":"spr_circle_half","order":23,"path":"sprites/spr_circle_half/spr_circle_half.yy",},
     {"name":"hitbox_7","order":7,"path":"objects/hitbox_7/hitbox_7.yy",},
+    {"name":"create_userdata_code","order":6,"path":"scripts/create_userdata_code/create_userdata_code.yy",},
     {"name":"ini_open_protect","order":1,"path":"scripts/ini_open_protect/ini_open_protect.yy",},
     {"name":"spr_music","order":1,"path":"sprites/spr_music/spr_music.yy",},
     {"name":"bamguy","order":3,"path":"sounds/bamguy/bamguy.yy",},

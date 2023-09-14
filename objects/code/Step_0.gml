@@ -26,13 +26,13 @@ if (gamestart == 1.1)
 //레벨 시스템
 if (global.ui_alpha >= 1 && instance_exists(obj_album_ui) && global.t_b_alpha <= 0)
 {
+	global.max_exp = 1000+global.level*10;
 	if (floor(global.exp_for_draw/100) >= floor(global.max_exp/100))
 	{
 		global.level++;
 		global.exp -= global.max_exp;
 		global.exp_for_draw = 0;
 		global.exp_w_alpha = 1;
-		global.max_exp += 10;
 		
 		if (global.level == 1 && global.guide_showed[0] == 0)
 		{
