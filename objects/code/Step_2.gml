@@ -1131,4 +1131,86 @@
 				}
 			}
 		}
+		
+		
+		if (global.happysegu_effect1 > 0)
+		{
+			master_bpm_timer++;
+			if (master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*60)
+			{
+				var tmp_rd_yy = irandom_range(global.c_y+32,global.c_h-32)
+				var attack_ef = instance_create_depth(global.c_w,tmp_rd_yy,depth+1,hitbox_2)
+				attack_ef.direction = 180
+				attack_ef.speed = 24
+				attack_ef.keep_spin_angle = 2
+				attack_ef.image_xscale = 0.4
+				attack_ef.image_yscale = 0.4
+				attack_ef.w_alpha = 10
+				
+				var attack_ef = instance_create_depth(global.c_x,tmp_rd_yy,depth+1,hitbox_2)
+				attack_ef.direction = 0
+				attack_ef.speed = 24
+				attack_ef.keep_spin_angle = 2
+				attack_ef.image_xscale = 0.4
+				attack_ef.image_yscale = 0.4
+				attack_ef.w_alpha = 10
+				
+				if (global.happysegu_effect1 >= 2)
+				{
+					create_laser(room_width,irandom_range(global.c_y+32,global.c_h-32),60,15,4,2,1,90)
+				}
+				
+				master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*60
+			}
+		}
+		
+		if (global.happysegu_effect2 > 0)
+		{
+			master_bpm_timer++;
+			if (master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*60)
+			{
+				create_laser(global.c_w,irandom_range(global.c_y+32,global.c_h-32),60,15,0,0,0.5,90)
+				
+				var tmp_xx = (global.happysegu_effect2 == 1) ? global.c_x : global.c_w;
+				create_laser(tmp_xx,global.c_y,1,5,4,2,4,180)
+				
+				if (happysegu_pattern_timer == 2 || happysegu_pattern_timer == 6)
+				{
+					for(var i = global.c_y; i < global.c_h; i += 64)
+					{
+						if (global.happysegu_effect2 == 1)
+						{
+							var attack_ef = instance_create_depth(global.c_x,i,depth+1,hitbox_2)
+							attack_ef.sprite_index = spr_cross
+							attack_ef.direction = 0
+							attack_ef.speed = 24
+							attack_ef.keep_spin_angle = 2
+							attack_ef.image_xscale = 0.05
+							attack_ef.image_yscale = 0.05
+							attack_ef.w_alpha = 10
+						}
+						else
+						{
+							var attack_ef = instance_create_depth(global.c_w,i,depth+1,hitbox_2)
+							attack_ef.sprite_index = spr_cross
+							attack_ef.direction = 180
+							attack_ef.speed = 24
+							attack_ef.keep_spin_angle = -2
+							attack_ef.image_xscale = 0.05
+							attack_ef.image_yscale = 0.05
+							attack_ef.w_alpha = 10
+						}
+					}
+				}
+
+				
+				global.happysegu_effect2 = global.happysegu_effect_pattern[happysegu_pattern_timer];
+				master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*60
+				happysegu_pattern_timer++;
+				if (happysegu_pattern_timer > 7)
+				{
+					happysegu_pattern_timer = 0
+				}
+			}
+		}
 	}

@@ -80,6 +80,7 @@ global.map_end_volumedown = 0
 global.n_setting_button = -4
 global.rank_display_alpha = 0
 global.rank_display_r_alpha = 0
+global.rank_display_b_alpha = 0
 global.n_rank_display = "--"
 global.result_exp = 0
 global.result_obstacle = 0
@@ -242,7 +243,7 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-var total_original_map = 22;
+var total_original_map = 23;
 global.origin_total_map = total_original_map;
 global.total_map = total_original_map;
 outside_of_window = -4
@@ -250,6 +251,7 @@ automatic_reload_leaderboard = 0;
 
 	//리더보드
 	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"true","JWAB_map1_1");
+	reload_leaderboard_automatically = 0
 	for(var i = 0; i < global.origin_total_map; i++)
 	{
 		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map_"+string(i+1)+"_1");
@@ -730,6 +732,26 @@ pipe_ef = -4
 pipe_target_angle = irandom_range(-40,40);
 b_direction_plusment = 0
 total_stack_direction_plusment = 0
+
+
+//Happy Gosegu Sencho!
+global.real_stage_map_name[22] = "Happy Gosegu Sencho!";
+global.real_stage_map_artist[22] = "피젯스피니 FidgetSpinny";
+global.real_stage_map_difficulty[22] = "Experts (Boss)";
+global.real_stage_map_color[22] = #52bcfe;
+global.real_stage_map_duration[22] = 7380;
+global.real_stage_map_audio_name[22] = "happysegu";
+global.real_stage_bpm[22] = 140;
+global.real_stage_map_highlight_part[22] = 27.3;
+global.real_detailed_difficulty[22] = 3.5;
+global.real_obtainable_type[22] = 3;
+global.real_requirement_level[22] = 5;
+global.happysegu_effect1 = 0;
+global.happysegu_effect2 = 0;
+happysegu_pattern_timer = 0
+global.happysegu_effect_pattern = [1,2,1,1,2,1,2,2];
+
+
 
 
 

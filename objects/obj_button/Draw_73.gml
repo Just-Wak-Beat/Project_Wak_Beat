@@ -33,7 +33,7 @@ if (can_draw == 1)
 	
 		if sprite_index != spr_circle
 		{
-			image_xscale = global.converted_view_ratio*0.1
+			image_xscale = global.converted_view_ratio*0.2
 			image_yscale = global.converted_view_ratio*0.2
 		}
 		else
@@ -64,7 +64,7 @@ if (can_draw == 1)
 	if sprite_index = spr_triangle
 	{
 		draw_sprite_ext(spr_triangle_empty_bold,0,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-90,c_white,image_alpha)
-		draw_sprite_ext(spr_circle,0,x+16,y,image_xscale*global.font_ratio_resolution_xx*0.15,image_yscale*0.15,-90,global.player_color,image_alpha)
+		draw_sprite_ext(spr_circle,0,x-16*global.converted_view_ratio,y,image_xscale*global.font_ratio_resolution_xx*0.15,image_yscale*0.15,-90,global.player_color,image_alpha)
 	}
 }
 

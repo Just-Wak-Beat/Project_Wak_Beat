@@ -393,8 +393,13 @@ global.w_alpha += (global.t_w_alpha - global.w_alpha)*0.1
 //되감기 이펙트
 if global.rewind > 0
 {
-	audio_sound_pitch(global.n_music_instance,global.rewind/90-1)
-	if global.rewind = 1
+	if (global.rewind > 60)
+	{
+		var tmp_val = (global.rewind < 162) ? 2 : 1;
+		audio_sound_set_track_position(global.n_music_instance,(global.n_progress-(global.rewind/tmp_val-60))/60);
+	}
+
+	if (global.rewind == 1)
 	{
 		audio_play_sound(global.die_sfx,0,false,global.master_volume*global.sfx_volume)
 		audio_play_sound(dead_sfx,0,false,global.master_volume*global.sfx_volume*0.2)
@@ -402,9 +407,9 @@ if global.rewind > 0
 	}
 	
 	
-	if global.rewind = 51
+	if (global.rewind == 51)
 	{
-		audio_play_sound(rewinding_sfx,0,false,global.master_volume*global.sfx_volume)
+		audio_play_sound(rewinding_sfx,0,false,global.master_volume*global.sfx_volume*0.3)
 		timeline_running = false
 	}
 	
@@ -619,6 +624,10 @@ if global.rewind > 0
 			global.total_died_here = 0;
 			global.check_died = 0;
 			global.n_progress = 0;
+			global.n_camera_zoom = 1;
+			obj_camera.v_x = obj_camera.tv_x;
+			obj_camera.v_y = obj_camera.tv_y;
+			audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
 		}
 		else
 		{

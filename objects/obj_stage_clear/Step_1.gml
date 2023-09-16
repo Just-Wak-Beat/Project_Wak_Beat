@@ -2,6 +2,20 @@
 // You can write your code in this editor
 depth = obj_player.depth-320;
 
+//레인보우 애니메이션
+if (rainbow_ef > 0)
+{
+	rainbow_ef_angle -= 5;
+	rainbow_ef_alpha += (1 - rainbow_ef_alpha)*0.1;
+}
+else
+{
+	if (rainbow_ef_alpha > 0)
+	{
+		rainbow_ef_alpha -= 0.05;
+	}
+}
+
 	
 //애니메이션
 if (can_play_animation == -1)
@@ -66,11 +80,23 @@ if (can_play_animation == 1)
 				tmp_ins.target = id;
 			}
 		
-			if (play_unlock_animation == 682)
+			if (play_unlock_animation == 692)
 			{
 				var tmp_ins = instance_create_depth(x,y,depth+1,obj_shine_ef)
 				tmp_ins.target = id;
 				global.w_alpha = 1
+			}
+			
+			if (play_unlock_animation == 1384)
+			{
+				rainbow_ef = 1;
+				global.w_alpha = 1
+				view_shake(3,3,3,0)
+			}
+			
+			if (play_unlock_animation == 1700)
+			{
+				rainbow_ef = 1;
 			}
 		
 			if (play_unlock_animation == 1200)
@@ -178,7 +204,7 @@ if (can_play_animation == 1)
 				}
 				else
 				{
-					if (play_unlock_animation >= 1200)
+					if (play_unlock_animation >= 1700)
 					{
 						obj_player.y += (room_height*0.5 - obj_player.y)*0.01;
 						effect_rad += (0 - effect_rad)*0.0055;

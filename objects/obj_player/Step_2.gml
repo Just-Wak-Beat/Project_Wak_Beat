@@ -56,6 +56,7 @@ if (global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9))
 			if (crossed_obstacle_cooldown = 0)
 			{
 				global.crossed_obstacle_num ++;
+				global.rank_display_b_alpha = 1;
 				crossed_obstacle_cooldown = 1;
 				alarm[1] = 11
 			}

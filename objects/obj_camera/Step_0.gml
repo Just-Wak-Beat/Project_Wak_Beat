@@ -10,20 +10,28 @@ if (global.automatic_camera_movement == 0)
 }
 else
 {
-	auto_c_move_timer += 0.02;
-	auto_c_move_timer2 += 0.01;
-	if (global.automatic_camera_movement == 1)
+	if (global.paused == 1)
 	{
-		global.auto_camera_move_xx = sin(auto_c_move_timer2);
+		global.auto_camera_move_xx = 0;
+		global.auto_camera_move_yy = 0;
 	}
-	else if (global.automatic_camera_movement == 2)
+	else
 	{
-		global.auto_camera_move_yy = sin(auto_c_move_timer);
-	}
-	else if (global.automatic_camera_movement == 3)
-	{
-		global.auto_camera_move_xx = sin(auto_c_move_timer2);
-		global.auto_camera_move_yy = sin(auto_c_move_timer);
+		auto_c_move_timer += 0.02;
+		auto_c_move_timer2 += 0.01;
+		if (global.automatic_camera_movement == 1)
+		{
+			global.auto_camera_move_xx = sin(auto_c_move_timer2);
+		}
+		else if (global.automatic_camera_movement == 2)
+		{
+			global.auto_camera_move_yy = sin(auto_c_move_timer);
+		}
+		else if (global.automatic_camera_movement == 3)
+		{
+			global.auto_camera_move_xx = sin(auto_c_move_timer2);
+			global.auto_camera_move_yy = sin(auto_c_move_timer);
+		}
 	}
 }
 
@@ -96,10 +104,10 @@ if (global.paused == 0)
 	{
 		global.t_shake_y = 0
 	}
-	global.t_shake_x += (0 - global.t_shake_x)*0.1
-	global.t_shake_y += (0 - global.t_shake_y)*0.1
-	global.real_shake_x += (global.t_shake_x*global.shake_x - global.real_shake_x)*0.1
-	global.real_shake_y += (global.t_shake_y*global.shake_y - global.real_shake_y)*0.1
+	global.t_shake_x += (0 - global.t_shake_x)*0.25
+	global.t_shake_y += (0 - global.t_shake_y)*0.25
+	global.real_shake_x = global.t_shake_x*global.shake_x
+	global.real_shake_y = global.t_shake_y*global.shake_y
 	global.shake_time ++
 
 		if (global.shake_time > 1)
@@ -112,8 +120,8 @@ if (global.paused == 0)
 
 		if (global.sync_setting_alpha <= 0.01)
 		{
-			x += global.real_shake_x
-			y += global.real_shake_y
+			x += global.real_shake_x*0.3
+			y += global.real_shake_y*0.3
 			camera_set_view_angle(view_camera[0],global.view_angle_)
 		}
 		else

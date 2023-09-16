@@ -650,12 +650,12 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 
 if (global.rank_display_alpha > 0 && global.tutorial_played > 0 && ((instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0) || !instance_exists(obj_stage_clear)))
 {
-	var temp_col = merge_color(c_white,#bf1a5c,global.rank_display_r_alpha)
-	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+global.rank_display_r_alpha*0.5)
-	draw_text_k_scale(xx+xx_w-108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
+	var temp_col = merge_color(merge_color(c_white,#bf1a5c,global.rank_display_r_alpha),global.player_color,global.rank_display_b_alpha);
+	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+(global.rank_display_r_alpha+global.rank_display_b_alpha)*0.5)
+	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
 	
 	var temp_score = ((convert_rank_to_num(global.n_rank_display))*100+global.crossed_obstacle_num)*100
-	draw_text_k_scale(xx+xx_w-108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(temp_score),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
+	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(temp_score),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
 }
 
 

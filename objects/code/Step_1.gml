@@ -45,7 +45,6 @@ if (automatic_reload_leaderboard > 0)
 
 	if (automatic_reload_leaderboard == 2)
 	{
-		LootLockerReset();
 		for(var i = 0; i < global.total_map; i++)
 		{
 			global.unlocked_music_name_new_list[i] = "";
@@ -104,6 +103,22 @@ if (automatic_reload_leaderboard > 0)
 	{
 		event_user(5)
 		automatic_reload_leaderboard = 0
+	}
+}
+else
+{
+	if (global.notice_title == "Ranking")
+	{
+		reload_leaderboard_automatically ++;
+		if (reload_leaderboard_automatically > 300)
+		{
+			automatic_reload_leaderboard = 270;
+			reload_leaderboard_automatically = -300;
+		}
+	}
+	else
+	{
+		reload_leaderboard_automatically = 0;
 	}
 }
 
@@ -220,6 +235,7 @@ global.select_difficulty += (global.t_select_difficulty - global.select_difficul
 global.selected_difficulty += (global.t_selected_difficulty - global.selected_difficulty)*0.22
 
 global.rank_display_r_alpha += (0 - global.rank_display_r_alpha)*0.1
+global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 
 	if global.n_progress > 0
 	{

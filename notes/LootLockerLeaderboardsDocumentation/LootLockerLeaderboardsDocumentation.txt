@@ -1,0 +1,87 @@
+____LootLocker Simple leaderboards documentation____
+Easiest way to setup the Leaderboards is to start the room roomLootLockerLeaderboardsGuide
+and follow the guide.
+
+If you run into any problems, please join our discord: https://discord.lootlocker.io
+
+The steps in broad terms are these:
+1. Create an account at https://www.lootlocker.io
+2. Create a new game
+3. Create a leaderboard
+4. Copy game API key and leaderboardID
+5. Run InitializeLootLocker("game api key","game_version","developmentMode","leaderboardID") from any Create event
+6. Run LootLockerCallback() from Async - HTTP event.
+
+You can now upload score to your leaderboard by using:
+LootLockerSubmitScore("leaderboardID", “scoreYouWantToUpload”);
+
+Change the players name by using:
+LootLockerSetPlayerName(“nameThatYouWantToChangeTo”);
+
+Access these variables to fetch the leaderboard data:
+LLHighscoresTopFormatted()- Full list of top highscores formatted as:
+1. PlayerName       1000
+2. PlayerName        300
+3. PlayerName        250
+4. PlayerName        100
+5. PlayerName         50
+6. PlayerName         25
+...
+
+LLHighscoresCenteredFormatted()- Full list of centered highscores formatted as:
+4. PlayerName       1500
+5. PlayerName       1000
+6. PlayerName        300
+7. PlayerName        250
+8. currentPlayer     100
+9. PlayerName         50
+10. PlayerName        25
+11. PlayerName        50
+12. PlayerName        25
+...
+
+____Included examples____
+LootLockerExample_SimpleLeaderboard - simplest leaderboard type, easy to use
+LootLockerExample_RockyRunner - full game using lists for leaderboards, with highlighting of current player
+
+____Additional leaderboard data____
+LLHighscoresTopRankList() - Rank for top highscores in array format
+LLHighscoresTopNamesList() - Names for top highscores in array format
+LLHighscoresTopMetadataList()- Metadata for top highscores in array format
+LLHighscoresTopScoreList()- Score for top highscores in array format
+LLHighscoresTopIDList()- Rank for top highscores in array format
+LLHighscoresCenteredRankList()- Rank for centered highscores in array format
+LLHighscoresCenteredNamesList()- Rank for centered highscores in array format
+LLHighscoresCenteredMetadataList()- Rank for centered highscores in array format
+LLHighscoresCenteredScoreList()- Rank for centered highscores in array format
+LLHighscoresCenteredIDList()- Rank for centered highscores in array format
+LLPlayerRank() - Current player rank
+LLPlayerName() - Current player name
+LLPlayerID() - Current player ID
+LLPlayerScore() - Current player score (on server)
+LLPlayerMetadata() - Current player metadata
+
+____Additional functions____
+LootLockerTurnOffAutoRefresh() - Disables automatically fetching the leaderboard
+LootLockerTurnOnAutoRefresh() - Enables automatically fetching the leaderboard
+LootLockerGetHighscoresCentered(“leaderboardID”) - Manually get centered highscores
+LootLockerGetHighscoresTop(“leaderboardID”) - Manually get top highscores
+LootLockerReset() - Ends the current session and starts a new session with a new player
+
+____Stage vs Live (developmentMode true/false)____
+When you release your game, change developmentMode in the Initialize function to false:
+LootLockerInitialize("gameAPIkey", "version", "developmentMode", "leaderboardID");
+This will remove all of the debug_messages from LootLocker.
+You also need to create a new leaderboard for the live environment:
+1. Switch to live environment on the leaderboards-screen in the lootlocker dashboard
+2. Create a new leaderboard
+3. Replace the leaderboardID in the functions to use the new one.
+
+
+Building your game
+All platforms should work right out of the box except HTML5.
+
+HTML5/WebGL
+There is currently a bug in Game Maker Studio 2 that can make text apppear as "undefined",
+if that happens, you need to build your game with Game Maker Studio 2 Beta (the bug is fixed there).
+You also need to add an included file called "LootLockerConfiguration.ini" to the project.

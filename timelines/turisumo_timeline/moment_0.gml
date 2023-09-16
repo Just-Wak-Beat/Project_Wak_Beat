@@ -7,6 +7,7 @@ global.artifact_type = 0
 global.turisumo_effect = 0
 global.turisumo_effect_2 = 0
 global.turisumo_effect_3 = 0
+global.map_color = c_black
 instance_destroy(hitbox_parents)
 
 if (global.t_selected_difficulty = 1 && global.boss_battle == 0)

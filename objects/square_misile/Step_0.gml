@@ -1,7 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
-x -= global.map_speed
-y += global.map_speed_y
+if (first_created == 1)
+{
+	x -= global.map_speed
+	y += global.map_speed_y
+}
 
 
 direction += (image_angle - direction)*0.005
@@ -26,6 +29,7 @@ if stop_create < 60
 {
 	if timer%floor(target_time) = 0
 	{
+		first_created = 1;
 		var t_ins__ = (sprite_index != spr_circle) ? hitbox_9 : hitbox_4;
 		var laser__ = instance_create_depth(x,y,obj_player.depth-1,t_ins__)
 		laser__.target_time = target_time

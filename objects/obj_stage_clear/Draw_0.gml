@@ -1,6 +1,22 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+var color_table = [ #ff008c,#f0a957,#95c100,#5c89ce,#443965,#8a2be2 ];
+
+
+//한 각당 20deg
+if (rainbow_ef_alpha > 0)
+{
+	draw_set_alpha(rainbow_ef_alpha)
+	var tmp_dis = obj_camera.v_x*rainbow_ef_alpha;
+	for(var i = 0; i < 18; i ++)
+	{
+		var tmp_index = i-floor(i/6)*6
+		var target_angle = rainbow_ef_angle+i*20;
+		draw_set_color(color_table[tmp_index]);
+		draw_triangle(x,y,x+lengthdir_x(tmp_dis,target_angle+10),y+lengthdir_y(tmp_dis,target_angle+10),x+lengthdir_x(tmp_dis,target_angle-10),y+lengthdir_y(tmp_dis,target_angle-10),false)
+	}
+}
 
 for(var i = 1; i <= 10; i += 0.8)
 {

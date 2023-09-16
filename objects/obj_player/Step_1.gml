@@ -5,7 +5,7 @@ if global.b_hp != global.hp
 {
 	if global.hp != 0
 	{
-		global.rank_display_r_alpha = 1
+		global.rank_display_r_alpha = 1;
 		if global.total_died_here = 0
 		{
 			if global.hp = 5

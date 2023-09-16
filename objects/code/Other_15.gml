@@ -5,9 +5,35 @@
 
 
 var in_top_ten = 0;
+var skip_list = 0;
+var duplicated_name_list = 0;
+for(var i = 0; i < 10; i++)
+{
+	duplicated_name_list[i] = -4;
+}
+
 for(var i = 0; i < 11; i++)
 {
-	var temp_name = LLHighscoresTopNamesList()[i];
+	var temp_name = LLHighscoresTopNamesList()[i+skip_list];
+	
+	//리더보드 리스트에 중복된 닉네임이 있는경우 스킵
+	for(var ii = 0; ii < 10; ii++)
+	{
+		while(duplicated_name_list[ii] == temp_name)
+		{
+			skip_list++;
+			temp_name = LLHighscoresTopNamesList()[i+skip_list];
+			show_debug_message("duplicated name");
+			break;
+		}
+		
+		if (duplicated_name_list[ii] == -4)
+		{
+			duplicated_name_list[ii] = temp_name;
+			break;
+		}
+	}
+	
 	show_debug_message(temp_name);
 	var certain_text_code_inserted = string_pos("[*_ABER]",temp_name)
 	var add_nametag = "";
@@ -38,7 +64,7 @@ for(var i = 0; i < 11; i++)
 	}
 	
 	
-	var temp_score = LLHighscoresTopScoreList()[i];
+	var temp_score = LLHighscoresTopScoreList()[i+skip_list];
 	temp_score = (temp_real_name == " " || temp_real_name == "" || temp_score == "0") ? "--" : temp_score;
 	
 	show_debug_message(string(temp_real_name)+" / "+string(LLPlayerName()))

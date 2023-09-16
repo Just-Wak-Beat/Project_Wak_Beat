@@ -627,25 +627,6 @@ if instance_exists(code)
 					draw_text_k_scale(middle_xx-640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
 					draw_text_k_scale(middle_xx+640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list_rightside[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color_rightside[i],0,1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
 				}
-				else
-				{
-					if (i == 0)
-					{
-						var temp_cal = floor(code.automatic_reload_leaderboard/30);
-						var temp_str = "."
-						if (temp_cal == 1 || temp_cal == 4 || temp_cal == 7)
-						{
-							temp_str = ".."
-						}
-						else if (temp_cal == 2 || temp_cal == 5 || temp_cal == 8)
-						{
-							temp_str = "..."
-						}
-
-						draw_text_k_scale(middle_xx,yy+yy_h*0.5,temp_str,scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
-						break;
-					}
-				}
 			}
 		}
 	
@@ -687,6 +668,11 @@ if instance_exists(code)
 					code.gamestart = 5
 					alarm[4] = 30
 				}
+			}
+			else
+			{
+				var tmp_alpha = (code.automatic_reload_leaderboard/30 > 1) ? 1 : code.automatic_reload_leaderboard/30;
+				draw_sprite_ext(spr_loading,0,middle_xx,yy+yy_h*0.52,global.font_ratio_resolution_xx,1,-5*code.automatic_reload_leaderboard,c_white,tmp_alpha)
 			}
 				
 				

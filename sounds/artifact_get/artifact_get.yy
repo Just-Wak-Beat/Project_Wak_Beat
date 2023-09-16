@@ -10,7 +10,7 @@
   "bitRate": 512,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 33.93306,
+  "duration": 29.64898,
   "parent": {
     "name": "Musics",
     "path": "folders/사운드/Musics.yy",
