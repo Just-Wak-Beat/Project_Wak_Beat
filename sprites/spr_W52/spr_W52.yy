@@ -107,8 +107,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "hitbox_shapes",
-    "path": "texturegroups/hitbox_shapes",
+    "name": "UI",
+    "path": "texturegroups/UI",
   },
   "type": 0,
   "VTile": false,

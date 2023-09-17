@@ -19,5 +19,5 @@
   "sampleRate": 48000,
   "soundFile": "happysegu.mp3",
   "type": 1,
-  "volume": 0.68,
+  "volume": 0.59,
 }

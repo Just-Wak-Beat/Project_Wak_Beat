@@ -16,6 +16,7 @@ angle_moving_timer = 0
 //global.story_mode = 1
 n_shake_power = 0
 clicked_ = 0
+yy_shake_effect = 0
 w_alpha_bg = 0
 
 loading_color_changing = 0

@@ -1136,31 +1136,47 @@
 		if (global.happysegu_effect1 > 0)
 		{
 			master_bpm_timer++;
-			if (master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*60)
+			if (global.happysegu_effect1 < 3)
 			{
-				var tmp_rd_yy = irandom_range(global.c_y+32,global.c_h-32)
-				var attack_ef = instance_create_depth(global.c_w,tmp_rd_yy,depth+1,hitbox_2)
-				attack_ef.direction = 180
-				attack_ef.speed = 24
-				attack_ef.keep_spin_angle = 2
-				attack_ef.image_xscale = 0.4
-				attack_ef.image_yscale = 0.4
-				attack_ef.w_alpha = 10
-				
-				var attack_ef = instance_create_depth(global.c_x,tmp_rd_yy,depth+1,hitbox_2)
-				attack_ef.direction = 0
-				attack_ef.speed = 24
-				attack_ef.keep_spin_angle = 2
-				attack_ef.image_xscale = 0.4
-				attack_ef.image_yscale = 0.4
-				attack_ef.w_alpha = 10
-				
-				if (global.happysegu_effect1 >= 2)
+				if (master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*60)
 				{
-					create_laser(room_width,irandom_range(global.c_y+32,global.c_h-32),60,15,4,2,1,90)
-				}
+					var tmp_rd_yy = irandom_range(global.c_y+32,global.c_h-32)
+					var attack_ef = instance_create_depth(global.c_w,tmp_rd_yy,depth+1,hitbox_2)
+					attack_ef.direction = 180
+					attack_ef.speed = 24
+					attack_ef.keep_spin_angle = 2
+					attack_ef.image_xscale = 0.4
+					attack_ef.image_yscale = 0.4
+					attack_ef.w_alpha = 10
 				
-				master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*60
+					var attack_ef = instance_create_depth(global.c_x,tmp_rd_yy,depth+1,hitbox_2)
+					attack_ef.direction = 0
+					attack_ef.speed = 24
+					attack_ef.keep_spin_angle = 2
+					attack_ef.image_xscale = 0.4
+					attack_ef.image_yscale = 0.4
+					attack_ef.w_alpha = 10
+				
+					if (global.happysegu_effect1 >= 2)
+					{
+						create_laser(room_width,irandom_range(global.c_y+32,global.c_h-32),60,15,4,2,1,90)
+					}
+				
+					master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*60
+				}
+			}
+			else
+			{
+				if (master_bpm_timer >= (3600/global.bpm)*4+global.music_sync_offset*60)
+				{
+					if instance_number(hitbox_19) < 3
+					{
+						var tmp_rd = choose(global.c_y-400,global.c_h+400)
+						var tmp_xx = irandom_range(global.c_x,global.c_w)
+						create_bounce_ball(tmp_xx,tmp_rd,0.8,15,point_direction(tmp_xx,tmp_rd,room_width*0.5,room_height*0.5)+irandom_range(-30,30),5)
+					}
+					master_bpm_timer -= (3600/global.bpm)*4+global.music_sync_offset*60
+				}
 			}
 		}
 		

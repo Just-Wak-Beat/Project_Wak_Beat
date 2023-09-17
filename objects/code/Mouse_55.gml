@@ -9,4 +9,4 @@
 
 
 
-global.lockdown_effect2 = 1
+create_bounce_ball(irandom_range(global.c_x,global.c_w),global.c_y,0.8,15,270+irandom_range(-30,30),5)

@@ -33,7 +33,6 @@ var yy_h = camera_get_view_height(view_camera[0])
 x = global.c_x+916-global.mobile_mode*64
 depth = code.depth-100
 image_alpha = global.ui_alpha
-
 if (global.title_menu_animation2 == 1 && global.total_map > 0)
 {
 	if instance_exists(code) && code.gamestart = 1
@@ -46,7 +45,15 @@ if (global.title_menu_animation2 == 1 && global.total_map > 0)
 			instance_destroy()
 		}
 	}
-	y += (yy+yy_h*0.5 - y)*0.1
+	y += (yy+yy_h*0.485-sin(yy_shake_effect)*50 - y)*0.1
+	if (abs(image_yscale - 1.5+global.mobile_mode*0.3) < 0.1)
+	{
+		yy_shake_effect += 0.05;
+	}
+	else
+	{
+		yy_shake_effect = 0;
+	}
 
 	image_xscale += (1.5+global.mobile_mode*0.3 - image_xscale)*0.16
 	image_yscale += (1.5+global.mobile_mode*0.3 - image_yscale)*0.16
@@ -160,4 +167,9 @@ if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_t
 		w_alpha = 1
 		bpm_timer -= (3600/global.bpm)+global.music_sync_offset*3*60
 	}
+}
+
+if (global.highlight_time > 440)
+{
+	angle_moving_timer = 0
 }
