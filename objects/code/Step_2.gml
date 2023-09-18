@@ -1229,4 +1229,28 @@
 				}
 			}
 		}
+		
+		if (global.happysegu_effect3 > 0)
+		{
+			master_bpm_timer++;
+			if (master_bpm_timer >= (3600/global.bpm)+global.music_sync_offset*60)
+			{
+				if (abs(segu_ef.image_angle - segu_ef.t_angle) <= 1)
+				{
+					segu_ef.image_xscale *= 1.3;
+					segu_ef.image_yscale *= 1.3;
+					segu_ef.w_alpha = 1;
+					var tmp_angle = segu_ef.image_angle+happysegu_pattern_timer*90;
+					create_arrow_laser(room_width*0.5+lengthdir_x(256,tmp_angle),room_height*0.5+lengthdir_y(256,tmp_angle),depth,0.8,tmp_angle,128,true,10,1)
+
+			
+					happysegu_pattern_timer++;
+					if (happysegu_pattern_timer > 3)
+					{
+						happysegu_pattern_timer = 0
+					}
+					master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*60;
+				}
+			}
+		}
 	}

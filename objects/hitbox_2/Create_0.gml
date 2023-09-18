@@ -7,3 +7,4 @@ image_speed = 0
 timer = 0
 des = 0
 alarm[1] = 1
+center_destroy = 0

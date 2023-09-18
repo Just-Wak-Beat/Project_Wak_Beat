@@ -640,6 +640,7 @@ global.real_obtainable_type[16] = 3;
 global.real_requirement_level[16] = 5;
 global.happysegu_effect1 = 0;
 global.happysegu_effect2 = 0;
+global.happysegu_effect3 = 0;
 happysegu_pattern_timer = 0
 global.happysegu_effect_pattern = [1,2,1,1,2,1,2,2];
 

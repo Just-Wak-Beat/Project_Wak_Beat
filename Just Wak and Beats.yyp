@@ -144,6 +144,7 @@
     {"id":{"name":"spr_jururu","path":"sprites/spr_jururu/spr_jururu.yy",},},
     {"id":{"name":"get_unlocked_list_num","path":"scripts/get_unlocked_list_num/get_unlocked_list_num.yy",},},
     {"id":{"name":"percentage_k","path":"scripts/percentage_k/percentage_k.yy",},},
+    {"id":{"name":"spr_cross_eye","path":"sprites/spr_cross_eye/spr_cross_eye.yy",},},
     {"id":{"name":"obj_shine_ef","path":"objects/obj_shine_ef/obj_shine_ef.yy",},},
     {"id":{"name":"camera_focus_on","path":"scripts/camera_focus_on/camera_focus_on.yy",},},
     {"id":{"name":"Yoong_timeline","path":"timelines/Yoong_timeline/Yoong_timeline.yy",},},

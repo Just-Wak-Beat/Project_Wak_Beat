@@ -104,3 +104,8 @@ if (timer%5 == 0)
 	effect_.sprite_index = spr_circle
 	effect_.image_alpha = 2
 }
+
+if (center_destroy == 1)
+{
+	instance_destroy()
+}

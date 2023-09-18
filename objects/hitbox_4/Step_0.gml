@@ -40,6 +40,10 @@ if (warning_timer == round(target_time-1))
 {
 	image_xscale = 0
 	image_yscale = 0
+	if (sprite_index == spr_cross_eye)
+	{
+		t_scale_tmp = 1.5;
+	}
 }
 
 
@@ -47,11 +51,11 @@ if (warning_timer == round(target_time))
 {
 	if shake_scale > 0
 	{
-		view_shake(0.1,shake_scale,3,shake_dir)
+		view_shake(0.1,shake_scale,3,shake_dir);
 	}
-	w_alpha = 1
-	image_alpha = 1
-	scale_up_effect = 1.05
+	w_alpha = 1;
+	image_alpha = 1;
+	scale_up_effect = 1.05;
 }
 
 
@@ -89,8 +93,14 @@ if (warning_timer >= round(target_time))
 			t_scale += 0.001
 		}
 	
-		image_xscale += (t_scale - image_xscale)*0.3
-		image_yscale += (t_scale - image_yscale)*0.3
+		image_xscale += (t_scale*t_scale_tmp - image_xscale)*0.3
+		image_yscale += (t_scale*t_scale_tmp - image_yscale)*0.3
+		
+		if (sprite_index == spr_cross_eye)
+		{
+			t_scale_tmp += (1 - t_scale_tmp)*0.1
+			image_index = 1
+		}
 
 		if warning_timer%10 = 0 && abs((warning_timer-target_time)-des_time) < 120
 		{

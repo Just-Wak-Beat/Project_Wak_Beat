@@ -75,3 +75,13 @@ if (audio_is_playing(lockdown) && global.map_speed_y <= 1)
 		}
 	}
 }
+
+
+
+if (center_destroy == 1)
+{
+	if (point_distance(x,y,room_width*0.5,room_height*0.5) < 64)
+	{
+		instance_destroy()
+	}
+}

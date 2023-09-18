@@ -3,11 +3,11 @@
 once_in = 1
 direction += 180+irandom_range(-15,15)
 
-view_shake(3,5,3,0)
+view_shake(3,14,3,0)
 var _ef = instance_create_depth(x,y,depth+1,explosion_effect)
 _ef.image_xscale = 2
 _ef.image_yscale = 2
-_ef.t_scale = 2
+_ef.t_scale = 5
 _ef.image_blend = c_white
 
 w_alpha = 1;

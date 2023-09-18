@@ -28,6 +28,7 @@ global.yuha_effect2 = 0
 global.yuha_effect3 = 0
 global.happysegu_effect1 = 0
 global.happysegu_effect2 = 0
+global.happysegu_effect3 = 0
 happysegu_pattern_timer = 0
 global.n_camera_zoom = 1
 global.camera_slow_zoom = 0
