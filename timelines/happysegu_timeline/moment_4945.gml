@@ -10,6 +10,12 @@ segu_ef.t_angle = -45-180
 segu_ef.sprite_index = spr_cross_eye
 segu_ef.image_index = 1;
 
+var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)
+_ef.image_xscale = 2
+_ef.image_yscale = 2
+_ef.t_scale = 5
+_ef.image_blend = c_white
+
 
 master_bpm_timer = (3600/global.bpm)+global.music_sync_offset*60;
 global.happysegu_effect1 = 0;

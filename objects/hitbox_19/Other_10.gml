@@ -10,6 +10,7 @@ _ef.image_yscale = 2
 _ef.t_scale = 5
 _ef.image_blend = c_white
 
+target_eye_dis = 0
 w_alpha = 1;
 
 image_xscale *= 0.5

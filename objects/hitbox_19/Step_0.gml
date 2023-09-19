@@ -69,7 +69,8 @@ if (once_in > 0)
 
 
 
-
+target_eye_dis += (16*image_xscale - target_eye_dis)*0.05
+target_eye_angle += (direction - target_eye_angle)*0.1
 
 
 
@@ -107,5 +108,13 @@ if (timer%5 == 0)
 
 if (center_destroy == 1)
 {
-	instance_destroy()
+	if (point_distance(x,y,room_width*0.5,room_height*0.5) < 64)
+	{
+		var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)
+		_ef.image_xscale = 2
+		_ef.image_yscale = 2
+		_ef.t_scale = 5
+		_ef.image_blend = c_white
+		instance_destroy()
+	}
 }

@@ -1,10 +1,11 @@
 with(hitbox_parents)
 {
-	if (object_index != hitbox_4)
+	if (sprite_index != spr_circle && sprite_index != spr_square_laser)
 	{
-		direction = point_direction(other.x,other.y,room_width*0.5,room_height*0.5);
-		t_speed = 32;
-		speed = 32;
+		direction = point_direction(x,y,room_width*0.5,room_height*0.5);
+		t_speed = 50;
+		speed = 50;
 		center_destroy = 1;
 	}
 }
+
