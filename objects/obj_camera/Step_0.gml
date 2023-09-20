@@ -94,6 +94,7 @@ if (global.paused == 0)
 		v_x = 3584*0.4
 		camera_set_view_size(view_camera[0],floor(3584*0.4)*view_zoom_ratio,floor(2016*0.4)*view_zoom_ratio);
 	}
+	
 
 	if (global.t_shake_x <= 0.01)
 	{
@@ -135,4 +136,9 @@ if (global.paused == 0)
 	}*/
 	
 	global.converted_view_ratio = (v_x/3584)*view_zoom_ratio;
+}
+else if (global.paused == 1)
+{
+	camera_set_view_size(view_camera[0],3584,2016);
+	global.converted_view_ratio = 1;
 }

@@ -204,7 +204,11 @@ if (global.random_seed >= 0)
 
 if (instance_exists(obj_stage_clear) && global.n_music_title != "왁트모르즈비")
 {
-	global.map_end_volumedown += (-0.01 - global.map_end_volumedown)*0.05
+	global.map_end_volumedown += (-0.01 - global.map_end_volumedown)*0.01
+	if (global.n_progress >= global.music_duration)
+	{
+		audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1)*global.map_end_volumedown,0)
+	}
 }
 else
 {

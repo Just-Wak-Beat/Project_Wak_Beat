@@ -2,6 +2,7 @@ segu_ef.t_angle += 45+180
 segu_ef.image_xscale *= 1.3;
 segu_ef.image_yscale *= 1.3;
 segu_ef.w_alpha = 1;
+segu_ef.draw_eye = 0
 
 view_shake(3,14,3,0)
 var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)

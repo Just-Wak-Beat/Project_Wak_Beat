@@ -5,11 +5,17 @@
 
 
 draw_self()
+if draw_eye > 0
+{
+	draw_sprite_ext(spr_cross_eye,2,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
+}
 
 if w_alpha > 0
 {
 	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,c_white,w_alpha)
 }
+
+
 
 if (sprite_index == spr_spuare_outline && audio_is_playing(roki))
 {

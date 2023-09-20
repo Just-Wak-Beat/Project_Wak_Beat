@@ -12,34 +12,44 @@ if (can_draw == 1)
 		var xx_w = camera_get_view_width(view_camera[0])
 		if (button_id == 2)
 		{
-			x = xx+320*global.converted_view_ratio
+			x = xx+520
 			y = yy+yy_h*0.75
 		}
 		else if (button_id == 3)
 		{
-			x = xx+320*global.converted_view_ratio
+			x = xx+520
 			y = yy+yy_h*0.85
 		}
 		else if (button_id == 4)
 		{
-			x = xx+320*global.converted_view_ratio
+			x = xx+520
 			y = yy+yy_h*0.95
 		}
 		else if (button_id == 5)
 		{
-			x = xx+xx_w-320*global.converted_view_ratio
+			x = xx+xx_w-520
 			y = yy+yy_h*0.95
+		}
+		else if (button_id == 6)
+		{
+			x = xx+100
+			y = yy+yy_h*0.053;
 		}
 	
 		if sprite_index != spr_circle
 		{
-			image_xscale = global.converted_view_ratio*0.2
-			image_yscale = global.converted_view_ratio*0.2
+			image_xscale = global.converted_view_ratio*0.17
+			image_yscale = global.converted_view_ratio*0.17
+		}
+		else if sprite_index == spr_square
+		{
+			image_xscale = global.converted_view_ratio*0.05
+			image_yscale = global.converted_view_ratio*0.05
 		}
 		else
 		{
-			image_xscale += (0.2*global.converted_view_ratio - image_xscale)*0.1
-			image_yscale += (0.2*global.converted_view_ratio - image_yscale)*0.1
+			image_xscale += (0.2 - image_xscale)*0.1
+			image_yscale += (0.2 - image_yscale)*0.1
 		}
 	}
 
@@ -58,13 +68,13 @@ if (can_draw == 1)
 	if sprite_index = spr_square
 	{
 		draw_sprite_ext(spr_square,0,x,y,image_xscale*80*global.font_ratio_resolution_xx,image_yscale,0,c_white,image_alpha)
-		draw_sprite_ext(spr_square,0,x+image_xscale*64*((scroll_value/100)*80-40)*global.font_ratio_resolution_xx,y,0.2*1.6*global.converted_view_ratio,image_yscale*5,0,global.player_color,image_alpha)
+		draw_sprite_ext(spr_square,0,x+image_xscale*64*((scroll_value/100)*80-40)*global.font_ratio_resolution_xx,y,0.2*1.6,image_yscale*5,0,global.player_color,image_alpha)
 	}
 	
 	if sprite_index = spr_triangle
 	{
 		draw_sprite_ext(spr_triangle_empty_bold,0,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-90,c_white,image_alpha)
-		draw_sprite_ext(spr_circle,0,x-16*global.converted_view_ratio,y,image_xscale*global.font_ratio_resolution_xx*0.15,image_yscale*0.15,-90,global.player_color,image_alpha)
+		draw_sprite_ext(spr_music,0,x-16,y,image_xscale*global.font_ratio_resolution_xx*0.15,image_yscale*0.15,-20,global.player_color,image_alpha)
 	}
 }
 

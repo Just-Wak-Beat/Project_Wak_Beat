@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-var surface_ratio = 1.8+global.n_camera_zoom*0.02;
+var surface_ratio = 1.88;
 var view_zoom_ratio = (instance_exists(obj_player) && obj_player.image_xscale > 0) ? 0.95 : 1;
 var tmp_c_x = (obj_camera.v_x/3584);
 var xx = camera_get_view_x(view_camera[0]);
@@ -668,7 +668,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
 	if (sprite_exists(global.sc_img_for_pause) && global.sync_setting == 1)
 	{
-		draw_sprite_ext(global.sc_img_for_pause,0,xx,yy,global.converted_view_ratio*surface_ratio,global.converted_view_ratio*surface_ratio,0,c_white,1);
+		draw_sprite_ext(global.sc_img_for_pause,0,xx,yy,surface_ratio,surface_ratio,0,c_white,1);
 	}
 
 	

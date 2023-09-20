@@ -4,7 +4,8 @@ segu_ef.image_yscale *= 1.3;
 segu_ef.w_alpha = 1;
 segu_ef.t_scale = 0
 global.w_alpha = 1
-global.t_bg_color = -1
+global.t_bg_color = 0.3
+global.t_bg_color = 0
 
 view_shake(3,14,3,0)
 var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)

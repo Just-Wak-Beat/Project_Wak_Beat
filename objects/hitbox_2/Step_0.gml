@@ -76,6 +76,17 @@ if (audio_is_playing(lockdown) && global.map_speed_y <= 1)
 	}
 }
 
+if (variable_instance_exists(id,"t_speed"))
+{
+	speed += (t_speed - speed)*0.1;
+}
+
+if (variable_instance_exists(id,"t_scale"))
+{
+	image_xscale += (t_scale - image_xscale)*0.1
+	image_yscale += (t_scale - image_yscale)*0.1
+	t_scale += 0.005
+}
 
 
 if (center_destroy == 1)

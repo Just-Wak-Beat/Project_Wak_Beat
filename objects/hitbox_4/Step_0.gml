@@ -56,6 +56,12 @@ if (warning_timer == round(target_time))
 	w_alpha = 1;
 	image_alpha = 1;
 	scale_up_effect = 1.05;
+	
+	if (audio_is_playing(happysegu) && t_scale == 0.2)
+	{
+		create_arrow_laser(x+256,y,depth,0.6,0,64,true,3,1)
+		create_arrow_laser(x-256,y,depth,0.6,180,64,true,3,1)
+	}
 }
 
 

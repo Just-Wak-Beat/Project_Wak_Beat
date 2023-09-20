@@ -194,7 +194,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 
 	global.select_map += (global.t_select_map - global.select_map)*0.1
 
-	if global.n_music_title = "왁트모르즈비"
+	if (global.n_music_title == "왁트모르즈비")
 	{
 		global.n_playing_tutorial = 1
 	}
@@ -577,6 +577,27 @@ if global.rewind > 0
 			}
 		}
 	
+	
+		if (audio_is_playing(happysegu) && global.start_point == 4945)
+		{
+			var tmp_c_x = (room_width - 3584)*0.5
+			var tmp_c_w = (room_width + 3584)*0.5
+			var tmp_c_y = (room_height - 2016)*0.5
+			create_laser(tmp_c_x,tmp_c_y,1,1650,4,2,7,180)
+			create_laser(tmp_c_w,tmp_c_y,1,1650,4,2,7,180)
+			
+			if (global.t_selected_difficulty == 0)
+			{
+				var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7)
+				tmp_ins.image_angle = 0;
+				var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7)
+				tmp_ins.image_angle = 180;
+			}
+			var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7)
+			tmp_ins.image_angle = 90;
+			var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7)
+			tmp_ins.image_angle = 270;
+		}
 
 	
 		if global.respawn_point_xx != -4

@@ -735,7 +735,7 @@
 						ins_tmp.warning_timer = 60;
 						ins_tmp.image_xscale *= 2;
 						ins_tmp.image_yscale *= 2;
-						ins_tmp.image_blend = #5595ff
+						ins_tmp.image_blend = (global.map_color == c_white) ? #5595ff : #ff637a;
 						ins_tmp.depth -= 52
 						var tmp2 = create_projectile_spin(ins_tmp.x,ins_tmp.y,spr_square,0.5,60,tmp,0,24);
 						tmp2.image_angle = point_direction(ins_tmp.x,ins_tmp.y,room_width*0.5,room_height*0.5)-tmp*45
@@ -780,7 +780,7 @@
 						ins_tmp.w_alpha = 2;
 						ins_tmp.des_time = 120;
 						ins_tmp.warning_timer = 120;
-						ins_tmp.image_blend = #5595ff
+						ins_tmp.image_blend = (global.map_color == c_white) ? #5595ff : #ff637a;
 						ins_tmp.depth -= 52
 						create_laser(ins_tmp.x,ins_tmp.y,60,20,1,2,1,dir-90)
 						global.w_alpha = 0.3
@@ -1247,6 +1247,35 @@
 					happysegu_pattern_timer++;
 					if (happysegu_pattern_timer > 3)
 					{
+						segu_ef.w_alpha = 10;
+						//var _shaking_circle = create_explo_circle(room_width*0.5,room_height*0.5,1,60,2,0,4*image_xscale,0,0,0)
+						//_shaking_circle.sprite_index = spr_circle_outline
+						//_shaking_circle.alarm[1] = 1
+						
+						var tmp_angle = point_direction(room_width*0.5,room_height*0.5,obj_player.x,obj_player.y);
+						
+						for(var i = 0; i < 4; i++)
+						{
+							var attack_ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,hitbox_2);
+							attack_ef.sprite_index = spr_circle_outline;
+							attack_ef.direction = tmp_angle+i*90;
+							attack_ef.speed = 64;
+							attack_ef.keep_spin_angle = 2;
+							attack_ef.image_xscale = 0;
+							attack_ef.image_yscale = 0;
+							attack_ef.w_alpha = 10;
+							attack_ef.t_speed = 15;
+							attack_ef.t_scale = 0.2;
+						}
+						
+						segu_ef.x += lengthdir_x(64,tmp_angle);
+						segu_ef.y += lengthdir_y(64,tmp_angle);
+						var _ef = instance_create_depth(room_width*0.5,room_height*0.5,segu_ef.depth-10,explosion_effect);
+						_ef.image_xscale = 4;
+						_ef.image_yscale = 4;
+						_ef.t_scale = 8;
+						_ef.image_blend = global.map_color;
+
 						happysegu_pattern_timer = 0
 					}
 					master_bpm_timer -= (3600/global.bpm)+global.music_sync_offset*60;

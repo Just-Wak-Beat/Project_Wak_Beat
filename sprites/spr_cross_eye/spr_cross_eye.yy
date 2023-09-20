@@ -15,6 +15,7 @@
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8f67d792-bc4d-4ec3-b4ac-431422d00b6d",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a606ec3e-ce23-47f0-bff5-251804783d39",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"caba2491-20a6-4f61-919b-a7b89d0b3fc9",},
   ],
   "gridX": 16,
   "gridY": 16,
@@ -44,7 +45,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 2.0,
+    "length": 3.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -57,6 +58,7 @@
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8f67d792-bc4d-4ec3-b4ac-431422d00b6d","path":"sprites/spr_cross_eye/spr_cross_eye.yy",},},},"Disabled":false,"id":"17fd7e6a-bc71-442f-9627-3238a4f58640","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a606ec3e-ce23-47f0-bff5-251804783d39","path":"sprites/spr_cross_eye/spr_cross_eye.yy",},},},"Disabled":false,"id":"ea454e38-6728-4286-b59f-bbf93fe5334c","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"caba2491-20a6-4f61-919b-a7b89d0b3fc9","path":"sprites/spr_cross_eye/spr_cross_eye.yy",},},},"Disabled":false,"id":"79676b91-8ab0-4521-91ab-f9fee417baa7","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

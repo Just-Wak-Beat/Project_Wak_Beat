@@ -10,7 +10,7 @@ image_alpha = 0
 shake_effect = 0
 automatic_angle = 0
 automatic_angle_real = 0
-
+draw_eye = 0
 noneuse_t_x = 0
 if is_undefined("t_x")
 {

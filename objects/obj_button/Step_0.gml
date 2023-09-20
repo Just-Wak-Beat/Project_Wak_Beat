@@ -35,6 +35,11 @@ if (global.n_setting_button != -4 && global.n_setting_button != button_id)
 }
 else
 {
+	if (global.n_progress > 0)
+	{
+		global.sync_setting_alpha = 0;
+		instance_destroy();
+	}
 	image_alpha += (global.sync_setting_alpha - image_alpha)*0.2
 }
 

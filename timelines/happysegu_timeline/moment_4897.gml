@@ -6,6 +6,7 @@ with(hitbox_parents)
 		t_speed = 50;
 		speed = 50;
 		center_destroy = 1;
+		image_alpha = 0.99
 	}
 }
 
