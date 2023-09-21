@@ -15,7 +15,7 @@ function save_and_load_data(argument0,argument1)
 		ini_write_real("n_player_skin","none",global.n_player_skin);
 		for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 		{
-			ini_write_string("unlocked_player_skin",string(i),global.unlocked_player_skin[i]);
+			ini_write_real("unlocked_player_skin",string(i),global.unlocked_player_skin[i]);
 		}
 		
 

@@ -6,7 +6,7 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 	global.savepoint_position[1] = 4945
 	global.savepoint_color[1] = #292131
 }
-global.artifact_type = 0
+global.artifact_type = 3
 global.map_color = #52bcfe
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1

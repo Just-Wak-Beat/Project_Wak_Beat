@@ -18,6 +18,8 @@ touched = 0
 rank_alpha = 1
 once_in = 0
 timer_del = 0
+char_ef_alpha = 0
+char_ef = 0
 
 rings_alpha = 1
 can_play_animation = 0;
@@ -27,6 +29,7 @@ rainbow_ef_alpha = 0
 rainbow_ef = 0
 rainbow_ef_angle = 0
 
+unlocked_char_index = 0
 if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty == 0)
 {
 	global.artifact_owned[global.artifact_type]++;
@@ -39,6 +42,11 @@ for(var i = 0; i < sprite_get_number(spr_illustrationCG)*2; i++)
 	{
 		global.unlocked_player_skin[i] = 3;
 		play_unlock_animation = 1;
+		
+		if (global.artifact_type == floor(i/3))
+		{
+			unlocked_char_index = i;
+		}
 	}
 }
 

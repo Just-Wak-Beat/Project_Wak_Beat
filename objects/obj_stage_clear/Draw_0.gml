@@ -89,3 +89,29 @@ if (touched > 3)
 	draw_set_alpha(alpha_*0.5)
 	draw_line_width(xx_,yy_+yy__h*0.5,xx__w,yy_+yy__h*0.5,600*font_size)
 }
+
+
+
+
+if (char_ef_alpha > 0)
+{
+	var tmp_xx = camera_get_view_x(view_camera[0]);
+	var tmp_yy = camera_get_view_y(view_camera[0]);
+
+	var tmp_xx_w = camera_get_view_width(view_camera[0]);
+	var tmp_yy_h = camera_get_view_height(view_camera[0]);
+	var font_size = 1;
+	var img_index = unlocked_char_index;
+	draw_set_alpha(char_ef_alpha)
+	draw_set_color(merge_color(color_sec,c_white,0.1))
+	draw_line_width(tmp_xx+char_ef_alpha*global.converted_view_ratio*780*font_size,tmp_yy-global.converted_view_ratio*128,tmp_xx+char_ef_alpha*global.converted_view_ratio*320*font_size,tmp_yy+char_ef_alpha*tmp_xx_w*font_size,global.converted_view_ratio*600*font_size)
+	
+
+
+	shader_set(shFlash);
+	draw_sprite_ext(spr_illustrationCG,img_index,tmp_xx+char_ef_alpha*(3-char_ef_alpha*2)*global.converted_view_ratio*430*font_size,tmp_yy+tmp_yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,color_sec,char_ef_alpha)
+	shader_reset();
+		
+		
+	draw_sprite_ext(spr_illustrationCG,img_index,tmp_xx+char_ef_alpha*global.converted_view_ratio*430*font_size,tmp_yy+tmp_yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,c_white,char_ef_alpha)
+}

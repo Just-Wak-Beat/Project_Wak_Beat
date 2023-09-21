@@ -16,6 +16,16 @@ else
 	}
 }
 
+//캐릭터 이미지 애니메이션
+if (char_ef > 0)
+{
+	char_ef_alpha += (1 - char_ef_alpha)*0.1
+}
+else
+{
+	char_ef_alpha += (-0.01 - char_ef_alpha)*0.1
+}
+
 	
 //애니메이션
 if (can_play_animation == -1)
@@ -95,6 +105,11 @@ if (can_play_animation == 1)
 				w_alpha = 1;
 			}
 			
+			if (play_unlock_animation == 1410)
+			{
+				char_ef = 1;
+			}
+			
 			if (play_unlock_animation >= 1384)
 			{
 				w_alpha += (0 - w_alpha)*0.1;
@@ -103,6 +118,7 @@ if (can_play_animation == 1)
 			if (play_unlock_animation == 1700)
 			{
 				rainbow_ef = 0;
+				char_ef = 0;
 			}
 		
 			if (play_unlock_animation == 1200)
