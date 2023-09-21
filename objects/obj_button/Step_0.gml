@@ -35,7 +35,7 @@ if (global.n_setting_button != -4 && global.n_setting_button != button_id)
 }
 else
 {
-	if (global.n_progress > 0)
+	if (global.sync_setting <= 0 && global.n_progress > 0)
 	{
 		global.sync_setting_alpha = 0;
 		instance_destroy();

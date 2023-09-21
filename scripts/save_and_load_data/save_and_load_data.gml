@@ -81,7 +81,7 @@ function save_and_load_data(argument0,argument1)
 		
 		if (argument1 >= 1)
 		{
-			for(var i = 0; i < global.total_map; i++)
+			for(var i = 0; i < global.origin_total_map; i++)
 			{
 				//인게임 정보 (맵)
 				global.real_n_rank[i] = ini_read_string("n_rank",string(i),"--");

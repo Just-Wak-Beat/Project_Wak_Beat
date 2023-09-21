@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-var surface_ratio = 1.88;
+var surface_ratio = 1.87;
 var view_zoom_ratio = (instance_exists(obj_player) && obj_player.image_xscale > 0) ? 0.95 : 1;
 var tmp_c_x = (obj_camera.v_x/3584);
 var xx = camera_get_view_x(view_camera[0]);
@@ -578,7 +578,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	
 	
 		//음악 재로드 (음악 선택중 나오는 미리듣기)
-		if changed_music = 1
+		if (changed_music == 1)
 		{
 			event_user(6)
 		}
@@ -586,25 +586,57 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		var x_plusment = (global.joystick_xx - global.scroll_n_m_xx)/512
 		var __added_fav_list = keyboard_check_pressed(vk_shift) || (obj_album_ui.clicked_ == 1 && mouse_x < xx+xx_w*0.5 && x_plusment < 0.3)
 		
-		if __added_fav_list && global.n_map_list != 2 && global.level >= global.requirement_level[n_stage] && global.title_menu_animation1 == -1
+		if (__added_fav_list && global.n_map_list != 2 && global.level >= global.requirement_level[n_stage] && global.title_menu_animation1 == -1 && global.total_map > 0)
 		{
 			obj_album_ui.clicked_ = 0;
 			obj_album_ui.heart_alpha = 10
 			global.fav_anime = 0
 			audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
+			
 
-			if (global.n_map_list != 1)
+
+			//좋아요 누른 곡 따로 분류
+			get_fav_list_num();
+			var target_index = 0;
+			for(; target_index < global.origin_total_map; target_index++)
 			{
-				//좋아요 누른 곡 따로 분류
-				add_favorite_music(global.n_map_list);
-				global.real_n_favorite[n_stage] *= -1
+				if (global.real_stage_map_name[target_index] == global.stage_map_name[n_stage])
+				{
+					break;
+				}
+			}
+			
+			if (global.real_n_favorite[target_index] <= -1)
+			{
+				global.fav_map_id[global.fav_music_num] = target_index;
+				global.real_n_favorite[target_index] = 1;
+				global.n_favorite[n_stage] = 1;
 			}
 			else
 			{
-				global.real_n_favorite[global.fav_map_id[n_stage]] *= -1
-				load_musicList(global.n_map_list)
+				global.fav_map_id[n_stage] = -4;
+				for(var tmp = n_stage; tmp < global.origin_total_map-1; tmp++)
+				{
+					global.fav_map_id[tmp] = global.fav_map_id[tmp+1];
+				}
+				global.real_n_favorite[target_index] = -1;
+				global.n_favorite[n_stage] = -1;
+				if (global.fav_music_num <= 1)
+				{
+					n_stage = 0;
+					global.t_select_map = 0;
+					global.fav_music_num = 0;
+					global.stage_map_name[n_stage] = -4;
+					global.background_color = merge_color(c_white,c_black,0.95)
+				}
+				
+				if (global.n_map_list == 1)
+				{
+					load_musicList(global.n_map_list);
+					event_user(6);
+				}
 			}
-			global.n_favorite[n_stage] *= -1
+
 			save_and_load_data(0,0)
 		}
 	}

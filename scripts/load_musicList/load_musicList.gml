@@ -38,11 +38,10 @@ function load_musicList(argument0)
 	else if argument0 = 1
 	{
 		global.total_map = get_fav_list_num();
-	
 		for(var i = 0; i < global.total_map; i++)
 		{
 			var ii = global.fav_map_id[i]
-			if ii = -4
+			if (ii == -4)
 			{
 				break;
 			}
@@ -151,7 +150,20 @@ function load_musicList(argument0)
 		global.t_select_map = 2
 		global.b_map_list = global.n_map_list
 		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
-		load_stage(global.stage_map_name[0],global.stage_map_artist[0],global.stage_map_audio_name[0],global.stage_map_color[0],global.stage_map_duration[0],global.stage_bpm[0])
+		if (global.n_map_list == 1 && global.fav_music_num == 0)
+		{
+			load_stage(-4,-4,-4,c_black,9999,60);
+		}
+		else
+		{
+			load_stage(global.stage_map_name[0],global.stage_map_artist[0],global.stage_map_audio_name[0],global.stage_map_color[0],global.stage_map_duration[0],global.stage_bpm[0])
+		}
+		
+		global.background_color = merge_color(global.map_color,c_black,0.9)
+		if (global.background_color == c_black)
+		{
+			global.background_color = merge_color(c_white,c_black,0.95)
+		}
 	}
 	
 

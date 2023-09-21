@@ -92,11 +92,17 @@ if (can_play_animation == 1)
 				rainbow_ef = 1;
 				global.w_alpha = 1
 				view_shake(3,3,3,0)
+				w_alpha = 1;
+			}
+			
+			if (play_unlock_animation >= 1384)
+			{
+				w_alpha += (0 - w_alpha)*0.1;
 			}
 			
 			if (play_unlock_animation == 1700)
 			{
-				rainbow_ef = 1;
+				rainbow_ef = 0;
 			}
 		
 			if (play_unlock_animation == 1200)

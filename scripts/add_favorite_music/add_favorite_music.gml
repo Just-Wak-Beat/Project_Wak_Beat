@@ -5,12 +5,12 @@
 ///@param fromAll/etc
 function add_favorite_music(argument0)
 {
-//현재 좋아요한 갯수
-var i = get_fav_list_num();
+	//현재 좋아요한 갯수
+	var i = get_fav_list_num();
 
-	if argument0 = 0
+	if (argument0 = 0)
 	{
-	global.fav_map_id[i] = n_stage;
+		global.fav_map_id[i] = n_stage;
 	}
 	
 	alarm[9] = 5
