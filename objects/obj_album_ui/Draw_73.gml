@@ -442,14 +442,15 @@ if instance_exists(code)
 		draw_text_k_scale(middle_xx,yy+yy_h*0.1,"파트너",scale*48,-1,__alpha,c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
 		
 		global.n_select_skin += (global.t_n_select_skin - global.n_select_skin)*0.1
-		for(var i = 0; i < 21; i++)
+		for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 		{
 			var n_skin__ = (global.n_select_skin >= 0) ? global.n_select_skin : 0
 			var col_ = c_white
 			var unlocked = (global.unlocked_player_skin[i] == 0);
-			var n_is_selected = (i == global.t_n_select_skin) ? 1.3 : 1
-			var _dis_scale = (1-(abs(i-global.n_select_skin)/5))*n_is_selected
-			var skin_name = global.unlocked_player_skin_name[i] 
+			var n_is_selected = (i == round(global.n_select_skin)) ? 1.3 : 1;
+			var _dis_scale = (1-(abs(i-global.n_select_skin)/5))*n_is_selected;
+			var skin_name = global.unlocked_player_skin_name[i] ;
+			//draw_text_k_scale(middle_xx+i*32,yy+yy_h*0.05+i*16,string(round(global.n_select_skin))+" / "+string(i),scale*48,-1,__alpha,c_white,0,0,normal_font,0.2*global.font_ratio_resolution_xx*scale,0.2*scale,0)
 			
 			if (!unlocked)
 			{
@@ -478,8 +479,8 @@ if instance_exists(code)
 						
 					if (global.unlock_partner_animation_queue == 0)
 					{
-						global.unlock_partner_animation_queue = 1;
 						global.t_n_select_skin = i;
+						global.unlock_partner_animation_queue = 1;
 					}
 				}
 			}
@@ -495,12 +496,14 @@ if instance_exists(code)
 				{
 					if (n_is_selected == 1.3)
 					{
+						var color_table = [ $FF4AB539,#8a2be2,#95c100,#5c89ce,#443965,#ff008c,#f0a957 ];
+						var tmp_n_col = color_table[floor(round(global.n_select_skin)/4)];
 						var _margin = 8
 						shader_set(shFlash)
-						draw_sprite_ext(spr_illustrationCG,i,middle_xx-n_skin__*640+i*640-_margin,middle_yy+256*_dis_scale*1.3,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,c_white,__alpha*_dis_scale)
-						draw_sprite_ext(spr_illustrationCG,i,middle_xx-n_skin__*640+i*640+_margin,middle_yy+256*_dis_scale*1.3,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,c_white,__alpha*_dis_scale)
-						draw_sprite_ext(spr_illustrationCG,i,middle_xx-n_skin__*640+i*640,middle_yy+256*_dis_scale*1.3-_margin,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,c_white,__alpha*_dis_scale)
-						draw_sprite_ext(spr_illustrationCG,i,middle_xx-n_skin__*640+i*640,middle_yy+256*_dis_scale*1.3+_margin,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,c_white,__alpha*_dis_scale)
+						for(var k = -7; k < 3; k++)
+						{
+							draw_sprite_ext(spr_illustrationCG,i,k*(1-(global.n_select_skin-i)*30)+middle_xx-n_skin__*640+i*640-_margin,middle_yy+256*_dis_scale*1.3,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,tmp_n_col,__alpha*_dis_scale*0.1*(1+abs(global.n_select_skin-i)*10))
+						}
 						shader_reset()
 					}
 				}

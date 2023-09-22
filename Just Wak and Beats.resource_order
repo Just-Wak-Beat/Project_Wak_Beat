@@ -178,6 +178,7 @@
     {"name":"spr_spuare_outline","order":18,"path":"sprites/spr_spuare_outline/spr_spuare_outline.yy",},
     {"name":"spr_loading","order":14,"path":"sprites/spr_loading/spr_loading.yy",},
     {"name":"hitbox_10","order":11,"path":"objects/hitbox_10/hitbox_10.yy",},
+    {"name":"spr_tmp","order":19,"path":"sprites/spr_tmp/spr_tmp.yy",},
     {"name":"turisumo","order":10,"path":"sounds/turisumo/turisumo.yy",},
     {"name":"fukurou_timeline","order":7,"path":"timelines/fukurou_timeline/fukurou_timeline.yy",},
     {"name":"gungsirung","order":18,"path":"sounds/gungsirung/gungsirung.yy",},

@@ -213,6 +213,7 @@
     {"id":{"name":"spr_spuare_outline","path":"sprites/spr_spuare_outline/spr_spuare_outline.yy",},},
     {"id":{"name":"spr_loading","path":"sprites/spr_loading/spr_loading.yy",},},
     {"id":{"name":"hitbox_10","path":"objects/hitbox_10/hitbox_10.yy",},},
+    {"id":{"name":"spr_tmp","path":"sprites/spr_tmp/spr_tmp.yy",},},
     {"id":{"name":"turisumo","path":"sounds/turisumo/turisumo.yy",},},
     {"id":{"name":"fukurou_timeline","path":"timelines/fukurou_timeline/fukurou_timeline.yy",},},
     {"id":{"name":"gungsirung","path":"sounds/gungsirung/gungsirung.yy",},},

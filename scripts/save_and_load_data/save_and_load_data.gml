@@ -72,7 +72,8 @@ function save_and_load_data(argument0,argument1)
 	{
 		//플레이어 스킨
 		global.n_player_skin = ini_read_real("n_player_skin","none",-4);
-		global.player_skin = (global.n_player_skin >= 0) ? floor(global.n_player_skin/3) : 0;
+		global.player_skin = (global.n_player_skin >= 0) ? floor(global.n_player_skin/4) : 0;
+		global.player_skin = floor(global.player_skin);
 		for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 		{
 			global.unlocked_player_skin[i] = ini_read_real("unlocked_player_skin",string(i),0);

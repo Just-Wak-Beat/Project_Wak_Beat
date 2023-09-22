@@ -36,7 +36,7 @@ if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty
 }
 
 //파트너 해금
-for(var i = 0; i < sprite_get_number(spr_illustrationCG)*2; i++)
+for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 {
 	if (global.unlocked_player_skin[i] == 0 && global.unlocked_player_skin_require_num[i] <= global.artifact_owned[global.unlocked_player_skin_require_type[i]])
 	{

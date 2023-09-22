@@ -7,8 +7,8 @@ if (global.can_change_music_list == 1 && global.t_select_difficulty == 0)
 	var n_skin = (global.n_player_skin >= 0) ? global.n_player_skin : 0
 	
 	
-	global.t_n_select_skin = n_skin
-	global.n_select_skin = n_skin
+	global.t_n_select_skin = floor(n_skin)
+	global.n_select_skin = floor(n_skin)
 	
 	
 	global.character_setting ++

@@ -104,14 +104,17 @@ if (char_ef_alpha > 0)
 	var img_index = unlocked_char_index;
 	draw_set_alpha(char_ef_alpha)
 	draw_set_color(merge_color(color_sec,c_white,0.1))
-	draw_line_width(tmp_xx+char_ef_alpha*global.converted_view_ratio*780*font_size,tmp_yy-global.converted_view_ratio*128,tmp_xx+char_ef_alpha*global.converted_view_ratio*320*font_size,tmp_yy+char_ef_alpha*tmp_xx_w*font_size,global.converted_view_ratio*600*font_size)
+	draw_line_width(tmp_xx+tmp_xx_w-char_ef_alpha*global.converted_view_ratio*780*font_size,tmp_yy-global.converted_view_ratio*128,tmp_xx+tmp_xx_w-char_ef_alpha*global.converted_view_ratio*320*font_size,tmp_yy+char_ef_alpha*tmp_xx_w*font_size,global.converted_view_ratio*600*font_size)
 	
 
 
 	shader_set(shFlash);
-	draw_sprite_ext(spr_illustrationCG,img_index,tmp_xx+char_ef_alpha*(3-char_ef_alpha*2)*global.converted_view_ratio*430*font_size,tmp_yy+tmp_yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,color_sec,char_ef_alpha)
+	draw_sprite_ext(spr_illustrationCG,img_index,tmp_xx+tmp_xx_w-char_ef_alpha*(3-char_ef_alpha*2)*global.converted_view_ratio*430*font_size,tmp_yy+tmp_yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,color_sec,char_ef_alpha)
 	shader_reset();
 		
 		
-	draw_sprite_ext(spr_illustrationCG,img_index,tmp_xx+char_ef_alpha*global.converted_view_ratio*430*font_size,tmp_yy+tmp_yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,c_white,char_ef_alpha)
+	draw_sprite_ext(spr_illustrationCG,img_index,tmp_xx+tmp_xx_w-char_ef_alpha*global.converted_view_ratio*430*font_size,tmp_yy+tmp_yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,c_white,char_ef_alpha)
+	shader_set(shFlash);
+	draw_sprite_ext(spr_illustrationCG,img_index,tmp_xx+tmp_xx_w-char_ef_alpha*(3-char_ef_alpha*2)*global.converted_view_ratio*430*font_size,tmp_yy+tmp_yy_h,global.converted_view_ratio*font_size*2*global.font_ratio_resolution_xx,global.converted_view_ratio*font_size*2,0,c_white,w_alpha)
+	shader_reset();
 }
