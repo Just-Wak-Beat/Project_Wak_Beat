@@ -38,14 +38,30 @@ if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty
 //파트너 해금
 for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 {
-	if (global.unlocked_player_skin[i] == 0 && global.unlocked_player_skin_require_num[i] <= global.artifact_owned[global.unlocked_player_skin_require_type[i]])
+	var tmp_require_num = global.unlocked_player_skin_require_num[i];
+	if (is_real(tmp_require_num))
 	{
-		global.unlocked_player_skin[i] = 3;
-		play_unlock_animation = 1;
-		
-		if (global.artifact_type == floor(i/3))
+		if (global.unlocked_player_skin[i] == 0 && tmp_require_num <= global.artifact_owned[global.unlocked_player_skin_require_type[i]])
 		{
-			unlocked_char_index = i;
+			global.unlocked_player_skin[i] = 3;
+			play_unlock_animation = 1;
+		
+			if (global.artifact_type == floor(i/3))
+			{
+				unlocked_char_index = i;
+			}
+		}
+	}
+	else
+	{
+		if (tmp_require_num == "아무 곡이나 대쉬를 사용하지 않고 퍼펙트 클리어")
+		{
+			if (global.crossed_obstacle_num == 0)
+			{
+				global.unlocked_player_skin[2] = 3;
+				play_unlock_animation = 1;
+				unlocked_char_index = 2;
+			}
 		}
 	}
 }

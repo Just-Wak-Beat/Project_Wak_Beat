@@ -515,9 +515,26 @@ if instance_exists(code)
 				{
 					skin_name = "???";
 					draw_sprite_ext(spr_lock,0,middle_xx-n_skin__*640+i*640-84*_dis_scale,middle_yy-64*_dis_scale,global.font_ratio_resolution_xx*0.5*_dis_scale*0.5,0.5*_dis_scale*0.5,0,c_white,__alpha*_dis_scale)
-					draw_text_k_scale(middle_xx-n_skin__*640+i*640-20*_dis_scale,middle_yy-106*_dis_scale,"필요한 아티팩트",scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,-1,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
-					draw_sprite_ext(spr_W,global.unlocked_player_skin_require_type[i],middle_xx-n_skin__*640+i*640,middle_yy-24*_dis_scale,global.font_ratio_resolution_xx*0.5*_dis_scale*0.25,0.5*_dis_scale*0.25,0,c_white,__alpha*_dis_scale)
-					draw_text_k_scale(middle_xx-n_skin__*640+i*640+42*_dis_scale,middle_yy-36*_dis_scale,"x"+string(global.unlocked_player_skin_require_num[i]),scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,0,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
+					draw_text_k_scale(middle_xx-n_skin__*640+i*640-20*_dis_scale,middle_yy-106*_dis_scale,"해금 조건",scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,-1,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
+					
+					var tmp_requirement = global.unlocked_player_skin_require_num[i];
+					var tmp_requirement_type = global.unlocked_player_skin_require_type[i];
+					if (is_real(tmp_requirement))
+					{
+						draw_sprite_ext(spr_W,tmp_requirement_type,middle_xx-n_skin__*640+i*640,middle_yy-24*_dis_scale,global.font_ratio_resolution_xx*0.5*_dis_scale*0.25,0.5*_dis_scale*0.25,0,c_white,__alpha*_dis_scale)
+						if (tmp_requirement == global.max_artifact_owned[tmp_requirement_type])
+						{
+							draw_text_k_scale(middle_xx-n_skin__*640+i*640+42*_dis_scale,middle_yy-36*_dis_scale,"아티펙트 수집률 100% 달성",scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,-1,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
+						}
+						else
+						{
+							draw_text_k_scale(middle_xx-n_skin__*640+i*640+42*_dis_scale,middle_yy-36*_dis_scale,"x"+string(tmp_requirement),scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,0,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
+						}
+					}
+					else
+					{
+						draw_text_k_scale(middle_xx-n_skin__*640+i*640,middle_yy-36*_dis_scale,string(tmp_requirement),scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,0,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
+					}
 				}
 				else
 				{

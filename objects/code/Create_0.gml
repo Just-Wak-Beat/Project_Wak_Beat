@@ -155,105 +155,22 @@ global.n_player_skin = -4
 global.n_select_skin = 0
 global.t_n_select_skin = 0
 global.acquired_skin = -4
-	for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
-	{
-		global.unlocked_player_skin[i] = 0;
-		global.unlocked_player_skin_name[i] = "";
-		global.unlocked_player_skin_require_type[i] = 0;
-		global.unlocked_player_skin_require_num[i] = 0;
-	}
-	
-	global.unlocked_player_skin_name[0] = "우왁굳"
-	global.unlocked_player_skin_require_type[0] = 0;
-	global.unlocked_player_skin_require_num[0] = 1;
-	global.unlocked_player_skin_name[1] = "민수"
-	global.unlocked_player_skin_require_type[1] = 0;
-	global.unlocked_player_skin_require_num[1] = 5;
-	global.unlocked_player_skin_name[2] = "우왁굳 (왁굳향100%)"
-	global.unlocked_player_skin_require_type[2] = 0;
-	global.unlocked_player_skin_require_num[2] = 2;
-	global.unlocked_player_skin_name[3] = "메시두"
-	global.unlocked_player_skin_require_type[3] = 0;
-	global.unlocked_player_skin_require_num[3] = 7;
-	global.unlocked_player_skin_name[4] = "아이네"
-	global.unlocked_player_skin_require_type[4] = 1;
-	global.unlocked_player_skin_require_num[4] = 1;
-	global.unlocked_player_skin_name[5] = "아이네 (엔젤)"
-	global.unlocked_player_skin_require_type[5] = 1;
-	global.unlocked_player_skin_require_num[5] = 1;
-	global.unlocked_player_skin_name[6] = "아이네 (산타)"
-	global.unlocked_player_skin_require_type[6] = 1;
-	global.unlocked_player_skin_require_num[6] = 3;
-	global.unlocked_player_skin_name[7] = "아이네 (후드)"
-	global.unlocked_player_skin_require_type[7] = 1;
-	global.unlocked_player_skin_require_num[7] = 3;
-	global.unlocked_player_skin_name[8] = "비챤"
-	global.unlocked_player_skin_require_type[8] = 2;
-	global.unlocked_player_skin_require_num[8] = 1;
-	global.unlocked_player_skin_name[9] = "비챤 (메이드)"
-	global.unlocked_player_skin_require_type[9] = 2;
-	global.unlocked_player_skin_require_num[9] = 1;
-	global.unlocked_player_skin_name[10] = "비챤 (산타)"
-	global.unlocked_player_skin_require_type[10] = 2;
-	global.unlocked_player_skin_require_num[10] = 3;
-	global.unlocked_player_skin_name[11] = "비챤 (기타)"
-	global.unlocked_player_skin_require_type[11] = 2;
-	global.unlocked_player_skin_require_num[11] = 3;
-	global.unlocked_player_skin_name[12] = "고세구 (메이드)"
-	global.unlocked_player_skin_require_type[12] = 3;
-	global.unlocked_player_skin_require_num[12] = 1;
-	global.unlocked_player_skin_name[13] = "고세구 (여름)"
-	global.unlocked_player_skin_require_type[13] = 3;
-	global.unlocked_player_skin_require_num[13] = 1;
-	global.unlocked_player_skin_name[14] = "고세구 (산타)"
-	global.unlocked_player_skin_require_type[14] = 3;
-	global.unlocked_player_skin_require_num[14] = 3;
-	global.unlocked_player_skin_name[15] = "고세구"
-	global.unlocked_player_skin_require_type[15] = 3;
-	global.unlocked_player_skin_require_num[15] = 3;
-	global.unlocked_player_skin_name[16] = "릴파 (수녀)"
-	global.unlocked_player_skin_require_type[16] = 4;
-	global.unlocked_player_skin_require_num[16] = 1;
-	global.unlocked_player_skin_name[17] = "릴파 (여름)"
-	global.unlocked_player_skin_require_type[17] = 4;
-	global.unlocked_player_skin_require_num[17] = 1;
-	global.unlocked_player_skin_name[18] = "릴파 (산타)"
-	global.unlocked_player_skin_require_type[18] = 4;
-	global.unlocked_player_skin_require_num[18] = 3;
-	global.unlocked_player_skin_name[19] = "릴파 (전투메이드)"
-	global.unlocked_player_skin_require_type[19] = 4;
-	global.unlocked_player_skin_require_num[19] = 3;
-	global.unlocked_player_skin_name[20] = "주르르"
-	global.unlocked_player_skin_require_type[20] = 5;
-	global.unlocked_player_skin_require_num[20] = 1;
-	global.unlocked_player_skin_name[21] = "주르르 (셔츠)"
-	global.unlocked_player_skin_require_type[21] = 5;
-	global.unlocked_player_skin_require_num[21] = 1;
-	global.unlocked_player_skin_name[22] = "주르르 (산타)"
-	global.unlocked_player_skin_require_type[22] = 5;
-	global.unlocked_player_skin_require_num[22] = 2;
-	global.unlocked_player_skin_name[23] = "주르르 (후드)"
-	global.unlocked_player_skin_require_type[23] = 5;
-	global.unlocked_player_skin_require_num[23] = 2;
-	global.unlocked_player_skin_name[24] = "징버거 (파티타임)"
-	global.unlocked_player_skin_require_type[24] = 6;
-	global.unlocked_player_skin_require_num[24] = 2;
-	global.unlocked_player_skin_name[25] = "징버거 (여름)"
-	global.unlocked_player_skin_require_type[25]  = 6;
-	global.unlocked_player_skin_require_num[25] = 1;
-	global.unlocked_player_skin_name[26] = "징버거"
-	global.unlocked_player_skin_require_type[26] = 6;
-	global.unlocked_player_skin_require_num[26] = 1;
-	global.unlocked_player_skin_name[27] = "징버거 (산타)"
-	global.unlocked_player_skin_require_type[27] = 6;
-	global.unlocked_player_skin_require_num[27] = 2;
+for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
+{
+	global.unlocked_player_skin[i] = 0;
+	global.unlocked_player_skin_name[i] = "";
+	global.unlocked_player_skin_require_type[i] = 0;
+	global.unlocked_player_skin_require_num[i] = 0;
+}
+
 	
 	
-	for(var i = 0; i <= 11; i++)
-	{
-		global.artifact_owned[i] = 0;
-		global.guide_showed[i] = 0;
-	}
+for(var i = 0; i <= 11; i++)
+{
+	global.artifact_owned[i] = 0;
+	global.max_artifact_owned[i] = 0;
+	global.guide_showed[i] = 0;
+}
 
 
 //좋아하는 곡 총 갯수
@@ -766,9 +683,96 @@ global.real_obtainable_type[22] = 8;
 global.real_requirement_level[22] = 7;
 
 
+for(var i = 0; i <= 11; i++)
+{
+	global.max_artifact_owned[global.real_obtainable_type[i]]++;
+}
 
-
-
+	
+global.unlocked_player_skin_name[0] = "우왁굳"
+global.unlocked_player_skin_require_type[0] = 0;
+global.unlocked_player_skin_require_num[0] = global.max_artifact_owned[0];
+global.unlocked_player_skin_name[1] = "민수"
+global.unlocked_player_skin_require_type[1] = 0;
+global.unlocked_player_skin_require_num[1] = global.max_artifact_owned[0]+3;
+global.unlocked_player_skin_name[2] = "메시두"
+global.unlocked_player_skin_require_type[2] = 0;
+global.unlocked_player_skin_require_num[2] = "아무 곡이나 대쉬를 사용하지 않고 퍼펙트 클리어";
+global.unlocked_player_skin_name[3] = "우왁굳 (왁굳향100%)"
+global.unlocked_player_skin_require_type[3] = 0;
+global.unlocked_player_skin_require_num[3] = global.max_artifact_owned[0];
+global.unlocked_player_skin_name[4] = "아이네"
+global.unlocked_player_skin_require_type[4] = 1;
+global.unlocked_player_skin_require_num[4] = global.max_artifact_owned[1];
+global.unlocked_player_skin_name[5] = "아이네 (엔젤)"
+global.unlocked_player_skin_require_type[5] = 1;
+global.unlocked_player_skin_require_num[5] = global.max_artifact_owned[1];
+global.unlocked_player_skin_name[6] = "아이네 (산타)"
+global.unlocked_player_skin_require_type[6] = 1;
+global.unlocked_player_skin_require_num[6] = global.max_artifact_owned[1];
+global.unlocked_player_skin_name[7] = "아이네 (후드)"
+global.unlocked_player_skin_require_type[7] = 1;
+global.unlocked_player_skin_require_num[7] = global.max_artifact_owned[1]+2;
+global.unlocked_player_skin_name[8] = "비챤"
+global.unlocked_player_skin_require_type[8] = 2;
+global.unlocked_player_skin_require_num[8] = global.max_artifact_owned[2];
+global.unlocked_player_skin_name[9] = "비챤 (메이드)"
+global.unlocked_player_skin_require_type[9] = 2;
+global.unlocked_player_skin_require_num[9] = global.max_artifact_owned[2];
+global.unlocked_player_skin_name[10] = "비챤 (산타)"
+global.unlocked_player_skin_require_type[10] = 2;
+global.unlocked_player_skin_require_num[10] = global.max_artifact_owned[2];
+global.unlocked_player_skin_name[11] = "비챤 (기타)"
+global.unlocked_player_skin_require_type[11] = 2;
+global.unlocked_player_skin_require_num[11] = global.max_artifact_owned[2]+2;
+global.unlocked_player_skin_name[12] = "고세구 (여름)"
+global.unlocked_player_skin_require_type[12] = 3;
+global.unlocked_player_skin_require_num[12] = global.max_artifact_owned[3];
+global.unlocked_player_skin_name[13] = "고세구"
+global.unlocked_player_skin_require_type[13] = 3;
+global.unlocked_player_skin_require_num[13] = global.max_artifact_owned[3];
+global.unlocked_player_skin_name[14] = "고세구 (산타)"
+global.unlocked_player_skin_require_type[14] = 3;
+global.unlocked_player_skin_require_num[14] = global.max_artifact_owned[3];
+global.unlocked_player_skin_name[15] = "고세구 (메이드)"
+global.unlocked_player_skin_require_type[15] = 3;
+global.unlocked_player_skin_require_num[15] = global.max_artifact_owned[3]+3;
+global.unlocked_player_skin_name[16] = "릴파 (수녀)"
+global.unlocked_player_skin_require_type[16] = 4;
+global.unlocked_player_skin_require_num[16] = global.max_artifact_owned[4];
+global.unlocked_player_skin_name[17] = "릴파 (여름)"
+global.unlocked_player_skin_require_type[17] = 4;
+global.unlocked_player_skin_require_num[17] = global.max_artifact_owned[4];
+global.unlocked_player_skin_name[18] = "릴파 (산타)"
+global.unlocked_player_skin_require_type[18] = 4;
+global.unlocked_player_skin_require_num[18] = global.max_artifact_owned[4];
+global.unlocked_player_skin_name[19] = "릴파 (전투메이드)"
+global.unlocked_player_skin_require_type[19] = 4;
+global.unlocked_player_skin_require_num[19] = global.max_artifact_owned[4]+1;
+global.unlocked_player_skin_name[20] = "주르르"
+global.unlocked_player_skin_require_type[20] = 5;
+global.unlocked_player_skin_require_num[20] = global.max_artifact_owned[5];
+global.unlocked_player_skin_name[21] = "주르르 (셔츠)"
+global.unlocked_player_skin_require_type[21] = 5;
+global.unlocked_player_skin_require_num[21] = global.max_artifact_owned[5];
+global.unlocked_player_skin_name[22] = "주르르 (산타)"
+global.unlocked_player_skin_require_type[22] = 5;
+global.unlocked_player_skin_require_num[22] = global.max_artifact_owned[5];
+global.unlocked_player_skin_name[23] = "주르르 (후드)"
+global.unlocked_player_skin_require_type[23] = 5;
+global.unlocked_player_skin_require_num[23] = global.max_artifact_owned[5]+1;
+global.unlocked_player_skin_name[24] = "징버거 (여름)"
+global.unlocked_player_skin_require_type[24]  = 6;
+global.unlocked_player_skin_require_num[24] = global.max_artifact_owned[6];
+global.unlocked_player_skin_name[25] = "징버거"
+global.unlocked_player_skin_require_type[25] = 6;
+global.unlocked_player_skin_require_num[25] = global.max_artifact_owned[6];
+global.unlocked_player_skin_name[26] = "징버거 (산타)"
+global.unlocked_player_skin_require_type[26] = 6;
+global.unlocked_player_skin_require_num[26] = global.max_artifact_owned[6];
+global.unlocked_player_skin_name[27] = "징버거 (파티타임)"
+global.unlocked_player_skin_require_type[27] = 6;
+global.unlocked_player_skin_require_num[27] = global.max_artifact_owned[6]+1;
 
 
 
