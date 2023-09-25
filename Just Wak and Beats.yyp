@@ -184,6 +184,7 @@
     {"id":{"name":"explosion_effect","path":"objects/explosion_effect/explosion_effect.yy",},},
     {"id":{"name":"view_shake","path":"scripts/view_shake/view_shake.yy",},},
     {"id":{"name":"Sprite67","path":"sprites/Sprite67/Sprite67.yy",},},
+    {"id":{"name":"convert_score_to_rank","path":"scripts/convert_score_to_rank/convert_score_to_rank.yy",},},
     {"id":{"name":"alzar_timeline","path":"timelines/alzar_timeline/alzar_timeline.yy",},},
     {"id":{"name":"create_laser","path":"scripts/create_laser/create_laser.yy",},},
     {"id":{"name":"spr_lock","path":"sprites/spr_lock/spr_lock.yy",},},

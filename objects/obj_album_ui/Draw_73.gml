@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+var color_table = [ $FF4AB539,#8a2be2,#95c100,#5c89ce,#443965,#ff008c,#f0a957 ];
 var ui_alpha__cal = global.ui_alpha
 if ui_alpha__cal > 1
 {
@@ -496,7 +497,6 @@ if instance_exists(code)
 				{
 					if (n_is_selected == 1.3)
 					{
-						var color_table = [ $FF4AB539,#8a2be2,#95c100,#5c89ce,#443965,#ff008c,#f0a957 ];
 						var tmp_n_col = color_table[floor(round(global.n_select_skin)/4)];
 						var _margin = 8
 						shader_set(shFlash)
@@ -524,7 +524,7 @@ if instance_exists(code)
 						draw_sprite_ext(spr_W,tmp_requirement_type,middle_xx-n_skin__*640+i*640,middle_yy-24*_dis_scale,global.font_ratio_resolution_xx*0.5*_dis_scale*0.25,0.5*_dis_scale*0.25,0,c_white,__alpha*_dis_scale)
 						if (tmp_requirement == global.max_artifact_owned[tmp_requirement_type])
 						{
-							draw_text_k_scale(middle_xx-n_skin__*640+i*640+42*_dis_scale,middle_yy-36*_dis_scale,"아티펙트 수집률 100% 달성",scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,-1,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
+							draw_text_k_scale(middle_xx-n_skin__*640+i*640+24*_dis_scale,middle_yy-64*_dis_scale,"아티펙트 수집률\n100% 달성",scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,-1,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
 						}
 						else
 						{
@@ -641,6 +641,28 @@ if instance_exists(code)
 				else
 				{
 					draw_text_k_scale(middle_xx,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+					
+					if (global.notice_title = "Result")
+					{
+						var tmp_art_type = global.artifact_type;
+						var tmp_val = global.artifact_owned[tmp_art_type]/global.max_artifact_owned[tmp_art_type];
+						tmp_val = (tmp_val > 1) ? 1 : tmp_val;
+						
+						if (global.show_new_songs > 60)
+						{
+							global.n_progress_artifact += (tmp_val+0.01 - global.n_progress_artifact)*0.1
+							global.n_progress_artifact = (global.n_progress_artifact > 1) ? 1 : global.n_progress_artifact;
+						}
+						else
+						{
+							global.n_progress_artifact = 0;
+						}
+						
+						draw_sprite_ext(spr_W,tmp_art_type,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.72-global.new_song_scroll,0.2*global.font_ratio_resolution_xx,0.2,0,c_white,global.show_new_songs/100)
+						draw_text_k_scale(middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+128,yy+yy_h*0.7-global.new_song_scroll,"아티펙트 수집률 ("+string(floor(global.n_progress_artifact*100))+"%)",scale*48,-1,global.show_new_songs/100,c_white,0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+						draw_sprite_ext(spr_level_bar,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,0,#171628,global.show_new_songs/100)
+						draw_sprite_part_ext(spr_level_bar,0,0,0,global.n_progress_artifact*1760,64,middle_xx-1760*0.5*0.7*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,color_table[tmp_art_type],global.show_new_songs/160)
+					}
 				}
 			}
 			else

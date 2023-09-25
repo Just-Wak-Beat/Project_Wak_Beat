@@ -12,7 +12,7 @@ global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
 global.nickname = ""
-
+global.dashed = 0
 //메인메뉴 애니메이션 재생
 global.show_title_menu = 1;
 global.title_menu_animation1 = 0;
@@ -683,9 +683,22 @@ global.real_obtainable_type[22] = 8;
 global.real_requirement_level[22] = 7;
 
 
-for(var i = 0; i <= 11; i++)
+for(var i = 0; i < global.total_map; i++)
 {
-	global.max_artifact_owned[global.real_obtainable_type[i]]++;
+	var tmp_type = global.real_obtainable_type[i];
+	if (tmp_type == 8 || tmp_type == 17)
+	{
+		tmp_type = 5
+	}
+	else if (tmp_type > 7)
+	{
+		tmp_type -= 9;
+	}
+	
+	if (tmp_type <= 17)
+	{
+		global.max_artifact_owned[tmp_type]++;
+	}
 }
 
 	
@@ -697,7 +710,7 @@ global.unlocked_player_skin_require_type[1] = 0;
 global.unlocked_player_skin_require_num[1] = global.max_artifact_owned[0]+3;
 global.unlocked_player_skin_name[2] = "메시두"
 global.unlocked_player_skin_require_type[2] = 0;
-global.unlocked_player_skin_require_num[2] = "아무 곡이나 대쉬를 사용하지 않고 퍼펙트 클리어";
+global.unlocked_player_skin_require_num[2] = "아무 곡이나 대쉬를 사용하지 않고 S랭크 이상으로 클리어";
 global.unlocked_player_skin_name[3] = "우왁굳 (왁굳향100%)"
 global.unlocked_player_skin_require_type[3] = 0;
 global.unlocked_player_skin_require_num[3] = global.max_artifact_owned[0];

@@ -5,6 +5,12 @@ if (global.dev_mode == 1)
 	global.tutorial_played = 1;
 }
 
+//장애물 회피 점수가 최대치를 못넘도록 설정
+if (global.crossed_obstacle_num > 99)
+{
+	global.crossed_obstacle_num = 99;
+}
+
 //화면 흑백 효과
 if (global.blackout_alpha > 0)
 {
@@ -420,7 +426,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 	
 	
 	
-	var target_time_to_replay = 420+sign(global.overtime_highlight_song)*450
+	var target_time_to_replay = 1220+sign(global.overtime_highlight_song)*450
 	
 	
 	if (global.highlight_time > target_time_to_replay) || (gamestart != 0 && gamestart != 1.1 && global.show_new_songs <= 0)

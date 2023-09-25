@@ -80,7 +80,7 @@ else
 }
 
 
-if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_title_menu == 0) || (global.show_title_menu > 0 && beating_animation == 1) || global.overtime_highlight_song == 1) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
+if ((global.highlight_time <= 1240 && global.highlight_time > 30 && global.show_title_menu == 0) || (global.show_title_menu > 0 && beating_animation == 1) || global.overtime_highlight_song == 1) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
 {
 	bpm_timer ++
 
@@ -99,7 +99,7 @@ if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_t
 		{
 			w_alpha_bg = 0.6
 			
-			if (global.n_map_id >= 0 && global.n_rank[global.n_map_id] == "S+")
+			if (global.n_map_id >= 0 && (global.n_rank[global.n_map_id] == "S+" || global.n_rank[global.n_map_id] == "Perfect!"))
 			{
 				var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
 				_ef.image_index = 6
@@ -169,7 +169,7 @@ if ((global.highlight_time <= 440 && global.highlight_time > 30 && global.show_t
 	}
 }
 
-if (global.highlight_time > 440)
+if (global.highlight_time > 1240)
 {
 	angle_moving_timer = 0
 }

@@ -61,6 +61,7 @@ global.lockdown_effect5 = 0
 global.crossed_obstacle_num = 0
 global.total_died_here = 0
 global.n_rank_display = "S+"
+global.dashed = 0
 lockdown_effect4_1 = 0
 lockdown_effect5_1 = 0
 lockdown_effect5_2 = 0

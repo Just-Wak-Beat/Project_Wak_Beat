@@ -4,57 +4,57 @@ function convert_rank_to_num(argument0)
 {
 var _n_rank = argument0;
 var _n_rank_real = 0;
-	if _n_rank = "S+"
+	if _n_rank = "Perfect!"
 	{
-	_n_rank_real = 12
+		_n_rank_real = 15
+	}
+	else if _n_rank = "S+"
+	{
+		_n_rank_real = 12
 	}
 	else if _n_rank = "S"
 	{
-	_n_rank_real = 11
+		_n_rank_real = 11
 	}
 	else if _n_rank = "A+"
 	{
-	_n_rank_real = 10
+		_n_rank_real = 10
 	}
 	else if _n_rank = "A"
 	{
-	_n_rank_real = 9
+		_n_rank_real = 9
 	}
 	else if _n_rank = "B+"
 	{
-	_n_rank_real = 8
+		_n_rank_real = 8
 	}
 	else if _n_rank = "B"
 	{
-	_n_rank_real = 7
+		_n_rank_real = 7
 	}
 	else if _n_rank = "C+"
 	{
-	_n_rank_real = 6
+		_n_rank_real = 6
 	}
 	else if _n_rank = "C"
 	{
-	_n_rank_real = 5
+		_n_rank_real = 5
 	}
 	else if _n_rank = "C-" || _n_rank = "D+"
 	{
-	_n_rank_real = 4
+		_n_rank_real = 4
 	}
 	else if _n_rank = "D"
 	{
-	_n_rank_real = 3
-	}
-	else if _n_rank = "E" || _n_rank = "F+" || _n_rank = "D-"
-	{
-	_n_rank_real = 2
+		_n_rank_real = 3
 	}
 	else if _n_rank = "F"
 	{
-	_n_rank_real = 1
+		_n_rank_real = 2
 	}
 	else
 	{
-	_n_rank_real = 0
+		_n_rank_real = 0
 	}
-return _n_rank_real;
+	return _n_rank_real;
 }

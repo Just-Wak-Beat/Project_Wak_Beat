@@ -21,6 +21,11 @@ timer_del = 0
 char_ef_alpha = 0
 char_ef = 0
 
+if (global.hp == 5 && global.crossed_obstacle_num <= 10 && global.n_rank_display == "S+")
+{
+	global.n_rank_display = "Perfect!"
+}
+
 rings_alpha = 1
 can_play_animation = 0;
 play_unlock_animation = 0;
@@ -54,9 +59,9 @@ for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 	}
 	else
 	{
-		if (tmp_require_num == "아무 곡이나 대쉬를 사용하지 않고 퍼펙트 클리어")
+		if (tmp_require_num == "아무 곡이나 대쉬를 사용하지 않고 S랭크 이상으로 클리어")
 		{
-			if (global.crossed_obstacle_num == 0)
+			if (global.dashed == 0 && (global.n_rank_display == "Perfect!" || global.n_rank_display == "S+" || global.n_rank_display == "S"))
 			{
 				global.unlocked_player_skin[2] = 3;
 				play_unlock_animation = 1;

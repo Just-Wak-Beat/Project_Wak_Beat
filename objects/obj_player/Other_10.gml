@@ -1,6 +1,7 @@
  /// @description Movement - Dashing
 // You can write your code in this editor
 w_alpha = 5
+global.dashed = 1
 	if invincibility_cooltime < 30+(1-global.t_selected_difficulty)*15
 	{
 		invincibility_cooltime = 30+(1-global.t_selected_difficulty)*15
