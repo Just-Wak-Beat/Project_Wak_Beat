@@ -236,7 +236,7 @@ global.reload_n_map_list_value_animation += (global.reload_n_map_list_value - gl
 
 global.fav_anime += (1 - global.fav_anime)*0.1
 
-global.sync_setting_alpha += (global.sync_setting - global.sync_setting_alpha)*0.23
+global.sync_setting_alpha += (global.sync_setting - global.sync_setting_alpha)*0.35
 
 global.map_scroll_ui_position += (0 - global.map_scroll_ui_position)*0.1
 global.map_list_ui_position += (0 - global.map_list_ui_position)*0.1
@@ -474,7 +474,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 
 
 
-	if gamestart = 1
+	if (gamestart == 1)
 	{
 		global.t_bg_color = 0
 		global.t_select_map ++
@@ -490,6 +490,8 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 				global.t_select_map = 0
 				global.show_music_title = 1
 				gamestart = 2
+				global.paused = 0;
+				instance_activate_all();
 				global.background_color = c_black
 				global.t_bg_color = 1
 				global.t_bg_color_alpha = 1

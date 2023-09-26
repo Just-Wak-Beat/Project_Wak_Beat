@@ -10,15 +10,22 @@ if (w_alpha > 0)
 
 if (sprite_index == spr_circle_spike)
 {
+	var scale_xscale = (image_xscale/1.03)*(1+w_alpha*2);
+	var scale_yscale = (image_yscale/1.03)*(1+w_alpha*2);
 	if (instance_number(hitbox_8) != 1)
 	{
 		draw_sprite_ext(sprite_index,image_index,x,y,image_xscale*0.9,image_yscale*0.9,image_angle,global.background_color,image_alpha)
+		draw_sprite_ext(spr_eye1,0,x,y,scale_xscale,scale_yscale,image_angle,image_blend,image_alpha)
+		draw_sprite_ext(spr_eye1,1,x,y,scale_xscale,scale_yscale,image_angle,c_white,image_alpha)
+		
+		draw_set_color(c_white)
+		draw_text(x,y,string(code.lockdown_pattern_dir[code.lockdown_pattern_d_timer])+" / "+string(direction))
 	}
-	
-	var scale_xscale = (image_xscale/1.03)*(1+w_alpha*2);
-	var scale_yscale = (image_yscale/1.03)*(1+w_alpha*2);
-	draw_sprite_ext(spr_eye1,0,x,y,scale_xscale,scale_yscale,image_angle,image_blend,image_alpha)
-	draw_sprite_ext(spr_eye1,1,x,y,scale_xscale,scale_yscale,image_angle,c_white,image_alpha)
+	else
+	{
+		draw_sprite_ext(spr_eye1,0,x,y,scale_xscale,scale_yscale,image_angle,c_white,image_alpha)
+		draw_sprite_ext(spr_eye1,1,x,y,scale_xscale,scale_yscale,image_angle,image_blend,image_alpha)
+	}
 }
 
 

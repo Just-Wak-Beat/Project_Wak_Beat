@@ -80,7 +80,7 @@ else
 }
 
 
-if ((global.highlight_time <= 1240 && global.highlight_time > 30 && global.show_title_menu == 0) || (global.show_title_menu > 0 && beating_animation == 1) || global.overtime_highlight_song == 1) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
+if ((global.highlight_time <= 1240 && global.highlight_time > 30 && global.show_title_menu == 0) || (global.show_title_menu > 0 && beating_animation == 1) || global.overtime_highlight_song == 1) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 2 && code.gamestart != 3
 {
 	bpm_timer ++
 

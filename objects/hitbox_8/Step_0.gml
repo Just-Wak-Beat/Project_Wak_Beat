@@ -11,12 +11,7 @@ if (t_x == -4)
 	
 	if (audio_is_playing(lockdown))
 	{
-		if (t_direction_plusment != 0)
-		{
-			image_angle += t_direction_plusment;
-			direction += t_direction_plusment;
-		}
-		else
+		if (global.n_progress < 2653)
 		{
 			image_angle += (direction - image_angle)*0.1
 		}

@@ -401,7 +401,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	}
 	
 	var changed_music = 0
-	if gamestart = 0 && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1
+	if gamestart = 0 && global.sync_setting_alpha < 0.01 && global.title_menu_animation1 == -1
 	{
 		if global.mobile_mode = 0
 		{
@@ -540,7 +540,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		}
 		
 		//스테이지 선택완료 - 난이도 선택창 (게임 시작)
-		if (global.show_new_songs <= 0 && global.t_b_alpha != -0.02 && global.sync_setting_alpha < 0.1 && global.title_menu_animation1 == -1 && global.level >= global.requirement_level[n_stage] && go_play)
+		if (global.show_new_songs <= 0 && global.t_b_alpha != -0.02 && global.sync_setting_alpha < 0.01 && global.title_menu_animation1 == -1 && global.level >= global.requirement_level[n_stage] && go_play)
 		{
 			if (global.real_stage_map_difficulty[global.n_map_id] == "Tutorial" || (string_pos("(Boss)", global.stage_map_difficulty[global.n_map_id]) != 0 && global.n_score[global.n_map_id] == "--"))
 			{
@@ -648,24 +648,6 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	draw_text_k_scale(xx+32,global.c_h-100,__string__,64,-1,floor(global.ui_alpha)*0.6,c_white,0,-1,normal_font,0.4,0.4,0)
 
 
-	//로딩이 너무 긴 경우, 자동 캔슬
-	if (gamestart == 1)
-	{
-	automatic_loading_cancel ++
-		if (automatic_loading_cancel > 300)
-		{
-			draw_text_k_scale(xx+32,global.c_h-100,"Load failed",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
-	
-			if (automatic_loading_cancel > 420)
-			{
-				global.back_to_game = 9999
-			}
-		}
-		else
-		{
-			draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
-		}
-	}
 
 
 	if global.n_sync > 0 && global.dev_mode > 0
@@ -828,10 +810,27 @@ if global.joystick_alpha > 0.01
 
 
 
+//로딩이 너무 긴 경우, 자동 캔슬
+if (gamestart == 1)
+{
+	automatic_loading_cancel ++
+	if (automatic_loading_cancel > 300)
+	{
+		draw_text_k_scale(xx+32,global.c_h-100,"Load failed",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+	
+		if (automatic_loading_cancel > 420)
+		{
+			global.back_to_game = 9999
+		}
+	}
+	else
+	{
+		draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+	}
+}
 
 
-
-
+//draw_text_k_scale(xx+32,global.c_h-100,string(gamestart)+" / "+string(global.show_music_title),64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
 
 
 /*if (surf_screen != -4 && surface_exists(surf_screen))

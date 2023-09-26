@@ -57,6 +57,7 @@ if (global.paused == 0)
 		{
 			show_player_pos = 241;
 			player_pos_alpha = 1;
+			
 			audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 
 			var _ef = instance_create_depth(x,y,depth+1,explosion_effect)

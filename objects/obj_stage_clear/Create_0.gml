@@ -41,31 +41,34 @@ if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty
 }
 
 //파트너 해금
-for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
+if (global.tutorial_now == 0)
 {
-	var tmp_require_num = global.unlocked_player_skin_require_num[i];
-	if (is_real(tmp_require_num))
+	for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 	{
-		if (global.unlocked_player_skin[i] == 0 && tmp_require_num <= global.artifact_owned[global.unlocked_player_skin_require_type[i]])
+		var tmp_require_num = global.unlocked_player_skin_require_num[i];
+		if (is_real(tmp_require_num))
 		{
-			global.unlocked_player_skin[i] = 3;
-			play_unlock_animation = 1;
-		
-			if (global.artifact_type == floor(i/3))
+			if (global.unlocked_player_skin[i] == 0 && tmp_require_num <= global.artifact_owned[global.unlocked_player_skin_require_type[i]])
 			{
-				unlocked_char_index = i;
+				global.unlocked_player_skin[i] = 3;
+				play_unlock_animation = 1;
+		
+				if (global.artifact_type == floor(i/3))
+				{
+					unlocked_char_index = i;
+				}
 			}
 		}
-	}
-	else
-	{
-		if (tmp_require_num == "아무 곡이나 대쉬를 사용하지 않고 S랭크 이상으로 클리어")
+		else
 		{
-			if (global.dashed == 0 && (global.n_rank_display == "Perfect!" || global.n_rank_display == "S+" || global.n_rank_display == "S"))
+			if (tmp_require_num == "아무 곡이나 대쉬를 사용하지 않고 S랭크 이상으로 클리어")
 			{
-				global.unlocked_player_skin[2] = 3;
-				play_unlock_animation = 1;
-				unlocked_char_index = 2;
+				if (global.dashed == 0 && (global.n_rank_display == "Perfect!" || global.n_rank_display == "S+" || global.n_rank_display == "S"))
+				{
+					global.unlocked_player_skin[2] = 3;
+					play_unlock_animation = 1;
+					unlocked_char_index = 2;
+				}
 			}
 		}
 	}

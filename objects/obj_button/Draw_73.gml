@@ -73,8 +73,8 @@ if (can_draw == 1)
 	
 	if sprite_index = spr_triangle
 	{
-		draw_sprite_ext(spr_triangle_empty_bold,0,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-90,c_white,image_alpha)
-		draw_sprite_ext(spr_music,0,x,y,image_xscale*global.font_ratio_resolution_xx*0.7,image_yscale*0.7,-20,c_white,image_alpha)
+		draw_sprite_ext(spr_square_half,0,x-20,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-135,c_white,image_alpha)
+		draw_sprite_ext(spr_square_half,0,x+20,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-135,c_white,image_alpha)
 	}
 }
 

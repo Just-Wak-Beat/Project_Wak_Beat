@@ -192,7 +192,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	}
 
 
-	global.select_map += (global.t_select_map - global.select_map)*0.1
+	global.select_map += (global.t_select_map - global.select_map)*0.13
 
 	if (global.n_music_title == "왁트모르즈비")
 	{

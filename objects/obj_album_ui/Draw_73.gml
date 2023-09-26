@@ -200,7 +200,7 @@ var fontsize1 = 0.55*(1+global.mobile_mode*0.3)
 var fontsize2 = 0.65*(1+global.mobile_mode*0.3)
 var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
   
-if global.n_map_id >= 0 && instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 3
+if global.n_map_id >= 0 && instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 2 && code.gamestart != 3
 {
 	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Normal\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
 	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
@@ -385,6 +385,14 @@ if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 					global.t_select_difficulty = 0
 				}
 			}
+			
+			if (keyboard_check_pressed(vk_escape))
+			{
+				code.gamestart = 0
+				code.automatic_reload_leaderboard = 0
+				audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
+				global.t_select_difficulty = 0
+			}
 		}
 	}
 	
@@ -449,7 +457,7 @@ if instance_exists(code)
 			var col_ = c_white
 			var unlocked = (global.unlocked_player_skin[i] == 0);
 			var n_is_selected = (i == round(global.n_select_skin)) ? 1.3 : 1;
-			var _dis_scale = (1-(abs(i-global.n_select_skin)/5))*n_is_selected;
+			var _dis_scale = (1-(abs(i-global.n_select_skin)/3))*n_is_selected;
 			var skin_name = global.unlocked_player_skin_name[i] ;
 			//draw_text_k_scale(middle_xx+i*32,yy+yy_h*0.05+i*16,string(round(global.n_select_skin))+" / "+string(i),scale*48,-1,__alpha,c_white,0,0,normal_font,0.2*global.font_ratio_resolution_xx*scale,0.2*scale,0)
 			
@@ -505,6 +513,8 @@ if instance_exists(code)
 							draw_sprite_ext(spr_illustrationCG,i,k*(1-(global.n_select_skin-i)*30)+middle_xx-n_skin__*640+i*640-_margin,middle_yy+256*_dis_scale*1.3,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,tmp_n_col,__alpha*_dis_scale*0.1*(1+abs(global.n_select_skin-i)*10))
 						}
 						shader_reset()
+						
+						draw_text_k_scale(middle_xx,yy+yy_h*0.76,skin_name,scale*48,-1,__alpha*0.7*_dis_scale,merge_color(tmp_n_col,c_white,0.7-abs(i-global.n_select_skin)/1.5),0,0,normal_font,0.28*global.font_ratio_resolution_xx*scale*_dis_scale,0.28*scale*_dis_scale,0)
 					}
 				}
 			
@@ -513,7 +523,6 @@ if instance_exists(code)
 			
 				if (unlocked)
 				{
-					skin_name = "???";
 					draw_sprite_ext(spr_lock,0,middle_xx-n_skin__*640+i*640-84*_dis_scale,middle_yy-64*_dis_scale,global.font_ratio_resolution_xx*0.5*_dis_scale*0.5,0.5*_dis_scale*0.5,0,c_white,__alpha*_dis_scale)
 					draw_text_k_scale(middle_xx-n_skin__*640+i*640-20*_dis_scale,middle_yy-106*_dis_scale,"해금 조건",scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,-1,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
 					
@@ -524,7 +533,7 @@ if instance_exists(code)
 						draw_sprite_ext(spr_W,tmp_requirement_type,middle_xx-n_skin__*640+i*640,middle_yy-24*_dis_scale,global.font_ratio_resolution_xx*0.5*_dis_scale*0.25,0.5*_dis_scale*0.25,0,c_white,__alpha*_dis_scale)
 						if (tmp_requirement == global.max_artifact_owned[tmp_requirement_type])
 						{
-							draw_text_k_scale(middle_xx-n_skin__*640+i*640+24*_dis_scale,middle_yy-64*_dis_scale,"아티펙트 수집률\n100% 달성",scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,-1,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
+							draw_text_k_scale(middle_xx-n_skin__*640+i*640+32*_dis_scale,middle_yy-64*_dis_scale,"아티펙트 수집률\n100% 달성",scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,-1,normal_font,0.2*global.font_ratio_resolution_xx*scale*_dis_scale,0.2*scale*_dis_scale,0)
 						}
 						else
 						{
@@ -543,8 +552,6 @@ if instance_exists(code)
 					draw_sprite_ext(spr_illustrationCG,i,middle_xx-n_skin__*640+i*640,middle_yy+256*_dis_scale*1.3,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,c_white,unlock_anime_alpha*__alpha*_dis_scale)
 					shader_reset()
 				}
-				
-				draw_text_k_scale(middle_xx-n_skin__*640+i*640,yy+yy_h*0.76,skin_name,scale*48,-1,__alpha*0.7*_dis_scale,c_white,0,0,normal_font,0.27*global.font_ratio_resolution_xx*scale*_dis_scale,0.27*scale*_dis_scale,0)
 			}
 		}
 
@@ -711,7 +718,7 @@ if instance_exists(code)
 				{
 					global.t_b_alpha = -0.02
 					code.gamestart = 5
-					alarm[4] = 30
+					alarm[4] = 15
 				}
 			}
 			else
@@ -749,7 +756,7 @@ if instance_exists(code)
 				global.nickname = "";
 				global.t_b_alpha = -0.02;
 				code.gamestart = 5;
-				alarm[4] = 30;
+				alarm[4] = 15;
 			}
 			else
 			{
@@ -814,7 +821,7 @@ if instance_exists(code)
 				global.nickname = string_replace_all(global.nickname," ","")
 				global.t_b_alpha = -0.02
 				code.gamestart = 5
-				alarm[4] = 30
+				alarm[4] = 15
 				holding_now = -1
 			}
 		}
@@ -822,7 +829,7 @@ if instance_exists(code)
 		{
 			global.t_b_alpha = -0.02
 			code.gamestart = 5
-			alarm[4] = 30
+			alarm[4] = 15
 		}
 
 			
@@ -830,7 +837,7 @@ if instance_exists(code)
 	
 		if (global.t_b_alpha == -0.02)
 		{
-			global.show_new_songs += (-10 - global.show_new_songs)*0.1
+			global.show_new_songs += (-10 - global.show_new_songs)*0.35
 		}
 		else
 		{
@@ -838,7 +845,7 @@ if instance_exists(code)
 			{
 				global.t_new_song_scroll = 0;
 			}
-			global.show_new_songs += (100 - global.show_new_songs)*0.1
+			global.show_new_songs += (100 - global.show_new_songs)*0.35
 		}
 		
 		

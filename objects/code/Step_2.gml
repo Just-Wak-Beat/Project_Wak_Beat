@@ -11,7 +11,7 @@
 		global.paused = 0;
 	}
 
-	if (global.sync_setting == 1 && gamestart != 0)
+	if (global.sync_setting == 1 && gamestart != 0 && gamestart != 1)
 	{
 		if (global.paused == 0)
 		{
@@ -956,49 +956,26 @@
 			
 			if (global.lockdown_effect4 == 1)
 			{
-				if (global.map_speed_y <= 1)
-				{
-					pipe_ef.direction -= 5;
-					pipe_ef.image_angle = pipe_ef.direction;
-					spike_ef.direction -= 5;
-					spike_ef.image_angle = spike_ef.direction;
+				pipe_ef.direction -= 5;
+				pipe_ef.image_angle = pipe_ef.direction;
+				spike_ef.direction -= 5;
+				spike_ef.image_angle = spike_ef.direction;
 				
-					if (lockdown_effect4_1 == 0)
-					{
-						spike_ef.t_y += 20;
-					}
-					else if (lockdown_effect4_1 == 1)
-					{
-						spike_ef.t_x -= 20;
-					}
-					else if (lockdown_effect4_1 == 2)
-					{
-						spike_ef.t_y -= 20;
-					}
-					else
-					{
-						spike_ef.t_x += 20;
-					}
+				if (lockdown_effect4_1 == 0)
+				{
+					spike_ef.t_y += 20;
+				}
+				else if (lockdown_effect4_1 == 1)
+				{
+					spike_ef.t_x -= 20;
+				}
+				else if (lockdown_effect4_1 == 2)
+				{
+					spike_ef.t_y -= 20;
 				}
 				else
 				{
-					if (lockdown_effect4_1 == 0)
-					{
-						var tmp_val = irandom_range(-1,1);
-						pipe_ef.t_direction_plusment = tmp_val;
-						b_direction_plusment = tmp_val;
-						if (b_direction_plusment == pipe_ef.t_direction_plusment)
-						{
-							total_stack_direction_plusment ++;
-						}
-						if (total_stack_direction_plusment > 2)
-						{
-							pipe_ef.t_direction_plusment *= -1;
-							b_direction_plusment *= -1;
-							total_stack_direction_plusment = 0
-						}
-						lockdown_effect4_1 = 4;
-					}
+					spike_ef.t_x += 20;
 				}
 			}
 			
@@ -1020,7 +997,6 @@
 				}
 				else if (global.lockdown_effect4 == 2)
 				{
-					pipe_ef.t_direction_plusment = 0;
 					global.lockdown_effect2 = 1;
 					if (global.map_speed_y <= 1)
 					{
@@ -1131,6 +1107,53 @@
 				}
 			}
 		}
+		
+		
+		if (global.lockdown_effect6 > 0)
+		{
+			if (global.lockdown_effect6 == 1)
+			{
+				lockdown_pattern_timer ++
+				var tmp_pipe_dir = lockdown_pattern_dir[lockdown_pattern_d_timer];
+				if (lockdown_pattern_shoot[lockdown_pattern_s_timer] == 0)
+				{
+					pipe_ef.direction += tmp_pipe_dir;
+					spike_ef.direction += tmp_pipe_dir;
+				}
+
+				pipe_ef.image_angle = pipe_ef.direction;
+				spike_ef.image_angle = spike_ef.direction;
+			
+				if lockdown_pattern_timer >= (3600/global.bpm)+global.music_sync_offset*2*60
+				{
+					if (lockdown_pattern_shoot[lockdown_pattern_s_timer] == 1)
+					{
+						for(var i = -45; i <= 45; i += 45)
+						{
+							var tmp_angle = pipe_ef.direction+90+i;
+							create_arrow_laser(spike_ef.x+lengthdir_x(400,tmp_angle),spike_ef.y+lengthdir_y(400,tmp_angle),obj_player.depth-15,0.8,tmp_angle,96,true,10,1);
+						}
+						if (lockdown_pattern_s_timer == 1)
+						{
+							lockdown_pattern_d_timer++;
+						}
+					}
+
+					lockdown_pattern_s_timer ++;
+					if (lockdown_pattern_s_timer > 3)
+					{
+						lockdown_pattern_s_timer = 0;
+					}
+					lockdown_pattern_timer -= (3600/global.bpm)+global.music_sync_offset*2*60
+				}
+			}
+			else
+			{
+				pipe_ef.direction -= 5;
+				spike_ef.direction -= 5;
+			}
+		}
+		
 		
 		
 		if (global.happysegu_effect1 > 0)

@@ -15,6 +15,11 @@ global.lockdown_effect2 = 0
 global.lockdown_effect3 = 0
 global.lockdown_effect4 = 0
 global.lockdown_effect5 = 1
+global.lockdown_effect6 = 0
+lockdown_pattern_s_timer = 0;
+lockdown_pattern_d_timer = 0;
+lockdown_pattern_timer = 0
+
 with(hitbox_3)
 {
 	if (object_index == hitbox_3 && target_time == 9999)
@@ -47,3 +52,8 @@ if (global.total_died_here > 0)
 	pipe_ef.image_yscale = 0;
 	pipe_ef.sprite_index = spr_pipe;
 }
+
+pipe_ef.direction = 360;
+pipe_ef.image_angle = pipe_ef.direction;
+spike_ef.direction = 360;
+spike_ef.image_angle = spike_ef.direction;
