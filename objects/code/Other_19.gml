@@ -85,11 +85,18 @@ for(var i = 0; i < 11; i++)
 	temp_real_name = (temp_real_name == " " || temp_real_name == "" || temp_score == "0") ? "--" : temp_real_name;
 	
 	var temp_rank = (i < 9) ? "0"+string(i+1) : string(i+1);
+	if (global.player_leaderboard_difficulty == 0)
+	{
+		global.top_ten_score_normal = (global.top_ten_score_normal != "--") ? real(temp_score) : 0;
+	}
+	else
+	{
+		global.top_ten_score_hardcore = (global.top_ten_score_hardcore != "--") ? real(temp_score) : 0;
+	}
 
 	global.unlocked_music_name_new_list[i] = string(temp_rank)+" "+string(temp_real_name+add_nametag);
 	global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,1))+" | "+string(temp_score);
 	global.unlocked_music_name_new_list_color[i] = text_code_col;
-	
 	if (i < 10)
 	{
 		if (temp_real_name == global.nickname)

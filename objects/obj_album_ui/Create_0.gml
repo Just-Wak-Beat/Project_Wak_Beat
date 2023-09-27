@@ -37,6 +37,7 @@ credit_text_alpha4 = -1
 global.unlock_partner_animation_queue = 0
 global.b_loaded_ranking = -1
 global.n_progress_artifact = 0
+global.n_progress_score = 0
 
 if global.title_menu_animation1 = 0
 {

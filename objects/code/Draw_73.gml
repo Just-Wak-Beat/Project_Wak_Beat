@@ -349,7 +349,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 					else
 					{
 						draw_sprite_ext(spr_lock,0,xx_+96*dis_real,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-						draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"개발 중",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
+						draw_text_k_scale(xx_+246*dis_real,yy_-64*dis_real,"개발 예정...",64,-1,dis_alpha,global.map_color,0,-1,normal_font,0.5*dis_real*global.font_ratio_resolution_xx,0.5*dis_real,0)
 					}
 				}
 				else
@@ -365,7 +365,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 					else
 					{
 						draw_sprite_ext(spr_lock,0,xx_+1080,yy_,global.font_ratio_resolution_xx*0.25*dis_real,0.25*dis_real,0,c_white,global.ui_alpha*dis_real)
-						draw_text_k_scale(xx_+1156,yy_-64,"개발 중",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+						draw_text_k_scale(xx_+1156,yy_-64,"개발 예정...",64,-1,dis_alpha,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 					}
 				}
 			}

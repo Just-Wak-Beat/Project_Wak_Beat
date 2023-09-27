@@ -11,7 +11,7 @@ function convert_score_to_rank(argument0,argument1)
 		var tmp_score = real(argument0)/10000;
 		if (argument1 == 1)
 		{
-			tmp_score /= global.origin_total_map;
+			tmp_score /= (global.origin_total_map-1);
 		}
 		
 		if (tmp_score < 15 && tmp_score >= 14)

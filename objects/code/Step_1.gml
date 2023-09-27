@@ -62,7 +62,7 @@ if (automatic_reload_player_leaderboard > 0)
 		show_debug_message("showing Player Ranking now")
 		var temp_difficulty_str = (global.player_leaderboard_difficulty != 0) ? "하드코어" : "노말";
 		global.notice_title = "Player Ranking";
-		global.notice_title_sub = "<    (모든 "+string(temp_difficulty_str)+" 곡의 스코어 총합 기준)    >";
+		global.notice_title_sub = "<    (모든 곡의 "+string(temp_difficulty_str)+"난이도 스코어 총합 기준)    >";
 		global.show_new_songs = 1;
 		
 		if (global.player_leaderboard_difficulty == 0)

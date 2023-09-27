@@ -65,6 +65,8 @@ automatic_reload_player_leaderboard = 0;
 global.player_leaderboard_difficulty = 0
 global.total_score_normal = 0;
 global.total_score_hardcore = 0;
+global.top_ten_score_normal = -4;
+global.top_ten_score_hardcore = -4;
 
 
 //global setting

@@ -1,5 +1,8 @@
 {
   "FolderOrderSettings": [
+    {"name":"Rooms","order":16,"path":"folders/Rooms.yy",},
+    {"name":"Scripts","order":17,"path":"folders/Scripts.yy",},
+    {"name":"gmscoreboard","order":1,"path":"folders/Scripts/gmscoreboard.yy",},
     {"name":"경로","order":9,"path":"folders/경로.yy",},
     {"name":"글꼴","order":6,"path":"folders/글꼴.yy",},
     {"name":"룸","order":8,"path":"folders/룸.yy",},
@@ -29,9 +32,6 @@
     {"name":"LootLockerLeaderboards","order":1,"path":"folders/확장 기능/LootLockerLeaderboards.yy",},
     {"name":"LootLockerLeaderBoardsExamples","order":1,"path":"folders/확장 기능/LootLockerLeaderboards/LootLockerLeaderBoardsExamples.yy",},
     {"name":"확장","order":13,"path":"folders/확장.yy",},
-    {"name":"Rooms","order":16,"path":"folders/Rooms.yy",},
-    {"name":"Scripts","order":17,"path":"folders/Scripts.yy",},
-    {"name":"gmscoreboard","order":1,"path":"folders/Scripts/gmscoreboard.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_circle_cylinder","order":21,"path":"sprites/spr_circle_cylinder/spr_circle_cylinder.yy",},
