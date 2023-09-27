@@ -620,19 +620,6 @@ if global.rewind > 0
 		}
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
 		
-		timeline_running = false;
-		var time__ = floor(global.music_sync_offset*3*60);
-		if time__ > 0 && global.tutorial_now = 0
-		{
-			alarm[7] = time__;
-		}
-		else
-		{
-			timeline_running = true;
-		}
-		timeline_position = global.start_point;
-		
-		
 		
 		//곡 리스타트
 		if (global.restart_stage == 1)
@@ -646,6 +633,7 @@ if global.rewind > 0
 			global.check_died = 0;
 			global.n_progress = 0;
 			global.n_camera_zoom = 1;
+			global.dashed = 0
 			obj_camera.v_x = obj_camera.tv_x;
 			obj_camera.v_y = obj_camera.tv_y;
 			audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
@@ -655,6 +643,17 @@ if global.rewind > 0
 			global.total_died_here ++;
 			global.n_progress = global.start_point;
 			global.check_died = 1;
+		}
+		timeline_position = global.start_point;
+		timeline_running = false;
+		var time__ = floor(global.music_sync_offset*3*60);
+		if time__ > 0 && global.tutorial_now = 0
+		{
+			alarm[7] = time__;
+		}
+		else
+		{
+			timeline_running = true;
 		}
 	}
 }

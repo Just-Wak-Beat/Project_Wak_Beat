@@ -1,5 +1,6 @@
-/// @description 랭크 표시
+/// @description 플레이어 전체 랭킹
 // You can write your code in this editor
+
 
 
 
@@ -14,7 +15,12 @@ for(var i = 0; i < 10; i++)
 
 for(var i = 0; i < 11; i++)
 {
-	var temp_name = LLHighscoresTopNamesList()[i+skip_list];
+	var temp_name = "";
+	if !ds_list_empty(global.gmscoreboard_scores) && i < ds_list_size(global.gmscoreboard_scores)
+	{
+		var tmp_list = ds_list_find_value(global.gmscoreboard_scores, i);
+		var temp_name = tmp_list[? "player"];
+	}
 	
 	//리더보드 리스트에 중복된 닉네임이 있는경우 스킵
 	for(var ii = 0; ii < 10; ii++)
@@ -22,7 +28,11 @@ for(var i = 0; i < 11; i++)
 		while(duplicated_name_list[ii] == temp_name)
 		{
 			skip_list++;
-			temp_name = LLHighscoresTopNamesList()[i+skip_list];
+			if !ds_list_empty(global.gmscoreboard_scores) && i < ds_list_size(global.gmscoreboard_scores)
+			{
+				tmp_list = ds_list_find_value(global.gmscoreboard_scores, i+skip_list);
+				temp_name = tmp_list[? "player"];
+			}
 			show_debug_message("duplicated name");
 			break;
 		}
@@ -63,17 +73,21 @@ for(var i = 0; i < 11; i++)
 		add_nametag = " [베타테스터]"
 	}
 	
-	
-	var temp_score = LLHighscoresTopScoreList()[i+skip_list];
+	var temp_score = "0";
+	if !ds_list_empty(global.gmscoreboard_scores) && i < ds_list_size(global.gmscoreboard_scores)
+	{
+		tmp_list = ds_list_find_value(global.gmscoreboard_scores, i+skip_list);
+		temp_score = tmp_list[? "score"];
+	}
 	temp_score = (temp_real_name == " " || temp_real_name == "" || temp_score == "0") ? "--" : temp_score;
 	
-	show_debug_message(string(temp_real_name)+" / "+string(LLPlayerName()))
+
 	temp_real_name = (temp_real_name == " " || temp_real_name == "" || temp_score == "0") ? "--" : temp_real_name;
 	
 	var temp_rank = (i < 9) ? "0"+string(i+1) : string(i+1);
 
 	global.unlocked_music_name_new_list[i] = string(temp_rank)+" "+string(temp_real_name+add_nametag);
-	global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,0))+" | "+string(temp_score);
+	global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,1))+" | "+string(temp_score);
 	global.unlocked_music_name_new_list_color[i] = text_code_col;
 	
 	if (i < 10)
@@ -119,15 +133,10 @@ for(var i = 0; i < 11; i++)
 			}
 			
 			
-			var temp_score = (global.t_selected_difficulty == 0) ? global.real_n_score_hardcore[global.n_map_id] : global.real_n_score[global.n_map_id];
-			
-			var temp_rank = LLPlayerRank();
-			temp_rank = (temp_rank == "" || check_under_ten(real(temp_rank))) ? "--" : temp_rank;
-			
-			temp_score = (temp_rank == "--" || check_under_ten(temp_score)) ? "--" : temp_score;
-
+			var temp_score = (global.player_leaderboard_difficulty == 0) ? global.total_score_normal : global.total_score_hardcore;
+			var temp_rank = "11+";
 			global.unlocked_music_name_new_list[i] = string(temp_rank)+" "+string(temp_real_name+add_nametag);
-			global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,0))+" | "+string(temp_score);
+			global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,1))+" | "+string(temp_score);
 			global.unlocked_music_name_new_list_color[i] = (text_code_col == c_white) ? merge_color(global.map_color,text_code_col,0.7) : text_code_col;
 		}
 	}

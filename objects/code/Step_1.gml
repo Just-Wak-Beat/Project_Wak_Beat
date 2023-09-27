@@ -43,7 +43,92 @@ else
 }
 
 
-//자동 리로드 리더보드
+//자동 리로드 플레이어 전체 리더보드
+if (automatic_reload_player_leaderboard > 0)
+{
+	automatic_reload_player_leaderboard++;
+	
+	if (automatic_reload_player_leaderboard == 2)
+	{
+		for(var i = 0; i < global.total_map; i++)
+		{
+			global.unlocked_music_name_new_list[i] = "";
+			global.unlocked_music_name_new_list_rightside[i] = "";
+			global.unlocked_music_name_new_list_color[i] = c_white;
+			global.unlocked_music_name_new_list_color_rightside[i] = c_white;
+		}
+		
+		
+		show_debug_message("showing Player Ranking now")
+		var temp_difficulty_str = (global.player_leaderboard_difficulty != 0) ? "하드코어" : "노말";
+		global.notice_title = "Player Ranking";
+		global.notice_title_sub = "<    (모든 "+string(temp_difficulty_str)+" 곡의 스코어 총합 기준)    >";
+		global.show_new_songs = 1;
+		
+		if (global.player_leaderboard_difficulty == 0)
+		{
+			setup_gmscoreboard("a70d65f34511fece65808739de70d212");
+		}
+		else
+		{
+			setup_gmscoreboard("134126fa6426e417e2b28e18f146f280");
+		}
+	}
+	
+	if (automatic_reload_player_leaderboard == 3)
+	{
+		var tmp_total_score = 0;
+		for(var i = 0; i < global.origin_total_map; i++)
+		{
+			if (global.player_leaderboard_difficulty == 0)
+			{
+				tmp_total_score += (global.real_n_score[i] != "--") ? real(global.real_n_score[i]) : 0;
+			}
+			else
+			{
+				tmp_total_score += (global.real_n_score_hardcore[i] != "--") ? real(global.real_n_score_hardcore[i]) : 0;
+			}
+		}
+		
+		if (global.player_leaderboard_difficulty == 0)
+		{
+			if (global.total_score_normal < tmp_total_score)
+			{
+				set_score(global.nickname, tmp_total_score);
+				global.total_score_normal = tmp_total_score;
+			}
+			else
+			{
+				get_scores(5);
+			}
+		}
+		else
+		{
+			if (global.total_score_hardcore < tmp_total_score)
+			{
+				set_score(global.nickname, tmp_total_score);
+				global.total_score_hardcore = tmp_total_score;
+			}
+			else
+			{
+				get_scores(5);
+			}
+		}
+		
+		save_and_load_data(0,0);
+	}
+	
+	if (automatic_reload_player_leaderboard >= 150)
+	{
+		event_user(9);
+		automatic_reload_player_leaderboard = 0;
+	}
+}
+
+
+
+
+//자동 리로드 리더보드 (각 맵 점수의 리더보드)
 if (automatic_reload_leaderboard > 0)
 {
 	var leaderboard_list_id = "JWAB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);

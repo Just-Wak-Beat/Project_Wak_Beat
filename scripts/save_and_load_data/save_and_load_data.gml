@@ -61,6 +61,10 @@ function save_and_load_data(argument0,argument1)
 		ini_write_real("exp","none",global.exp);
 		ini_write_real("max_exp","none",global.max_exp);
 		
+		//플레이어 랭킹 스코어
+		ini_write_real("total_score_normal","none",global.total_score_normal);
+		ini_write_real("total_score_hardcore","none",global.total_score_hardcore);
+		
 		//닉네임
 		ini_write_string("nickname","none",global.nickname);
 		//베타테스터
@@ -125,6 +129,10 @@ function save_and_load_data(argument0,argument1)
 		global.level = ini_read_real("level","none",0);
 		global.exp = ini_read_real("exp","none",0);
 		global.max_exp = ini_read_real("max_exp","none",1000);
+		
+		//플레이어 랭킹 스코어
+		global.total_score_normal = ini_read_real("total_score_normal","none",0);
+		global.total_score_hardcore = ini_read_real("total_score_hardcore","none",0);
 		
 		//닉네임
 		global.nickname = ini_read_string("nickname","none","");

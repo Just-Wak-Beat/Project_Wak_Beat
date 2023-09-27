@@ -59,6 +59,12 @@ if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
 
 
 
+//전체 랭킹 리더보드
+setup_gmscoreboard("78b57ded260f826682ad5d29ab433ca5");
+automatic_reload_player_leaderboard = 0;
+global.player_leaderboard_difficulty = 0
+global.total_score_normal = 0;
+global.total_score_hardcore = 0;
 
 
 //global setting
@@ -522,8 +528,8 @@ global.real_stage_map_difficulty[13] = "Hard";
 global.real_stage_map_color[13] = #f2aca0;
 global.real_stage_map_duration[13] = 6474;
 global.real_stage_map_audio_name[13] = "kinmoku";
-global.real_stage_bpm[13] = 120;
-global.real_stage_map_highlight_part[13] = 90.8;
+global.real_stage_bpm[13] = 123;
+global.real_stage_map_highlight_part[13] = 58.4;
 global.real_detailed_difficulty[13] = 3;
 global.real_obtainable_type[13] = 99;
 global.real_requirement_level[13] = 9999;

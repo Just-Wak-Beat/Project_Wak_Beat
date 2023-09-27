@@ -45,7 +45,7 @@ if global.title_menu_animation1 = 0
 
 
 
-global.open_ranking = 0
+
 
 
 holding_now = 0

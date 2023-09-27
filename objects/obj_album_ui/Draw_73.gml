@@ -742,6 +742,48 @@ if instance_exists(code)
 				global.t_selected_difficulty = 0
 			}
 		}
+		else if (global.notice_title == "Player Ranking")
+		{
+			if (code.automatic_reload_player_leaderboard == 0)
+			{
+				if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_up))
+				{
+					global.player_leaderboard_difficulty--
+					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+
+					code.automatic_reload_player_leaderboard = 1
+				}
+				else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down))
+				{
+					global.player_leaderboard_difficulty++
+					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
+
+
+					code.automatic_reload_player_leaderboard = 1
+				}
+				else if (global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left)))
+				{
+					global.t_b_alpha = -0.02
+					code.gamestart = 5
+					alarm[4] = 15
+				}
+			}
+			else
+			{
+				var tmp_alpha = (code.automatic_reload_player_leaderboard/30 > 1) ? 1 : code.automatic_reload_player_leaderboard/30;
+				draw_sprite_ext(spr_loading,0,middle_xx,yy+yy_h*0.52,global.font_ratio_resolution_xx,1,-5*code.automatic_reload_player_leaderboard,c_white,tmp_alpha)
+			}
+				
+				
+			if global.player_leaderboard_difficulty > 1
+			{
+				global.player_leaderboard_difficulty = 0
+			}
+			else if global.player_leaderboard_difficulty < 0
+			{
+				global.player_leaderboard_difficulty = 1
+			}
+		}
 		else if (global.notice_title == "게임을 시작하기 전...")
 		{
 			if (holding_now > 0)

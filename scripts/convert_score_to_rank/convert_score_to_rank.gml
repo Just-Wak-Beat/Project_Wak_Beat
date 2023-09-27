@@ -1,11 +1,19 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function convert_score_to_rank(argument0)
+
+///@param score
+///@param onlyone/average
+function convert_score_to_rank(argument0,argument1)
 {
 	var tmp_rank = "Perfect!";
 	if (argument0 != "--")
 	{
 		var tmp_score = real(argument0)/10000;
+		if (argument1 == 1)
+		{
+			tmp_score /= global.origin_total_map;
+		}
+		
 		if (tmp_score < 15 && tmp_score >= 14)
 		{
 			tmp_rank = "S+";

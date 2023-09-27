@@ -1,4 +1,3 @@
-global.w_alpha = 1
 
 if (global.t_selected_difficulty == 0)
 {

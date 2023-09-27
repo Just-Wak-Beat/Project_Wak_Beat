@@ -1151,6 +1151,9 @@
 			{
 				pipe_ef.direction -= 5;
 				spike_ef.direction -= 5;
+				pipe_ef.image_angle = pipe_ef.direction;
+				spike_ef.image_angle = spike_ef.direction;
+				spike_ef.t_y ++;
 			}
 		}
 		
