@@ -79,10 +79,10 @@ for(var i = 0; i < 11; i++)
 		tmp_list = ds_list_find_value(global.gmscoreboard_scores, i+skip_list);
 		temp_score = tmp_list[? "score"];
 	}
-	temp_score = (temp_real_name == " " || temp_real_name == "" || temp_score == "0") ? "--" : temp_score;
+	temp_score = (temp_real_name == " " || temp_real_name == "") ? "0" : temp_score;
 	
 
-	temp_real_name = (temp_real_name == " " || temp_real_name == "" || temp_score == "0") ? "--" : temp_real_name;
+	temp_real_name = (temp_real_name == " " || temp_real_name == "") ? "0" : temp_real_name;
 	
 	var temp_rank = (i < 9) ? "0"+string(i+1) : string(i+1);
 	if (global.player_leaderboard_difficulty == 0)

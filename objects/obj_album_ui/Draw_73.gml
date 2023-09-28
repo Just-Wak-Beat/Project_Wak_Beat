@@ -702,8 +702,8 @@ if instance_exists(code)
 								global.n_progress_score = 0;
 							}
 							
-							var tmp_str = "플레이어 랭킹 Top10까지 앞으로 "+string(global.top_ten_score_hardcore - tmp_target_score)+"점!";
-							///여기부터if (global)
+							var tmp_str = (tmp_val != 1) ? "플레이어 랭킹 Top10까지 앞으로 "+string(global.top_ten_score_hardcore - tmp_target_score)+"점!" : "플레이어 랭킹 Top10 달성!";
+
 							draw_sprite_ext(spr_W,tmp_art_type,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.82-global.new_song_scroll,0.2*global.font_ratio_resolution_xx,0.2,0,c_white,global.show_new_songs/100)
 							draw_text_k_scale(middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+128,yy+yy_h*0.8-global.new_song_scroll,string(tmp_str),scale*48,-1,global.show_new_songs/100,c_white,0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
 							draw_sprite_ext(spr_level_bar,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx,yy+yy_h*0.85-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,0,#171628,global.show_new_songs/100)
