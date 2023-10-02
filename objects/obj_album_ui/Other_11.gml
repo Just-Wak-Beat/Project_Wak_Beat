@@ -10,12 +10,13 @@ var total_playtime = 0;
 var probablity = 0;
 for(var i = 1; i < global.origin_total_map; i++)
 {
-	total_playtime += global.real_stage_playtime[i];
-	show_debug_message(global.real_stage_playtime[i]);
-	if (most_played_playtime < global.real_stage_playtime[i])
+	var tmp_pt = (global.real_stage_playtime[i] < 0) ? 0 : global.real_stage_playtime[i];
+	total_playtime += tmp_pt;
+	show_debug_message(tmp_pt);
+	if (most_played_playtime < tmp_pt)
 	{
 		most_played_index = i;
-		most_played_playtime = global.real_stage_playtime[i];
+		most_played_playtime = tmp_pt;
 	}
 }
 
@@ -29,7 +30,8 @@ for(var i = 0; i <= global.origin_total_map+total_playtime*2; i++)
 var index = 0;
 for(var i = 1; i < global.origin_total_map; i++)
 {
-	for(var ii = 0; ii <= global.real_stage_playtime[i]*2; ii++)
+	var tmp_pt = (global.real_stage_playtime[i] < 0) ? 0 : global.real_stage_playtime[i];
+	for(var ii = 0; ii <= tmp_pt*2; ii++)
 	{
 		probablity[index] = i;
 		show_debug_message(i);

@@ -60,7 +60,7 @@ if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
 
 
 //전체 랭킹 리더보드
-setup_gmscoreboard("78b57ded260f826682ad5d29ab433ca5");
+setup_gmscoreboard("a70d65f34511fece65808739de70d212");
 automatic_reload_player_leaderboard = 0;
 global.player_leaderboard_difficulty = 0
 global.total_score_normal = 0;
@@ -696,7 +696,8 @@ global.real_detailed_difficulty[22] = 3;
 global.real_obtainable_type[22] = 8;
 global.real_requirement_level[22] = 7;
 
-
+global.hardcore_only_num = 0;
+global.both_difficulty_num = 0;
 for(var i = 0; i < global.total_map; i++)
 {
 	var tmp_type = global.real_obtainable_type[i];
@@ -712,6 +713,18 @@ for(var i = 0; i < global.total_map; i++)
 	if (tmp_type <= 17)
 	{
 		global.max_artifact_owned[tmp_type]++;
+	}
+	
+	if (global.real_obtainable_type[i] != 99)
+	{
+		if (string_pos("(Hardcore)", global.real_stage_map_name[i]) != 0)
+		{
+			global.hardcore_only_num++;
+		}
+		else
+		{
+			global.both_difficulty_num++;
+		}
 	}
 }
 

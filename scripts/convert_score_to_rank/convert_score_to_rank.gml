@@ -11,7 +11,14 @@ function convert_score_to_rank(argument0,argument1)
 		var tmp_score = real(argument0)/10000;
 		if (argument1 == 1)
 		{
-			tmp_score /= (global.origin_total_map-1);
+			if (global.player_leaderboard_difficulty == 0)
+			{
+				tmp_score /= (global.both_difficulty_num);
+			}
+			else
+			{
+				tmp_score /= (global.both_difficulty_num+global.hardcore_only_num);
+			}
 		}
 		
 		if (tmp_score < 15 && tmp_score >= 14)
@@ -58,7 +65,7 @@ function convert_score_to_rank(argument0,argument1)
 		{
 			tmp_rank = "D-";
 		}
-		else
+		else if (tmp_score < 3)
 		{
 			tmp_rank = "F";
 		}
@@ -68,6 +75,6 @@ function convert_score_to_rank(argument0,argument1)
 		tmp_rank = "";
 	}
 
-	show_debug_message(argument0)
+	show_debug_message(string(argument0)+" / "+string(tmp_score))
 	return tmp_rank;
 }

@@ -14,7 +14,6 @@
   },
   "defaultScriptType": 1,
   "Folders": [
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gmscoreboard","folderPath":"folders/스크립트/Networking/gmscoreboard.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"경로","folderPath":"folders/경로.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"글꼴","folderPath":"folders/글꼴.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"룸","folderPath":"folders/룸.yy",},
@@ -27,6 +26,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"스크립트","folderPath":"folders/스크립트.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"MapEditor","folderPath":"folders/스크립트/MapEditor.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Networking","folderPath":"folders/스크립트/Networking.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gmscoreboard","folderPath":"folders/스크립트/Networking/gmscoreboard.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Numeral functions","folderPath":"folders/스크립트/Numeral functions.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stage_Load","folderPath":"folders/스크립트/Stage_Load.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"UI&Camera","folderPath":"folders/스크립트/UI&Camera.yy",},
@@ -163,6 +163,7 @@
     {"id":{"name":"spr_rewind_clock","path":"sprites/spr_rewind_clock/spr_rewind_clock.yy",},},
     {"id":{"name":"show_rank_sfx","path":"sounds/show_rank_sfx/show_rank_sfx.yy",},},
     {"id":{"name":"send_one","path":"scripts/send_one/send_one.yy",},},
+    {"id":{"name":"automaticLoadPlayerRanking","path":"scripts/automaticLoadPlayerRanking/automaticLoadPlayerRanking.yy",},},
     {"id":{"name":"hitbox_18","path":"objects/hitbox_18/hitbox_18.yy",},},
     {"id":{"name":"create_arrow_laser","path":"scripts/create_arrow_laser/create_arrow_laser.yy",},},
     {"id":{"name":"Note3","path":"notes/Note3/Note3.yy",},},

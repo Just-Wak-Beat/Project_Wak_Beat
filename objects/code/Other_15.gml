@@ -76,6 +76,7 @@ for(var i = 0; i < 11; i++)
 	global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,0))+" | "+string(numbers_with_comma(temp_score));
 	global.unlocked_music_name_new_list_color[i] = text_code_col;
 	
+	
 	if (i < 10)
 	{
 		if (temp_real_name == global.nickname)
@@ -125,6 +126,7 @@ for(var i = 0; i < 11; i++)
 			temp_rank = (temp_rank == "" || check_under_ten(real(temp_rank))) ? "--" : temp_rank;
 			
 			temp_score = (temp_rank == "--" || check_under_ten(temp_score)) ? "--" : temp_score;
+
 
 			global.unlocked_music_name_new_list[i] = string(temp_rank)+" "+string(temp_real_name+add_nametag);
 			global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,0))+" | "+string(numbers_with_comma(temp_score));

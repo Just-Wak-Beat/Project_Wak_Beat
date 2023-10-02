@@ -5,8 +5,16 @@ if (global.dev_mode == 1)
 	global.artifact_owned[11] = 99999
 }
 
-
-
+if (global.nickname != "")
+{
+	with(code)
+	{
+		if (object_index == code)
+		{
+			automaticLoadPlayerRanking(0);
+		}
+	}
+}
 global.title_menu_animation1++
 
 window_set_cursor(cr_default)

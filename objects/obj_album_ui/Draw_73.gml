@@ -94,7 +94,7 @@ draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660,0.17*glob
 
 
 
-draw_text_k_scale(global.c_x+104,global.c_y+950,"플레이어 랭킹"+((global.mobile_mode == 1) ? "" : "\n[W]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+950,"유저 랭킹"+((global.mobile_mode == 1) ? "" : "\n[W]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
@@ -697,7 +697,7 @@ if instance_exists(code)
 				tmp_target_score = (global.n_score_hardcore[global.n_map_id] == "--") ? 0 : global.n_score_hardcore[global.n_map_id];
 				tmp_val2 = tmp_target_score/global.top_ten_score_hardcore;
 				tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
-				tmp_str2 = (tmp_val2 != 1) ? "플레이어 랭킹 Top10까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_hardcore - tmp_target_score))+"점!" : "플레이어 랭킹 Top10 달성!";
+				tmp_str2 = (tmp_val2 != 1) ? "유저 랭킹 Top10까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_hardcore - tmp_target_score))+"점!" : "유저 랭킹 Top10 달성!";
 			}
 			else
 			{
@@ -705,7 +705,7 @@ if instance_exists(code)
 				tmp_target_score = (global.n_score[global.n_map_id] == "--") ? 0 : global.n_score[global.n_map_id];
 				tmp_val2 = tmp_target_score/global.top_ten_score_normal;
 				tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
-				tmp_str2 = (tmp_val2 != 1) ? "플레이어 랭킹 Top10까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "플레이어 랭킹 Top10 달성!";
+				tmp_str2 = (tmp_val2 != 1) ? "유저 랭킹 Top10까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "유저 랭킹 Top10 달성!";
 			}
 						
 			if (can_show_top_ten == 1)
@@ -787,7 +787,7 @@ if instance_exists(code)
 				global.t_selected_difficulty = 0
 			}
 		}
-		else if (global.notice_title == "Player Ranking")
+		else if (global.notice_title == "User Ranking")
 		{
 			if (code.automatic_reload_player_leaderboard == 0)
 			{
@@ -834,8 +834,8 @@ if instance_exists(code)
 			if (holding_now > 0)
 			{
 				draw_set_color(c_white)
-				draw_set_alpha(holding_now/100)
-				draw_line_width(global.c_x,yy+yy_h*0.55,global.c_x+global.c_w*(holding_now/180),yy+yy_h*0.55,15)
+				draw_set_alpha(holding_now/70)
+				draw_line_width(global.c_x,yy+yy_h*0.55,global.c_x+global.c_w*(holding_now/90),yy+yy_h*0.55,15)
 			}
 				
 			if (keyboard_check_pressed(vk_escape) || (global.mobile_mode == 1 && keyboard_check_pressed(vk_backspace)))
@@ -903,7 +903,7 @@ if instance_exists(code)
 			}
 				
 				
-			if holding_now > 180
+			if holding_now > 90
 			{
 				global.nickname = string_replace_all(global.nickname," ","")
 				global.t_b_alpha = -0.02
@@ -914,9 +914,17 @@ if instance_exists(code)
 		}
 		else if global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left))
 		{
-			global.t_b_alpha = -0.02
-			code.gamestart = 5
-			alarm[4] = 15
+			if (global.nickname == "" && global.notice_title == "조작법 가이드")
+			{
+				global.show_new_songs = 1;
+				show_nickname_setting();
+			}
+			else
+			{
+				global.t_b_alpha = -0.02
+				code.gamestart = 5
+				alarm[4] = 15
+			}
 		}
 
 			
@@ -1035,3 +1043,21 @@ if (global.title_menu_animation1 >= 1)
 	draw_rectangle(xx+xx_w*blind_xx_start,yy,xx+xx_w*blind_xx_final,xx_w,false)
 }
 /**/
+
+
+
+if (instance_exists(code))
+{
+	if (code.automatic_reload_player_leaderboard > 0)
+	{
+		draw_text_k_scale(xx+32,global.c_h-100,"유저 랭킹 불러오는 중...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+	}
+	else if (code.automatic_reload_leaderboard > 0)
+	{
+		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 랭킹 불러오는 중...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+	}
+	else if (ding_dong_animation > 0)
+	{
+		draw_text_k_scale(xx+32,global.c_h-100,"디스코드에 현재 활동 표기 중...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+	}
+}

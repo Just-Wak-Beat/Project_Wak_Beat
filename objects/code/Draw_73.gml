@@ -688,7 +688,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	
 	
 	//일시정지 메뉴의 환경설정
-	draw_set_alpha(global.sync_setting_alpha*0.93+(global.back_to_game/120)*0.07)
+	draw_set_alpha(global.sync_setting_alpha*0.93+(global.back_to_game/90)*0.07)
 	draw_set_color(c_black)
 	draw_line_width(global.c_x,global.c_y,global.c_w,global.c_h,room_width)
 
@@ -721,7 +721,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	
 	if keyboard_check_released(vk_space)
 	{
-		if (global.back_to_game <= 120)
+		if (global.back_to_game <= 90)
 		{
 			global.sync_setting = 0
 			global.cannot_control = 0
@@ -828,6 +828,7 @@ if (gamestart == 1)
 		draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
 	}
 }
+
 
 
 //draw_text_k_scale(xx+32,global.c_h-100,string(gamestart)+" / "+string(global.show_music_title),64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)

@@ -46,9 +46,7 @@ else
 //자동 리로드 플레이어 전체 리더보드
 if (automatic_reload_player_leaderboard > 0)
 {
-	automatic_reload_player_leaderboard++;
-	
-	if (automatic_reload_player_leaderboard == 2)
+	if (automatic_reload_player_leaderboard == 1)
 	{
 		for(var i = 0; i < global.total_map; i++)
 		{
@@ -58,13 +56,18 @@ if (automatic_reload_player_leaderboard > 0)
 			global.unlocked_music_name_new_list_color_rightside[i] = c_white;
 		}
 		
-		
-		show_debug_message("showing Player Ranking now")
+		show_debug_message("showing User Ranking now")
 		var temp_difficulty_str = (global.player_leaderboard_difficulty != 0) ? "하드코어" : "노말";
-		global.notice_title = "Player Ranking";
+		global.notice_title = "User Ranking";
 		global.notice_title_sub = "<    (모든 곡의 "+string(temp_difficulty_str)+"난이도 스코어 총합 기준)    >";
-		global.show_new_songs = 1;
+		global.show_new_songs = 1
+	}
+	automatic_reload_player_leaderboard++;
 		
+
+		
+	if (automatic_reload_player_leaderboard == 2)
+	{
 		if (global.player_leaderboard_difficulty == 0)
 		{
 			setup_gmscoreboard("a70d65f34511fece65808739de70d212");
@@ -75,7 +78,7 @@ if (automatic_reload_player_leaderboard > 0)
 		}
 	}
 	
-	if (automatic_reload_player_leaderboard == 3)
+	if (automatic_reload_player_leaderboard == 3 && global.nickname != "")
 	{
 		var tmp_total_score = 0;
 		for(var i = 0; i < global.origin_total_map; i++)
@@ -124,6 +127,10 @@ if (automatic_reload_player_leaderboard > 0)
 		{
 			event_user(9);
 			automatic_reload_player_leaderboard = 0;
+			if (global.automatic_load_ranking > 0)
+			{
+				global.automatic_load_ranking -= 0.5;
+			}
 		}
 		else
 		{
@@ -242,7 +249,7 @@ if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
 	}
 	else if (global.saved_notice_title == "파트너 해금!")
 	{
-		global.unlocked_music_name_new_list[check_new_song] = "음악 속에 갇혀있던 멤버를 구출했습니다!";
+		global.unlocked_music_name_new_list[check_new_song] = "아티펙트를 통해 멤버를 구출했습니다!";
 		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
 		check_new_song ++
 	
@@ -350,7 +357,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 
 
 	//메인매뉴 돌아가기
-	if (global.back_to_game > 120)
+	if (global.back_to_game > 90)
 	{
 		alarm[8] = 1
 		global.t_bg_color_alpha = 0
