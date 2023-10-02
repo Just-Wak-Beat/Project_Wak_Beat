@@ -120,8 +120,15 @@ if (automatic_reload_player_leaderboard > 0)
 	
 	if (automatic_reload_player_leaderboard >= 150)
 	{
-		event_user(9);
-		automatic_reload_player_leaderboard = 0;
+		if !ds_list_empty(global.gmscoreboard_scores)
+		{
+			event_user(9);
+			automatic_reload_player_leaderboard = 0;
+		}
+		else
+		{
+			automatic_reload_player_leaderboard = 100;
+		}
 	}
 }
 

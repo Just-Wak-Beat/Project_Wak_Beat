@@ -2,7 +2,6 @@
 // You can write your code in this editor
 
 
-LootLockerCallback();
 
 
 if (ds_map_find_value(async_load, "id") == global.gmscoreboard_response)
@@ -32,6 +31,8 @@ if (ds_map_find_value(async_load, "id") == global.gmscoreboard_response)
 				global.gmscoreboard_scores = result[? "scores"];
 			}
 		}
-	
 	}
 }
+
+
+LootLockerCallback();

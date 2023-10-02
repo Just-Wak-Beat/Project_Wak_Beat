@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "gmscoreboard",
-    "path": "folders/Scripts/gmscoreboard.yy",
+    "path": "folders/스크립트/Networking/gmscoreboard.yy",
   },
 }

@@ -1,8 +1,6 @@
 {
   "FolderOrderSettings": [
-    {"name":"Rooms","order":16,"path":"folders/Rooms.yy",},
-    {"name":"Scripts","order":17,"path":"folders/Scripts.yy",},
-    {"name":"gmscoreboard","order":1,"path":"folders/Scripts/gmscoreboard.yy",},
+    {"name":"gmscoreboard","order":3,"path":"folders/스크립트/Networking/gmscoreboard.yy",},
     {"name":"경로","order":9,"path":"folders/경로.yy",},
     {"name":"글꼴","order":6,"path":"folders/글꼴.yy",},
     {"name":"룸","order":8,"path":"folders/룸.yy",},
@@ -191,6 +189,7 @@
     {"name":"Sprite64","order":18,"path":"sprites/Sprite64/Sprite64.yy",},
     {"name":"fix_num","order":9,"path":"scripts/fix_num/fix_num.yy",},
     {"name":"yuha_timeline","order":21,"path":"timelines/yuha_timeline/yuha_timeline.yy",},
+    {"name":"numbers_with_comma","order":10,"path":"scripts/numbers_with_comma/numbers_with_comma.yy",},
     {"name":"hitbox_3","order":3,"path":"objects/hitbox_3/hitbox_3.yy",},
     {"name":"spr_triangle_half","order":37,"path":"sprites/spr_triangle_half/spr_triangle_half.yy",},
     {"name":"code_sever","order":1,"path":"objects/code_sever/code_sever.yy",},

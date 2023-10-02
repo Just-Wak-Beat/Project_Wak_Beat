@@ -14,9 +14,7 @@
   },
   "defaultScriptType": 1,
   "Folders": [
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gmscoreboard","folderPath":"folders/Scripts/gmscoreboard.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"gmscoreboard","folderPath":"folders/스크립트/Networking/gmscoreboard.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"경로","folderPath":"folders/경로.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"글꼴","folderPath":"folders/글꼴.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"룸","folderPath":"folders/룸.yy",},
@@ -223,12 +221,12 @@
     {"id":{"name":"spr_tmp","path":"sprites/spr_tmp/spr_tmp.yy",},},
     {"id":{"name":"turisumo","path":"sounds/turisumo/turisumo.yy",},},
     {"id":{"name":"fukurou_timeline","path":"timelines/fukurou_timeline/fukurou_timeline.yy",},},
-    {"id":{"name":"rm_gmscoreboard_example","path":"rooms/rm_gmscoreboard_example/rm_gmscoreboard_example.yy",},},
     {"id":{"name":"gungsirung","path":"sounds/gungsirung/gungsirung.yy",},},
     {"id":{"name":"Sprite64","path":"sprites/Sprite64/Sprite64.yy",},},
     {"id":{"name":"artifact_get","path":"sounds/artifact_get/artifact_get.yy",},},
     {"id":{"name":"fix_num","path":"scripts/fix_num/fix_num.yy",},},
     {"id":{"name":"yuha_timeline","path":"timelines/yuha_timeline/yuha_timeline.yy",},},
+    {"id":{"name":"numbers_with_comma","path":"scripts/numbers_with_comma/numbers_with_comma.yy",},},
     {"id":{"name":"hitbox_3","path":"objects/hitbox_3/hitbox_3.yy",},},
     {"id":{"name":"spr_triangle_half","path":"sprites/spr_triangle_half/spr_triangle_half.yy",},},
     {"id":{"name":"code_sever","path":"objects/code_sever/code_sever.yy",},},
@@ -306,7 +304,6 @@
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"Main","path":"rooms/Main/Main.yy",},},
-    {"roomId":{"name":"rm_gmscoreboard_example","path":"rooms/rm_gmscoreboard_example/rm_gmscoreboard_example.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [
