@@ -115,7 +115,7 @@ for(var i = 0; i < 11; i++)
 		{
 			if (global.automatic_load_ranking != 1)
 			{
-				global.unlocked_music_name_new_list_color[i] = (text_code_col == c_white) ? merge_color(global.map_color,text_code_col,0.7) : text_code_col;
+				global.unlocked_music_name_new_list_color[i] = (text_code_col == c_white) ? text_code_col : text_code_col;
 			}
 			in_top_ten = 1;
 		}
@@ -162,7 +162,7 @@ for(var i = 0; i < 11; i++)
 			{
 				global.unlocked_music_name_new_list[i] = string(temp_rank)+" "+string(temp_real_name+add_nametag);
 				global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,1))+" | "+string(numbers_with_comma(temp_score));
-				global.unlocked_music_name_new_list_color[i] = (text_code_col == c_white) ? merge_color(global.map_color,text_code_col,0.7) : text_code_col;
+				global.unlocked_music_name_new_list_color[i] = (text_code_col == c_white) ? text_code_col : text_code_col;
 			}
 		}
 	}

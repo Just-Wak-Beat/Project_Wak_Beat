@@ -249,7 +249,7 @@ if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
 	}
 	else if (global.saved_notice_title == "파트너 해금!")
 	{
-		global.unlocked_music_name_new_list[check_new_song] = "아티펙트를 통해 멤버를 구출했습니다!";
+		global.unlocked_music_name_new_list[check_new_song] = "아티팩트를 통해 멤버를 구출했습니다!";
 		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
 		check_new_song ++
 	

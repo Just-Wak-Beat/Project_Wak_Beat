@@ -739,7 +739,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	}
 	
 	draw_set_alpha(global.back_to_game/60)
-	draw_line_width(xx,yy+yy_h*0.5,xx+xx_w*(global.back_to_game/120),yy+yy_h*0.5,font_size*96*global.converted_view_ratio)
+	draw_line_width(xx,yy+yy_h*0.5,xx+xx_w*(global.back_to_game/90),yy+yy_h*0.5,font_size*96*global.converted_view_ratio)
 
 
 	draw_text_k_scale(xx+64,yy+yy_h*(0.69-global.mobile_mode*0.03),"마스터 볼륨",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)

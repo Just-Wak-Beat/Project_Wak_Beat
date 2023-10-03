@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "artifact_get",
+  "name": "umamusume",
   "audioGroupId": {
     "name": "musics",
     "path": "audiogroups/musics",
@@ -10,14 +10,14 @@
   "bitRate": 512,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 29.64898,
+  "duration": 140.14694,
   "parent": {
     "name": "Musics",
     "path": "folders/사운드/Musics.yy",
   },
   "preload": false,
   "sampleRate": 48000,
-  "soundFile": "artifact_get.mp3",
+  "soundFile": "umamusume.mp3",
   "type": 1,
-  "volume": 1.0,
+  "volume": 0.49,
 }

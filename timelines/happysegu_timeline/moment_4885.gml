@@ -5,7 +5,7 @@ var tmp_c_w = (room_width + 3584)*0.5
 var tmp_c_y = (room_height - 2016)*0.5
 create_laser(tmp_c_x,tmp_c_y,60,1650,4,2,7,180)
 create_laser(tmp_c_w,tmp_c_y,60,1650,4,2,7,180)
-
+global.background_color = #52bcfe
 
 if (global.t_selected_difficulty == 0)
 {

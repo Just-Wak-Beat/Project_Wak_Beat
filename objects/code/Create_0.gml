@@ -18,6 +18,7 @@ global.show_title_menu = 1;
 global.title_menu_animation1 = 0;
 global.title_menu_animation2 = 0;
 global.overtime_highlight_song = 1;
+global.automatic_load_ranking = 0;
 global.show_credit = 1;
 global.beta_tester = 0;
 global.tutorial_played = 0;
@@ -190,7 +191,7 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-var total_original_map = 23;
+var total_original_map = 25;
 global.origin_total_map = total_original_map;
 global.total_map = total_original_map;
 outside_of_window = -4
@@ -577,7 +578,7 @@ global.real_stage_map_name[16] = "Happy Gosegu Sencho!";
 global.real_stage_map_artist[16] = "피젯스피니 FidgetSpinny";
 global.real_stage_map_difficulty[16] = "Experts (Boss)";
 global.real_stage_map_color[16] = #52bcfe;
-global.real_stage_map_duration[16] = 7380;
+global.real_stage_map_duration[16] = 7480;
 global.real_stage_map_audio_name[16] = "happysegu";
 global.real_stage_bpm[16] = 140;
 global.real_stage_map_highlight_part[16] = 27.4;
@@ -696,6 +697,43 @@ global.real_detailed_difficulty[22] = 3;
 global.real_obtainable_type[22] = 8;
 global.real_requirement_level[22] = 7;
 
+
+//우마뾰이 전설
+global.real_stage_map_name[23] = "우마뾰이 전설 (Cover by 이세계아이돌)";
+global.real_stage_map_artist[23] = "Uma Musume Pretty Derby OST";
+global.real_stage_map_difficulty[23] = "Expert";
+global.real_stage_map_color[23] = #363d5a;
+global.real_stage_map_duration[23] = 4432;
+global.real_stage_map_audio_name[23] = "umamusume";
+global.real_stage_bpm[23] = 170;
+global.real_stage_map_highlight_part[23] = 66;
+global.real_detailed_difficulty[23] = 4;
+global.real_obtainable_type[23] = 99;
+global.real_requirement_level[23] = 9999;
+
+
+
+//키딩 (Kidding)
+global.real_stage_map_name[24] = "키딩 (Kidding)";
+global.real_stage_map_artist[24] = "이세계아이돌 (ISEGYE IDOL)";
+global.real_stage_map_difficulty[24] = "Normal";
+global.real_stage_map_color[24] = #B4C0DD;
+global.real_stage_map_duration[24] = 4432;
+global.real_stage_map_audio_name[24] = "kidding";
+global.real_stage_bpm[24] = 130;
+global.real_stage_map_highlight_part[24] = 74;
+global.real_detailed_difficulty[24] = 1.5;
+global.real_obtainable_type[24] = 99;
+global.real_requirement_level[24] = 9999;
+
+
+
+
+
+
+
+
+
 global.hardcore_only_num = 0;
 global.both_difficulty_num = 0;
 for(var i = 0; i < global.total_map; i++)
@@ -727,6 +765,8 @@ for(var i = 0; i < global.total_map; i++)
 		}
 	}
 }
+
+
 
 	
 global.unlocked_player_skin_name[0] = "우왁굳"

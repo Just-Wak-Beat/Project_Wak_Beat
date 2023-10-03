@@ -1,6 +1,6 @@
 global.n_camera_zoom = 1;
 global.w_alpha = 1
-
+global.master_remix_effect = 0
 
 segu_ef = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-10,hitbox_11)
 segu_ef.t_scale = 1

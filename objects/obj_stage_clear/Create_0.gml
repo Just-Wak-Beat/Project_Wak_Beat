@@ -48,7 +48,7 @@ if (global.tutorial_now == 0)
 		var tmp_require_num = global.unlocked_player_skin_require_num[i];
 		if (is_real(tmp_require_num))
 		{
-			if (global.unlocked_player_skin[i] == 0 && tmp_require_num <= global.artifact_owned[global.unlocked_player_skin_require_type[i]])
+			if (global.unlocked_player_skin[i] < 1 && tmp_require_num <= global.artifact_owned[global.unlocked_player_skin_require_type[i]])
 			{
 				global.unlocked_player_skin[i] = 3;
 				play_unlock_animation = 1;
@@ -63,7 +63,7 @@ if (global.tutorial_now == 0)
 		{
 			if (tmp_require_num == "아무 곡이나 대쉬를 사용하지 않고 S랭크 이상으로 클리어")
 			{
-				if (global.dashed == 0 && (global.n_rank_display == "Perfect!" || global.n_rank_display == "S+" || global.n_rank_display == "S"))
+				if (global.unlocked_player_skin[2] < 1 && global.dashed == 0 && (global.n_rank_display == "Perfect!" || global.n_rank_display == "S+" || global.n_rank_display == "S"))
 				{
 					global.unlocked_player_skin[2] = 3;
 					play_unlock_animation = 1;

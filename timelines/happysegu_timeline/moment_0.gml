@@ -13,7 +13,7 @@ global.t_bg_color_alpha = 1
 global.camera_slow_zoom = 0.00025;
 global.n_camera_zoom = 0.7;
 global.automatic_camera_movement = 2;
-
+global.master_remix_effect = 0
 global.background_color = #52bcfe
 global.t_bg_color = 0.1
 global.t_bg_color_alpha = 0

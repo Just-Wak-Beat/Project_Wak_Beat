@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "artifact_get",
+  "name": "kidding",
   "audioGroupId": {
     "name": "musics",
     "path": "audiogroups/musics",
@@ -10,14 +10,14 @@
   "bitRate": 512,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 29.64898,
+  "duration": 216.86858,
   "parent": {
     "name": "Musics",
     "path": "folders/사운드/Musics.yy",
   },
   "preload": false,
   "sampleRate": 48000,
-  "soundFile": "artifact_get.mp3",
+  "soundFile": "kidding.mp3",
   "type": 1,
-  "volume": 1.0,
+  "volume": 0.48,
 }
