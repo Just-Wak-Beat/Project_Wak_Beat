@@ -11,6 +11,13 @@ if (global.crossed_obstacle_num > 99)
 	global.crossed_obstacle_num = 99;
 }
 
+//레벨 한계치
+if (global.level > 999)
+{
+	global.level = 999
+	global.exp = global.max_exp-1;
+}
+
 //화면 흑백 효과
 if (global.blackout_alpha > 0)
 {

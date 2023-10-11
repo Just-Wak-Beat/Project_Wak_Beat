@@ -76,7 +76,8 @@ draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y
 var tmp_exp_color = (global.exp/global.max_exp > 1) ? 1 : global.exp/global.max_exp;
 draw_sprite_ext(spr_level_bar,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,0,#171628,ui_alpha__cal)
 draw_sprite_part_ext(spr_level_bar,0,0,0,(global.exp_for_draw/global.max_exp)*1760,64,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+158,0.7*global.font_ratio_resolution_xx,0.7,merge_color(merge_color(c_white,global.player_color,0.5+(tmp_exp_color)*0.5),c_white,global.exp_w_alpha),ui_alpha__cal)
-draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level "+string(global.level),64,-1,ui_alpha__cal,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+var tmp_txt = (global.level < 999) ? global.level : "MAX"
+draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+32,global.c_y+148,"Level "+string(tmp_txt),64,-1,ui_alpha__cal,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 
 
 //환경설정 버튼
