@@ -7,7 +7,7 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 
 
 global.artifact_type = 4
-global.map_color = #f4e6ce
+global.map_color = c_black
 global.background_color = #344a87
 global.t_bg_color_alpha = 0
 global.t_bg_color = 0
