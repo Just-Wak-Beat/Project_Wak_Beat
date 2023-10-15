@@ -134,9 +134,13 @@ if (automatic_reload_player_leaderboard > 0)
 		{
 			event_user(9);
 			automatic_reload_player_leaderboard = 0;
-			if (global.automatic_load_ranking > 0)
+			if (global.automatic_load_ranking == 1)
 			{
-				global.automatic_load_ranking -= 0.5;
+				global.automatic_load_ranking = 2;
+			}
+			else
+			{
+				global.automatic_load_ranking = 0;
 			}
 		}
 		else

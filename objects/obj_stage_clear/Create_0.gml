@@ -33,8 +33,9 @@ play_unlock_animation = 0;
 rainbow_ef_alpha = 0
 rainbow_ef = 0
 rainbow_ef_angle = 0
-
+automaticLoadPlayerRanking(0);
 unlocked_char_index = 0
+
 if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty == 0)
 {
 	global.artifact_owned[global.artifact_type]++;

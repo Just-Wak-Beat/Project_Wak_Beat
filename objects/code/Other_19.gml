@@ -102,7 +102,7 @@ for(var i = 0; i < 11; i++)
 		}
 	}
 
-	if (global.automatic_load_ranking != 1)
+	if (global.automatic_load_ranking == 0)
 	{
 		global.unlocked_music_name_new_list[i] = string(temp_rank)+" "+string(temp_real_name+add_nametag);
 		global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,1))+" | "+string(numbers_with_comma(temp_score));
@@ -113,7 +113,7 @@ for(var i = 0; i < 11; i++)
 	{
 		if (temp_real_name == global.nickname)
 		{
-			if (global.automatic_load_ranking != 1)
+			if (global.automatic_load_ranking == 0)
 			{
 				global.unlocked_music_name_new_list_color[i] = (text_code_col == c_white) ? text_code_col : text_code_col;
 			}
@@ -158,7 +158,7 @@ for(var i = 0; i < 11; i++)
 			var temp_score = (global.player_leaderboard_difficulty == 0) ? global.total_score_normal : global.total_score_hardcore;
 			var temp_rank = "11+";
 			
-			if (global.automatic_load_ranking != 1)
+			if (global.automatic_load_ranking == 0)
 			{
 				global.unlocked_music_name_new_list[i] = string(temp_rank)+" "+string(temp_real_name+add_nametag);
 				global.unlocked_music_name_new_list_rightside[i] = string(convert_score_to_rank(temp_score,1))+" | "+string(numbers_with_comma(temp_score));

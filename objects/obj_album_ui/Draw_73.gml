@@ -1049,14 +1049,14 @@ if (instance_exists(code))
 {
 	if (code.automatic_reload_player_leaderboard > 0)
 	{
-		draw_text_k_scale(xx+32,global.c_h-100,"유저 랭킹 불러오는 중...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+		draw_text_k_scale(xx+32,global.c_h-100,"유저 랭킹 불러오는 중...",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
 	}
 	else if (code.automatic_reload_leaderboard > 0)
 	{
-		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 랭킹 불러오는 중...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 랭킹 불러오는 중...",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
 	}
-	else if (ding_dong_animation > 0)
+	else if (loading_progress > 0)
 	{
-		draw_text_k_scale(xx+32,global.c_h-100,"디스코드에 현재 활동 표기 중...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+		draw_text_k_scale(xx+32,global.c_h-100,"디스코드에 현재 활동 표기 중...",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
 	}
 }

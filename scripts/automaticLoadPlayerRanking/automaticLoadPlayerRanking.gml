@@ -4,7 +4,7 @@
 ///@param loadOnly/withText
 function automaticLoadPlayerRanking(argument0)
 {
-	global.automatic_load_ranking = argument0;
+	global.automatic_load_ranking = 1-argument0;
 	global.player_leaderboard_difficulty = 0;
 	automatic_reload_player_leaderboard = 2;
 	alarm[3] = 150
