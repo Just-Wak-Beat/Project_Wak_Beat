@@ -250,13 +250,9 @@ if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
 	var check_new_song = 0;
 	if (global.saved_notice_title == "조작법 가이드")
 	{
-		global.unlocked_music_name_new_list[check_new_song] = (global.mobile_mode == 0) ? "키보드 방향키 - 선택" : "화면 스크롤 - 선택";
+		global.unlocked_music_name_new_list[check_new_song] = "";
 		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
-		check_new_song ++
-	
-		global.unlocked_music_name_new_list[check_new_song] = (global.mobile_mode == 0) ? "Enter혹은 Space - 확인" : "화면 터치 - 확인";
-		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
-		check_new_song ++
+		check_new_song = 1;
 	}
 	else if (global.saved_notice_title == "파트너 해금!")
 	{

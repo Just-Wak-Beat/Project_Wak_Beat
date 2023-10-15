@@ -630,42 +630,106 @@ if instance_exists(code)
 		draw_line_width(middle_xx-global.show_new_songs*1.5,yy+yy_h*0.2,middle_xx+global.show_new_songs*1.5,yy+yy_h*0.2,5)
 			
 
-		if global.notice_title_sub != ""
+		if (global.notice_title == "조작법 가이드")
 		{
-			draw_text_k_scale(middle_xx,yy+yy_h*0.066,global.notice_title,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
-			draw_text_k_scale(middle_xx,yy+yy_h*0.13,global.notice_title_sub,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.32*global.font_ratio_resolution_xx*scale,0.32*scale,0)
-		}
-		else
-		{
-			draw_text_k_scale(middle_xx,yy+yy_h*0.1,global.notice_title,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
-		}
-	
-		for(var i = 0; i < global.new_unlocked_map_num; i++)
-		{
-			if (global.unlocked_music_name_new_list_rightside[i] == "")
+			anime_tuto_key_timer ++
+			anime_tuto_key1_alpha += (0.2 - anime_tuto_key1_alpha)*0.1
+			anime_tuto_key2_alpha += (0.2 - anime_tuto_key2_alpha)*0.1
+			var tmp_alp = (global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100)
+			draw_text_k_scale(middle_xx,yy+yy_h*0.1,global.notice_title,scale*48,-1,tmp_alp,c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
+			
+			if (anime_tuto_key_timer = 60)
 			{
-				if (global.unlocked_music_name_new_list[i] == "___")
-				{
-					draw_set_color(c_white)
-					draw_set_alpha(global.show_new_songs/100)
-					draw_line_width(middle_xx-230,yy+yy_h*0.245-global.new_song_scroll+i*64*scale,middle_xx+230,yy+yy_h*0.245-global.new_song_scroll+i*64*scale,5)
-				}
-				else
-				{
-					draw_text_k_scale(middle_xx,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
-				}
+				anime_tuto_key1_alpha = 1.1
+			}
+			
+			if (anime_tuto_key_timer = 70)
+			{
+				anime_tuto_key2_alpha = 1.1
+			}
+			
+			if (anime_tuto_key_timer > 120)
+			{
+				anime_tuto_key_timer = 0;
+			}
+			
+			if (global.mobile_mode == 1)
+			{
+				var scale_slide1_anime = (1.1 - anime_tuto_key1_alpha)
+				draw_text_k_scale(middle_xx-640,yy+yy_h*0.55,"리스트 선택",scale*48,-1,tmp_alp,c_white,0,0,normal_font,0.3*global.font_ratio_resolution_xx*scale,0.3*scale,0)
+				draw_sprite_ext(spr_key,5,middle_xx-640-96,yy+yy_h*0.4,scale*scale_slide1_anime,scale*scale_slide1_anime,0,c_white,tmp_alp*anime_tuto_key1_alpha)
+				draw_sprite_ext(spr_key,6,middle_xx-640-96,yy+yy_h*0.4-(1.1-anime_tuto_key2_alpha)*64,scale,scale,0,c_white,tmp_alp*anime_tuto_key2_alpha)
+				
+				draw_sprite_ext(spr_key,5,middle_xx-640+96,yy+yy_h*0.4,scale*scale_slide1_anime,-scale*scale_slide1_anime,0,c_white,tmp_alp*anime_tuto_key1_alpha)
+				draw_sprite_ext(spr_key,6,middle_xx-640+96,yy+yy_h*0.4+(1.1-anime_tuto_key2_alpha)*64,scale,-scale,0,c_white,tmp_alp*anime_tuto_key2_alpha)
+				
+				
+				draw_text_k_scale(middle_xx,yy+yy_h*0.55,"곡 둘러보기",scale*48,-1,tmp_alp,c_white,0,0,normal_font,0.3*global.font_ratio_resolution_xx*scale,0.3*scale,0)
+				draw_sprite_ext(spr_key,5,middle_xx-128,yy+yy_h*0.4,scale*scale_slide1_anime,scale*scale_slide1_anime,90,c_white,tmp_alp*anime_tuto_key1_alpha)
+				draw_sprite_ext(spr_key,6,middle_xx-128-(1.1-anime_tuto_key2_alpha)*64,yy+yy_h*0.4,scale,scale,90,c_white,tmp_alp*anime_tuto_key2_alpha)
+				
+				draw_sprite_ext(spr_key,5,middle_xx+128,yy+yy_h*0.4,scale*scale_slide1_anime,scale*scale_slide1_anime,-90,c_white,tmp_alp*anime_tuto_key1_alpha)
+				draw_sprite_ext(spr_key,6,middle_xx+128+(1.1-anime_tuto_key2_alpha)*64,yy+yy_h*0.4,scale,scale,-90,c_white,tmp_alp*anime_tuto_key2_alpha)
+				
+				
+				draw_text_k_scale(middle_xx+640,yy+yy_h*0.55,"확인",scale*48,-1,tmp_alp,c_white,0,0,normal_font,0.3*global.font_ratio_resolution_xx*scale,0.3*scale,0)
+				draw_sprite_ext(spr_key,7,middle_xx+640,yy+yy_h*0.4,scale*scale_slide1_anime,scale*scale_slide1_anime,90,c_white,tmp_alp*anime_tuto_key1_alpha)
 			}
 			else
 			{
-				if (code.automatic_reload_leaderboard == 0)
+				draw_text_k_scale(middle_xx-640,yy+yy_h*0.55,"리스트 선택",scale*48,-1,tmp_alp,c_white,0,0,normal_font,0.3*global.font_ratio_resolution_xx*scale,0.3*scale,0)
+				draw_sprite_ext(spr_key,0,middle_xx-640-96,yy+yy_h*0.45,scale*1.5,scale*1.5,0,c_white,tmp_alp)
+				draw_sprite_ext(spr_key,0,middle_xx-640+96,yy+yy_h*0.45,-scale*1.5,scale*1.5,0,c_white,tmp_alp)
+				
+				
+				draw_text_k_scale(middle_xx,yy+yy_h*0.55,"곡 둘러보기",scale*48,-1,tmp_alp,c_white,0,0,normal_font,0.3*global.font_ratio_resolution_xx*scale,0.3*scale,0)
+				draw_sprite_ext(spr_key,1,middle_xx-96,yy+yy_h*0.45,scale*1.5,scale*1.5,0,c_white,tmp_alp)
+				draw_sprite_ext(spr_key,2,middle_xx+96,yy+yy_h*0.45,scale*1.5,scale*1.5,0,c_white,tmp_alp)
+				
+				
+				draw_text_k_scale(middle_xx+640,yy+yy_h*0.55,"확인",scale*48,-1,tmp_alp,c_white,0,0,normal_font,0.3*global.font_ratio_resolution_xx*scale,0.3*scale,0)
+				draw_sprite_ext(spr_key,4,middle_xx+640,yy+yy_h*0.45,scale*1.5,scale*1.5,0,c_white,tmp_alp)
+			}
+		}
+		else
+		{
+			if (global.notice_title_sub != "")
+			{
+				draw_text_k_scale(middle_xx,yy+yy_h*0.066,global.notice_title,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
+				draw_text_k_scale(middle_xx,yy+yy_h*0.13,global.notice_title_sub,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.32*global.font_ratio_resolution_xx*scale,0.32*scale,0)
+			}
+			else
+			{
+				draw_text_k_scale(middle_xx,yy+yy_h*0.1,global.notice_title,scale*48,-1,(global.show_new_songs/100)*(1 - abs(global.new_song_scroll)/100),c_white,0,0,normal_font,0.56*global.font_ratio_resolution_xx*scale,0.56*scale,0)
+			}
+	
+			for(var i = 0; i < global.new_unlocked_map_num; i++)
+			{
+				if (global.unlocked_music_name_new_list_rightside[i] == "")
 				{
-					draw_text_k_scale(middle_xx-640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
-					draw_text_k_scale(middle_xx+640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list_rightside[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color_rightside[i],0,1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+					if (global.unlocked_music_name_new_list[i] == "___")
+					{
+						draw_set_color(c_white)
+						draw_set_alpha(global.show_new_songs/100)
+						draw_line_width(middle_xx-230,yy+yy_h*0.245-global.new_song_scroll+i*64*scale,middle_xx+230,yy+yy_h*0.245-global.new_song_scroll+i*64*scale,5)
+					}
+					else
+					{
+						draw_text_k_scale(middle_xx,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,0,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+					}
+				}
+				else
+				{
+					if (code.automatic_reload_leaderboard == 0)
+					{
+						draw_text_k_scale(middle_xx-640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color[i],0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+						draw_text_k_scale(middle_xx+640,yy+yy_h*0.24-global.new_song_scroll+i*64*scale,global.unlocked_music_name_new_list_rightside[i],scale*48,-1,global.show_new_songs/130,global.unlocked_music_name_new_list_color_rightside[i],0,1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+					}
 				}
 			}
 		}
 		
-							
+						
 		if (global.notice_title = "Result")
 		{
 			var tmp_art_type = global.artifact_type;

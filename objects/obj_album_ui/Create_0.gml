@@ -11,6 +11,7 @@ timer = 0
 w_alpha = 0
 global.touch_to_skip = 0;
 global.tutorial_n_stage = 0
+
 angle_moving = 0
 angle_moving_timer = 0
 //global.story_mode = 1
@@ -59,3 +60,9 @@ keyboard_input_display = 0
 //ranking
 rank_temp_val1 = 0
 rank_temp_val2 = 0
+
+
+//tutorial_key_animation
+anime_tuto_key_timer = 0
+anime_tuto_key1_alpha = 0
+anime_tuto_key2_alpha = 0
