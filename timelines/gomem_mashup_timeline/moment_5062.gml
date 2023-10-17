@@ -8,5 +8,5 @@ global.gomem_mashup_effect = 4
 master_bpm_timer = 0
 global.gomem_mashup_effect_dir = 1
 global.w_alpha = 10
-global.map_color = #ff216f
+set_hitbox_color(#ff216f,1,obj_player.x,obj_player.y);
 global.background_color = #bf8beb

@@ -2,7 +2,6 @@
 // You can write your code in this editor
 x -= global.map_speed
 y += global.map_speed_y
-image_blend = global.map_color
 
 image_angle += keep_spin_angle
 if global.low_graphics = false

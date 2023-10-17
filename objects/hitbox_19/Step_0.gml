@@ -74,7 +74,7 @@ target_eye_angle += (direction - target_eye_angle)*0.1
 
 
 
-image_blend = global.map_color;
+
 if (gravity == 0)
 {
 	x -= global.map_speed;
@@ -118,3 +118,8 @@ if (center_destroy == 1)
 		instance_destroy()
 	}
 }
+
+
+
+
+

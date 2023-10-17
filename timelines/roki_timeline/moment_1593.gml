@@ -33,6 +33,6 @@ for(var i = 0; i < 360; i += 90)
 
 
 global.w_alpha = 1
-global.map_color = #8c70d6
+set_hitbox_color(#8c70d6,1,room_width*0.5,room_height*0.5);
 global.t_bg_color = 0.3
 global.t_bg_color_alpha = 0.3

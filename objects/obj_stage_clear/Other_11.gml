@@ -2,6 +2,7 @@
 // You can write your code in this editor
 global.hp = 5;
 global.show_rank = 0;
+audio_play_sound(result_sfx,0,false,global.master_volume*global.sfx_volume)
 
 if (global.tutorial_now <= 0)
 {

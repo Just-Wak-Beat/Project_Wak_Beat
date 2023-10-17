@@ -1,6 +1,6 @@
 global.artifact_type = 0
-//global.map_color = #ae3c30
-global.map_color = #333d4b
+
+set_hitbox_color(#333d4b,0,room_width*0.5,room_height*0.5);
 global.background_color = #4c515c
 
 if (global.t_selected_difficulty = 1 && global.boss_battle == 0)

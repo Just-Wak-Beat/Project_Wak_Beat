@@ -4,4 +4,4 @@ heart_hitbox.t_angle = 0
 global.w_alpha = 1
 
 global.t_bg_color = 2
-global.map_color = #219cac
+set_hitbox_color(#219cac,1,room_width*0.5,room_height*0.5);

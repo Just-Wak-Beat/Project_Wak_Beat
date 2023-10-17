@@ -7,7 +7,7 @@ global.artifact_type = 0
 global.turisumo_effect = 0
 global.turisumo_effect_2 = 0
 global.turisumo_effect_3 = 0
-global.map_color = c_black
+set_hitbox_color(#1f1f1f,0,room_width*0.5,0);
 instance_destroy(hitbox_parents)
 
 if (global.t_selected_difficulty = 1 && global.boss_battle == 0)

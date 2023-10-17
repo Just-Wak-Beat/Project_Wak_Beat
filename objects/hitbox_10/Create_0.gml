@@ -2,7 +2,6 @@
 // You can write your code in this editor
 
 //일반 탄막
-image_blend = global.map_color
 image_speed = 0
 
 des = 0
@@ -20,3 +19,5 @@ if audio_is_playing(ipad)
 {
 	sprite_index = spr_cross
 }
+
+event_user(11)

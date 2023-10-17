@@ -13,7 +13,7 @@ attack_ef.w_alpha = 10
 }
 
 global.w_alpha = 1
-global.map_color = #107c67
+set_hitbox_color(#107c67,1,room_width*0.5,room_height*0.5);
 
 
 heart_hitbox.t_scale = 1

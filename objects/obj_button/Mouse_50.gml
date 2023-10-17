@@ -6,6 +6,10 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && spri
 	var scroll_length = image_xscale*80*64
 	if scroll_activated = 1 || (abs(mouse_x - x) <= scroll_length*0.5 && abs(mouse_y - y) <= image_yscale*64)
 	{
+		if (!audio_is_playing(setting_scroll_sfx))
+		{
+			audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
+		}
 		scroll_value = (mouse_x-x+scroll_length*0.5)/scroll_length*100
 		scroll_activated = 1
 		scroll_value = (scroll_value < 0) ? 0 : scroll_value;

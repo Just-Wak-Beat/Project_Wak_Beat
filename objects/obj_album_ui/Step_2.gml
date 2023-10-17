@@ -20,7 +20,7 @@ if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock
 			}
 		}
 	}
-	else if (global.sync_setting <= 0 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80) || keyboard_check_pressed(ord("Q"))))
+	else if (global.sync_setting <= 0 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80) || keyboard_check_pressed(ord("W"))))
 	{
 		with(code)
 		{
@@ -56,7 +56,7 @@ if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock
 				code.automatic_reload_leaderboard = 1;
 			}
 		}
-		else if (global.n_map_id >= 0 && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80) || keyboard_check_pressed(ord("W"))))
+		else if (global.n_map_id >= 0 && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80) || keyboard_check_pressed(ord("Q"))))
 		{
 			if (global.nickname == "")
 			{
@@ -64,6 +64,7 @@ if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock
 			}
 			else
 			{
+				global.automatic_load_ranking = 0;
 				code.automatic_reload_player_leaderboard = 1;
 			}
 		}

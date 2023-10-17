@@ -9,7 +9,7 @@ for(var i = -2; i <= 20; i++)
 	_shaking_circle.sprite_index = spr_square
 }
 
-global.map_color = #a1abb6
+set_hitbox_color(#a1abb6,1,room_width*0.5,room_height*0.5);
 global.background_color = #3b4978
 global.t_bg_color = 0.5
 global.lockdown_effect1 = 0

@@ -87,13 +87,13 @@ draw_sprite_ext(spr_gear,0,global.c_x+100,global.c_y+400,0.17*global.font_ratio_
 
 
 //캐릭터 변경 버튼
-draw_text_k_scale(global.c_x+104,global.c_y+700,"파트너"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+700,"파트너"+((global.mobile_mode == 1) ? "" : "\n[W]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_W,global.player_skin,global.c_x+100,global.c_y+660,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
 
 
-draw_text_k_scale(global.c_x+104,global.c_y+950,"유저 랭킹"+((global.mobile_mode == 1) ? "" : "\n[W]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+draw_text_k_scale(global.c_x+104,global.c_y+950,"유저 랭킹"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
 draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 
@@ -1119,7 +1119,7 @@ if (instance_exists(code))
 	{
 		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 랭킹 불러오는 중...",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
 	}
-	else if (loading_progress > 0)
+	else if (global.loading_progress > 0)
 	{
 		draw_text_k_scale(xx+32,global.c_h-100,"디스코드에 현재 활동 표기 중...",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
 	}

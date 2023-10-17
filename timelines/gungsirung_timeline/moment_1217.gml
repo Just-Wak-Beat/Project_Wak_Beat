@@ -23,6 +23,6 @@ global.t_bg_color_alpha = 0.1
 global.background_color = #5595ff
 
 global.t_map_speed = 0
-global.map_color = #5595ff
+set_hitbox_color(#5595ff,1,room_width*0.5,room_height*0.5);
 
 instance_destroy(hitbox_3)

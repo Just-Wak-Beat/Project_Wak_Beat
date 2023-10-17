@@ -13,5 +13,5 @@ for(var i = 0; i < 360; i += 15)
 }
 
 global.background_color = #00111b
-global.map_color = $FFEEFF6D
+set_hitbox_color($FFEEFF6D,1,room_width*0.5,room_height*0.5);
 global.w_alpha = 1

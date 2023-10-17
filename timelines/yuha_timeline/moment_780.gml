@@ -13,4 +13,4 @@ while(true)
 master_bpm_timer = (3600/global.bpm)+global.music_sync_offset*3*60
 global.yuha_effect1 = 2
 global.w_alpha = 10
-global.map_color = #5595ff
+set_hitbox_color(#5595ff,1,room_width*0.5,room_height*0.5);

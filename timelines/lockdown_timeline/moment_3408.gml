@@ -6,7 +6,7 @@ spike_ef.y = global.c_h+512;
 spike_ef.t_y = global.c_h-256;
 global.w_alpha = 1
 global.t_bg_color = -10
-global.map_color = #df1a62
+set_hitbox_color(#df1a62,1,room_width*0.5,global.c_h);
 
 
 for(var i = -10; i <= 10; i++)

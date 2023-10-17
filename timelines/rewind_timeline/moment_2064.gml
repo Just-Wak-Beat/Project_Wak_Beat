@@ -1,5 +1,4 @@
 global.w_alpha = 1
-global.map_color = #9ed5cb
 
 
 for(var i = 0; i < 360; i += 30)
@@ -26,7 +25,7 @@ _misile_.speed = (64+4)*scale/5
 
 
 
-global.map_color = $FF9A3FE5
+set_hitbox_color($FF9A3FE5,1,room_width*0.5,room_height*0.5);
 heart_hitbox.image_angle = 180
 heart_hitbox.image_index = 5
 heart_hitbox.image_xscale = 0
@@ -42,10 +41,4 @@ for(var i = 0; i < 360; i += 16)
 	attack_ef.image_yscale = 0.4
 	attack_ef.w_alpha = 10
 }
-
-var _ef = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-2,explosion_effect)
-_ef.image_xscale = 3.7
-_ef.image_yscale = 3.7
-_ef.t_scale = 6
-_ef.image_blend = c_white
 

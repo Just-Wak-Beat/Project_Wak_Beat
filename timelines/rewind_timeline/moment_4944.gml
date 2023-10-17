@@ -14,5 +14,5 @@ if (global.t_selected_difficulty == 0)
 	clock_hitbox_3.w_alpha = 1
 }
 
-global.map_color = #b8cba7
+set_hitbox_color(#b8cba7,1,room_width*0.5,room_height*0.5);
 global.w_alpha = 1

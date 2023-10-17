@@ -23,7 +23,7 @@ wakrio_.t_y = -room_height
 
 global.wakrio_effect2 = 0
 global.w_alpha = 1
-global.map_color = $FFEEFF6D
+set_hitbox_color($FFEEFF6D,1,room_width*0.5,room_height*0.5);
 global.background_color = #00111b
 
 

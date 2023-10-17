@@ -2,6 +2,8 @@
 // You can write your code in this editor
 
 
+
+
 automatic_angle_real += (automatic_angle - automatic_angle_real)*0.05
 
 if noneuse_t_x = 0
@@ -11,7 +13,9 @@ if noneuse_t_x = 0
 }
 
 t_angle += automatic_angle_real
-image_blend = global.map_color
+
+
+
 
 image_angle += (t_angle - image_angle)*0.15
 if global.low_graphics = false

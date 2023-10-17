@@ -20,12 +20,12 @@ if (global.t_selected_difficulty == 0)
 	clock_hitbox_3.t_scale = clock_hitbox.t_scale*1.01
 }
 
-global.map_color = #f5f4b0
+set_hitbox_color(#f5f4b0,1,room_width*0.5,room_height*0.5);
 
 
 for(var i = 1; i <= 13; i++)
 {
-var ins = variable_instance_get(id,"gear_hitbox"+string(i))
+	var ins = variable_instance_get(id,"gear_hitbox"+string(i))
 
 	if instance_exists(ins)
 	{

@@ -1,7 +1,7 @@
 global.w_alpha = 1
 global.t_map_speed = 1
 global.t_bg_color_alpha = 0.5
-global.map_color = c_gray
+set_hitbox_color(c_gray,1,global.c_w,room_height*0.5);
 
 global.camera_slow_zoom = 0.0001
 camera_focus_on(-4,-4,0.8)

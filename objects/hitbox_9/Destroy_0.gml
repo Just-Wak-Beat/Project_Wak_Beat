@@ -22,3 +22,7 @@ if (can_draw == 1 && global.yuha_effect1 > 0 && global.t_selected_difficulty == 
 	_ef.t_scale = 3
 	_ef.image_blend = c_white
 }
+
+
+
+

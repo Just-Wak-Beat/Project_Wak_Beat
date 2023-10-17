@@ -47,3 +47,6 @@ if des_time > 0
 {
 	des_time += (image_xscale/sprite_width)/5
 }
+
+
+

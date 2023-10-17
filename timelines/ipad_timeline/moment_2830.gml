@@ -1,5 +1,5 @@
 global.background_color = #ff637a
-global.map_color = #ff637a
+set_hitbox_color(#ff637a,1,room_width*0.5,room_height*0.5);
 global.t_bg_color = 0.22
 global.w_alpha = 1
 

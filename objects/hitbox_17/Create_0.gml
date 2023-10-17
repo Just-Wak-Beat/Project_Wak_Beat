@@ -12,3 +12,5 @@ spike_anime = 0
 spike_anime_dir = 1
 target_xscale = -4
 w_alpha2 = 0
+
+event_user(11)

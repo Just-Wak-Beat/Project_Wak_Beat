@@ -14,3 +14,4 @@ image_xscale = 0
 image_yscale = 0
 can_draw = 0
 draw_reloading_anime = 0
+event_user(11)

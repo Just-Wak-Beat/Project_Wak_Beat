@@ -275,6 +275,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 						{
 							timeline_running = true
 						}
+						global.map_color = global.map_color_tmp;
 						timeline_speed = 1+(global.t_selected_difficulty == -1 ? 0.12 : 0)
 		
 						show_debug_message("timeline")
@@ -397,6 +398,7 @@ if global.rewind > 0
 	{
 		var tmp_val = (global.rewind < 162) ? 2 : 1;
 		audio_sound_set_track_position(global.n_music_instance,(global.n_progress-(global.rewind/tmp_val-60))/60);
+		audio_sound_pitch(global.n_music_instance,1-fix_num((global.rewind-30)/300))
 	}
 
 	if (global.rewind == 1)
@@ -438,9 +440,20 @@ if global.rewind > 0
 			var ef__ = instance_create_depth(obj_player.died_xx,obj_player.died_yy,depth-1,dead_explosion)
 			ef__.direction = i;
 			ef__.speed = 24;
-			ef__.image_xscale = 1
 		}
 	}
+	
+	
+	if (global.rewind = 162 || global.rewind = 183 || global.rewind = 203)
+	{
+		for(var i = 0; i < 360; i += 45)
+		{
+			var tmp_xx = obj_player.died_xx+lengthdir_x(512,i);
+			var tmp_yy = obj_player.died_yy+lengthdir_y(512,i);
+			var ef__ = instance_create_depth(tmp_xx,tmp_yy,depth-1,dead_explosion)
+		}
+	}
+	
 	global.rewind += (global.rewind < 162) ? 2 : 1;
 		
 	for(var i = 0; i < 16; i++)
@@ -619,7 +632,8 @@ if global.rewind > 0
 			global.crossed_obstacle_num = 0
 		}
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
-		
+		global.w_alpha = 1
+		obj_camera.alarm[0] = 2
 		
 		//곡 리스타트
 		if (global.restart_stage == 1)

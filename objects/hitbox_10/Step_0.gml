@@ -218,3 +218,12 @@ if sprite_index == spr_star
 		speed += (6 - speed)*0.1
 	}
 }
+
+
+
+
+
+
+
+
+

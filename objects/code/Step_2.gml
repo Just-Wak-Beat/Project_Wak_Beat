@@ -26,6 +26,7 @@
 			instance_deactivate_object(movement_effect);
 			instance_deactivate_object(circle_effect);
 			instance_deactivate_object(obj_shine_ef);
+			instance_deactivate_object(changing_hitbox_color);
 		}
 	}
 

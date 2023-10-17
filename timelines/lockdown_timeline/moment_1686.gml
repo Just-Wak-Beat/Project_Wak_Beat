@@ -9,7 +9,7 @@ pipe_ef.image_xscale = 0;
 pipe_ef.image_yscale = 0;
 pipe_ef.sprite_index = spr_pipe;
 global.t_bg_color = -10
-global.map_color = #df1a62
+set_hitbox_color(#df1a62,1,room_width*0.5,room_height*0.5);
 
 var _ef = instance_create_depth(spike_ef.x,spike_ef.y,depth+1,explosion_effect);
 _ef.image_xscale = 1;

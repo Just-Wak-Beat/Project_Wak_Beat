@@ -3,8 +3,8 @@ global.yuha_effect2 = 0
 global.yuha_effect3 = 0
 
 
-global.background_color = c_black
-global.map_color = c_white
+global.background_color = #1f1f1f
+set_hitbox_color(c_gray,0,room_width*0.5,room_height*0.5);
 with(hitbox_parents)
 {
 	image_blend = c_white

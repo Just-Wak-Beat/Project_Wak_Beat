@@ -1,4 +1,4 @@
-global.map_color = #ae3c30
+set_hitbox_color(#ae3c30,1,room_width*0.5,room_height*0.5);
 global.w_alpha = 1
 instance_destroy(hitbox_3)
 

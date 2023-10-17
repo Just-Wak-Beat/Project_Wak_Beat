@@ -5,4 +5,4 @@ global.t_bg_color_alpha = 0
 
 camera_focus_on(-4,-4,0.7)
 global.camera_slow_zoom = 0.0001
-global.map_color = c_black
+set_hitbox_color(#1f1f1f,1,room_width*0.5,room_height*0.5);

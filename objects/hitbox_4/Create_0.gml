@@ -12,3 +12,4 @@ t_scale_tmp = 1
 w_alpha = 0
 shake_time = 0
 scale_up_effect = 1
+event_user(11)

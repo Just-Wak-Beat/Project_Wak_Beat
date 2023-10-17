@@ -1,5 +1,5 @@
 global.w_alpha = 1
-global.map_color = #a4abb5
+set_hitbox_color(#a4abb5,1,room_width*0.5,room_height*0.5);
 global.t_bg_color_alpha = 0
 
 

@@ -26,7 +26,7 @@ clock_hitbox.w_alpha = 1
 clock_hitbox.automatic_angle = 2 if(global.t_selected_difficulty == 0){clock_hitbox_3.automatic_angle = 0.2}
 view_shake(0.1,3,0,0)
 global.w_alpha = 1
-global.map_color = #e5a49d
+set_hitbox_color(#e5a49d,1,room_width*0.5,room_height*0.5);
 
 
 

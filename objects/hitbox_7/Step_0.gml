@@ -2,7 +2,7 @@
 // You can write your code in this editor
 x += (t_x - x)*0.15
 y += (t_y - y)*0.15
-image_blend = global.map_color
+
 
 if (global.low_graphics == false)
 {

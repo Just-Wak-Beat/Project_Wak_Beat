@@ -1,5 +1,5 @@
 global.w_alpha = 1
-global.map_color = $FF7D5EEE
+set_hitbox_color($FF7D5EEE,1,room_width*0.5,room_height*0.5);
 global.background_color = #833a55
 
 var jururu_ = instance_create_depth(room_width*0.5,room_height,obj_player.depth,hitbox_7)

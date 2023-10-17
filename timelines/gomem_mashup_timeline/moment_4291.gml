@@ -1,7 +1,7 @@
 global.gomem_mashup_effect = 7
 global.w_alpha = 1
-global.map_color = c_white
-global.background_color = #c38fef
+set_hitbox_color(#c38fef,1,obj_player.x,obj_player.y);
+global.background_color = #dfdfdf
 global.t_bg_color = 0
 global.t_bg_color_alpha = 1
 

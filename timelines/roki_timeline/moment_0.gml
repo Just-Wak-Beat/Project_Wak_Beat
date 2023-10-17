@@ -9,7 +9,7 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 
 camera_focus_on(-4,-4,1)
 global.artifact_type = 6
-global.map_color = #424278
+set_hitbox_color(#424278,1,room_width*0.5,room_height*0.5);
 global.background_color = #424278
 global.t_bg_color_alpha = 0
 global.t_bg_color = 0

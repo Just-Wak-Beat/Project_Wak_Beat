@@ -1,1 +1,1 @@
-global.map_color = $FF007F16
+set_hitbox_color($FF007F16,1,room_width*0.5,room_height*0.5);

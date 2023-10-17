@@ -3,8 +3,8 @@ clock_hitbox.automatic_angle_real = 0
 clock_hitbox.w_alpha = 1
 clock_hitbox.saved_color = global.background_color
 clock_hitbox.saved_color_2 = global.map_color
-global.background_color = c_black
-global.map_color = c_white
+global.background_color = #dfdfdf
+set_hitbox_color(#1f1f1f,0,room_width*0.5,room_height*0.5);
 global.w_alpha = 1
 
 for(var i = 0; i < 5; i++)

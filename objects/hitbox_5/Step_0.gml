@@ -1,7 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-image_blend = global.map_color
+
+
 if global.low_graphics = false
 {
 	w_alpha += (-0.01 - w_alpha)*0.15
@@ -26,7 +27,7 @@ if warning_timer = target_time
 	_ef.image_yscale = 1
 	_ef.t_scale = 2
 	_ef.image_blend = c_white
-	global.w_alpha = 0.8
+	global.w_alpha = 0.4
 		
 	view_shake(0.1,shake_scale,3,shake_dir)
 	w_alpha = 0.3

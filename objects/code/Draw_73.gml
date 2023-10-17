@@ -816,7 +816,7 @@ if (gamestart == 1)
 	automatic_loading_cancel ++
 	if (automatic_loading_cancel > 300)
 	{
-		draw_text_k_scale(xx+32,global.c_h-100,"Load failed",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 파일을 불러오는데 오류가 발생했습니다!",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
 	
 		if (automatic_loading_cancel > 420)
 		{
@@ -825,7 +825,7 @@ if (gamestart == 1)
 	}
 	else
 	{
-		draw_text_k_scale(xx+32,global.c_h-100,"Now loading...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 불러오는 중...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
 	}
 }
 

@@ -19,7 +19,7 @@ var ins = variable_instance_get(id,"gear_hitbox"+string(i))
 clock_hitbox.automatic_angle = 2 if(global.t_selected_difficulty == 0){clock_hitbox_3.automatic_angle = 0.2}
 clock_hitbox.w_alpha = 1
 global.background_color = clock_hitbox.saved_color
-global.map_color = clock_hitbox.saved_color_2
+set_hitbox_color(clock_hitbox.saved_color_2,1,room_width*0.5,room_height*0.5);
 
 clock_hitbox.t_angle += 30
 clock_hitbox.image_xscale += 0.5 clock_hitbox.image_yscale += 0.5 clock_hitbox_2.image_xscale += 0.5 clock_hitbox_2.image_yscale += 0.5

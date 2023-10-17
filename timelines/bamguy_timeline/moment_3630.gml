@@ -1,3 +1,3 @@
 global.bamguy_effect = 1
-global.map_color = $FF1650FF
+set_hitbox_color($FF1650FF,1,global.c_w,room_height*0.5);
 global.w_alpha = 1

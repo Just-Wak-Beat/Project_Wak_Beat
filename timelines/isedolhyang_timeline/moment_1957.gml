@@ -1,4 +1,4 @@
-global.map_color = #a8c1ee
+set_hitbox_color(#a8c1ee,1,room_width*0.5,room_height*0.5);
 
 
 

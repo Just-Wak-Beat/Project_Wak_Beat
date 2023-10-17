@@ -15,7 +15,7 @@ if (image_alpha < 1)
 		tmp_scale = 2.1;
 	}
 	
-	if col = c_black
+	if (col == c_black)
 	{
 		col = c_white;
 	}

@@ -23,6 +23,5 @@ for(var i = 0; i < 360; i += 5)
 
 global.wakrio_effect2 = 0;
 
-
-
-global.w_alpha = 1
+global.t_bg_color = 0
+set_hitbox_color(c_gray,1,room_width*0.5,room_height*0.5)

@@ -2,3 +2,5 @@
 // You can write your code in this editor
 image_alpha = 0
 time = 0
+
+event_user(11)

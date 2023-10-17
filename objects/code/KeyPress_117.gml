@@ -1,5 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
-global.tutorial_played = 0
+if (global.dev_mode == 1)
+{
+	global.tutorial_played = 0;
+}

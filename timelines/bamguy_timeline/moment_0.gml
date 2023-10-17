@@ -1,10 +1,10 @@
 if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {
 	global.savepoint_position[0] = 2160
-	global.savepoint_color[0] = c_black
+	global.savepoint_color[0] = #1f1f1f
 }
 global.artifact_type = 0
-global.map_color = $FF1650FF
+set_hitbox_color($FF1650FF,0,room_width*0.5,room_height*0.5);
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
 global.camera_slow_zoom = 0.00025

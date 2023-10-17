@@ -126,13 +126,14 @@ global.n_music_artist = -4
 global.n_music_id = -4;
 global.n_music_name = -4
 global.n_music_instance = -4
-global.map_color = -4
+global.map_color = c_black
+global.map_color_tmp = c_black
 global.t_bg_color_alpha = 1
 global.t_bg_color = 1
 global.background_color = merge_color(global.map_color,c_black,0.9)
 	if (global.background_color == c_black)
 	{
-		global.background_color = merge_color(c_white,c_black,0.95)
+		global.background_color = #1f1f1f;
 	}
 global.map_speed = 0
 global.t_map_speed = 0
@@ -150,6 +151,7 @@ global.t_selected_difficulty = 1 //맵 난이도 설정 (1 == 노말)
 global.crossed_obstacle_num = 0
 
 global.music_duration = 99999
+global.loading_progress = 1
 global.bpm = 172
 load_data_timer = 0
 loading_now_progress = 0
@@ -417,7 +419,7 @@ turisumo_road_sign_delay = 0
 global.real_stage_map_name[7] = "융터르";
 global.real_stage_map_artist[7] = "CLTH";
 global.real_stage_map_difficulty[7] = "Expert (Boss)";
-global.real_stage_map_color[7] = c_black
+global.real_stage_map_color[7] = c_black;
 global.real_stage_map_duration[7] = 4749;
 global.real_stage_map_audio_name[7] = "Yoong";
 global.real_stage_bpm[7] = 176;

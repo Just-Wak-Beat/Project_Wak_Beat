@@ -16,7 +16,8 @@ if audio_is_playing(lockdown)
 	}
 }
 
-image_blend = global.map_color
+
+
 
 x += falling_hspeed
 y += falling_vspeed

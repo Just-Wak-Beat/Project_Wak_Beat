@@ -1,6 +1,6 @@
 global.ipad_effect = 0
 global.w_alpha = 1
-global.map_color = #5595ff
+set_hitbox_color(#5595ff,1,room_width*0.5,room_height*0.5);
 global.background_color = #5595ff
 global.t_bg_color = 0
 

@@ -8,3 +8,4 @@ timer = 0
 des = 0
 alarm[1] = 1
 center_destroy = 0
+event_user(11)

@@ -10,7 +10,7 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 
 
 global.artifact_type = 1
-global.map_color = #bf8beb
+set_hitbox_color(#bf8beb,0,obj_player.x,obj_player.y);
 global.background_color = #10043f
 global.t_bg_color_alpha = 0
 global.t_bg_color = -10

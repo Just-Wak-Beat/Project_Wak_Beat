@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-image_blend = global.map_color
+
 if gravity = 0
 {
 	x -= global.map_speed
@@ -96,3 +96,8 @@ if (center_destroy == 1)
 		instance_destroy()
 	}
 }
+
+
+
+
+

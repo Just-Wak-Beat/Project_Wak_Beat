@@ -1,5 +1,16 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+
+//메인메뉴 컬러 애니메이션 효과
+if (instance_exists(obj_album_ui))
+{
+	global.map_color = merge_color(global.map_color,global.map_color_tmp,0.12);
+	global.background_color = merge_color(global.map_color,c_black,0.9);
+}
+
+
+//개발자 모드이면 튜토리얼 자동 스킵
 if (global.dev_mode == 1)
 {
 	global.tutorial_played = 1;

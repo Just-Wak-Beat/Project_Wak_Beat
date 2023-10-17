@@ -1,4 +1,4 @@
-global.map_color = #9ed5cb
+set_hitbox_color(#9ed5cb,1,room_width*0.5,room_height*0.5);
 if !instance_exists(clock_hitbox)
 {
 clock_hitbox = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-2,hitbox_11)

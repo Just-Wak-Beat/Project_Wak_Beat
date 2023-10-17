@@ -5,4 +5,4 @@ global.background_color = #d7bb2c
 
 global.t_map_speed = 12
 global.map_speed = 12
-global.map_color = #fbd780
+set_hitbox_color(#fbd780,1,room_width*0.5,room_height*0.5);

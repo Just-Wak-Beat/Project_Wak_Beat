@@ -2,7 +2,7 @@
 global.t_bg_color = 0.03
 global.t_bg_color_alpha = 0
 global.background_color = #a594e4
-global.map_color = #dcd8fb
+set_hitbox_color(#dcd8fb,0,room_width*0.5,room_height*0.5);
 global.artifact_type = irandom_range(1,6)
 global.fukurou_snow_effect = 1
 global.map_speed = 0
