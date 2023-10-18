@@ -4,33 +4,36 @@
 
 if (keyboard_check_released(vk_left) || keyboard_check_released(vk_right) || keyboard_check_released(vk_up) || keyboard_check_released(vk_down) || global.cannot_control == 1)
 {
-	global.hmove = 0
-	global.vmove = 0
+	global.hmove = 0;
+	global.vmove = 0;
 }
 
 
-if (global.cannot_control == 0 && keyboard_check(vk_left))
+
+
+if (global.cannot_control == 0)
 {
-	global.hmove = -1
+	if (keyboard_check(vk_up))
+	{
+		global.vmove = -1;
+	}
+	else if (keyboard_check(vk_down))
+	{
+		global.vmove = 1;
+	}
+	
+	if (keyboard_check(vk_left))
+	{
+		global.hmove = -1;
+	}
+	else if (keyboard_check(vk_right))
+	{
+		global.hmove = 1;
+	}
 }
 
-if (global.cannot_control == 0 && keyboard_check(vk_right))
-{
-	global.hmove = 1
-}
 
 
-
-
-if (global.cannot_control == 0 && keyboard_check(vk_up))
-{
-	global.vmove = -1
-}
-
-if (global.cannot_control == 0 && keyboard_check(vk_down))
-{
-	global.vmove = 1
-}
 
 if (global.paused == 0)
 {
@@ -117,112 +120,145 @@ if (global.paused == 0)
 	
 		if abs(global.hmove_speed) > 2 || abs(global.vmove_speed) > 2
 		{
-			check_stop = 0
+			check_stop = 0;
 		}
 		else
 		{
-			if check_stop == 0
+			if (check_stop == 0)
 			{
-				check_stop = 1
+				check_stop = 1;
 				repeat(irandom_range(8,10))
 				{
-					var random_x = irandom_range(-16,16)+global.hmove_speed*20
-					var random_y = irandom_range(-16,16)+global.vmove_speed*20
-					var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
-					effect_.image_xscale = 0.3
-					effect_.image_yscale = 0.3
-					effect_.direction = point_direction(x,y,x+random_x,y+random_y)
-					effect_.speed = 16
-					effect_.image_blend = global.player_color
+					var random_x = irandom_range(-16,16)+global.hmove_speed*20;
+					var random_y = irandom_range(-16,16)+global.vmove_speed*20;
+					var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect);
+					effect_.image_xscale = 0.3;
+					effect_.image_yscale = 0.3;
+					effect_.direction = point_direction(x,y,x+random_x,y+random_y);
+					effect_.speed = 16;
+					effect_.image_blend = global.player_color;
 				}
+				
+				if (global.hmove != 0)
+				{
+					image_xscale = 1-abs(sign(global.hmove_speed))*0.4;
+					image_yscale = 1+abs(sign(global.hmove_speed))*0.7;
+				}
+				else if (global.vmove != 0)
+				{
+					image_xscale = 1+abs(sign(global.vmove_speed))*0.7;
+					image_yscale = 1-abs(sign(global.hmove_speed))*0.4;
+				}
+				t_xscale = image_xscale;
+				t_yscale = image_yscale;
 			}
 		}
 
 
-		image_xscale += (t_xscale - image_xscale)*0.3
-		image_yscale += (t_yscale - image_yscale)*0.3
+		image_xscale += (t_xscale - image_xscale)*0.3;
+		image_yscale += (t_yscale - image_yscale)*0.3;
 
 
-		var xx = camera_get_view_x(view_camera[0])
-		var yy = camera_get_view_y(view_camera[0])
+		var xx = camera_get_view_x(view_camera[0]);
+		var yy = camera_get_view_y(view_camera[0]);
 
-		var xx_w = camera_get_view_width(view_camera[0])
-		var yy_h = camera_get_view_height(view_camera[0])
+		var xx_w = camera_get_view_width(view_camera[0]);
+		var yy_h = camera_get_view_height(view_camera[0]);
 
-		if x < xx+16
+		if (x < xx+16)
 		{
-			x = xx+16
+			x = xx+16;
+		}
+		else if (x > xx+xx_w-16)
+		{
+			x = xx+xx_w-16;
 		}
 
-		if x > xx+xx_w-16
+		if (y > yy+yy_h-16)
 		{
-			x = xx+xx_w-16
+			y = yy+yy_h-16;
 		}
-
-		if y > yy+yy_h-16
+		else if (y < yy+16)
 		{
-			y = yy+yy_h-16
-		}
-
-		if y < yy+16
-		{
-			y = yy+16
+			y = yy+16;
 		}
 
 
 		if abs(global.hmove_speed) <= 0.1
 		{
-			global.hmove_speed = 0
+			global.hmove_speed = 0;
 		}
 
 		if abs(global.vmove_speed) <= 0.1
 		{
-			global.vmove_speed = 0
+			global.vmove_speed = 0;
 		}
 
-		x += global.hmove_speed
-		y += global.vmove_speed
+		x += global.hmove_speed;
+		y += global.vmove_speed;
 
 
-		var random_dash = 0
+		var random_dash = 0;
 		if (global.hmove == 0 && global.vmove == 0 && global.cannot_control == 0)
 		{
-			random_dash = global.dashing
-			image_angle += (0 - image_angle)*0.3
+			random_dash = global.dashing;
+			image_angle += (0 - image_angle)*0.3;
 		}
 
 		global.hmove_speed += (global.hmove*(14+global.dashing*62)+random_dash*64 - global.hmove_speed)*0.3
 		global.vmove_speed += (global.vmove*(14+global.dashing*62) - global.vmove_speed)*0.3
 
 
-		if global.mobile_mode != 1
+		if (global.mobile_mode != 1)
 		{
-			var ff_angle = 180
-			if global.player_skin = 1
+			if (global.hmove == 0 && global.vmove == -1)
 			{
-				ff_angle = 360
+				image_angle = 360
 			}
-	
-			if abs(global.hmove) = 1 && global.vmove = 0
+			else if (global.hmove == 1 && global.vmove == -1)
 			{
-				image_angle = ff_angle
+				image_angle = -45-360
+			}
+			else if (global.hmove == 1 && global.vmove == 0)
+			{
+				image_angle = -90-360
+			}
+			else if (global.hmove == 1 && global.vmove == 1)
+			{
+				image_angle = -135-360
+			}
+			else if (global.hmove == 0 && global.vmove == 1)
+			{
+				image_angle = -180-360
+			}
+			else if (global.hmove == -1 && global.vmove == 1)
+			{
+				image_angle = 135+360
+			}
+			else if (global.hmove == -1 && global.vmove == 0)
+			{
+				image_angle = 90+360
+			}
+			else if (global.hmove == -1 && global.vmove == -1)
+			{
+				image_angle = 45+360
 			}
 
-			if global.hmove = 0 && abs(global.vmove) = 1
-			{
-				image_angle = -ff_angle
-			}
+			
+			
+			
 		
-			if global.hmove != 0 && global.vmove != 0
+
+
+			if (global.hmove == 0 && global.vmove == 0)
 			{
-				image_angle = 45+90*sign(global.vmove+global.hmove)
-				t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)
-				t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)
+				t_xscale = 1;
+				t_yscale = 1;
 			}
 			else
 			{
-				t_xscale = 1+abs(global.hmove)*(0.2+global.dashing*0.5)-abs(global.vmove)*(0.2+global.dashing*0.5)
-				t_yscale = 1-abs(global.hmove)*(0.2+global.dashing*0.5)+abs(global.vmove)*(0.2+global.dashing*0.5)
+				t_xscale = 1-(0.2+global.dashing*0.5);
+				t_yscale = 1+(0.2+global.dashing*0.5);
 			}
 		}
 		else

@@ -3,6 +3,7 @@
 image_speed = 0
 global.hp = 5
 global.b_hp = 0
+global.b_crossed_obstacle_num = 0
 t_xscale = 1
 t_yscale = 1
 

@@ -1,85 +1,57 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if global.b_hp != global.hp
+if (global.b_hp != global.hp || global.crossed_obstacle_num != global.b_crossed_obstacle_num)
 {
-	if global.hp != 0
+	if (global.hp != 0)
 	{
 		global.rank_display_r_alpha = 1;
-		if global.total_died_here = 0
+		if (global.total_damaged == 0)
 		{
-			if global.hp = 5
+			if (global.crossed_obstacle_num <= 10)
 			{
-				global.n_rank_display = "S+"
-			}
-			else if global.hp = 4
-			{
-				global.n_rank_display = "S"
-			}
-			else if (global.hp = 3 || global.hp = 2)
-			{
-				if (global.t_selected_difficulty == 0)
-				{
-					if (global.hp = 3)
-					{
-						global.n_rank_display = "A+"
-					}
-					else
-					{
-						global.n_rank_display = "A"
-					}
-				}
-				else
-				{
-					global.n_rank_display = "A+"
-				}
+				global.n_rank_display = "Perfect!";
 			}
 			else
 			{
-				if (global.t_selected_difficulty == 0)
-				{
-					global.n_rank_display = "A"
-				}
-				else
-				{
-					global.n_rank_display = "B+"
-				}
+				global.n_rank_display = "S+";
 			}
 		}
-		else if global.total_died_here = 1
+		else if (global.total_damaged == 1)
 		{
-			if global.hp >= 3 && global.hp <= 5
-			{
-				global.n_rank_display = "B+"
-			}
-			else
-			{
-				global.n_rank_display = "B"
-			}
+			global.n_rank_display = "S";
 		}
-		else if global.total_died_here = 2
+		else if (global.total_damaged == 2 || global.total_damaged == 3) //2
 		{
-			global.n_rank_display = "C+"
+			global.n_rank_display = "A+";
 		}
-		else if global.total_died_here = 3
+		else if (global.total_damaged >= 4 || global.total_damaged <= 6) //3
 		{
-			global.n_rank_display = "C"
+			global.n_rank_display = "A";
 		}
-		else if global.total_died_here = 4
+		else if (global.total_damaged >= 7 || global.total_damaged <= 10) //4
 		{
-			global.n_rank_display = "C-"
+			global.n_rank_display = "B+";
 		}
-		else if global.total_died_here = 5
+		else if (global.total_damaged >= 11 || global.total_damaged <= 15) //5
 		{
-			global.n_rank_display = "D"
+			global.n_rank_display = "B";
 		}
-		else if global.total_died_here = 6
+		else if (global.total_damaged >= 16 || global.total_damaged <= 21) //6
 		{
-			global.n_rank_display = "D-"
+			global.n_rank_display = "C+";
+		}
+		else if (global.total_damaged >= 22 || global.total_damaged <= 28) //7
+		{
+			global.n_rank_display = "C";
+		}
+		else if (global.total_damaged >= 29 || global.total_damaged <= 36) //8
+		{
+			global.n_rank_display = "D";
 		}
 		else
 		{
-			global.n_rank_display = "F"
+			global.n_rank_display = "F";
 		}
 	}
 	global.b_hp = global.hp;

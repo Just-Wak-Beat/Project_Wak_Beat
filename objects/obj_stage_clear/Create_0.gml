@@ -21,10 +21,7 @@ timer_del = 0
 char_ef_alpha = 0
 char_ef = 0
 
-if (global.hp == 5 && global.crossed_obstacle_num <= 10 && global.n_rank_display == "S+")
-{
-	global.n_rank_display = "Perfect!"
-}
+
 
 rings_alpha = 1
 can_play_animation = 0;

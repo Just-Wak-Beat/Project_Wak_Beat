@@ -18,8 +18,8 @@ global.show_progress_bar = 0
 global.n_progress = 0
 global.show_music_title = 0
 global.automatic_camera_movement = 0
-global.paused = 0
-
+global.paused = 0;
+global.total_damaged = 0;
 instance_activate_all()
 randomize()
 event_user(8)

@@ -14,9 +14,17 @@ if (global.title_menu_animation1 == -1)
 		global.n_map_list++
 	}
 		
-	if global.n_map_list = 2 && global.mobile_mode == 1
+	if (global.n_map_list == 2)
 	{
-		global.n_map_list += sign(global.n_map_list - global.b_map_list)
+		if (global.b_map_list != 2)
+		{
+			load_custom_map_files();
+		}
+		
+		if (global.mobile_mode == 1)
+		{
+			global.n_map_list += sign(global.n_map_list - global.b_map_list)
+		}
 	}
 	
 	if global.n_map_list < 0
@@ -32,5 +40,4 @@ if (global.title_menu_animation1 == -1)
 
 
 	load_musicList(global.n_map_list)
-	load_custom_map_files()
 }

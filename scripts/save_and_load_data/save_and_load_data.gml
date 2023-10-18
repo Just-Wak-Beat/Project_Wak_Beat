@@ -9,8 +9,9 @@ function save_and_load_data(argument0,argument1)
 	var file_name = (global.dev_mode == 1) ? "JWAB_Beta.ini" : "JWAB_OpenBeta.ini"
 	ini_open_protect(file_name)
 
-	if (argument0 == 0)
+	if (argument0 == 0 && global.show_credit <= 0)
 	{
+		show_message_log("유저 데이터 저장 중...");
 		//플레이어 스킨
 		ini_write_real("n_player_skin","none",global.n_player_skin);
 		for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
@@ -74,6 +75,7 @@ function save_and_load_data(argument0,argument1)
 	}
 	else
 	{
+		show_message_log("유저 데이터 불러오는 중...");
 		//플레이어 스킨
 		global.n_player_skin = ini_read_real("n_player_skin","none",-4);
 		global.player_skin = (global.n_player_skin >= 0) ? floor(global.n_player_skin/4) : 0;

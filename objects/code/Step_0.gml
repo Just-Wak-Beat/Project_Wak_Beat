@@ -358,7 +358,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 			var time_sec = floor(global.stage_map_duration[global.n_map_id]/60)
 			var n_time_sec = floor(global.n_progress/60)
 			var album_id = "album"+string(global.n_map_id+1)
-			if global.n_map_id+1 > sprite_get_number(spr_album)-2
+			if (global.n_map_id+1 > sprite_get_number(spr_album)-2)
 			{
 				album_id = "album0"
 			}
@@ -433,7 +433,7 @@ if global.rewind > 0
 	}
 	
 	
-	if (global.rewind = 1 || global.rewind = 21 || global.rewind = 41)
+	if (global.rewind == 1 || global.rewind == 21 || global.rewind == 41)
 	{
 		for(var i = 0; i < 360; i += 45)
 		{
@@ -444,7 +444,7 @@ if global.rewind > 0
 	}
 	
 	
-	if (global.rewind = 162 || global.rewind = 183 || global.rewind = 203)
+	if (global.rewind == 163 || global.rewind == 173 || global.rewind == 183)
 	{
 		for(var i = 0; i < 360; i += 45)
 		{
@@ -628,8 +628,9 @@ if global.rewind > 0
 		
 		if (global.t_selected_difficulty == 0)
 		{
-			global.total_died_here = 0
-			global.crossed_obstacle_num = 0
+			global.total_died_here = 0;
+			global.total_damaged = 0;
+			global.crossed_obstacle_num = 0;
 		}
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
 		global.w_alpha = 1
@@ -644,6 +645,7 @@ if global.rewind > 0
 			global.respawn_point_xx = room_width*0.5;
 			global.respawn_point_yy = room_height*0.5;
 			global.total_died_here = 0;
+			global.total_damaged = 0;
 			global.check_died = 0;
 			global.n_progress = 0;
 			global.n_camera_zoom = 1;

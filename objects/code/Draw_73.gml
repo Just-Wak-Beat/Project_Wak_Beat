@@ -8,6 +8,10 @@ var yy = camera_get_view_y(view_camera[0]);
 
 var xx_w = camera_get_view_width(view_camera[0]);
 var yy_h = camera_get_view_height(view_camera[0]);
+if (global.n_map_id < 0)
+{
+	global.n_map_id = 0;
+}
 
 if (global.n_music_title == "유하")
 {
@@ -54,7 +58,7 @@ if global.n_playing_tutorial != 1 && global.show_rank = 0
 	draw_sprite_ext(spr_player,global.player_skin*7,xx+xx_w*0.29+global.converted_view_ratio*32+global.converted_view_ratio*(1433.6*max_player_pos),yy+global.converted_view_ratio*80,global.converted_view_ratio*0.5,global.converted_view_ratio*0.5,0,c_white,progress_alpha_sec*0.9)
 
 	//progress bar icon
-	if global.low_graphics = false
+	if (global.low_graphics == false)
 	{
 		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1430*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
 		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1436*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
@@ -643,22 +647,23 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	
 	
 	//alpha text
-	draw_text_k_scale(xx+32,global.c_h-140,"Just Wak and Beats ("+string(global.version)+")",64,-1,floor(global.ui_alpha),c_white,0,-1,normal_font,0.5,0.5,0)
-	var __string__ = (global.mobile_mode == 1) ? program_directory : "Presented by ABER"
-	draw_text_k_scale(xx+32,global.c_h-100,__string__,64,-1,floor(global.ui_alpha)*0.6,c_white,0,-1,normal_font,0.4,0.4,0)
-
-
-
-
-	if global.n_sync > 0 && global.dev_mode > 0
+	if (!instance_exists(obj_message_log))
 	{
-		draw_text_k_scale(xx+32,global.c_y+100,"Music Sync : "+string(global.n_sync),64,-1,0,c_white,0,-1,normal_font,0.5,0.5,0)
-	}
+		draw_text_k_scale(xx+32,global.c_h-140,"Just Wak and Beats ("+string(global.version)+")",64,-1,floor(global.ui_alpha),c_white,0,-1,normal_font,0.5,0.5,0)
+		var __string__ = (global.mobile_mode == 1) ? program_directory : "Presented by ABER"
+		draw_text_k_scale(xx+32,global.c_h-100,__string__,64,-1,floor(global.ui_alpha)*0.6,c_white,0,-1,normal_font,0.4,0.4,0)
+	
+
+		if (global.n_sync > 0 && global.dev_mode > 0)
+		{
+			draw_text_k_scale(xx+32,global.c_y+100,"Music Sync : "+string(global.n_sync),64,-1,0,c_white,0,-1,normal_font,0.5,0.5,0)
+		}
 
 
-	if global.mobile_mode = 1
-	{
-		draw_text_k_scale(xx+32,global.c_h-42,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+") ",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
+		if (global.mobile_mode == 1 || is_debug_overlay_open())
+		{
+			draw_text_k_scale(xx+32,global.c_h-42,"Resolution ("+string(display_get_height())+"x"+string(display_get_width())+" / "+string(window_get_height())+"x"+string(window_get_width())+" / "+string(global.font_ratio_resolution_xx)+") ",64,-1,global.ui_alpha,c_white,0,-1,normal_font,0.4,0.4,0)
+		}
 	}
 }
 
@@ -814,18 +819,18 @@ if global.joystick_alpha > 0.01
 if (gamestart == 1)
 {
 	automatic_loading_cancel ++
-	if (automatic_loading_cancel > 300)
+	if (automatic_loading_cancel = 300)
 	{
-		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 파일을 불러오는데 오류가 발생했습니다!",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
-	
-		if (automatic_loading_cancel > 420)
-		{
-			global.back_to_game = 9999
-		}
+		show_message_log("스테이지 파일을 불러오는데 오류가 발생했습니다!")
 	}
-	else
+	else if (automatic_loading_cancel == 1)
 	{
-		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 불러오는 중...",64,-1,1 - global.ui_alpha,c_white,0,-1,normal_font,0.5,0.5,0)
+		show_message_log("스테이지 불러오는 중...");
+	}
+	
+	if (automatic_loading_cancel > 420)
+	{
+		global.back_to_game = 9999
 	}
 }
 

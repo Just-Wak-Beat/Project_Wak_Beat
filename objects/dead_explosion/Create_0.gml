@@ -14,3 +14,5 @@ else
 	image_xscale = 1
 	image_yscale = 1
 }
+
+can_des_me = instance_number(dead_explosion)

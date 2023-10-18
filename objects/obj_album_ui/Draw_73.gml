@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-var color_table = [ $FF4AB539,#8a2be2,#95c100,#5c89ce,#443965,#ff008c,#f0a957 ];
+var color_table = [ $FF4AB539,#8a2be2,#77716a,#5c89ce,#443965,#ff008c,#f0a957 ];
 var ui_alpha__cal = global.ui_alpha
 if ui_alpha__cal > 1
 {
@@ -510,14 +510,14 @@ if instance_exists(code)
 				{
 					if (n_is_selected == 1.3)
 					{
-						var tmp_n_col = color_table[floor(round(global.n_select_skin)/4)];
+						var tmp_n_col = color_table[global.t_n_select_skin/4];
 						var _margin = 8
-						shader_set(shFlash)
-						for(var k = -7; k < 3; k++)
+						if (abs(global.t_n_select_skin - global.n_select_skin) < 0.5)
 						{
-							draw_sprite_ext(spr_illustrationCG,i,k*(1-(global.n_select_skin-i)*30)+middle_xx-n_skin__*640+i*640-_margin,middle_yy+256*_dis_scale*1.3,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,tmp_n_col,__alpha*_dis_scale*0.1*(1+abs(global.n_select_skin-i)*10))
+							shader_set(shFlash)
+							draw_sprite_ext(spr_illustrationCG,i,7*(1-(global.n_select_skin-i)*30)+middle_xx-n_skin__*640+i*640-_margin,middle_yy+256*_dis_scale*1.3,global.font_ratio_resolution_xx*_dis_scale*1.3,_dis_scale*1.3,0,tmp_n_col,__alpha*_dis_scale*(1+abs(global.n_select_skin-i)*10))
+							shader_reset()
 						}
-						shader_reset()
 						
 						draw_text_k_scale(middle_xx,yy+yy_h*0.76,skin_name,scale*48,-1,__alpha*0.7*_dis_scale,merge_color(tmp_n_col,c_white,0.7-abs(i-global.n_select_skin)/1.5),0,0,normal_font,0.28*global.font_ratio_resolution_xx*scale*_dis_scale,0.28*scale*_dis_scale,0)
 					}
@@ -859,7 +859,7 @@ if instance_exists(code)
 					global.player_leaderboard_difficulty--
 					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 
-					code.automatic_reload_player_leaderboard = 1
+					code.automatic_reload_player_leaderboard = 1;
 				}
 				else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down))
 				{
@@ -867,7 +867,7 @@ if instance_exists(code)
 					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 
 
-					code.automatic_reload_player_leaderboard = 1
+					code.automatic_reload_player_leaderboard = 1;
 				}
 				else if (global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left)))
 				{
@@ -1108,19 +1108,3 @@ if (global.title_menu_animation1 >= 1)
 /**/
 
 
-
-if (instance_exists(code))
-{
-	if (code.automatic_reload_player_leaderboard > 0)
-	{
-		draw_text_k_scale(xx+32,global.c_h-100,"유저 랭킹 불러오는 중...",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
-	}
-	else if (code.automatic_reload_leaderboard > 0)
-	{
-		draw_text_k_scale(xx+32,global.c_h-100,"스테이지 랭킹 불러오는 중...",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
-	}
-	else if (global.loading_progress > 0)
-	{
-		draw_text_k_scale(xx+32,global.c_h-100,"디스코드에 현재 활동 표기 중...",64,-1,1,c_white,0,-1,normal_font,0.5,0.5,0)
-	}
-}

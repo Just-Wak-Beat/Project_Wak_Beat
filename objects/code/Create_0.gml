@@ -13,6 +13,7 @@ global.font_ratio_resolution_xx = 1
 global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
 global.nickname = ""
 global.dashed = 0
+global.total_damaged = 0
 //메인메뉴 애니메이션 재생
 global.show_title_menu = 1;
 global.title_menu_animation1 = 0;
@@ -35,6 +36,7 @@ alarm[11] = 1
 
 
 //텍스쳐 및 오디오 로딩
+show_message_log("리소스 불러오는 중... (일부 노래가 들리지 않는다면 게임을 재시작 해주세요)");
 for(var i = 0; i <= 4; i++)
 {
 	audio_group_load(i);
@@ -49,6 +51,7 @@ texturegroup_load("effects")
 
 
 //discord presence
+show_message_log("디스코드에 현재 활동 표기 중...");
 #macro DISCORD_APP_ID "1073730369964220527"
 
 ready = false;
@@ -151,7 +154,6 @@ global.t_selected_difficulty = 1 //맵 난이도 설정 (1 == 노말)
 global.crossed_obstacle_num = 0
 
 global.music_duration = 99999
-global.loading_progress = 1
 global.bpm = 172
 load_data_timer = 0
 loading_now_progress = 0
@@ -166,6 +168,7 @@ global.n_player_skin = -4
 global.n_select_skin = 0
 global.t_n_select_skin = 0
 global.acquired_skin = -4
+
 for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 {
 	global.unlocked_player_skin[i] = 0;
@@ -957,6 +960,7 @@ global.b_t_select_map = 0
 load_musicList(0)
 n_stage = 0
 event_user(7)
+
 
 
 

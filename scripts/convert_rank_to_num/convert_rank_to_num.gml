@@ -2,8 +2,8 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function convert_rank_to_num(argument0)
 {
-var _n_rank = argument0;
-var _n_rank_real = 0;
+	var _n_rank = argument0;
+	var _n_rank_real = 0;
 	if _n_rank = "Perfect!"
 	{
 		_n_rank_real = 15

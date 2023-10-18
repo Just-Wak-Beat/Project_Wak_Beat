@@ -27,7 +27,7 @@ if (global.rewind >= 162)
 	}
 	
 	
-	if (abs(x-obj_player.died_xx) < 0.1)
+	if (abs(x-obj_player.died_xx) < 0.1 || (global.rewind > 220 && place_meeting(x,y,dead_explosion) && can_des_me > 4))
 	{
 		instance_destroy()
 	}

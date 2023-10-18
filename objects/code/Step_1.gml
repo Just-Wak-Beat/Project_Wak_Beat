@@ -66,6 +66,7 @@ if (automatic_reload_player_leaderboard > 0)
 {
 	if (automatic_reload_player_leaderboard == 1)
 	{
+		show_message_log("온라인 서버 연결 중...");
 		for(var i = 0; i < global.total_map; i++)
 		{
 			global.unlocked_music_name_new_list[i] = "";
@@ -139,10 +140,12 @@ if (automatic_reload_player_leaderboard > 0)
 		save_and_load_data(0,0);
 	}
 	
+
 	if (automatic_reload_player_leaderboard >= 150)
 	{
 		if !ds_list_empty(global.gmscoreboard_scores)
 		{
+			show_message_log("유저 랭킹 불러오는 중...");
 			event_user(9);
 			automatic_reload_player_leaderboard = 0;
 			if (global.automatic_load_ranking == 1)
@@ -172,6 +175,8 @@ if (automatic_reload_leaderboard > 0)
 
 	if (automatic_reload_leaderboard == 2)
 	{
+		show_message_log("온라인 서버 연결 중...");
+		
 		for(var i = 0; i < global.total_map; i++)
 		{
 			global.unlocked_music_name_new_list[i] = "";
@@ -197,6 +202,7 @@ if (automatic_reload_leaderboard > 0)
 	
 	if (automatic_reload_leaderboard == 170)
 	{
+		show_message_log("스테이지 랭킹 불러오는 중...");
 		var temp_nickname = string_replace_all(global.nickname," ","")
 		if (global.dev_mode == 1)
 		{
@@ -401,6 +407,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 		global.scroll_n_m_yy = -1
 		global.hp = 5
 		global.total_died_here = 0;
+		global.total_damaged = 0;
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		audio_stop_sound(global.n_music_instance)
 		timeline_running = false

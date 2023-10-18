@@ -4,7 +4,6 @@ function load_custom_map_files()
 {
 	for(var i = 0; i < load_custom_map_num(); i++)
 	{
-
 		var audio_file = "already_loaded"
 		ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+".ini")
 		if !audio_exists(global.custom_audio_asset[i])
@@ -39,6 +38,7 @@ function load_custom_map_files()
 			global.custom_stage_album[i] = sprite_add(string(global.custom_map_directory)+"custom_map_album_"+string(i+1)+".png",0,false,false,256,256)
 		}
 		
+		show_message_log("커스텀 곡 불러오는 중... ("+string(global.custom_stage_map_audio_name[i])+")");
 		show_debug_message(string(global.custom_stage_map_audio_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))
 		ini_close()
 	}

@@ -12,43 +12,33 @@ if (global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9))
 	{
 		if invincibility_cooltime <= 0
 		{
-			//for(var i = 1; i <= abs(global.hmove_speed)+1; i++)
-			//{
-				//for(var ii = 1; ii <= abs(global.vmove_speed)+1; ii++)
-				//{
-					//if instance_exists(_placed_obj) && _placed_obj.image_alpha >= 0.95
-					//{
-						hurt = _placed_obj
-						hurt_hspeed = global.hmove_speed
-						hurt_vspeed = global.vmove_speed
+			hurt = _placed_obj
+			hurt_hspeed = global.hmove_speed
+			hurt_vspeed = global.vmove_speed
 			
 			
-						if invincibility_cooltime != 90
-						{
-							kirakira_effect = 1;
-							w_alpha = 2;
-							global.hp -= sign(global.show_progress_bar);
-							global.blackout_alpha = 1;
-							invincibility_cooltime = 90;
-							show_invincibility = 1;
-							audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6);
+			if invincibility_cooltime != 90
+			{
+				global.total_damaged ++;
+				kirakira_effect = 1;
+				w_alpha = 2;
+				global.hp -= sign(global.show_progress_bar);
+				global.blackout_alpha = 1;
+				invincibility_cooltime = 90;
+				show_invincibility = 1;
+				audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6);
 			
-							repeat(irandom_range(8,10))
-							{
-								var random_x = irandom_range(-24,24)
-								var random_y = irandom_range(-24,24)
-								var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
-								effect_.image_xscale = 0.3
-								effect_.image_yscale = 0.3
-								effect_.direction = point_direction(x,y,x+random_x,y+random_y)
-								effect_.speed = 24
-								effect_.image_blend = global.player_color
-							}
-						//}
-						//break;
-						//break;
-					//}
-				//}
+				repeat(irandom_range(4,5))
+				{
+					var random_x = irandom_range(-24,24)
+					var random_y = irandom_range(-24,24)
+					var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
+					effect_.image_xscale = 0.6
+					effect_.image_yscale = 0.6
+					effect_.direction = point_direction(x,y,x+random_x,y+random_y)
+					effect_.speed = 24
+					effect_.image_blend = global.player_color
+				}
 			}
 		}
 		else

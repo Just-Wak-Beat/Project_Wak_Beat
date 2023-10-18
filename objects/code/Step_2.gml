@@ -271,9 +271,13 @@
 				{
 					var _spotlight1_laser = create_laser(spotlight1.x,spotlight1.y,1,10,0.1,0,2,angle__1)
 					_spotlight1_laser.image_angle = angle__1+45
+					
+					create_arrow_laser(spotlight1.x,spotlight1.y,depth,0.5,angle__1+90,64,1,3,1)
 		
 					var _spotlight2_laser = create_laser(spotlight2.x,spotlight2.y,1,10,0.1,0,2,angle__2)
 					_spotlight2_laser.image_angle = angle__2-45
+					
+					create_arrow_laser(spotlight2.x,spotlight2.y,depth,0.5,angle__2+45,64,1,3,1)
 		
 					spotlight1.w_alpha = 1
 					spotlight1.image_xscale *= 0.95

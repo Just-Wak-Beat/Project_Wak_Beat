@@ -29,7 +29,7 @@ clock_hitbox_3.w_alpha = 1
 clock_hitbox.w_alpha = 1
 view_shake(0.1,3,0,0)
 global.w_alpha = 10
-set_hitbox_color(#9bbcbb,1,room_width*0.5,room_height*0.5);
+set_hitbox_color(c_black,1,room_width*0.5,room_height*0.5);
 
 
 

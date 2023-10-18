@@ -10,15 +10,19 @@ if (first_created == 1)
 direction += (image_angle - direction)*0.005
 
 
+if (global.rewind > 0)
+{
+	instance_destroy();
+}
 
 if stop_create > 0
 {
-stop_create++
+	stop_create++
 }
 else
 {
 	var _image_scale = 512
-	if x+_image_scale < global.c_x || x-_image_scale > global.c_w || y+_image_scale < global.c_y || y-_image_scale > global.c_h
+	if (x+_image_scale < global.c_x || x-_image_scale > global.c_w || y+_image_scale < global.c_y || y-_image_scale > global.c_h)
 	{
 		stop_create = 1
 	}
