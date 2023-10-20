@@ -671,10 +671,10 @@ if (global.rank_display_alpha > 0 && global.tutorial_played > 0 && ((instance_ex
 {
 	var temp_col = merge_color(merge_color(c_white,#bf1a5c,global.rank_display_r_alpha),global.player_color,global.rank_display_b_alpha);
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+(global.rank_display_r_alpha+global.rank_display_b_alpha)*0.5)
-	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
+	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx*global.converted_view_ratio,font_size____*global.converted_view_ratio,0)
 	
 	var temp_score = ((convert_rank_to_num(global.n_rank_display))*100+global.crossed_obstacle_num)*100
-	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(temp_score)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
+	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(temp_score)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx*global.converted_view_ratio,0.7*font_size____*global.converted_view_ratio,0)
 }
 
 
@@ -815,23 +815,11 @@ if global.joystick_alpha > 0.01
 
 
 
-//로딩이 너무 긴 경우, 자동 캔슬
-if (gamestart == 1)
+
+//블랙아웃 카메라 효과
+if (global.blackout_effect_alpha > 0)
 {
-	automatic_loading_cancel ++
-	if (automatic_loading_cancel = 300)
-	{
-		show_message_log("스테이지 파일을 불러오는데 오류가 발생했습니다!")
-	}
-	else if (automatic_loading_cancel == 1)
-	{
-		show_message_log("스테이지 불러오는 중...");
-	}
-	
-	if (automatic_loading_cancel > 420)
-	{
-		global.back_to_game = 9999
-	}
+	draw_sprite_ext(camera_effect_blackout,0,xx,yy,global.n_camera_zoom,global.n_camera_zoom,0,c_white,global.blackout_effect_alpha*0.3)
 }
 
 

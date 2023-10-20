@@ -5,8 +5,8 @@ if (global.rewind >= 162)
 {
 	speed += (0 - speed)*0.02
 	image_alpha += (1 - image_alpha)*0.1
-	image_xscale += (1 - image_xscale)*0.05
-	image_yscale += (1 - image_yscale)*0.05
+	image_xscale += (0.8 - image_xscale)*0.05
+	image_yscale += (0.8 - image_yscale)*0.05
 	if (global.rewind <= 200)
 	{
 		x += (obj_player.died_xx - x)*0.08;

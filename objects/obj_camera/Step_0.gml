@@ -36,6 +36,18 @@ else
 }
 
 
+if (global.blackout_effect > 0)
+{
+	blackout_alpha_effect += 0.01;
+	global.blackout_effect_alpha += (1+(1+sin(blackout_alpha_effect))*0.7 - global.blackout_effect_alpha)*0.1
+}
+else
+{
+	blackout_alpha_effect += (0 - blackout_alpha_effect)*0.1;
+	global.blackout_effect_alpha += (-0.01 - global.blackout_effect_alpha)*0.1
+}
+
+
 depth = 999999
 
 if (global.show_rank > 0)

@@ -2,6 +2,7 @@ global.w_alpha = 1
 global.t_w_alpha = 1
 global.t_map_speed = 0
 global.map_speed = 0
+global.blackout_effect = 0
 instance_destroy(hitbox_14)
 
 var scale = 2

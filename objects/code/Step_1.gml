@@ -2,6 +2,26 @@
 // You can write your code in this editor
 
 
+//로딩이 너무 긴 경우, 자동 캔슬
+if (gamestart == 1)
+{
+	automatic_loading_cancel ++
+	if (automatic_loading_cancel = 300)
+	{
+		show_message_log("스테이지 파일을 불러오는데 오류가 발생했습니다!")
+	}
+	else if (automatic_loading_cancel == 1)
+	{
+		show_message_log("스테이지 불러오는 중...");
+	}
+	
+	if (automatic_loading_cancel > 420)
+	{
+		global.back_to_game = 9999
+	}
+}
+
+
 //메인메뉴 컬러 애니메이션 효과
 if (instance_exists(obj_album_ui))
 {

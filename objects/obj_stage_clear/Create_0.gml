@@ -7,7 +7,7 @@ image_speed = 0
 outside_timer = 0
 effect_rad = 0
 global.t_bg_color = -0.01
-
+global.result_rank = global.n_rank_display
 w_alpha = 0
 direction = point_direction(x,y,obj_player.x,obj_player.y)+irandom_range(-45,45)
 t_speed = 0

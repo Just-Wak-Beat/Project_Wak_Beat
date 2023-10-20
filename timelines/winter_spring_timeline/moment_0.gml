@@ -1,4 +1,5 @@
 
+global.blackout_effect = 1;
 global.t_bg_color = 0.03
 global.t_bg_color_alpha = 0
 global.background_color = #a594e4

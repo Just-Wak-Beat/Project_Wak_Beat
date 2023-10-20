@@ -55,4 +55,5 @@ if (global.b_hp != global.hp || global.crossed_obstacle_num != global.b_crossed_
 		}
 	}
 	global.b_hp = global.hp;
+	global.b_crossed_obstacle_num = global.crossed_obstacle_num;
 }

@@ -21,7 +21,11 @@ function convert_score_to_rank(argument0,argument1)
 			}
 		}
 		
-		if (tmp_score < 15 && tmp_score >= 14)
+		if (tmp_score < 16 && tmp_score >= 15)
+		{
+			tmp_rank = "Perfect!";
+		}
+		else if (tmp_score < 15 && tmp_score >= 14)
 		{
 			tmp_rank = "S+";
 		}

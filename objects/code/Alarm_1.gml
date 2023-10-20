@@ -8,82 +8,8 @@ if global.t_selected_difficulty == 0 //하드 코어 모드
 	
 global.overtime_highlight_song = 0
 
-var target_rank = "--";
-if global.total_died_here = 0
-{
-	if global.hp == 5
-	{
-		target_rank = "S+"
-	}
-	else if global.hp == 4
-	{
-		target_rank = "S"
-	}
-	else if (global.hp == 3 || global.hp == 2)
-	{
-		if (global.t_selected_difficulty == 0)
-		{
-			if (global.hp = 3)
-			{
-				target_rank = "A+"
-			}
-			else
-			{
-				target_rank = "A"
-			}
-		}
-		else
-		{
-			target_rank = "A+"
-		}
-	}
-	else
-	{
-		if (global.t_selected_difficulty == 0)
-		{
-			target_rank = "A"
-		}
-		else
-		{
-			target_rank = "B+"
-		}
-	}
-}
-else if global.total_died_here == 1
-{
-	if global.hp >= 3 && global.hp <= 5
-	{
-		target_rank = "B+"
-	}
-	else
-	{
-		target_rank = "B"
-	}
-}
-else if global.total_died_here == 2
-{
-	target_rank = "C+"
-}
-else if global.total_died_here == 3
-{
-	target_rank = "C"
-}
-else if global.total_died_here == 4
-{
-	target_rank = "C-"
-}
-else if global.total_died_here == 5
-{
-	target_rank = "D"
-}
-else if global.total_died_here == 6
-{
-	target_rank = "D-"
-}
-else
-{
-	target_rank = "F"
-}
+var target_rank = global.result_rank;
+
 
 
 
@@ -223,7 +149,6 @@ else
 
 global.result_exp = temp_score
 global.result_score = temp_score
-global.result_rank = global.n_rank_display
 global.result_obstacle = global.crossed_obstacle_num
 
 

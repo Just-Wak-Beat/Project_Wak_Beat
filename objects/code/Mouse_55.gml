@@ -9,4 +9,16 @@
 
 
 
-create_bounce_ball(irandom_range(global.c_x,global.c_w),global.c_y,0.8,15,270+irandom_range(-30,30),5)
+//create_bounce_ball(irandom_range(global.c_x,global.c_w),global.c_y,0.8,15,270+irandom_range(-30,30),5)
+
+
+if (global.map_color != #1f1f1f)
+{
+	set_hitbox_color(#1f1f1f,0,room_width*0.5,room_height*0.5);
+	set_bg_color_with_effect(#dfdfdf,room_width*0.5,room_height*0.5,1);
+}
+else
+{
+	set_hitbox_color(#5595ff,0,room_width*0.5,room_height*0.5);
+	set_bg_color_with_effect(#5595ff,room_width*0.5,room_height*0.5,0.3);
+}

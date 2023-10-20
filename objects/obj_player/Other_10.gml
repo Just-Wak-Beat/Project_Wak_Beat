@@ -18,14 +18,14 @@ _ef.image_yscale = 1
 _ef.t_scale = 2
 _ef.image_blend = global.player_color
 
-	repeat(irandom_range(8,10)*2)
+	repeat(irandom_range(4,6))
 	{
-		var random_x = irandom_range(-16,16)-global.hmove_speed*2
-		var random_y = irandom_range(-16,16)-global.vmove_speed*2
-		var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
-		effect_.image_xscale = 0.3
-		effect_.image_yscale = 0.3
-		effect_.direction = point_direction(x,y,x+random_x,y+random_y)
-		effect_.speed = 16
-		effect_.image_blend = global.player_color
+		var angle = point_direction(x+global.hmove_speed,y+global.vmove_speed,x,y)+irandom_range(-35,35);
+		var effect_ = instance_create_depth(x+irandom_range(-16,16),y+irandom_range(-16,16),depth+1,movement_effect);
+		effect_.image_xscale = 0.6;
+		effect_.image_yscale = 0.6;
+		effect_.direction = angle;
+		effect_.speed = 48;
+		effect_.image_angle = angle;
+		effect_.image_blend = global.player_color;
 	}

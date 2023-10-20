@@ -76,6 +76,7 @@ if (global.paused == 0)
 				var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
 				effect_.image_xscale = 0.3
 				effect_.image_yscale = 0.3
+				effect_.image_angle = image_angle
 				effect_.direction = point_direction(x,y,x+random_x,y+random_y)
 				effect_.speed = 16
 				effect_.image_blend = global.player_color
@@ -136,6 +137,7 @@ if (global.paused == 0)
 					effect_.image_yscale = 0.3;
 					effect_.direction = point_direction(x,y,x+random_x,y+random_y);
 					effect_.speed = 16;
+					effect_.image_angle = image_angle
 					effect_.image_blend = global.player_color;
 				}
 				
@@ -277,6 +279,7 @@ if (global.paused == 0)
 			effect_.vspeed = -global.vmove_speed*1.2
 			effect_.hspeed = -global.hmove_speed*1.2
 			effect_.image_blend = global.player_color
+			effect_.image_angle = image_angle
 		}
 
 

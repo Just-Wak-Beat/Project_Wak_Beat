@@ -37,6 +37,7 @@ if (global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9))
 					effect_.image_yscale = 0.6
 					effect_.direction = point_direction(x,y,x+random_x,y+random_y)
 					effect_.speed = 24
+					effect_.image_angle = image_angle
 					effect_.image_blend = global.player_color
 				}
 			}

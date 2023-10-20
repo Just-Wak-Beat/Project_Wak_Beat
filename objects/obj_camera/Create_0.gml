@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+global.stack_bg_animations = 0
 global.automatic_camera_movement = 0
 global.auto_camera_move_xx = 0
 global.auto_camera_move_yy = 0
@@ -14,6 +14,10 @@ global.t_shake_y = 0
 global.shake_time = 0
 global.real_shake_x = 0
 global.real_shake_y = 0
+
+global.blackout_effect = 0
+global.blackout_effect_alpha = 0
+blackout_alpha_effect = 0
 
 v_x = 3584
 v_y = 2016
