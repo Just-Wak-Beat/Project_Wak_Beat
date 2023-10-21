@@ -2,6 +2,8 @@
 // You can write your code in this editor
 if (global.dev_mode == 1)
 {
+	obj_album_ui.result_alpha1 = 0
+	obj_album_ui.result_alpha2 = 0
 	var check_new_song = 0;
 	global.notice_title = "Result";
 	var temp_highscore = (global.t_selected_difficulty == 1) ? global.real_n_score[global.n_map_id] : global.real_n_score_hardcore[global.n_map_id];

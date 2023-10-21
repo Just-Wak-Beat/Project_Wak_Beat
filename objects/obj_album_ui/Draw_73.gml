@@ -738,18 +738,30 @@ if instance_exists(code)
 						
 			if (global.show_new_songs > 60)
 			{
-				global.n_progress_artifact += (tmp_val+0.01 - global.n_progress_artifact)*0.1
-				global.n_progress_artifact = (global.n_progress_artifact > 1) ? 1 : global.n_progress_artifact;
-			}
-			else
-			{
-				global.n_progress_artifact = 0;
+				result_alpha1 += (1 - result_alpha1)*0.1
+				if (result_alpha1 < 0.999)
+				{
+					if (!audio_is_playing(setting_scroll_sfx))
+					{
+						audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
+					}
+				}
+				
+				if (result_alpha1 > 0)
+				{
+					global.n_progress_artifact += (tmp_val+0.01 - global.n_progress_artifact)*0.1
+					global.n_progress_artifact = (global.n_progress_artifact > 1) ? 1 : global.n_progress_artifact;
+				}
+				else
+				{
+					global.n_progress_artifact = 0;
+				}
 			}
 						
-			draw_sprite_ext(spr_W,tmp_art_type,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.72-global.new_song_scroll,0.2*global.font_ratio_resolution_xx,0.2,0,c_white,global.show_new_songs/100)
-			draw_text_k_scale(middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+128,yy+yy_h*0.7-global.new_song_scroll,"아티팩트 수집률 ("+string(floor(global.n_progress_artifact*100))+"%)",scale*48,-1,global.show_new_songs/100,c_white,0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
-			draw_sprite_ext(spr_level_bar,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,0,#171628,global.show_new_songs/100)
-			draw_sprite_part_ext(spr_level_bar,0,0,0,global.n_progress_artifact*1760,64,middle_xx-1760*0.5*0.7*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,color_table[tmp_art_type],global.show_new_songs/160)
+			draw_sprite_ext(spr_W,tmp_art_type,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.72-global.new_song_scroll,0.2*global.font_ratio_resolution_xx,0.2,0,c_white,result_alpha1)
+			draw_text_k_scale(middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+128,yy+yy_h*0.7-global.new_song_scroll,"아티팩트 수집률 ("+string(floor(global.n_progress_artifact*100))+"%)",scale*48,-1,result_alpha1,c_white,0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+			draw_sprite_ext(spr_level_bar,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,0,#171628,result_alpha1)
+			draw_sprite_part_ext(spr_level_bar,0,0,0,global.n_progress_artifact*1760,64,middle_xx-1760*0.5*0.7*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,color_table[tmp_art_type],result_alpha1)
 						
 						
 				
@@ -773,20 +785,24 @@ if instance_exists(code)
 						
 			if (can_show_top_ten == 1)
 			{	
-				if (global.show_new_songs > 60)
+				if (result_alpha1 > 0.7)
 				{
-					global.n_progress_score += (tmp_val2+0.01 - global.n_progress_score)*0.1
-					global.n_progress_score = (global.n_progress_score > 1) ? 1 : global.n_progress_score;
-				}
-				else
-				{
-					global.n_progress_score = 0;
+					result_alpha2 += (1 - result_alpha2)*0.1
+					if (result_alpha2 > 0)
+					{
+						global.n_progress_score += (tmp_val2+0.01 - global.n_progress_score)*0.1
+						global.n_progress_score = (global.n_progress_score > 1) ? 1 : global.n_progress_score;
+					}
+					else
+					{
+						global.n_progress_score = 0;
+					}
 				}
 
-				draw_sprite_ext(spr_star,tmp_art_type,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.82-global.new_song_scroll,0.18*global.font_ratio_resolution_xx,0.18,0,c_white,global.show_new_songs/100)
-				draw_text_k_scale(middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+128,yy+yy_h*0.8-global.new_song_scroll,string(tmp_str2),scale*48,-1,global.show_new_songs/100,c_white,0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
-				draw_sprite_ext(spr_level_bar,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx,yy+yy_h*0.85-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,0,#171628,global.show_new_songs/100)
-				draw_sprite_part_ext(spr_level_bar,0,0,0,global.n_progress_score*1760,64,middle_xx-1760*0.5*0.7*global.font_ratio_resolution_xx,yy+yy_h*0.85-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,$FF56D2FF,global.show_new_songs/160)
+				draw_sprite_ext(spr_star,tmp_art_type,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.82-global.new_song_scroll,0.18*global.font_ratio_resolution_xx,0.18,0,c_white,result_alpha2)
+				draw_text_k_scale(middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+128,yy+yy_h*0.8-global.new_song_scroll,string(tmp_str2),scale*48,-1,result_alpha2,c_white,0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
+				draw_sprite_ext(spr_level_bar,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx,yy+yy_h*0.85-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,0,#171628,result_alpha2)
+				draw_sprite_part_ext(spr_level_bar,0,0,0,global.n_progress_score*1760,64,middle_xx-1760*0.5*0.7*global.font_ratio_resolution_xx,yy+yy_h*0.85-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,$FF56D2FF,result_alpha2)
 			}
 		}
 	

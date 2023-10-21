@@ -66,3 +66,7 @@ rank_temp_val2 = 0
 anime_tuto_key_timer = 0
 anime_tuto_key1_alpha = 0
 anime_tuto_key2_alpha = 0
+
+//result alpha
+result_alpha1 = 0;
+result_alpha2 = 0;

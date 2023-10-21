@@ -80,12 +80,30 @@ else
 	}
 }
 
+if (automatic_reload_leaderboard <= 0 && automatic_reload_player_leaderboard <= 0)
+{
+	if (global.cannot_connect > 0)
+	{
+		global.cannot_connect -= 0.05;
+	}
+}
+else
+{
+	if (global.cannot_connect >= 20)
+	{
+		automatic_reload_leaderboard = 0;
+		automatic_reload_player_leaderboard = 0;
+		show_message_log("온라인 서버에 연결할 수 없습니다. 잠시 후 다시 시도 해주세요. ("+string(round(1+(global.cannot_connect-10)/3))+"s)");
+	}
+}
+
 
 //자동 리로드 플레이어 전체 리더보드
 if (automatic_reload_player_leaderboard > 0)
 {
 	if (automatic_reload_player_leaderboard == 1)
 	{
+		global.cannot_connect += 1+global.cannot_connect;
 		show_message_log("온라인 서버 연결 중...");
 		for(var i = 0; i < global.total_map; i++)
 		{
@@ -195,6 +213,7 @@ if (automatic_reload_leaderboard > 0)
 
 	if (automatic_reload_leaderboard == 2)
 	{
+		global.cannot_connect += 1+global.cannot_connect;
 		show_message_log("온라인 서버 연결 중...");
 		
 		for(var i = 0; i < global.total_map; i++)
