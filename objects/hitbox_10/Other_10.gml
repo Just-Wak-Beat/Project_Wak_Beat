@@ -11,5 +11,6 @@ if sprite_index != spr_circle_half && sprite_index != spr_triangle_half
 	effect_.speed = 24
 	effect_.image_blend = global.map_color
 	effect_.sprite_index = spr_circle
-	effect_.image_alpha = 2
+	effect_.image_alpha = 1
+	effect_.image_alpha = 0.8;
 }

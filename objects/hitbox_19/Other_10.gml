@@ -21,7 +21,7 @@ for(var i = 0; i < 360; i += 20-(1-global.t_selected_difficulty)*10)
 {
 	var attack_ef = instance_create_depth(x,y,depth+1,hitbox_2)
 	attack_ef.direction = i
-	attack_ef.speed = 24
+	attack_ef.speed = 20
 	attack_ef.keep_spin_angle = keep_spin_angle
 	attack_ef.image_xscale = 0.4
 	attack_ef.image_yscale = 0.4

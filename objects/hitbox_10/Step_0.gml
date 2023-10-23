@@ -151,7 +151,7 @@ if audio_is_playing(gungsirung)
 		{
 			var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
 			attack_ef.direction = i+image_angle
-			attack_ef.speed = 24
+			attack_ef.speed = 20
 			attack_ef.keep_spin_angle = 2
 			attack_ef.image_xscale = 0.3
 			attack_ef.image_yscale = 0.3
@@ -196,7 +196,7 @@ if sprite_index == spr_star
 		effect_.speed = 24
 		effect_.image_blend = global.map_color
 		effect_.sprite_index = spr_circle
-		effect_.image_alpha = 2
+		effect_.image_alpha = 1
 	}
 	
 	if random_val >= 90

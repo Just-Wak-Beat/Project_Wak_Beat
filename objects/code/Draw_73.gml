@@ -305,6 +305,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 									effect_.direction = 90
 									effect_.speed = 16-global.fav_anime*10
 									effect_.image_blend = c_white
+									effect_.image_alpha = 0.8;
 								}
 							}
 						}

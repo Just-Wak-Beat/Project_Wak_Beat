@@ -21,6 +21,9 @@ master_bpm_timer = (3600/global.bpm)+global.music_sync_offset*60;
 global.happysegu_effect1 = 0;
 global.happysegu_effect2 = 0;
 global.happysegu_effect3 = 1;
+
+set_hitbox_color(#52bcfe,0,room_width*0.5,room_height*0.5);
+set_bg_color_with_effect(#52bcfe,room_width*0.5,room_height*0.5,0.4);
 global.t_bg_color = 0.4
 global.t_bg_color_alpha = 0.4
 

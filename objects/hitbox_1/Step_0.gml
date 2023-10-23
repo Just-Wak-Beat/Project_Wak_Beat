@@ -41,7 +41,7 @@ w_alpha = 1
 	{
 	var attack_ef = instance_create_depth(x,y,depth+1,hitbox_2)
 	attack_ef.direction = i
-	attack_ef.speed = 24
+	attack_ef.speed = 20
 	attack_ef.keep_spin_angle = 2
 	attack_ef.image_xscale = 0.4
 	attack_ef.image_yscale = 0.4
@@ -59,7 +59,7 @@ image_angle = t_angle
 	{
 	var attack_ef = instance_create_depth(x,y+attack_n_dir,depth+1,hitbox_2)
 	attack_ef.direction = image_angle
-	attack_ef.speed = 24
+	attack_ef.speed = 20
 	attack_ef.keep_spin_angle = 2
 	attack_ef.image_xscale = 0.4
 	attack_ef.image_yscale = 0.4

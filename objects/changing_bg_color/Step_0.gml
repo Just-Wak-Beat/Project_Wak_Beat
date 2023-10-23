@@ -7,7 +7,7 @@ image_alpha += (0 - image_alpha)*0.2;
 if (image_xscale >= 5)
 {
 	global.background_color = image_blend;
-	global.t_bg_color = alpha;
+	//global.t_bg_color = alpha;
 	global.t_bg_color_alpha = alpha;
 	if (instance_number(changing_bg_color) == 1)
 	{

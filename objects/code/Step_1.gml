@@ -25,7 +25,14 @@ if (gamestart == 1)
 //메인메뉴 컬러 애니메이션 효과
 if (instance_exists(obj_album_ui))
 {
-	global.map_color = merge_color(global.map_color,global.map_color_tmp,0.12);
+	if (get_dis_color(global.map_color,global.map_color_tmp) < 7)
+	{
+		global.map_color = global.map_color_tmp;
+	}
+	else
+	{
+		global.map_color = merge_color(global.map_color,global.map_color_tmp,0.12);
+	}
 	global.background_color = merge_color(global.map_color,c_black,0.9);
 }
 

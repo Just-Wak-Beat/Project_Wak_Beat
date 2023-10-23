@@ -163,7 +163,7 @@
 				{
 				var attack_ef = instance_create_depth(_xx_,_yy_,depth+1,hitbox_2)
 				attack_ef.direction = hitbox_11.image_angle+i*90
-				attack_ef.speed = 24
+				attack_ef.speed = 20
 				attack_ef.keep_spin_angle = 2
 				attack_ef.image_xscale = 0.4
 				attack_ef.image_yscale = 0.4
@@ -444,7 +444,7 @@
 				{
 					var attack_ef = instance_create_depth(global.c_w,irandom_range(global.c_y+320,global.c_h-320),depth+1,hitbox_2)
 					attack_ef.direction = 180
-					attack_ef.speed = 24
+					attack_ef.speed = 20
 					attack_ef.keep_spin_angle = 2
 					attack_ef.image_xscale = 0.4
 					attack_ef.image_yscale = 0.4
@@ -815,7 +815,7 @@
 				{
 					var attack_ef = instance_create_depth(global.c_w,irandom_range(global.c_y+32,global.c_h-32),depth+1,hitbox_2)
 					attack_ef.direction = 180
-					attack_ef.speed = 24
+					attack_ef.speed = 20
 					attack_ef.keep_spin_angle = 2
 					attack_ef.image_xscale = 0.4
 					attack_ef.image_yscale = 0.4
@@ -828,7 +828,7 @@
 				{
 					var attack_ef = instance_create_depth(global.c_w,irandom_range(global.c_y+32,global.c_h-32),depth+1,hitbox_2)
 					attack_ef.direction = 180
-					attack_ef.speed = 24
+					attack_ef.speed = 20
 					attack_ef.keep_spin_angle = 2
 					attack_ef.image_xscale = 0.4
 					attack_ef.image_yscale = 0.4
@@ -836,7 +836,7 @@
 					
 					var attack_ef = instance_create_depth(global.c_x,irandom_range(global.c_y+32,global.c_h-32),depth+1,hitbox_2)
 					attack_ef.direction = 0
-					attack_ef.speed = 24
+					attack_ef.speed = 20
 					attack_ef.keep_spin_angle = 2
 					attack_ef.image_xscale = 0.4
 					attack_ef.image_yscale = 0.4
@@ -1024,7 +1024,7 @@
 					{
 						var attack_ef = instance_create_depth(spike_ef.x,spike_ef.y,depth+1,hitbox_6)
 						attack_ef.direction = i
-						attack_ef.speed = 24+global.map_speed_y*0.84
+						attack_ef.speed = 20+global.map_speed_y*0.84
 						attack_ef.keep_spin_angle = 2
 						attack_ef.image_xscale = 0.2*0.3
 						attack_ef.image_yscale = 0.2*0.3
@@ -1175,7 +1175,7 @@
 					var tmp_rd_yy = irandom_range(global.c_y+32,global.c_h-32)
 					var attack_ef = instance_create_depth(global.c_w,tmp_rd_yy,depth+1,hitbox_2)
 					attack_ef.direction = 180
-					attack_ef.speed = 24
+					attack_ef.speed = 20
 					attack_ef.keep_spin_angle = 2
 					attack_ef.image_xscale = 0.4
 					attack_ef.image_yscale = 0.4
@@ -1183,7 +1183,7 @@
 				
 					var attack_ef = instance_create_depth(global.c_x,tmp_rd_yy,depth+1,hitbox_2)
 					attack_ef.direction = 0
-					attack_ef.speed = 24
+					attack_ef.speed = 20
 					attack_ef.keep_spin_angle = 2
 					attack_ef.image_xscale = 0.4
 					attack_ef.image_yscale = 0.4
@@ -1231,7 +1231,7 @@
 							var attack_ef = instance_create_depth(global.c_x,i,depth+1,hitbox_2)
 							attack_ef.sprite_index = spr_cross
 							attack_ef.direction = 0
-							attack_ef.speed = 24
+							attack_ef.speed = 20
 							attack_ef.keep_spin_angle = 2
 							attack_ef.image_xscale = 0.05
 							attack_ef.image_yscale = 0.05
@@ -1242,7 +1242,7 @@
 							var attack_ef = instance_create_depth(global.c_w,i,depth+1,hitbox_2)
 							attack_ef.sprite_index = spr_cross
 							attack_ef.direction = 180
-							attack_ef.speed = 24
+							attack_ef.speed = 20
 							attack_ef.keep_spin_angle = -2
 							attack_ef.image_xscale = 0.05
 							attack_ef.image_yscale = 0.05

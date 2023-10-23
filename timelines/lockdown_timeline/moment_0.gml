@@ -19,7 +19,8 @@ lockdown_effect5_1 = 0
 lockdown_effect5_2 = 0
 lockdown_effect5_3 = 0
 set_hitbox_color(#a1abb6,1,room_width*0.5,room_height*0.5);
-global.background_color = #3b4978
+global.background_color = #3b4978;
+set_bg_color_with_effect(#dfdfdf,room_width*0.5,room_height*0.5,1);
 global.t_bg_color_alpha = 0
 global.t_bg_color = 0.5
 global.t_map_speed = 0

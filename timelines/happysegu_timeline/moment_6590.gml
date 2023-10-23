@@ -6,6 +6,7 @@ segu_ef.t_scale = 0
 global.w_alpha = 1
 global.t_bg_color = 0.3
 global.t_bg_color = 0
+set_hitbox_color(c_gray,0,room_width*0.5,room_height*0.5);
 
 view_shake(3,14,3,0)
 var _ef = instance_create_depth(room_width*0.5,room_height*0.5,depth+1,explosion_effect)

@@ -3,7 +3,7 @@
 image_index = global.player_skin*7
 can_draw = 0
 timer = 0
-image_alpha = 0.8
+//image_alpha = 0.8
 w_alpha = 1.3+instance_number(obj_album_ui)
 
 image_speed = 0

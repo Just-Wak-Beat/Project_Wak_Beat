@@ -1,0 +1,1 @@
+set_bg_color_with_effect(#3b4978,room_width*0.5,room_height*0.5,0);

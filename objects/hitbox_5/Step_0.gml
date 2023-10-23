@@ -37,7 +37,7 @@ if warning_timer = target_time
 		{
 			var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
 			attack_ef.direction = i
-			attack_ef.speed = 24
+			attack_ef.speed = 20
 			attack_ef.keep_spin_angle = 2
 			attack_ef.image_xscale = 0.25*t_scale
 			attack_ef.image_yscale = 0.25*t_scale
@@ -52,7 +52,7 @@ if warning_timer = target_time
 			{
 				var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
 				attack_ef.direction = i
-				attack_ef.speed = 24
+				attack_ef.speed = 20
 				attack_ef.keep_spin_angle = 2
 				attack_ef.image_xscale = 0.25*t_scale
 				attack_ef.image_yscale = 0.25*t_scale
@@ -65,7 +65,7 @@ if warning_timer = target_time
 			{
 				var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
 				attack_ef.direction = i
-				attack_ef.speed = 24
+				attack_ef.speed = 20
 				attack_ef.keep_spin_angle = 2
 				attack_ef.image_xscale = 0.25*t_scale
 				attack_ef.image_yscale = 0.25*t_scale

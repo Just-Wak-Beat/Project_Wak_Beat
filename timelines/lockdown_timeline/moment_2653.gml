@@ -9,6 +9,10 @@ for(var i = -2; i <= 20; i++)
 	_shaking_circle.sprite_index = spr_square
 }
 
+
+
+set_bg_color_with_effect(#3b4978,room_width*0.5,room_height*0.5,0.5);
+view_shake(2,10,2,0)
 set_hitbox_color(#a1abb6,1,room_width*0.5,room_height*0.5);
 global.background_color = #3b4978
 global.t_bg_color = 0.5

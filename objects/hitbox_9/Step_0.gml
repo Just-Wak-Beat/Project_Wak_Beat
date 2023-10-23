@@ -61,7 +61,7 @@ if warning_timer-target_time > des_time
 		effect_.speed = 24
 		effect_.image_blend = global.map_color
 		effect_.sprite_index = spr_circle
-		effect_.image_alpha = 2
+		effect_.image_alpha = 1
 	}
 
 	if (image_xscale <= 0)

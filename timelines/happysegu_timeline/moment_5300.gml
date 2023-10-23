@@ -17,3 +17,7 @@ for(var i = 0; i < 4; i++)
 	var tmp_angle = segu_ef.image_angle+happysegu_pattern_timer*90+i*90;
 	create_arrow_laser(room_width*0.5+lengthdir_x(256,tmp_angle),room_height*0.5+lengthdir_y(256,tmp_angle),depth,0.8,tmp_angle,128,true,10,1)
 }
+
+set_hitbox_color(#ff637a,1,room_width*0.5,room_height*0.5);
+set_bg_color_with_effect(#ff637a,room_width*0.5,room_height*0.5,0.2);
+global.t_bg_color = 0.2

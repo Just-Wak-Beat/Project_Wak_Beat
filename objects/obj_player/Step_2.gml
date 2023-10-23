@@ -17,14 +17,14 @@ if (global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9))
 			hurt_vspeed = global.vmove_speed
 			
 			
-			if invincibility_cooltime != 90
+			if (invincibility_cooltime != 80)
 			{
 				global.total_damaged ++;
 				kirakira_effect = 1;
 				w_alpha = 2;
 				global.hp -= sign(global.show_progress_bar);
 				global.blackout_alpha = 1;
-				invincibility_cooltime = 90;
+				invincibility_cooltime = 80;
 				show_invincibility = 1;
 				audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6);
 			
@@ -39,6 +39,7 @@ if (global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9))
 					effect_.speed = 24
 					effect_.image_angle = image_angle
 					effect_.image_blend = global.player_color
+					effect_.image_alpha = 0.5;
 				}
 			}
 		}

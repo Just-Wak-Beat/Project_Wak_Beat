@@ -274,6 +274,7 @@ if (can_play_animation == 1)
 					effect_.direction = point_direction(room_width*0.5,room_height*0.5,room_width*0.5+random_x,room_height*0.5+random_y)
 					effect_.speed = 16
 					effect_.image_blend = color_sec
+					effect_.image_alpha = 0.8
 				}
 			
 			
