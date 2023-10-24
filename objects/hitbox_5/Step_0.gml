@@ -2,25 +2,39 @@
 // You can write your code in this editor
 
 
-
-if global.low_graphics = false
+if (global.timeline_stop != 1)
 {
-	w_alpha += (-0.01 - w_alpha)*0.15
-}
-else
-{
-	w_alpha = 0
-}
-image_angle += 15
+	image_xscale += (t_scale - image_xscale)*0.2
+	image_yscale += (t_scale - image_yscale)*0.2
 
-warning_timer ++
+
+	if t_x != -4
+	{
+		x += (t_x - x)*0.15
+		y += (t_y - y)*0.15
+	}
+
+
+	
+	if global.low_graphics = false
+	{
+		w_alpha += (-0.01 - w_alpha)*0.15
+	}
+	else
+	{
+		w_alpha = 0
+	}
+	image_angle += 15
+
+	warning_timer ++
+}
 
 if warning_timer%10 = 0 && abs(warning_timer - target_time) < 120
 {
 	w_alpha = 1
 }
 
-if warning_timer = target_time
+if (warning_timer == target_time)
 {
 	var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
 	_ef.image_xscale = 1
@@ -76,15 +90,5 @@ if warning_timer = target_time
 	instance_destroy()
 }
 
-
-image_xscale += (t_scale - image_xscale)*0.2
-image_yscale += (t_scale - image_yscale)*0.2
-
-
-if t_x != -4
-{
-	x += (t_x - x)*0.15
-	y += (t_y - y)*0.15
-}
 
 

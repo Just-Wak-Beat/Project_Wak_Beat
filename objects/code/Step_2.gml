@@ -161,13 +161,13 @@
 			{
 				for(var i = 0; i < 4; i++)
 				{
-				var attack_ef = instance_create_depth(_xx_,_yy_,depth+1,hitbox_2)
-				attack_ef.direction = hitbox_11.image_angle+i*90
-				attack_ef.speed = 20
-				attack_ef.keep_spin_angle = 2
-				attack_ef.image_xscale = 0.4
-				attack_ef.image_yscale = 0.4
-				attack_ef.w_alpha = 10
+					var attack_ef = instance_create_depth(_xx_,_yy_,depth+1,hitbox_2)
+					attack_ef.direction = hitbox_11.image_angle+i*90
+					attack_ef.speed = 20
+					attack_ef.keep_spin_angle = 2
+					attack_ef.image_xscale = 0.4
+					attack_ef.image_yscale = 0.4
+					attack_ef.w_alpha = 10
 				}
 			}
 

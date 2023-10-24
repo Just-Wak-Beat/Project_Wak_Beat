@@ -10,16 +10,16 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && glob
 	{
 		if global.mobile_mode != 1
 		{
-			n_screen_width = window_get_width()
-			n_screen_height = window_get_height()
-			n_full_screen = window_get_fullscreen()
-			window_set_fullscreen(!n_full_screen)
-			window_set_size(window_get_width(),window_get_height())
-			alarm[0] = 30
+			n_screen_width = window_get_width();
+			n_screen_height = window_get_height();
+			n_full_screen = window_get_fullscreen();
+			window_set_fullscreen(!n_full_screen);
+			window_set_size(window_get_width(),window_get_height());
+			alarm[0] = 30;
 		}
 		else
 		{
-			alarm[10] = 60
+			alarm[10] = 60;
 		}
 	}
 	else if (button_id == 1)
@@ -60,5 +60,9 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && glob
 				event_user(2);
 			}
 		}
+	}
+	else if (button_id == 106)
+	{
+		
 	}
 }

@@ -9,40 +9,45 @@ if (audio_is_playing(phony) || audio_is_playing(gungsirung)) && (image_angle = 0
 
 
 
-if global.low_graphics = false
+if (global.timeline_stop != 1)
 {
-	w_alpha += (-0.01 - w_alpha)*0.15
-}
-else
-{
-	w_alpha = 0
-}
-
-warning_timer ++
-
-if (target_time != 9999)
-{
-	if (warning_timer < round(target_time-1))
+	if global.low_graphics = false
 	{
-		if (xstart == room_width*0.5 && ystart == room_height*0.5 && !audio_is_playing(wakrio))
+		w_alpha += (-0.01 - w_alpha)*0.15
+	}
+	else
+	{
+		w_alpha = 0
+	}
+
+
+	warning_timer ++
+
+
+	if (target_time != 9999)
+	{
+		if (warning_timer < round(target_time-1))
 		{
-			image_xscale = saved_xscale*0.9;
-			image_yscale += (distance/640)/60;
-		}
-		else
-		{
-			image_yscale = distance
-			
-			if (saved_xscale >= 4)
+			if (xstart == room_width*0.5 && ystart == room_height*0.5 && !audio_is_playing(wakrio))
 			{
-				draw_reloading_anime += ((distance+32)/1280)/target_time
+				image_xscale = saved_xscale*0.9;
+				image_yscale += (distance/640)/60;
 			}
 			else
 			{
-				image_xscale += saved_xscale/target_time
+				image_yscale = distance
+			
+				if (saved_xscale >= 4)
+				{
+					draw_reloading_anime += ((distance+32)/1280)/target_time
+				}
+				else
+				{
+					image_xscale += saved_xscale/target_time
+				}
 			}
+			image_alpha += 0.35/(target_time-1)
 		}
-		image_alpha += 0.35/(target_time-1)
 	}
 }
 
@@ -66,8 +71,8 @@ if variable_instance_exists(id,"auto_angle")
 
 if (warning_timer == round(target_time-1))
 {
-	image_yscale = draw_reloading_anime
-	draw_reloading_anime = 0
+	image_yscale = draw_reloading_anime;
+	draw_reloading_anime = 0;
 }
 
 if (warning_timer >= round(target_time))

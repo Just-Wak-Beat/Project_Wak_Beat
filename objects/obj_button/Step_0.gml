@@ -11,10 +11,6 @@ else
 
 
 
-if (global.sync_setting == 0 && global.sync_setting_alpha < 0.01)
-{
-	instance_destroy()
-}
 
 if (sprite_index == spr_circle)
 {
@@ -29,17 +25,47 @@ else if (sprite_index == spr_triangle)
 
 
 
-if (global.n_setting_button != -4 && global.n_setting_button != button_id)
+
+if (button_id != 7 && button_id < 100)
 {
-	image_alpha += (0.2*global.sync_setting_alpha - image_alpha)*0.2
+	if (global.sync_setting == 0 && global.sync_setting_alpha < 0.01)
+	{
+		instance_destroy();
+	}
+
+	
+	if (global.n_setting_button != -4 && global.n_setting_button != button_id)
+	{
+		image_alpha += (0.2*global.sync_setting_alpha - image_alpha)*0.2
+	}
+	else
+	{
+		if (global.sync_setting <= 0 && global.n_progress > 0)
+		{
+			global.sync_setting_alpha = 0;
+			instance_destroy();
+		}
+		image_alpha += (global.sync_setting_alpha - image_alpha)*0.2
+	}
 }
 else
 {
-	if (global.sync_setting <= 0 && global.n_progress > 0)
+	if (button_id == 7)
 	{
-		global.sync_setting_alpha = 0;
-		instance_destroy();
+		scroll_value = (global.n_progress/global.music_duration)*100
+	
+		if (global.n_progress >= global.music_duration-1)
+		{
+			audio_stop_sound(global.n_music_instance);
+		}
 	}
-	image_alpha += (global.sync_setting_alpha - image_alpha)*0.2
+	
+	if (global.n_setting_button == button_id)
+	{
+		image_alpha += (1 - image_alpha)*0.2
+	}
+	else
+	{
+		image_alpha += (0.5 - image_alpha)*0.2
+	}
 }
-

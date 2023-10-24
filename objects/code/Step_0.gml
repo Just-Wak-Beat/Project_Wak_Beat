@@ -1,6 +1,51 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
+//에디터 모드
+if (global.map_editor == 1)
+{
+	window_set_cursor(cr_default)
+	global.hp = sprite_get_number(spr_player)-7;
+	
+	if (obj_player.image_xscale > 0)
+	{
+		var ins_check = 0;
+		with(obj_button)
+		{
+			ins_check += (button_id == 7) ? 1 : 0;
+		}
+	
+		if (ins_check == 0)
+		{
+			var yy = camera_get_view_y(view_camera[0]);
+			var yy_h = camera_get_view_height(view_camera[0]);
+			var xx = camera_get_view_x(view_camera[0]);
+			var xx_w = camera_get_view_width(view_camera[0]);
+			instance_create_depth(xx+xx_w*0.5,yy+yy_h*0.95,depth,map_edior_ui)
+		
+			var buttom_ui = instance_create_depth(xx+xx_w*0.5,yy+yy_h*0.95,depth,obj_button)
+			buttom_ui.button_id = 7
+			buttom_ui.sprite_index = spr_square
+		}
+	}
+	
+	if (obj_player.image_xscale <= 0 || global.sync_setting > 0)
+	{
+		with(obj_button)
+		{
+			if (button_id == 7)
+			{
+				instance_destroy();
+			}
+		}
+		instance_destroy(map_edior_ui);
+	}
+}
+
+
+
+
 //인게임중에 설정 열기
 if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
 {
@@ -276,7 +321,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 							timeline_running = true
 						}
 						global.map_color = global.map_color_tmp;
-						timeline_speed = 1+(global.t_selected_difficulty == -1 ? 0.12 : 0)
+						timeline_speed = 1;
 		
 						show_debug_message("timeline")
 					}
@@ -285,7 +330,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	
 			if (global.n_progress < global.music_duration)
 			{
-				if global.paused == 0 && (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0
+				if (global.timeline_stop == -1 && global.paused == 0 && (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0)
 				{
 					global.n_progress ++;
 					audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1)*global.map_end_volumedown,0)
@@ -301,7 +346,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 				}
 	
 	
-				if !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear)
+				if (global.map_editor != 1 && !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
 				{
 					if abs(global.map_speed_y) > 0
 					{

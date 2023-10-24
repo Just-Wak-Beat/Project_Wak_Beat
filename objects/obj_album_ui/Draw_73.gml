@@ -114,7 +114,15 @@ if (global.n_map_list != 2)
 		draw_sprite_ext(spr_heart,global.player_skin,global.c_x+100,global.c_y+1430,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
 	}
 }
-
+else
+{
+	//환경설정 버튼
+	draw_sprite_ext(spr_gear,0,global.c_x+85,global.c_y+1430+16,0.17*global.font_ratio_resolution_xx,0.17,0,c_black,0.3*ui_alpha__cal)
+	draw_sprite_ext(spr_gear,0,global.c_x+130,global.c_y+1450+16,0.1*global.font_ratio_resolution_xx,0.1,0,c_black,0.3*ui_alpha__cal)
+	draw_sprite_ext(spr_gear,0,global.c_x+85,global.c_y+1430,0.17*global.font_ratio_resolution_xx,0.17,0,c_white,ui_alpha__cal)
+	draw_sprite_ext(spr_gear,0,global.c_x+130,global.c_y+1450,0.1*global.font_ratio_resolution_xx,0.1,0,c_white,ui_alpha__cal)
+	draw_text_k_scale(global.c_x+104,global.c_y+1470,"커스템 맵 편집"+((global.mobile_mode == 1) ? "" : "\n[M]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+}
 
 
 //리스트 이름 표기창

@@ -14,7 +14,7 @@
 
 function create_projectile(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8)
 {
-	var attack_ef = instance_create_depth(argument0,argument1,depth+1,hitbox_10)
+	var attack_ef = instance_create_depth(argument0,argument1,depth+1,hitbox_2)
 	attack_ef.keep_spin_angle = argument3
 	attack_ef.image_xscale = argument2
 	attack_ef.image_yscale = argument2

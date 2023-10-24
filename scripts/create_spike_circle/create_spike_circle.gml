@@ -12,21 +12,21 @@
 
 function create_spike_circle(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7)
 {
-var xx = argument0
-var yy = argument1
+	var xx = argument0
+	var yy = argument1
 
 
-var laser__ = instance_create_depth(xx,yy,obj_player.depth-10,hitbox_5)
-if argument2 = -4
-{
-	laser__.speed = argument3
-}
-laser__.t_x = argument2
-laser__.t_y = argument3
-laser__.target_time = argument4
-laser__.shake_scale = argument5
-laser__.shake_dir = argument6
-laser__.t_scale = argument7
+	var laser__ = instance_create_depth(xx,yy,obj_player.depth-10,hitbox_5)
+	if argument2 = -4
+	{
+		laser__.speed = argument3
+	}
+	laser__.t_x = argument2
+	laser__.t_y = argument3
+	laser__.target_time = argument4
+	laser__.shake_scale = argument5
+	laser__.shake_dir = argument6
+	laser__.t_scale = argument7
 
-return laser__;
+	return laser__;
 }

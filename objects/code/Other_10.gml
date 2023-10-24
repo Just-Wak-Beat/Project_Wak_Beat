@@ -6,9 +6,13 @@ np_setpresence_more("", "메인 매뉴", false);
 np_setpresence("메인 매뉴", "", "type0", "");
 automatic_loading_cancel = 0
 window_set_cursor(cr_default)
+instance_destroy(map_edior_ui);
+instance_destroy(obj_button);
 global.check_died = 0
 global.tutorial_now = 0
+global.timeline_stop = -1;
 global.random_seed = -4
+global.map_editor = 0;
 global.rewind = 0
 global.n_camera_zoom = 1;
 global.camera_slow_zoom = 0;

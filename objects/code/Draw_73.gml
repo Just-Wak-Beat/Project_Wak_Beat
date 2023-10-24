@@ -117,31 +117,34 @@ if (music_title_alpha > 0 && global.tutorial_played >= 0)
 
 
 //progress bar - save point
-for(var i = 0; i <= 5; i++)
+if (global.map_editor != 1)
 {
-	if global.savepoint_position[i] != -4
+	for(var i = 0; i <= 5; i++)
 	{
-		var _xx_ = xx+xx_w*0.3+font_size*32+global.converted_view_ratio*(1433.6*font_size*(global.savepoint_position[i]/global.music_duration))
-	
-		draw_set_color(global.map_color)
-		draw_set_alpha(progress_alpha_sec*0.9)
-		draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*50,_xx_,yy+global.converted_view_ratio*font_size*70,4*font_size)
-		draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*90,_xx_,yy+global.converted_view_ratio*font_size*110,4*font_size)
-	
-		if global.n_progress = global.savepoint_position[i] && !audio_is_playing(cleared_sfx)
+		if (global.savepoint_position[i] != -4)
 		{
-			if abs(global.map_speed_y) > 0
+			var _xx_ = xx+xx_w*0.3+font_size*32+global.converted_view_ratio*(1433.6*font_size*(global.savepoint_position[i]/global.music_duration))
+	
+			draw_set_color(global.map_color)
+			draw_set_alpha(progress_alpha_sec*0.9)
+			draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*50,_xx_,yy+global.converted_view_ratio*font_size*70,4*font_size)
+			draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*90,_xx_,yy+global.converted_view_ratio*font_size*110,4*font_size)
+	
+			if (global.n_progress == global.savepoint_position[i] && !audio_is_playing(cleared_sfx))
 			{
-				var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
-				save_.n_savepoint_position = global.savepoint_position[i]
-				save_.n_color = global.savepoint_color[i]
-				save_.image_angle = 90
-			}
-			else
-			{
-				var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
-				save_.n_savepoint_position = global.savepoint_position[i]
-				save_.n_color = global.savepoint_color[i]
+				if abs(global.map_speed_y) > 0
+				{
+					var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
+					save_.n_savepoint_position = global.savepoint_position[i]
+					save_.n_color = global.savepoint_color[i]
+					save_.image_angle = 90
+				}
+				else
+				{
+					var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
+					save_.n_savepoint_position = global.savepoint_position[i]
+					save_.n_color = global.savepoint_color[i]
+				}
 			}
 		}
 	}
@@ -668,7 +671,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	}
 }
 
-if (global.rank_display_alpha > 0 && global.tutorial_played > 0 && ((instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0) || !instance_exists(obj_stage_clear)))
+if (global.map_editor != 1 && global.rank_display_alpha > 0 && global.tutorial_played > 0 && ((instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0) || !instance_exists(obj_stage_clear)))
 {
 	var temp_col = merge_color(merge_color(c_white,#bf1a5c,global.rank_display_r_alpha),global.player_color,global.rank_display_b_alpha);
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+(global.rank_display_r_alpha+global.rank_display_b_alpha)*0.5)

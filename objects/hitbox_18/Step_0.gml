@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
-timer ++;
+if (global.timeline_stop != 1)
+{
+	timer ++;
+}
+
 if (timer == t_timer)
 {
 	image_alpha = 1

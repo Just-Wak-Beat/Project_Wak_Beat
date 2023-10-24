@@ -26,6 +26,19 @@ global.beta_tester = 0;
 global.tutorial_played = 0;
 global.boss_battle = 0
 
+
+//맵 에디터
+global.map_editor = 0
+global.editor_selected_type = 0
+global.timeline_stop = -1
+for(var i = 0; i < 7; i++)
+{
+	global.ed_arg[i] = 0.1;
+	global.ed_arg_name[i] = "";
+}
+global.ed_arg[6] = 1;
+
+
 //닉네임 강제 초기화는 b_force_wipe_nickname 값을 수정하면 가능
 b_force_wipe_nickname = 0
 global.force_wipe_nickname = 1

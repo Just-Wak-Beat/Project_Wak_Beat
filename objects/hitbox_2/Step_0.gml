@@ -7,13 +7,20 @@ if gravity = 0
 	y += global.map_speed_y
 }
 
-if sprite_index != spr_circle_half
+if (global.timeline_stop != 1)
 {
-	image_angle += keep_spin_angle
-}
-else
-{
-	speed = 50
+	if (sprite_index != spr_circle_half)
+	{
+		image_angle += keep_spin_angle
+		if (variable_instance_exists(id,"speed_"))
+		{
+			speed = speed_;
+		}
+	}
+	else
+	{
+		speed = 50
+	}
 }
 
 
@@ -76,12 +83,12 @@ if (audio_is_playing(lockdown) && global.map_speed_y <= 1)
 	}
 }
 
-if (variable_instance_exists(id,"t_speed"))
+if (variable_instance_exists(id,"t_speed") && global.timeline_stop == 1)
 {
 	speed += (t_speed - speed)*0.1;
 }
 
-if (variable_instance_exists(id,"t_scale"))
+if (variable_instance_exists(id,"t_scale") && global.timeline_stop == 1)
 {
 	image_xscale += (t_scale - image_xscale)*0.1
 	image_yscale += (t_scale - image_yscale)*0.1

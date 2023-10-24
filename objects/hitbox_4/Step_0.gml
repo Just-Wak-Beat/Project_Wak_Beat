@@ -25,17 +25,19 @@ y += falling_vspeed
 
 
 
-
-if global.low_graphics = false
+if (global.timeline_stop != 1)
 {
-	w_alpha += (-0.01 - w_alpha)*0.15
-}
-else
-{
-	w_alpha = 0
-}
+	if global.low_graphics = false
+	{
+		w_alpha += (-0.01 - w_alpha)*0.15
+	}
+	else
+	{
+		w_alpha = 0
+	}
 
-warning_timer ++
+	warning_timer ++
+}
 
 if (warning_timer == round(target_time-1))
 {
