@@ -33,7 +33,7 @@ if ((activated == 1 && mouse_y > yy+500 && mouse_y < yy+yy_h-200) || activated =
 		break;
 	
 		case 4: //지렁이 탄막
-			var tmp_ins = create_worm(mouse_x,mouse_y,obj_player.depth-1,global.ed_arg[3],spr_triangle,image_xscale,spr_triangle_empty,global.ed_arg[2],global.ed_arg[5],global.ed_arg[1])
+			var tmp_ins = create_worm(mouse_x,mouse_y,obj_player.depth-1,global.ed_arg[3],spr_triangle,image_xscale,spr_triangle_empty,global.ed_arg[2],global.ed_arg[4]/64,image_angle-270)
 		break;
 	
 		case 5: //화살표 레이저 탄막

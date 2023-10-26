@@ -42,6 +42,10 @@ if sprite_index = spr_square
 	{
 		scroll_value = (global.ed_arg[5]/1200)*100
 	}
+	else if (button_id == 106)
+	{
+		scroll_value = floor(global.ed_arg[6])
+	}
 }
 
 can_draw = 1

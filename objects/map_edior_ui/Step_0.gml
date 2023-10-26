@@ -10,6 +10,12 @@ if (keyboard_check_pressed(vk_enter))
 {
 	audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
 	activated *= -1;
+	if (global.timeline_stop != 1)
+	{
+		global.timeline_stop = 1;
+		instance_destroy(hitbox_parents);
+		audio_stop_sound(global.n_music_id);
+	}
 }
 
 t_scroll_y = (activated == 1) ? 0 : -640;
@@ -81,6 +87,7 @@ switch(global.editor_selected_type)
 		sprite_index = spr_triangle;
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
+		global.ed_arg[3] = floor(global.ed_arg[3]);
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "속력";
@@ -156,7 +163,7 @@ switch(global.editor_selected_type)
 		sprite_index = spr_circle;
 		image_xscale = 0.3;
 		image_yscale = image_xscale;
-		image_blend = make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]);
+		image_blend = merge_color(c_black,make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]),fix_num(global.ed_arg[5]/1200));
 		global.ed_arg[2] = floor(global.ed_arg[2]);
 		global.ed_arg[3] = floor(global.ed_arg[3]);
 		global.ed_arg[4] = floor(global.ed_arg[4]);

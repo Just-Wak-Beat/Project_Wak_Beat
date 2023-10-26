@@ -60,12 +60,26 @@ else
 		}
 	}
 	
-	if (global.n_setting_button == button_id)
+	if (button_id == 106)
 	{
-		image_alpha += (1 - image_alpha)*0.2
+		if (scroll_value == 1)
+		{
+			image_alpha += (1 - image_alpha)*0.2
+		}
+		else
+		{
+			image_alpha += (0.5 - image_alpha)*0.2
+		}
 	}
 	else
 	{
-		image_alpha += (0.5 - image_alpha)*0.2
+		if (global.n_setting_button == button_id)
+		{
+			image_alpha += (1 - image_alpha)*0.2
+		}
+		else
+		{
+			image_alpha += (0.5 - image_alpha)*0.2
+		}
 	}
 }

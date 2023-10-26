@@ -44,10 +44,19 @@ if (can_draw == 1)
 		}
 		else if (button_id >= 100 && instance_exists(map_edior_ui))
 		{
-			x = xx+240+(button_id-100)*420
+			if (sprite_index == spr_spuare_outline_full_mask)
+			{
+				x = xx+200+(button_id-100)*420
+				image_xscale = 1;
+				image_yscale = 1;
+			}
+			else
+			{
+				x = xx+240+(button_id-100)*420
+				image_xscale = 0.06;
+				image_yscale = 0.1;
+			}
 			y = yy+420+(map_edior_ui.scroll_y);
-			image_xscale = 0.06
-			image_yscale = 0.1
 		}
 	
 	
@@ -98,10 +107,13 @@ if (can_draw == 1)
 			draw_sprite_ext(spr_square_half,0,x-20,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-135,c_white,image_alpha)
 			draw_sprite_ext(spr_square_half,0,x+20,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-135,c_white,image_alpha)
 		}
-		else if (sprite_index == spr_circle)
+		else if (sprite_index == spr_spuare_outline_full_mask)
 		{
-			draw_sprite_ext(spr_spuare_outline,0,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,0,c_white,image_alpha)
-			draw_sprite_ext(spr_square,0,x,y,image_xscale*0.35*global.font_ratio_resolution_xx*0.5,image_yscale*0.35*0.5,0,c_white,image_alpha)
+			draw_sprite_ext(spr_spuare_outline_full_mask,0,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,0,c_white,image_alpha)
+			if (scroll_value == 1)
+			{
+				draw_sprite_ext(spr_square,0,x,y,image_xscale*global.font_ratio_resolution_xx*0.6,image_yscale*0.6,0,c_white,image_alpha)
+			}
 		}
 	}
 }

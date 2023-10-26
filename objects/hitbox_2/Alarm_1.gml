@@ -10,9 +10,7 @@ else
 	{
 		if (sprite_index == spr_circle_spike)
 		{
-			var random_x = irandom_range(-24,24)
-			var random_y = irandom_range(-24,24)
-			var effect_ = instance_create_depth(x+random_x,y+random_y,obj_player.depth-15,movement_effect)
+			var effect_ = instance_create_depth(x,y,obj_player.depth-15,movement_effect)
 			effect_.image_xscale = image_xscale*0.5
 			effect_.image_yscale = image_yscale*0.5
 			effect_.direction = direction
@@ -23,9 +21,7 @@ else
 		}
 		else
 		{
-			var random_x = irandom_range(-24,24)
-			var random_y = irandom_range(-24,24)
-			var effect_ = instance_create_depth(x+random_x,y+random_y,obj_player.depth-15,movement_effect)
+			var effect_ = instance_create_depth(x,y,obj_player.depth-15,movement_effect)
 			effect_.image_xscale = 5/(1024/sprite_width)
 			effect_.image_yscale = 5/(1024/sprite_width)
 			effect_.direction = direction

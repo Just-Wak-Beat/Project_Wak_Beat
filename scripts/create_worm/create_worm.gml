@@ -27,7 +27,7 @@ function create_worm(argument0,argument1,argument2,argument3,argument4,argument5
 			__ins__head.parent_id = -4;
 			__ins__head.body_num = argument3;
 			__ins__head.my_id = i;
-			__ins__head.speed = argument7;
+			__ins__head.speed_ = argument7;
 			__ins__head.auto_shake = argument8;
 			__ins__head.dir = argument9;
 			__ins__head.direction = argument9;

@@ -34,7 +34,7 @@ if (global.map_editor == 1)
 	{
 		with(obj_button)
 		{
-			if (button_id == 7)
+			if (button_id == 7 || button_id >= 100)
 			{
 				instance_destroy();
 			}

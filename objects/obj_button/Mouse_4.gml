@@ -61,8 +61,15 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && glob
 			}
 		}
 	}
-	else if (button_id == 106)
+}
+
+
+if (button_id == 106)
+{
+	audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
+	scroll_value++;
+	if (scroll_value > 1)
 	{
-		
+		scroll_value = 0;
 	}
 }

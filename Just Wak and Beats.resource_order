@@ -116,6 +116,7 @@
     {"name":"spr_end","order":4,"path":"sprites/spr_end/spr_end.yy",},
     {"name":"spr_circle_outline","order":10,"path":"sprites/spr_circle_outline/spr_circle_outline.yy",},
     {"name":"create_worm","order":7,"path":"scripts/create_worm/create_worm.yy",},
+    {"name":"spr_spuare_outline_full_mask","order":46,"path":"sprites/spr_spuare_outline_full_mask/spr_spuare_outline_full_mask.yy",},
     {"name":"spr_jururu","order":11,"path":"sprites/spr_jururu/spr_jururu.yy",},
     {"name":"get_unlocked_list_num","order":6,"path":"scripts/get_unlocked_list_num/get_unlocked_list_num.yy",},
     {"name":"percentage_k","order":1,"path":"scripts/percentage_k/percentage_k.yy",},

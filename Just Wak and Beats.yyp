@@ -145,6 +145,7 @@
     {"id":{"name":"spr_end","path":"sprites/spr_end/spr_end.yy",},},
     {"id":{"name":"spr_circle_outline","path":"sprites/spr_circle_outline/spr_circle_outline.yy",},},
     {"id":{"name":"create_worm","path":"scripts/create_worm/create_worm.yy",},},
+    {"id":{"name":"spr_spuare_outline_full_mask","path":"sprites/spr_spuare_outline_full_mask/spr_spuare_outline_full_mask.yy",},},
     {"id":{"name":"bichan_hurt","path":"sounds/bichan_hurt/bichan_hurt.yy",},},
     {"id":{"name":"spr_jururu","path":"sprites/spr_jururu/spr_jururu.yy",},},
     {"id":{"name":"get_unlocked_list_num","path":"scripts/get_unlocked_list_num/get_unlocked_list_num.yy",},},

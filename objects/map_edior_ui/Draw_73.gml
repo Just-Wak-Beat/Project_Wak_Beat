@@ -24,9 +24,8 @@ for(var i = 0; i < 23; i++)
 {
 	var tmp_xx = xx+(128+i*160)*global.converted_view_ratio;
 	var tmp_yy = yy+(160+scroll_y)*global.converted_view_ratio;
-	if (mouse_check_button_pressed(mb_left) && point_distance(mouse_x,mouse_y,tmp_xx,tmp_yy) <= 64*global.converted_view_ratio)
+	if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,tmp_xx,tmp_yy) <= 64*global.converted_view_ratio)
 	{
-		instance_destroy(hitbox_parents);
 		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume);
 		global.ed_arg_name[0] = "";
 		global.ed_arg_name[1] = "";
@@ -56,10 +55,12 @@ for(var i = 0; i < 23; i++)
 			global.timeline_stop *= -1;
 			if (global.timeline_stop == 1)
 			{
-				audio_stop_sound(global.n_music_instance);
+				audio_stop_sound(global.n_music_id);
+				instance_destroy(hitbox_parents);
 			}
 			else
 			{
+				activated = -1;
 				var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[code.n_stage];
 				global.n_music_id = _audio_asset;
 				global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
@@ -91,6 +92,12 @@ else if (global.editor_selected_type == 1)
 	draw_set_alpha(0.5)
 	draw_set_color(global.map_color)
 	draw_line_width(mouse_x+(global.ed_arg[1]-180)*50,mouse_y+(global.ed_arg[2]-128)*50,mouse_x,mouse_y,3);
+}
+else if (global.editor_selected_type == 4)
+{
+	draw_set_alpha(0.5)
+	draw_set_color(global.map_color)
+	draw_line_width(mouse_x+lengthdir_x(320,image_angle-270),mouse_y+lengthdir_y(320,image_angle-270),mouse_x,mouse_y,3);
 }
 
 
