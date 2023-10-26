@@ -18,7 +18,7 @@ if (can_draw == 1)
 	var color_ = merge_color(image_blend,c_white,_w_alpha)
 	draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),image_xscale+w_alpha2*0.1,image_yscale+w_alpha2*0.1,image_angle,color_,image_alpha)
 	
-	if (fast_movement != true && warning_timer < target_time)
+	if ((fast_movement != true || global.timeline_stop == 1) && warning_timer < target_time)
 	{
 		draw_sprite_ext(sprite_index,image_index,floor(xstart),floor(ystart),(target_xscale != -4) ? target_xscale : image_xscale,image_yscale,image_angle,image_blend,0.3)
 	}

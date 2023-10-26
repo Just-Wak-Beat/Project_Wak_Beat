@@ -5,7 +5,7 @@
 image_xscale = 0
 image_yscale = 0
 
-
+alarm[1] = 1
 warning_timer = 0
 //target_time = 0
 des = 0

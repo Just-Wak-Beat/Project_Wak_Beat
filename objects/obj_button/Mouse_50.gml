@@ -56,7 +56,7 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && spri
 		}
 		else if (button_id == 101)
 		{
-			global.ed_arg[1] = (scroll_value/100)*360;
+			global.ed_arg[1] = (scroll_value/100)*359;
 		}
 		else if (button_id == 102)
 		{

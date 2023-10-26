@@ -29,8 +29,10 @@ global.boss_battle = 0
 
 //맵 에디터
 global.map_editor = 0
-global.editor_selected_type = 0
+global.editor_selected_type = -4;
 global.timeline_stop = -1
+global.editor_hitbox = -1;
+global.selected_animation = 0;
 for(var i = 0; i < 7; i++)
 {
 	global.ed_arg[i] = 0.1;

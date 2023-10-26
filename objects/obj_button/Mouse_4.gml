@@ -72,4 +72,5 @@ if (button_id == 106)
 	{
 		scroll_value = 0;
 	}
+	global.ed_arg[6] = scroll_value;
 }

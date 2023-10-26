@@ -8,6 +8,7 @@ scroll_y += (t_scroll_y - scroll_y)*0.1;
 
 if (keyboard_check_pressed(vk_enter))
 {
+	show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
 	audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
 	activated *= -1;
 	if (global.timeline_stop != 1)
@@ -20,6 +21,15 @@ if (keyboard_check_pressed(vk_enter))
 
 t_scroll_y = (activated == 1) ? 0 : -640;
 
+if (global.editor_hitbox == 1)
+{
+	global.selected_animation++;
+}
+else
+{
+	global.selected_animation = 0;
+}
+
 //[ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막"
 //"맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "비 이펙트" , "세이브 포인트 지정", 
 //"카메라 - 화면 크기 설정", "카메라 - 천천히 줌 인", "카메라 - 천천히 줌 아웃", "카메라 - 화면 흔들림", 
@@ -28,6 +38,8 @@ t_scroll_y = (activated == 1) ? 0 : -640;
 switch(global.editor_selected_type)
 {
 	case 0: //이동 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[2] = floor(global.ed_arg[2]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		sprite_index = spr_square;
@@ -36,15 +48,15 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "속력";
-		global.ed_arg_name[6] = "이펙트 활성화 유무";
+		global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
 	case 1: //스파이크 폭발 탄막
+		global.ed_arg[3] = floor(global.ed_arg[3]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		sprite_index = spr_circle_spike;
 		image_alpha = 0.4;
-		global.ed_arg[3] = floor(global.ed_arg[3]);
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "처음 날아오는 위치\n(x축)";
 		global.ed_arg_name[2] = "처음 날아오는 위치\n(y축)";
@@ -52,12 +64,15 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 2: //레이저 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = 999;
 		sprite_index = spr_square_laser;
 		image_alpha = 0.4;
 		image_angle = global.ed_arg[1];
-		global.ed_arg[3] = floor(global.ed_arg[3]);
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "활성화 이후 회전 속력";
@@ -66,13 +81,14 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 3: //눈꽃 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		sprite_index = spr_snow;
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
-		global.ed_arg[3] = floor(global.ed_arg[3]);
-		global.ed_arg[5] = floor(global.ed_arg[5]);
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "좌우 반복 움직임 속력\n(각도에 따라 이동이 다름)";
@@ -82,12 +98,14 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 4: //지렁이 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		sprite_index = spr_triangle;
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
-		global.ed_arg[3] = floor(global.ed_arg[3]);
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "속력";
@@ -96,32 +114,34 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 5: //화살표 레이저 탄막
-		image_xscale = global.ed_arg[0];
-		image_yscale = image_xscale;
-		sprite_index = spr_arrow;
-		image_angle = global.ed_arg[1]-135;
-		image_alpha = 0.4;
+		global.ed_arg[1] = floor(global.ed_arg[1]);
 		global.ed_arg[2] = floor(global.ed_arg[2]);
 		if (global.ed_arg[2] < 32)
 		{
 			global.ed_arg[2] = 32;
 		}
 		global.ed_arg[3] = floor(global.ed_arg[3]);
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+		sprite_index = spr_arrow;
+		image_angle = global.ed_arg[1]-135;
+		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";	
 		global.ed_arg_name[2] = "속력";
 		global.ed_arg_name[3] = "n프레임 이후 생성\n(60프레임 = 1초)";
-		global.ed_arg_name[6] = "이펙트 활성화 유무";
+		global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
 	case 6: //원형 폭발 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		sprite_index = spr_circle_dot_outline;
 		image_angle = global.ed_arg[1];
 		image_alpha = 1;
-		global.ed_arg[3] = floor(global.ed_arg[3]);
-		global.ed_arg[5] = floor(global.ed_arg[5]);
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
@@ -129,53 +149,54 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 7: //맵 밖에서 튀어나오는 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_spike_cylinder;
-		image_angle = global.ed_arg[1];
-		global.ed_arg[1] = floor(global.ed_arg[1]);
-
+		sprite_index = spr_circle_cylinder;
+		image_angle = round(global.ed_arg[1]/90)*90;
 		image_alpha = 0.4;
-		global.ed_arg[3] = floor(global.ed_arg[3]);
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "튀어나오는 각도";
 		global.ed_arg_name[2] = "속력";
 		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
 		global.ed_arg_name[5] = "튀어나온 이후 이동 방향";
-		global.ed_arg_name[6] = "빠른 이동 활성화";
+		global.ed_arg_name[6] = "빠른 애니메이션";
 	break;
 	
 	case 8: //탄막색 변경
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[4] = floor(global.ed_arg[4]);
 		sprite_index = spr_circle;
 		image_xscale = 0.3;
 		image_yscale = image_xscale;
 		image_blend = make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]);
-		global.ed_arg[2] = floor(global.ed_arg[2]);
-		global.ed_arg[3] = floor(global.ed_arg[3]);
-		global.ed_arg[4] = floor(global.ed_arg[4]);
 		global.ed_arg_name[2] = "R";
 		global.ed_arg_name[3] = "G";
 		global.ed_arg_name[4] = "B";
-		global.ed_arg_name[6] = "이펙트 활성화 유무";
+		global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
 	case 9: //배경색 변경
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[4] = floor(global.ed_arg[4]);
 		sprite_index = spr_circle;
 		image_xscale = 0.3;
 		image_yscale = image_xscale;
 		image_blend = merge_color(c_black,make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]),fix_num(global.ed_arg[5]/1200));
-		global.ed_arg[2] = floor(global.ed_arg[2]);
-		global.ed_arg[3] = floor(global.ed_arg[3]);
-		global.ed_arg[4] = floor(global.ed_arg[4]);
 		global.ed_arg_name[2] = "R";
 		global.ed_arg_name[3] = "G";
 		global.ed_arg_name[4] = "B";
 		global.ed_arg_name[5] = "배경색 투명도";
-		global.ed_arg_name[6] = "이펙트 활성화 유무";
+		global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
 	case 10: //비 이펙트
-		global.ed_arg_name[6] = "이펙트 활성화 유무";
+		global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
 	case 11: //세이브 포인트 지정
@@ -187,13 +208,26 @@ switch(global.editor_selected_type)
 	case 13: //카메라 - 천천히 줌 인
 	break;
 	
-	case 14: //카메라 - 천천히 줌 아웃
+	case 14: //카메라 - 흔들림
 	break;
 	
-	case 15: //카메라 - 화면 흔들림
+	case 15: //회전하는 탄막 자동 생성기
 	break;
 	
-	case 16: //회전하는 탄막 자동 생성기
+	case 16: //물 이펙트
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+		sprite_index = spr_circle_cylinder;
+		image_angle = round(global.ed_arg[1]/90)*90;
+		image_alpha = 0.4;
+		global.ed_arg_name[0] = "크기";
+		global.ed_arg_name[1] = "각도";
+		global.ed_arg_name[2] = "물방울 높이";
+		global.ed_arg_name[3] = "물 파장 길이";
+		global.ed_arg_name[6] = "물방울 제거";
 	break;
 	
 	case 17: //

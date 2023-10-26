@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if (instance_exists(obj_player) && obj_player.image_xscale <= 0)
+if (global.map_editor == 1 || (instance_exists(obj_player) && obj_player.image_xscale <= 0))
 {
 	var xx = camera_get_view_x(view_camera[0]);
 	var yy = camera_get_view_y(view_camera[0]);

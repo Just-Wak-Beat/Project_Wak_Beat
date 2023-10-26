@@ -4,9 +4,12 @@
 	//일시정지 효과 해제
 	if (global.paused == -1)
 	{
-		timeline_running = true
-		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
-		audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
+		if (global.timeline_stop != 1)
+		{
+			timeline_running = true
+			global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
+			audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
+		}
 		instance_activate_all()
 		global.paused = 0;
 	}

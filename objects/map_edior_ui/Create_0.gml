@@ -3,7 +3,9 @@
 scroll_x = 0
 scroll_y = -640
 t_scroll_y = 0
-
+instance_destroy(obj_message_log)
 image_index = 41;
 image_speed = 0;
 activated = -1
+n_selected = -4;
+

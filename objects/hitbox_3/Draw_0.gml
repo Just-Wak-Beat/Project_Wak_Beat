@@ -14,7 +14,7 @@ if (can_draw == 1)
 		depth = hitbox_7.depth-100
 	}
 	
-	draw_sprite_ext(sprite_index,0,x,y,image_xscale,(global.timeline_stop != 1) ? image_yscale : distance,image_angle,col,image_alpha)
+	draw_sprite_ext(sprite_index,0,x,y,(global.timeline_stop != 1) ? image_xscale : saved_xscale,(global.timeline_stop != 1) ? image_yscale : distance,image_angle,col,(global.timeline_stop != 1) ? image_alpha : 0.4)
 	if (draw_reloading_anime > 0)
 	{
 		draw_sprite_ext(sprite_index,0,x,y,image_xscale,draw_reloading_anime,image_angle,col,1)

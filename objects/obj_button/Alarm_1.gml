@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if sprite_index = spr_square
+if (sprite_index == spr_square || sprite_index == spr_spuare_outline_full_mask)
 {
 	if (button_id == 2)
 	{

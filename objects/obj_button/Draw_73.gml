@@ -46,14 +46,14 @@ if (can_draw == 1)
 		{
 			if (sprite_index == spr_spuare_outline_full_mask)
 			{
-				x = xx+200+(button_id-100)*420
+				x = xx+200+(button_id-100)*520
 				image_xscale = 1;
 				image_yscale = 1;
 			}
 			else
 			{
-				x = xx+240+(button_id-100)*420
-				image_xscale = 0.06;
+				x = xx+300+(button_id-100)*520
+				image_xscale = 0.09;
 				image_yscale = 0.1;
 			}
 			y = yy+420+(map_edior_ui.scroll_y);

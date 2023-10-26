@@ -12,10 +12,7 @@ if w_alpha > 0
 
 if (global.timeline_stop == 1)
 {
-	draw_set_color(image_blend);
-	draw_set_alpha(0.4);
-	draw_line_width(x,y,t_x,t_y,3);
-	draw_sprite_ext(sprite_index,image_index,t_x,t_y,image_xscale,image_yscale,image_angle,image_blend,0.4);
+	draw_sprite_ext(sprite_index,image_index,x,y,t_scale,t_scale,image_angle,image_blend,0.4);
 }
 
 

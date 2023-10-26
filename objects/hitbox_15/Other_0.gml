@@ -3,7 +3,7 @@
 
 if des_time == 0
 {
-des_time = 1
+	des_time = 1
 }
 
 if my_id = 0 && des_time > 2

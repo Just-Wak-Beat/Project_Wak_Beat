@@ -27,42 +27,21 @@ if (global.timeline_stop != 1)
 	image_angle += 15
 
 	warning_timer ++
-}
-
-if warning_timer%10 = 0 && abs(warning_timer - target_time) < 120
-{
-	w_alpha = 1
-}
-
-if (warning_timer == target_time)
-{
-	var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
-	_ef.image_xscale = 1
-	_ef.image_yscale = 1
-	_ef.t_scale = 2
-	_ef.image_blend = c_white
-	global.w_alpha = 0.4
+	
+	if (warning_timer == target_time)
+	{
+		var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
+		_ef.image_xscale = 1
+		_ef.image_yscale = 1
+		_ef.t_scale = 2
+		_ef.image_blend = c_white
+		global.w_alpha = 0.4
 		
-	view_shake(0.1,shake_scale,3,shake_dir)
-	w_alpha = 0.3
-	if global.n_music_name = "wakrio" && global.n_progress >= 2930
-	{
-		for(var i = 0; i < 360; i += 30-(1-global.t_selected_difficulty)*15)
+		view_shake(0.1,shake_scale,3,shake_dir)
+		w_alpha = 0.3
+		if global.n_music_name = "wakrio" && global.n_progress >= 2930
 		{
-			var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
-			attack_ef.direction = i
-			attack_ef.speed = 20
-			attack_ef.keep_spin_angle = 2
-			attack_ef.image_xscale = 0.25*t_scale
-			attack_ef.image_yscale = 0.25*t_scale
-			attack_ef.w_alpha = 10
-		}
-	}
-	else
-	{
-		if global.n_music_name = "isedolhyang"
-		{
-			for(var i = 0; i < 360; i += 20)
+			for(var i = 0; i < 360; i += 30-(1-global.t_selected_difficulty)*15)
 			{
 				var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
 				attack_ef.direction = i
@@ -75,19 +54,40 @@ if (warning_timer == target_time)
 		}
 		else
 		{
-			for(var i = 0; i < 360; i += 20-(1-global.t_selected_difficulty)*10)
+			if global.n_music_name = "isedolhyang"
 			{
-				var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
-				attack_ef.direction = i
-				attack_ef.speed = 20
-				attack_ef.keep_spin_angle = 2
-				attack_ef.image_xscale = 0.25*t_scale
-				attack_ef.image_yscale = 0.25*t_scale
-				attack_ef.w_alpha = 10
+				for(var i = 0; i < 360; i += 20)
+				{
+					var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
+					attack_ef.direction = i
+					attack_ef.speed = 20
+					attack_ef.keep_spin_angle = 2
+					attack_ef.image_xscale = 0.25*t_scale
+					attack_ef.image_yscale = 0.25*t_scale
+					attack_ef.w_alpha = 10
+				}
+			}
+			else
+			{
+				for(var i = 0; i < 360; i += 20-(1-global.t_selected_difficulty)*10)
+				{
+					var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
+					attack_ef.direction = i
+					attack_ef.speed = 20
+					attack_ef.keep_spin_angle = 2
+					attack_ef.image_xscale = 0.25*t_scale
+					attack_ef.image_yscale = 0.25*t_scale
+					attack_ef.w_alpha = 10
+				}
 			}
 		}
+		instance_destroy()
 	}
-	instance_destroy()
+
+	if warning_timer%10 = 0 && abs(warning_timer - target_time) < 120
+	{
+		w_alpha = 1
+	}
 }
 
 
