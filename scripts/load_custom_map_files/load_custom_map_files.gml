@@ -5,7 +5,7 @@ function load_custom_map_files()
 	for(var i = 0; i < load_custom_map_num(); i++)
 	{
 		var audio_file = "already_loaded"
-		ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+".ini")
+		ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\map_info.ini")
 		if !audio_exists(global.custom_audio_asset[i])
 		{
 			global.custom_stage_map_audio_name[i] = ini_read_string("custom_stage_map_audio_name","value",-4)
@@ -20,7 +20,7 @@ function load_custom_map_files()
 			global.custom_obtainable_type[i] = ini_read_real("custom_obtainable_type","value",-4)
 			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
 			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
-			var directory = string(global.custom_map_directory)+string(global.custom_stage_map_audio_name[i])+".ogg"
+			var directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\"+string(global.custom_stage_map_audio_name[i])+".ogg"
 			if (file_exists(directory))
 			{
 				audio_file = audio_create_stream(directory);
@@ -35,7 +35,7 @@ function load_custom_map_files()
 	
 		if !sprite_exists(global.custom_stage_album[i])
 		{
-			global.custom_stage_album[i] = sprite_add(string(global.custom_map_directory)+"custom_map_album_"+string(i+1)+".png",0,false,false,256,256)
+			global.custom_stage_album[i] = sprite_add(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.png",0,false,false,256,256)
 		}
 		
 		show_message_log("커스텀 곡 불러오는 중... ("+string(global.custom_stage_map_audio_name[i])+")");

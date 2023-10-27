@@ -6,6 +6,8 @@ y = mouse_y;
 
 scroll_y += (t_scroll_y - scroll_y)*0.1;
 
+
+
 if (keyboard_check_pressed(vk_enter))
 {
 	show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
@@ -13,6 +15,7 @@ if (keyboard_check_pressed(vk_enter))
 	activated *= -1;
 	if (global.timeline_stop != 1)
 	{
+		global.b_n_progress = global.n_progress;
 		global.timeline_stop = 1;
 		instance_destroy(hitbox_parents);
 		audio_stop_sound(global.n_music_id);

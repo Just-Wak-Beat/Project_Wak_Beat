@@ -190,6 +190,7 @@
     {"id":{"name":"spr_music","path":"sprites/spr_music/spr_music.yy",},},
     {"id":{"name":"bamguy","path":"sounds/bamguy/bamguy.yy",},},
     {"id":{"name":"explosion_effect","path":"objects/explosion_effect/explosion_effect.yy",},},
+    {"id":{"name":"editor_mode_create_projectile","path":"scripts/editor_mode_create_projectile/editor_mode_create_projectile.yy",},},
     {"id":{"name":"view_shake","path":"scripts/view_shake/view_shake.yy",},},
     {"id":{"name":"Sprite67","path":"sprites/Sprite67/Sprite67.yy",},},
     {"id":{"name":"convert_score_to_rank","path":"scripts/convert_score_to_rank/convert_score_to_rank.yy",},},

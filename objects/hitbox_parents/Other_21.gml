@@ -3,3 +3,4 @@
 image_blend = global.map_color
 color_changed = 0
 editor_selected = 0;
+

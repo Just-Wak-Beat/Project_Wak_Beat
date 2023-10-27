@@ -40,9 +40,14 @@ for(var i = 0; i < 7; i++)
 }
 global.ed_arg[6] = 1;
 
+global.c_map_param = -4;
+global.tmp_str_map_data = "";
+global.b_n_progress = 0;
+global.tmp_str_map_data = "";
 
 //닉네임 강제 초기화는 b_force_wipe_nickname 값을 수정하면 가능
 b_force_wipe_nickname = 0
+
 global.force_wipe_nickname = 1
 
 

@@ -6,7 +6,7 @@ function load_custom_map_num()
 	while(true)
 	{
 		i++
-		if file_exists(string(global.custom_map_directory)+"custom_map_file_"+string(i)+".ini") //파일 이름은 1번부터 시작
+		if file_exists(string(global.custom_map_directory)+"custom_map_file_"+string(i)+"\\map_info.ini") //파일 이름은 1번부터 시작
 		{
 			total_num ++
 		}

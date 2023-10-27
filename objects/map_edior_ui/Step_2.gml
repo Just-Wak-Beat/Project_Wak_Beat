@@ -16,3 +16,16 @@ if (instance_number(obj_button) <= 1)
 		}
 	}
 }
+
+
+
+
+if (global.timeline_stop == 1 && (global.b_n_progress != floor(global.n_progress)))
+{
+	instance_destroy(hitbox_parents);
+	global.b_n_progress = floor(global.n_progress);
+	with(code)
+	{
+		event_user(11);
+	}
+}

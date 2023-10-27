@@ -325,6 +325,23 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 		
 						show_debug_message("timeline")
 					}
+					else
+					{
+						//커스텀 유저맵 로드
+						var tmp_directory = string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+"\\map_data.ini";
+						global.c_map_param = array_create(global.music_duration+1,"");
+						if (file_exists(tmp_directory))
+						{
+							ini_open(tmp_directory);
+							for(var i = 0; i <= global.music_duration; i++)
+							{
+								//파라미터 값은 띄어쓰기로 구분된 문자열로 만들어 저장
+								var tmp_str = string(ini_read_string("map_data"+string(i),"obj_data",""));
+								global.c_map_param[i] = tmp_str;
+							}
+							ini_close();
+						}
+					}
 				}
 			}
 	

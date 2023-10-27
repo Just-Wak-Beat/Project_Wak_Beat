@@ -157,6 +157,7 @@
     {"name":"spr_music","order":1,"path":"sprites/spr_music/spr_music.yy",},
     {"name":"bamguy","order":3,"path":"sounds/bamguy/bamguy.yy",},
     {"name":"explosion_effect","order":2,"path":"objects/explosion_effect/explosion_effect.yy",},
+    {"name":"editor_mode_create_projectile","order":14,"path":"scripts/editor_mode_create_projectile/editor_mode_create_projectile.yy",},
     {"name":"view_shake","order":3,"path":"scripts/view_shake/view_shake.yy",},
     {"name":"Sprite67","order":2,"path":"sprites/Sprite67/Sprite67.yy",},
     {"name":"convert_score_to_rank","order":8,"path":"scripts/convert_score_to_rank/convert_score_to_rank.yy",},
