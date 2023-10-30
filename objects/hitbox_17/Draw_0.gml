@@ -20,7 +20,7 @@ if (can_draw == 1)
 	
 	if ((fast_movement != true || global.timeline_stop == 1) && warning_timer < target_time)
 	{
-		draw_sprite_ext(sprite_index,image_index,floor(xstart),floor(ystart),(target_xscale != -4) ? target_xscale : image_xscale,image_yscale,image_angle,image_blend,0.3)
+		draw_sprite_ext(sprite_index,image_index,floor(t_x),floor(ystart),(target_xscale != -4) ? target_xscale : image_xscale,image_yscale,image_angle,image_blend,0.3)
 	}
 }
 

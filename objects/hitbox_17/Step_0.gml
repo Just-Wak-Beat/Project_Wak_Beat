@@ -30,6 +30,10 @@ if (audio_is_playing(gomem_mashup) && speed != 0)
 
 if (global.timeline_stop != 1)
 {
+	x -= global.map_speed;
+	t_x -= global.map_speed;
+
+	
 	w_alpha += (0 - w_alpha)*0.1
 
 
@@ -68,7 +72,7 @@ if (global.timeline_stop != 1)
 		{
 			if (fast_movement == true)
 			{
-				var tmp_xx = xstart+lengthdir_x(128,direction);
+				var tmp_xx = t_x+lengthdir_x(128,direction);
 				var tmp_yy = ystart+lengthdir_y(128,direction);
 				x += (tmp_xx - x)*0.33
 				y += (tmp_yy - y)*0.33
@@ -81,10 +85,10 @@ if (global.timeline_stop != 1)
 			}
 			else
 			{
-				x += (xstart - x)*0.1
+				x += (t_x - x)*0.1
 				y += (ystart - y)*0.1
 			
-				if point_distance(x,y,xstart,ystart) <= 10
+				if point_distance(x,y,t_x,ystart) <= 10
 				{
 					can_move = 1
 					w_alpha = 1
@@ -112,7 +116,7 @@ if (global.timeline_stop != 1)
 				}
 				else
 				{
-					x += (xstart - x)*0.35
+					x += (t_x - x)*0.35
 					y += (ystart - y)*0.35
 				}
 			}

@@ -84,17 +84,9 @@ if (global.paused == 0)
 			}
 		}
 	
-		x -= global.map_speed
-
-		if global.map_speed_y > 20
-		{
-			y += 20
-		}
-		else
-		{
-			y += global.map_speed_y
-		}
-
+		x -= (global.map_speed > 32) ? 32 : global.map_speed;
+		y += (global.map_speed_y > 32) ? 32 : global.map_speed_y
+		
 		if global.hp <= 0 && global.rewind <= 0
 		{
 			global.rewind = 1

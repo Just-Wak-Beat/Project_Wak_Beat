@@ -1317,4 +1317,34 @@
 				}
 			}
 		}
+		
+		
+		if (global.run_shake_effect > 0)
+		{
+			if (global.run_shake_effect == 1)
+			{
+				var speed_tmp = floor(global.map_speed/2);
+				for(var i = 0; i <= floor((global.c_w-global.c_x)/132)+speed_tmp; i++)
+				{
+					var ins_tmp = create_cylinder(global.c_w+128*speed_tmp-i*132,global.c_h-480,obj_player.depth-1,1,1+i*5,128,270,0,0);
+					ins_tmp.sprite_index = spr_square_cylinder
+				
+					var ins_tmp = create_cylinder(global.c_w+128*speed_tmp-i*132,global.c_y+480,obj_player.depth-1,1,1+i*5,128,90,180,0);
+					ins_tmp.sprite_index = spr_square_cylinder
+				}
+				global.run_shake_effect = 2;
+			}
+			
+			global.run_shake_checker += abs(global.map_speed);
+			if (global.run_shake_checker >= 132)
+			{
+				var ins_tmp = create_cylinder(global.c_w+128,global.c_h-480,obj_player.depth-1,1,1,128,270,0,0);
+				ins_tmp.sprite_index = spr_square_cylinder
+				
+				var ins_tmp = create_cylinder(global.c_w+128,global.c_y+480,obj_player.depth-1,1,1,128,90,180,0);
+				ins_tmp.sprite_index = spr_square_cylinder
+				
+				global.run_shake_checker -= 132;
+			}
+		}
 	}

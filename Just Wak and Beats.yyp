@@ -311,6 +311,7 @@
     {"id":{"name":"spr_key","path":"sprites/spr_key/spr_key.yy",},},
     {"id":{"name":"create_spike_circle","path":"scripts/create_spike_circle/create_spike_circle.yy",},},
     {"id":{"name":"spr_alzar","path":"sprites/spr_alzar/spr_alzar.yy",},},
+    {"id":{"name":"spr_square_cylinder","path":"sprites/spr_square_cylinder/spr_square_cylinder.yy",},},
     {"id":{"name":"create_projectile","path":"scripts/create_projectile/create_projectile.yy",},},
     {"id":{"name":"shine_ef","path":"sprites/shine_ef/shine_ef.yy",},},
     {"id":{"name":"camera_effect_blackout","path":"sprites/camera_effect_blackout/camera_effect_blackout.yy",},},

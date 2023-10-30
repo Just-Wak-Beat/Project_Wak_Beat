@@ -113,6 +113,21 @@ for(var i = 0; i < 11; i++)
 				text_code_col = #9c9ffa;
 				add_nametag = " [디벨로퍼]"
 			}
+			else if (temp_text_code == "4")
+			{
+				text_code_col = #6dd0e9;
+				add_nametag = " [후원자]"
+			}
+			else if (temp_text_code == "2")
+			{
+				text_code_col = #6dd0e9;
+				add_nametag = " [스트리머]"
+			}
+			else if (temp_text_code == "3")
+			{
+				text_code_col = #6dd0e9;
+				add_nametag = " [커스텀맵 디벨로퍼]"
+			}
 			else if (temp_text_code == "1")
 			{
 				text_code_col = #6dd0e9;
