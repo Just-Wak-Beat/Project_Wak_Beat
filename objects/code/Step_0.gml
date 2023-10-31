@@ -253,7 +253,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	{
 		global.show_music_title ++
 
-		if global.show_music_title < 240
+		if global.show_music_title < 180
 		{
 			music_title_alpha += (1 - music_title_alpha)*0.1
 			
@@ -293,7 +293,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 	
 		if (global.tutorial_played >= 0)
 		{
-			if (progress_alpha > 0.98)
+			if (global.show_music_title > 240)
 			{
 				if global.n_music_id = -4 && global.n_progress = 0
 				{

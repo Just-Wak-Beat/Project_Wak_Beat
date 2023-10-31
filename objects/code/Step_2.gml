@@ -31,6 +31,7 @@
 			instance_deactivate_object(obj_shine_ef);
 			instance_deactivate_object(changing_hitbox_color);
 			instance_deactivate_object(changing_bg_color);
+			instance_deactivate_object(line_effect);
 		}
 	}
 
@@ -141,6 +142,8 @@
 			master_bpm_timer ++
 			if master_bpm_timer >= (3600/global.bpm)*2+global.music_sync_offset*3*60
 			{
+				var tmp_ins = create_laser(global.c_x,irandom_range(global.c_y+200,global.c_h-200),50,26,1,2,1,270);
+				tmp_ins.image_angle = 270+irandom_range(-10,10)
 				for(var i = 0; i <= 9; i++)
 				{
 					var ins_spike = create_cylinder(global.c_x,global.c_y-128+i*256,code.depth,0.5,1,32,180,270,true)
@@ -1323,28 +1326,32 @@
 		{
 			if (global.run_shake_effect == 1)
 			{
-				var speed_tmp = floor(global.map_speed/2);
-				for(var i = 0; i <= floor((global.c_w-global.c_x)/132)+speed_tmp; i++)
+				var speed_tmp = floor(global.map_speed*0.5);
+				for(var i = 0; i <= floor((global.c_w-global.c_x)/240)+speed_tmp; i++)
 				{
-					var ins_tmp = create_cylinder(global.c_w+128*speed_tmp-i*132,global.c_h-480,obj_player.depth-1,1,1+i*5,128,270,0,0);
-					ins_tmp.sprite_index = spr_square_cylinder
+					var ins_tmp = create_cylinder(global.c_w+240*9-i*240,global.c_h,obj_player.depth-1,1.5,1+i*5,128,270,0,0);
+					ins_tmp.sprite_index = spr_square_cylinder;
+					ins_tmp.shake_effect = 1;
 				
-					var ins_tmp = create_cylinder(global.c_w+128*speed_tmp-i*132,global.c_y+480,obj_player.depth-1,1,1+i*5,128,90,180,0);
-					ins_tmp.sprite_index = spr_square_cylinder
+					var ins_tmp = create_cylinder(global.c_w+240*9-i*240,global.c_y,obj_player.depth-1,1.5,1+i*5,128,90,180,0);
+					ins_tmp.sprite_index = spr_square_cylinder;
+					ins_tmp.shake_effect = 1;
+					global.run_shake_checker = 240;
 				}
 				global.run_shake_effect = 2;
 			}
 			
 			global.run_shake_checker += abs(global.map_speed);
-			if (global.run_shake_checker >= 132)
+			if (global.run_shake_checker >= 240)
 			{
-				var ins_tmp = create_cylinder(global.c_w+128,global.c_h-480,obj_player.depth-1,1,1,128,270,0,0);
-				ins_tmp.sprite_index = spr_square_cylinder
+				global.run_shake_checker -= 240;
+				var ins_tmp = create_cylinder(global.c_w+240*9-global.run_shake_checker,global.c_h,obj_player.depth-1,1.5,1,128,270,0,0);
+				ins_tmp.sprite_index = spr_square_cylinder;
+				ins_tmp.shake_effect = 1;
 				
-				var ins_tmp = create_cylinder(global.c_w+128,global.c_y+480,obj_player.depth-1,1,1,128,90,180,0);
-				ins_tmp.sprite_index = spr_square_cylinder
-				
-				global.run_shake_checker -= 132;
+				var ins_tmp = create_cylinder(global.c_w+240*9-global.run_shake_checker,global.c_y,obj_player.depth-1,1.5,1,128,90,180,0);
+				ins_tmp.sprite_index = spr_square_cylinder;
+				ins_tmp.shake_effect = 1;
 			}
 		}
 	}

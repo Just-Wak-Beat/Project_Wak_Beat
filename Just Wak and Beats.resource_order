@@ -168,6 +168,7 @@
     {"name":"hitbox_19","order":20,"path":"objects/hitbox_19/hitbox_19.yy",},
     {"name":"hitbox_2","order":2,"path":"objects/hitbox_2/hitbox_2.yy",},
     {"name":"spr_circle_spike","order":6,"path":"sprites/spr_circle_spike/spr_circle_spike.yy",},
+    {"name":"line_effect","order":7,"path":"objects/line_effect/line_effect.yy",},
     {"name":"spr_gear","order":14,"path":"sprites/spr_gear/spr_gear.yy",},
     {"name":"spr_square","order":20,"path":"sprites/spr_square/spr_square.yy",},
     {"name":"phony","order":13,"path":"sounds/phony/phony.yy",},

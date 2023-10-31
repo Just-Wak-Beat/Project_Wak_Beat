@@ -27,6 +27,7 @@ global.vmove = 0
 global.hmove_speed = 0
 global.vmove_speed = 0
 check_stop = 0
+saved_ef_ins_id = -4
 
 
 

@@ -9,7 +9,7 @@ _misile_.speed = (64+4)*scale/5
 }
 
 
-global.t_map_speed = 15
+global.t_map_speed = 28
 
 global.t_bg_color_alpha = 0
 global.t_bg_color = 1

@@ -6,6 +6,8 @@
 image_speed = 0
 timer = 0
 des = 0
-alarm[1] = 1
 center_destroy = 0
 event_user(11)
+
+circle_ef_xscale = 4
+circle_w_alpha = 1.5

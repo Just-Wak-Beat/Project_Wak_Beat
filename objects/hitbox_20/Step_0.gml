@@ -12,7 +12,7 @@ if (global.timeline_stop != 1)
 		var tmp_ang = image_angle;
 		for(var i = -ed_arg3; i <= ed_arg3; i++)
 		{
-			create_cylinder(x+lengthdir_x(image_xscale*134*i,image_angle),y+lengthdir_y(image_xscale*134*i,image_angle),depth+15,image_xscale,1+abs(i)*4,64,tmp_ang-90,round(ed_arg1/90)*90,false);
+			create_cylinder(x+lengthdir_x(image_xscale*160*i,image_angle),y+lengthdir_y(image_xscale*160*i,image_angle),depth+15,image_xscale,1+abs(i)*4,64,tmp_ang-90,round(ed_arg1/90)*90,false);
 		}
 		
 		if (ed_arg6 != 1)

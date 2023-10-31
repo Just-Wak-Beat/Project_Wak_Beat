@@ -3,7 +3,7 @@
 
 if (image_blend != global.map_color)
 {
-	if (global.mobile_mode == 1)
+	if (global.low_graphics == true)
 	{
 		image_blend = global.map_color;
 	}
@@ -24,13 +24,16 @@ if (image_blend != global.map_color)
 		else
 		{
 			color_changed = 0;
-			if (get_dis_color(image_blend,global.map_color) < 7)
+			if (image_blend != global.map_color)
 			{
-				image_blend = global.map_color;
-			}
-			else
-			{
-				image_blend = merge_color(image_blend,global.map_color,0.04);
+				if (get_dis_color(image_blend,global.map_color) < 7)
+				{
+					image_blend = global.map_color;
+				}
+				else
+				{
+					image_blend = merge_color(image_blend,global.map_color,0.04);
+				}
 			}
 		}
 	}

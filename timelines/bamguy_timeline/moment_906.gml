@@ -1,1 +1,1 @@
-global.t_map_speed = 9
+global.t_map_speed = 22

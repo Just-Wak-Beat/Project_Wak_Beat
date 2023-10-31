@@ -12,6 +12,7 @@ global.t_turisumo_effect_scale = 0
 global.wakrio_effect2 = 0
 global.master_remix_effect = 0
 global.gomem_mashup_effect = 0
+global.run_shake_effect = 0;
 global.turisumo_effect_3 = 0
 turisumo_bpm_timer = 0
 turisumo_road_sign_delay = 0

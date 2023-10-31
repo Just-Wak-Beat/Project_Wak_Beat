@@ -30,8 +30,12 @@ if (audio_is_playing(gomem_mashup) && speed != 0)
 
 if (global.timeline_stop != 1)
 {
-	x -= global.map_speed;
-	t_x -= global.map_speed;
+	if (fast_movement == false)
+	{
+		x -= global.map_speed;
+		t_x -= global.map_speed;
+		t_y += global.map_speed_y;
+	}
 
 	
 	w_alpha += (0 - w_alpha)*0.1
@@ -39,7 +43,7 @@ if (global.timeline_stop != 1)
 
 	if (warning_timer = target_time-1)
 	{
-		if (fast_movement == false)
+		if (fast_movement == 0)
 		{
 			w_alpha = 10
 		}
@@ -70,10 +74,10 @@ if (global.timeline_stop != 1)
 	{
 		if (can_move == 0)
 		{
-			if (fast_movement == true)
+			if (fast_movement == 1)
 			{
 				var tmp_xx = t_x+lengthdir_x(128,direction);
-				var tmp_yy = ystart+lengthdir_y(128,direction);
+				var tmp_yy = t_y+lengthdir_y(128,direction);
 				x += (tmp_xx - x)*0.33
 				y += (tmp_yy - y)*0.33
 				
@@ -86,38 +90,48 @@ if (global.timeline_stop != 1)
 			else
 			{
 				x += (t_x - x)*0.1
-				y += (ystart - y)*0.1
+				y += (t_y - y)*0.1
 			
-				if point_distance(x,y,t_x,ystart) <= 10
+				if point_distance(x,y,t_x,t_y) <= 10
 				{
 					can_move = 1
 					w_alpha = 1
 				}
 			}
 		}
-	
-		if (can_move == 1)
+		else
 		{
-			if (fast_movement != true)
+			if (variable_instance_exists(id,"shake_effect") && shake_effect == 1)
 			{
-				speed += (t_speed - speed)*0.1
+				t_y = ystart+(sign(image_angle-90)*1+sin(shake_ef_timer/20*(1+global.map_speed*0.05)))*160
+			
+				x += (t_x - x)*0.35
+				y += (t_y - y)*0.35
+				shake_ef_timer ++;
 			}
 			else
 			{
-				if (speed < 0)
+				if (fast_movement != 1)
 				{
-					speed = 0;
-				}
-			
-				p_speed += (t_speed - p_speed)*0.35
-				if (abs(p_speed-t_speed) < 0.1 && w_alpha < 0.7)
-				{
-					speed += (p_speed - speed)*0.1
+					speed += (t_speed - speed)*0.1
 				}
 				else
 				{
-					x += (t_x - x)*0.35
-					y += (ystart - y)*0.35
+					if (speed < 0)
+					{
+						speed = 0;
+					}
+			
+					p_speed += (t_speed - p_speed)*0.35
+					if (abs(p_speed-t_speed) < 0.1 && w_alpha < 0.7)
+					{
+						speed += (p_speed - speed)*0.1
+					}
+					else
+					{
+						x += (t_x - x)*0.35
+						y += (t_y - y)*0.35
+					}
 				}
 			}
 		}

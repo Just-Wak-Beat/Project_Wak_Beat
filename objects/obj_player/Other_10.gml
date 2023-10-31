@@ -8,9 +8,9 @@ if invincibility_cooltime < 25+(1-global.t_selected_difficulty)*15
 }
 
 n_max_map_speed = (global.map_speed > global.map_speed_y) ? global.map_speed : global.map_speed_y
-
+n_max_map_speed = (n_max_map_speed > 28) ? 28 : n_max_map_speed;
 global.dashing = 1
-global.dash_cooltime = fix_to_zero(30-n_max_map_speed*0.5)
+global.dash_cooltime = fix_to_zero(18-n_max_map_speed*0.2)
 
 var _ef = instance_create_depth(x,y,depth+1,explosion_effect)
 _ef.image_xscale = 1

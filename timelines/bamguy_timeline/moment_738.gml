@@ -1,4 +1,4 @@
-global.t_map_speed = 5
+global.t_map_speed = 18
 
 global.t_bg_color_alpha = 0
 global.t_bg_color = 1

@@ -202,6 +202,7 @@
     {"id":{"name":"hitbox_2","path":"objects/hitbox_2/hitbox_2.yy",},},
     {"id":{"name":"get_scores","path":"scripts/get_scores/get_scores.yy",},},
     {"id":{"name":"spr_circle_spike","path":"sprites/spr_circle_spike/spr_circle_spike.yy",},},
+    {"id":{"name":"line_effect","path":"objects/line_effect/line_effect.yy",},},
     {"id":{"name":"spr_gear","path":"sprites/spr_gear/spr_gear.yy",},},
     {"id":{"name":"spr_square","path":"sprites/spr_square/spr_square.yy",},},
     {"id":{"name":"phony","path":"sounds/phony/phony.yy",},},
