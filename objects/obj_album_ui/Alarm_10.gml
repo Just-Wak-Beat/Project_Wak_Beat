@@ -28,7 +28,7 @@ if (global.title_menu_animation1 >= 3)
 	global.nickname = string_replace_all(global.nickname," ","");
 
 
-	var temp_nickname = string(global.nickname)
+	/*var temp_nickname = string(global.nickname)
 	if (global.dev_mode == 1)
 	{
 		temp_nickname = temp_nickname+"[*_ABER]0";
@@ -38,7 +38,7 @@ if (global.title_menu_animation1 >= 3)
 		temp_nickname = temp_nickname+"[*_ABER]1";
 	}
 	LootLockerSetPlayerName(string(temp_nickname));
-	LootLockerTurnOnAutoRefresh();
+	LootLockerTurnOnAutoRefresh();*/
 }
 else
 {

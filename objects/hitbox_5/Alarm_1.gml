@@ -1,12 +1,16 @@
 /// @description Insert description here
 // You can write your code in this editor
+can_draw = 1;
 
 
 if (global.timeline_stop == 1)
 {
-	if t_x != -4
+	x = t_x;
+	y = t_y;
+	
+	with(code)
 	{
-		x = t_x
-		y = t_y
+		event_user(10);
 	}
 }
+

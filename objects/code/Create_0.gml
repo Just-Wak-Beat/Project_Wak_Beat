@@ -32,6 +32,7 @@ global.map_editor = 0
 global.editor_selected_type = -4;
 global.timeline_stop = -1
 global.editor_hitbox = -1;
+global.save_point_num = 0;
 global.selected_animation = 0;
 for(var i = 0; i < 7; i++)
 {
@@ -44,6 +45,7 @@ global.c_map_param = -4;
 global.tmp_str_map_data = "";
 global.b_n_progress = 0;
 global.tmp_str_map_data = "";
+global.play_custom_map = 0
 
 //닉네임 강제 초기화는 b_force_wipe_nickname 값을 수정하면 가능
 b_force_wipe_nickname = 0
@@ -228,11 +230,11 @@ automatic_reload_leaderboard = 0;
 	//리더보드
 	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"true","JWAB_map1_1");
 	reload_leaderboard_automatically = 0
-	for(var i = 0; i < global.origin_total_map; i++)
-	{
-		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map_"+string(i+1)+"_1");
-		LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map_"+string(i+1)+"_2");
-	}
+	//for(var i = 0; i < global.origin_total_map; i++)
+	//{
+	//	LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map_"+string(i+1)+"_1");
+	//	LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","JWAB_map_"+string(i+1)+"_2");
+	//}
 
 
 

@@ -35,7 +35,7 @@ if (global.cannot_control == 0)
 
 
 
-if (global.paused == 0)
+if (global.paused == 0 && global.timeline_stop != 1)
 {
 	if invincibility_cooltime > 0
 	{

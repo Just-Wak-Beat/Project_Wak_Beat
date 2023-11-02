@@ -100,6 +100,28 @@ if (can_draw == 1)
 		else if (sprite_index == spr_square)
 		{
 			draw_sprite_ext(spr_square,0,x,y,image_xscale*80*global.font_ratio_resolution_xx,image_yscale,0,c_white,image_alpha)
+			if (global.timeline_stop == 1 && button_id == 7 && instance_exists(map_edior_ui))
+			{
+				var tmp_width_full = 64*image_xscale*80*global.font_ratio_resolution_xx;
+				for(var i = 0; i <= 5; i++)
+				{
+					if (global.savepoint_position[i] != -4)
+					{
+						var _xx_ = x+tmp_width_full*(-0.5+global.savepoint_position[i]/global.music_duration)
+						draw_sprite_ext(spr_square,0,_xx_,y,0.1,image_yscale*4,0,global.player_color,1)
+					}
+				}
+				
+				for(var i = 0; i <= global.music_duration; i++)
+				{
+					if (global.c_map_param[i] != "")
+					{
+						var _xx_ = x+tmp_width_full*(-0.5+i/global.music_duration)
+						draw_sprite_ext(spr_square,0,_xx_,y,0.05,image_yscale*4,0,global.map_color,1)
+					}
+				}
+			}
+			
 			draw_sprite_ext(spr_square,0,x+image_xscale*64*((scroll_value/100)*80-40)*global.font_ratio_resolution_xx,y,0.2*1.6,image_yscale*5,0,(button_id != 7 && button_id < 100) ? global.player_color : global.map_color,image_alpha)
 		}
 		else if (sprite_index == spr_triangle)

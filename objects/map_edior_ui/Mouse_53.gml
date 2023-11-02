@@ -28,7 +28,7 @@ if (global.timeline_stop == 1)
 		else
 		{
 			//탄막 타입 기준으로 탄막 생성
-			editor_mode_create_projectile(global.editor_selected_type,mouse_x,mouse_y,global.ed_arg[0],global.ed_arg[1],global.ed_arg[2],global.ed_arg[3],global.ed_arg[4],global.ed_arg[5],global.ed_arg[6]);
+			editor_mode_create_projectile(global.editor_selected_type,mouse_x,mouse_y,global.ed_arg[0],(global.editor_selected_type == 11) ? 1 : global.ed_arg[1],global.ed_arg[2],global.ed_arg[3],global.ed_arg[4],global.ed_arg[5],global.ed_arg[6]);
 			with(code)
 			{
 				event_user(10);

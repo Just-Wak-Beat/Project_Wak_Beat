@@ -14,6 +14,7 @@ global.timeline_stop = -1;
 global.random_seed = -4
 global.map_editor = 0;
 global.rewind = 0
+global.play_custom_map = 0;
 global.n_camera_zoom = 1;
 global.camera_slow_zoom = 0;
 global.camera_target_x = room_width*0.5;

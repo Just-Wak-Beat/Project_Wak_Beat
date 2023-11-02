@@ -1,6 +1,16 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//커스텀 유저 맵 재생
+if (global.timeline_stop != 1 && global.play_custom_map == 1 && audio_is_playing(global.n_music_instance) && global.paused != 1)
+{
+	event_user(11);
+	show_debug_message("custom_map_data_load - "+string(global.n_progress-1)+" / "+string(global.savepoint_position[0]))
+	
+	var tmp_directory = string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+"\\map_data.ini";
+}
+
+
 
 //로딩이 너무 긴 경우, 자동 캔슬
 if (gamestart == 1)
@@ -213,7 +223,7 @@ if (automatic_reload_player_leaderboard > 0)
 
 
 //자동 리로드 리더보드 (각 맵 점수의 리더보드)
-if (automatic_reload_leaderboard > 0)
+/*if (automatic_reload_leaderboard > 0)
 {
 	var leaderboard_list_id = "JWAB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);
 	automatic_reload_leaderboard ++;
@@ -299,7 +309,7 @@ else
 	{
 		reload_leaderboard_automatically = 0;
 	}
-}
+}*/
 
 
 //가이드 메시지
@@ -671,10 +681,14 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 				global.hmove = 0
 				global.vmove = 0
 	
-				for(var i = 0; i <= 5; i++)
+	
+				if (global.play_custom_map != 1)
 				{
-					global.savepoint_position[i] = -4
-					global.savepoint_color[i] = global.map_color
+					for(var i = 0; i <= 5; i++)
+					{
+						global.savepoint_position[i] = -4
+						global.savepoint_color[i] = global.map_color
+					}
 				}
 		
 		

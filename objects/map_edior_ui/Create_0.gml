@@ -9,3 +9,4 @@ image_speed = 0;
 activated = -1
 n_selected = -4;
 
+keep_pressing = 0

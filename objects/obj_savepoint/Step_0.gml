@@ -12,7 +12,7 @@ if image_angle = 0
 		global.respawn_point_xx = obj_player.x
 		global.respawn_point_yy = obj_player.y
 
-		if global.n_progress >= global.music_duration
+		if (global.n_progress >= global.music_duration && global.map_editor != 1)
 		{
 			instance_create_depth(room_width+128,irandom_range(0,room_height),obj_player.depth-1,obj_stage_clear)
 			global.show_progress_bar = 0
@@ -26,7 +26,10 @@ if image_angle = 0
 		{
 			global.start_point = n_savepoint_position
 			global.savepoint_text_t_alpha = 1
-			global.background_color = n_color
+			if (n_color != -4)
+			{
+				global.background_color = n_color
+			}
 			code.alarm[0] = 120
 		}
 		instance_destroy()
@@ -55,7 +58,10 @@ else
 		{
 			global.start_point = n_savepoint_position
 			global.savepoint_text_t_alpha = 1
-			global.background_color = n_color
+			if (n_color != -4)
+			{
+				global.background_color = n_color
+			}
 			code.alarm[0] = 120
 		}
 		instance_destroy()

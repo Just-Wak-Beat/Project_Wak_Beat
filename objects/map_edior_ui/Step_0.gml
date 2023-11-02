@@ -205,13 +205,13 @@ switch(global.editor_selected_type)
 	case 11: //세이브 포인트 지정
 	break;
 	
-	case 12: //카메라 - 화면 크기 설정
+	case 12: //바운스 탄막
 	break;
 	
-	case 13: //카메라 - 천천히 줌 인
+	case 13: //카메라 - 줌 효과
 	break;
 	
-	case 14: //카메라 - 흔들림
+	case 14: //카메라 - 화면 흔들림
 	break;
 	
 	case 15: //회전하는 탄막 자동 생성기

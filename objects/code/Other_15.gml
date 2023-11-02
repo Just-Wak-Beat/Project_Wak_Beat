@@ -1,7 +1,7 @@
 /// @description 랭크 표시
 // You can write your code in this editor
 
-
+/*
 
 
 var in_top_ten = 0;

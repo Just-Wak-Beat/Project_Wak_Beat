@@ -68,9 +68,11 @@ if (once_in > 0)
 
 
 
-
-target_eye_dis += (16*image_xscale - target_eye_dis)*0.05
-target_eye_angle += (direction - target_eye_angle)*0.1
+if (sprite_index == spr_cross)
+{
+	target_eye_dis += (16*image_xscale - target_eye_dis)*0.05
+	target_eye_angle += (direction - target_eye_angle)*0.1
+}
 
 
 

@@ -307,6 +307,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 					var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
 					if timeline_exists(_timeline_index_)
 					{
+						global.play_custom_map = 0;
 						window_set_cursor(cr_none)
 						timeline_index = _timeline_index_
 						timeline_position = 0
@@ -328,6 +329,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 					else
 					{
 						//커스텀 유저맵 로드
+						global.play_custom_map = 1;
 						var tmp_directory = string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+"\\map_data.ini";
 						global.c_map_param = array_create(global.music_duration+1,"");
 						if (file_exists(tmp_directory))
@@ -339,9 +341,27 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 								var tmp_str = string(ini_read_string("map_data"+string(i),"obj_data",""));
 								global.c_map_param[i] = tmp_str;
 							}
+							
+							global.save_point_num = floor(ini_read_real("map_data","savepoint_num",0));
+							show_debug_message("savepoint_num : "+string(global.save_point_num))
+							for(var ii = 0; ii < global.save_point_num; ii++)
+							{
+								var tmp_save_point = floor(ini_read_real("map_data","savepoint"+string(ii),-4));
+								global.savepoint_position[ii] = tmp_save_point;
+								global.savepoint_color[ii] = -4;
+								show_debug_message("savepoint_num : "+string(tmp_save_point))
+							}
+		
 							ini_close();
 						}
 					}
+				}
+			}
+			else
+			{
+				if (global.map_editor == 1)
+				{
+					global.show_music_title = 240;
 				}
 			}
 	
@@ -363,7 +383,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 				}
 	
 	
-				if (global.map_editor != 1 && !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
+				if (!instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
 				{
 					if abs(global.map_speed_y) > 0
 					{
@@ -425,13 +445,13 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 				album_id = "album0"
 			}
 		
-			if global.n_map_list = 2
+			if (global.n_map_list == 2)
 			{
 				album_id = "custom_album"
 			}
 	
 			np_setpresence_more("","", false);
-			if (global.paused == 0)
+			if (global.paused == 0 && global.timeline_stop == 0)
 			{
 				np_setpresence("["+string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec))+"]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
 			}

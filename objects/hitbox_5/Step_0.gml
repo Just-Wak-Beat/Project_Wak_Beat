@@ -30,6 +30,13 @@ if (global.timeline_stop != 1)
 	
 	if (warning_timer == target_time)
 	{
+		if (target_time == 1)
+		{
+			x = t_x;
+			y = t_y;
+		}
+		
+		
 		var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
 		_ef.image_xscale = 1
 		_ef.image_yscale = 1

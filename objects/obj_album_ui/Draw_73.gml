@@ -100,12 +100,12 @@ draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910,0.17*g
 //리더보드 랭크 순위 버튼
 if (global.n_map_list != 2)
 {
-	if (global.n_map_id >= 0 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial")
-	{
-		draw_text_k_scale(global.c_x+104,global.c_y+1210,"스테이지 랭킹"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
-		draw_sprite_ext(spr_music,global.player_skin,global.c_x+100,global.c_y+1170+16,0.17*global.font_ratio_resolution_xx,0.2,-15,c_black,0.3*ui_alpha__cal)
-		draw_sprite_ext(spr_music,global.player_skin,global.c_x+100,global.c_y+1170,0.17*global.font_ratio_resolution_xx,0.2,-15,c_white,ui_alpha__cal)
-	}
+	//if (global.n_map_id >= 0 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial")
+	//{
+	//	draw_text_k_scale(global.c_x+104,global.c_y+1210,"스테이지 랭킹"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+	//	draw_sprite_ext(spr_music,global.player_skin,global.c_x+100,global.c_y+1170+16,0.17*global.font_ratio_resolution_xx,0.2,-15,c_black,0.3*ui_alpha__cal)
+	//	draw_sprite_ext(spr_music,global.player_skin,global.c_x+100,global.c_y+1170,0.17*global.font_ratio_resolution_xx,0.2,-15,c_white,ui_alpha__cal)
+	//}
 	
 	if (global.total_map > 0)
 	{
