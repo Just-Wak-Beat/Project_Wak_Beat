@@ -28,7 +28,7 @@ if (!instance_exists(obj_message_log))
 draw_text_k_scale(xx+xx_w*0.2,yy+yy_h*(0.9-global.mobile_mode*0.03)-map_edior_ui.scroll_y,"타임라인 이동 [ "+string(global.n_progress)+" / "+string(global.music_duration)+" ]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
-var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "비 이펙트" , "세이브 포인트 지정", "바운스 탄막", "카메라 - 줌 효과", "카메라 - 화면 흔들림", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "Unknown", "Unknown", "현재 설정된 탄막 이미지 변경", "배치된 탄막 수정", "타임라인 플레이/일시정지" ];
+var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "비 이펙트" , "세이브 포인트 지정", "바운스 탄막", "카메라 효과", "잡다한 효과 모음", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "Unknown", "Unknown", "현재 설정된 탄막 이미지 변경", "배치된 탄막 수정", "타임라인 플레이/일시정지" ];
 if (global.editor_selected_type >= 0)
 {
 	draw_text_k_scale(xx+64,yy+32+scroll_y,string(tmp_name[global.editor_selected_type]),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
@@ -169,6 +169,20 @@ else if (global.editor_selected_type == 7)
 	draw_set_alpha(1);
 	draw_line_width(mouse_x+lengthdir_x(320,tmp_val_ang),mouse_y+lengthdir_y(320,tmp_val_ang),mouse_x,mouse_y,3);
 }
+else if (global.editor_selected_type == 12)
+{
+	var tmp_val_ang = floor(image_angle)
+	draw_set_color(c_white);
+	draw_set_alpha(1);
+	draw_line_width(mouse_x+lengthdir_x(320,tmp_val_ang),mouse_y+lengthdir_y(320,tmp_val_ang),mouse_x,mouse_y,3);
+}
+else if (global.editor_selected_type == 15)
+{
+	var tmp_val_ang = floor(image_angle)
+	draw_set_color(c_white);
+	draw_set_alpha(1);
+	draw_line_width(mouse_x+lengthdir_x(320,180+tmp_val_ang),mouse_y+lengthdir_y(320,180+tmp_val_ang),mouse_x,mouse_y,3);
+}
 else if (global.editor_selected_type == 16)
 {
 	var tmp_ang = image_angle;
@@ -235,6 +249,82 @@ for(var i = 0; i < 7; i++)
 				tmp_val = floor((tmp_val/1200)*359);
 			}
 		}
+		else if (global.editor_selected_type == 12)
+		{
+			if (i == 2)
+			{
+				tmp_val = floor(tmp_val/4);
+			}
+			else if (i == 3)
+			{
+				tmp_val = floor((tmp_val-128)/255*15);
+			}
+		}
+		else if (global.editor_selected_type == 13)
+		{
+			if (i == 0)
+			{
+				tmp_val = 0.5+(tmp_val)/20;
+			}
+			else if (i == 1)
+			{
+				tmp_val = (tmp_val-180)/1000;
+			}
+			else if (i == 2)
+			{
+				tmp_val = floor((tmp_val)/255*25);
+			}
+			else if (i == 3)
+			{
+				tmp_val = floor((tmp_val)/255*2);
+				if (tmp_val == 0)
+				{
+					tmp_val = "x,y축 모두 흔들림"
+				}
+				else if (tmp_val == 0)
+				{
+					tmp_val = "x축으로만 흔들림"
+				}
+				else
+				{
+					tmp_val = "y축으로만 흔들림"
+				}
+			}
+		}
+		else if (global.editor_selected_type == 14)
+		{
+			if (i == 0)
+			{
+				tmp_val = (tmp_val-10)/10;
+			}
+			else if (i == 2)
+			{
+				tmp_val = (tmp_val < 128) ? "비활성화됨" : "활성화됨"
+			}
+			else if (i == 5)
+			{
+				tmp_val = (tmp_val)/255;
+			}
+		}
+		else if (global.editor_selected_type == 15)
+		{
+			if (i == 2)
+			{
+				tmp_val = (tmp_val-128)/4;
+			}
+			else if (i == 3)
+			{
+				tmp_val = (tmp_val-128)/16;
+			}
+			else if (i == 4)
+			{
+				tmp_val = fix_to_zero(floor(1-(tmp_val)/255)*60);
+			}
+			else if (i == 5)
+			{
+				tmp_val = 1+floor(tmp_val);
+			}
+		}
 		else if (global.editor_selected_type == 16)
 		{
 			if (i == 1)
@@ -247,6 +337,7 @@ for(var i = 0; i < 7; i++)
 			}
 		}
 	
+		
 		var tmp_string = " ["+string(tmp_val)+"]";
 		draw_text_k_scale(xx+64+i*520,yy+320+scroll_y,string(global.ed_arg_name[i])+string(tmp_string),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
 	}

@@ -25,6 +25,13 @@ if audio_is_playing(lockdown)
 
 if (global.timeline_stop != 1)
 {
+	if (variable_instance_exists(id,"m_data_arg1"))
+	{
+		direction = m_data_arg1;
+		image_angle = m_data_arg1;
+		shake_movement = m_data_arg2;
+	}
+	
 	x += falling_hspeed
 	y += falling_vspeed
 	if global.low_graphics = false
@@ -51,6 +58,11 @@ if (global.timeline_stop != 1)
 
 	if (warning_timer == round(target_time))
 	{
+		if (variable_instance_exists(id,"ed_arg4"))
+		{
+			gravity = ed_arg4;
+		}
+		
 		if shake_scale > 0
 		{
 			view_shake(0.1,shake_scale,3,shake_dir);

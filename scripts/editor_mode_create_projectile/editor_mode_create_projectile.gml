@@ -57,7 +57,6 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 	
 		case 3: //눈꽃 탄막
 			var tmp_ins = create_explo_circle(argument1,argument2,floor(1+argument6),floor(argument8),0,0,argument3,argument5,0,0,30)
-			tmp_ins.gravity = argument7/255;
 			tmp_ins.direction = argument4;
 			tmp_ins.image_angle = argument4;
 			tmp_ins.projectile_type = argument0;
@@ -68,6 +67,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			
+			tmp_ins.ed_arg4 = argument7/255;
 		break;
 	
 		case 4: //지렁이 탄막
@@ -101,9 +102,9 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
 			tmp_ins.m_data_arg1 = argument4;
-			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg2 = 0;
 			tmp_ins.m_data_arg3 = argument6;
-			tmp_ins.m_data_arg4 = argument7;
+			tmp_ins.m_data_arg4 = 0;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
 		break;
@@ -121,7 +122,7 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 		break;
 	
 		case 8: //탄막색 변경
-			var tmp_ins = instance_create_depth(argument1,argument2,depth,hitbox_bg_color)
+			var tmp_ins = instance_create_depth(argument1,argument2,depth,hitbox_hitbox_color)
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
 			tmp_ins.m_data_arg1 = argument4;
@@ -145,14 +146,6 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 		break;
 	
 		case 10: //비 이펙트
-			if (argument9 == 1)
-			{
-				global.master_remix_effect = 1;
-			}
-			else
-			{
-				global.master_remix_effect = 0;
-			}
 		break;
 	
 		case 11: //세이브 포인트 지정
@@ -193,15 +186,68 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 		break;
 	
 		case 12: //바운스 탄막
+			var tmp_ins = create_bounce_ball(argument1,argument2,argument3,floor(argument5/4),argument4,floor((argument6-128)/255*15))
+			tmp_ins.image_angle = argument4;
+			tmp_ins.direction = argument4;
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = argument4;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = argument7;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
 		break;
 	
-		case 13: //카메라 - 줌 효과
+		case 13: //카메라 효과
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_camera_zoom)
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = argument4;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = 0;
+			tmp_ins.m_data_arg5 = 0;
+			tmp_ins.m_data_arg6 = argument9;
+			
+			tmp_ins.ed_arg0 = 0.5+argument3/20;
+			tmp_ins.ed_arg1 = (argument4-180)/1000;
+			tmp_ins.ed_arg2 = floor((argument5)/255*25);
+			tmp_ins.ed_arg3 = floor((argument6)/255*2);
 		break;
 	
-		case 14: //카메라 - 화면 흔들림
+		case 14: //잡다한 효과
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = 0;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = 0;
+			tmp_ins.m_data_arg4 = 0;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			
+			tmp_ins.ed_arg0 = (argument3-10)/10;
+			tmp_ins.ed_arg5 = argument8/255;
 		break;
 	
 		case 15: //회전하는 탄막 자동 생성기
+			var tmp_ins = create_projectile_spin(argument1,argument2,spr_square,argument3,argument8,argument6,0,argument5,argument7)
+			tmp_ins.image_angle = argument4;
+			tmp_ins.direction = argument4;
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = argument4;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = argument7;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			
+			tmp_ins.ed_arg2 = (argument5-128)/4;
+			tmp_ins.ed_arg3 = (argument6-128)/16;
+			tmp_ins.ed_arg4 = fix_to_zero(floor(1-(argument7)/255)*60);
+			tmp_ins.ed_arg5 = 1+floor(argument8);
 		break;
 	
 		case 16: //물 이펙트

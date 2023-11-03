@@ -19,6 +19,10 @@ if (keyboard_check_pressed(vk_enter))
 		global.timeline_stop = 1;
 		instance_destroy(hitbox_parents);
 		audio_stop_sound(global.n_music_id);
+		global.master_remix_effect = 0
+		global.t_bg_color = 0;
+		global.t_bg_color_alpha = 0;
+		global.background_color = c_black;
 	}
 }
 
@@ -80,7 +84,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "활성화 이후 회전 속력";
 		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
-		global.ed_arg_name[5] = "지속시간";
+		global.ed_arg_name[5] = "지속시간\n(60프레임 = 1초";
 	break;
 	
 	case 3: //눈꽃 탄막
@@ -97,7 +101,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[2] = "좌우 반복 움직임 속력\n(각도에 따라 이동이 다름)";
 		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
 		global.ed_arg_name[4] = "중력";
-		global.ed_arg_name[5] = "지속시간";
+		global.ed_arg_name[5] = "지속시간\n(60프레임 = 1초";
 	break;
 	
 	case 4: //지렁이 탄막
@@ -148,7 +152,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
-		global.ed_arg_name[5] = "지속시간";
+		global.ed_arg_name[5] = "지속시간\n(60프레임 = 1초";
 	break;
 	
 	case 7: //맵 밖에서 튀어나오는 탄막
@@ -199,22 +203,76 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 10: //비 이펙트
-		global.ed_arg_name[6] = "이펙트 활성화";
+		//global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
 	case 11: //세이브 포인트 지정
 	break;
 	
 	case 12: //바운스 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+		sprite_index = spr_cross;
+		image_angle = global.ed_arg[1];
+		image_alpha = 0.4;
+		global.ed_arg_name[0] = "크기";
+		global.ed_arg_name[1] = "각도";
+		global.ed_arg_name[2] = "속력";
+		global.ed_arg_name[3] = "이미지 회전 방향";
 	break;
 	
-	case 13: //카메라 - 줌 효과
+	case 13: //카메라 효과
+		if (abs(global.ed_arg[1]-180) <= 1)
+		{
+			global.ed_arg[1] = 180;
+		}
+	
+		global.ed_arg_name[0] = "줌 정도 설정";
+		global.ed_arg_name[1] = "천천히 줌되는 비율";
+		global.ed_arg_name[2] = "화면 흔들림 정도";
+		global.ed_arg_name[3] = "화면 흔들림 방향";
+		global.ed_arg_name[6] = "포커스 활성화\n(카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)";
 	break;
 	
-	case 14: //카메라 - 화면 흔들림
+	case 14: //잡다한 효과 모음
+		global.ed_arg_name[0] = "배경 투명도 변화\n(값이 클수록 빠르게 변화합니다)";
+		global.ed_arg_name[2] = "비 효과";
+		if (global.ed_arg[6] == 1)
+		{
+			global.ed_arg_name[5] = "플래시 효과 밝기 정도";
+		}
+		else
+		{
+			global.ed_arg_name[5] = "";
+			with(obj_button)
+			{
+				if (button_id == 105)
+				{
+					instance_destroy();
+				}
+			}
+		}
+		global.ed_arg_name[6] = "플래시 효과 활성화"
 	break;
 	
 	case 15: //회전하는 탄막 자동 생성기
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
+		sprite_index = spr_square;
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+		image_angle = global.ed_arg[1];
+		image_alpha = 0.4;
+		global.ed_arg_name[0] = "크기";
+		global.ed_arg_name[1] = "처음 탄막 각도";
+		global.ed_arg_name[2] = "탄막 속력";
+		global.ed_arg_name[3] = "회전 방향";
+		global.ed_arg_name[4] = "탄막 생성 속도";
+		global.ed_arg_name[5] = "지속 시간\n(60프레임 = 1초)";
 	break;
 	
 	case 16: //물 이펙트

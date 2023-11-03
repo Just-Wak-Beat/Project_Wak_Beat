@@ -3,7 +3,7 @@
 
 
 //에디터 모드
-if (global.map_editor == 1)
+if (global.map_editor == 1 && global.play_custom_map == 1 && is_array(global.c_map_param))
 {
 	window_set_cursor(cr_default)
 	global.hp = sprite_get_number(spr_player)-7;
@@ -383,7 +383,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 				}
 	
 	
-				if (!instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
+				if (global.timeline_stop != 1 && !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
 				{
 					if abs(global.map_speed_y) > 0
 					{

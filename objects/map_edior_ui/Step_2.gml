@@ -71,7 +71,7 @@ if (global.timeline_stop == 1)
 	else if (keyboard_check_pressed(ord("S")))
 	{
 		var plus_ind = 1;
-		var minus_ind = 0;
+		var minus_ind = 1;
 		while(true)
 		{
 			var tmp_ind_m = fix_to_zero(global.n_progress+minus_ind);

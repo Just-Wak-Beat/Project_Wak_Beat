@@ -10,3 +10,9 @@ activated = -1
 n_selected = -4;
 
 keep_pressing = 0
+
+
+for(var i = 0; i < 7; i++)
+{
+	global.converted_param[i] = 0;
+}	

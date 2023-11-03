@@ -5,9 +5,15 @@ if (global.timeline_stop == 1)
 {
 	audio_stop_sound(global.n_music_id);
 	instance_destroy(hitbox_parents);
+	global.master_remix_effect = 0
+	global.t_bg_color = 0;
+	global.t_bg_color_alpha = 0;
+	global.background_color = c_black;
 }
 else
 {
+	global.n_progress -= 1;
+	instance_destroy(hitbox_parents);
 	activated = -1;
 	global.editor_hitbox = -1;
 	var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[code.n_stage];
