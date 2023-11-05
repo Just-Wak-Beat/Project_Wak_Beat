@@ -23,6 +23,10 @@ if (keyboard_check_pressed(vk_enter))
 		global.t_bg_color = 0;
 		global.t_bg_color_alpha = 0;
 		global.background_color = c_black;
+		global.map_speed = 0;
+		global.map_speed_y = 0;
+		global.t_map_speed = 0;
+		global.t_map_speed_y = 0;
 	}
 }
 
@@ -202,8 +206,20 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
-	case 10: //비 이펙트
-		//global.ed_arg_name[6] = "이펙트 활성화";
+	case 10: //미사일 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
+		global.ed_arg_name[0] = "크기";
+		global.ed_arg_name[1] = "각도";
+		global.ed_arg_name[2] = "속력";
+		global.ed_arg_name[5] = "생성된 탄막들의 지속 시간\n(60프레임 = 1초)";
+		
+		image_angle = global.ed_arg[1];
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+		sprite_index = spr_square;
+		image_alpha = 0.4;
 	break;
 	
 	case 11: //세이브 포인트 지정

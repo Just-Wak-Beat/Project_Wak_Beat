@@ -5,7 +5,7 @@
 if (global.timeline_stop == 1)
 {
 	draw_sprite_ext(spr_square,5,x,y,image_xscale,image_xscale,0,c_white,0.5);
-	var tmp_angle = 180+image_angle+editor_mode_angle;
+	var tmp_angle = 180+image_angle-editor_mode_angle;
 	draw_sprite_ext(spr_key,6,x,y,2,2,-90+tmp_angle,c_white,editor_mode_alpha);
 	
 	editor_mode_timer ++;

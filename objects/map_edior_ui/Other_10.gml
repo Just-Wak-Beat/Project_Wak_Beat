@@ -9,6 +9,10 @@ if (global.timeline_stop == 1)
 	global.t_bg_color = 0;
 	global.t_bg_color_alpha = 0;
 	global.background_color = c_black;
+	global.map_speed = 0;
+	global.map_speed_y = 0;
+	global.t_map_speed = 0;
+	global.t_map_speed_y = 0;
 }
 else
 {
