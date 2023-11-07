@@ -189,7 +189,7 @@ else if (global.editor_selected_type == 12)
 }
 else if (global.editor_selected_type == 15)
 {
-	var tmp_val_ang = floor(image_angle)
+	var tmp_val_ang = floor(global.ed_arg[1])
 	draw_set_color(c_white);
 	draw_set_alpha(1);
 	draw_line_width(mouse_x+lengthdir_x(320,180+tmp_val_ang),mouse_y+lengthdir_y(320,180+tmp_val_ang),mouse_x,mouse_y,3);
@@ -336,7 +336,7 @@ for(var i = 0; i < 7; i++)
 			}
 			else if (i == 4)
 			{
-				tmp_val = fix_to_zero(floor(((tmp_val/255)-1)*60));
+				tmp_val = floor(fix_to_zero(((tmp_val/255)-1)*60));
 			}
 			else if (i == 5)
 			{

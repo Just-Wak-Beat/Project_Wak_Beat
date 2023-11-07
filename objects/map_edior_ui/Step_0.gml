@@ -281,10 +281,9 @@ switch(global.editor_selected_type)
 		sprite_index = spr_square;
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
-		global.ed_arg_name[1] = "처음 탄막 각도";
+		global.ed_arg_name[1] = "첫 발사 탄막 각도";
 		global.ed_arg_name[2] = "탄막 속력";
 		global.ed_arg_name[3] = "회전 방향";
 		global.ed_arg_name[4] = "탄막 생성 속도";
