@@ -11,7 +11,7 @@
 <img src = "imgs/comp1.gif"></br>
 
   
-<b> Just Wak & Beats는 JSAB를 베이스로
+<b> Project Wak Beat는 Project arrhythmia와 JSAB를 베이스로
 
 스트리머 "우왁굳"의 팬게임으로 제작된 리듬게임입니다! </b>
 
