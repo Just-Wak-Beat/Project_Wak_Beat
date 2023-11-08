@@ -655,7 +655,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	//alpha text
 	if (!instance_exists(obj_message_log))
 	{
-		draw_text_k_scale(xx+32,global.c_h-140,"Just Wak and Beats ("+string(global.version)+")",64,-1,floor(global.ui_alpha),c_white,0,-1,normal_font,0.5,0.5,0)
+		draw_text_k_scale(xx+32,global.c_h-140,"Project Wak Beat ("+string(global.version)+")",64,-1,floor(global.ui_alpha),c_white,0,-1,normal_font,0.5,0.5,0)
 		var __string__ = (global.mobile_mode == 1) ? program_directory : "Presented by ABER"
 		draw_text_k_scale(xx+32,global.c_h-100,__string__,64,-1,floor(global.ui_alpha)*0.6,c_white,0,-1,normal_font,0.4,0.4,0)
 	

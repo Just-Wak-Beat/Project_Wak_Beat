@@ -87,7 +87,6 @@
     {"name":"load_custom_map_num","order":3,"path":"scripts/load_custom_map_num/load_custom_map_num.yy",},
     {"name":"check_distance","order":4,"path":"scripts/check_distance/check_distance.yy",},
     {"name":"spr_snow","order":32,"path":"sprites/spr_snow/spr_snow.yy",},
-    {"name":"create_new_custom_map_file","order":7,"path":"scripts/create_new_custom_map_file/create_new_custom_map_file.yy",},
     {"name":"common_sfx2","order":12,"path":"sounds/common_sfx2/common_sfx2.yy",},
     {"name":"hex_to_dec","order":3,"path":"scripts/hex_to_dec/hex_to_dec.yy",},
     {"name":"spr_eye1","order":44,"path":"sprites/spr_eye1/spr_eye1.yy",},

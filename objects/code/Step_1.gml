@@ -225,7 +225,7 @@ if (automatic_reload_player_leaderboard > 0)
 //자동 리로드 리더보드 (각 맵 점수의 리더보드)
 /*if (automatic_reload_leaderboard > 0)
 {
-	var leaderboard_list_id = "JWAB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);
+	var leaderboard_list_id = "PWB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);
 	automatic_reload_leaderboard ++;
 
 	if (automatic_reload_leaderboard == 2)

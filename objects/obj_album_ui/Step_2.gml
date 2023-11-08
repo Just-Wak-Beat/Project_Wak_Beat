@@ -85,7 +85,7 @@ if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock
 	}
 	else
 	{
-		if (global.n_map_id >= 0 && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1430) < 80) || keyboard_check_pressed(ord("M"))))
+		if (global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1430) < 80) || keyboard_check_pressed(ord("M"))))
 		{
 			window_set_cursor(cr_none);
 			audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2);
@@ -110,6 +110,10 @@ if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock
 					code.automatic_reload_player_leaderboard = 1;
 				}
 			}
+		}
+		else if (global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80) || keyboard_check_pressed(ord("N"))))
+		{
+			create_new_custom_map_file();
 		}
 	}
 }

@@ -48,7 +48,7 @@ if global.n_map_list != 2
 		
 		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score[global.n_map_id] == "--" || temp_score > global.real_n_score[global.n_map_id]))
 		{
-			LootLockerSubmitScore("JWAB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
+			//LootLockerSubmitScore("PWB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
 
 			global.real_n_score[global.n_map_id] = temp_score
 			global.n_score = temp_score
@@ -63,7 +63,7 @@ if global.n_map_list != 2
 		
 		if (global.nickname != "" && global.n_map_list != 2 && (global.real_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.real_n_score_hardcore[global.n_map_id]))
 		{
-			LootLockerSubmitScore("JWAB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
+			//LootLockerSubmitScore("PWB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1),real(temp_score));
 
 
 			global.real_n_score_hardcore[global.n_map_id] = temp_score

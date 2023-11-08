@@ -5,7 +5,7 @@ var ev_type = async_load[? "event_type"];
 
 if (ev_type == "DiscordReady")
 {
-	window_set_caption("Just Wak and Beats");
+	window_set_caption("Project Wak Beat");
 	ready = true;
 	show_debug_message("date: " + string(date_current_datetime()));
 	np_setpresence_timestamps(date_current_datetime(), 0, false);

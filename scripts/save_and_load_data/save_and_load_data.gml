@@ -6,7 +6,7 @@
 ///@param quicksave
 function save_and_load_data(argument0,argument1)
 {
-	var file_name = (global.dev_mode == 1) ? "JWAB_Beta.ini" : "JWAB_OpenBeta.ini"
+	var file_name = (global.dev_mode == 1) ? "PWB_Beta.ini" : "PWB_OpenBeta.ini"
 	ini_open_protect(file_name)
 
 	if (argument0 == 0 && global.show_credit <= 0)

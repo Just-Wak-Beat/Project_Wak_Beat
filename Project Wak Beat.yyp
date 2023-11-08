@@ -114,7 +114,6 @@
     {"id":{"name":"load_custom_map_num","path":"scripts/load_custom_map_num/load_custom_map_num.yy",},},
     {"id":{"name":"check_distance","path":"scripts/check_distance/check_distance.yy",},},
     {"id":{"name":"spr_snow","path":"sprites/spr_snow/spr_snow.yy",},},
-    {"id":{"name":"create_new_custom_map_file","path":"scripts/create_new_custom_map_file/create_new_custom_map_file.yy",},},
     {"id":{"name":"common_sfx2","path":"sounds/common_sfx2/common_sfx2.yy",},},
     {"id":{"name":"hex_to_dec","path":"scripts/hex_to_dec/hex_to_dec.yy",},},
     {"id":{"name":"spr_eye1","path":"sprites/spr_eye1/spr_eye1.yy",},},
