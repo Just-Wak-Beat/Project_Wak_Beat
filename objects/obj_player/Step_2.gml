@@ -16,6 +16,11 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 			hurt_hspeed = global.hmove_speed
 			hurt_vspeed = global.vmove_speed
 			
+			with(obj_player_left_hp_effect)
+			{
+				image_alpha = 10;
+			}
+			
 			
 			if (invincibility_cooltime != 80)
 			{
