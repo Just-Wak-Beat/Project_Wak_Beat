@@ -41,7 +41,7 @@ function hex_to_color(argument0,argument1)
 			}
 			else
 			{
-				if (text != "")
+				if (text != "" && text != " " && text != "-")
 				{
 					text = real(text)
 				}
@@ -92,7 +92,7 @@ function hex_to_color(argument0,argument1)
 				}
 				else
 				{
-					if (text != "")
+					if (text != "" && text != " " && text != "-")
 					{
 						text = real(text)
 					}

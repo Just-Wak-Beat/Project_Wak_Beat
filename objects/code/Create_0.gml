@@ -311,7 +311,6 @@ automatic_reload_leaderboard = 0;
 		global.custom_stage_map_difficulty[i] = -4;
 		global.custom_map_duration[i] = -4;
 		global.custom_stage_map_color[i] = -4;
-		global.custom_stage_map_audio_name[i] = -4;
 		global.custom_stage_bpm[i] = -4;
 		global.custom_stage_map_highlight_part[i] = -4
 		global.custom_n_rank[i] = "--";

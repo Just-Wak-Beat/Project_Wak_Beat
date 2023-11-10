@@ -8,7 +8,6 @@ function load_custom_map_files()
 		ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\map_info.ini")
 		if !audio_exists(global.custom_audio_asset[i])
 		{
-			global.custom_stage_map_audio_name[i] = ini_read_string("custom_stage_map_audio_name","value",-4)
 			global.custom_stage_map_name[i] = ini_read_string("custom_stage_map_name","value","Undefined")
 			global.custom_stage_map_artist[i] = ini_read_string("custom_stage_map_artist","value","Undefined")
 			global.custom_stage_map_difficulty[i] = ini_read_string("custom_stage_map_difficulty","value","Undefined")
@@ -20,7 +19,7 @@ function load_custom_map_files()
 			global.custom_obtainable_type[i] = ini_read_real("custom_obtainable_type","value",-4)
 			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
 			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
-			var directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\"+string(global.custom_stage_map_audio_name[i])+".ogg"
+			var directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\audio.ogg"
 			if (file_exists(directory))
 			{
 				audio_file = audio_create_stream(directory);
@@ -35,11 +34,17 @@ function load_custom_map_files()
 	
 		if !sprite_exists(global.custom_stage_album[i])
 		{
-			global.custom_stage_album[i] = sprite_add(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.png",0,false,false,256,256)
+			var img_directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.png";
+			if (!file_exists(img_directory))
+			{
+				img_directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.PNG";
+			}
+			var tmp_spr = (file_exists(img_directory)) ? sprite_add(img_directory,0,false,false,256,256) : spr_album;
+			global.custom_stage_album[i] = tmp_spr;
 		}
 		
-		show_message_log("커스텀 곡 불러오는 중... ("+string(global.custom_stage_map_audio_name[i])+")");
-		show_debug_message(string(global.custom_stage_map_audio_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))
+		show_message_log("커스텀 곡 불러오는 중... ("+string(global.custom_stage_map_name[i])+")");
+		show_debug_message(string(global.custom_stage_map_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))
 		ini_close()
 	}
 }

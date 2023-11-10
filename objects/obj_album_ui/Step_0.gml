@@ -13,7 +13,8 @@ if global.n_map_list != 2
 }
 else
 {
-	if (global.n_map_id >= 0 && sprite_index != global.custom_stage_album[global.n_map_id])
+	var tmp_spr = global.custom_stage_album[global.n_map_id];
+	if (global.n_map_id >= 0 && sprite_index != tmp_spr)
 	{
 		var spr_width = sprite_get_width(global.custom_stage_album[global.n_map_id]);
 		var spr_height = sprite_get_height(global.custom_stage_album[global.n_map_id]);

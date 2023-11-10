@@ -77,7 +77,6 @@ function load_musicList(argument0)
 			global.stage_map_difficulty[i] = global.custom_stage_map_difficulty[i];
 			global.stage_map_color[i] = global.custom_stage_map_color[i];
 			global.stage_map_duration[i] = global.custom_map_duration[i];
-			global.stage_map_audio_name[i] = global.custom_stage_map_audio_name[i]; //곡 파일명 (확장자 제외)
 			global.stage_bpm[i] = global.custom_stage_bpm[i];
 			global.stage_map_highlight_part[i] = global.custom_stage_map_highlight_part[i];
 			global.n_rank[i] = global.custom_n_rank[i];
