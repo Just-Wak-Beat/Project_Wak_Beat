@@ -39,6 +39,10 @@ function load_custom_map_files()
 			{
 				img_directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.PNG";
 			}
+			if (!file_exists(img_directory))
+			{
+				img_directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.jpg";
+			}
 			var tmp_spr = (file_exists(img_directory)) ? sprite_add(img_directory,0,false,false,256,256) : spr_album;
 			global.custom_stage_album[i] = tmp_spr;
 		}
