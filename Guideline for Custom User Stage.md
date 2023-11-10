@@ -21,6 +21,7 @@
 -------------
 
 <img src = "imgs\Guideline_imgs\gl3.PNG" width = "480px">
+
 윈도우의 좌측 하단에 있는 '검색창'에 ```%localappdata%\Project_Wak_Beat\Custom map files```를 입력후 엔터를 눌러 해당 폴더에 들어가줍니다.
 
 들어간 폴더 내에서 ```Custom_map_file_(숫자)```폴더들 중에서 가장 마지막 숫자가 적힌 폴더로 들어가줍니다. (가장 마지막에 생성된 커스텀 맵의 파일은 가장 마지막 숫자가 적혀진 폴더에 생성됩니다.)
