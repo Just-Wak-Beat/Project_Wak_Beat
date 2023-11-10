@@ -1,3 +1,10 @@
+## - 커스텀 유저 곡 가이드라인
+
+쉽게 따라하실 수 있게 이미지와 함께 자세히 설명을 적어뒀습니다!
+
+천천히 읽어보시면서 따라해보세요
+
+
 -------------
 <details>
 <summary>새로운 커스텀 맵 생성</summary>
@@ -76,6 +83,46 @@ value="32.000000"
 |맵의 대표 컬러 (Hex값으로만 입력 가능합니다)|잘 모르시면 <a href = "https://imagecolorpicker.com/en">Hex값 변환 사이트</a>에서 원하는 색을 hex값으로 변환 가능합니다.<br>(hex값은 다음과 같이 적혀있습니다 #ffffff)|
 
 </details>
+
+
+<details>
+<summary>커스텀 맵 엘범 이미지 적용</summary>
+
+-------------
+
+<img src = "imgs\Guideline_imgs\gl6.PNG" width = "480px">
+
+원하는 이미지 파일을 커스텀 맵 폴더 안에 넣어주세요.
+
+파일 이름을 '무조건' 다음과 같이 설정해줍니다. ```album``` (대소문자 구분 주의)
+
+(이미지 파일 확장자명은 png, PNG, jpg만 가능합니다)
+
+<br><br><br><br><br>
+
+-------------
+
+</details>
+
+<details>
+<summary>커스텀 맵 음악 적용</summary>
+
+-------------
+
+<img src = "imgs\Guideline_imgs\gl6.PNG" width = "480px">
+
+원하는 곡의 mp3파일을 <a href = "https://convertio.co/mp3-ogg/">해당 사이트</a>에서 ogg파일로 변경해주세요.
+
+변환된 음악 파일을 커스텀 맵 폴더 안에 넣어주세요.
+
+파일 이름을 '무조건' 다음과 같이 설정해줍니다. ```audio``` (대소문자 구분 주의)
+
+<br><br><br><br><br>
+
+-------------
+
+</details>
+
 
 
 -------------
