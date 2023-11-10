@@ -1,15 +1,23 @@
 ## - 커스텀 유저 곡 가이드라인
 
-쉽게 따라하실 수 있게 이미지와 함께 자세히 설명을 적어뒀습니다!
+<div align = "center">
+  
+<img src = "imgs\Imoji\imoji4.gif" width = "180px">
+
+
+#### 쉽게 따라하실 수 있게 이미지와 함께 자세히 설명을 적어뒀습니다!
 
 천천히 읽어보시면서 따라해보세요
 
+</div>
 
 -------------
 <details>
 <summary>새로운 커스텀 맵 생성</summary>
 
 -------------
+
+<div align = "center">
 
 <img src = "imgs\Guideline_imgs\gl1.PNG" width = "480px">
 
@@ -20,6 +28,8 @@
 <img src = "imgs\Guideline_imgs\gl2.PNG" width = "180px">
 
 좌측 하단에 있는 ```새로운 커스텀 맵 생성```을 클릭 혹은 ```N키```를 눌러 새로운 커스텀 맵을 생성해줍니다.
+
+</div>
 
 <br><br><br><br><br>
 
@@ -32,11 +42,23 @@
 
 -------------
 
+<div align = "center">
+
 <img src = "imgs\Guideline_imgs\gl3.PNG" width = "480px">
 
-윈도우의 좌측 하단에 있는 '검색창'에 ```%localappdata%\Project_Wak_Beat\Custom map files```를 입력후 엔터를 눌러 해당 폴더에 들어가줍니다.
+윈도우의 좌측 하단에 있는 '검색창'에
 
-들어간 폴더 내에서 ```Custom_map_file_(숫자)```폴더들 중에서 가장 마지막 숫자가 적힌 폴더로 들어가줍니다. (가장 마지막에 생성된 커스텀 맵의 파일은 가장 마지막 숫자가 적혀진 폴더에 생성됩니다.)
+```%localappdata%\Project_Wak_Beat\Custom map files```를 입력후 
+
+엔터를 눌러 해당 폴더에 들어가줍니다.
+
+들어간 폴더 내에서 ```Custom_map_file_(숫자)```폴더들 중에서 
+
+가장 마지막 숫자가 적힌 폴더로 들어가줍니다. 
+
+#### (가장 마지막에 생성된 커스텀 맵의 파일은 가장 마지막 숫자가 적혀진 폴더에 생성됩니다.)
+
+</div>
 
 <br><br><br><br><br>
 
@@ -49,13 +71,17 @@
 
 -------------
 
+<div align = "center">
+
 <img src = "imgs\Guideline_imgs\gl4.PNG" width = "480px">
 
 커스텀 맵 파일이 존재하는 폴더에 들어가 ```map_info.ini```파일을
 
 ``마우스 우클릭``을 누른 뒤  ```연결 프로그램' -> '메모장```을 선택해 파일을 열어줍니다.
 
-메모장 파일에 적혀져 있는 글씨에 각각의 값을 입력하여 커스텀 맵의 정보를 입력해줍니다. (모든 값은 반드시 따옴표를 포함합니다)
+메모장 파일에 적혀져 있는 글씨에 각각의 값을 입력하여 커스텀 맵의 정보를 입력해줍니다.
+
+#### (모든 값은 반드시 따옴표를 포함합니다)
 
 맵 정보는 다음과 같은 형식으로 적혀져 있습니다.
 ```
@@ -85,6 +111,8 @@ value="32.000000"
 |---|---|
 |맵의 대표 컬러 (Hex값으로만 입력 가능합니다)|잘 모르시면 <a href = "https://imagecolorpicker.com/en">Hex값 변환 사이트</a>에서 원하는 색을 hex값으로 변환 가능합니다.<br>(hex값은 다음과 같이 적혀있습니다 #ffffff)|
 
+</div>
+
 <br><br><br><br><br>
 
 -------------
@@ -97,13 +125,17 @@ value="32.000000"
 
 -------------
 
+<div align = "center">
+
 <img src = "imgs\Guideline_imgs\gl6.PNG" width = "480px">
 
 원하는 이미지 파일을 커스텀 맵 폴더 안에 넣어주세요.
 
 파일 이름을 '무조건' 다음과 같이 설정해줍니다. ```album``` (대소문자 구분 주의)
 
-(이미지 파일 확장자명은 png, PNG, jpg만 가능합니다)
+#### (이미지 파일 확장자명은 png, PNG, jpg만 사용 가능하며, 사이즈는 512x512px를 추천합니다)
+
+</div>
 
 <br><br><br><br><br>
 
@@ -116,6 +148,8 @@ value="32.000000"
 
 -------------
 
+<div align = "center">
+
 <img src = "imgs\Guideline_imgs\gl6.PNG" width = "480px">
 
 원하는 곡의 mp3파일을 <a href = "https://convertio.co/mp3-ogg/">해당 사이트</a>에서 ogg파일로 변경해주세요.
@@ -123,6 +157,8 @@ value="32.000000"
 변환된 음악 파일을 커스텀 맵 폴더 안에 넣어주세요.
 
 파일 이름을 '무조건' 다음과 같이 설정해줍니다. ```audio``` (대소문자 구분 주의)
+
+</div>
 
 <br><br><br><br><br>
 
