@@ -5,11 +5,13 @@
 -------------
 
 <img src = "imgs\Guideline_imgs\gl1.PNG" width = "480px">
+
 '유저 제작 커스텀 곡'리스트로 가줍니다.
 
 <br><br><br>
 
 <img src = "imgs\Guideline_imgs\gl2.PNG" width = "180px">
+
 좌측 하단에 있는 '새로운 커스텀 맵 생성'을 클릭 혹은 'N'키를 눌러 새로운 커스텀 맵을 생성해줍니다.
 
 <br><br><br><br><br>
