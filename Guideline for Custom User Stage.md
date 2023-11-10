@@ -85,6 +85,10 @@ value="32.000000"
 |---|---|
 |맵의 대표 컬러 (Hex값으로만 입력 가능합니다)|잘 모르시면 <a href = "https://imagecolorpicker.com/en">Hex값 변환 사이트</a>에서 원하는 색을 hex값으로 변환 가능합니다.<br>(hex값은 다음과 같이 적혀있습니다 #ffffff)|
 
+<br><br><br><br><br>
+
+-------------
+
 </details>
 
 
