@@ -65,6 +65,8 @@ for(var i = 0; i <= 4; i++)
 	audio_group_load(i);
 }
 
+alarm[4] = 120
+
 texturegroup_load("UI")
 texturegroup_load("hitbox_shapes")
 texturegroup_load("effects")

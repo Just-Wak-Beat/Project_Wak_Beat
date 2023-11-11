@@ -43,12 +43,17 @@ function load_custom_map_files()
 			{
 				img_directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.jpg";
 			}
-			var tmp_spr = (file_exists(img_directory)) ? sprite_add(img_directory,0,false,false,256,256) : spr_album;
+			var tmp_spr = (file_exists(img_directory)) ? sprite_add_ext(img_directory,0,256,256,true) : spr_album;
 			global.custom_stage_album[i] = tmp_spr;
 		}
 		
 		show_message_log("커스텀 곡 불러오는 중... ("+string(global.custom_stage_map_name[i])+")");
 		show_debug_message(string(global.custom_stage_map_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))
 		ini_close()
+		
+		if (instance_exists(obj_album_ui))
+		{
+			obj_album_ui.image_scale = -4;
+		}
 	}
 }
