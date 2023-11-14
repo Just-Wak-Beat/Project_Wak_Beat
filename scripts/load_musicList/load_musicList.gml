@@ -67,7 +67,7 @@ function load_musicList(argument0)
 	}
 	else if argument0 = 2
 	{
-		global.total_map = load_custom_map_num();//"custom_map_file_"+string(i)의 파일 갯수로 확인 
+		global.total_map = get_custom_map_num();//"custom_map_file_"+string(i)의 파일 갯수로 확인 
 	
 		for(var i = 0; i < global.total_map; i++)
 		{

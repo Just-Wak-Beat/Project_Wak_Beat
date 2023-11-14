@@ -2,7 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function load_custom_map_files()
 {
-	for(var i = 0; i < load_custom_map_num(); i++)
+	for(var i = 0; i < get_custom_map_num(); i++)
 	{
 		var audio_file = "already_loaded"
 		ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\map_info.ini")
