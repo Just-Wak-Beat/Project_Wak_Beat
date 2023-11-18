@@ -305,7 +305,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 					global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
 	
 					var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
-					if timeline_exists(_timeline_index_)
+					if (timeline_exists(_timeline_index_) && global.n_map_list != 2)
 					{
 						global.play_custom_map = 0;
 						window_set_cursor(cr_none)
@@ -330,7 +330,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 					{
 						//커스텀 유저맵 로드
 						global.play_custom_map = 1;
-						var tmp_directory = string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+"\\map_data.ini";
+						var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
 						global.c_map_param = array_create(global.music_duration+1,"");
 						if (file_exists(tmp_directory))
 						{

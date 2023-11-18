@@ -2,10 +2,11 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function load_custom_map_files()
 {
-	for(var i = 0; i < get_custom_map_num(); i++)
+	global.custom_map_num = get_custom_map_num();
+	for(var i = 0; i < global.custom_map_num; i++)
 	{
 		var audio_file = "already_loaded"
-		ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\map_info.ini")
+		ini_open(string(global.custom_map_file_dir[i])+"\\map_info.ini")
 		if !audio_exists(global.custom_audio_asset[i])
 		{
 			global.custom_stage_map_name[i] = ini_read_string("custom_stage_map_name","value","Undefined")
@@ -19,7 +20,7 @@ function load_custom_map_files()
 			global.custom_obtainable_type[i] = ini_read_real("custom_obtainable_type","value",-4)
 			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
 			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
-			var directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\audio.ogg"
+			var directory = string(global.custom_map_file_dir[i])+"\\audio.ogg"
 			if (file_exists(directory))
 			{
 				audio_file = audio_create_stream(directory);
@@ -34,14 +35,14 @@ function load_custom_map_files()
 	
 		if !sprite_exists(global.custom_stage_album[i])
 		{
-			var img_directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.png";
+			var img_directory = string(global.custom_map_file_dir[i])+"\\album.png";
 			if (!file_exists(img_directory))
 			{
-				img_directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.PNG";
+				img_directory = string(global.custom_map_file_dir[i])+"\\album.PNG";
 			}
 			if (!file_exists(img_directory))
 			{
-				img_directory = string(global.custom_map_directory)+"custom_map_file_"+string(i+1)+"\\album.jpg";
+				img_directory = string(global.custom_map_file_dir[i])+"\\album.jpg";
 			}
 			var tmp_spr = (file_exists(img_directory)) ? sprite_add_ext(img_directory,0,256,256,true) : spr_album;
 			global.custom_stage_album[i] = tmp_spr;

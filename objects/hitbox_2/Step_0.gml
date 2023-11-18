@@ -9,7 +9,7 @@ if gravity = 0
 
 if (global.timeline_stop != 1)
 {
-	if (sprite_index != spr_circle_half)
+	if (sprite_index != spr_circle_half || global.play_custom_map == 1)
 	{
 		image_angle += keep_spin_angle
 		if (variable_instance_exists(id,"speed_"))

@@ -46,6 +46,7 @@ for(var i = 0; i <= 21; i++)
 		var tmp_yy = yy+(160+scroll_y)*global.converted_view_ratio;
 		if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,tmp_xx,tmp_yy) <= 64*global.converted_view_ratio)
 		{
+			selected_projectile_type = 1;
 			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume);
 			global.ed_arg_name[0] = "";
 			global.ed_arg_name[1] = "";
@@ -95,7 +96,7 @@ for(var i = 0; i <= 21; i++)
 						global.savepoint_position[i] = global.savepoint_position[i+1];
 					}
 					
-					var tmp_directory = string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+"\\map_data.ini";
+					var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
 					ini_open(tmp_directory);
 						for(var i = 0; i <= 5; i++)
 						{

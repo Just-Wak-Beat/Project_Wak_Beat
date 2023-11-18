@@ -2,23 +2,46 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function get_custom_map_num()
 {
-	var total_num = 0;
-	var file_dir = file_find_first(string(global.custom_map_directory)+"*", fa_directory);
+	///directory_list(directory)
+	var _directory = string(global.custom_map_directory)+"user_custom_map\\";
+	var _finished = false
+	var tmp_ind = 0;
+
+	
+	var _firstFile = file_find_first(string(_directory)+"*", fa_directory);
+
+	show_debug_message("커스텀 맵 폴더 : "+string(_firstFile))
+	if (string_length(_firstFile) == 0)
+	{
+		return 0;
+	}
+	else
+	{
+		global.custom_map_file_dir[tmp_ind] = string(_directory)+string(_firstFile);
+	    tmp_ind++;
+	}
+
 	while(true)
 	{
-		if file_dir != "" && file_exists(file_dir) //파일 이름은 1번부터 시작
+	    var _file = file_find_next();
+	    if (string_length(_file) == 0)
 		{
-			total_num ++
-			file_dir = file_find_next();
-		}
+	        break;
+	    }
 		else
 		{
-			file_find_close();
-			break;
-		}
+	        var _fullPath = string(_directory)+string(_file);
+	        if directory_exists(_fullPath)
+			{
+	            global.custom_map_file_dir[tmp_ind] = string(_fullPath);
+				tmp_ind++;
+	        }
+	    }
 	}
-	
 
-	show_debug_log("커스텀 맵 파일 "+string(total_num)+"개를 불러왔습니다.");
-	return total_num;
+	file_find_close();
+	show_debug_message("커스텀 맵 파일 "+string(tmp_ind)+"개를 불러왔습니다.");
+	show_message_log("커스텀 맵 파일 "+string(tmp_ind)+"개를 불러왔습니다.");
+	
+	return tmp_ind;
 }

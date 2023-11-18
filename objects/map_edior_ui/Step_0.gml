@@ -45,6 +45,22 @@ else
 //"맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "비 이펙트" , "세이브 포인트 지정", 
 //"카메라 - 화면 크기 설정", "카메라 - 천천히 줌 인", "카메라 - 천천히 줌 아웃", "카메라 - 화면 흔들림", 
 //"회전하는 탄막 자동 생성기", "Unknown", "타임라인 플레이/일시정지" ];
+if (custom_image_type == 0)
+{
+	var tmp_spr__ = global.custom_proj_center_spr[custom_image_ind];
+	if (sprite_exists(tmp_spr__))
+	{
+		sprite_index = tmp_spr__;
+	}
+}
+else if (custom_image_type == 1)
+{
+	var tmp_spr__ = global.custom_proj_top_spr[custom_image_ind];
+	if (sprite_exists(tmp_spr__))
+	{
+		sprite_index = tmp_spr__;
+	}
+}
 
 switch(global.editor_selected_type)
 {
@@ -53,7 +69,12 @@ switch(global.editor_selected_type)
 		global.ed_arg[2] = floor(global.ed_arg[2]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_square;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_ind = 0;
+			custom_image_type = 0;
+			selected_projectile_type = 0;
+		}
 		image_angle = global.ed_arg[1]-180;
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
@@ -66,7 +87,12 @@ switch(global.editor_selected_type)
 		global.ed_arg[3] = floor(global.ed_arg[3]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_circle_spike;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_ind = 4;
+			custom_image_type = 0;
+			selected_projectile_type = 0;
+		}
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "처음 날아오는 위치\n(x축)";
@@ -82,6 +108,11 @@ switch(global.editor_selected_type)
 		image_xscale = global.ed_arg[0];
 		image_yscale = 999;
 		sprite_index = spr_square_laser;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_type = 2;
+			selected_projectile_type = 0;
+		}
 		image_alpha = 0.4;
 		image_angle = global.ed_arg[1];
 		global.ed_arg_name[0] = "크기";
@@ -97,7 +128,12 @@ switch(global.editor_selected_type)
 		global.ed_arg[5] = floor(global.ed_arg[5]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_snow;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_ind = 9;
+			custom_image_type = 0;
+			selected_projectile_type = 0;
+		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
@@ -114,7 +150,12 @@ switch(global.editor_selected_type)
 		global.ed_arg[3] = floor(global.ed_arg[3]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_triangle;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_ind = 6;
+			custom_image_type = 0;
+			selected_projectile_type = 0;
+		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
@@ -135,6 +176,11 @@ switch(global.editor_selected_type)
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		sprite_index = spr_arrow;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_type = 2;
+			selected_projectile_type = 0;
+		}
 		image_angle = global.ed_arg[1]-135;
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
@@ -151,6 +197,12 @@ switch(global.editor_selected_type)
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		sprite_index = spr_circle_dot_outline;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_ind = 1;
+			custom_image_type = 0;
+			selected_projectile_type = 0;
+		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 1;
 		global.ed_arg_name[0] = "크기";
@@ -166,7 +218,12 @@ switch(global.editor_selected_type)
 		global.ed_arg[5] = floor(global.ed_arg[5]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_circle_cylinder;
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_ind = 0;
+			custom_image_type = 1;
+		}
 		image_angle = round(global.ed_arg[1]/90)*90;
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
@@ -184,6 +241,11 @@ switch(global.editor_selected_type)
 		sprite_index = spr_circle;
 		image_xscale = 0.3;
 		image_yscale = image_xscale;
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
 		image_blend = make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]);
 		global.ed_arg_name[2] = "R";
 		global.ed_arg_name[3] = "G";
@@ -198,6 +260,11 @@ switch(global.editor_selected_type)
 		sprite_index = spr_circle;
 		image_xscale = 0.3;
 		image_yscale = image_xscale;
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
 		image_blend = merge_color(c_black,make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]),fix_num(global.ed_arg[5]/1200));
 		global.ed_arg_name[2] = "R";
 		global.ed_arg_name[3] = "G";
@@ -218,7 +285,12 @@ switch(global.editor_selected_type)
 		image_angle = global.ed_arg[1];
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_square;
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_ind = 0;
+			custom_image_type = 0;
+		}
 		image_alpha = 0.4;
 	break;
 	
@@ -231,7 +303,12 @@ switch(global.editor_selected_type)
 		global.ed_arg[5] = floor(global.ed_arg[5]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_cross;
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_ind = 13;
+			custom_image_type = 0;
+		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
@@ -245,7 +322,12 @@ switch(global.editor_selected_type)
 		{
 			global.ed_arg[1] = 180;
 		}
-	
+		
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
 		global.ed_arg_name[0] = "줌 정도 설정";
 		global.ed_arg_name[1] = "천천히 줌되는 비율";
 		global.ed_arg_name[2] = "화면 흔들림 정도";
@@ -254,6 +336,11 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 14: //잡다한 효과 모음
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
 		global.ed_arg_name[0] = "배경 투명도 변화\n(값이 클수록 빠르게 변화합니다)";
 		global.ed_arg_name[2] = "비 효과";
 		if (global.ed_arg[6] == 1)
@@ -275,10 +362,15 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 15: //회전하는 탄막 자동 생성기
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_ind = 0;
+			custom_image_type = 0;
+		}
 		global.ed_arg[1] = floor(global.ed_arg[1]);
 		global.ed_arg[3] = floor(global.ed_arg[3]);
 		global.ed_arg[5] = floor(global.ed_arg[5]);
-		sprite_index = spr_square;
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		image_alpha = 0.4;
@@ -291,12 +383,17 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 16: //물 이펙트
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_ind = 0;
+			custom_image_type = 1;
+		}
 		global.ed_arg[1] = floor(global.ed_arg[1]);
 		global.ed_arg[2] = floor(global.ed_arg[2]);
 		global.ed_arg[3] = floor(global.ed_arg[3]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
-		sprite_index = spr_circle_cylinder;
 		image_angle = round(global.ed_arg[1]/90)*90;
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";

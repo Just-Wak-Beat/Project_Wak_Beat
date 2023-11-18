@@ -7,7 +7,7 @@ if (global.timeline_stop != 1 && global.play_custom_map == 1 && audio_is_playing
 	event_user(11);
 	show_debug_message("custom_map_data_load - "+string(global.n_progress-1)+" / "+string(global.savepoint_position[0]))
 	
-	var tmp_directory = string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+"\\map_data.ini";
+	var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
 }
 
 

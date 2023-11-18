@@ -4,20 +4,21 @@ function directory_list()
 {
 	///directory_list(directory)
 	var _directory = global.custom_map_directory;
-	var _list = ds_list_create();
 	var _finished = false
+	var tmp_ind = 0;
 
 	
 	var _firstFile = file_find_first(string(_directory)+"*", fa_directory);
 
 	if (string_length(_firstFile) == 0)
 	{
-		return _list;
+		return 0;
 	}
 
 	if directory_exists(string(_directory)+string(_firstFile))
 	{
-	    ds_list_add(_list,string(_directory)+string(_firstFile));
+		global.custom_map_file_dir[tmp_ind] = string(_directory)+string(_firstFile);
+	    tmp_ind++;
 	}
 
 	while(!_finished)
@@ -33,11 +34,12 @@ function directory_list()
 	        var _fullPath = string(_directory)+string(_file);
 	        if directory_exists(_fullPath)
 			{
-	            ds_list_add(_list,_fullPath);
+	            global.custom_map_file_dir[tmp_ind] = string(_directory)+string(_firstFile);
+				tmp_ind++;
 	        }
 	    }
 	}
 
-	file_find_close()
-	return _list;
+	file_find_close();
+	return tmp_ind;
 }

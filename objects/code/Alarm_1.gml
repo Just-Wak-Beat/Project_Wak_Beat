@@ -131,7 +131,7 @@ else
 	
 	
 	//커스텀 맵 클리어 내역 저장
-	ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+"\\map_info.ini")
+	ini_open(string(global.custom_map_file_dir[global.n_map_id])+"\\map_info.ini")
 	ini_write_string("custom_n_rank","value",global.n_rank[global.n_map_id])
 	ini_write_string("n_rank_hardcore","value",global.n_rank_hardcore[global.n_map_id])
 	ini_write_string("custom_n_score","value",global.n_score[global.n_map_id])

@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Stage_Load",
-    "path": "folders/스크립트/Stage_Load.yy",
+    "name": "UserData_Load",
+    "path": "folders/스크립트/UserData_Load.yy",
   },
 }

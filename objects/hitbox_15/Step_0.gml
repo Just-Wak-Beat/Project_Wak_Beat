@@ -32,16 +32,6 @@ if (global.timeline_stop != 1)
 				timer -= 60;
 			}
 		}
-	
-
-	
-		if global.dev_mode == 1
-		{
-			if keyboard_check(ord("C"))
-			{
-				dir = point_direction(x,y,mouse_x,mouse_y)
-			}
-		}
 	}
 
 

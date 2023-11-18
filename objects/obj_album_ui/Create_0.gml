@@ -12,6 +12,9 @@ w_alpha = 0
 global.touch_to_skip = 0;
 global.tutorial_n_stage = 0
 
+//custom map album
+global.b_n_map_id = -99;
+
 angle_moving = 0
 angle_moving_timer = 0
 //global.story_mode = 1

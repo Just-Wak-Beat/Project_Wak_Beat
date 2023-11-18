@@ -2,7 +2,11 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function create_new_custom_map_file()
 {
-	ini_open(string(global.custom_map_directory)+"custom_map_file_"+string(get_custom_map_num()+1)+"\\map_info.ini")
+	ini_open(string(global.custom_map_directory)+"user_custom_map\\custom_map_load_system.ini")
+	ini_write_real("dummy_data","dummy_data",0);
+	ini_close();
+	
+	ini_open(string(global.custom_map_directory)+"user_custom_map\\custom_map_file_"+string(get_custom_map_num()+1)+"\\map_info.ini")
 	ini_write_string("custom_n_rank","value","--");
 	ini_write_string("n_rank_hardcore","value","--");
 	ini_write_real("custom_n_score","value",0);

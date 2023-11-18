@@ -11,12 +11,24 @@
 ///@param param4
 ///@param param5
 ///@param param6
-function editor_mode_create_projectile(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8,argument9)
+///@param spr_type
+///@param spr_ind
+function editor_mode_create_projectile(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8,argument9,argument10,argument11)
 {
+	var tmp_spr___ = -4;
+	if (argument10 == 0)
+	{
+		tmp_spr___ = global.custom_proj_center_spr[real(argument11)];
+	}
+	else if (argument10 == 1)
+	{
+		tmp_spr___ = global.custom_proj_top_spr[real(argument11)];
+	}
+	
 	switch(argument0)
 	{
 		case 0: //이동 탄막
-			var tmp_ins = create_projectile(argument1,argument2,argument3,(argument4-180)/18,0,0,0,0,spr_square)
+			var tmp_ins = create_projectile(argument1,argument2,argument3,(argument4-180)/18,0,0,0,0,tmp_spr___)
 			tmp_ins.speed_ = argument5;
 			tmp_ins.image_angle = argument4-180;
 			tmp_ins.direction = argument4-180;
@@ -28,6 +40,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 		break;
 	
 		case 1: //스파이크 폭발 탄막
@@ -40,6 +54,9 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.sprite_index = tmp_spr___;
 		break;
 	
 		case 2: //레이저 탄막
@@ -53,12 +70,15 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 		break;
 	
 		case 3: //눈꽃 탄막
 			var tmp_ins = create_explo_circle(argument1,argument2,floor(1+argument6),floor(argument8),0,0,argument3,argument5,0,0,30)
 			tmp_ins.direction = argument4;
 			tmp_ins.image_angle = argument4;
+			tmp_ins.sprite_index = tmp_spr___;
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
 			tmp_ins.m_data_arg1 = argument4;
@@ -67,12 +87,14 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 			
 			tmp_ins.ed_arg4 = argument7/255;
 		break;
 	
 		case 4: //지렁이 탄막
-			var tmp_ins = create_worm(argument1,argument2,obj_player.depth-1,argument6,spr_triangle,argument3,spr_triangle_empty,argument5,argument7/64,argument4-270);
+			var tmp_ins = create_worm(argument1,argument2,obj_player.depth-1,argument6,tmp_spr___,argument3,(tmp_spr___ == spr_triangle) ? spr_triangle_empty : tmp_spr___,argument5,argument7/64,argument4-270);
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
 			tmp_ins.m_data_arg1 = argument4;
@@ -81,6 +103,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 		break;
 	
 		case 5: //화살표 레이저 탄막
@@ -93,6 +117,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 		break;
 	
 		case 6: //원형 폭발 탄막
@@ -107,6 +133,9 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = 0;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.sprite_index = tmp_spr___;
 		break;
 	
 		case 7: //맵 밖에서 튀어나오는 탄막
@@ -119,6 +148,9 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.sprite_index = tmp_spr___;
 		break;
 	
 		case 8: //탄막색 변경
@@ -131,6 +163,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 		break;
 	
 		case 9: //배경색 변경
@@ -143,6 +177,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 		break;
 	
 		case 10: //미사일 탄막
@@ -158,6 +194,9 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8; //삭제 타이밍
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.sprite_index = tmp_spr___;
 		break;
 	
 		case 11: //세이브 포인트 지정
@@ -174,11 +213,13 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 					tmp_ins.m_data_arg4 = 0;
 					tmp_ins.m_data_arg5 = 0;
 					tmp_ins.m_data_arg6 = 0;
+					tmp_ins.m_data_arg7 = 0;
+					tmp_ins.m_data_arg8 = 0;
 				
 					if (argument4 == 1)
 					{
 						global.savepoint_position[global.save_point_num] = global.n_progress;
-						var tmp_directory = string(global.custom_map_directory)+"custom_map_file_"+string(global.n_map_id+1)+"\\map_data.ini";
+						var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
 						ini_open(tmp_directory);
 							global.save_point_num++;
 							ini_write_real("map_data","savepoint"+string(global.save_point_num-1),global.n_progress);
@@ -209,6 +250,9 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.sprite_index = tmp_spr___;
 		break;
 	
 		case 13: //카메라 효과
@@ -221,6 +265,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = 0;
 			tmp_ins.m_data_arg5 = 0;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 			
 			tmp_ins.ed_arg0 = 0.5+argument3/20;
 			tmp_ins.ed_arg1 = (argument4-180)/1000;
@@ -238,13 +284,15 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = 0;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 			
 			tmp_ins.ed_arg0 = (argument3-10)/10;
 			tmp_ins.ed_arg5 = argument8/255;
 		break;
 	
 		case 15: //회전하는 탄막 자동 생성기
-			var tmp_ins = create_projectile_spin(argument1,argument2,spr_square,argument3,argument8,argument6,0,argument5,argument7)
+			var tmp_ins = create_projectile_spin(argument1,argument2,tmp_spr___,argument3,argument8,argument6,0,argument5,argument7)
 			tmp_ins.image_angle = argument4;
 			tmp_ins.direction = argument4;
 			tmp_ins.projectile_type = argument0;
@@ -255,6 +303,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 			
 			tmp_ins.ed_arg2 = floor((argument5)/4);
 			tmp_ins.ed_arg3 = (argument6-128)/16;
@@ -278,6 +328,9 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.sprite_index = tmp_spr___;
 		break;
 	
 		case 17: //

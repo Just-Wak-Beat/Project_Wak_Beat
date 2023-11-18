@@ -15,7 +15,7 @@ else
 
 if speed > 0
 {
-	if x < -900 || x > room_width+900 || y < -900 || y > room_height+900
+	if (x < -900 || x > room_width+900 || y < -900 || y > room_height+900)
 	{
 		instance_destroy()
 	}

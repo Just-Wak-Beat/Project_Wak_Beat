@@ -7,26 +7,30 @@ var yy_h = camera_get_view_height(view_camera[0])
 
 if global.n_map_list != 2
 {
-	sprite_index = spr_album
+	if (sprite_index != spr_album)
+	{
+		sprite_index = spr_album
+		image_scale = 1;
+		sprite_set_offset(sprite_index,256,256)
+	}
 	image_index = global.n_map_id+2
-	image_scale = 1;
 }
 else
 {
-	var tmp_spr = global.custom_stage_album[global.n_map_id];
-	if (global.n_map_id >= 0)
+	if (global.n_map_id != global.b_n_map_id)
 	{
-		if (sprite_index != tmp_spr)
+		var tmp_spr = global.custom_stage_album[global.n_map_id];
+		var spr_width = sprite_get_width(global.custom_stage_album[global.n_map_id]);
+		var spr_height = sprite_get_height(global.custom_stage_album[global.n_map_id]);
+		var max_sprite_size = (spr_width > spr_height) ? spr_width : spr_height;
+		var cal_val = 512/max_sprite_size;
+		image_scale = cal_val;
+		if (image_scale <= 1)
 		{
-			var spr_width = sprite_get_width(global.custom_stage_album[global.n_map_id]);
-			var spr_height = sprite_get_height(global.custom_stage_album[global.n_map_id]);
-			var max_sprite_size = (spr_width > spr_height) ? spr_width : spr_height;
-			var cal_val = 512/max_sprite_size;
-			image_scale = cal_val;
 			sprite_index = tmp_spr;
-			
-			sprite_set_offset(sprite_index,spr_width*0.5,spr_height*0.5)
-		}
+			global.b_n_map_id = global.n_map_id;
+			sprite_set_offset(tmp_spr,spr_width*0.5,spr_height*0.5)
+		}	
 	}
 }
 

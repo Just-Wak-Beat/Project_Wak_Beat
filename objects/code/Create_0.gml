@@ -71,6 +71,29 @@ texturegroup_load("UI")
 texturegroup_load("hitbox_shapes")
 texturegroup_load("effects")
 
+global.custom_proj_center_spr = array_create(99,-4);
+global.custom_proj_center_spr[0] = spr_tmp;
+global.custom_proj_center_spr[1] = spr_circle;
+global.custom_proj_center_spr[2] = spr_circle_half;
+global.custom_proj_center_spr[3] = spr_circle_outline;
+global.custom_proj_center_spr[4] = spr_circle_spike;
+global.custom_proj_center_spr[5] = spr_circle_spike2;
+global.custom_proj_center_spr[6] = spr_triangle;
+global.custom_proj_center_spr[7] = spr_triangle_empty_bold;
+global.custom_proj_center_spr[8] = spr_star;
+global.custom_proj_center_spr[9] = spr_snow;
+global.custom_proj_center_spr[10] = spr_heart;
+global.custom_proj_center_spr[11] = spr_gear;
+global.custom_proj_center_spr[12] = spr_arrow;
+global.custom_proj_center_spr[13] = spr_cross;
+
+
+global.custom_proj_top_spr = array_create(99,-4);
+global.custom_proj_top_spr[0] = spr_circle_cylinder;
+global.custom_proj_top_spr[1] = spr_spike_cylinder;
+global.custom_proj_top_spr[2] = spr_square_cylinder;
+
+
 ////////////////////////////////////////////////
 //show_debug_overlay(true)
 
@@ -212,6 +235,10 @@ for(var i = 0; i <= 11; i++)
 	global.max_artifact_owned[i] = 0;
 	global.guide_showed[i] = 0;
 }
+
+global.custom_map_file_dir = array_create(999,"");
+global.custom_map_num = 0;
+
 
 
 //좋아하는 곡 총 갯수

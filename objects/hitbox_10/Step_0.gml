@@ -5,7 +5,7 @@ x -= global.map_speed
 image_angle += keep_spin_angle
 
 
-if (sprite_index == spr_triangle_half)
+if (sprite_index == spr_triangle_half && global.play_custom_map != 1)
 {
 	image_xscale += 0.01
 	image_yscale += 0.01
@@ -183,7 +183,7 @@ else
 
 
 
-if sprite_index == spr_star
+if (sprite_index == spr_star && global.play_custom_map != 1)
 {
 	var random_val = irandom_range(0,100);
 	
