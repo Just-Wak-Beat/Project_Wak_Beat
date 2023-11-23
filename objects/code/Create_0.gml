@@ -71,7 +71,7 @@ texturegroup_load("UI")
 texturegroup_load("hitbox_shapes")
 texturegroup_load("effects")
 
-global.custom_proj_center_spr = array_create(99,-4);
+global.custom_proj_center_spr = array_create(100,-4);
 global.custom_proj_center_spr[0] = spr_tmp;
 global.custom_proj_center_spr[1] = spr_circle;
 global.custom_proj_center_spr[2] = spr_circle_half;
@@ -88,7 +88,7 @@ global.custom_proj_center_spr[12] = spr_arrow;
 global.custom_proj_center_spr[13] = spr_cross;
 
 
-global.custom_proj_top_spr = array_create(99,-4);
+global.custom_proj_top_spr = array_create(100,-4);
 global.custom_proj_top_spr[0] = spr_circle_cylinder;
 global.custom_proj_top_spr[1] = spr_spike_cylinder;
 global.custom_proj_top_spr[2] = spr_square_cylinder;

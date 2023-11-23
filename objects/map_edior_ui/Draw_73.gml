@@ -5,16 +5,14 @@ var yy = camera_get_view_y(view_camera[0]);
 var xx_w = camera_get_view_width(view_camera[0]);
 var yy_h = camera_get_view_height(view_camera[0]);
 
+var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
+
 draw_self();
 
 draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+8*global.converted_view_ratio+scroll_y*global.converted_view_ratio,99,8,0,c_white,1)
 draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+scroll_y*global.converted_view_ratio,99,8,0,c_black,1)
 
 
-var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio
-draw_text_k_scale(xx+xx_w*0.5-1024,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"[A] 1프레임 전으로  /  [Q] 60프레임 전으로",64,-1,1,c_white,-1,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(xx+xx_w*0.5+1024,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"60프레임 후로 [E]  /  1프레임 후로 [D]",64,-1,1,c_white,-1,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"타임라인 재생 [W] / [S] 가장 가까운 타임라인으로",64,-1,1,c_white,-1,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
 
@@ -25,22 +23,33 @@ if (!instance_exists(obj_message_log))
 
 
 
-draw_text_k_scale(xx+xx_w*0.2,yy+yy_h*(0.9-global.mobile_mode*0.03)-map_edior_ui.scroll_y,"타임라인 이동 [ "+string(global.n_progress)+" / "+string(global.music_duration)+" ]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+if (global.timeline_stop == 1)
+{
+	draw_text_k_scale(xx+xx_w*0.5-1024,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"[A] 1프레임 전으로  /  [Q] 60프레임 전으로",64,-1,1,c_white,-1,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+xx_w*0.5+1024,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"60프레임 후로 [E]  /  1프레임 후로 [D]",64,-1,1,c_white,-1,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"타임라인 재생 [W] / [S] 가장 가까운 타임라인으로",64,-1,1,c_white,-1,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+
+	draw_text_k_scale(xx+xx_w*0.2,yy+yy_h*(0.9-global.mobile_mode*0.03)-map_edior_ui.scroll_y,"타임라인 이동 [ "+string(global.n_progress)+" / "+string(global.music_duration)+" ]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
-var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "미사일 탄막" , "세이브 포인트 지정", "바운스 탄막", "카메라 효과", "잡다한 효과 모음", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "Unknown", "Unknown", "탄막 이미지 변경", "배치된 탄막 수정", "타임라인 플레이/일시정지" ];
-if (global.editor_selected_type >= 0)
-{
-	draw_text_k_scale(xx+64,yy+32+scroll_y,string(tmp_name[global.editor_selected_type]),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-}
-else
-{
-	draw_text_k_scale(xx+64,yy+32+scroll_y,"(하단의 버튼을 통해 탄막 선택/배치할 수 있습니다)",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "미사일 탄막" , "세이브 포인트 지정", "바운스 탄막", "카메라 효과", "잡다한 효과 모음", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "Unknown", "Unknown", "Unknown", "배치된 탄막 수정", "타임라인 플레이/일시정지" ];
+	if (global.editor_selected_type >= 0)
+	{
+		draw_text_k_scale(xx+64,yy+32+scroll_y,string(tmp_name[global.editor_selected_type]),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		if (custom_image_type != 2)
+		{
+			draw_text_k_scale(xx+xx_w-64,yy+400+scroll_y,"[좌/우 방향키를 눌러 탄막 이미지 변경]",64,-1,1,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		}
+	}
+	else
+	{
+		draw_text_k_scale(xx+64,yy+32+scroll_y,"[하단의 이미지를 클릭하여 배치할 탄막을 선택]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	}
 }
 
 for(var i = 0; i <= 21; i++)
 {
-	if ((global.editor_hitbox == -1 && (i <= 16 || i >= 19)) || (global.editor_hitbox == 1 && ((instance_exists(n_selected) && i == 0) || i >= 19)))
+	if ((global.editor_hitbox == -1 && (i <= 16 || i > 19)) || (global.editor_hitbox == 1 && ((instance_exists(n_selected) && i == 0) || i >= 19)))
 	{
 		var tmp_xx = xx+(128+i*160)*global.converted_view_ratio;
 		var tmp_yy = yy+(160+scroll_y)*global.converted_view_ratio;

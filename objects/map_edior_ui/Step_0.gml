@@ -45,6 +45,31 @@ else
 //"맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "비 이펙트" , "세이브 포인트 지정", 
 //"카메라 - 화면 크기 설정", "카메라 - 천천히 줌 인", "카메라 - 천천히 줌 아웃", "카메라 - 화면 흔들림", 
 //"회전하는 탄막 자동 생성기", "Unknown", "타임라인 플레이/일시정지" ];
+
+if (custom_image_type != 2)
+{
+	if (keyboard_check_pressed(vk_left))
+	{
+		custom_image_ind --;
+		if (custom_image_ind < 0)
+		{
+			custom_image_ind = 99;
+			while(global.custom_proj_center_spr[custom_image_ind] != -4)
+			{
+				custom_image_ind--;
+			}
+		}
+	}
+	else if (keyboard_check_pressed(vk_right))
+	{
+		custom_image_ind ++;
+		if (global.custom_proj_center_spr[custom_image_ind] == -4)
+		{
+			custom_image_ind = 0;
+		}
+	}
+}
+
 if (custom_image_type == 0)
 {
 	var tmp_spr__ = global.custom_proj_center_spr[custom_image_ind];
@@ -61,6 +86,15 @@ else if (custom_image_type == 1)
 		sprite_index = tmp_spr__;
 	}
 }
+else
+{
+	sprite_index = spr_player;
+	image_index = global.player_skin+6;
+}
+
+
+
+
 
 switch(global.editor_selected_type)
 {

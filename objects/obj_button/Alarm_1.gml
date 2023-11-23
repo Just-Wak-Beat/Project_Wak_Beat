@@ -20,7 +20,7 @@ if (sprite_index == spr_square || sprite_index == spr_spuare_outline_full_mask)
 	}
 	else if (button_id == 100)
 	{
-		scroll_value = (global.ed_arg[0]/20)*100
+		scroll_value = (global.ed_arg[0])*12;
 	}
 	else if (button_id == 101)
 	{
