@@ -48,7 +48,7 @@
 
 윈도우의 좌측 하단에 있는 '검색창'에
 
-```%localappdata%\Project_Wak_Beat\Custom map files```를 입력후 
+```%localappdata%\Project_Wak_Beat\Custom map files\user_custom_map```를 입력후 
 
 엔터를 눌러 해당 폴더에 들어가줍니다.
 
@@ -165,6 +165,39 @@ value="32.000000"
 -------------
 
 </details>
+
+<details>
+<summary>커스텀 탄막 이미지</summary>
+
+-------------
+
+<div align = "center">
+
+```%localappdata%\Project_Wak_Beat\Custom map files\user_custom_map``` 를 통해
+
+커스텀 맵 파일이 존재하는 폴더로 들어갑니다.
+
+폴더 안의 ```custom_hitbox_image``` 폴더에서 ```center_origin```폴더 혹은 ```top_origin```폴더에 들어갑니다.
+
+[```center_origin```과 ```top_origin```의 차이는 이미지 회전시의 중심축의 위치가 다르다는 차이점이 있습니다]
+
+= 대부분의 탄막은 ```center_origin```를 사용하기 때문에 해당 폴더 안에 이미지를 넣어주시면 됩니다.
+
+주의!
+
+- 이미지의 이름은 아무거나 상관이 없으나, 다만 확장자가 반드시 ```png```여야 합니다.
+
+- 이미지의 색은 반드시 ```완전한 흰색```으로만 이루어져 있어야 게임 내에서 색 변경 가능합니다.
+
+</div>
+
+<br><br><br><br><br>
+
+-------------
+
+</details>
+
+
 
 
 
