@@ -12,51 +12,51 @@ if (can_draw == 1)
 	{
 		if (button_id == 2)
 		{
-			x = xx+520
-			y = yy+yy_h*0.75
+			x = xx+520;
+			y = yy+yy_h*0.75;
 		}
 		else if (button_id == 3)
 		{
-			x = xx+520
-			y = yy+yy_h*0.85
+			x = xx+520;
+			y = yy+yy_h*0.85;
 		}
 		else if (button_id == 4)
 		{
-			x = xx+520
-			y = yy+yy_h*0.95
+			x = xx+520;
+			y = yy+yy_h*0.95;
 		}
 		else if (button_id == 5)
 		{
-			x = xx+xx_w-520
-			y = yy+yy_h*0.95
+			x = xx+xx_w-520;
+			y = yy+yy_h*0.95;
 		}
 		else if (button_id == 6)
 		{
-			x = xx+100
+			x = xx+100;
 			y = yy+yy_h*0.053;
 		}
 		else if (button_id == 7 && instance_exists(map_edior_ui))
 		{
-			x = xx+xx_w*0.5
+			x = xx+xx_w*0.5;
 			y = yy+yy_h*0.95-(map_edior_ui.scroll_y);
-			image_xscale = 0.4
-			image_yscale = 0.2
+			image_xscale = 0.4;
+			image_yscale = 0.2;
 		}
 		else if (button_id >= 100 && instance_exists(map_edior_ui))
 		{
 			if (sprite_index == spr_spuare_outline_full_mask)
 			{
-				x = xx+200+(button_id-100)*520
+				x = xx+180+(map_edior_ui.scroll_y)+(map_edior_ui.scroll_y)*1.25;
 				image_xscale = 1;
 				image_yscale = 1;
 			}
 			else
 			{
-				x = xx+300+(button_id-100)*520
-				image_xscale = 0.09;
+				x = xx+620+(map_edior_ui.scroll_y)+(map_edior_ui.scroll_y)*1.25;
+				image_xscale = 0.21;
 				image_yscale = 0.1;
 			}
-			y = yy+420+(map_edior_ui.scroll_y);
+			y = yy+390+(button_id-100)*120;
 		}
 	
 	

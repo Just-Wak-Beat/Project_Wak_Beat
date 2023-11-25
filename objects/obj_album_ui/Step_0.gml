@@ -25,14 +25,22 @@ else
 		var max_sprite_size = (spr_width > spr_height) ? spr_width : spr_height;
 		var cal_val = 512/max_sprite_size;
 		image_scale = cal_val;
-		if (image_scale <= 1)
+		if (image_scale <= 1 && image_scale > 0)
 		{
 			sprite_index = tmp_spr;
 			global.b_n_map_id = global.n_map_id;
 			sprite_set_offset(tmp_spr,spr_width*0.5,spr_height*0.5)
 		}	
 	}
+	
+	if (image_scale < 0 || image_scale > 1)
+	{
+		global.b_n_map_id = -4;
+		image_scale = 0;
+	}
 }
+
+
 
 
 x = global.c_x+916-global.mobile_mode*64

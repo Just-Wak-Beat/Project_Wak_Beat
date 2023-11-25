@@ -19,3 +19,6 @@ for(var i = 0; i < 7; i++)
 {
 	global.converted_param[i] = 0;
 }	
+
+
+event_user(12);

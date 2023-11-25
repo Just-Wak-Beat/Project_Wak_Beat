@@ -76,6 +76,7 @@ if (custom_image_type == 0)
 	if (sprite_exists(tmp_spr__))
 	{
 		sprite_index = tmp_spr__;
+		sprite_set_offset(tmp_spr__,floor(sprite_get_width(tmp_spr__)/2),floor(sprite_get_height(tmp_spr__)/2));
 	}
 }
 else if (custom_image_type == 1)
@@ -84,6 +85,7 @@ else if (custom_image_type == 1)
 	if (sprite_exists(tmp_spr__))
 	{
 		sprite_index = tmp_spr__;
+		sprite_set_offset(tmp_spr__,floor(sprite_get_width(tmp_spr__)/2),0);
 	}
 }
 else

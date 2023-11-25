@@ -38,7 +38,7 @@ if (global.timeline_stop == 1)
 		draw_text_k_scale(xx+64,yy+32+scroll_y,string(tmp_name[global.editor_selected_type]),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		if (custom_image_type != 2)
 		{
-			draw_text_k_scale(xx+xx_w-64,yy+400+scroll_y,"[좌/우 방향키를 눌러 탄막 이미지 변경]",64,-1,1,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			draw_text_k_scale(xx+xx_w-64,yy+32+scroll_y,"[좌/우 방향키를 눌러 탄막 이미지 변경]",64,-1,1,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		}
 	}
 	else
@@ -367,6 +367,6 @@ for(var i = 0; i < 7; i++)
 	
 		
 		var tmp_string = " ["+string(tmp_val)+"]";
-		draw_text_k_scale(xx+64+i*520,yy+320+scroll_y,string(global.ed_arg_name[i])+string(tmp_string),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
+		draw_text_k_scale(xx+64+scroll_y*1.25,yy+320+i*120,string(global.ed_arg_name[i])+string(tmp_string),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
 	}
 }
