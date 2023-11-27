@@ -125,6 +125,7 @@
     {"name":"create_worm","order":7,"path":"scripts/create_worm/create_worm.yy",},
     {"name":"spr_spuare_outline_full_mask","order":47,"path":"sprites/spr_spuare_outline_full_mask/spr_spuare_outline_full_mask.yy",},
     {"name":"hitbox_vaious_effects","order":26,"path":"objects/hitbox_vaious_effects/hitbox_vaious_effects.yy",},
+    {"name":"spr_player_icon","order":26,"path":"sprites/spr_player_icon/spr_player_icon.yy",},
     {"name":"obj_player_left_hp_effect","order":8,"path":"objects/obj_player_left_hp_effect/obj_player_left_hp_effect.yy",},
     {"name":"spr_jururu","order":11,"path":"sprites/spr_jururu/spr_jururu.yy",},
     {"name":"get_unlocked_list_num","order":6,"path":"scripts/get_unlocked_list_num/get_unlocked_list_num.yy",},

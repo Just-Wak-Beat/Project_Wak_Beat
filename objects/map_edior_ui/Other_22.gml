@@ -86,3 +86,6 @@ if (string_length(_firstFile) != 0)
 }
 
 file_find_close();
+
+
+show_message_log("[Enter키 혹은 W키를 눌러 일시정지]");

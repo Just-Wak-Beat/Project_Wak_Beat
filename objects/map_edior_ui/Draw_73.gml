@@ -9,22 +9,20 @@ var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
 
 draw_self();
 
-draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+8*global.converted_view_ratio+scroll_y*global.converted_view_ratio,99,8,0,c_white,1)
-draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+scroll_y*global.converted_view_ratio,99,8,0,c_black,1)
-
-
-
-
-
-if (!instance_exists(obj_message_log))
-{
-	draw_text_k_scale(xx+xx_w*0.05,yy+yy_h*(0.96-global.mobile_mode*0.03),"에디터 창 (Enter)",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-}
-
 
 
 if (global.timeline_stop == 1)
 {
+	draw_text_k_scale(mouse_x+32,mouse_y-64,"x : "+string(mouse_x)+"\ny : "+string(mouse_y),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+8*global.converted_view_ratio+scroll_y*global.converted_view_ratio,99,8,0,c_white,1)
+	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+scroll_y*global.converted_view_ratio,99,8,0,c_black,1)
+	
+	if (!instance_exists(obj_message_log))
+	{
+		draw_text_k_scale(xx+xx_w*0.05,yy+yy_h*(0.96-global.mobile_mode*0.03),"에디터 창 (Enter)",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	}
+
+	
 	draw_text_k_scale(xx+xx_w*0.5-1024,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"[A] 1프레임 전으로  /  [Q] 60프레임 전으로",64,-1,1,c_white,-1,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	draw_text_k_scale(xx+xx_w*0.5+1024,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"60프레임 후로 [E]  /  1프레임 후로 [D]",64,-1,1,c_white,-1,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"타임라인 재생 [W] / [S] 가장 가까운 타임라인으로",64,-1,1,c_white,-1,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)

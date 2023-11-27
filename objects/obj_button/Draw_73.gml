@@ -46,17 +46,18 @@ if (can_draw == 1)
 		{
 			if (sprite_index == spr_spuare_outline_full_mask)
 			{
-				x = xx+180+(map_edior_ui.scroll_y)+(map_edior_ui.scroll_y)*1.25;
+				x = xx+100+(map_edior_ui.scroll_y)+(map_edior_ui.scroll_y)*1.25;
+				y = yy+420+(button_id-100)*120;
 				image_xscale = 1;
 				image_yscale = 1;
 			}
 			else
 			{
 				x = xx+620+(map_edior_ui.scroll_y)+(map_edior_ui.scroll_y)*1.25;
+				y = yy+390+(button_id-100)*120;
 				image_xscale = 0.21;
 				image_yscale = 0.1;
 			}
-			y = yy+390+(button_id-100)*120;
 		}
 	
 	

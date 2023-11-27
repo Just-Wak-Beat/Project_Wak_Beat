@@ -8,7 +8,7 @@ scroll_y += (t_scroll_y - scroll_y)*0.1;
 
 
 
-if (keyboard_check_pressed(vk_enter))
+if (keyboard_check_pressed(vk_enter) || (global.mb_l == 1 && activated == -1))
 {
 	show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
 	audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
@@ -28,6 +28,7 @@ if (keyboard_check_pressed(vk_enter))
 		global.t_map_speed = 0;
 		global.t_map_speed_y = 0;
 	}
+	global.mb_l = 0;
 }
 
 t_scroll_y = (activated == 1) ? 0 : -640;
@@ -54,7 +55,7 @@ if (custom_image_type != 2)
 		if (custom_image_ind < 0)
 		{
 			custom_image_ind = 99;
-			while(global.custom_proj_center_spr[custom_image_ind] != -4)
+			while(global.custom_proj_center_spr[custom_image_ind] == -4)
 			{
 				custom_image_ind--;
 			}
@@ -131,9 +132,9 @@ switch(global.editor_selected_type)
 		}
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
-		global.ed_arg_name[1] = "처음 날아오는 위치\n(x축)";
-		global.ed_arg_name[2] = "처음 날아오는 위치\n(y축)";
-		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
+		global.ed_arg_name[1] = "처음 날아오는 위치 (x축)";
+		global.ed_arg_name[2] = "처음 날아오는 위치 (y축)";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
 	break;
 	
 	case 2: //레이저 탄막
@@ -154,8 +155,8 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "활성화 이후 회전 속력";
-		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
-		global.ed_arg_name[5] = "지속시간\n(60프레임 = 1초";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초";
 	break;
 	
 	case 3: //눈꽃 탄막
@@ -174,10 +175,10 @@ switch(global.editor_selected_type)
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
-		global.ed_arg_name[2] = "좌우 반복 움직임 속력\n(각도에 따라 이동이 다름)";
-		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
+		global.ed_arg_name[2] = "좌우 반복 움직임 속력 (각도에 따라 이동이 다름)";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
 		global.ed_arg_name[4] = "중력";
-		global.ed_arg_name[5] = "지속시간\n(60프레임 = 1초";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초";
 	break;
 	
 	case 4: //지렁이 탄막
@@ -222,7 +223,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";	
 		global.ed_arg_name[2] = "속력";
-		global.ed_arg_name[3] = "n프레임 이후 생성\n(60프레임 = 1초)";
+		global.ed_arg_name[3] = "n프레임 이후 생성 (60프레임 = 1초)";
 		global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
@@ -243,8 +244,8 @@ switch(global.editor_selected_type)
 		image_alpha = 1;
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
-		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
-		global.ed_arg_name[5] = "지속시간\n(60프레임 = 1초";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초";
 	break;
 	
 	case 7: //맵 밖에서 튀어나오는 탄막
@@ -265,7 +266,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "튀어나오는 각도";
 		global.ed_arg_name[2] = "속력";
-		global.ed_arg_name[3] = "n프레임 이후 활성화\n(60프레임 = 1초)";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
 		global.ed_arg_name[5] = "튀어나온 이후 이동 방향";
 		global.ed_arg_name[6] = "빠른 애니메이션";
 	break;
@@ -316,7 +317,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "속력";
-		global.ed_arg_name[5] = "생성된 탄막들의 지속 시간\n(60프레임 = 1초)";
+		global.ed_arg_name[5] = "생성된 탄막들의 지속 시간 (60프레임 = 1초)";
 		
 		image_angle = global.ed_arg[1];
 		image_xscale = global.ed_arg[0];
@@ -368,7 +369,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[1] = "천천히 줌되는 비율";
 		global.ed_arg_name[2] = "화면 흔들림 정도";
 		global.ed_arg_name[3] = "화면 흔들림 방향";
-		global.ed_arg_name[6] = "포커스 활성화\n(카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)";
+		global.ed_arg_name[6] = "포커스 활성화 (카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)";
 	break;
 	
 	case 14: //잡다한 효과 모음
@@ -377,7 +378,7 @@ switch(global.editor_selected_type)
 			selected_projectile_type = 0;
 			custom_image_type = 2;
 		}
-		global.ed_arg_name[0] = "배경 투명도 변화\n(값이 클수록 빠르게 변화합니다)";
+		global.ed_arg_name[0] = "배경 투명도 변화 (값이 클수록 빠르게 변화합니다)";
 		global.ed_arg_name[2] = "비 효과";
 		if (global.ed_arg[6] == 1)
 		{
@@ -415,7 +416,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[2] = "탄막 속력";
 		global.ed_arg_name[3] = "회전 방향";
 		global.ed_arg_name[4] = "탄막 생성 속도";
-		global.ed_arg_name[5] = "지속 시간\n(60프레임 = 1초)";
+		global.ed_arg_name[5] = "지속 시간 (60프레임 = 1초)";
 	break;
 	
 	case 16: //물 이펙트

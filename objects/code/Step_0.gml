@@ -98,6 +98,13 @@ if (global.ui_alpha >= 1 && instance_exists(obj_album_ui) && global.t_b_alpha <=
 		}
 	}
 	
+	if (abs(global.exp_for_draw - global.exp) > 0.1)
+	{
+		if (!audio_is_playing(setting_scroll_sfx))
+		{
+			audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
+		}
+	}
 	global.exp_for_draw += (global.exp - global.exp_for_draw)*0.1;
 	global.exp_w_alpha += (0 - global.exp_w_alpha)*0.1;
 }

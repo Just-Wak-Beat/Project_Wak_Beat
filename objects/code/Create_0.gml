@@ -200,15 +200,23 @@ global.n_select_skin = 0
 global.t_n_select_skin = 0
 global.acquired_skin = -4
 
+//특수 효과
+global.additional_hp = 0;
+global.dash_bonus = 0;
+global.dash_dec_c_time = 0;
+
+
+
 for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 {
 	global.unlocked_player_skin[i] = 0;
 	global.unlocked_player_skin_name[i] = "";
+	global.unlocked_player_skin_desc[i] = "";
 	global.unlocked_player_skin_require_type[i] = 0;
 	global.unlocked_player_skin_require_num[i] = 0;
 }
 
-	
+
 	
 for(var i = 0; i <= 11; i++)
 {
@@ -834,16 +842,16 @@ global.unlocked_player_skin_require_num[2] = "아무 곡이나 대쉬를 사용�
 global.unlocked_player_skin_name[3] = "우왁굳 (왁굳향100%)"
 global.unlocked_player_skin_require_type[3] = 0;
 global.unlocked_player_skin_require_num[3] = global.max_artifact_owned[0];
-global.unlocked_player_skin_name[4] = "아잉네"
+global.unlocked_player_skin_name[4] = "아이네"
 global.unlocked_player_skin_require_type[4] = 1;
 global.unlocked_player_skin_require_num[4] = global.max_artifact_owned[1];
-global.unlocked_player_skin_name[5] = "아잉네 (엔젤)"
+global.unlocked_player_skin_name[5] = "아이네 (엔젤)"
 global.unlocked_player_skin_require_type[5] = 1;
 global.unlocked_player_skin_require_num[5] = global.max_artifact_owned[1];
-global.unlocked_player_skin_name[6] = "아잉네 (산타)"
+global.unlocked_player_skin_name[6] = "아이네 (산타)"
 global.unlocked_player_skin_require_type[6] = 1;
 global.unlocked_player_skin_require_num[6] = global.max_artifact_owned[1];
-global.unlocked_player_skin_name[7] = "아잉네 (후드)"
+global.unlocked_player_skin_name[7] = "아이네 (후드)"
 global.unlocked_player_skin_require_type[7] = 1;
 global.unlocked_player_skin_require_num[7] = global.max_artifact_owned[1]+2;
 global.unlocked_player_skin_name[8] = "비챤"

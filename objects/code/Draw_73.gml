@@ -254,7 +254,11 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 			{
 				if locked_now = 0 && dis_alpha > 0.1
 				{
-					draw_text_k_scale(xx_+96*dis_real,yy_-64,global.n_rank[i],64,-1,dis_alpha,c_white,0,0,normal_font,dis_real,dis_real,0)
+					var tmp_score_n = (is_real(global.n_score[i])) ? global.n_score[i] : 0;
+					var tmp_score_hc = (is_real(global.n_score_hardcore[i])) ? global.n_score_hardcore[i] : 0;
+					var tmp_rank_txt = convert_score_to_rank((tmp_score_n+tmp_score_hc)/2,0);
+					
+					draw_text_k_scale(xx_+96*dis_real,yy_-64,string((tmp_rank_txt == "Perfect!") ? "PF" : tmp_rank_txt),64,-1,dis_alpha,c_white,0,0,normal_font,dis_real,dis_real,0)
 				
 					if global.n_favorite[i] = 1
 					{
