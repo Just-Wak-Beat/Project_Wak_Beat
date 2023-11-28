@@ -11,9 +11,10 @@ instance_destroy(obj_button);
 global.check_died = 0
 global.tutorial_now = 0
 global.timeline_stop = -1;
+global.show_rank = 0;
 global.random_seed = -4
 global.map_editor = 0;
-global.rewind = 0
+global.rewind = 0;
 global.play_custom_map = 0;
 global.n_camera_zoom = 1;
 global.camera_slow_zoom = 0;

@@ -1,4 +1,5 @@
 global.savepoint_text_t_alpha = 1
+camera_focus_on(-4,-4,1)
 
 if global.mobile_mode = 1
 {

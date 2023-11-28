@@ -14,7 +14,7 @@ if (keyboard_check(vk_anykey) || global.touch_to_skip == 1)
 			credit_text_alpha4 = 1;
 			global.show_credit = 0;
 			alarm[8] = 80;
-			alarm[11] = 35;
+			alarm[11] = 1;
 		}
 	}
 	else

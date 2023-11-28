@@ -831,15 +831,19 @@ for(var i = 0; i < global.total_map; i++)
 
 	
 global.unlocked_player_skin_name[0] = "우왁굳"
+global.unlocked_player_skin_desc[0] = "대쉬로 피한 탄막 보너스 점수 +50"
 global.unlocked_player_skin_require_type[0] = 0;
 global.unlocked_player_skin_require_num[0] = global.max_artifact_owned[0];
 global.unlocked_player_skin_name[1] = "민수"
+global.unlocked_player_skin_desc[1] = "대쉬로 피한 탄막 보너스 점수 +50"
 global.unlocked_player_skin_require_type[1] = 0;
 global.unlocked_player_skin_require_num[1] = global.max_artifact_owned[0]+3;
 global.unlocked_player_skin_name[2] = "메시두"
+global.unlocked_player_skin_desc[2] = "세이브 포인트에서 부활 시 최대 체력으로 부활"
 global.unlocked_player_skin_require_type[2] = 0;
 global.unlocked_player_skin_require_num[2] = "아무 곡이나 대쉬를 사용하지 않고 S랭크 이상으로 클리어";
 global.unlocked_player_skin_name[3] = "우왁굳 (왁굳향100%)"
+global.unlocked_player_skin_desc[3] = "대쉬로 피한 탄막 보너스 점수 +50"
 global.unlocked_player_skin_require_type[3] = 0;
 global.unlocked_player_skin_require_num[3] = global.max_artifact_owned[0];
 global.unlocked_player_skin_name[4] = "아이네"
@@ -994,7 +998,7 @@ instance_create_depth(0,0,0,obj_album_ui)
 
 
 //tutorial
-global.n_playing_tutorial = 0
+global.tutorial_now = 0
 global.tutorial_n_stage = 0
 
 

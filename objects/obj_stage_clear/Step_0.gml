@@ -105,7 +105,6 @@ if (touched == 0 && global.hp > 0 && place_meeting(x,y,obj_player))
 		vspeed = -32
 	}
 	image_angle = 0
-	alarm[2] = 120
 
 	obj_camera.x += room_width*0.5-obj_player.x;
 	obj_camera.y += room_height*0.5-obj_player.y;

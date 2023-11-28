@@ -34,7 +34,7 @@ else
 
 var font_size = 1//global.camera_sx
 
-if global.n_playing_tutorial != 1 && global.show_rank = 0
+if global.tutorial_now != 1 && global.show_rank = 0
 {
 	//progress bar
 	draw_set_color(global.map_color)
@@ -831,6 +831,19 @@ if (global.blackout_effect_alpha > 0)
 {
 	draw_sprite_ext(camera_effect_blackout,0,xx,yy,global.n_camera_zoom,global.n_camera_zoom,0,c_white,global.blackout_effect_alpha*0.3)
 }
+
+
+/////test
+//if (global.dev_mode == 1 && global.tutorial_now == 1)
+//{
+	//draw_set_alpha(1)
+	//draw_set_color(c_blue)
+	//draw_text(xx+32,yy+64,"global.n_music_id : "+string(global.n_music_id)+"\nglobal.tutorial_now : "+string(global.tutorial_now)+"\nglobal.tutorial_n_stage : "+string(global.tutorial_n_stage)+"\ncamera_x : "+string(global.camera_target_x)+"\ncamera_y : "+string(global.camera_target_y))
+	//if (instance_exists(obj_stage_clear))
+	//{
+	//	draw_text(xx+32,yy+32,"touched : "+string(obj_stage_clear.touched));
+	//}
+//}
 
 
 

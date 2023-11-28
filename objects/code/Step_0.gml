@@ -117,193 +117,207 @@ if (global.level < 0)
 
 //조이스틱
 global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_alpha)*0.15
-	if global.joystick_activated != -1
+if global.joystick_activated != -1
+{
+	global.hmove = floor((global.joystick_n_xx - global.joystick_xx)/(global.joystick_size*0.5)*10)/10
+	global.vmove = floor((global.joystick_n_yy - global.joystick_yy)/(global.joystick_size*0.5)*10)/10
+}
+
+
+
+if global.mobile_mode = 1 && global.sync_setting = 0
+{
+	for(var i = 0; i < 4; i++)
 	{
-		global.hmove = floor((global.joystick_n_xx - global.joystick_xx)/(global.joystick_size*0.5)*10)/10
-		global.vmove = floor((global.joystick_n_yy - global.joystick_yy)/(global.joystick_size*0.5)*10)/10
-	}
-
-
-
-	if global.mobile_mode = 1 && global.sync_setting = 0
-	{
-		for(var i = 0; i < 4; i++)
+		var is_click = device_mouse_check_button_pressed(i, mb_left);
+		if device_mouse_check_button(i, mb_left)
 		{
-			var is_click = device_mouse_check_button_pressed(i, mb_left);
-			if device_mouse_check_button(i, mb_left)
+			global.clicking_timer ++
+		}
+
+		var xx = camera_get_view_x(view_camera[0])
+		var xx_w = camera_get_view_width(view_camera[0])
+
+
+		if instance_exists(obj_player) && obj_player.image_xscale > 0
+		{
+			if global.hp > 0
 			{
-				global.clicking_timer ++
-			}
-
-			var xx = camera_get_view_x(view_camera[0])
-			var xx_w = camera_get_view_width(view_camera[0])
-
-
-			if instance_exists(obj_player) && obj_player.image_xscale > 0
-			{
-				if global.hp > 0
+				if device_mouse_x(i) < xx+xx_w*0.5
 				{
-					if device_mouse_x(i) < xx+xx_w*0.5
+					if is_click
 					{
-						if is_click
-						{
-							global.joystick_xx = device_mouse_x(i)
-							global.joystick_yy = device_mouse_y(i)
-							global.joystick_activated = i
-						}
+						global.joystick_xx = device_mouse_x(i)
+						global.joystick_yy = device_mouse_y(i)
+						global.joystick_activated = i
 					}
-					else
+				}
+				else
+				{
+					if global.dash_cooltime <= 0 && is_click
 					{
-						if global.dash_cooltime <= 0 && is_click
+						with(obj_player)
 						{
-							with(obj_player)
+							if object_index = obj_player
 							{
-								if object_index = obj_player
-								{
-									event_user(0)
-								}
+								event_user(0)
 							}
 						}
 					}
 				}
 			}
-			else
-			{
-				if (is_click && global.can_change_music_list == 1 && gamestart == 0)
-				{
-					global.joystick_xx = device_mouse_x(i)
-					global.joystick_yy = device_mouse_y(i)
-					global.scroll_activated = i
-				}
-			}
-	
-			if global.clicking_del = 0 && device_mouse_check_button_released(i, mb_left)
-			{
-				global.clicking_del = 1
-				alarm[5] = 1
-			}
-	
-			var is_clicked_joystick = device_mouse_check_button_released(global.joystick_activated, mb_left);
-			var is_clicked_scroll = device_mouse_check_button_released(global.scroll_activated, mb_left);
-			if (is_clicked_joystick || (global.cannot_control == 1 && instance_exists(obj_stage_clear)) || instance_exists(dead_explosion))
-			{
-				global.joystick_activated = -1
-				global.vmove = 0
-				global.hmove = 0
-			}
-		
-			if is_clicked_scroll
-			{
-				global.t_select_map = round(global.t_select_map)
-				global.scroll_activated = -1
-			}
-		}
-	}
-
-	
-
-
-	//캐릭터 변경
-	if global.b_player_skin != global.player_skin
-	{
-		obj_player.image_index = global.player_skin*7+(5-global.hp)
-		global.player_color = $FF4AB539
-		global.die_sfx = wakgood_hurt
-	
-		if global.player_skin = 1
-		{
-			global.player_color = $FF60006F
-			global.die_sfx = ine_hurt
-		}
-		if global.player_skin = 2
-		{
-			global.player_color = $FF969EA3
-			global.die_sfx = bichan_hurt
-		}
-		if global.player_skin = 3
-		{
-			global.player_color = $FFFFC065
-			global.die_sfx = segu_hurt
-		}
-		if global.player_skin = 4
-		{
-			global.player_color = $FFFF9761
-			global.die_sfx = lilpa_hurt
-		}
-		if global.player_skin = 5
-		{
-			global.player_color = $FF8812D5
-			global.die_sfx = jururu_hurt
-		}
-		if global.player_skin = 6
-		{
-			global.player_color = $FF62E0F6
-			global.die_sfx = jing_hurt
-		}
-		global.b_player_skin = global.player_skin
-	}
-
-
-	global.select_map += (global.t_select_map - global.select_map)*0.13
-
-	if (global.n_music_title == "왁트모르즈비")
-	{
-		global.n_playing_tutorial = 1
-	}
-	else
-	{
-		global.checkpoint_text = "중간 사베(save) 도착!"
-	}
-
-
-	if (global.show_music_title > 0 && global.paused == 0)
-	{
-		global.show_music_title ++
-
-		if global.show_music_title < 180
-		{
-			music_title_alpha += (1 - music_title_alpha)*0.1
-			
-			if (global.t_selected_difficulty != 0 && global.random_seed == -4)
-			{
-				global.random_seed = 0;
-			}
 		}
 		else
 		{
-			music_title_alpha += (-0.01 - music_title_alpha)*0.1
+			if (is_click && global.can_change_music_list == 1 && gamestart == 0)
+			{
+				global.joystick_xx = device_mouse_x(i)
+				global.joystick_yy = device_mouse_y(i)
+				global.scroll_activated = i
+			}
 		}
 	
-		if global.show_music_title > 30
+		if global.clicking_del = 0 && device_mouse_check_button_released(i, mb_left)
 		{
-			global.show_progress_bar = 1
+			global.clicking_del = 1
+			alarm[5] = 1
 		}
 	
-		if global.show_music_title > 500
+		var is_clicked_joystick = device_mouse_check_button_released(global.joystick_activated, mb_left);
+		var is_clicked_scroll = device_mouse_check_button_released(global.scroll_activated, mb_left);
+		if (is_clicked_joystick || (global.cannot_control == 1 && instance_exists(obj_stage_clear)) || instance_exists(dead_explosion))
 		{
-			global.show_music_title = 0
+			global.joystick_activated = -1
+			global.vmove = 0
+			global.hmove = 0
+		}
+		
+		if is_clicked_scroll
+		{
+			global.t_select_map = round(global.t_select_map)
+			global.scroll_activated = -1
 		}
 	}
+}
 
-	if global.show_progress_bar = 1
+	
+
+
+//캐릭터 변경
+if global.b_player_skin != global.player_skin
+{
+	obj_player.image_index = global.player_skin*7+(5-global.hp)
+	global.player_color = $FF4AB539
+	global.die_sfx = wakgood_hurt
+	
+	if global.player_skin = 1
 	{
-		progress_icon_alpha += (1 - progress_icon_alpha)*0.1
-		if progress_icon_alpha > 0.98
+		global.player_color = $FF60006F
+		global.die_sfx = ine_hurt
+	}
+	if global.player_skin = 2
+	{
+		global.player_color = $FF969EA3
+		global.die_sfx = bichan_hurt
+	}
+	if global.player_skin = 3
+	{
+		global.player_color = $FFFFC065
+		global.die_sfx = segu_hurt
+	}
+	if global.player_skin = 4
+	{
+		global.player_color = $FFFF9761
+		global.die_sfx = lilpa_hurt
+	}
+	if global.player_skin = 5
+	{
+		global.player_color = $FF8812D5
+		global.die_sfx = jururu_hurt
+	}
+	if global.player_skin = 6
+	{
+		global.player_color = $FF62E0F6
+		global.die_sfx = jing_hurt
+	}
+	global.b_player_skin = global.player_skin
+}
+
+
+global.select_map += (global.t_select_map - global.select_map)*0.13
+
+if (global.n_music_title == "왁트모르즈비")
+{
+	global.tutorial_now = 1
+}
+else
+{
+	global.checkpoint_text = "중간 사베(save) 도착!"
+}
+
+
+if (global.show_music_title > 0 && global.paused == 0)
+{
+	global.show_music_title ++
+
+	if global.show_music_title < 180
+	{
+		music_title_alpha += (1 - music_title_alpha)*0.1
+			
+		if (global.t_selected_difficulty != 0 && global.random_seed == -4)
 		{
-			progress_alpha += (1 - progress_alpha)*0.1
+			global.random_seed = 0;
 		}
+	}
+	else
+	{
+		music_title_alpha += (-0.01 - music_title_alpha)*0.1
+	}
 	
-		if progress_alpha > 0.6
-		{
-			progress_alpha_sec += (1 - progress_alpha_sec)*0.1
-		}
+	if global.show_music_title > 30
+	{
+		global.show_progress_bar = 1
+	}
 	
-		if (global.tutorial_played >= 0)
+	if global.show_music_title > 500
+	{
+		global.show_music_title = 0
+	}
+}
+
+if (global.show_progress_bar == 1 || global.tutorial_now == 1)
+{
+	progress_icon_alpha += (1 - progress_icon_alpha)*0.1
+	if progress_icon_alpha > 0.98
+	{
+		progress_alpha += (1 - progress_alpha)*0.1
+	}
+	
+	if progress_alpha > 0.6
+	{
+		progress_alpha_sec += (1 - progress_alpha_sec)*0.1
+	}
+	
+	if (global.tutorial_played >= 0 || global.tutorial_now == 1)
+	{
+		if (global.show_music_title > 240 || (global.tutorial_now == 1 && global.tutorial_n_stage > 0))
 		{
-			if (global.show_music_title > 240)
+			if (global.n_music_id == -4 && (global.n_progress == 0 || global.tutorial_now == 1))
 			{
-				if global.n_music_id = -4 && global.n_progress = 0
+				if (global.tutorial_played != 1 && global.tutorial_n_stage == 0)
 				{
+					//튜토리얼
+					if !instance_exists(obj_stage_clear)
+					{
+						instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),obj_player.depth-1,obj_stage_clear)
+					}
+				}
+				else
+				{
+					if (global.tutorial_n_stage == 0)
+					{
+						global.tutorial_n_stage = 1;
+					}
 					saved_n_stage = n_stage+2
 					global.start_point = 0
 					global.cannot_control = 0
@@ -320,7 +334,7 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 						timeline_position = 0
 						timeline_loop = false
 						var time__ = floor(global.music_sync_offset*3*60)
-						if time__ > 0 && global.tutorial_now = 0
+						if (time__ > 0 && global.tutorial_now == 0)
 						{
 							alarm[7] = time__
 						}
@@ -362,118 +376,110 @@ global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_al
 							ini_close();
 						}
 					}
-				}
-			}
-			else
-			{
-				if (global.map_editor == 1)
-				{
-					global.show_music_title = 240;
-				}
-			}
-	
-			if (global.n_progress < global.music_duration)
-			{
-				if (global.timeline_stop == -1 && global.paused == 0 && (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0)
-				{
-					global.n_progress ++;
-					audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1)*global.map_end_volumedown,0)
-				}
-			}
-			else
-			{
-				global.n_progress = global.music_duration;
-			
-				if (global.n_music_title != "왁트모르즈비")
-				{
-					timeline_running = false;
-				}
-	
-	
-				if (global.timeline_stop != 1 && !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
-				{
-					if abs(global.map_speed_y) > 0
-					{
-						var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
-						save_.n_savepoint_position = 99999
-						save_.n_color = c_black
-						save_.image_angle = 90
-					}
-					else
-					{
-						var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
-						save_.n_savepoint_position = 99999
-						save_.n_color = c_black
-					}
-				}
+				}	
 			}
 		}
-		else //첫 튜토리얼 안 했을경우
+		else
 		{
-			if (!instance_exists(obj_stage_clear) && global.paused == 0)
+			if (global.map_editor == 1)
 			{
-				instance_create_depth(global.c_w+128,room_height*0.5,obj_player.depth-1,obj_stage_clear)
-				if global.mobile_mode = 1
+				global.show_music_title = 240;
+			}
+		}
+	
+		if (global.n_progress < global.music_duration)
+		{
+			if (global.timeline_stop == -1 && global.paused == 0 && (audio_is_playing(global.n_music_id) || global.n_progress > 2000) && global.hp > 0)
+			{
+				global.n_progress ++;
+				audio_sound_gain(global.n_music_instance,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1)*global.map_end_volumedown,0)
+			}
+		}
+		else
+		{
+			global.n_progress = global.music_duration;
+			
+			if (global.n_music_title != "왁트모르즈비")
+			{
+				timeline_running = false;
+			}
+	
+	
+			if (global.timeline_stop != 1 && !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
+			{
+				if abs(global.map_speed_y) > 0
 				{
-					global.checkpoint_text = "왼쪽 화면을 터치해 조이스틱으로 이동하기"
+					var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
+					save_.n_savepoint_position = 99999
+					save_.n_color = c_black
+					save_.image_angle = 90
 				}
 				else
 				{
-					global.checkpoint_text = "방향키를 눌러 이동하기"
+					var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
+					save_.n_savepoint_position = 99999
+					save_.n_color = c_black
 				}
-				global.t_bg_color = 1;
-				global.t_bg_color_alpha = 1;
-				global.artifact_type = 0;
-				global.tutorial_now = 1;
-				global.savepoint_text_t_alpha = 1;
 			}
 		}
 	}
-	else
+	else //첫 튜토리얼 안 했을경우
 	{
-		progress_icon_alpha += (-0.01 - progress_icon_alpha)*0.1
-		progress_alpha += (-0.01 - progress_alpha)*0.1
-		progress_alpha_sec += (-0.01 - progress_alpha_sec)*0.1
-	}
-
-
-
-	//discord presence
-	if discord_presence_update > 0
-	{
-		if discord_presence_update%60 = 0 && global.n_progress < global.music_duration
+		if (!instance_exists(obj_stage_clear) && global.paused == 0)
 		{
-			np_update();
-			var time_sec = floor(global.stage_map_duration[global.n_map_id]/60)
-			var n_time_sec = floor(global.n_progress/60)
-			var album_id = "album"+string(global.n_map_id+1)
-			if (global.n_map_id+1 > sprite_get_number(spr_album)-2)
-			{
-				album_id = "album0"
-			}
+			instance_create_depth(global.c_w+128,room_height*0.5,obj_player.depth-1,obj_stage_clear)
+			global.t_bg_color = 1;
+			global.t_bg_color_alpha = 1;
+			global.artifact_type = 0;
+			global.savepoint_text_t_alpha = 1;
+		}
+	}
+}
+else
+{
+	progress_icon_alpha += (-0.01 - progress_icon_alpha)*0.1
+	progress_alpha += (-0.01 - progress_alpha)*0.1
+	progress_alpha_sec += (-0.01 - progress_alpha_sec)*0.1
+}
+
+
+
+//discord presence
+if discord_presence_update > 0
+{
+	if discord_presence_update%60 = 0 && global.n_progress < global.music_duration
+	{
+		np_update();
+		var time_sec = floor(global.stage_map_duration[global.n_map_id]/60)
+		var n_time_sec = floor(global.n_progress/60)
+		var album_id = "album"+string(global.n_map_id+1)
+		if (global.n_map_id+1 > sprite_get_number(spr_album)-2)
+		{
+			album_id = "album0"
+		}
 		
-			if (global.n_map_list == 2)
-			{
-				album_id = "custom_album"
-			}
-	
-			np_setpresence_more("","", false);
-			if (global.paused == 0 && global.timeline_stop == 0)
-			{
-				np_setpresence("["+string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec))+"]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
-			}
-			else
-			{
-				np_setpresence("[Paused]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
-			}
-		}
-		discord_presence_update ++
-	
-		if global.n_progress >= global.music_duration+floor(global.music_sync_offset*3*60)
+		if (global.n_map_list == 2)
 		{
-			discord_presence_update = 0
+			album_id = "custom_album"
+		}
+	
+		np_setpresence_more("","", false);
+		if (global.paused == 0 && global.timeline_stop == 0)
+		{
+			np_setpresence("["+string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec))+"]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
+		}
+		else
+		{
+			np_setpresence("[Paused]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
 		}
 	}
+	discord_presence_update ++
+	
+	if global.n_progress >= global.music_duration+floor(global.music_sync_offset*3*60)
+	{
+		discord_presence_update = 0
+	}
+}
 
 global.b_alpha += (global.t_b_alpha - global.b_alpha)*0.1
 global.w_alpha += (global.t_w_alpha - global.w_alpha)*0.1

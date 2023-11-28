@@ -1,6 +1,24 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (global.n_music_title == "왁트모르즈비")
+{
+	global.tutorial_now = 1;
+	
+	if (global.tutorial_n_stage == 0)
+	{
+		if (global.mobile_mode == 1)
+		{
+			global.checkpoint_text = "왼쪽 화면을 터치해 조이스틱으로 이동하기";
+		}
+		else
+		{
+			global.checkpoint_text = "방향키를 눌러 이동하기";
+		}
+	}
+}
+
+
 //커스텀 유저 맵 재생
 if (global.timeline_stop != 1 && global.play_custom_map == 1 && audio_is_playing(global.n_music_instance) && global.paused != 1)
 {
@@ -50,7 +68,7 @@ if (instance_exists(obj_album_ui))
 //개발자 모드이면 튜토리얼 자동 스킵
 if (global.dev_mode == 1)
 {
-	global.tutorial_played = 1;
+	//global.tutorial_played = 1;
 }
 
 //장애물 회피 점수가 최대치를 못넘도록 설정
@@ -677,7 +695,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 				global.t_bg_color_alpha = 1
 				global.n_music_id = -4
 				global.n_progress = 0
-				global.n_playing_tutorial = 0
+				global.tutorial_now = 0
 				global.hmove = 0
 				global.vmove = 0
 	

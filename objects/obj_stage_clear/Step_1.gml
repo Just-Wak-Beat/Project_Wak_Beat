@@ -338,7 +338,22 @@ if (can_play_animation == 1)
 			effect_.image_blend = color_sec
 		}
 		
-		global.t_w_alpha = 5000
+		if (global.tutorial_now > 0)
+		{
+			global.tutorial_n_stage++;
+			if (global.tutorial_n_stage == 1)
+			{
+				global.tutorial_played = 0;
+				global.show_music_title = 1;
+			}
+			else if (global.tutorial_n_stage >= 5)
+			{
+				global.tutorial_played = 1;
+				global.back_to_game = 9999;
+			}
+		}
+		
+		global.t_w_alpha = 5000;
 		w_alpha = 10
 		touched = 3
 		alarm[1] = 30
