@@ -334,7 +334,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 						timeline_position = 0
 						timeline_loop = false
 						var time__ = floor(global.music_sync_offset*3*60)
-						if (time__ > 0 && global.tutorial_now == 0)
+						if (time__ > 0 && global.tutorial_now != 1)
 						{
 							alarm[7] = time__
 						}
@@ -758,7 +758,7 @@ if global.rewind > 0
 		timeline_position = global.start_point;
 		timeline_running = false;
 		var time__ = floor(global.music_sync_offset*3*60);
-		if time__ > 0 && global.tutorial_now = 0
+		if time__ > 0 && global.tutorial_now != 1
 		{
 			alarm[7] = time__;
 		}

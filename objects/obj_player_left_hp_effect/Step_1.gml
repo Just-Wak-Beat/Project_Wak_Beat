@@ -1,6 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+x -= (abs(global.map_speed) > 28) ? 28*sign(global.map_speed) : global.map_speed;
+y += (abs(global.map_speed_y) > 28) ? 28*sign(global.map_speed_y) : global.map_speed_y
+
 if (timeline_running == false)
 {
 	image_alpha += (10 - image_alpha)*0.03;

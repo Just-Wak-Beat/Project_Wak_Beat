@@ -535,7 +535,8 @@ if instance_exists(code)
 							shader_reset()
 						}
 						
-						draw_text_k_scale(middle_xx,yy+yy_h*0.76,skin_name,scale*48,-1,__alpha*0.7*_dis_scale,merge_color(tmp_n_col,c_white,0.7-abs(i-global.n_select_skin)/1.5),0,0,normal_font,0.28*global.font_ratio_resolution_xx*scale*_dis_scale,0.28*scale*_dis_scale,0)
+						draw_text_k_scale(middle_xx,yy+yy_h*0.76,"[특수 효과]",scale*48,-1,__alpha*0.7*_dis_scale,merge_color(tmp_n_col,c_white,0.7-abs(i-global.n_select_skin)/1.5),0,0,normal_font,0.28*global.font_ratio_resolution_xx*scale*_dis_scale,0.28*scale*_dis_scale,0)
+						draw_text_k_scale(middle_xx,yy+yy_h*0.76,"\n"+string(skin_name),scale*48,-1,__alpha*0.7*_dis_scale,merge_color(tmp_n_col,c_white,0.7-abs(i-global.n_select_skin)/1.5),0,0,normal_font,0.23*global.font_ratio_resolution_xx*scale*_dis_scale,0.23*scale*_dis_scale,0)
 					}
 				}
 			

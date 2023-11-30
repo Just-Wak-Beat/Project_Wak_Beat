@@ -6,6 +6,8 @@ if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 	global.savepoint_position[1] = 2875
 	global.savepoint_color[1] = $FF263302
 }
+set_hitbox_color(#415c84,0,room_width*0.5,room_height*0.5);
+global.background_color = c_black
 global.artifact_type = 0
 
 global.t_bg_color = 1
