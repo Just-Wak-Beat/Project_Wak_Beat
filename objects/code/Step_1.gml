@@ -1,12 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//튜토리얼 스테이지 가이드 표기
 if (global.n_music_title == "왁트모르즈비")
 {
 	global.tutorial_now = 1;
 	
 	if (global.tutorial_n_stage == 0)
 	{
+		global.savepoint_text_alpha = 1;
 		if (global.mobile_mode == 1)
 		{
 			global.checkpoint_text = "왼쪽 화면을 터치해 조이스틱으로 이동하기";
@@ -66,9 +68,9 @@ if (instance_exists(obj_album_ui))
 
 
 //개발자 모드이면 튜토리얼 자동 스킵
-if (global.dev_mode == 1)
+if (global.dev_mode == 1 || global.tutorial_skip == 1)
 {
-	//global.tutorial_played = 1;
+	global.tutorial_played = 1;
 }
 
 //장애물 회피 점수가 최대치를 못넘도록 설정

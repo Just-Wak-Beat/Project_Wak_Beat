@@ -683,7 +683,7 @@ if (global.map_editor != 1 && global.rank_display_alpha > 0 && global.tutorial_p
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+(global.rank_display_r_alpha+global.rank_display_b_alpha)*0.5)
 	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx*global.converted_view_ratio,font_size____*global.converted_view_ratio,0)
 	
-	var temp_score = ((convert_rank_to_num(global.n_rank_display))*100+global.crossed_obstacle_num)*100
+	var temp_score = ((convert_rank_to_num(global.n_rank_display))*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)
 	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(temp_score)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx*global.converted_view_ratio,0.7*font_size____*global.converted_view_ratio,0)
 }
 

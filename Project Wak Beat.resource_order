@@ -84,6 +84,7 @@
     {"name":"isedolhyang","order":17,"path":"sounds/isedolhyang/isedolhyang.yy",},
     {"name":"winter_spring","order":16,"path":"sounds/winter_spring/winter_spring.yy",},
     {"name":"tutorial_part2","order":5,"path":"sounds/tutorial_part2/tutorial_part2.yy",},
+    {"name":"check_player_skin","order":13,"path":"scripts/check_player_skin/check_player_skin.yy",},
     {"name":"circle_x2048","order":1,"path":"sprites/circle_x2048/circle_x2048.yy",},
     {"name":"get_custom_map_num","order":7,"path":"scripts/get_custom_map_num/get_custom_map_num.yy",},
     {"name":"check_distance","order":4,"path":"scripts/check_distance/check_distance.yy",},

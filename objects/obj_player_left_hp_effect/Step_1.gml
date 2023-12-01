@@ -8,6 +8,10 @@ if (timeline_running == false)
 {
 	image_alpha += (10 - image_alpha)*0.03;
 }
+else
+{
+	image_alpha += (-0.01 - image_alpha)*0.1;
+}
 
 if (obj_player.image_xscale <= 0 || global.hp <= 0 || global.hp <= my_id)
 {
@@ -18,11 +22,6 @@ if (obj_player.image_xscale <= 0 || global.hp <= 0 || global.hp <= my_id)
 else
 {
 	image_blend = global.player_color;
-	if (obj_player.invincibility_cooltime <= 0)
-	{
-		image_alpha += (-0.01 - image_alpha)*0.1;
-	}
-
 	if (my_id != 0)
 	{
 		var target = parent_id.id_num[my_id-1];

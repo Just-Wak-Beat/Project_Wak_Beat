@@ -23,7 +23,12 @@ global.automatic_load_ranking = 0;
 global.cannot_connect = 0;
 global.show_credit = 1;
 global.beta_tester = 0;
-global.tutorial_played = 0;
+var file_name = (global.dev_mode == 1) ? "PWB_Beta.ini" : "PWB_OpenBeta.ini"
+ini_open_protect(file_name)
+var tmp = ini_read_real("tutorial_played","none",0)
+global.tutorial_skip = (tmp == 0) ? 0 : 1;
+global.tutorial_played = (tmp == 0) ? 0 : 1;
+ini_close_protect()
 global.boss_battle = 0
 
 
@@ -200,10 +205,7 @@ global.n_select_skin = 0
 global.t_n_select_skin = 0
 global.acquired_skin = -4
 
-//특수 효과
-global.additional_hp = 0;
-global.dash_bonus = 0;
-global.dash_dec_c_time = 0;
+
 
 
 
@@ -829,6 +831,16 @@ for(var i = 0; i < global.total_map; i++)
 
 
 
+//특수 효과
+global.additional_hp = 0; //단위 hp
+global.dash_cross_bonus = 0; //단위 score
+global.dash_cross_bonus_maxhp = 0; //단위 score
+global.dash_dec_c_time = 0; //단위 frame
+global.ignore_damage = 0; //단위 percentage
+global.minimum_rank = 0;  //단위 rank
+global.addition_invinc_time = 0;  //단위 frame
+global.clear_bonus_score = 0; //단위 score
+global.damaged_bonus_score = 0;
 	
 global.unlocked_player_skin_name[0] = "대쉬로 피한 탄막 갯수만큼 보너스 점수 +25를 얻습니다"
 global.unlocked_player_skin_require_type[0] = 0;
@@ -841,7 +853,7 @@ global.unlocked_player_skin_require_type[2] = 0;
 global.unlocked_player_skin_require_num[2] = "아무 곡이나 대쉬를 사용하지 않고 S랭크 이상으로 클리어 (튜토리얼 제외)";
 global.unlocked_player_skin_name[3] = "대쉬로 피한 탄막 갯수만큼 보너스 점수 +50를 얻습니다"
 global.unlocked_player_skin_require_type[3] = 0;
-global.unlocked_player_skin_require_num[3] = "'왁굳향100% 첨가'곡을 S랭크 이상으로 클리어";
+global.unlocked_player_skin_require_num[3] = "'왁굳향100% 첨가'곡을 A+랭크 이상으로 클리어";
 global.unlocked_player_skin_name[4] = "최하 랭크가 A로 고정"
 global.unlocked_player_skin_require_type[4] = 1;
 global.unlocked_player_skin_require_num[4] = global.max_artifact_owned[1];
@@ -865,7 +877,7 @@ global.unlocked_player_skin_require_type[10] = 2;
 global.unlocked_player_skin_require_num[10] = global.max_artifact_owned[2];
 global.unlocked_player_skin_name[11] = "대쉬 사용 쿨타임이 1초 증가하는 대신 대쉬로 피한 탄막 보너스 점수 +150을 얻습니다"
 global.unlocked_player_skin_require_type[11] = 2;
-global.unlocked_player_skin_require_num[11] = "'로키 ROKI'곡을 S랭크 이상으로 클리어"
+global.unlocked_player_skin_require_num[11] = "'로키 ROKI'곡을 A+랭크 이상으로 클리어"
 global.unlocked_player_skin_name[12] = "첫 시작 때 추가 체력 +1을 얻고 시작합니다"
 global.unlocked_player_skin_require_type[12] = 3;
 global.unlocked_player_skin_require_num[12] = global.max_artifact_owned[3];

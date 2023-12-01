@@ -38,7 +38,7 @@ global.real_stage_playtime[global.n_map_id] ++;
 if global.n_map_list != 2
 {
 	var converted_rank_to_num = convert_rank_to_num(target_rank)
-	var temp_score = ((converted_rank_to_num)*100+global.crossed_obstacle_num)*100
+	var temp_score = ((converted_rank_to_num)*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)+((converted_rank_to_num >= 12) ? global.clear_bonus_score : 0)
 	if (global.t_selected_difficulty == 1)
 	{
 		if (converted_rank_to_num > convert_rank_to_num(global.n_rank[global.n_map_id]))
@@ -100,7 +100,7 @@ if global.n_map_list != 2
 else
 {
 	var converted_rank_to_num = convert_rank_to_num(target_rank)
-	var temp_score = ((converted_rank_to_num)*100+global.crossed_obstacle_num)*100
+	var temp_score = ((converted_rank_to_num)*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)+((converted_rank_to_num >= 12) ? global.clear_bonus_score : 0)
 	if (global.t_selected_difficulty == 1)
 	{
 		if (global.nickname != "" && global.n_map_list != 2 && (global.custom_n_score[global.n_map_id] == "--" || temp_score > global.custom_n_score[global.n_map_id]))

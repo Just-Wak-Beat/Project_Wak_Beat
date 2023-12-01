@@ -24,12 +24,28 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 			
 			if (invincibility_cooltime != 80)
 			{
-				global.total_damaged ++;
+				if (!percentage_k(global.ignore_damage))
+				{
+					if (global.additional_hp <= 0)
+					{
+						global.total_damaged ++;
+						global.hp -= sign(global.show_progress_bar);
+					}
+					else
+					{
+						global.additional_hp --;
+					}
+				}
+				
+				if (global.minimum_rank < global.total_damaged)
+				{
+					global.total_damaged = global.minimum_rank;
+				}
+				
 				kirakira_effect = 1;
 				w_alpha = 2;
-				global.hp -= sign(global.show_progress_bar);
 				global.blackout_alpha = 1;
-				invincibility_cooltime = 80;
+				invincibility_cooltime = 80+global.addition_invinc_time;
 				show_invincibility = 1;
 				audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6);
 			

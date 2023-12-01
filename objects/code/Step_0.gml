@@ -324,7 +324,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 					var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[n_stage];
 					global.n_music_id = _audio_asset
 					global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
-	
+					event_user(8)
 					var _timeline_index_ = asset_get_index(string(global.n_music_name)+"_timeline")
 					if (timeline_exists(_timeline_index_) && global.n_map_list != 2)
 					{

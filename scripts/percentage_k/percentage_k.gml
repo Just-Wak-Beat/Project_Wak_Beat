@@ -9,16 +9,16 @@ function percentage_k(argument0)
 	{
 		if get_random_percentage <= argument0*1000
 		{
-		return 1;
+			return true;
 		}
 		else
 		{
-		return 0;
+			return false;
 		}
 	};
 	else if (argument0*1000 > 100000)
 	{
-	return 1;
+		return true;
 	}
 
 
