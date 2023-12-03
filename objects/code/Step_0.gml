@@ -379,13 +379,6 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 				}	
 			}
 		}
-		else
-		{
-			if (global.map_editor == 1)
-			{
-				global.show_music_title = 240;
-			}
-		}
 	
 		if (global.n_progress < global.music_duration)
 		{
@@ -475,7 +468,7 @@ if discord_presence_update > 0
 	}
 	discord_presence_update ++
 	
-	if global.n_progress >= global.music_duration+floor(global.music_sync_offset*3*60)
+	if (global.n_progress >= global.music_duration+floor(global.music_sync_offset*3*60))
 	{
 		discord_presence_update = 0
 	}

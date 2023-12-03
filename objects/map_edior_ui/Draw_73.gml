@@ -13,6 +13,15 @@ draw_self();
 
 if (global.timeline_stop == 1)
 {
+	draw_set_color(c_white);
+	for(var i = 1; i < 48; i++)
+	{
+		draw_set_alpha(0.1+((i%5 == 0) ? 0.1 : 0))
+		draw_line(xx-48+96*i,yy,xx-48+96*i,yy+yy_h)
+		draw_line(xx,yy-48+96*i,xx+xx_w,yy-48+96*i)
+	}
+	
+	
 	draw_text_k_scale(mouse_x+32,mouse_y-64,"x : "+string(mouse_x)+"\ny : "+string(mouse_y),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+8*global.converted_view_ratio+scroll_y*global.converted_view_ratio,99,8,0,c_white,1)
 	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+scroll_y*global.converted_view_ratio,99,8,0,c_black,1)

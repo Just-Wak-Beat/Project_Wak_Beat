@@ -8,7 +8,7 @@ scroll_y += (t_scroll_y - scroll_y)*0.1;
 
 
 
-if (keyboard_check_pressed(vk_enter) || (global.mb_l == 1 && activated == -1))
+if (global.show_music_title <= 0 && (keyboard_check_pressed(vk_enter) || (global.mb_l == 1 && activated == -1)))
 {
 	show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
 	audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
