@@ -1,6 +1,6 @@
 /// @description 타임라인 온오프
 // You can write your code in this editor
-if (global.show_music_title <= 0)
+if (global.show_music_title >= 200 || global.show_music_title <= 0)
 {
 	global.timeline_stop *= -1;
 	if (global.timeline_stop == 1)

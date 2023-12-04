@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "6.0";
+global.version_real = "6.1";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1
 surf_screen = -4;

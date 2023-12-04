@@ -7,28 +7,30 @@ y = mouse_y;
 scroll_y += (t_scroll_y - scroll_y)*0.1;
 
 
-
-if (global.show_music_title <= 0 && (keyboard_check_pressed(vk_enter) || (global.mb_l == 1 && activated == -1)))
+if (global.show_music_title >= 200 || global.show_music_title <= 0)
 {
-	show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
-	audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
-	activated *= -1;
-	if (global.timeline_stop != 1)
+	if (keyboard_check_pressed(vk_enter) || (global.mb_l == 1 && activated == -1))
 	{
-		global.b_n_progress = global.n_progress;
-		global.timeline_stop = 1;
-		instance_destroy(hitbox_parents);
-		audio_stop_sound(global.n_music_id);
-		global.master_remix_effect = 0
-		global.t_bg_color = 0;
-		global.t_bg_color_alpha = 0;
-		global.background_color = c_black;
-		global.map_speed = 0;
-		global.map_speed_y = 0;
-		global.t_map_speed = 0;
-		global.t_map_speed_y = 0;
+		show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
+		audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
+		activated *= -1;
+		if (global.timeline_stop != 1)
+		{
+			global.b_n_progress = global.n_progress;
+			global.timeline_stop = 1;
+			instance_destroy(hitbox_parents);
+			audio_stop_sound(global.n_music_id);
+			global.master_remix_effect = 0
+			global.t_bg_color = 0;
+			global.t_bg_color_alpha = 0;
+			global.background_color = c_black;
+			global.map_speed = 0;
+			global.map_speed_y = 0;
+			global.t_map_speed = 0;
+			global.t_map_speed_y = 0;
+		}
+		global.mb_l = 0;
 	}
-	global.mb_l = 0;
 }
 
 t_scroll_y = (activated == 1) ? 0 : -640;
@@ -91,8 +93,8 @@ else if (custom_image_type == 1)
 }
 else
 {
-	sprite_index = spr_player;
-	image_index = global.player_skin+6;
+	sprite_index = spr_bg_color;
+	image_index = 1;
 }
 
 
@@ -104,6 +106,7 @@ switch(global.editor_selected_type)
 	case 0: //이동 탄막
 		global.ed_arg[1] = floor(global.ed_arg[1]);
 		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		if (selected_projectile_type == 1)
@@ -117,6 +120,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "속력";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초, 0프레임 = 무한 지속)";
 		global.ed_arg_name[6] = "이펙트 활성화";
 	break;
 	
@@ -156,7 +160,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "활성화 이후 회전 속력";
 		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
-		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초)";
 	break;
 	
 	case 3: //눈꽃 탄막
@@ -178,7 +182,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[2] = "좌우 반복 움직임 속력 (각도에 따라 이동이 다름)";
 		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
 		global.ed_arg_name[4] = "중력";
-		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초)";
 	break;
 	
 	case 4: //지렁이 탄막
@@ -245,7 +249,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
-		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초)";
 	break;
 	
 	case 7: //맵 밖에서 튀어나오는 탄막

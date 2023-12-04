@@ -38,33 +38,45 @@ if (global.timeline_stop == 1)
 	
 	if (keyboard_check(ord("A")))
 	{
-		if (keep_pressing == 0 || (keep_pressing > 40 && keep_pressing%3 == 0))
+		if (global.n_progress > 0)
 		{
-			global.n_progress -= 1;
+			if (keep_pressing == 0 || (keep_pressing > 40 && keep_pressing%3 == 0))
+			{
+				global.n_progress -= 1;
+			}
 		}
 		keep_pressing ++;
 	}
 	else if (keyboard_check(ord("D")))
 	{
-		if (keep_pressing == 0 || (keep_pressing > 40 && keep_pressing%3 == 0))
+		if (global.n_progress < global.music_duration)
 		{
-			global.n_progress += 1;
+			if (keep_pressing == 0 || (keep_pressing > 40 && keep_pressing%3 == 0))
+			{
+				global.n_progress += 1;
+			}
 		}
 		keep_pressing ++;
 	}
 	else if (keyboard_check(ord("Q")))
 	{
-		if (keep_pressing == 0 || (keep_pressing > 40 && keep_pressing%3 == 0))
+		if (global.n_progress > 0)
 		{
-			global.n_progress -= 60;
+			if (keep_pressing == 0 || (keep_pressing > 40 && keep_pressing%3 == 0))
+			{
+				global.n_progress -= 60;
+			}
 		}
 		keep_pressing ++;
 	}
 	else if (keyboard_check(ord("E")))
 	{
-		if (keep_pressing == 0 || (keep_pressing > 40 && keep_pressing%3 == 0))
+		if (global.n_progress < global.music_duration)
 		{
-			global.n_progress += 60;
+			if (keep_pressing == 0 || (keep_pressing > 40 && keep_pressing%3 == 0))
+			{
+				global.n_progress += 60;
+			}
 		}
 		keep_pressing ++;
 	}

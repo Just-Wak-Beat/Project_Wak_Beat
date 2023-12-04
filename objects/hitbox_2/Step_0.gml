@@ -21,6 +21,25 @@ if (global.timeline_stop != 1)
 	{
 		speed = 50
 	}
+	
+	if (variable_instance_exists(id,"m_data_arg6"))
+	{
+		des_timer++;
+		if (m_data_arg6 == 1 && des_timer%4 == 0)
+		{
+			var effect_ = instance_create_depth(x,y,depth+5,movement_effect)
+			effect_.image_xscale = 0.5/(1024/sprite_width)
+			effect_.image_yscale = 0.5/(1024/sprite_width)
+			effect_.image_blend = global.map_color
+			effect_.sprite_index = spr_circle
+			effect_.image_alpha = 1
+		}
+	
+		if (m_data_arg5 != 0 && m_data_arg5 < des_timer)
+		{
+			instance_destroy()
+		}
+	}
 }
 
 
@@ -106,6 +125,7 @@ if (center_destroy == 1)
 		instance_destroy()
 	}
 }
+
 
 
 

@@ -29,14 +29,14 @@ var _directory = string(global.custom_map_file_dir[global.n_map_id])+"\\custom_h
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-var tmp_ind1 = 14;
+var tmp_ind1 = 99;
 var _firstFile = file_find_first(string(_directory)+"center_origin\\*.png", fa_none);
 if (string_length(_firstFile) != 0)
 {
 	global.custom_proj_center_spr[tmp_ind1] = sprite_add_ext(string(_directory)+"center_origin\\"+string(_firstFile),0,0,0,true);
 	show_message_log(string(_firstFile));
 	
-	tmp_ind1++;
+	tmp_ind1--;
 	
 	while(true)
 	{
@@ -50,7 +50,7 @@ if (string_length(_firstFile) != 0)
 			show_message_log(string(_file));
 		    global.custom_proj_center_spr[tmp_ind1] = sprite_add_ext(string(_directory)+"center_origin\\"+string(_file),0,0,0,true);
 			sprite_set_offset(global.custom_proj_center_spr[tmp_ind1],floor(sprite_get_width(global.custom_proj_center_spr[tmp_ind1])/2),floor(sprite_get_height(global.custom_proj_center_spr[tmp_ind1])/2));
-			tmp_ind1++;
+			tmp_ind1--;
 		}
 	}
 }
@@ -59,14 +59,14 @@ file_find_close();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var tmp_ind2 = 3;
+var tmp_ind2 = 99;
 var _firstFile = file_find_first(string(_directory)+"top_origin\\*.png", fa_none);
 if (string_length(_firstFile) != 0)
 {
 	show_message_log(string(_firstFile));
 	global.custom_proj_top_spr[tmp_ind2] = sprite_add_ext(string(_directory)+"top_origin\\"+string(_firstFile),0,0,0,true);
 	sprite_set_offset(global.custom_proj_top_spr[tmp_ind2],floor(sprite_get_width(global.custom_proj_top_spr[tmp_ind2])/2),floor(sprite_get_height(global.custom_proj_top_spr[tmp_ind2])/2));
-	tmp_ind2++;
+	tmp_ind2--;
 	
 	while(true)
 	{
@@ -80,7 +80,7 @@ if (string_length(_firstFile) != 0)
 			show_message_log(string(_file));
 		    global.custom_proj_top_spr[tmp_ind2] = sprite_add_ext(string(_directory)+"top_origin\\"+string(_file),0,0,0,true);
 			sprite_set_offset(global.custom_proj_top_spr[tmp_ind2],floor(sprite_get_width(global.custom_proj_top_spr[tmp_ind2])/2),floor(sprite_get_height(global.custom_proj_top_spr[tmp_ind2])/2));
-			tmp_ind2++;
+			tmp_ind2--;
 		}
 	}
 }

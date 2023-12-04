@@ -7,6 +7,7 @@ image_speed = 0
 timer = 0
 des = 0
 center_destroy = 0
+des_timer = 0
 event_user(11)
 
 

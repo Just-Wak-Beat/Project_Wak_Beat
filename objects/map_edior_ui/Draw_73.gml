@@ -16,7 +16,7 @@ if (global.timeline_stop == 1)
 	draw_set_color(c_white);
 	for(var i = 1; i < 48; i++)
 	{
-		draw_set_alpha(0.1+((i%5 == 0) ? 0.1 : 0))
+		draw_set_alpha(0.07+((i%5 == 0) ? 0.07 : 0))
 		draw_line(xx-48+96*i,yy,xx-48+96*i,yy+yy_h)
 		draw_line(xx,yy-48+96*i,xx+xx_w,yy-48+96*i)
 	}
