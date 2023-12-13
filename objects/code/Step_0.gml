@@ -398,20 +398,23 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 			}
 	
 	
-			if (global.timeline_stop != 1 && !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
+			if (instance_exists(obj_player) && obj_player.image_xscale > 0)
 			{
-				if abs(global.map_speed_y) > 0
+				if (global.timeline_stop != 1 && !instance_exists(obj_savepoint) && !instance_exists(obj_stage_clear))
 				{
-					var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
-					save_.n_savepoint_position = 99999
-					save_.n_color = c_black
-					save_.image_angle = 90
-				}
-				else
-				{
-					var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
-					save_.n_savepoint_position = 99999
-					save_.n_color = c_black
+					if abs(global.map_speed_y) > 0
+					{
+						var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
+						save_.n_savepoint_position = 99999
+						save_.n_color = c_black
+						save_.image_angle = 90
+					}
+					else
+					{
+						var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
+						save_.n_savepoint_position = 99999
+						save_.n_color = c_black
+					}
 				}
 			}
 		}
@@ -727,7 +730,14 @@ if global.rewind > 0
 		//곡 리스타트
 		if (global.restart_stage == 1)
 		{
-			global.map_color = global.stage_map_color[global.n_map_id];
+			if (global.play_custom_map == 1)
+			{
+				global.map_color = c_white;
+			}
+			else
+			{
+				global.map_color = global.stage_map_color[global.n_map_id];
+			}
 			global.start_point = 0;
 			global.restart_stage = 0;
 			global.respawn_point_xx = room_width*0.5;

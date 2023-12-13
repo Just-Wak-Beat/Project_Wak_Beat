@@ -18,7 +18,10 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 		{
 			global.b_n_progress = global.n_progress;
 			global.timeline_stop = 1;
+			camera_focus_on(-4,-4,1)
 			instance_destroy(hitbox_parents);
+			instance_destroy(hitbox_bg_color);
+			instance_destroy(hitbox_hitbox_color);
 			audio_stop_sound(global.n_music_id);
 			global.master_remix_effect = 0
 			global.t_bg_color = 0;
@@ -28,6 +31,9 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 			global.map_speed_y = 0;
 			global.t_map_speed = 0;
 			global.t_map_speed_y = 0;
+			global.n_camera_zoom = 1;
+			global.camera_slow_zoom = 0;
+			global.map_color = c_white;
 		}
 		global.mb_l = 0;
 	}

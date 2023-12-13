@@ -1,6 +1,10 @@
 /// @description 커스텀 맵 파일 히트박스 이미지
 // You can write your code in this editor
-global.custom_proj_center_spr = array_create(100,-4);
+for(var i = 0; i < 100; i++)
+{
+	global.custom_proj_center_spr[i] = -4;
+	global.custom_proj_top_spr[i] = -4;
+}
 global.custom_proj_center_spr[0] = spr_tmp;
 global.custom_proj_center_spr[1] = spr_circle;
 global.custom_proj_center_spr[2] = spr_circle_half;
@@ -17,7 +21,7 @@ global.custom_proj_center_spr[12] = spr_arrow;
 global.custom_proj_center_spr[13] = spr_cross;
 
 
-global.custom_proj_top_spr = array_create(100,-4);
+
 global.custom_proj_top_spr[0] = spr_circle_cylinder;
 global.custom_proj_top_spr[1] = spr_spike_cylinder;
 global.custom_proj_top_spr[2] = spr_square_cylinder;

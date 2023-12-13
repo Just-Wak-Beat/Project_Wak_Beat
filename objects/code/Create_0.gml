@@ -10,7 +10,7 @@ global.low_graphics = false;
 global.dev_mode = 1
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
-global.custom_map_directory = string(program_directory)+"\\Custom map files\\";
+global.custom_map_directory = string(working_directory)+"\\Custom map files\\";
 global.nickname = ""
 global.dashed = 0
 global.total_damaged = 0
@@ -78,7 +78,26 @@ texturegroup_load("effects")
 
 global.custom_proj_center_spr = array_create(100,-4);
 global.custom_proj_top_spr = array_create(100,-4);
+global.custom_proj_center_spr[0] = spr_tmp;
+global.custom_proj_center_spr[1] = spr_circle;
+global.custom_proj_center_spr[2] = spr_circle_half;
+global.custom_proj_center_spr[3] = spr_circle_outline;
+global.custom_proj_center_spr[4] = spr_circle_spike;
+global.custom_proj_center_spr[5] = spr_circle_spike2;
+global.custom_proj_center_spr[6] = spr_triangle;
+global.custom_proj_center_spr[7] = spr_triangle_empty_bold;
+global.custom_proj_center_spr[8] = spr_star;
+global.custom_proj_center_spr[9] = spr_snow;
+global.custom_proj_center_spr[10] = spr_heart;
+global.custom_proj_center_spr[11] = spr_gear;
+global.custom_proj_center_spr[12] = spr_arrow;
+global.custom_proj_center_spr[13] = spr_cross;
 
+
+
+global.custom_proj_top_spr[0] = spr_circle_cylinder;
+global.custom_proj_top_spr[1] = spr_spike_cylinder;
+global.custom_proj_top_spr[2] = spr_square_cylinder;
 
 ////////////////////////////////////////////////
 //show_debug_overlay(true)

@@ -7,6 +7,9 @@ function load_custom_map_files()
 	{
 		var audio_file = "already_loaded"
 		ini_open(string(global.custom_map_file_dir[i])+"\\map_info.ini")
+		var audiofile_exists = " - 오디오 파일 누락됨"
+		var imgfile_exists = " - 이미지 파일 누락됨"
+		//////////////////////////////////////////////////////////////////////////////////////
 		if !audio_exists(global.custom_audio_asset[i])
 		{
 			global.custom_stage_map_name[i] = ini_read_string("custom_stage_map_name","value","Undefined")
@@ -20,35 +23,49 @@ function load_custom_map_files()
 			global.custom_obtainable_type[i] = ini_read_real("custom_obtainable_type","value",-4)
 			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
 			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
-			var directory = string(global.custom_map_file_dir[i])+"\\audio.ogg"
-			if (file_exists(directory))
+			var _firstFile = file_find_first(string(global.custom_map_file_dir[i])+"\\*.ogg", fa_none);
+			show_debug_message("_firstFile : "+string(_firstFile));
+			var file_dir = string(global.custom_map_file_dir[i])+"\\"+string(_firstFile);
+			if (file_exists(file_dir))
 			{
-				audio_file = audio_create_stream(directory);
+				audiofile_exists = "";
+				audio_file = audio_create_stream(file_dir);
 				global.custom_audio_asset[i] = audio_file;
 				global.custom_map_duration[i] = floor(audio_sound_length(audio_file)*60);
 			}
+			file_find_close();
+			
+			
+			
+			//////////////////////////////////////////////////////////////////////////////////////
+			var _firstFile = file_find_first(string(global.custom_map_file_dir[i])+"\\*.png", fa_none);
+			show_debug_message("_firstFile : "+string(_firstFile));
+			var file_dir = string(global.custom_map_file_dir[i])+"\\"+string(_firstFile);
+			var tmp_spr = spr_album;
+			if (file_exists(file_dir))
+			{
+				tmp_spr = sprite_add_ext(file_dir,0,256,256,true);
+				imgfile_exists = "";
+			}
+			
+			
+			global.custom_stage_album[i] = tmp_spr;
+			file_find_close();
+			//////////////////////////////////////////////////////////////////////////////////////
 		}
 		else
 		{
+			imgfile_exists = "";
+			audiofile_exists = "";
 			global.custom_map_duration[i] = floor(audio_sound_length(global.custom_audio_asset[i])*60);
 		}
-	
-		if !sprite_exists(global.custom_stage_album[i])
-		{
-			var img_directory = string(global.custom_map_file_dir[i])+"\\album.png";
-			if (!file_exists(img_directory))
-			{
-				img_directory = string(global.custom_map_file_dir[i])+"\\album.PNG";
-			}
-			if (!file_exists(img_directory))
-			{
-				img_directory = string(global.custom_map_file_dir[i])+"\\album.jpg";
-			}
-			var tmp_spr = (file_exists(img_directory)) ? sprite_add_ext(img_directory,0,256,256,true) : spr_album;
-			global.custom_stage_album[i] = tmp_spr;
-		}
+		//////////////////////////////////////////////////////////////////////////////////////
 		
-		show_message_log("커스텀 곡 불러오는 중... ("+string(global.custom_stage_map_name[i])+")");
+	
+		
+		
+		
+		show_message_log(string(global.custom_stage_map_name[i])+string(imgfile_exists)+string(audiofile_exists));
 		show_debug_message(string(global.custom_stage_map_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))
 		ini_close()
 		

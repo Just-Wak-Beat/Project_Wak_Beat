@@ -20,9 +20,14 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 	{
 		tmp_spr___ = global.custom_proj_center_spr[real(argument11)];
 	}
-	else if (argument10 == 1)
+	else
 	{
 		tmp_spr___ = global.custom_proj_top_spr[real(argument11)];
+	}
+	
+	if (!sprite_exists(tmp_spr___))
+	{
+		tmp_spr___ = global.custom_proj_top_spr[0];
 	}
 	
 	switch(argument0)
@@ -267,11 +272,6 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
 			tmp_ins.m_data_arg8 = argument11;
-			
-			tmp_ins.ed_arg0 = 0.5+argument3/20;
-			tmp_ins.ed_arg1 = (argument4-180)/1000;
-			tmp_ins.ed_arg2 = floor((argument5)/255*25);
-			tmp_ins.ed_arg3 = floor((argument6)/255*2);
 		break;
 	
 		case 14: //잡다한 효과

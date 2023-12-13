@@ -34,7 +34,7 @@ else
 
 var font_size = 1//global.camera_sx
 
-if global.tutorial_now != 1 && global.show_rank = 0
+if global.tutorial_now != 1 && global.show_rank = 0 && (is_string(global.map_color) || is_real(global.map_color))
 {
 	//progress bar
 	draw_set_color(global.map_color)
@@ -68,9 +68,12 @@ if global.tutorial_now != 1 && global.show_rank = 0
 	draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha)
 }
 
-//check point
-draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx*font_size,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*font_size,0)
 
+if (instance_exists(obj_player) && obj_player.image_xscale > 0)
+{
+	//check point
+	draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx*font_size,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*font_size,0)
+}
 
 if (music_title_alpha > 0 && global.tutorial_played >= 0)
 {
@@ -117,34 +120,36 @@ if (music_title_alpha > 0 && global.tutorial_played >= 0)
 
 
 //progress bar - save point
-
-for(var i = 0; i <= 5; i++)
+if (instance_exists(obj_player) && obj_player.image_xscale > 0)
 {
-	if (global.savepoint_position[i] != -4)
+	for(var i = 0; i <= 5; i++)
 	{
-		var _xx_ = xx+xx_w*0.3+font_size*32+global.converted_view_ratio*(1433.6*font_size*(global.savepoint_position[i]/global.music_duration))
-	
-		draw_set_color(global.map_color)
-		draw_set_alpha(progress_alpha_sec*0.9)
-		draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*50,_xx_,yy+global.converted_view_ratio*font_size*70,4*font_size)
-		draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*90,_xx_,yy+global.converted_view_ratio*font_size*110,4*font_size)
-	
-		if (obj_player.image_xscale > 0 && (global.map_editor != 1 || (global.map_editor == 1 && global.timeline_stop != 1)))
+		if (global.savepoint_position[i] != -4)
 		{
-			if (floor(global.n_progress-global.savepoint_position[i]) == 0 && !audio_is_playing(cleared_sfx))
+			var _xx_ = xx+xx_w*0.3+font_size*32+global.converted_view_ratio*(1433.6*font_size*(global.savepoint_position[i]/global.music_duration))
+	
+			draw_set_color(global.map_color)
+			draw_set_alpha(progress_alpha_sec*0.9)
+			draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*50,_xx_,yy+global.converted_view_ratio*font_size*70,4*font_size)
+			draw_line_width(_xx_,yy+global.converted_view_ratio*font_size*90,_xx_,yy+global.converted_view_ratio*font_size*110,4*font_size)
+	
+			if (global.map_editor != 1 || (global.map_editor == 1 && global.timeline_stop != 1))
 			{
-				if abs(global.map_speed_y) > 0
+				if (floor(global.n_progress-global.savepoint_position[i]) == 0 && !audio_is_playing(cleared_sfx))
 				{
-					var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
-					save_.n_savepoint_position = global.savepoint_position[i]
-					save_.n_color = global.savepoint_color[i]
-					save_.image_angle = 90
-				}
-				else
-				{
-					var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
-					save_.n_savepoint_position = global.savepoint_position[i]
-					save_.n_color = global.savepoint_color[i]
+					if abs(global.map_speed_y) > 0
+					{
+						var save_ = instance_create_depth(0,0,obj_player.depth+1,obj_savepoint)
+						save_.n_savepoint_position = global.savepoint_position[i]
+						save_.n_color = global.savepoint_color[i]
+						save_.image_angle = 90
+					}
+					else
+					{
+						var save_ = instance_create_depth(room_width,0,obj_player.depth+1,obj_savepoint)
+						save_.n_savepoint_position = global.savepoint_position[i]
+						save_.n_color = global.savepoint_color[i]
+					}
 				}
 			}
 		}

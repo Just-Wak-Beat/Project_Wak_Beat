@@ -3,9 +3,9 @@
 
 if (global.timeline_stop == -1)
 {
-	global.camera_slow_zoom = ed_arg1;
-	camera_focus_on(x,y,ed_arg0)
-	view_shake(0.1,ed_arg2,0.1,ed_arg3);
+	global.camera_slow_zoom = (m_data_arg1-180)/1000;
+	camera_focus_on(x,y,0.5+m_data_arg0/20)
+	view_shake(0.1,floor((m_data_arg2)/255*25),0.1,floor((m_data_arg3)/255*2));
 	
 	instance_destroy();
 }

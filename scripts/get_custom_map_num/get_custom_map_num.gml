@@ -10,7 +10,7 @@ function get_custom_map_num()
 	
 	var _firstFile = file_find_first(string(_directory)+"*", fa_directory);
 
-	show_debug_message("커스텀 맵 폴더 : "+string(_firstFile))
+	show_debug_message("커스텀 맵 폴더 :"+string(_directory)+string(_firstFile))
 	if (string_length(_firstFile) == 0)
 	{
 		return 0;
