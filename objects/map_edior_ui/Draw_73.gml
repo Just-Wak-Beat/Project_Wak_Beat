@@ -19,8 +19,8 @@ if (global.timeline_stop == 1)
 	for(var i = -20; i <= 20; i++)
 	{
 		draw_set_alpha(0.07+((i%5 == 0) ? 0.07 : 0))
-		draw_line(room_width*0.5-48+96*i,yy,room_width*0.5-48+96*i,yy+yy_h)
-		draw_line(xx,room_height*0.5-48+96*i,xx+xx_w,room_height*0.5-48+96*i)
+		draw_line(room_width*0.5+96*i,yy,room_width*0.5+96*i,yy+yy_h)
+		draw_line(xx,room_height*0.5+96*i,xx+xx_w,room_height*0.5+96*i)
 	}
 	
 	
@@ -305,11 +305,11 @@ for(var i = 0; i < 7; i++)
 			}
 			else if (i == 1)
 			{
-				tmp_val = (tmp_val-180)/1000;
+				tmp_val = (1 - (tmp_val-180)/1000);
 			}
 			else if (i == 2)
 			{
-				tmp_val = floor((tmp_val)/255*25);
+				tmp_val = abs(abs((tmp_val-180)/1000) - 1)*sign(tmp_val-180);
 			}
 			else if (i == 3)
 			{

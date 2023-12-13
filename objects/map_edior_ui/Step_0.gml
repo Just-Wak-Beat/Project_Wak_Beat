@@ -9,7 +9,7 @@ scroll_y += (t_scroll_y - scroll_y)*0.1;
 
 if (global.show_music_title >= 200 || global.show_music_title <= 0)
 {
-	if (keyboard_check_pressed(vk_enter) || (global.mb_l == 1 && activated == -1))
+	if (keyboard_check_pressed(vk_enter))
 	{
 		show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
 		audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
@@ -23,7 +23,8 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 			instance_destroy(hitbox_bg_color);
 			instance_destroy(hitbox_hitbox_color);
 			audio_stop_sound(global.n_music_id);
-			global.master_remix_effect = 0
+			global.master_remix_effect = 0;
+			global.view_angle_ = 0;
 			global.t_bg_color = 0;
 			global.t_bg_color_alpha = 0;
 			global.background_color = c_black;
@@ -35,7 +36,6 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 			global.camera_slow_zoom = 0;
 			global.map_color = c_white;
 		}
-		global.mb_l = 0;
 	}
 }
 
@@ -376,7 +376,7 @@ switch(global.editor_selected_type)
 			custom_image_type = 2;
 		}
 		global.ed_arg_name[0] = "줌 정도 설정";
-		global.ed_arg_name[1] = "천천히 줌되는 비율";
+		global.ed_arg_name[1] = "천천히 줌되는 비율 (값이 클수록 빠르게 변화합니다)";
 		global.ed_arg_name[2] = "화면 흔들림 정도";
 		global.ed_arg_name[3] = "화면 흔들림 방향";
 		global.ed_arg_name[6] = "포커스 활성화 (카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)";

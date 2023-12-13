@@ -85,8 +85,8 @@ if (global.can_change_music_list == 1 && global.t_select_difficulty == 0)
 	
 		if global.sync_setting = 1
 		{
-			screen_save(string(working_directory)+"datafile_sc.png");
-			global.sc_img_for_pause = sprite_add_ext(string(working_directory)+"datafile_sc.png",0,0,0,true);
+			screen_save(string(global.default_directory)+"datafile_sc.png");
+			global.sc_img_for_pause = sprite_add_ext(string(global.default_directory)+"datafile_sc.png",0,0,0,true);
 			
 			global.n_setting_button = -4
 			global.cannot_control = 1

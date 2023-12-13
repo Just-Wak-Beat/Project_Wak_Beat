@@ -1,16 +1,17 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "6.1";
+global.version_real = "6.2";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1
 surf_screen = -4;
 music_title_alpha = 0
 global.blackout_alpha = 0;
 global.low_graphics = false;
-global.dev_mode = 1
+global.dev_mode = 1;
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
-global.custom_map_directory = string(working_directory)+"\\Custom map files\\";
+global.default_directory = program_directory
+global.custom_map_directory = string(global.default_directory)+"\\Custom map files\\";
 global.nickname = ""
 global.dashed = 0
 global.total_damaged = 0

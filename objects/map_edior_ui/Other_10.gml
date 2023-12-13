@@ -10,7 +10,8 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 		instance_destroy(hitbox_bg_color);
 		instance_destroy(hitbox_hitbox_color);
 		camera_focus_on(-4,-4,1)
-		global.master_remix_effect = 0
+		global.master_remix_effect = 0;
+		global.view_angle_ = 0;
 		global.t_bg_color = 0;
 		global.t_bg_color_alpha = 0;
 		global.background_color = c_black;
