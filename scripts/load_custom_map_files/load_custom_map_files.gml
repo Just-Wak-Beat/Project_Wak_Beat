@@ -38,16 +38,14 @@ function load_custom_map_files()
 			
 			
 			//////////////////////////////////////////////////////////////////////////////////////
-			var _firstFile = file_find_first(string(global.custom_map_file_dir[i])+"\\*.png", fa_none);
-			show_debug_message("_firstFile : "+string(_firstFile));
-			var file_dir = string(global.custom_map_file_dir[i])+"\\"+string(_firstFile);
-			var tmp_spr = spr_album;
+			var file_dir = find_file(global.custom_map_file_dir[i],"png","jpg","jpeg","PNG");
+			show_debug_message("_firstFile : "+string(file_dir));
+			var tmp_spr = spr_tmp;
 			if (file_exists(file_dir))
 			{
 				tmp_spr = sprite_add_ext(file_dir,0,256,256,true);
 				imgfile_exists = "";
 			}
-			
 			
 			global.custom_stage_album[i] = tmp_spr;
 			file_find_close();

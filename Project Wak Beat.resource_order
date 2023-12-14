@@ -235,6 +235,7 @@
     {"name":"create_projectile_spin","order":8,"path":"scripts/create_projectile_spin/create_projectile_spin.yy",},
     {"name":"drum_sfx","order":8,"path":"sounds/drum_sfx/drum_sfx.yy",},
     {"name":"spr_clock","order":19,"path":"sprites/spr_clock/spr_clock.yy",},
+    {"name":"find_file","order":8,"path":"scripts/find_file/find_file.yy",},
     {"name":"spr_arrow","order":38,"path":"sprites/spr_arrow/spr_arrow.yy",},
     {"name":"spr_square_laser","order":5,"path":"sprites/spr_square_laser/spr_square_laser.yy",},
     {"name":"hitbox_1","order":1,"path":"objects/hitbox_1/hitbox_1.yy",},

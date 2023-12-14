@@ -273,6 +273,7 @@
     {"id":{"name":"create_projectile_spin","path":"scripts/create_projectile_spin/create_projectile_spin.yy",},},
     {"id":{"name":"drum_sfx","path":"sounds/drum_sfx/drum_sfx.yy",},},
     {"id":{"name":"spr_clock","path":"sprites/spr_clock/spr_clock.yy",},},
+    {"id":{"name":"find_file","path":"scripts/find_file/find_file.yy",},},
     {"id":{"name":"spr_arrow","path":"sprites/spr_arrow/spr_arrow.yy",},},
     {"id":{"name":"spr_square_laser","path":"sprites/spr_square_laser/spr_square_laser.yy",},},
     {"id":{"name":"hitbox_1","path":"objects/hitbox_1/hitbox_1.yy",},},

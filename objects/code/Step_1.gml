@@ -38,7 +38,9 @@ if (gamestart == 1)
 	automatic_loading_cancel ++
 	if (automatic_loading_cancel = 300)
 	{
-		show_message_log("스테이지 파일을 불러오는데 오류가 발생했습니다!")
+		show_message_log("스테이지 파일을 불러오는데 오류가 발생했습니다!");
+		
+		url_open("https://github.com/Just-Wak-Beat/Project_Wak_Beat/blob/main/Guideline%20for%20Custom%20User%20Stage.md");
 	}
 	else if (automatic_loading_cancel == 1)
 	{
