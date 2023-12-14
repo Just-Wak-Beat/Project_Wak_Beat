@@ -352,17 +352,18 @@ automatic_reload_leaderboard = 0;
 		global.custom_map_duration[i] = -4;
 		global.custom_stage_map_color[i] = -4;
 		global.custom_stage_bpm[i] = -4;
-		global.custom_stage_map_highlight_part[i] = -4
+		global.custom_stage_map_highlight_part[i] = -4;
 		global.custom_n_rank[i] = "--";
 		global.custom_n_rank_hardcore[i] = "--";
 		global.custom_n_score[i] = "--";
 		global.custom_n_score_hardcore[i] = "--";
 		global.custom_n_artifact[i] = "X";
-		global.custom_detailed_difficulty[i] = -4
-		global.custom_obtainable_type[i] = -4
-		global.custom_requirement_level[i] = -4
-		global.custom_stage_album[i] = -4
-		global.custom_audio_asset[i] = -4
+		global.custom_detailed_difficulty[i] = -4;
+		global.custom_obtainable_type[i] = -4;
+		global.custom_requirement_level[i] = -4;
+		global.custom_stage_album[i] = -4;
+		global.custom_audio_asset[i] = -4;
+		global.custom_stage_mapper[i] = -4;
 	}
 
 

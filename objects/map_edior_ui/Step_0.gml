@@ -382,7 +382,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[6] = "포커스 활성화 (카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)";
 	break;
 	
-	case 14: //잡다한 효과 모음
+	case 14: //잡다한 화면 효과 모음
 		if (selected_projectile_type == 1)
 		{
 			selected_projectile_type = 0;

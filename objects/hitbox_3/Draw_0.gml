@@ -6,7 +6,7 @@ if (can_draw == 1)
 	var col = global.map_color
 	if col = c_black && image_alpha < 1
 	{
-		col = c_white
+		col = (get_dis_color(global.background_color,c_white) < 7) ? c_black : c_white;
 	}
 	if global.quake_effect = 1
 	{

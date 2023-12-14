@@ -65,13 +65,14 @@ if (global.timeline_stop != 1)
 			first_created = 1;
 			var laser__ = instance_create_depth(x-lengthdir_x(timer,direction),y-lengthdir_y(timer,direction),obj_player.depth-1,hitbox_9)
 			laser__.target_time = 1
-			laser__.des_time = des_time
-			laser__.shake_scale = shake_scale
-			laser__.shake_dir = shake_dir
-			laser__.image_xscale = image_xscale
-			laser__.image_yscale = image_yscale
+			laser__.des_time = des_time;
+			laser__.shake_scale = shake_scale;
+			laser__.shake_dir = shake_dir;
+			laser__.image_xscale = image_xscale;
+			laser__.image_yscale = image_yscale;
 			laser__.t_scale = t_scale;
-			laser__.image_angle = direction
+			laser__.sprite_index = sprite_index;
+			laser__.image_angle = direction;
 		}
 	}
 }

@@ -9,5 +9,5 @@ image_alpha += (0 - image_alpha)*0.05
 
 if abs(image_xscale - 7.8) < 0.2
 {
-instance_destroy()
+	instance_destroy()
 }

@@ -4,7 +4,7 @@
 
 
 
-if (global.dev_mode == 1)
+/*if (global.dev_mode == 1)
 {
 	if (mouse_wheel_up())
 	{
@@ -14,4 +14,4 @@ if (global.dev_mode == 1)
 	{
 		global.n_camera_zoom -= 0.1;
 	}
-}
+}*/

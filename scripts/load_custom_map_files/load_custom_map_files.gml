@@ -23,6 +23,8 @@ function load_custom_map_files()
 			global.custom_obtainable_type[i] = ini_read_real("custom_obtainable_type","value",-4)
 			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
 			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
+			global.custom_stage_mapper[i] = ini_read_string("custom_stage_map_map_by","value","Unknown")
+		
 			var _firstFile = file_find_first(string(global.custom_map_file_dir[i])+"\\*.ogg", fa_none);
 			show_debug_message("_firstFile : "+string(_firstFile));
 			var file_dir = string(global.custom_map_file_dir[i])+"\\"+string(_firstFile);
@@ -63,7 +65,7 @@ function load_custom_map_files()
 		
 		
 		
-		show_message_log(string(global.custom_stage_map_name[i])+string(imgfile_exists)+string(audiofile_exists));
+		show_message_log("ㄴ"+string(global.custom_stage_map_name[i])+string(imgfile_exists)+string(audiofile_exists));
 		show_debug_message(string(global.custom_stage_map_name[i])+" / "+string(global.custom_audio_asset[i])+" length : "+string(audio_sound_length(global.custom_audio_asset[i])*60))
 		ini_close()
 		
