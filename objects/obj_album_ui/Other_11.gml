@@ -41,26 +41,11 @@ for(var i = 1; i < global.origin_total_map; i++)
 	
 
 var index2 = irandom_range(0,global.origin_total_map+total_playtime*2-1)
-show_debug_message("n = "+string(index2)+" / "+string(probablity[index2]));
+//show_debug_message("n = "+string(index2)+" / "+string(probablity[index2]));
 var return_value = probablity[index2];
 
 
 
-if (global.nickname != "")
-{
-	var temp_nickname = string_replace_all(global.nickname," ","")
-	if (global.dev_mode == 1)
-	{
-		temp_nickname = temp_nickname+"[*_ABER]0";
-	}
-	else if (global.beta_tester == 1)
-	{
-		temp_nickname = temp_nickname+"[*_ABER]1";
-	}
-	rank_temp_val1 = temp_nickname
-	rank_temp_val2 = most_played_index
-	alarm[1] = 1200
-}
 
 
 if (global.tutorial_played <= 0)

@@ -3,9 +3,26 @@
 
 if (global.timeline_stop == -1)
 {
-	global.camera_slow_zoom = (m_data_arg1-180)/1000;
-	camera_focus_on(x,y,0.5+m_data_arg0/20)
-	view_shake(0.1,floor((m_data_arg2)/255*25),0.1,floor((m_data_arg3)/255*2));
+	if (m_data_arg7 != -999)
+	{
+		var zoom_scale = floor(50+m_data_arg0*12*0.65)/100;
+		if (m_data_arg6 != 1)
+		{
+			global.n_camera_zoom = zoom_scale;
+		}
+		else
+		{
+			camera_focus_on(x,y,zoom_scale)
+		}
+		
+		var tmp_slow_zoom = -floor((m_data_arg1-180)/10)/20000;
+		global.camera_slow_zoom = tmp_slow_zoom;
+		show_debug_message("tmp_slow_zoom : "+string(tmp_slow_zoom));
+	}
+	else
+	{
+		view_shake(0.1,m_data_arg0,0.1,round(m_data_arg1/180));
+	}
 	
 	instance_destroy();
 }

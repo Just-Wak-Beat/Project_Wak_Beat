@@ -44,6 +44,7 @@ if (gamestart == 1)
 	}
 	else if (automatic_loading_cancel == 1)
 	{
+		clean_message_log()
 		show_message_log("스테이지 불러오는 중...");
 	}
 	
@@ -140,17 +141,14 @@ else
 //자동 리로드 플레이어 전체 리더보드
 if (automatic_reload_player_leaderboard > 0)
 {
+	automatic_leaderboard_cancle ++;
 	if (automatic_reload_player_leaderboard == 1)
 	{
+		save_and_load_data(0,0);
+		clean_guide_text();
+		clean_message_log();
 		global.cannot_connect += 1+global.cannot_connect;
 		show_message_log("온라인 서버 연결 중...");
-		for(var i = 0; i < global.total_map; i++)
-		{
-			global.unlocked_music_name_new_list[i] = "";
-			global.unlocked_music_name_new_list_rightside[i] = "";
-			global.unlocked_music_name_new_list_color[i] = c_white;
-			global.unlocked_music_name_new_list_color_rightside[i] = c_white;
-		}
 		
 		show_debug_message("showing User Ranking now")
 		var temp_difficulty_str = (global.player_leaderboard_difficulty != 0) ? "하드코어" : "노말";
@@ -162,17 +160,7 @@ if (automatic_reload_player_leaderboard > 0)
 		
 
 		
-	if (automatic_reload_player_leaderboard == 2)
-	{
-		if (global.player_leaderboard_difficulty == 0)
-		{
-			setup_gmscoreboard("a70d65f34511fece65808739de70d212");
-		}
-		else
-		{
-			setup_gmscoreboard("134126fa6426e417e2b28e18f146f280");
-		}
-	}
+
 	
 	if (automatic_reload_player_leaderboard == 3 && global.nickname != "")
 	{
@@ -191,52 +179,42 @@ if (automatic_reload_player_leaderboard > 0)
 		
 		if (global.player_leaderboard_difficulty == 0)
 		{
-			if (global.total_score_normal < tmp_total_score)
-			{
-				set_score(global.nickname, tmp_total_score);
-				global.total_score_normal = tmp_total_score;
-			}
-			else
-			{
-				get_scores(5);
-			}
+			set_score(global.nickname, (tmp_total_score < 1) ? 1 : tmp_total_score, 0);
+			get_scores(5,0);
+			show_debug_message("점수 전송 - "+string(tmp_total_score)+" ("+string(global.nickname)+")");
+			global.total_score_normal = tmp_total_score;
 		}
 		else
 		{
-			if (global.total_score_hardcore < tmp_total_score)
-			{
-				set_score(global.nickname, tmp_total_score);
-				global.total_score_hardcore = tmp_total_score;
-			}
-			else
-			{
-				get_scores(5);
-			}
+			set_score(global.nickname, (tmp_total_score < 1) ? 1 : tmp_total_score, 1);
+			get_scores(5,1);
+			show_debug_message("점수 전송 - "+string(tmp_total_score)+" ("+string(global.nickname)+")");
+			global.total_score_hardcore = tmp_total_score;
 		}
-		
-		save_and_load_data(0,0);
 	}
 	
 
 	if (automatic_reload_player_leaderboard >= 150)
 	{
-		if !ds_list_empty(global.gmscoreboard_scores)
+		show_message_log("유저 랭킹 불러오는 중...");
+		event_user(9);
+		automatic_reload_player_leaderboard = 0;
+	}
+	
+	if (automatic_leaderboard_cancle > 900)
+	{
+		show_message_log("유저 랭킹을 불러오는 데 실패했습니다! (잠시 뒤 다시 시도해주세요)");
+		global.automatic_load_ranking = 0;
+		automatic_leaderboard_cancle = 0;
+		automatic_reload_player_leaderboard = 0;
+		if (gamestart < 1)
 		{
-			show_message_log("유저 랭킹 불러오는 중...");
-			event_user(9);
-			automatic_reload_player_leaderboard = 0;
-			if (global.automatic_load_ranking == 1)
-			{
-				global.automatic_load_ranking = 2;
-			}
-			else
-			{
-				global.automatic_load_ranking = 0;
-			}
+			global.t_b_alpha = -0.02
+			gamestart = 5
 		}
-		else
+		if (instance_exists(obj_album_ui))
 		{
-			automatic_reload_player_leaderboard = 100;
+			obj_album_ui.alarm[4] = 15
 		}
 	}
 }
@@ -244,98 +222,10 @@ if (automatic_reload_player_leaderboard > 0)
 
 
 
-//자동 리로드 리더보드 (각 맵 점수의 리더보드)
-/*if (automatic_reload_leaderboard > 0)
-{
-	var leaderboard_list_id = "PWB_map_"+string(global.n_map_id+1)+"_"+string(global.t_selected_difficulty+1);
-	automatic_reload_leaderboard ++;
-
-	if (automatic_reload_leaderboard == 2)
-	{
-		global.cannot_connect += 1+global.cannot_connect;
-		show_message_log("온라인 서버 연결 중...");
-		
-		for(var i = 0; i < global.total_map; i++)
-		{
-			global.unlocked_music_name_new_list[i] = "";
-			global.unlocked_music_name_new_list_rightside[i] = "";
-			global.unlocked_music_name_new_list_color[i] = c_white;
-			global.unlocked_music_name_new_list_color_rightside[i] = c_white;
-		}
-		
-		
-		show_debug_message("showing ranking now")
-		var temp_difficulty_str = (global.t_selected_difficulty == 0) ? " (Hardcore)" : "";
-		global.notice_title = "Ranking";
-		global.notice_title_sub = "<    "+string(global.n_music_title+temp_difficulty_str)+"    >";
-		global.show_new_songs = 1;
-		
-		
-		if (global.b_loaded_ranking == global.n_map_id)
-		{
-			automatic_reload_leaderboard = 0;
-			event_user(5);
-		}
-	}
-	
-	if (automatic_reload_leaderboard == 170)
-	{
-		show_message_log("스테이지 랭킹 불러오는 중...");
-		var temp_nickname = string_replace_all(global.nickname," ","")
-		if (global.dev_mode == 1)
-		{
-			temp_nickname = temp_nickname+"[*_ABER]0";
-		}
-		else if (global.beta_tester == 1)
-		{
-			temp_nickname = temp_nickname+"[*_ABER]1";
-		}
-		var target_score = global.real_n_score[global.n_map_id];
-		if (global.t_selected_difficulty == 0)
-		{
-			target_score = global.real_n_score_hardcore[global.n_map_id];
-		}
-		if (target_score == "--")
-		{
-			temp_nickname = "";
-		}
-		
-		LootLockerSetPlayerName("");
-		LootLockerSubmitScore(leaderboard_list_id,0);
-		LootLockerSetPlayerName("");
-		
-
-
-		global.b_loaded_ranking = global.n_map_id;
-	}
-	
-
-	if (automatic_reload_leaderboard > 300)
-	{
-		event_user(5)
-		automatic_reload_leaderboard = 0
-	}
-}
-else
-{
-	if (global.notice_title == "Ranking")
-	{
-		reload_leaderboard_automatically ++;
-		if (reload_leaderboard_automatically > 300)
-		{
-			automatic_reload_leaderboard = 270;
-			reload_leaderboard_automatically = -300;
-		}
-	}
-	else
-	{
-		reload_leaderboard_automatically = 0;
-	}
-}*/
 
 
 //가이드 메시지
-if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
+if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 && global.can_show_guide_mes == 1)
 {
 	global.t_b_alpha = -0.01;
 	global.t_new_song_scroll = 0;
@@ -362,7 +252,7 @@ if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
 	else if (global.saved_notice_title == "고정 하드코어 스테이지")
 	{
 		global.unlocked_music_name_new_list[check_new_song] = "고정 하드코어 스테이지는 난이도 옆에 '(Hardcore)'태그가 붙은 곡을 의미합니다.";
-		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		global.unlocked_music_name_new_list_color[check_new_song] = #dc809a;
 		check_new_song ++
 	
 		global.unlocked_music_name_new_list[check_new_song] = "이러한 곡들은 하드코어 모드로만 플레이 가능합니다.";
@@ -372,7 +262,7 @@ if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
 	else if (global.saved_notice_title == "보스 배틀 스테이지")
 	{
 		global.unlocked_music_name_new_list[check_new_song] = "보스 배틀 스테이지는 난이도 옆에 '(Boss)'태그가 붙은 곡을 의미합니다.";
-		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		global.unlocked_music_name_new_list_color[check_new_song] = #dc809a;
 		check_new_song ++
 	
 		global.unlocked_music_name_new_list[check_new_song] = "이러한 곡들은 최초 클리어 전까진 세이브 포인트가 없는 노멀 모드가 적용되며";
@@ -381,6 +271,24 @@ if (global.t_b_alpha <= 0 && global.can_show_guide_mes == 1)
 		
 		global.unlocked_music_name_new_list[check_new_song] = "최초 클리어 이후, 세이브 포인트가 존재하는 노멀 모드와 하드코어 모드를 선택할 수 있습니다.";
 		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	}
+	else if (global.saved_notice_title == "주의! - 커스텀 유저 맵")
+	{
+		global.unlocked_music_name_new_list[check_new_song] = "커스텀 유저 맵은 유저들이 직접 원하는 곡으로 제작한 맵입니다.";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	
+		global.unlocked_music_name_new_list[check_new_song] = "따라서, '우왁굳'과 관련되지 않은 맵들이 존재할 수 있으며";
+		global.unlocked_music_name_new_list_color[check_new_song] = #dc809a;
+		check_new_song ++
+		
+		global.unlocked_music_name_new_list[check_new_song] = "음원에 대한 저작권 소유 또한 해당 맵 제작자와는 관련이 없을 수 있습니다";
+		global.unlocked_music_name_new_list_color[check_new_song] = #dc809a;
+		check_new_song ++
+		
+		global.unlocked_music_name_new_list[check_new_song] = "또한, 해당 유저 커스텀 맵은 '전체 플레이어 랭킹 순위'에 영향을 끼치지 않습니다";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_gray;
 		check_new_song ++
 	}
 	
@@ -525,7 +433,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 		if (timeline_running != false)
 		{
 			global.automatic_sycn_fixing++
-			if global.automatic_sycn_fixing > 60
+			if global.automatic_sycn_fixing > 5
 			{
 				global.n_sync = abs(audio_sound_get_track_position(global.n_music_instance)*60 - global.n_progress)
 				if global.n_sync >= 10
@@ -779,7 +687,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 
 	if gamestart = 2 && global.show_progress_bar = 0 && global.n_progress > 1000
 	{
-		if !instance_exists(obj_stage_clear)
+		if !instance_exists(obj_stage_clear) && global.paused != 1
 		{
 			instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),obj_player.depth-1,obj_stage_clear)
 		}

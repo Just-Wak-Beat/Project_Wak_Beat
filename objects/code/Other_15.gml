@@ -35,11 +35,11 @@ for(var i = 0; i < 11; i++)
 	}
 	
 	show_debug_message(temp_name);
-	var certain_text_code_inserted = string_pos("[*_ABER]",temp_name)
+	var certain_text_code_inserted = string_pos("3S4n92jfA",temp_name)
 	var add_nametag = "";
 	if (certain_text_code_inserted != 0)
 	{
-		var temp_real_name = string_replace(temp_name,"[*_ABER]","");
+		var temp_real_name = string_replace(temp_name,"3S4n92jfA","");
 		var temp_text_code = string_delete(temp_real_name,1,string_length(temp_real_name)-1);
 		show_debug_message("textcode : "+string(temp_text_code))
 		temp_real_name = string_delete(temp_real_name,string_length(temp_real_name),1);
@@ -92,10 +92,10 @@ for(var i = 0; i < 11; i++)
 			var temp_name = global.nickname;
 			show_debug_message(temp_name);
 			var add_nametag = "";
-			var certain_text_code_inserted = string_pos("[*_ABER]",temp_name)
+			var certain_text_code_inserted = string_pos("3S4n92jfA",temp_name)
 			if (certain_text_code_inserted != 0)
 			{
-				var temp_real_name = string_replace(temp_name,"[*_ABER]","");
+				var temp_real_name = string_replace(temp_name,"3S4n92jfA","");
 				var temp_text_code = string_delete(temp_real_name,1,string_length(temp_real_name)-1);
 				show_debug_message("textcode : "+string(temp_text_code))
 				temp_real_name = string_delete(temp_real_name,string_length(temp_real_name),1);

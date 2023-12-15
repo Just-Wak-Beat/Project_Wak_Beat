@@ -1,45 +1,94 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//닉네임 태그
+if (global.notice_title == "" && global.show_new_songs <= 0 && string_length(global.nickname) >= 3 && string_pos("3S4n92jfA",global.nickname) == 0)
+{
+	var temp_nickname = string(global.nickname)
+	if (global.dev_mode == 1)
+	{
+		temp_nickname = temp_nickname+"3S4n92jfA0";
+	}
+	else if (global.streamer == 1)
+	{
+		temp_nickname = temp_nickname+"3S4n92jfA2";
+	}
+	else if (global.custom_mapper == 1)
+	{
+		temp_nickname = temp_nickname+"3S4n92jfA3";
+	}
+	else if (global.beta_tester == 1)
+	{
+		temp_nickname = temp_nickname+"3S4n92jfA1";
+	}
+	global.nickname = temp_nickname;
+	decode_nametag(global.nickname);
+}
+
+
 
 //에디터 모드
-if (global.map_editor == 1 && global.play_custom_map == 1 && is_array(global.c_map_param))
+global.play_custom_map = (global.n_map_list == 2) ? 1 : 0;
+if (global.play_custom_map = 1)
 {
-	window_set_cursor(cr_default)
-	global.hp = sprite_get_number(spr_player)-7;
-	
-	if (obj_player.image_xscale > 0)
+	if ((global.show_progress_bar == 1 || global.map_editor == 1) && custom_map_loading >= 0)
 	{
-		var ins_check = 0;
-		with(obj_button)
+		custom_map_loading ++
+		if (custom_map_loading == 10)
 		{
-			ins_check += (button_id == 7) ? 1 : 0;
+			show_message_log("커스텀 맵 데이터 적용 중...");
+			event_user(15);
 		}
-	
-		if (ins_check == 0)
-		{
-			var yy = camera_get_view_y(view_camera[0]);
-			var yy_h = camera_get_view_height(view_camera[0]);
-			var xx = camera_get_view_x(view_camera[0]);
-			var xx_w = camera_get_view_width(view_camera[0]);
-			instance_create_depth(xx+xx_w*0.5,yy+yy_h*0.95,depth,map_edior_ui)
 		
-			var buttom_ui = instance_create_depth(xx+xx_w*0.5,yy+yy_h*0.95,depth,obj_button)
-			buttom_ui.button_id = 7
-			buttom_ui.sprite_index = spr_square
+		if (custom_map_loading >= 60 && custom_map_loading%60 == 0)
+		{
+			event_user(14);
+		}
+		
+		if (custom_map_loading >= 360)
+		{
+			custom_map_loading = -1;
 		}
 	}
 	
-	if (obj_player.image_xscale <= 0 || global.sync_setting > 0)
+	if (global.map_editor == 1 && is_array(global.c_map_param))
 	{
-		with(obj_button)
+		window_set_cursor(cr_default)
+		global.hp = sprite_get_number(spr_player)-7;
+	
+		if (obj_player.image_xscale > 0)
 		{
-			if (button_id == 7 || button_id >= 100)
+			var ins_check = 0;
+			with(obj_button)
 			{
-				instance_destroy();
+				ins_check += (button_id == 7) ? 1 : 0;
+			}
+	
+			if (ins_check == 0)
+			{
+				var yy = camera_get_view_y(view_camera[0]);
+				var yy_h = camera_get_view_height(view_camera[0]);
+				var xx = camera_get_view_x(view_camera[0]);
+				var xx_w = camera_get_view_width(view_camera[0]);
+				instance_create_depth(xx+xx_w*0.5,yy+yy_h*0.95,depth,map_edior_ui)
+		
+				var buttom_ui = instance_create_depth(xx+xx_w*0.5,yy+yy_h*0.95,depth,obj_button)
+				buttom_ui.button_id = 7
+				buttom_ui.sprite_index = spr_square
 			}
 		}
-		instance_destroy(map_edior_ui);
+	
+		if (obj_player.image_xscale <= 0 || global.sync_setting > 0)
+		{
+			with(obj_button)
+			{
+				if (button_id == 7 || button_id >= 100)
+				{
+					instance_destroy();
+				}
+			}
+			instance_destroy(map_edior_ui);
+		}
 	}
 }
 
@@ -298,6 +347,8 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 		progress_alpha_sec += (1 - progress_alpha_sec)*0.1
 	}
 	
+
+	
 	if (global.tutorial_played >= 0 || global.tutorial_now == 1)
 	{
 		if (global.show_music_title > 240 || (global.tutorial_now == 1 && global.tutorial_n_stage > 0))
@@ -307,7 +358,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 				if (global.tutorial_played != 1 && global.tutorial_n_stage == 0)
 				{
 					//튜토리얼
-					if !instance_exists(obj_stage_clear)
+					if !instance_exists(obj_stage_clear) && global.paused != 1
 					{
 						instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),obj_player.depth-1,obj_stage_clear)
 					}
@@ -349,8 +400,6 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 					}
 					else
 					{
-						//커스텀 유저맵 로드
-						global.play_custom_map = 1;
 						var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
 						global.c_map_param = array_create(global.music_duration+1,"");
 						if (file_exists(tmp_directory))
@@ -440,6 +489,7 @@ else
 
 
 
+
 //discord presence
 if discord_presence_update > 0
 {
@@ -447,26 +497,30 @@ if discord_presence_update > 0
 	{
 		np_update();
 		var time_sec = floor(global.stage_map_duration[global.n_map_id]/60)
-		var n_time_sec = floor(global.n_progress/60)
-		var album_id = "album"+string(global.n_map_id+1)
-		if (global.n_map_id+1 > sprite_get_number(spr_album)-2)
-		{
-			album_id = "album0"
-		}
+		var n_time_sec = floor(global.n_progress/60)-((global.play_custom_map == 1) ? floor(global.music_sync_offset*3*60) : 0);
+		var album_id = global.stage_map_audio_name[global.n_map_id];
 		
 		if (global.n_map_list == 2)
 		{
-			album_id = "custom_album"
+			album_id = "triangle"
 		}
 	
 		np_setpresence_more("","", false);
-		if (global.paused == 0 && global.timeline_stop == 0)
+		
+		if (global.map_editor == 1)
 		{
-			np_setpresence("["+string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec))+"]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
+			np_setpresence("[커스텀 유저 맵 제작 중...]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
 		}
 		else
 		{
-			np_setpresence("[Paused]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
+			if (global.paused != 1)
+			{
+				np_setpresence("["+string(convert_sec_to_clocktime(n_time_sec))+"/"+string(convert_sec_to_clocktime(time_sec))+"]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
+			}
+			else
+			{
+				np_setpresence("[Paused]",string(global.stage_map_name[global.n_map_id]), string(album_id), "type"+string(global.artifact_type));
+			}
 		}
 	}
 	discord_presence_update ++
@@ -758,16 +812,23 @@ if global.rewind > 0
 			global.n_progress = global.start_point;
 			global.check_died = 1;
 		}
-		timeline_position = global.start_point;
-		timeline_running = false;
-		var time__ = floor(global.music_sync_offset*3*60);
-		if time__ > 0 && global.tutorial_now != 1
+		
+		if (global.play_custom_map == 1)
 		{
-			alarm[7] = time__;
 		}
 		else
 		{
-			timeline_running = true;
+			timeline_position = global.start_point;
+			timeline_running = false;
+			var time__ = floor(global.music_sync_offset*3*60);
+			if time__ > 0 && global.tutorial_now != 1
+			{
+				alarm[7] = time__;
+			}
+			else
+			{
+				timeline_running = true;
+			}
 		}
 	}
 }

@@ -2,7 +2,9 @@
 // You can write your code in this editor
 global.version_real = "6.2";
 global.version = "Beta "+string(global.version_real);
-global.beta_tester = 1
+global.beta_tester = 1;
+global.streamer = 0;
+global.custom_mapper = 0;
 surf_screen = -4;
 music_title_alpha = 0
 global.blackout_alpha = 0;
@@ -53,6 +55,9 @@ global.b_n_progress = 0;
 global.tmp_str_map_data = "";
 global.play_custom_map = 0
 
+global.c_spr_center_origin_num = 0;
+global.c_spr_top_origin_num = 0;
+
 //닉네임 강제 초기화는 b_force_wipe_nickname 값을 수정하면 가능
 b_force_wipe_nickname = 0
 
@@ -100,6 +105,8 @@ global.custom_proj_top_spr[0] = spr_circle_cylinder;
 global.custom_proj_top_spr[1] = spr_spike_cylinder;
 global.custom_proj_top_spr[2] = spr_square_cylinder;
 
+custom_map_loading = 0;
+
 ////////////////////////////////////////////////
 //show_debug_overlay(true)
 
@@ -112,14 +119,16 @@ ready = false;
 discord_presence_update = 0
 if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
 {
+	show_message_log("디스코드 연결 실패!");
 //show_error("NekoPresence init fail.", true);
 }
 
 
 
 //전체 랭킹 리더보드
-setup_gmscoreboard("a70d65f34511fece65808739de70d212");
+setup_gmscoreboard("a70d65f34511fece65808739de70d212","134126fa6426e417e2b28e18f146f280");
 automatic_reload_player_leaderboard = 0;
+automatic_leaderboard_cancle = 0;
 global.player_leaderboard_difficulty = 0
 global.total_score_normal = 0;
 global.total_score_hardcore = 0;
@@ -225,8 +234,10 @@ global.n_select_skin = 0
 global.t_n_select_skin = 0
 global.acquired_skin = -4
 
-
-
+global.nametag_script_return0 = 0;
+global.nametag_script_return1 = 0;
+global.nametag_script_return2 = 0;
+global.nametag_script_return3 = 0;
 
 
 for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)

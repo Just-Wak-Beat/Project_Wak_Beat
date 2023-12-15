@@ -18,9 +18,19 @@ if sprite_exists(sprite_index)
 	draw_sprite_ext(sprite_index,image_index,x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
 	if (global.obtainable_type[code.n_stage] != 99)
 	{
-		draw_sprite_ext(spr_W52,(global.obtainable_type[code.n_stage] >= 9) ? 21 : 20,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,global.map_color,image_alpha)
-		draw_sprite_ext(spr_W52,global.obtainable_type[code.n_stage],x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
-		draw_sprite_ext(spr_W52,(global.obtainable_type[code.n_stage] >= 9) ? 19 : 18,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
+		var tmp_ind1 = (global.obtainable_type[code.n_stage] >= 9) ? 21 : 20;
+		var tmp_ind2 = global.obtainable_type[code.n_stage];
+		var tmp_ind3 = (global.obtainable_type[code.n_stage] >= 9) ? 19 : 18;
+		if (global.play_custom_map == 1)
+		{
+			tmp_ind1 = 20;
+			tmp_ind2 = 22;
+			tmp_ind3 = 18;
+		}
+		
+		draw_sprite_ext(spr_W52,tmp_ind1,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,global.map_color,image_alpha)
+		draw_sprite_ext(spr_W52,tmp_ind2,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
+		draw_sprite_ext(spr_W52,tmp_ind3,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
 	}
 
 	if instance_exists(code) && global.level < global.requirement_level[code.n_stage]
@@ -67,7 +77,7 @@ draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y
 var gradient_color = merge_color(c_white,c_black,0.1)
 //스텟 창
 draw_sprite_ext(spr_status,0,global.c_x-(1 - ui_alpha__cal)*1880+128*1.15*global.font_ratio_resolution_xx,global.c_y,global.font_ratio_resolution_xx,1.15,0,c_white,ui_alpha__cal)
-draw_sprite_ext(spr_square,0,global.c_x+1480-(1 - ui_alpha__cal)*1880,global.c_y+80,0.5*global.font_ratio_resolution_xx,0.5,45,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_square,0,global.c_x+1700-(1 - ui_alpha__cal)*1880,global.c_y+80,0.5*global.font_ratio_resolution_xx,0.5,45,c_white,ui_alpha__cal)
 
 
 //플레이어 캐릭터 아이콘
@@ -81,7 +91,9 @@ var tmp_exp_color = (global.exp/global.max_exp > 1) ? 1 : global.exp/global.max_
 draw_sprite_ext(spr_level_bar,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+global.font_ratio_resolution_xx*148,0.7*global.font_ratio_resolution_xx,0.7,0,#171628,ui_alpha__cal)
 draw_sprite_part_ext(spr_level_bar,0,0,0,(global.exp_for_draw/global.max_exp)*1760,64,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y+global.font_ratio_resolution_xx*148,0.7*global.font_ratio_resolution_xx,0.7,merge_color(merge_color(c_white,global.player_color,0.5+(tmp_exp_color)*0.5),c_white,global.exp_w_alpha),ui_alpha__cal)
 var tmp_txt = (global.level < 999) ? global.level : "MAX"
-draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+16,global.c_y+global.font_ratio_resolution_xx*135,string(global.nickname)+" - Lv."+string(tmp_txt),64,-1,ui_alpha__cal,c_white,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
+
+
+draw_text_kl_scale(global.c_x-(1 - ui_alpha__cal)*1880+16,global.c_y+global.font_ratio_resolution_xx*135,string(global.nametag_script_return0)+string(global.nametag_script_return3)+" - Lv."+string(tmp_txt),64,-1,ui_alpha__cal,global.nametag_script_return2,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 
 
 //환경설정 버튼
@@ -175,25 +187,25 @@ if global.n_map_list = 0
 }
 if global.n_map_list = 1
 {
-	draw_sprite_ext(spr_heart,0,__xx-108,______yy+52,0.1*0.85,0.1*0.85,0,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
+	draw_sprite_ext(spr_heart,0,__xx-108,______yy+58,0.1*0.85,0.1*0.85,0,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
 	draw_text_k_scale(__xx+25,______yy+24,"좋아요 한 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
 }
 if global.n_map_list = 2
 {
-	draw_sprite_ext(spr_gear,0,__xx-180,______yy+64,0.12*0.85,0.12*0.85,15,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
+	draw_sprite_ext(spr_triangle_empty_bold,0,__xx-180,______yy+58,0.12*0.85,0.12*0.85,15,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
 	draw_text_k_scale(__xx+25,______yy+24,"유저 제작 커스텀 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
 }
 if global.n_map_list = 3
 {
-	draw_sprite_ext(spr_lock,1,__xx-108,______yy+64,0.1*0.85,0.1*0.85,0,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
+	draw_sprite_ext(spr_lock,1,__xx-108,______yy+60,0.1*0.85,0.1*0.85,0,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
 	draw_text_k_scale(__xx+25,______yy+24,"해금 된 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
 }
 
 
 draw_text_k_scale(global.c_x+27+128*1.15*global.font_ratio_resolution_xx-(1 - ui_alpha__cal)*1880,global.c_y,"Artifacts",64,-1,ui_alpha__cal,#171628,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
-for(var i = 0; i <= 7; i++)
+for(var i = 0; i <= 8; i++)
 {
-	draw_sprite_ext(spr_W,i,global.c_x+128*1.15*global.font_ratio_resolution_xx+64+150*i-(1 - ui_alpha__cal)*1880,global.c_y+95,0.15*global.font_ratio_resolution_xx,0.15,20,#5a5257,ui_alpha__cal)
+	draw_sprite_ext(spr_W,(i != 8) ? i : 9,global.c_x+128*1.15*global.font_ratio_resolution_xx+64+150*i-(1 - ui_alpha__cal)*1880,global.c_y+95,0.15*global.font_ratio_resolution_xx,0.15,20,#5a5257,ui_alpha__cal)
 	draw_text_k_scale(global.c_x+128*1.15*global.font_ratio_resolution_xx+96+150*i-(1 - ui_alpha__cal)*1880,global.c_y+90,"x"+string(global.artifact_owned[i]),64,-1,ui_alpha__cal,#5a5257,0,-1,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 }
 
@@ -223,41 +235,62 @@ var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
   
 if global.n_map_id >= 0 && instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 2 && code.gamestart != 3
 {
-	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Normal\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	if (global.n_score[global.n_map_id] != "--")
+	if (global.play_custom_map != 1)
 	{
-		draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
-	}
+		draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Normal\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+		draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		if (global.n_score[global.n_map_id] != "--")
+		{
+			draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+		}
 
-	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Hardcore\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank_hardcore[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	if (global.n_score_hardcore[global.n_map_id] != "--")
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Hardcore\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank_hardcore[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		if (global.n_score_hardcore[global.n_map_id] != "--")
+		{
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score_hardcore[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+		}
+	
+	
+
+		draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*64+8,"아티팩트 수집",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+		draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_artifact[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+
+
+
+		draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Normal\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+		draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		if (global.n_score[global.n_map_id] != "--")
+		{
+			draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+		}
+
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Hardcore\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank_hardcore[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		if (global.n_score_hardcore[global.n_map_id] != "--")
+		{
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score_hardcore[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+		}
+
+		draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*64,"아티팩트 수집",64,-1,dis__,c_white,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+		draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_artifact[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	}
+	else
 	{
-		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score_hardcore[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Custom Map\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		if (global.n_score[global.n_map_id] != "--")
+		{
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+		}
+		
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Custom Map\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
+		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		if (global.n_score[global.n_map_id] != "--")
+		{
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+		}
 	}
-
-	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*64+8,"아티팩트 수집",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
-	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_artifact[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-
-
-
-	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Normal\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-	draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	if (global.n_score[global.n_map_id] != "--")
-	{
-		draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
-	}
-
-	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Hardcore\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-	draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank_hardcore[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	if (global.n_score_hardcore[global.n_map_id] != "--")
-	{
-		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score_hardcore[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
-	}
-
-	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*64,"아티팩트 수집",64,-1,dis__,c_white,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
-	draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_artifact[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 }
 
 if global.sync_setting_alpha >= 0.01
@@ -775,10 +808,13 @@ if instance_exists(code)
 				}
 			}
 						
-			draw_sprite_ext(spr_W,tmp_art_type,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.72-global.new_song_scroll,0.2*global.font_ratio_resolution_xx,0.2,0,c_white,result_alpha1)
+			draw_sprite_ext(spr_W,(tmp_art_type != 8) ? tmp_art_type : 9,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.72-global.new_song_scroll,0.2*global.font_ratio_resolution_xx,0.2,0,c_white,result_alpha1)
 			draw_text_k_scale(middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+128,yy+yy_h*0.7-global.new_song_scroll,"아티팩트 수집률 ("+string(floor(global.n_progress_artifact*100))+"%)",scale*48,-1,result_alpha1,c_white,0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
 			draw_sprite_ext(spr_level_bar,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,0,#171628,result_alpha1)
-			draw_sprite_part_ext(spr_level_bar,0,0,0,global.n_progress_artifact*1760,64,middle_xx-1760*0.5*0.7*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,color_table[tmp_art_type],result_alpha1)
+			
+			var tmp_col = (array_length(color_table) > tmp_art_type) ? color_table[tmp_art_type] : c_white;
+			draw_sprite_part_ext(spr_level_bar,0,0,0,global.n_progress_artifact*1760,64,middle_xx-1760*0.5*0.7*global.font_ratio_resolution_xx,yy+yy_h*0.75-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,tmp_col,result_alpha1)
+			
 						
 						
 				
@@ -816,7 +852,7 @@ if instance_exists(code)
 					}
 				}
 
-				draw_sprite_ext(spr_star,tmp_art_type,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.82-global.new_song_scroll,0.18*global.font_ratio_resolution_xx,0.18,0,c_white,result_alpha2)
+				draw_sprite_ext(spr_star,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+64,yy+yy_h*0.82-global.new_song_scroll,0.18*global.font_ratio_resolution_xx,0.18,0,c_white,result_alpha2)
 				draw_text_k_scale(middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx+128,yy+yy_h*0.8-global.new_song_scroll,string(tmp_str2),scale*48,-1,result_alpha2,c_white,0,-1,normal_font,0.35*global.font_ratio_resolution_xx*scale,0.35*scale,0)
 				draw_sprite_ext(spr_level_bar,0,middle_xx-1760*0.7*0.5*global.font_ratio_resolution_xx,yy+yy_h*0.85-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,0,#171628,result_alpha2)
 				draw_sprite_part_ext(spr_level_bar,0,0,0,global.n_progress_score*1760,64,middle_xx-1760*0.5*0.7*global.font_ratio_resolution_xx,yy+yy_h*0.85-global.new_song_scroll,global.font_ratio_resolution_xx*0.7,0.5,$FF56D2FF,result_alpha2)
@@ -836,20 +872,21 @@ if instance_exists(code)
 			
 		if (global.notice_title == "Ranking")
 		{
+			global.new_unlocked_map_num = 11;
 			if (code.automatic_reload_leaderboard == 0)
 			{
 				if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_up))
 				{
-					global.t_selected_difficulty--
-					global.b_loaded_ranking = -1
+					global.t_selected_difficulty--;
+					global.b_loaded_ranking = -1;
 					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 
 					code.automatic_reload_leaderboard = 1
 				}
 				else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down))
 				{
-					global.t_selected_difficulty++
-					global.b_loaded_ranking = -1
+					global.t_selected_difficulty++;
+					global.b_loaded_ranking = -1;
 					audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 
 
@@ -963,9 +1000,10 @@ if instance_exists(code)
 					global.nickname = string_delete(global.nickname,string_length(global.nickname),5);
 				}
 					
+				
 				if (string_length(keyboard_string))
 				{
-					global.nickname = (global.nickname+keyboard_string)
+					global.nickname = (global.nickname+string_lettersdigits(keyboard_string))
 						
 					if (string_length(global.nickname) <= 15)
 					{

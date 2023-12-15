@@ -20,6 +20,6 @@ if (global.timeline_stop == 1)
 		
 		
 		var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
-		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale)+"\nx : "+string(floor(x))+"\ny : "+string(floor(y)),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale*sprite_get_width(sprite_index))+"px"+"\nx : "+string(floor(x))+"\ny : "+string(floor(y)),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }

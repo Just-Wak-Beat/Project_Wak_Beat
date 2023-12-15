@@ -26,18 +26,8 @@ if (global.title_menu_animation1 >= 3)
 	}
 	
 	global.nickname = string_replace_all(global.nickname," ","");
-
-
-	/*var temp_nickname = string(global.nickname)
-	if (global.dev_mode == 1)
-	{
-		temp_nickname = temp_nickname+"[*_ABER]0";
-	}
-	else if (global.beta_tester == 1)
-	{
-		temp_nickname = temp_nickname+"[*_ABER]1";
-	}
-	LootLockerSetPlayerName(string(temp_nickname));
+	global.nickname = string_lettersdigits(global.nickname);
+	/*LootLockerSetPlayerName(string(temp_nickname));
 	LootLockerTurnOnAutoRefresh();*/
 }
 else

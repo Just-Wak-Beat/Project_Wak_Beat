@@ -30,12 +30,26 @@ play_unlock_animation = 0;
 rainbow_ef_alpha = 0
 rainbow_ef = 0
 rainbow_ef_angle = 0
-automaticLoadPlayerRanking(0);
 unlocked_char_index = 0
 
-if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty == 0)
+if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty == 0 || global.play_custom_map == 1)
 {
-	global.artifact_owned[global.artifact_type]++;
+	if (global.play_custom_map == 1)
+	{
+		global.artifact_owned[8]++;
+	}
+	else
+	{
+		global.artifact_owned[global.artifact_type]++;
+	}
+	
+	for(var i = 0; i <= 11; i++)
+	{
+		if (global.artifact_owned[i] > 999)
+		{
+			global.artifact_owned[i] = 999;
+		}
+	}
 }
 
 //파트너 해금
@@ -122,6 +136,14 @@ else if global.artifact_type = 6
 else if global.artifact_type = 7
 {
 	image_blend = #01bfa3
+	color_sec = #44d2ac
+}
+
+if (global.play_custom_map == 1)
+{
+	global.artifact_type = 8;
+	image_index = 9;
+	image_blend = c_white
 	color_sec = #44d2ac
 }
 

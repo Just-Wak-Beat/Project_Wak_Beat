@@ -73,7 +73,7 @@ function convert_score_to_rank(argument0,argument1)
 		{
 			tmp_rank = "F";
 		}
-		show_debug_message(string(argument0)+" / "+string(tmp_score))
+		//show_debug_message(string(argument0)+" / "+string(tmp_score))
 	}
 	else
 	{

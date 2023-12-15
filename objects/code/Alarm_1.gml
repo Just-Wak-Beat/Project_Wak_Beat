@@ -27,7 +27,7 @@ else
 }
 global.exp_w_alpha = 1
 
-global.real_stage_playtime[global.n_map_id] ++;
+
 
 
 
@@ -37,6 +37,8 @@ global.real_stage_playtime[global.n_map_id] ++;
 
 if global.n_map_list != 2
 {
+	global.real_stage_playtime[global.n_map_id] ++;
+	
 	var converted_rank_to_num = convert_rank_to_num(target_rank)
 	var temp_score = ((converted_rank_to_num)*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)+((converted_rank_to_num >= 12) ? global.clear_bonus_score : 0)
 	if (global.t_selected_difficulty == 1)
@@ -152,7 +154,9 @@ global.result_score = temp_score
 global.result_obstacle = global.crossed_obstacle_num
 
 
-
+//랭킹에 점수 전송
+global.total_score_normal = 0;
+global.total_score_hardcore = 0;
 
 
 

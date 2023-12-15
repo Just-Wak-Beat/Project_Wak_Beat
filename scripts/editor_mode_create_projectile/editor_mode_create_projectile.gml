@@ -15,6 +15,7 @@
 ///@param spr_ind
 function editor_mode_create_projectile(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8,argument9,argument10,argument11)
 {
+	var camera_zoom_num = 0, camera_shake_num = 0;
 	var tmp_spr___ = -4;
 	if (argument10 == 0)
 	{
@@ -80,7 +81,7 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 		break;
 	
 		case 3: //눈꽃 탄막
-			var tmp_ins = create_explo_circle(argument1,argument2,floor(1+argument6),floor(argument8),0,0,argument3,argument5,0,0,30)
+			var tmp_ins = create_explo_circle(argument1,argument2,floor(1+argument6),floor(argument8),0,0,argument3*2,argument5,0,0,30)
 			tmp_ins.direction = argument4;
 			tmp_ins.image_angle = argument4;
 			tmp_ins.sprite_index = tmp_spr___;
@@ -269,13 +270,28 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
-			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg7 = 0;
 			tmp_ins.m_data_arg8 = argument11;
 			tmp_ins.sprite_index = tmp_spr___;
 		break;
 	
 		case 13: //카메라 효과
-			if (instance_number(hitbox_camera_zoom) == 0)
+			with(hitbox_camera_zoom)
+			{
+				if (other.object_index == hitbox_camera_zoom)
+				{
+					if (other.m_data_arg7 == -999)
+					{
+						camera_shake_num++;
+					}
+					else
+					{
+						camera_zoom_num++;
+					}
+				}
+			}
+		
+			if (camera_zoom_num == 0)
 			{
 				var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_camera_zoom)
 				tmp_ins.projectile_type = argument0;
@@ -360,11 +376,62 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg8 = argument11;
 			tmp_ins.sprite_index = tmp_spr___;
 		break;
-	
-		case 17: //
+		
+		case 17: //화면 흔들림 효과
+			with(hitbox_camera_zoom)
+			{
+				if (other.object_index == hitbox_camera_zoom)
+				{
+					if (other.m_data_arg7 == -999)
+					{
+						camera_shake_num++;
+					}
+					else
+					{
+						camera_zoom_num++;
+					}
+				}
+			}
+		
+			if (camera_shake_num == 0)
+			{
+				var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_camera_zoom)
+				tmp_ins.projectile_type = argument0;
+				tmp_ins.m_data_arg0 = argument3;
+				tmp_ins.m_data_arg1 = argument4;
+				tmp_ins.m_data_arg2 = argument5;
+				tmp_ins.m_data_arg3 = argument6;
+				tmp_ins.m_data_arg4 = 0;
+				tmp_ins.m_data_arg5 = 0;
+				tmp_ins.m_data_arg6 = argument9;
+				tmp_ins.m_data_arg7 = -999;
+				tmp_ins.m_data_arg8 = argument11;
+			}
+			else
+			{
+				show_message_log("화면 흔들림 효과는 같은 타임라인에 1개만 지정 가능합니다");
+			}
 		break;
 	
-		case 18: //타임라인 플레이/일시정지
+		case 18: 
+			if (instance_number(hitbox_set_map_speed) == 0)
+			{
+				var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_set_map_speed)
+				tmp_ins.projectile_type = argument0;
+				tmp_ins.m_data_arg0 = argument3;
+				tmp_ins.m_data_arg1 = argument4;
+				tmp_ins.m_data_arg2 = 0;
+				tmp_ins.m_data_arg3 = 0;
+				tmp_ins.m_data_arg4 = 0;
+				tmp_ins.m_data_arg5 = 0;
+				tmp_ins.m_data_arg6 = argument9;
+				tmp_ins.m_data_arg7 = argument10;
+				tmp_ins.m_data_arg8 = argument11;
+			}
+			else
+			{
+				show_message_log("맵 이동 효과는 같은 타임라인에 1개만 지정 가능합니다");
+			}
 		break;
 	}
 }

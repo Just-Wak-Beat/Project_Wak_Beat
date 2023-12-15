@@ -15,6 +15,6 @@ if (global.timeline_stop == 1 && my_id == 0)
 		draw_line_width(x,y,x+lengthdir_x(320,direction),y+lengthdir_y(320,direction),3);
 		
 		var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
-		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale)+"\nx : "+string(floor(x))+"\ny : "+string(floor(y))+"\n몸통 갯수 : "+string(body_num)+"\n좌우 회전 속도 : "+string(auto_shake),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale*sprite_get_width(sprite_index))+"px"+"\nx : "+string(floor(x))+"\ny : "+string(floor(y))+"\n몸통 갯수 : "+string(body_num)+"\n좌우 회전 속도 : "+string(auto_shake),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }

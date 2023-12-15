@@ -20,7 +20,7 @@ function load_custom_map_files()
 			global.custom_stage_map_highlight_part[i] = ini_read_real("custom_stage_map_highlight_part","value",-4)
 			global.custom_n_rank[i] = ini_read_string("custom_n_rank","value",-4)
 			global.custom_detailed_difficulty[i] = ini_read_real("custom_detailed_difficulty","value",0)
-			global.custom_obtainable_type[i] = ini_read_real("custom_obtainable_type","value",-4)
+			global.custom_obtainable_type[i] = 9;
 			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
 			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
 			global.custom_stage_mapper[i] = ini_read_string("custom_stage_map_map_by","value","Unknown")
@@ -41,6 +41,10 @@ function load_custom_map_files()
 			
 			//////////////////////////////////////////////////////////////////////////////////////
 			var file_dir = find_file(global.custom_map_file_dir[i],"png","jpg","jpeg","PNG");
+			if (!file_exists(file_dir))
+			{
+				file_dir = string(global.custom_map_file_dir[i])+"\\album.png";
+			}
 			show_debug_message("_firstFile : "+string(file_dir));
 			var tmp_spr = spr_tmp;
 			if (file_exists(file_dir))

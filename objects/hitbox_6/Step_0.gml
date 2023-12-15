@@ -7,10 +7,13 @@ image_angle += keep_spin_angle
 if global.low_graphics = false
 {
 	w_alpha += (-0.01 - w_alpha)*0.15
+	circle_w_alpha += (-0.01 - circle_w_alpha)*0.1
+	circle_ef_xscale -= 0.1;
 }
 else
 {
 	w_alpha = 0
+	circle_w_alpha = 0;
 }
 
 if speed > 0
@@ -20,3 +23,4 @@ if speed > 0
 		instance_destroy()
 	}
 }
+

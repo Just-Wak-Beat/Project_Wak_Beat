@@ -75,6 +75,7 @@ function save_and_load_data(argument0,argument1)
 	}
 	else
 	{
+		clean_message_log();
 		show_message_log("유저 데이터 불러오는 중...");
 		//플레이어 스킨
 		global.n_player_skin = ini_read_real("n_player_skin","none",-4);
@@ -138,6 +139,7 @@ function save_and_load_data(argument0,argument1)
 		
 		//닉네임
 		global.nickname = ini_read_string("nickname","none","");
+		decode_nametag(global.nickname);
 		//베타테스터
 		global.beta_tester = ini_read_real("beta_tester","none",0);
 		global.force_wipe_nickname = ini_read_real("force_wipe_nickname","none",1);

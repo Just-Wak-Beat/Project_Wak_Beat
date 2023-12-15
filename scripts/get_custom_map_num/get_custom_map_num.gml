@@ -40,6 +40,7 @@ function get_custom_map_num()
 	}
 
 	file_find_close();
+	clean_message_log();
 	show_debug_message("커스텀 맵 파일 "+string(tmp_ind)+"개를 불러왔습니다.");
 	show_message_log("커스텀 맵 파일 "+string(tmp_ind)+"개를 불러왔습니다.");
 	

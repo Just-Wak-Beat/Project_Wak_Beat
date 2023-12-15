@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-var tmp_scale = (64*image_xscale)+8;
+var tmp_scale = (sprite_get_width(sprite_index)*image_xscale)+8;
 if (variable_instance_exists(id,"m_data_arg0"))
 {
 	if (global.timeline_stop != 1)

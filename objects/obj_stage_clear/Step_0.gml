@@ -1,6 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-image_index = (sprite_index == spr_player) ? global.artifact_type*7 : global.artifact_type;
+if (global.play_custom_map != 1)
+{
+	image_index = (sprite_index == spr_player) ? global.artifact_type*7 : global.artifact_type;
+}
 
 
 

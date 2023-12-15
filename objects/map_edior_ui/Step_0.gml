@@ -1,15 +1,23 @@
 /// @description Insert description here
 // You can write your code in this editor
 depth = code.depth-80;
-x = mouse_x;
-y = mouse_y;
+
+t_m_x = mouse_x;
+t_m_y = mouse_y;
+if (keyboard_check(vk_shift))
+{
+	t_m_x = room_width*0.5+96*round((mouse_x - room_width*0.5)/96);
+	t_m_y = room_height*0.5+96*round((mouse_y - room_height*0.5)/96);
+}
+x = t_m_x;
+y = t_m_y;
 
 scroll_y += (t_scroll_y - scroll_y)*0.1;
 
 
 if (global.show_music_title >= 200 || global.show_music_title <= 0)
 {
-	if (keyboard_check_pressed(vk_enter))
+	if (keyboard_check_pressed(vk_enter) || (global.timeline_stop == 1 && keyboard_check_pressed(vk_space)))
 	{
 		show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
 		audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
@@ -20,21 +28,9 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 			global.timeline_stop = 1;
 			camera_focus_on(-4,-4,1)
 			instance_destroy(hitbox_parents);
-			instance_destroy(hitbox_bg_color);
-			instance_destroy(hitbox_hitbox_color);
+			instance_destroy(changing_hitbox_color);
+			instance_destroy(changing_bg_color);
 			audio_stop_sound(global.n_music_id);
-			global.master_remix_effect = 0;
-			global.view_angle_ = 0;
-			global.t_bg_color = 0;
-			global.t_bg_color_alpha = 0;
-			global.background_color = c_black;
-			global.map_speed = 0;
-			global.map_speed_y = 0;
-			global.t_map_speed = 0;
-			global.t_map_speed_y = 0;
-			global.n_camera_zoom = 1;
-			global.camera_slow_zoom = 0;
-			global.map_color = c_white;
 		}
 	}
 }
@@ -43,62 +39,95 @@ t_scroll_y = (activated == 1) ? 0 : -640;
 
 if (global.editor_hitbox == 1)
 {
+	global.editor_selected_type = -4;
 	global.selected_animation++;
+	custom_image_type = 2;
 }
 else
 {
-	global.selected_animation = 0;
-}
-
-//[ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막"
-//"맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "비 이펙트" , "세이브 포인트 지정", 
-//"카메라 - 화면 크기 설정", "카메라 - 천천히 줌 인", "카메라 - 천천히 줌 아웃", "카메라 - 화면 흔들림", 
-//"회전하는 탄막 자동 생성기", "Unknown", "타임라인 플레이/일시정지" ];
-
-if (custom_image_type != 2)
-{
-	if (keyboard_check_pressed(vk_left))
+	if (global.timeline_stop == 1)
 	{
-		custom_image_ind --;
-		if (custom_image_ind < 0)
+		global.selected_animation = 0;
+		if (custom_image_type == 0)
 		{
-			custom_image_ind = 99;
-			while(global.custom_proj_center_spr[custom_image_ind] == -4)
+			if (keyboard_check_pressed(vk_left))
 			{
-				custom_image_ind--;
+				custom_image_ind --;
+				if (custom_image_ind < 0)
+				{
+					custom_image_ind = 99;
+					while(global.custom_proj_center_spr[custom_image_ind] == -4)
+					{
+						custom_image_ind--;
+					}
+				}
+			}
+			else if (keyboard_check_pressed(vk_right))
+			{
+				custom_image_ind ++;
+				if (global.custom_proj_center_spr[custom_image_ind] == -4)
+				{
+					custom_image_ind = 0;
+				}
+			}
+		}
+		else if (custom_image_type == 1)
+		{
+			if (keyboard_check_pressed(vk_left))
+			{
+				custom_image_ind --;
+				if (custom_image_ind < 0)
+				{
+					custom_image_ind = 99;
+					while(global.custom_proj_top_spr[custom_image_ind] == -4)
+					{
+						custom_image_ind--;
+					}
+				}
+			}
+			else if (keyboard_check_pressed(vk_right))
+			{
+				custom_image_ind ++;
+				if (global.custom_proj_top_spr[custom_image_ind] == -4)
+				{
+					custom_image_ind = 0;
+				}
 			}
 		}
 	}
-	else if (keyboard_check_pressed(vk_right))
-	{
-		custom_image_ind ++;
-		if (global.custom_proj_center_spr[custom_image_ind] == -4)
-		{
-			custom_image_ind = 0;
-		}
-	}
 }
+
 
 if (custom_image_type == 0)
 {
 	var tmp_spr__ = global.custom_proj_center_spr[custom_image_ind];
-	if (sprite_exists(tmp_spr__))
+	if (sprite_exists(tmp_spr__) && sprite_index != tmp_spr__)
 	{
+		show_message_log("이미지 변경 중 - "+string(custom_image_ind));
 		sprite_index = tmp_spr__;
-		sprite_set_offset(tmp_spr__,floor(sprite_get_width(tmp_spr__)/2),floor(sprite_get_height(tmp_spr__)/2));
+		with(code)
+		{
+			event_user(14);
+		}
 	}
 }
 else if (custom_image_type == 1)
 {
 	var tmp_spr__ = global.custom_proj_top_spr[custom_image_ind];
-	if (sprite_exists(tmp_spr__))
+	if (sprite_exists(tmp_spr__) && sprite_index != tmp_spr__)
 	{
+		show_message_log("이미지 변경 중 - "+string(custom_image_ind));
 		sprite_index = tmp_spr__;
-		sprite_set_offset(tmp_spr__,floor(sprite_get_width(tmp_spr__)/2),0);
+		with(code)
+		{
+			event_user(14);
+		}
 	}
 }
-else
+else if (custom_image_type == 2)
 {
+	image_xscale = 1;
+	image_yscale = 1;
 	sprite_index = spr_bg_color;
 	image_index = 1;
 }
@@ -144,7 +173,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "처음 날아오는 위치 (x축)";
 		global.ed_arg_name[2] = "처음 날아오는 위치 (y축)";
-		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60fps = 1초)";
 	break;
 	
 	case 2: //레이저 탄막
@@ -165,7 +194,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "활성화 이후 회전 속력";
-		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60fps = 1초)";
 		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초)";
 	break;
 	
@@ -186,7 +215,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "좌우 반복 움직임 속력 (각도에 따라 이동이 다름)";
-		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60fps = 1초)";
 		global.ed_arg_name[4] = "중력";
 		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초)";
 	break;
@@ -241,9 +270,8 @@ switch(global.editor_selected_type)
 		global.ed_arg[1] = floor(global.ed_arg[1]);
 		global.ed_arg[3] = floor(global.ed_arg[3]);
 		global.ed_arg[5] = floor(global.ed_arg[5]);
-		image_xscale = global.ed_arg[0];
+		image_xscale = global.ed_arg[0]*0.5;
 		image_yscale = image_xscale;
-		sprite_index = spr_circle_dot_outline;
 		if (selected_projectile_type == 1)
 		{
 			custom_image_ind = 1;
@@ -251,10 +279,10 @@ switch(global.editor_selected_type)
 			selected_projectile_type = 0;
 		}
 		image_angle = global.ed_arg[1];
-		image_alpha = 1;
+		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
-		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60fps = 1초)";
 		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초)";
 	break;
 	
@@ -276,7 +304,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "튀어나오는 각도";
 		global.ed_arg_name[2] = "속력";
-		global.ed_arg_name[3] = "n프레임 이후 활성화 (60프레임 = 1초)";
+		global.ed_arg_name[3] = "n프레임 이후 활성화 (60fps = 1초)";
 		global.ed_arg_name[5] = "튀어나온 이후 이동 방향";
 		global.ed_arg_name[6] = "빠른 애니메이션";
 	break;
@@ -327,7 +355,7 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "각도";
 		global.ed_arg_name[2] = "속력";
-		global.ed_arg_name[5] = "생성된 탄막들의 지속 시간 (60프레임 = 1초)";
+		global.ed_arg_name[5] = "생성된 탄막의 지속 시간 (60fps = 1초)";
 		
 		image_angle = global.ed_arg[1];
 		image_xscale = global.ed_arg[0];
@@ -377,8 +405,6 @@ switch(global.editor_selected_type)
 		}
 		global.ed_arg_name[0] = "줌 정도 설정";
 		global.ed_arg_name[1] = "천천히 줌되는 비율 (값이 클수록 빠르게 변화합니다)";
-		global.ed_arg_name[2] = "화면 흔들림 정도";
-		global.ed_arg_name[3] = "화면 흔들림 방향";
 		global.ed_arg_name[6] = "포커스 활성화 (카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)";
 	break;
 	
@@ -423,10 +449,10 @@ switch(global.editor_selected_type)
 		image_alpha = 0.4;
 		global.ed_arg_name[0] = "크기";
 		global.ed_arg_name[1] = "첫 발사 탄막 각도";
-		global.ed_arg_name[2] = "탄막 속력";
+		global.ed_arg_name[2] = "속력";
 		global.ed_arg_name[3] = "회전 방향";
 		global.ed_arg_name[4] = "탄막 생성 속도";
-		global.ed_arg_name[5] = "지속 시간 (60프레임 = 1초)";
+		global.ed_arg_name[5] = "지속 시간 (60fps = 1초)";
 	break;
 	
 	case 16: //물 이펙트
@@ -450,10 +476,27 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[6] = "물방울 제거";
 	break;
 	
-	case 17: //
+	case 17: //흔들림 효과
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
+
+		global.ed_arg_name[0] = "화면 흔들림 정도";
+		global.ed_arg_name[1] = "화면 흔들림 방향";
 	break;
 	
-	case 18: //타임라인 플레이/일시정지
+	case 18: //맵 이동 속도 조절
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
+
+		global.ed_arg_name[0] = "x축 속도";
+		global.ed_arg_name[1] = "y축 속도";
+		global.ed_arg_name[6] = "부드럽게 속도 변화";
 	break;
 }
 

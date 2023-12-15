@@ -58,14 +58,17 @@ if global.tutorial_now != 1 && global.show_rank = 0 && (is_string(global.map_col
 	draw_sprite_ext(spr_player,global.player_skin*7,xx+xx_w*0.29+global.converted_view_ratio*32+global.converted_view_ratio*(1433.6*max_player_pos),yy+global.converted_view_ratio*80,global.converted_view_ratio*0.5,global.converted_view_ratio*0.5,0,c_white,progress_alpha_sec*0.9)
 
 	//progress bar icon
-	if (global.low_graphics == false)
+	if (global.low_graphics == false && global.w_alpha < 1)
 	{
-		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1430*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
-		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1436*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
-		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*78*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
-		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*84*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+		var tmp_ind = global.obtainable_type[global.n_map_id];
+		tmp_ind = (is_real(tmp_ind)) ? tmp_ind : 0;
+		draw_sprite_ext(spr_W,tmp_ind,xx+xx_w*0.3+progress_icon_alpha*1430*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,tmp_ind,xx+xx_w*0.3+progress_icon_alpha*1436*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,tmp_ind,xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*78*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+		draw_sprite_ext(spr_W,tmp_ind,xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*84*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.15)
+	
+		draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha)
 	}
-	draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha)
 }
 
 
@@ -693,12 +696,12 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 
 if (global.map_editor != 1 && global.rank_display_alpha > 0 && global.tutorial_played > 0 && ((instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0) || !instance_exists(obj_stage_clear)))
 {
-	var temp_col = merge_color(merge_color(c_white,#bf1a5c,global.rank_display_r_alpha),global.player_color,global.rank_display_b_alpha);
+	var temp_col = merge_color(merge_color((get_dis_color(global.background_color,c_white) < 7) ? c_black : c_white,#bf1a5c,global.rank_display_r_alpha),global.player_color,global.rank_display_b_alpha);
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+(global.rank_display_r_alpha+global.rank_display_b_alpha)*0.5)
-	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx*global.converted_view_ratio,font_size____*global.converted_view_ratio,0)
+	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
 	
 	var temp_score = ((convert_rank_to_num(global.n_rank_display))*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)
-	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(temp_score)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx*global.converted_view_ratio,0.7*font_size____*global.converted_view_ratio,0)
+	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(temp_score)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
 }
 
 

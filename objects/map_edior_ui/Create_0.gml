@@ -8,7 +8,8 @@ image_index = 41;
 image_speed = 0;
 activated = -1
 n_selected = -4;
-
+t_m_x = mouse_x;
+t_m_y = mouse_y;
 keep_pressing = 0
 
 custom_image_type = 2;
@@ -21,4 +22,7 @@ for(var i = 0; i < 7; i++)
 }	
 
 global.mb_l = 0;
-event_user(12);
+with(code)
+{
+	event_user(15);
+}

@@ -1,7 +1,7 @@
 /// @description 현재 타임라인에 존재하는 탄막 불러오기 
 // You can write your code in this editor
 
-global.tmp_str_map_data = global.c_map_param[fix_to_zero(floor(global.n_progress))];
+global.tmp_str_map_data = global.c_map_param[fix_to_zero(floor(global.n_progress)-floor(global.music_sync_offset*3*60))];
 while(string_length(global.tmp_str_map_data) >= 2)
 {
 	var tmp_input = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]

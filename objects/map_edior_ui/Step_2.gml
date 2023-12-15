@@ -26,6 +26,21 @@ if (keyboard_check_pressed(ord("W")))
 
 if (global.timeline_stop == 1)
 {
+	global.camera_target_x = -4;
+	global.camera_target_y = -4;
+	global.master_remix_effect = 0;
+	global.view_angle_ = 0;
+	global.t_bg_color = 0;
+	global.t_bg_color_alpha = 0;
+	global.background_color = c_black;
+	global.map_speed = 0;
+	global.map_speed_y = 0;
+	global.t_map_speed = 0;
+	global.t_map_speed_y = 0;
+	global.n_camera_zoom = 1;
+	global.camera_slow_zoom = 0;
+	global.map_color = c_white;
+	
 	if (global.b_n_progress != floor(global.n_progress))
 	{
 		instance_destroy(hitbox_parents);
@@ -122,11 +137,26 @@ if (global.timeline_stop == 1)
 		keep_pressing = 0;
 	}
 	
-	if (global.n_progress > global.music_duration)
+
+	
+	
+	
+	if (global.play_custom_map == 1)
 	{
-		global.n_progress = global.music_duration;
+		if (global.n_progress > global.music_duration+floor(global.music_sync_offset*3*60))
+		{
+			global.n_progress = global.music_duration+floor(global.music_sync_offset*3*60);
+		}
 	}
-	else if (global.n_progress < 0)
+	else
+	{
+		if (global.n_progress > global.music_duration)
+		{
+			global.n_progress = global.music_duration;
+		}
+	}
+	
+	if (global.n_progress < 0)
 	{
 		global.n_progress = 0;
 	}	

@@ -29,7 +29,7 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 					if (global.additional_hp <= 0)
 					{
 						global.total_damaged ++;
-						global.hp -= sign(global.show_progress_bar);
+						global.hp -= fix_to_zero(sign(global.show_progress_bar));
 					}
 					else
 					{
@@ -37,7 +37,7 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 					}
 				}
 				
-				if (global.minimum_rank < global.total_damaged)
+				if (global.minimum_rank > 0 && global.minimum_rank < global.total_damaged)
 				{
 					global.total_damaged = global.minimum_rank;
 				}
@@ -66,7 +66,7 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 		}
 		else
 		{
-			if (crossed_obstacle_cooldown = 0)
+			if (global.dashing > 0 && crossed_obstacle_cooldown = 0)
 			{
 				global.crossed_obstacle_num ++;
 				global.rank_display_b_alpha = 1;

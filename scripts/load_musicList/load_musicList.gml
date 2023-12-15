@@ -148,6 +148,16 @@ function load_musicList(argument0)
 		}
 		global.t_select_map = 2
 		global.b_map_list = global.n_map_list
+		
+		
+		//커스텀 유저맵 가이드라인
+		if (global.n_map_list == 2)
+		{
+			show_guide("주의! - 커스텀 유저 맵");
+		}
+		
+		
+		
 		audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 		if (global.n_map_list == 1 && global.fav_music_num == 0)
 		{

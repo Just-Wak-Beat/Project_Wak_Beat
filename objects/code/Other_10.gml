@@ -12,6 +12,7 @@ global.check_died = 0
 global.tutorial_now = 0
 global.timeline_stop = -1;
 global.show_rank = 0;
+custom_map_loading = 0;
 global.random_seed = -4
 global.map_editor = 0;
 global.rewind = 0;

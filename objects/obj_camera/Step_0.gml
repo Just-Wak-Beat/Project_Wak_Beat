@@ -83,14 +83,14 @@ else
 
 if (global.paused == 0)
 {
-	global.n_camera_zoom += global.camera_slow_zoom
+	global.n_camera_zoom += global.camera_slow_zoom;
 	if (global.n_camera_zoom < 0.5)
 	{
 		global.n_camera_zoom = 0.5;
 	}
-	else if (global.n_camera_zoom > 1.5)
+	else if (global.n_camera_zoom > 1.15)
 	{
-		global.n_camera_zoom = 1.5;
+		global.n_camera_zoom = 1.15;
 	}
 
 	tv_x = 3584*global.n_camera_zoom

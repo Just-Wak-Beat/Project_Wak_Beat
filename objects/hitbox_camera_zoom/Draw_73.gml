@@ -13,23 +13,29 @@ if (global.timeline_stop == 1)
 	{
 		var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
 		
-		var tmp_str = "x,y축"
-		if (floor((m_data_arg3)/255*2) == 1)
+		if (m_data_arg7 != -999)
 		{
-			tmp_str = "x축"
+			var tmp_str2 = "false"
+			if (m_data_arg6 == 1)
+			{
+				tmp_str2 = "true"
+			}
+		
+			draw_text_k_scale(x,y+64,"x : "+string(floor(x))+"\ny : "+string(floor(y))+"\n카메라 줌 : "+string(floor((50+m_data_arg0*12*0.65)))+"%\n1프레임당 "+string(floor((m_data_arg1-180)/10)/200)+"%씩 확대\n카메라 포커스 : "+string(tmp_str2),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		}
-		else if (floor((m_data_arg3)/255*2) == 2)
+		else
 		{
-			tmp_str = "y축"
+			var tmp_str = "\n화면 흔들림 방향 : x,y축"
+			if (round(m_data_arg1/180) == 1)
+			{
+				tmp_str = "\n화면 흔들림 방향 : x축"
+			}
+			else if (round(m_data_arg1/180) == 2)
+			{
+				tmp_str = "\n화면 흔들림 방향 : y축"
+			}
+			
+			draw_text_k_scale(x,y+64,"화면 흔들림 정도 : "+string(m_data_arg0)+string(tmp_str),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		}
-	
-		var tmp_str2 = "false"
-		if (m_data_arg4 == 1)
-		{
-			tmp_str2 = "true"
-		}
-
-	
-		draw_text_k_scale(x,y+64,"x : "+string(floor(x))+"\ny : "+string(floor(y))+"\nzoom : "+string(0.5+m_data_arg0/20)+"\nslowly zoom : "+string(abs(abs((m_data_arg1-180)/1000) - 1)*sign(m_data_arg1-180))+"\nview shake : "+string(floor((m_data_arg2)/255*25))+"\nshake dir : "+string(tmp_str)+"\nfocus : "+string(tmp_str2),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }
