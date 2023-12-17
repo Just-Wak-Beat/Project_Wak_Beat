@@ -176,11 +176,11 @@ value="32.000000"
 
 <img src = "imgs\Guideline_imgs\gl8.PNG" width = "480px">
 
-커스텀 탄막 이미를 추가하고 싶은 맵의 파일이 존재하는 폴더로 들어갑니다.
+커스텀 탄막 이미지를 추가하고 싶은 맵의 파일이 존재하는 폴더로 들어갑니다.
 
 폴더 안의 ```custom_hitbox_image``` 폴더에서 ```center_origin```폴더 혹은 ```top_origin```폴더에 들어갑니다.
 
-```center_origin```과 ```top_origin```의 차이는 이미지 회전시의 중심축의 위치가 다르다는 차이점이 있습니다]
+[```center_origin```과 ```top_origin```의 차이는 이미지 회전시의 중심축의 위치가 다르다는 차이점이 있습니다]
 
 = 대부분의 탄막은 ```center_origin```를 사용하기 때문에 해당 폴더 안에 이미지를 넣어주시면 됩니다.
 
