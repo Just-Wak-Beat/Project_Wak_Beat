@@ -279,16 +279,16 @@ if global.n_map_id >= 0 && instance_exists(code) && code.gamestart != 1 && code.
 	{
 		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Custom Map\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
 		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_rank[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-		if (global.n_score[global.n_map_id] != "--")
+		if (global.custom_n_score[global.n_map_id] != "--")
 		{
-			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.custom_n_score[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
 		}
 		
 		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Custom Map\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
 		draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_rank[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-		if (global.n_score[global.n_map_id] != "--")
+		if (global.custom_n_score[global.n_map_id] != "--")
 		{
-			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.custom_n_score[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
 		}
 	}
 }

@@ -43,6 +43,7 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && spri
 				global.n_music_id = _audio_asset;
 				global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
 				timeline_running = true;
+				global.custom_map_timeline = true;
 			}
 			
 			if (audio_is_playing(global.n_music_instance))

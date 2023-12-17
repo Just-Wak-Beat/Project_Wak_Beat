@@ -128,12 +128,7 @@ if (global.ui_alpha >= 1 && instance_exists(obj_album_ui) && global.t_b_alpha <=
 		global.exp_for_draw = 0;
 		global.exp_w_alpha = 1;
 		
-		if (global.level == 1 && global.guide_showed[0] == 0)
-		{
-			show_guide("파트너 해금!");
-			global.guide_showed[0] = 1;
-		}
-		
+
 		if (global.level == 3 && global.guide_showed[1] == 0)
 		{
 			show_guide("보스 배틀 스테이지");
@@ -402,6 +397,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 					{
 						var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
 						global.c_map_param = array_create(global.music_duration+1,"");
+						global.custom_map_timeline = true;
 						if (file_exists(tmp_directory))
 						{
 							ini_open(tmp_directory);
@@ -444,6 +440,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 			if (global.n_music_title != "왁트모르즈비")
 			{
 				timeline_running = false;
+				global.custom_map_timeline = false;
 			}
 	
 	
@@ -557,7 +554,8 @@ if global.rewind > 0
 	if (global.rewind == 51)
 	{
 		audio_play_sound(rewinding_sfx,0,false,global.master_volume*global.sfx_volume*0.3)
-		timeline_running = false
+		timeline_running = false;
+		global.custom_map_timeline = false;
 	}
 	
 	
@@ -815,11 +813,13 @@ if global.rewind > 0
 		
 		if (global.play_custom_map == 1)
 		{
+			global.custom_map_timeline = false;
 		}
 		else
 		{
 			timeline_position = global.start_point;
 			timeline_running = false;
+			global.custom_map_timeline = false;
 			var time__ = floor(global.music_sync_offset*3*60);
 			if time__ > 0 && global.tutorial_now != 1
 			{
@@ -827,6 +827,7 @@ if global.rewind > 0
 			}
 			else
 			{
+				global.custom_map_timeline = true;
 				timeline_running = true;
 			}
 		}

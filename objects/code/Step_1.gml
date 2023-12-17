@@ -396,7 +396,8 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 		global.total_damaged = 0;
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4)
 		audio_stop_sound(global.n_music_instance)
-		timeline_running = false
+		timeline_running = false;
+		global.custom_map_timeline = false;
 		event_user(0)
 		instance_destroy(hitbox_parents)
 		instance_destroy(obj_savepoint)
@@ -430,7 +431,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 	//음악(오디오) 싱크 안맞는거 강제 픽스
 	if gamestart = 2 && global.n_progress < global.music_duration && global.n_progress > 0 && audio_is_playing(global.n_music_instance) && global.n_music_instance != -4
 	{
-		if (timeline_running != false)
+		if (timeline_running != false || global.custom_map_timeline != false)
 		{
 			global.automatic_sycn_fixing++
 			if global.automatic_sycn_fixing > 5

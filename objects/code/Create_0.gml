@@ -1,15 +1,15 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "6.2";
+global.version_real = "7.0";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1;
 global.streamer = 0;
+global.dev_mode = 0;
 global.custom_mapper = 0;
 surf_screen = -4;
 music_title_alpha = 0
 global.blackout_alpha = 0;
 global.low_graphics = false;
-global.dev_mode = 1;
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.default_directory = program_directory
@@ -82,6 +82,7 @@ texturegroup_load("UI")
 texturegroup_load("hitbox_shapes")
 texturegroup_load("effects")
 
+global.custom_map_timeline = false;
 global.custom_proj_center_spr = array_create(100,-4);
 global.custom_proj_top_spr = array_create(100,-4);
 global.custom_proj_center_spr[0] = spr_tmp;

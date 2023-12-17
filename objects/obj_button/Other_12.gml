@@ -12,4 +12,5 @@ obj_player.hurt_coolitme = 0;
 obj_player.died_xx = x;
 obj_player.died_yy = y;
 global.restart_stage = 1;
-timeline_running = false
+timeline_running = false;
+global.custom_map_timeline = false;

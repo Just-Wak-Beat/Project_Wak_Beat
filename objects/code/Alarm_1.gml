@@ -17,6 +17,11 @@ var target_rank = global.result_rank;
 if (global.level != 0)
 {
 	var temp_exp = (global.detailed_difficulty[global.n_map_id])*global.music_duration*0.003*convert_rank_to_num(target_rank)*(1.5 - global.t_selected_difficulty*0.5)+global.crossed_obstacle_num*50;
+	if (global.play_custom_map == 1)
+	{
+		temp_exp = temp_exp/3;
+	}
+	
 	global.exp += temp_exp;
 	
 	show_debug_message("exp +"+string(temp_exp));
@@ -105,10 +110,10 @@ else
 	var temp_score = ((converted_rank_to_num)*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)+((converted_rank_to_num >= 12) ? global.clear_bonus_score : 0)
 	if (global.t_selected_difficulty == 1)
 	{
-		if (global.nickname != "" && global.n_map_list != 2 && (global.custom_n_score[global.n_map_id] == "--" || temp_score > global.custom_n_score[global.n_map_id]))
+		if (global.n_map_list != 2 && (global.custom_n_score[global.n_map_id] == "--" || temp_score > global.custom_n_score[global.n_map_id]))
 		{
-			global.custom_n_score[global.n_map_id] = temp_score
-			global.n_score = temp_score
+			global.custom_n_score[global.n_map_id] = temp_score;
+			global.n_score = temp_score;
 		}
 		
 		if (converted_rank_to_num > convert_rank_to_num(global.custom_n_rank[global.n_map_id]))
@@ -118,10 +123,10 @@ else
 	}
 	else
 	{
-		if (global.nickname != "" && global.n_map_list != 2 && (global.custom_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.custom_n_score_hardcore[global.n_map_id]))
+		if (global.n_map_list != 2 && (global.custom_n_score_hardcore[global.n_map_id] == "--" || temp_score > global.custom_n_score_hardcore[global.n_map_id]))
 		{
-			global.custom_n_score_hardcore[global.n_map_id] = temp_score
-			global.n_score_hardcore = temp_score
+			global.custom_n_score_hardcore[global.n_map_id] = temp_score;
+			global.n_score_hardcore = temp_score;
 		}
 		
 		if (converted_rank_to_num > convert_rank_to_num(global.custom_n_rank_hardcore[global.n_map_id]))

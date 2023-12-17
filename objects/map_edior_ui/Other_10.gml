@@ -21,6 +21,7 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 		global.n_music_id = _audio_asset;
 		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1))
 		timeline_running = true;
+		global.custom_map_timeline = true;
 		audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
 		with(hitbox_5)
 		{

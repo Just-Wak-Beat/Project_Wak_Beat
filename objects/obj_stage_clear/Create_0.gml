@@ -53,6 +53,7 @@ if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty
 }
 
 //파트너 해금
+var player_unlocked = 0;
 if (global.tutorial_now != 1)
 {
 	for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
@@ -64,6 +65,7 @@ if (global.tutorial_now != 1)
 			{
 				global.unlocked_player_skin[i] = 3;
 				play_unlock_animation = 1;
+				player_unlocked = 1;
 		
 				if (global.artifact_type == floor(i/3))
 				{
@@ -79,12 +81,22 @@ if (global.tutorial_now != 1)
 				{
 					global.unlocked_player_skin[2] = 3;
 					play_unlock_animation = 1;
+					player_unlocked = 1;
 					unlocked_char_index = 2;
 				}
 			}
 		}
 	}
 }
+
+
+
+if (player_unlocked == 1 && global.guide_showed[0] == 0)
+{
+	show_guide("파트너 해금!");
+	global.guide_showed[0] = 1;
+}
+
 
 spin_rad = 0
 for(var i = 6; i < 32; i++)

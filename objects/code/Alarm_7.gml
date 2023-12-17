@@ -3,4 +3,5 @@
 if global.n_progress > 0 && gamestart > 0
 {
 	timeline_running = true
+	global.custom_map_timeline = true;
 }

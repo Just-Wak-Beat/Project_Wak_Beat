@@ -4,7 +4,8 @@ global.n_music_id = -4
 global.n_progress = 0
 global.n_music_instance = -4
 
-timeline_running = false
+timeline_running = false;
+global.custom_map_timeline = false;
 if (global.tutorial_n_stage == 4)
 {
 	load_stage("왁트모르즈비","영바이브 (아버 편곡)","tutorial_part4",$FFFFA232,5411,60)
