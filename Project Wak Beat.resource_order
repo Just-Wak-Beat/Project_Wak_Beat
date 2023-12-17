@@ -180,6 +180,7 @@
     {"name":"create_laser","order":6,"path":"scripts/create_laser/create_laser.yy",},
     {"name":"spr_lock","order":4,"path":"sprites/spr_lock/spr_lock.yy",},
     {"name":"umamusume","order":27,"path":"sounds/umamusume/umamusume.yy",},
+    {"name":"effect_parents","order":9,"path":"objects/effect_parents/effect_parents.yy",},
     {"name":"spr_hitbox_color","order":23,"path":"sprites/spr_hitbox_color/spr_hitbox_color.yy",},
     {"name":"hitbox_19","order":20,"path":"objects/hitbox_19/hitbox_19.yy",},
     {"name":"hitbox_2","order":2,"path":"objects/hitbox_2/hitbox_2.yy",},

@@ -9,6 +9,7 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 		instance_destroy(hitbox_parents);
 		instance_destroy(changing_hitbox_color);
 		instance_destroy(changing_bg_color);
+		instance_destroy(effect_parents);
 		camera_focus_on(-4,-4,1)
 	}
 	else

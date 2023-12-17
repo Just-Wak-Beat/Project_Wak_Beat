@@ -4,7 +4,7 @@ global.version_real = "7.0";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1;
 global.streamer = 0;
-global.dev_mode = 0;
+global.dev_mode = 1;
 global.custom_mapper = 0;
 surf_screen = -4;
 music_title_alpha = 0
@@ -17,6 +17,7 @@ global.custom_map_directory = string(global.default_directory)+"\\Custom map fil
 global.nickname = ""
 global.dashed = 0
 global.total_damaged = 0
+
 //메인메뉴 애니메이션 재생
 global.show_title_menu = 1;
 global.title_menu_animation1 = 0;

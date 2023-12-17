@@ -38,7 +38,7 @@ if (can_draw == 1)
 		else if (button_id == 7 && instance_exists(map_edior_ui))
 		{
 			x = xx+xx_w*0.5;
-			y = yy+yy_h*0.95-(map_edior_ui.scroll_y);
+			y = yy+yy_h*0.06+(map_edior_ui.scroll_y);
 			image_xscale = 0.4;
 			image_yscale = 0.2;
 		}
@@ -46,14 +46,14 @@ if (can_draw == 1)
 		{
 			if (sprite_index == spr_spuare_outline_full_mask)
 			{
-				x = xx+100+(map_edior_ui.scroll_y)+(map_edior_ui.scroll_y)*1.25;
+				x = xx+xx_w*0.93+80-(map_edior_ui.scroll_y)*2.25;
 				y = yy+420+(button_id-100)*120;
 				image_xscale = 1;
 				image_yscale = 1;
 			}
 			else
 			{
-				x = xx+620+(map_edior_ui.scroll_y)+(map_edior_ui.scroll_y)*1.25;
+				x = xx+700*4-(map_edior_ui.scroll_y)*2.25;
 				y = yy+390+(button_id-100)*120;
 				image_xscale = 0.21;
 				image_yscale = 0.1;

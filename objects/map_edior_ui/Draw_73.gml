@@ -23,53 +23,47 @@ if (global.timeline_stop == 1)
 	
 	
 	draw_text_k_scale(t_m_x+32,t_m_y-64,"x : "+string(t_m_x)+"\ny : "+string(t_m_y),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+8*global.converted_view_ratio+scroll_y*global.converted_view_ratio,99,8,0,c_white,1)
-	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+scroll_y*global.converted_view_ratio,99,8,0,c_black,1)
+	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+yy_h*1.01+8*global.converted_view_ratio-scroll_y*global.converted_view_ratio,99,8,0,c_white,1)
+	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+yy_h*1.02-scroll_y*global.converted_view_ratio,99,8,0,c_black,1)
 	
 	
-	draw_text_k_scale(xx+xx_w*0.98,yy+yy_h*(0.35-global.mobile_mode*0.03),"단축키 - ",fontsize2*256,-1,1,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	draw_text_k_scale(xx+xx_w*0.98,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]",fontsize2*256,-1,1,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	if (!instance_exists(obj_message_log))
-	{
-		draw_text_k_scale(xx+xx_w*0.05,yy+yy_h*(0.96-global.mobile_mode*0.03),"에디터 창 [Enter]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	}
+	draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.35-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	var plus_str = (custom_image_type != 2) ? "\n탄막 이미지 변경 [좌/우 방향키]" : "";
+	draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]"+string(plus_str),fontsize2*256,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+
 
 	
-	draw_text_k_scale(xx+xx_w*0.5-1024,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"[A] 1프레임 전으로  /  [Q] 60프레임 전으로",64,-1,1,c_white,-1,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	draw_text_k_scale(xx+xx_w*0.5+1024,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"60프레임 후로 [E]  /  1프레임 후로 [D]",64,-1,1,c_white,-1,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*(0.96-global.mobile_mode*0.03)-scroll_y,"타임라인 재생 [W] / [S] 가장 가까운 타임라인으로",64,-1,1,c_white,-1,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+xx_w*0.5-1024,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"[A] 1프레임 전으로  /  [Q] 60프레임 전으로",64,-1,1,c_white,-1,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+xx_w*0.5+1024,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"60프레임 후로 [E]  /  1프레임 후로 [D]",64,-1,1,c_white,-1,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"타임라인 재생 [W] / [S] 가장 가까운 타임라인으로",64,-1,1,c_white,-1,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
-	draw_text_k_scale(xx+xx_w*0.2,yy+yy_h*(0.9-global.mobile_mode*0.03)-map_edior_ui.scroll_y,"타임라인 이동 [ "+string(global.n_progress)+" / "+string(global.music_duration)+" ]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+xx_w*0.2,yy+yy_h*(0.09-global.mobile_mode*0.03)+map_edior_ui.scroll_y,"타임라인 이동 [ "+string(global.n_progress)+" / "+string(global.music_duration)+" ]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
-	var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "미사일 탄막" , "세이브 포인트 지정", "바운스 탄막", "카메라 효과", "잡다한 화면 효과 모음", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "화면 흔들림 효과", "맵 이동 효과", "Unknown", "배치된 탄막 수정 ['마우스 가운데 휠 버튼'으로 바로 선택 가능]", "타임라인 플레이/일시정지" ];
+	var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "미사일 탄막" , "세이브 포인트 지정", "바운스 탄막", "카메라 효과", "잡다한 화면 효과 모음", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "화면 흔들림 효과", "맵 이동 효과", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "배치된 탄막 수정 ['마우스 가운데 휠 버튼'으로 바로 선택 가능]", "타임라인 플레이/일시정지" ];
 	if (global.editor_selected_type >= 0)
 	{
-		draw_text_k_scale(xx+64,yy+32+scroll_y,string(tmp_name[global.editor_selected_type]),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-		if (custom_image_type != 2)
-		{
-			draw_text_k_scale(xx+xx_w-64,yy+32+scroll_y,"[좌/우 방향키를 눌러 탄막 이미지 변경]",64,-1,1,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-		}
+		draw_text_k_scale(xx+64,yy+yy_h*0.88+32-scroll_y,string(tmp_name[global.editor_selected_type]),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 	else
 	{
-		draw_text_k_scale(xx+64,yy+32+scroll_y,"[하단의 이미지를 클릭하여 배치할 탄막을 선택]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+64,yy+yy_h*0.88+32-scroll_y,"[하단의 이미지를 클릭하여 배치할 탄막을 선택]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }
-else
+//else
+//{
+	//draw_text_k_scale(t_m_x+32,t_m_y-64,"camera zoom : "+string(global.n_camera_zoom)+"\ncamera_slow_zoom : "+string(global.camera_slow_zoom),64,-1,1,c_red,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+//}
+
+
+
+for(var i = 0; i <= 28; i++) //탄막이 새로 추가되면 수정해야됨
 {
-	draw_text_k_scale(t_m_x+32,t_m_y-64,"camera zoom : "+string(global.n_camera_zoom)+"\ncamera_slow_zoom : "+string(global.camera_slow_zoom),64,-1,1,c_red,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-}
-
-
-
-for(var i = 0; i <= 21; i++)
-{
-	if ((global.editor_hitbox == -1 && (i <= 18 || i > 20)) || (global.editor_hitbox == 1 && ((instance_exists(n_selected) && i == 0) || i > 20)))
+	if ((global.editor_hitbox == -1 && (i <= 18 || i > 27)) || (global.editor_hitbox == 1 && ((instance_exists(n_selected) && i == 0) || i > 27)))
 	{
-		var tmp_xx = xx+(128+i*160)*global.converted_view_ratio;
-		var tmp_yy = yy+(160+scroll_y)*global.converted_view_ratio;
-		if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,tmp_xx,tmp_yy) <= 64*global.converted_view_ratio)
+		var tmp_xx = xx+(96+i*120)*global.converted_view_ratio;
+		var tmp_yy = yy+yy_h*0.88+(160-scroll_y)*global.converted_view_ratio;
+		if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,tmp_xx,tmp_yy) <= 48*global.converted_view_ratio)
 		{
 			selected_projectile_type = 1;
 			audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume);
@@ -94,7 +88,7 @@ for(var i = 0; i <= 21; i++)
 				}
 			}
 		
-			if (i == 21)
+			if (i == 28) //탄막이 새로 추가되면 수정해야됨
 			{
 				event_user(0);
 			}
@@ -121,26 +115,26 @@ for(var i = 0; i <= 21; i++)
 	
 	
 		var tmp_img_ind = i+1;
-		if (i == 21)
+		if (i == 28) //탄막이 새로 추가되면 수정해야됨
 		{
 			if (global.timeline_stop == 1)
 			{
-				tmp_img_ind = 22;
+				tmp_img_ind = 29; //탄막이 새로 추가되면 수정해야됨
 			}
 			else
 			{
-				tmp_img_ind = 23;
+				tmp_img_ind = 30; //탄막이 새로 추가되면 수정해야됨
 			}
 		}
 		else if (instance_exists(n_selected) && i == 0 && global.editor_hitbox == 1)
 		{
-			tmp_img_ind = 21;
+			tmp_img_ind = 28; //탄막이 새로 추가되면 수정해야됨
 		}
 		
-		draw_sprite_ext(spr_editor_button,tmp_img_ind,tmp_xx,tmp_yy,global.converted_view_ratio,global.converted_view_ratio,0,c_white,1)
+		draw_sprite_ext(spr_editor_button,tmp_img_ind,tmp_xx,tmp_yy,global.converted_view_ratio/1.333333333,global.converted_view_ratio/1.333333333,0,c_white,1)
 		if (global.editor_selected_type == i)
 		{
-			draw_sprite_ext(spr_editor_button,0,tmp_xx,tmp_yy,global.converted_view_ratio,global.converted_view_ratio,0,c_white,1)
+			draw_sprite_ext(spr_editor_button,0,tmp_xx,tmp_yy,global.converted_view_ratio/1.333333333,global.converted_view_ratio/1.333333333,0,c_white,1)
 		}
 		//draw_text(tmp_xx+32,tmp_yy+32,i);
 	}
@@ -213,8 +207,6 @@ for(var i = 0; i < 7; i++)
 {
 	if (global.ed_arg_name[i] != "")
 	{
-		
-		
 		//보정된 값으로 출력
 		var tmp_val = global.ed_arg[i];
 		if (global.ed_arg_name[i] == "크기")
@@ -393,6 +385,6 @@ for(var i = 0; i < 7; i++)
 		}
 		
 		var tmp_string = " ["+string(tmp_val)+"]";
-		draw_text_k_scale(xx+64+scroll_y*1.25,yy+320+i*120,string(global.ed_arg_name[i])+string(tmp_string),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
+		draw_text_k_scale(xx+xx_w*0.98-scroll_y*1.25,yy+320+i*120,string(global.ed_arg_name[i])+string(tmp_string),64,-1,1,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
 	}
 }

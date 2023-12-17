@@ -7,7 +7,7 @@ var yy_h = camera_get_view_height(view_camera[0]);
 
 if (global.timeline_stop == 1)
 {
-	if ((activated == 1 && mouse_y > yy+400 && mouse_y < yy+yy_h-200 && mouse_x > xx+1300) || activated == -1)
+	if ((activated == 1 && mouse_y > yy+170 && mouse_y < yy+yy_h-250 && mouse_x < xx+xx_w-1280) || activated == -1)
 	{
 		if (global.editor_hitbox == 1)
 		{

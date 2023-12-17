@@ -34,7 +34,7 @@ else
 
 var font_size = 1//global.camera_sx
 
-if global.tutorial_now != 1 && global.show_rank = 0 && (is_string(global.map_color) || is_real(global.map_color))
+if global.timeline_stop != 1 && global.tutorial_now != 1 && global.show_rank = 0 && (is_string(global.map_color) || is_real(global.map_color))
 {
 	//progress bar
 	draw_set_color(global.map_color)

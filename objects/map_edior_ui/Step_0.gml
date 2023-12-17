@@ -28,6 +28,7 @@ if (global.show_music_title >= 200 || global.show_music_title <= 0)
 			global.timeline_stop = 1;
 			camera_focus_on(-4,-4,1)
 			instance_destroy(hitbox_parents);
+			instance_destroy(effect_parents);
 			instance_destroy(changing_hitbox_color);
 			instance_destroy(changing_bg_color);
 			audio_stop_sound(global.n_music_id);

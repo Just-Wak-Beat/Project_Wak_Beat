@@ -213,6 +213,7 @@
     {"id":{"name":"create_laser","path":"scripts/create_laser/create_laser.yy",},},
     {"id":{"name":"spr_lock","path":"sprites/spr_lock/spr_lock.yy",},},
     {"id":{"name":"umamusume","path":"sounds/umamusume/umamusume.yy",},},
+    {"id":{"name":"effect_parents","path":"objects/effect_parents/effect_parents.yy",},},
     {"id":{"name":"spr_hitbox_color","path":"sprites/spr_hitbox_color/spr_hitbox_color.yy",},},
     {"id":{"name":"hitbox_19","path":"objects/hitbox_19/hitbox_19.yy",},},
     {"id":{"name":"hitbox_2","path":"objects/hitbox_2/hitbox_2.yy",},},
