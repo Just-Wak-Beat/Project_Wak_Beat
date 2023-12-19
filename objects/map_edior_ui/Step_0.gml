@@ -4,7 +4,7 @@ depth = code.depth-80;
 
 t_m_x = mouse_x;
 t_m_y = mouse_y;
-if (keyboard_check(vk_shift))
+if (global.tiny_value_scrolling_now < 0.1 && keyboard_check(vk_shift))
 {
 	t_m_x = room_width*0.5+96*round((mouse_x - room_width*0.5)/96);
 	t_m_y = room_height*0.5+96*round((mouse_y - room_height*0.5)/96);

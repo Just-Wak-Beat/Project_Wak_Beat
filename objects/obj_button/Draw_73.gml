@@ -8,6 +8,20 @@ if (can_draw == 1)
 	var yy_h = camera_get_view_height(view_camera[0])
 	var xx = camera_get_view_x(view_camera[0])
 	var xx_w = camera_get_view_width(view_camera[0])
+	
+	//세밀한 값 조정 (스크롤) 배경 그리기
+	if (tiny_value_scrolling > 0)
+	{
+		draw_set_color(c_black);
+		draw_set_alpha(tiny_value_scrolling*0.8);
+		draw_line_width(0,0,room_width,room_height,9999);
+		draw_text_kl_scale(xx+xx_w*0.5,yy+yy_h*0.1,"세밀하게 값 조정하기",128,-1,tiny_value_scrolling*1.1,c_white,-1,0,normal_font,0.7,0.7,0);
+	}
+	
+	
+	
+	
+	
 	if (obj_player.image_xscale > 0)
 	{
 		if (button_id == 2)
@@ -41,6 +55,10 @@ if (can_draw == 1)
 			y = yy+yy_h*0.06+(map_edior_ui.scroll_y);
 			image_xscale = 0.4;
 			image_yscale = 0.2;
+			if (global.tiny_value_scrolling_now > 0)
+			{
+				image_alpha = fix_to_zero(1 - global.tiny_value_scrolling_now);
+			}
 		}
 		else if (button_id >= 100 && instance_exists(map_edior_ui))
 		{
@@ -53,9 +71,10 @@ if (can_draw == 1)
 			}
 			else
 			{
-				x = xx+700*4-(map_edior_ui.scroll_y)*2.25;
+				var tmp_val = fix_to_zero(tiny_value_scrolling);
+				x = xx+(770*4-(map_edior_ui.scroll_y)*2.25)*(1-tmp_val) + tmp_val*xx_w*0.5;
 				y = yy+390+(button_id-100)*120;
-				image_xscale = 0.21;
+				image_xscale = 0.1+fix_to_zero(tiny_value_scrolling)*0.5;
 				image_yscale = 0.1;
 			}
 		}
@@ -109,7 +128,7 @@ if (can_draw == 1)
 					if (global.savepoint_position[i] != -4)
 					{
 						var _xx_ = x+tmp_width_full*(-0.5+global.savepoint_position[i]/global.music_duration)
-						draw_sprite_ext(spr_square,0,_xx_,y,0.1,image_yscale*4,0,global.player_color,1)
+						draw_sprite_ext(spr_square,0,_xx_,y,0.1,image_yscale*4,0,global.player_color,2*image_alpha)
 					}
 				}
 				
@@ -118,7 +137,7 @@ if (can_draw == 1)
 					if (global.c_map_param[i] != "")
 					{
 						var _xx_ = x+tmp_width_full*(-0.5+i/global.music_duration)
-						draw_sprite_ext(spr_square,0,_xx_,y,0.05,image_yscale*4,0,global.map_color,1)
+						draw_sprite_ext(spr_square,0,_xx_,y,0.05,image_yscale*4,0,global.map_color,2*image_alpha)
 					}
 				}
 			}

@@ -8,6 +8,7 @@ function save_and_load_data(argument0,argument1)
 {
 	var file_name = (global.dev_mode == 1) ? "PWB_Beta.ini" : "PWB_OpenBeta.ini"
 	ini_open_protect(file_name)
+	clean_message_log();
 
 	if (argument0 == 0 && global.show_credit <= 0)
 	{
@@ -48,7 +49,7 @@ function save_and_load_data(argument0,argument1)
 		
 	
 		//환경설정
-		ini_write_real("master_volume","none",global.master_volume);
+		ini_write_real("master_volume","none",(code.outside_of_window == -4) ? global.master_volume : code.outside_of_window);
 		ini_write_real("bgm_volume","none",global.bgm_volume);
 		ini_write_real("sfx_volume","none",global.sfx_volume);
 		ini_write_real("music_sync_offset","none",global.music_sync_offset);
@@ -75,7 +76,6 @@ function save_and_load_data(argument0,argument1)
 	}
 	else
 	{
-		clean_message_log();
 		show_message_log("유저 데이터 불러오는 중...");
 		//플레이어 스킨
 		global.n_player_skin = ini_read_real("n_player_skin","none",-4);

@@ -11,7 +11,7 @@ function find_file(argument0,argument1,argument2,argument3,argument4)
 	var _firstFile = file_find_first(string(argument0)+"\\*."+string(argument1), fa_none);
 		if (_firstFile != "")
 		{
-			return (string(argument0)+string(_firstFile));
+			return (string(argument0)+"\\"+string(_firstFile)+"."+string(argument1));
 		}
 	file_find_close();
 	
@@ -20,7 +20,7 @@ function find_file(argument0,argument1,argument2,argument3,argument4)
 		var _firstFile = file_find_first(string(argument0)+"\\*."+string(argument2), fa_none);
 			if (_firstFile != "")
 			{
-				return (string(argument0)+string(_firstFile));
+				return (string(argument0)+"\\"+string(_firstFile)+"."+string(argument1));
 			}
 		file_find_close();
 	}
@@ -30,7 +30,7 @@ function find_file(argument0,argument1,argument2,argument3,argument4)
 		var _firstFile = file_find_first(string(argument0)+"\\*."+string(argument3), fa_none);
 			if (_firstFile != "")
 			{
-				return (string(argument0)+string(_firstFile));
+				return (string(argument0)+"\\"+string(_firstFile)+"."+string(argument1));
 			}
 		file_find_close();
 	}
@@ -40,7 +40,7 @@ function find_file(argument0,argument1,argument2,argument3,argument4)
 		var _firstFile = file_find_first(string(argument0)+"\\*."+string(argument4), fa_none);
 			if (_firstFile != "")
 			{
-				return (string(argument0)+string(_firstFile));
+				return (string(argument0)+"\\"+string(_firstFile)+"."+string(argument1));
 			}
 		file_find_close();
 	}

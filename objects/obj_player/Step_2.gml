@@ -29,7 +29,7 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 					if (global.additional_hp <= 0)
 					{
 						global.total_damaged ++;
-						global.hp -= fix_to_zero(sign(global.show_progress_bar));
+						global.hp -= 1;
 					}
 					else
 					{
@@ -82,11 +82,11 @@ if hurt != -4
 {
 	if hurt_hspeed = 0 && hurt_vspeed = 0
 	{
-		hurt_hspeed = choose(0,1)
-		hurt_vspeed = choose(0,1)
+		hurt_hspeed = sign_nonzero(hurt.x - x);
+		hurt_vspeed = sign_nonzero(hurt.y - y);
 	}
 	
-	if hurt_hspeed != 0 || hurt_vspeed != 0
+	if (hurt_hspeed != 0 || hurt_vspeed != 0)
 	{
 		global.hmove_speed = -sign(hurt_hspeed)*32
 		global.vmove_speed = -sign(hurt_vspeed)*32

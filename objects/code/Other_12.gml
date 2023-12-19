@@ -83,7 +83,7 @@ if (global.can_change_music_list == 1 && global.t_select_difficulty == 0)
 			window_set_cursor(cr_none)
 		}
 	
-		if global.sync_setting = 1
+		if (global.sync_setting == 1)
 		{
 			screen_save(string(global.default_directory)+"datafile_sc.png");
 			global.sc_img_for_pause = sprite_add_ext(string(global.default_directory)+"datafile_sc.png",0,0,0,true);

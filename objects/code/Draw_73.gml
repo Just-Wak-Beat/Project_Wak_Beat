@@ -34,10 +34,11 @@ else
 
 var font_size = 1//global.camera_sx
 
-if global.timeline_stop != 1 && global.tutorial_now != 1 && global.show_rank = 0 && (is_string(global.map_color) || is_real(global.map_color))
+if (global.timeline_stop != 1 && global.tutorial_now != 1 && global.show_rank == 0)
 {
+	var tmp_map_color = global.map_color;
 	//progress bar
-	draw_set_color(global.map_color)
+	draw_set_color(tmp_map_color)
 	draw_set_alpha(progress_alpha*0.1*progress_alpha)
 	draw_line_width(xx+xx_w*0.3,yy+global.converted_view_ratio*80,xx+xx_w*0.3+progress_icon_alpha*1401*global.converted_view_ratio,yy+global.converted_view_ratio*80,64*global.converted_view_ratio)
 
@@ -49,7 +50,7 @@ if global.timeline_stop != 1 && global.tutorial_now != 1 && global.show_rank = 0
 
 
 	//icon background (progress bar)
-	draw_set_color(global.map_color)
+	draw_set_color(tmp_map_color)
 	draw_set_alpha(progress_alpha_sec*0.5)
 	draw_line_width(xx+xx_w*0.7-global.converted_view_ratio*35,yy+global.converted_view_ratio*80,xx+xx_w*0.7+global.converted_view_ratio*32,yy+global.converted_view_ratio*80,64*global.converted_view_ratio)
 
@@ -620,8 +621,8 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		if (__added_fav_list && global.n_map_list != 2 && global.level >= global.requirement_level[n_stage] && global.title_menu_animation1 == -1 && global.total_map > 0)
 		{
 			obj_album_ui.clicked_ = 0;
-			obj_album_ui.heart_alpha = 10
-			global.fav_anime = 0
+			obj_album_ui.heart_alpha = 10;
+			global.fav_anime = 0;
 			audio_play_sound(favorite_sfx,0,false,global.master_volume*global.sfx_volume*2)
 			
 
@@ -631,7 +632,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 			var target_index = 0;
 			for(; target_index < global.origin_total_map; target_index++)
 			{
-				if (global.real_stage_map_name[target_index] == global.stage_map_name[n_stage])
+				if (global.real_stage_map_name[target_index] == global.stage_map_name[global.n_map_id])
 				{
 					break;
 				}
@@ -641,28 +642,28 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 			{
 				global.fav_map_id[global.fav_music_num] = target_index;
 				global.real_n_favorite[target_index] = 1;
-				global.n_favorite[n_stage] = 1;
+				global.n_favorite[global.n_map_id] = 1;
 			}
 			else
 			{
-				global.fav_map_id[n_stage] = -4;
-				for(var tmp = n_stage; tmp < global.origin_total_map-1; tmp++)
+				global.fav_map_id[global.n_map_id] = -4;
+				for(var tmp = global.n_map_id; tmp < global.origin_total_map-1; tmp++)
 				{
 					global.fav_map_id[tmp] = global.fav_map_id[tmp+1];
 				}
 				global.real_n_favorite[target_index] = -1;
-				global.n_favorite[n_stage] = -1;
-				if (global.fav_music_num <= 1)
-				{
-					n_stage = 0;
-					global.t_select_map = 0;
-					global.fav_music_num = 0;
-					global.stage_map_name[n_stage] = -4;
-					global.background_color = merge_color(c_white,c_black,0.95)
-				}
-				
+				global.n_favorite[global.n_map_id] = -1;
 				if (global.n_map_list == 1)
 				{
+					if (global.fav_music_num <= 1)
+					{
+						n_stage = 0;
+						global.t_select_map = 0;
+						global.fav_music_num = 0;
+						global.stage_map_name[global.n_map_id] = -4;
+						global.background_color = merge_color(c_white,c_black,0.95)
+					}
+
 					load_musicList(global.n_map_list);
 					event_user(6);
 				}
@@ -698,10 +699,10 @@ if (global.map_editor != 1 && global.rank_display_alpha > 0 && global.tutorial_p
 {
 	var temp_col = merge_color(merge_color((get_dis_color(global.background_color,c_white) < 7) ? c_black : c_white,#bf1a5c,global.rank_display_r_alpha),global.player_color,global.rank_display_b_alpha);
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+(global.rank_display_r_alpha+global.rank_display_b_alpha)*0.5)
-	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
+	draw_text_kl_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
 	
-	var temp_score = ((convert_rank_to_num(global.n_rank_display))*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)
-	draw_text_k_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(temp_score)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
+	global.n_score_displaying = fix_to_zero(((convert_rank_to_num(global.n_rank_display))*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)-global.total_death_point*5000)
+	draw_text_kl_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(global.n_score_displaying)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
 }
 
 
@@ -783,7 +784,7 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 	
 	if (global.tutorial_played > 0)
 	{
-		draw_text_k_scale(xx+170,yy+yy_h*0.03,"곡 리스타트",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+170,yy+yy_h*0.03,"처음부터 다시",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }
 

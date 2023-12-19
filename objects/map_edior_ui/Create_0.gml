@@ -15,7 +15,7 @@ keep_pressing = 0
 custom_image_type = 2;
 custom_image_ind = 0;
 selected_projectile_type = 0;
-
+global.tiny_value_scrolling_now = 0;
 for(var i = 0; i < 7; i++)
 {
 	global.converted_param[i] = 0;

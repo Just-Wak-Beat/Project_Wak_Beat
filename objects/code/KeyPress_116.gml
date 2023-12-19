@@ -26,7 +26,7 @@ if (global.dev_mode == 1)
 	check_new_song++;
 		
 		
-	global.unlocked_music_name_new_list[check_new_song] = "[랭크("+string(global.result_rank)+") + 대쉬로 피한 탄막(x"+string(global.result_obstacle)+")에 의한 점수]";
+	global.unlocked_music_name_new_list[check_new_song] = "[랭크("+string(global.result_rank)+") + 대쉬로 피한 탄막(x"+string(global.result_obstacle)+") + 게임 오버 횟수 (x"+string(global.total_death_point)+") + 에 의한 점수]";
 	global.unlocked_music_name_new_list_color[check_new_song] = merge_color(c_white,c_black,0.2);
 	check_new_song++;
 		

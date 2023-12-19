@@ -6,10 +6,23 @@ if instance_exists(obj_album_ui)
 }
 else
 {
-	depth = code.depth-100;
+	depth = (button_id < 100) ? code.depth-100 : map_edior_ui.depth+12;
 }
 
-
+//세밀한 값 조정 (스크롤)
+if (button_id >= 100 && sprite_index != spr_spuare_outline_full_mask)
+{
+	if (scroll_activated > 0 && keyboard_check(vk_shift))
+	{
+		tiny_value_scrolling += (1 - tiny_value_scrolling)*0.3;
+		global.tiny_value_scrolling_now += (1 - global.tiny_value_scrolling_now)*0.3;
+		depth = map_edior_ui.depth+1;
+	}
+	else
+	{
+		tiny_value_scrolling += (-0.01 - tiny_value_scrolling)*0.3;
+	}
+}
 
 
 if (sprite_index == spr_circle)

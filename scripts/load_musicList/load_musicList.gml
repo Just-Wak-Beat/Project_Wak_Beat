@@ -9,7 +9,7 @@ function load_musicList(argument0)
 	//load_unlocked_list();
 	global.custom_map_volume_control = (global.n_map_list == 2) ? 0.5 : 1
 	
-	if argument0 = 0
+	if (argument0 == 0)
 	{
 		global.total_map = global.origin_total_map
 	
@@ -35,7 +35,7 @@ function load_musicList(argument0)
 			global.requirement_level[i] = global.real_requirement_level[i];
 		}
 	}
-	else if argument0 = 1
+	else if (argument0 == 1)
 	{
 		global.total_map = get_fav_list_num();
 		for(var i = 0; i < global.total_map; i++)

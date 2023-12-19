@@ -11,3 +11,6 @@ scroll_value = 0
 scroll_activated = 0
 can_draw = 0
 alarm[1] = 1
+
+
+tiny_value_scrolling = 0;

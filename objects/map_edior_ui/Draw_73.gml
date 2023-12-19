@@ -27,17 +27,21 @@ if (global.timeline_stop == 1)
 	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+yy_h*1.02-scroll_y*global.converted_view_ratio,99,8,0,c_black,1)
 	
 	
-	draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.35-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	var plus_str = (custom_image_type != 2) ? "\n탄막 이미지 변경 [좌/우 방향키]" : "";
-	draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]"+string(plus_str),fontsize2*256,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	var tmp_alpha_ = fix_to_zero(1-global.tiny_value_scrolling_now);
+	if (tmp_alpha_ > 0)
+	{
+		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.35-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		var plus_str = (custom_image_type != 2) ? "\n탄막 이미지 변경 [좌/우 방향키]" : "";
+		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
 	
-	draw_text_k_scale(xx+xx_w*0.5-1024,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"[A] 1프레임 전으로  /  [Q] 60프레임 전으로",64,-1,1,c_white,-1,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	draw_text_k_scale(xx+xx_w*0.5+1024,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"60프레임 후로 [E]  /  1프레임 후로 [D]",64,-1,1,c_white,-1,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-	draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"타임라인 재생 [W] / [S] 가장 가까운 타임라인으로",64,-1,1,c_white,-1,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.5-1024,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"[A] 1프레임 전으로  /  [Q] 60프레임 전으로",64,-1,tmp_alpha_,c_white,-1,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.5+1024,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"60프레임 후로 [E]  /  1프레임 후로 [D]",64,-1,tmp_alpha_,c_white,-1,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*(0.01-global.mobile_mode*0.03)+scroll_y,"타임라인 재생 [W] / [S] 가장 가까운 타임라인으로",64,-1,tmp_alpha_,c_white,-1,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
-	draw_text_k_scale(xx+xx_w*0.2,yy+yy_h*(0.09-global.mobile_mode*0.03)+map_edior_ui.scroll_y,"타임라인 이동 [ "+string(global.n_progress)+" / "+string(global.music_duration)+" ]",64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.2,yy+yy_h*(0.09-global.mobile_mode*0.03)+map_edior_ui.scroll_y,"타임라인 이동 [ "+string(global.n_progress)+" / "+string(global.music_duration)+" ]",64,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	}
 
 
 	var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "미사일 탄막" , "세이브 포인트 지정", "바운스 탄막", "카메라 효과", "잡다한 화면 효과 모음", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "화면 흔들림 효과", "맵 이동 효과", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "배치된 탄막 수정 ['마우스 가운데 휠 버튼'으로 바로 선택 가능]", "타임라인 플레이/일시정지" ];
@@ -385,6 +389,16 @@ for(var i = 0; i < 7; i++)
 		}
 		
 		var tmp_string = " ["+string(tmp_val)+"]";
-		draw_text_k_scale(xx+xx_w*0.98-scroll_y*1.25,yy+320+i*120,string(global.ed_arg_name[i])+string(tmp_string),64,-1,1,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
+		var tmp_alpha = 1;
+		with(obj_button)
+		{
+			if (other.object_index != map_edior_ui && other.button_id-100 == i)
+			{
+				tmp_alpha = other.image_alpha;
+			}
+		}
+		
+
+		draw_text_k_scale(xx+xx_w*0.98-scroll_y*1.25,yy+320+i*120,string(global.ed_arg_name[i])+string(tmp_string),64,-1,tmp_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
 	}
 }

@@ -108,14 +108,27 @@ if (!window_has_focus())
 	if (outside_of_window == -4)
 	{
 		outside_of_window = global.master_volume;
-		global.master_volume = 0;
+		if (global.map_editor != 1 && obj_player.image_xscale > 0)
+		{
+			if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
+			{
+				event_user(2);
+			}
+		}
+		else
+		{
+			global.master_volume = 0;
+		}
 	}
 }
 else
 {
 	if (outside_of_window != -4)
 	{
-		global.master_volume = outside_of_window;
+		if (global.map_editor != 1 && obj_player.image_xscale <= 0)
+		{
+			global.master_volume = outside_of_window;
+		}
 		outside_of_window = -4;
 	}
 }
@@ -448,7 +461,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 
 
 	//환경설정 박자 효과음
-	if gamestart = 4 && global.sync_setting = 1
+	if (gamestart == 4 && global.sync_setting == 1)
 	{
 		sync_setting_timer ++
 		if sync_setting_timer > 120+global.music_sync_offset*3*60

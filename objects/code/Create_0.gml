@@ -1,10 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "7.0";
+global.version_real = "7.01";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1;
 global.streamer = 0;
-global.dev_mode = 1;
+global.dev_mode = 0;
+devmode_activate = 0;
 global.custom_mapper = 0;
 surf_screen = -4;
 music_title_alpha = 0
@@ -17,7 +18,7 @@ global.custom_map_directory = string(global.default_directory)+"\\Custom map fil
 global.nickname = ""
 global.dashed = 0
 global.total_damaged = 0
-
+global.n_score_displaying = 0;
 //메인메뉴 애니메이션 재생
 global.show_title_menu = 1;
 global.title_menu_animation1 = 0;
@@ -152,7 +153,7 @@ global.window_fullscreen = true
 global.sc_img_for_pause = -4;
 global.paused = 0
 global.restart_stage = 0
-
+global.total_death_point = 0;
 global.back_to_game = 0
 global.map_end_volumedown = 0
 global.n_setting_button = -4
@@ -312,7 +313,7 @@ automatic_reload_leaderboard = 0;
 
 
 		//실제 리스트에만 표기되는 곡
-		global.stage_map_name[i] = -4;
+		global.stage_map_name[i] = "";
 		global.stage_map_artist[i] = -4;
 		global.stage_map_difficulty[i] = -4;
 		global.stage_map_color[i] = -4;
@@ -334,7 +335,7 @@ automatic_reload_leaderboard = 0;
 
 
 		//모든곡 정보
-		global.real_stage_map_name[i] = -4;
+		global.real_stage_map_name[i] = "";
 		global.real_stage_map_artist[i] = -4;
 		global.real_stage_map_difficulty[i] = -4;
 		global.real_stage_map_color[i] = -4;
@@ -359,7 +360,7 @@ automatic_reload_leaderboard = 0;
 
 
 		//커스텀 곡 정보
-		global.custom_stage_map_name[i] = -4;
+		global.custom_stage_map_name[i] = "";
 		global.custom_stage_map_artist[i] = -4;
 		global.custom_stage_map_difficulty[i] = -4;
 		global.custom_map_duration[i] = -4;

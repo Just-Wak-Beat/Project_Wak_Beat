@@ -60,3 +60,8 @@ if (saved_n_stage >= 0)
 
 event_user(6)
 alarm[10] = 2
+
+
+//디스플레이 랭크 초기화
+global.b_hp = -4;
+global.b_crossed_obstacle_num = -4;

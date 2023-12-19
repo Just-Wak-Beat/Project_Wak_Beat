@@ -88,3 +88,4 @@ global.minimum_rank = check_player_skin(4)*6;  //단위 rank
 global.addition_invinc_time = check_player_skin(8)*60+check_player_skin(13)*60+check_player_skin(18)*60+check_player_skin(24)*60;  //단위 frame
 global.clear_bonus_score = check_player_skin(10)*5000+check_player_skin(25)*5000; //단위 score
 global.damaged_bonus_score = check_player_skin(2)*5000+check_player_skin(15)*5000;
+global.total_death_point = 0;

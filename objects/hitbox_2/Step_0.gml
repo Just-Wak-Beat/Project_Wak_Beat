@@ -15,6 +15,7 @@ if (global.timeline_stop != 1)
 		if (variable_instance_exists(id,"speed_"))
 		{
 			speed = speed_;
+			image_alpha = 1;
 		}
 	}
 	else
@@ -40,6 +41,10 @@ if (global.timeline_stop != 1)
 			instance_destroy()
 		}
 	}
+}
+else
+{
+	image_alpha = 0.35;
 }
 
 

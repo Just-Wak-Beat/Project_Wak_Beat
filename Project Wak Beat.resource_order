@@ -293,6 +293,7 @@
     {"name":"camera_effect_blackout","order":20,"path":"sprites/camera_effect_blackout/camera_effect_blackout.yy",},
     {"name":"changing_hitbox_color","order":5,"path":"objects/changing_hitbox_color/changing_hitbox_color.yy",},
     {"name":"get_dis_color","order":11,"path":"scripts/get_dis_color/get_dis_color.yy",},
+    {"name":"sign_nonzero","order":15,"path":"scripts/sign_nonzero/sign_nonzero.yy",},
     {"name":"map_edior_ui","order":3,"path":"objects/map_edior_ui/map_edior_ui.yy",},
     {"name":"LootLockerLeaderboardsDocumentation","order":3,"path":"notes/LootLockerLeaderboardsDocumentation/LootLockerLeaderboardsDocumentation.yy",},
     {"name":"spr_korea_univ","order":28,"path":"sprites/spr_korea_univ/spr_korea_univ.yy",},
