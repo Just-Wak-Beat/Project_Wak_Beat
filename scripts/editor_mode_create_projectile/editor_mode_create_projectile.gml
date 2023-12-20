@@ -48,10 +48,11 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
 			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.saved_alpha = 1;
 		break;
 	
 		case 1: //스파이크 폭발 탄막
-			var tmp_ins = create_spike_circle(argument1+(argument4-180)*50,argument2+(argument5-128)*50,argument1,argument2,floor(1+argument6),0,0,argument3);
+			var tmp_ins = create_spike_circle(argument1+(argument4-180)*50,argument2+floor((argument5-128)*50),argument1,argument2,floor(1+argument6),0,0,argument3);
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
 			tmp_ins.m_data_arg1 = argument4;
@@ -311,28 +312,21 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			}
 		break;
 	
-		case 14: //잡다한 화면 효과
-			if (instance_number(hitbox_vaious_effects) == 0)
-			{
-				var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
-				tmp_ins.projectile_type = argument0;
-				tmp_ins.m_data_arg0 = argument3;
-				tmp_ins.m_data_arg1 = 0;
-				tmp_ins.m_data_arg2 = argument5;
-				tmp_ins.m_data_arg3 = 0;
-				tmp_ins.m_data_arg4 = 0;
-				tmp_ins.m_data_arg5 = argument8;
-				tmp_ins.m_data_arg6 = argument9;
-				tmp_ins.m_data_arg7 = argument10;
-				tmp_ins.m_data_arg8 = argument11;
+		case 14: //배경 투명도
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = 0;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = 0;
+			tmp_ins.m_data_arg4 = 0;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 			
-				tmp_ins.ed_arg0 = (argument3-10)/10;
-				tmp_ins.ed_arg5 = argument8/255;
-			}
-			else
-			{
-				show_message_log("잡다한 화면 효과는 같은 타임라인에 1개만 지정 가능합니다");
-			}
+			tmp_ins.ed_arg0 = (argument3-10)/10;
+			tmp_ins.ed_arg5 = argument8/255;
 		break;
 	
 		case 15: //회전하는 탄막 자동 생성기
@@ -377,7 +371,7 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.sprite_index = tmp_spr___;
 		break;
 		
-		case 17: //화면 흔들림 효과
+		case 17: //카메라 지진 효과
 			with(hitbox_camera_zoom)
 			{
 				if (other.object_index == hitbox_camera_zoom)
@@ -409,7 +403,7 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			}
 			else
 			{
-				show_message_log("화면 흔들림 효과는 같은 타임라인에 1개만 지정 가능합니다");
+				show_message_log("카메라 지진 효과는 같은 타임라인에 1개만 지정 가능합니다");
 			}
 		break;
 	
@@ -432,6 +426,81 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			{
 				show_message_log("맵 이동 효과는 같은 타임라인에 1개만 지정 가능합니다");
 			}
+		break;
+		
+		case 19: //지정 위치 이동 탄막
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_21)
+			tmp_ins.image_angle = argument4;
+			tmp_ins.image_xscale = argument3;
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = argument4;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = floor((argument6-128)*50);
+			tmp_ins.m_data_arg4 = floor((argument7-128)*50);
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.sprite_index = tmp_spr___;
+		break;
+		
+		case 20: //이펙트 탄막
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_2)
+			tmp_ins.image_alpha = 0.5;
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = 0;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = 0;
+			tmp_ins.m_data_arg4 = 0;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.saved_alpha = 0.4;
+		break;
+		
+		case 21: //카메라 플래시 효과
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = 0;
+			tmp_ins.m_data_arg2 = 0;
+			tmp_ins.m_data_arg3 = 0;
+			tmp_ins.m_data_arg4 = 1;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+		break;
+		
+		case 22: //비 효과
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = 0;
+			tmp_ins.m_data_arg1 = 0;
+			tmp_ins.m_data_arg2 = 0;
+			tmp_ins.m_data_arg3 = 0;
+			tmp_ins.m_data_arg4 = 2;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
+		break;
+		
+		case 23: //화면 효과
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = 0;
+			tmp_ins.m_data_arg2 = 0;
+			tmp_ins.m_data_arg3 = 0;
+			tmp_ins.m_data_arg4 = 3;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = argument11;
 		break;
 	}
 }

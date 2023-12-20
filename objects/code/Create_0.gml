@@ -282,12 +282,12 @@ outside_of_window = -4
 automatic_reload_leaderboard = 0;
 
 	//리더보드
-	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"true","PWB_map1_1");
+	//LootLockerInitialize("dev_b49a5099c4ec48c69d8f6920b987c0a8",string(global.version),"활성화됨","PWB_map1_1");
 	reload_leaderboard_automatically = 0
 	//for(var i = 0; i < global.origin_total_map; i++)
 	//{
-	//	LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","PWB_map_"+string(i+1)+"_1");
-	//	LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"true","PWB_map_"+string(i+1)+"_2");
+	//	LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"활성화됨","PWB_map_"+string(i+1)+"_1");
+	//	LootLockerInitialize("prod_edc3e07f8c8b401c92e3e2ff77119d00",string(global.version_real),"활성화됨","PWB_map_"+string(i+1)+"_2");
 	//}
 
 

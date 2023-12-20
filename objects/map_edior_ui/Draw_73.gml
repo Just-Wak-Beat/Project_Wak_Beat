@@ -32,7 +32,7 @@ if (global.timeline_stop == 1)
 	{
 		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.35-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		var plus_str = (custom_image_type != 2) ? "\n탄막 이미지 변경 [좌/우 방향키]" : "";
-		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n세밀한 값 조절 [Shift+스크롤 바 좌클릭]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
 	
@@ -44,7 +44,7 @@ if (global.timeline_stop == 1)
 	}
 
 
-	var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "미사일 탄막" , "세이브 포인트 지정", "바운스 탄막", "카메라 효과", "잡다한 화면 효과 모음", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "화면 흔들림 효과", "맵 이동 효과", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "Unknown", "배치된 탄막 수정 ['마우스 가운데 휠 버튼'으로 바로 선택 가능]", "타임라인 플레이/일시정지" ];
+	var tmp_name = [ "이동 탄막", "스파이크 폭발 탄막", "레이저 탄막", "눈꽃 탄막", "지렁이 탄막", "화살표 레이저 탄막", "원형 폭발 탄막", "맵 밖에서 튀어나오는 탄막", "탄막색 변경" , "배경색 변경" , "미사일 탄막" , "세이브 포인트 지정", "바운스 탄막", "카메라 효과", "배경 투명도 변화", "회전하는 탄막 자동 생성기", "물 이펙트 탄막", "카메라 지진 효과", "맵 이동 효과", "지정 위치 이동 탄막", "이펙트 탄막", "화면 플래시 효과", "비 효과", "특수 카메라 효과", "Unknown", "Unknown", "Unknown", "배치된 탄막 수정 ['마우스 가운데 휠 버튼'으로 바로 선택 가능]", "타임라인 플레이/일시정지" ];
 	if (global.editor_selected_type >= 0)
 	{
 		draw_text_k_scale(xx+64,yy+yy_h*0.88+32-scroll_y,string(tmp_name[global.editor_selected_type]),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
@@ -63,7 +63,7 @@ if (global.timeline_stop == 1)
 
 for(var i = 0; i <= 28; i++) //탄막이 새로 추가되면 수정해야됨
 {
-	if ((global.editor_hitbox == -1 && (i <= 18 || i > 27)) || (global.editor_hitbox == 1 && ((instance_exists(n_selected) && i == 0) || i > 27)))
+	if ((global.editor_hitbox == -1 && (i <= 23 || i > 27)) || (global.editor_hitbox == 1 && ((instance_exists(n_selected) && i == 0) || i > 27)))
 	{
 		var tmp_xx = xx+(96+i*120)*global.converted_view_ratio;
 		var tmp_yy = yy+yy_h*0.88+(160-scroll_y)*global.converted_view_ratio;
@@ -236,11 +236,11 @@ for(var i = 0; i < 7; i++)
 		{
 			if (i == 1)
 			{
-				tmp_val -= 180;
+				tmp_val = floor((tmp_val-180)*50);
 			}
 			else if (i == 2)
 			{
-				tmp_val -= 128
+				tmp_val = floor((tmp_val-128)*50);
 			}
 		}
 		else if (global.editor_selected_type == 2)
@@ -387,6 +387,75 @@ for(var i = 0; i < 7; i++)
 				tmp_val = (tmp_val-180);
 			}
 		}
+		else if (global.editor_selected_type == 19)
+		{
+			if (i == 3 || i == 4)
+			{
+				tmp_val = floor((tmp_val-128)*50);
+			}
+		}
+		else if (global.editor_selected_type == 21)
+		{
+			if (i == 0)
+			{
+				tmp_val = round((tmp_val*12/100));
+			}
+		}
+		else if (global.editor_selected_type == 22)
+		{
+			if (i == 6)
+			{
+				tmp_val = (tmp_val == 1) ? "활성화됨" : "비활성화됨";
+			}
+		}
+		else if (global.editor_selected_type == 23)
+		{
+			if (i == 6)
+			{
+				tmp_val = (tmp_val == 1) ? "화면 흔들림 효과" : "블랙아웃 효과";
+			}
+			else if (i == 0)
+			{
+				if (global.ed_arg[6] == 1)
+				{
+					var tmp_val1 = round(tmp_val*12/100*3);
+					tmp_val = "x축으로만 흔들림";
+					if (tmp_val1 == 1)
+					{
+						tmp_val = "y축으로만 흔들림";
+					}
+					else if (tmp_val1 == 2)
+					{
+						tmp_val = "x,y축 모두 흔들림";
+					}
+				}
+				else
+				{
+					var tmp_val1 = round(tmp_val*12/100*4);
+					var tmp_val = "원형";
+					if (tmp_val1 == 1)
+					{
+						tmp_val = "상단";
+					}
+					else if (tmp_val1 == 2)
+					{
+						tmp_val = "우측";
+					}
+					else if (tmp_val1 == 3)
+					{
+						tmp_val = "하단";
+					}
+					else if (tmp_val1 == 4)
+					{
+						tmp_val = "좌측";
+					}
+				}
+			}
+		}
+		
+		
+		
+		
 		
 		var tmp_string = " ["+string(tmp_val)+"]";
 		var tmp_alpha = 1;

@@ -409,30 +409,13 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[6] = "포커스 활성화 (카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)";
 	break;
 	
-	case 14: //잡다한 화면 효과 모음
+	case 14: //배경 투명도 변화
 		if (selected_projectile_type == 1)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
 		}
 		global.ed_arg_name[0] = "배경 투명도 변화 (값이 클수록 빠르게 변화합니다)";
-		global.ed_arg_name[2] = "비 효과";
-		if (global.ed_arg[6] == 1)
-		{
-			global.ed_arg_name[5] = "플래시 효과 밝기 정도";
-		}
-		else
-		{
-			global.ed_arg_name[5] = "";
-			with(obj_button)
-			{
-				if (button_id == 105)
-				{
-					instance_destroy();
-				}
-			}
-		}
-		global.ed_arg_name[6] = "플래시 효과 활성화"
 	break;
 	
 	case 15: //회전하는 탄막 자동 생성기
@@ -498,6 +481,82 @@ switch(global.editor_selected_type)
 		global.ed_arg_name[0] = "x축 속도";
 		global.ed_arg_name[1] = "y축 속도";
 		global.ed_arg_name[6] = "부드럽게 속도 변화";
+	break;
+	
+	case 19: //지정 위치 이동 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[3] = floor(global.ed_arg[3]);
+		global.ed_arg[4] = floor(global.ed_arg[4]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_ind = 0;
+			custom_image_type = 0;
+			selected_projectile_type = 0;
+		}
+		image_angle = global.ed_arg[1]-180;
+		image_alpha = 0.4;
+		global.ed_arg_name[0] = "크기";
+		global.ed_arg_name[1] = "각도";
+		global.ed_arg_name[2] = "이동 속력";
+		global.ed_arg_name[3] = "이동할 위치 (x축)";
+		global.ed_arg_name[4] = "이동할 위치 (y축)";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초, 0프레임 = 무한 지속)";
+	break;
+	
+	case 20: //이펙트 탄막
+		global.ed_arg[1] = floor(global.ed_arg[1]);
+		global.ed_arg[2] = floor(global.ed_arg[2]);
+		global.ed_arg[5] = floor(global.ed_arg[5]);
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+		if (selected_projectile_type == 1)
+		{
+			custom_image_ind = 0;
+			custom_image_type = 0;
+			selected_projectile_type = 0;
+		}
+		image_angle = global.ed_arg[1]-180;
+		image_alpha = 0.5;
+		image_blend = #7da7d9;
+		global.ed_arg_name[0] = "크기";
+		global.ed_arg_name[1] = "각도";
+		global.ed_arg_name[2] = "속력";
+		global.ed_arg_name[5] = "지속시간 (60프레임 = 1초, 0프레임 = 무한 지속)";
+	break;
+	
+	case 21: //화면 플래시 효과
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
+		image_alpha = 1;
+		global.ed_arg_name[0] = "플래시 밝기";
+	break;
+	
+	case 22: //비효과
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
+		image_alpha = 1;
+		global.ed_arg_name[6] = "비 이펙트";
+	break;
+	
+	case 23: //특수 카메라 효과
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
+		image_alpha = 1;
+		global.ed_arg_name[0] = "효과 방향";
+		global.ed_arg_name[6] = "설정된 효과 종류";
 	break;
 }
 

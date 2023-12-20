@@ -78,6 +78,7 @@
     {"id":{"name":"hitbox_14","path":"objects/hitbox_14/hitbox_14.yy",},},
     {"id":{"name":"ipad","path":"sounds/ipad/ipad.yy",},},
     {"id":{"name":"spr_star","path":"sprites/spr_star/spr_star.yy",},},
+    {"id":{"name":"hitbox_21","path":"objects/hitbox_21/hitbox_21.yy",},},
     {"id":{"name":"spr_triangle","path":"sprites/spr_triangle/spr_triangle.yy",},},
     {"id":{"name":"draw_text_kl_scale","path":"scripts/draw_text_kl_scale/draw_text_kl_scale.yy",},},
     {"id":{"name":"hitbox_17","path":"objects/hitbox_17/hitbox_17.yy",},},

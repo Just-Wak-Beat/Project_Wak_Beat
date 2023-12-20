@@ -33,7 +33,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_various_effect",
+    "path": "sprites/spr_various_effect/spr_various_effect.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

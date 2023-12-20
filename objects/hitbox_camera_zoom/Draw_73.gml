@@ -15,10 +15,10 @@ if (global.timeline_stop == 1)
 		
 		if (m_data_arg7 != -999)
 		{
-			var tmp_str2 = "false"
+			var tmp_str2 = "비활성화됨"
 			if (m_data_arg6 == 1)
 			{
-				tmp_str2 = "true"
+				tmp_str2 = "활성화됨"
 			}
 		
 			draw_text_k_scale(x,y+64,"x : "+string(floor(x))+"\ny : "+string(floor(y))+"\n카메라 줌 : "+string(floor((50+m_data_arg0*12*0.65)))+"%\n1프레임당 "+string(floor((m_data_arg1-180)/10)/200)+"%씩 확대\n카메라 포커스 : "+string(tmp_str2),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)

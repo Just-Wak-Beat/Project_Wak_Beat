@@ -30,6 +30,30 @@ for(var i = 0; i < 2; i++)
 				if (status == "success")
 				{
 					global.gmscoreboard_scores[i] = result[? "scores"];
+					
+
+					if !ds_list_empty(global.gmscoreboard_scores[i])
+					{
+						var tmp_list = ds_list_find_value(global.gmscoreboard_scores[global.player_leaderboard_difficulty], ds_list_size(global.gmscoreboard_scores[i])-1);
+						var temp_score = tmp_list[? "score"];
+						if (temp_score == "" || temp_score == " " || temp_score == "0" || temp_score == "1" || temp_score == 1 || temp_score == 0)
+						{
+							temp_score = 0;
+						}
+						else
+						{
+							temp_score = real(temp_score);
+						}
+						
+						if (i == 0)
+						{
+							global.top_ten_score_normal = temp_score;
+						}
+						else
+						{
+							global.top_ten_score_hardcore = temp_score;
+						}
+					}
 				}
 			}
 		}

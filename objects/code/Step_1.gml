@@ -40,7 +40,10 @@ if (gamestart == 1)
 	{
 		show_message_log("스테이지 파일을 불러오는데 오류가 발생했습니다! [가이드 라인 이동합니다]");
 		
-		url_open("https://github.com/Just-Wak-Beat/Project_Wak_Beat/blob/main/Guideline%20for%20Custom%20User%20Stage.md");
+		if (global.play_custom_map == 1)
+		{
+			url_open("https://github.com/Just-Wak-Beat/Project_Wak_Beat/blob/main/Guideline%20for%20Custom%20User%20Stage.md");
+		}
 	}
 	else if (automatic_loading_cancel == 1)
 	{
@@ -113,11 +116,8 @@ if (!window_has_focus())
 			if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
 			{
 				event_user(2);
+				
 			}
-		}
-		else
-		{
-			global.master_volume = 0;
 		}
 	}
 }
@@ -125,10 +125,6 @@ else
 {
 	if (outside_of_window != -4)
 	{
-		if (global.map_editor != 1 && obj_player.image_xscale <= 0)
-		{
-			global.master_volume = outside_of_window;
-		}
 		outside_of_window = -4;
 	}
 }

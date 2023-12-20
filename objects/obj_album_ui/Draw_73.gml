@@ -825,7 +825,7 @@ if instance_exists(code)
 				tmp_target_score = (global.n_score_hardcore[global.n_map_id] == "--") ? 0 : global.n_score_hardcore[global.n_map_id];
 				tmp_val2 = tmp_target_score/global.top_ten_score_hardcore;
 				tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
-				tmp_str2 = (tmp_val2 != 1) ? "유저 랭킹 Top10까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_hardcore - tmp_target_score))+"점!" : "유저 랭킹 Top10 달성!";
+				tmp_str2 = (tmp_val2 != 1) ? "유저 랭킹 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_hardcore - tmp_target_score))+"점!" : "유저 랭킹 Top5 달성!";
 			}
 			else
 			{
@@ -833,7 +833,7 @@ if instance_exists(code)
 				tmp_target_score = (global.n_score[global.n_map_id] == "--") ? 0 : global.n_score[global.n_map_id];
 				tmp_val2 = tmp_target_score/global.top_ten_score_normal;
 				tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
-				tmp_str2 = (tmp_val2 != 1) ? "유저 랭킹 Top10까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "유저 랭킹 Top10 달성!";
+				tmp_str2 = (tmp_val2 != 1) ? "유저 랭킹 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "유저 랭킹 Top5 달성!";
 			}
 						
 			if (can_show_top_ten == 1)

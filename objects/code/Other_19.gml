@@ -5,6 +5,7 @@ automatic_leaderboard_cancle = 0;
 var my_ranking_num = 0;
 if !ds_list_empty(global.gmscoreboard_scores[global.player_leaderboard_difficulty])
 {
+	//show_message_log("ds_list_size : "+string(ds_list_size(global.gmscoreboard_scores[global.player_leaderboard_difficulty])))
 	for(var i = 0; i < ds_list_size(global.gmscoreboard_scores[global.player_leaderboard_difficulty]); i++)
 	{
 		show_debug_message("랭킹 불러오기 : "+string(i))
@@ -31,7 +32,7 @@ if !ds_list_empty(global.gmscoreboard_scores[global.player_leaderboard_difficult
 			my_ranking_num = i+1;
 		}
 		
-		if (i < 10)
+		if (i < 9)
 		{
 			decode_nametag(temp_name);
 			var temp_real_name = global.nametag_script_return0;
@@ -49,7 +50,11 @@ if !ds_list_empty(global.gmscoreboard_scores[global.player_leaderboard_difficult
 
 if (my_ranking_num == 0)
 {
-	my_ranking_num = "--";
+	my_ranking_num = "순위권 밖]";
+}
+else
+{
+	my_ranking_num = string(my_ranking_num)+"위]";
 }
 
 decode_nametag(global.nickname);
@@ -58,9 +63,12 @@ var temp_text_code = global.nametag_script_return1;
 var text_code_col = global.nametag_script_return2;
 var	add_nametag = global.nametag_script_return3;
 var temp_score = (global.player_leaderboard_difficulty == 0) ? global.total_score_normal : global.total_score_hardcore;
-global.unlocked_music_name_new_list[11] = "[내 순위] "+string(my_ranking_num)+". "+string(temp_real_name+add_nametag);
-global.unlocked_music_name_new_list_rightside[11] = string(convert_score_to_rank(temp_score,1))+" | "+string(numbers_with_comma(temp_score));
-global.unlocked_music_name_new_list_color[11] = text_code_col;
+global.unlocked_music_name_new_list[7] = "___";
+global.unlocked_music_name_new_list[8] = "[현재 내 순위 - "+string(my_ranking_num);
+global.unlocked_music_name_new_list_color[8] = $FF56D2FF;
+global.unlocked_music_name_new_list[9] = string(temp_real_name+add_nametag);
+global.unlocked_music_name_new_list_rightside[9] = string(convert_score_to_rank(temp_score,1))+" | "+string(numbers_with_comma(temp_score));
+global.unlocked_music_name_new_list_color[9] = text_code_col;
 
-
+global.new_unlocked_map_num = 10;
 

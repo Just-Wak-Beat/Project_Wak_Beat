@@ -13,14 +13,16 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"10495920-1524-4334-b37b-90e98fe9f1b5",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c37b69ce-6a99-452e-966c-9db65fae7e14",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8c3adfd6-0a8a-4470-bc54-5035aefd5be6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bb6bd009-3340-44ff-b91d-5123206f7945",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 2016,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a74d49d4-9545-42db-9ca1-d626c27a173e","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"f2ba891b-a4cd-4562-b3fb-c77a98b3bf22","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -43,7 +45,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 1.0,
+    "length": 3.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -54,7 +56,9 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"10495920-1524-4334-b37b-90e98fe9f1b5","path":"sprites/camera_effect_blackout/camera_effect_blackout.yy",},},},"Disabled":false,"id":"a45a2738-f62a-4335-a050-b9f45ce77b7b","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c37b69ce-6a99-452e-966c-9db65fae7e14","path":"sprites/camera_effect_blackout/camera_effect_blackout.yy",},},},"Disabled":false,"id":"a8268000-7d5d-450f-8cf6-7b1201e4c2ce","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8c3adfd6-0a8a-4470-bc54-5035aefd5be6","path":"sprites/camera_effect_blackout/camera_effect_blackout.yy",},},},"Disabled":false,"id":"a1e4d687-2299-42ac-aa66-1d7e9e613f3a","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bb6bd009-3340-44ff-b91d-5123206f7945","path":"sprites/camera_effect_blackout/camera_effect_blackout.yy",},},},"Disabled":false,"id":"c9fd16c2-7e1e-4bc6-af3c-e352d419cae2","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

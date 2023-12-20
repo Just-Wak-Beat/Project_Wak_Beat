@@ -93,34 +93,21 @@ function draw_text_kl_scale(argument0, argument1, argument2, argument3, argument
 
 		draw_set_color($FF191919&$ffffff);
 		
-			if argument10 > 0.5
-			{
-				for(var i = 1; i <= 3; i += 1)
-				{
-				//i = argument10
-				draw_text_ext_transformed(argument0+i,argument1+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
-				draw_text_ext_transformed(argument0,argument1+i+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
-				draw_text_ext_transformed(argument0-i,argument1+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
-				draw_text_ext_transformed(argument0,argument1-i+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
-				}
-			}
-			else
-			{
-				for(var i = 1; i < 1.5; i+= argument10*1.5)
-				{
-				//i = argument10
-				draw_text_ext_transformed(argument0+i,argument1+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
-				draw_text_ext_transformed(argument0,argument1+i+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
-				draw_text_ext_transformed(argument0-i,argument1+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
-				draw_text_ext_transformed(argument0,argument1-i+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
-				}
-			}
-		
+
+		for(var i = 1; i <= 3*global.converted_view_ratio; i += global.converted_view_ratio)
+		{
+			//i = argument10
+			draw_text_ext_transformed(argument0+i,argument1+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
+			draw_text_ext_transformed(argument0,argument1+i+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
+			draw_text_ext_transformed(argument0-i,argument1+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
+			draw_text_ext_transformed(argument0,argument1-i+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
+		}
 
 
-	//컬러설정
-	draw_set_color(argument6&$ffffff);
-	draw_text_ext_transformed(argument0,argument1+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
+
+		//컬러설정
+		draw_set_color(argument6&$ffffff);
+		draw_text_ext_transformed(argument0,argument1+argument11*32,argument2,argument3,argument4,argument10*global.converted_view_ratio,argument11*global.converted_view_ratio,argument12);
 	}
 
 

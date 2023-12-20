@@ -15,7 +15,7 @@ if (global.timeline_stop != 1)
 		if (variable_instance_exists(id,"speed_"))
 		{
 			speed = speed_;
-			image_alpha = 1;
+			image_alpha = saved_alpha;
 		}
 	}
 	else
@@ -44,7 +44,14 @@ if (global.timeline_stop != 1)
 }
 else
 {
-	image_alpha = 0.35;
+	if (variable_instance_exists(id,"speed_"))
+	{
+		image_alpha = 0.35;
+		if (saved_alpha < 1)
+		{
+			image_blend = #7da7d9;
+		}
+	}
 }
 
 
