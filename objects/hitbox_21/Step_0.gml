@@ -8,7 +8,7 @@ y += global.map_speed_y;
 if (global.timeline_stop != 1)
 {
 	image_alpha = 1;
-	if (des_time != 0)
+	if (m_data_arg5 != 0)
 	{
 		timer ++;
 	}
@@ -34,7 +34,7 @@ else
 }
 
 
-if (timer > des_time)
+if (timer > m_data_arg5)
 {
 	instance_destroy()
 }

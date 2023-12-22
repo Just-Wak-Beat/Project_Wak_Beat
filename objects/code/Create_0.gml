@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "7.01";
+global.version_real = "7.1";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1;
 global.streamer = 0;
@@ -665,7 +665,7 @@ global.yuha_effect3 = 0
 //Happy Gosegu Sencho!
 global.real_stage_map_name[16] = "Happy Gosegu Sencho!";
 global.real_stage_map_artist[16] = "피젯스피니 FidgetSpinny";
-global.real_stage_map_difficulty[16] = "Experts (Boss)";
+global.real_stage_map_difficulty[16] = "Expert (Boss)";
 global.real_stage_map_color[16] = #52bcfe;
 global.real_stage_map_duration[16] = 7480;
 global.real_stage_map_audio_name[16] = "happysegu";
@@ -684,7 +684,7 @@ global.happysegu_effect_pattern = [1,2,1,1,2,1,2,2];
 //fans
 global.real_stage_map_name[17] = "팬서비스 (Cover by 고세구 GOSEGU)";
 global.real_stage_map_artist[17] = "Original by HoneyWorks";
-global.real_stage_map_difficulty[17] = "Experts";
+global.real_stage_map_difficulty[17] = "Expert";
 global.real_stage_map_color[17] = #363d5a;
 global.real_stage_map_duration[17] = 7480;
 global.real_stage_map_audio_name[17] = "fans";
@@ -757,7 +757,7 @@ global.real_requirement_level[21] = 5;
 //락다운
 global.real_stage_map_name[22] = "Lockdown (락다운)";
 global.real_stage_map_artist[22] = "Remix by Mitsutoki";
-global.real_stage_map_difficulty[22] = "Experts (Boss)";
+global.real_stage_map_difficulty[22] = "Expert (Boss)";
 global.real_stage_map_color[22] = c_black;
 global.real_stage_map_duration[22] = 4530;
 global.real_stage_map_audio_name[22] = "lockdown";

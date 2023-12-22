@@ -900,7 +900,7 @@
 					}
 					var attack_ef = instance_create_depth(random_x,random_y,hitbox_8.depth+1,hitbox_2);
 					attack_ef.direction = point_direction(random_x,random_y,hitbox_8.x,hitbox_8.y);
-					attack_ef.sprite_index = spr_circle_spike
+					attack_ef.sprite_index = spr_cross;
 					attack_ef.speed = irandom_range(10,14);
 					attack_ef.keep_spin_angle = 2;
 					attack_ef.image_xscale = 0.4;
@@ -914,13 +914,15 @@
 		
 		if (global.lockdown_effect2 > 0 && instance_exists(pipe_ef))
 		{
-			for(var i = -45; i <= 45; i += 45)
-			{
-				var tmp_angle = pipe_ef.direction+90+i;
-				var laser_tmp = create_laser(spike_ef.x,spike_ef.y,50,12,1,2,1,tmp_angle-90);
-				laser_tmp.auto_angle = pipe_ef;
-				laser_tmp.auto_angle_plusment = i;
-				create_arrow_laser(spike_ef.x+lengthdir_x(400,tmp_angle),spike_ef.y+lengthdir_y(400,tmp_angle),obj_player.depth-15,0.8,tmp_angle,96,true,10,50);
+			for(var i = 0; i <= 360; i += 60)
+			{				
+				var _ins__ = create_projectile(spike_ef.x,spike_ef.y,1.7,0,0,0,0,0,spr_hexagon_half)
+				_ins__.direction = 180+spike_ef.image_angle-90+i;
+				_ins__.speed = 0;
+				_ins__.image_angle = spike_ef.image_angle+i;
+				_ins__.image_blend = global.map_color;
+				_ins__.w_alpha = 10;
+				_ins__.none_color_change = 1;
 			}
 			global.lockdown_effect2 = 0;
 		}
@@ -1142,11 +1144,19 @@
 				{
 					if (lockdown_pattern_shoot[lockdown_pattern_s_timer] == 1)
 					{
-						for(var i = -45; i <= 45; i += 45)
-						{
-							var tmp_angle = pipe_ef.direction+90+i;
-							create_arrow_laser(spike_ef.x+lengthdir_x(400,tmp_angle),spike_ef.y+lengthdir_y(400,tmp_angle),obj_player.depth-15,0.8,tmp_angle,96,true,10,1);
+						for(var i = 0; i <= 120; i += 60)
+						{				
+							var _ins__ = create_projectile(spike_ef.x,spike_ef.y,spike_ef.image_xscale*1.1,0,0,0,0,0,spr_hexagon_half)
+							_ins__.direction = 180+spike_ef.image_angle-90+i;
+							_ins__.speed = global.map_speed_y;
+							_ins__.image_angle = spike_ef.image_angle+i;
+							_ins__.image_blend = global.map_color;
+							_ins__.w_alpha = 10;
+							_ins__.none_color_change = 1;
+							_ins__.none_map_speed = 1;
 						}
+
+
 						if (lockdown_pattern_s_timer == 1)
 						{
 							lockdown_pattern_d_timer++;

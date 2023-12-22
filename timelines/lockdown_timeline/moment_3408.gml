@@ -1,4 +1,4 @@
-spike_ef.t_scale = 0.85;
+spike_ef.t_scale = 1.7;
 pipe_ef.direction = 0;
 spike_ef.x = room_width*0.5;
 spike_ef.t_x = room_width*0.5;

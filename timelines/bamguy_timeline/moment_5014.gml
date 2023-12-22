@@ -15,6 +15,7 @@ _misile_.image_angle = 180
 _misile_.speed = (64+4)*scale/5
 
 global.run_shake_effect = 0
+global.blackout_effect = 0;
 with(hitbox_17)
 {
 	shake_effect = 0;

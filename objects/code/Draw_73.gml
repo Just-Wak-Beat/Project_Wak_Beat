@@ -851,25 +851,56 @@ if global.joystick_alpha > 0.01
 if (global.blackout_effect_alpha > 0)
 {
 	var tmp_ind_val = 0, tmp_xscale = 1, tmp_yscale = 1;
+	var tmp_xx_ef = 0, tmp_yy_ef = 0, grav_dir = -4;
 	if (global.blackout_effect == 2)
 	{
 		tmp_ind_val = 1;
+		tmp_xx_ef = irandom_range(global.c_x,global.c_w);
+		tmp_yy_ef = global.c_y;
+		grav_dir = 90+irandom_range(-5,5);
 	}
 	else if (global.blackout_effect == 3)
 	{
 		tmp_ind_val = 2;
+		tmp_xx_ef = global.c_w;
+		tmp_yy_ef = irandom_range(global.c_y,global.c_h);
+		grav_dir = irandom_range(-5,5);
 	}
 	else if (global.blackout_effect == 4)
 	{
 		tmp_ind_val = 1;
 		tmp_yscale = -1;
+		tmp_xx_ef = irandom_range(global.c_x,global.c_w);
+		tmp_yy_ef = global.c_h;
+		grav_dir = 270+irandom_range(-5,5);
 	}
 	else if (global.blackout_effect == 5)
 	{
 		tmp_ind_val = 2;
 		tmp_xscale = -1;
+		tmp_xx_ef = global.c_x;
+		tmp_yy_ef = irandom_range(global.c_y,global.c_h);
+		grav_dir = 180+irandom_range(-5,5);
 	}
-	draw_sprite_ext(camera_effect_blackout,tmp_ind_val,xx-global.real_shake_x,yy-global.real_shake_y,global.n_camera_zoom*tmp_xscale,global.n_camera_zoom*tmp_yscale,0,c_white,global.blackout_effect_alpha*0.3)
+	
+	if (global.low_graphics != 1 && grav_dir != -4)
+	{
+		repeat(irandom_range(1,3))
+		{
+			var ef_ = instance_create_depth(tmp_xx_ef,tmp_yy_ef,depth-99,hitbox_2)
+			ef_.image_alpha = 0.99;
+			ef_.gravity = 0.35;
+			ef_.gravity_direction = grav_dir;
+			ef_.vspeed = -irandom_range(5,10);
+			ef_.keep_spin_angle = 2
+			ef_.image_xscale = 0.4
+			ef_.image_yscale = 0.4
+			ef_.w_alpha = 0;
+			ef_.none_color_change = 1;
+			ef_.image_blend = c_black;
+		}
+	}
+	draw_sprite_ext(camera_effect_blackout,tmp_ind_val,xx-global.real_shake_x,yy-global.real_shake_y,global.n_camera_zoom*tmp_xscale,global.n_camera_zoom*tmp_yscale,0,c_white,global.blackout_effect_alpha*0.3 + (global.blackout_effect > 1) ? 0.7 : 0)
 }
 
 

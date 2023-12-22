@@ -53,7 +53,7 @@ else
 
 
 
-if (sprite_index == spr_circle_spike)
+if (sprite_index == spr_hexagon)
 {
 	if (instance_number(hitbox_8) == 1)
 	{

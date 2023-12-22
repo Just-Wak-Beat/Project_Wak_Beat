@@ -4,3 +4,4 @@ global.w_alpha = 1
 
 
 global.run_shake_effect = 1
+global.blackout_effect = 5;

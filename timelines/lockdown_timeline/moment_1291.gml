@@ -24,5 +24,5 @@ if (global.total_died_here > 0)
 	spike_ef.t_y = room_height*0.5;
 	spike_ef.image_xscale = 0;
 	spike_ef.image_yscale = 0;
-	spike_ef.sprite_index = spr_circle_spike
+	spike_ef.sprite_index = spr_hexagon
 }

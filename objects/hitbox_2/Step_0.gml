@@ -1,7 +1,24 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if gravity = 0
+
+if ((sprite_index == spr_triangle_half || sprite_index == spr_hexagon_half) && global.play_custom_map != 1)
+{
+	image_xscale += 0.05
+	image_yscale += 0.05
+	
+	if (sprite_index == spr_hexagon_half)
+	{
+		speed += (1280 - speed)*0.001;
+	}
+}
+
+
+
+
+
+
+if (gravity == 0 || variable_instance_exists(id,"none_map_speed"))
 {
 	x -= global.map_speed
 	y += global.map_speed_y
@@ -82,15 +99,9 @@ if (timer > 120)
 	}
 }
 
-if (sprite_index == spr_circle_half)
-{
-	image_xscale += 0.05
-	image_yscale += 0.05
-}
 
 
-
-if (audio_is_playing(lockdown) && global.map_speed_y <= 1)
+if (global.n_progress < 1600 && audio_is_playing(lockdown) && global.map_speed_y <= 1)
 {
 	if (image_xscale > 0)
 	{
@@ -137,6 +148,10 @@ if (center_destroy == 1)
 		instance_destroy()
 	}
 }
+
+
+
+
 
 
 

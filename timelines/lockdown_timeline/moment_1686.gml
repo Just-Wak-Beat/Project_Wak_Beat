@@ -1,4 +1,5 @@
 spike_ef.t_y = room_height*0.5
+spike_ef.t_scale = 1.4
 global.lockdown_effect1 = 0
 instance_destroy(hitbox_2)
 global.w_alpha = 1
@@ -7,7 +8,7 @@ pipe_ef.t_x = -4;
 pipe_ef.t_y = spike_ef;
 pipe_ef.image_xscale = 0;
 pipe_ef.image_yscale = 0;
-pipe_ef.sprite_index = spr_pipe;
+pipe_ef.sprite_index = spr_empty;
 global.t_bg_color = -10
 set_hitbox_color(#df1a62,1,room_width*0.5,room_height*0.5);
 
