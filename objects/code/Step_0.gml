@@ -171,7 +171,7 @@ if global.joystick_activated != -1
 
 if global.mobile_mode = 1 && global.sync_setting = 0
 {
-	for(var i = 0; i < 4; i++)
+	for(var i = 0; i < 6; i++)
 	{
 		var is_click = device_mouse_check_button_pressed(i, mb_left);
 		if device_mouse_check_button(i, mb_left)
@@ -236,7 +236,7 @@ if global.mobile_mode = 1 && global.sync_setting = 0
 			global.hmove = 0
 		}
 		
-		if is_clicked_scroll
+		if (is_clicked_scroll)
 		{
 			global.t_select_map = round(global.t_select_map)
 			global.scroll_activated = -1

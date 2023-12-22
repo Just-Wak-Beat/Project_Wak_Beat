@@ -3,7 +3,6 @@
 
 
 global.editor_hitbox = -1;
-global.editor_selected_type = 20;
 if (n_selected.object_index == hitbox_15) //지렁이 탄막 지우기
 {
 	for(var i = 1; i < n_selected.body_num; i++)

@@ -27,14 +27,15 @@ if (global.title_menu_animation1 == -1)
 		}
 	}
 	
-	if global.n_map_list < 0
+	var tmp_max_list = 5;
+	if (global.n_map_list < 0)
 	{
-		global.n_map_list = 3
+		global.n_map_list = tmp_max_list;
 	}
 	
-	if global.n_map_list > 3
+	if (global.n_map_list > tmp_max_list)
 	{
-		global.n_map_list = 0
+		global.n_map_list = 0;
 	}
 	
 

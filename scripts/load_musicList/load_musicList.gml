@@ -90,17 +90,33 @@ function load_musicList(argument0)
 			global.requirement_level[i] = global.custom_requirement_level[i];
 		}
 	}
-	else if (argument0 == 3)
+	else if (argument0 == 3 || argument0 == 4 || argument0 == 5)
 	{
 		var correction = 0, total_num = 0;
 	
 	
 		for(var k = 0; k < global.origin_total_map; k++)
 		{
-			if (global.level >= global.real_requirement_level[k])
+			var tmp_cond = 0;
+			if (argument0 == 3 && global.level >= global.real_requirement_level[k])
+			{
+				tmp_cond = 1;
+			}
+			
+			if (argument0 == 4 && k >= global.filter_song_wakgood[0] && k <= global.filter_song_wakgood[1])
+			{
+				tmp_cond = 1;
+			}
+			
+			if (argument0 == 5 && k >= global.filter_song_isedol[0] && k <= global.filter_song_isedol[1])
+			{
+				tmp_cond = 1;
+			}
+			
+			if (tmp_cond == 1)
 			{
 				var kk = k-correction;
-				global.unlocked_map_id[kk] = k
+				global.map_id_origin[kk] = k
 				//기존 모든 곡 항목에서 좋아하는 곡 목록으로 데이터 복사
 				global.stage_map_name[kk] = global.real_stage_map_name[k];
 				global.stage_map_artist[kk] = global.real_stage_map_artist[k];
@@ -127,12 +143,38 @@ function load_musicList(argument0)
 				correction++;
 			}
 		}
-		global.total_map = total_num
+		global.total_map = total_num;
 	}
+
 	
 	
 	if (global.b_map_list != global.n_map_list)
 	{
+		var tmp_str = "모든 곡";
+		if (global.n_map_list == 1)
+		{
+			tmp_str = "좋아요 한 곡";
+		}
+		else if (global.n_map_list == 2)
+		{
+			tmp_str = "유저 제작 커스텀 곡";
+		}
+		else if (global.n_map_list == 3)
+		{
+			tmp_str = "해금 된 곡";
+		}
+		else if (global.n_map_list == 4)
+		{
+			tmp_str = "[곡 필터링] 우왁굳";
+		}
+		else if (global.n_map_list == 5)
+		{
+			tmp_str = "[곡 필터링] 이세계아이돌";
+		}
+
+		np_setpresence_more("", "메인 매뉴", false);
+		np_setpresence(string(tmp_str), "메인 매뉴", "type0", "");
+		
 		n_stage = 0
 		saved_n_stage = 2
 		global.n_map_id = 0
@@ -151,7 +193,7 @@ function load_musicList(argument0)
 		
 		
 		//커스텀 유저맵 가이드라인
-		if (global.n_map_list == 2)
+		if (global.n_map_list == 2 && global.guide_showed[3] != 1)
 		{
 			show_guide("주의! - 커스텀 유저 맵");
 		}

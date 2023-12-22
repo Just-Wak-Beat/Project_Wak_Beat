@@ -1,6 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+if (delete_current_map > 0)
+{
+	delete_current_map -= 0.01;
+}
 
 
 if (keyboard_check(vk_anykey) || global.touch_to_skip == 1)

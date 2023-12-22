@@ -133,15 +133,19 @@ if (global.n_map_list != 2)
 else
 {
 	//버튼
-	draw_sprite_ext(spr_gear,0,global.c_x+85,global.c_y+1430+16,0.17*global.font_ratio_resolution_xx*0.85,0.17*0.85,0,c_black,0.3*ui_alpha__cal)
-	draw_sprite_ext(spr_gear,0,global.c_x+130,global.c_y+1450+16,0.1*global.font_ratio_resolution_xx*0.85,0.1*0.85,0,c_black,0.3*ui_alpha__cal)
-	draw_sprite_ext(spr_gear,0,global.c_x+85,global.c_y+1430,0.17*global.font_ratio_resolution_xx*0.85,0.17*0.85,0,c_white,ui_alpha__cal)
-	draw_sprite_ext(spr_gear,0,global.c_x+130,global.c_y+1450,0.1*global.font_ratio_resolution_xx*0.85,0.1*0.85,0,c_white,ui_alpha__cal)
-	draw_text_k_scale(global.c_x+104,global.c_y+1470,"커스텀 맵\n편집"+((global.mobile_mode == 1) ? "" : "\n[M]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
+	draw_sprite_ext(spr_gear,0,global.c_x+85,global.c_y+1180+16,0.17*global.font_ratio_resolution_xx*0.85,0.17*0.85,0,c_black,0.3*ui_alpha__cal)
+	draw_sprite_ext(spr_gear,0,global.c_x+130,global.c_y+1200+16,0.1*global.font_ratio_resolution_xx*0.85,0.1*0.85,0,c_black,0.3*ui_alpha__cal)
+	draw_sprite_ext(spr_gear,0,global.c_x+85,global.c_y+1180,0.17*global.font_ratio_resolution_xx*0.85,0.17*0.85,0,c_white,ui_alpha__cal)
+	draw_sprite_ext(spr_gear,0,global.c_x+130,global.c_y+1200,0.1*global.font_ratio_resolution_xx*0.85,0.1*0.85,0,c_white,ui_alpha__cal)
+	draw_text_k_scale(global.c_x+104,global.c_y+1220,"커스텀 맵\n편집"+((global.mobile_mode == 1) ? "" : "\n[M]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
 	
-	draw_sprite_ext(spr_add,0,global.c_x+312,global.c_y+1430+16,global.font_ratio_resolution_xx*0.85,0.85,0,c_black,0.3*ui_alpha__cal)
-	draw_sprite_ext(spr_add,0,global.c_x+312,global.c_y+1430,global.font_ratio_resolution_xx*0.85,0.85,0,c_white,ui_alpha__cal)
-	draw_text_k_scale(global.c_x+312,global.c_y+1470,"새로운\n커스텀 맵\n생성"+((global.mobile_mode == 1) ? "" : "\n[N]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
+	draw_sprite_ext(spr_add,0,global.c_x+312,global.c_y+1180+16,global.font_ratio_resolution_xx*0.85,0.85,0,c_black,0.3*ui_alpha__cal)
+	draw_sprite_ext(spr_add,0,global.c_x+312,global.c_y+1180,global.font_ratio_resolution_xx*0.85,0.85,0,c_white,ui_alpha__cal)
+	draw_text_k_scale(global.c_x+312,global.c_y+1220,"새로운\n커스텀 맵\n생성"+((global.mobile_mode == 1) ? "" : "\n[N]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
+	
+	draw_sprite_ext(spr_trash,0,global.c_x+104,global.c_y+1470+16,global.font_ratio_resolution_xx*0.85,0.85,0,c_black,0.3*ui_alpha__cal)
+	draw_sprite_ext(spr_trash,0,global.c_x+104,global.c_y+1470,global.font_ratio_resolution_xx*0.85,0.85,0,c_white,ui_alpha__cal)
+	draw_text_k_scale(global.c_x+104,global.c_y+1510,"커스텀 맵\n삭제"+((global.mobile_mode == 1) ? "" : "\n[Alt + Del]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
 }
 
 
@@ -180,25 +184,35 @@ draw_sprite_ext(spr_triangle,0,__xx,_____yy2+640+(cal____yy2),0.1*global.font_ra
 
 
 
-if global.n_map_list = 0
+if (global.n_map_list == 0)
 {
 	draw_sprite_ext(spr_music,0,__xx-75,______yy+52,0.2*0.85,0.2*0.85,-15,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
 	draw_text_k_scale(__xx+25,______yy+24,"모든 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
 }
-if global.n_map_list = 1
+else if (global.n_map_list == 1)
 {
 	draw_sprite_ext(spr_heart,0,__xx-108,______yy+58,0.1*0.85,0.1*0.85,0,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
 	draw_text_k_scale(__xx+25,______yy+24,"좋아요 한 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
 }
-if global.n_map_list = 2
+else if (global.n_map_list == 2)
 {
 	draw_sprite_ext(spr_triangle_empty_bold,0,__xx-180,______yy+58,0.12*0.85,0.12*0.85,15,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
 	draw_text_k_scale(__xx+25,______yy+24,"유저 제작 커스텀 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
 }
-if global.n_map_list = 3
+else if (global.n_map_list == 3)
 {
 	draw_sprite_ext(spr_lock,1,__xx-108,______yy+60,0.1*0.85,0.1*0.85,0,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
 	draw_text_k_scale(__xx+25,______yy+24,"해금 된 곡",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
+}
+else if (global.n_map_list == 4)
+{
+	draw_sprite_ext(spr_W,0,__xx-170,______yy+60,0.12,0.12,0,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
+	draw_text_k_scale(__xx+25,______yy+24,"[곡 필터링] 우왁굳",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
+}
+else if (global.n_map_list == 5)
+{
+	draw_sprite_ext(spr_W,8,__xx-210,______yy+60,0.15,0.15,0,#171628,ui_alpha__cal*(1-abs(__mobile__movement)))
+	draw_text_k_scale(__xx+25,______yy+24,"[곡 필터링] 이세계아이돌",64,-1,ui_alpha__cal*(1-abs(__mobile__movement)),#171628,0,0,normal_font,0.52*global.font_ratio_resolution_xx,0.52,0)
 }
 
 
@@ -1085,7 +1099,16 @@ if instance_exists(code)
 			
 			draw_text_k_scale(global.c_x+104+320*(global.show_new_songs/100),global.c_y+700+64*(global.show_new_songs/100),"파트너"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx*(global.show_new_songs/50),0.5*(global.show_new_songs/50),0)
 		}
-
+		else if (global.saved_notice_title == "주의! - 커스텀 유저 맵")
+		{
+			draw_sprite_ext(spr_X,0,global.c_w-160,global.c_h-196,0.4,0.4,0,c_white,ui_alpha__cal)
+			draw_text_k_scale(global.c_w-160,global.c_h-148,"다시 보지 않기\n[X]",80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5,0.5,0)
+			
+			if (keyboard_check_pressed(ord("X")))
+			{
+				global.guide_showed[3] = 1;
+			}
+		}
 	}
 	else
 	{

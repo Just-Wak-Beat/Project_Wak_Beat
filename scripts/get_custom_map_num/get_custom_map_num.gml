@@ -17,7 +17,11 @@ function get_custom_map_num()
 	}
 	else
 	{
-		global.custom_map_file_dir[tmp_ind] = string(_directory)+string(_firstFile);
+		var _fullPath = string(_directory)+string(_firstFile);
+		if file_exists(string(_fullPath)+"\\map_info.ini")
+		{
+			global.custom_map_file_dir[tmp_ind] = string(_directory)+string(_firstFile);
+		}
 	    tmp_ind++;
 	}
 
@@ -31,7 +35,7 @@ function get_custom_map_num()
 		else
 		{
 	        var _fullPath = string(_directory)+string(_file);
-	        if directory_exists(_fullPath)
+	        if file_exists(string(_fullPath)+"\\map_info.ini")
 			{
 	            global.custom_map_file_dir[tmp_ind] = string(_fullPath);
 				tmp_ind++;

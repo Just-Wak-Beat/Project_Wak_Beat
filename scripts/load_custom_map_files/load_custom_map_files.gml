@@ -2,6 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function load_custom_map_files()
 {
+	reset_custom_map_info();
 	global.custom_map_num = get_custom_map_num();
 	for(var i = 0; i < global.custom_map_num; i++)
 	{

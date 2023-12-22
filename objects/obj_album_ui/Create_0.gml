@@ -11,6 +11,7 @@ timer = 0
 w_alpha = 0
 global.touch_to_skip = 0;
 global.tutorial_n_stage = 0
+delete_current_map = 0;
 
 //custom map album
 global.b_n_map_id = -99;

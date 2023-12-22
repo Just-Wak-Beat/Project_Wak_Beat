@@ -22,11 +22,19 @@ if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock
 	}
 	else if (global.sync_setting <= 0 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80) || keyboard_check_pressed(ord("W"))))
 	{
-		with(code)
+		if (global.streamer == 1)
 		{
-			if object_index = code
+			clean_message_log();
+			show_message_log("연말공모전 규정에 따라, 스트리머는 사용할 수 없는 기능입니다!");
+		}
+		else
+		{
+			with(code)
 			{
-				event_user(3)
+				if object_index = code
+				{
+					event_user(3)
+				}
 			}
 		}
 	}
@@ -91,6 +99,26 @@ if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock
 			audio_play_sound(ding_dong,0,false,global.master_volume*global.sfx_volume*2);
 			global.map_editor = 1;
 			code.gamestart = 1;
+		}
+		else if (global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1430) < 80) || (keyboard_check(vk_alt)) && keyboard_check_pressed(vk_delete)))
+		{
+			clean_message_log();
+			delete_current_map ++;
+			if (delete_current_map > 1)
+			{
+				var tmp_dir = global.custom_map_file_dir[global.n_map_id];
+				file_delete(string(tmp_dir)+"\\map_info.ini");
+				load_custom_map_files();
+				ini_open(string(tmp_dir)+"\\삭제된 커스텀 유저맵.txt")
+				ini_write_string("삭제된 커스텀 맵 파일 복구 방법","map_info.ini 파일을 생성하여 기존의 값을 다시 적어주면 복구 가능","");
+				ini_close();
+				//show_message_log(string(tmp_dir)+"\\map_info.ini");
+				load_musicList(global.n_map_list);
+			}
+			else
+			{
+				show_message_log("해당 맵을 지우려면 한 번 더 눌러주세요 ("+string(global.custom_stage_map_name[global.n_map_id])+")");
+			}
 		}
 		else if (global.n_map_id >= 0 && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80) || keyboard_check_pressed(ord("Q"))))
 		{

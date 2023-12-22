@@ -2,7 +2,9 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function create_new_custom_map_file()
 {
-	var map_dir = string(global.custom_map_directory)+"user_custom_map\\custom_map_file_"+string(get_custom_map_num()+1);
+	var date_time = date_current_datetime();
+	var str_current_date = string(date_get_year(date_time))+"_"+string(date_get_month(date_time))+"_"+string(date_get_day(date_time))+"_"+string(date_get_hour(date_time))+"_"+string(date_get_minute(date_time))+"_"+string(date_get_second(date_time));
+	var map_dir = string(global.custom_map_directory)+"user_custom_map\\custom_map_file "+string(str_current_date);
 	
 	ini_open(string(global.custom_map_directory)+"user_custom_map\\system.ini")
 	ini_write_real("dummy_data","dummy_data",0);

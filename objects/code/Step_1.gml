@@ -515,18 +515,19 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 		{
 			global.n_map_id = n_stage
 		}
-		if global.n_map_list = 1
+		else if global.n_map_list = 1
 		{
 			global.n_map_id = global.fav_map_id[n_stage]
 		}
-		if global.n_map_list = 2
+		else if global.n_map_list = 2
 		{
 			global.n_map_id = n_stage
 		}
-		if global.n_map_list = 3
+		else if (global.n_map_list == 3 || global.n_map_list == 4 || global.n_map_list == 5)
 		{
-			global.n_map_id = global.unlocked_map_id[n_stage]
+			global.n_map_id = global.map_id_origin[n_stage]
 		}
+
 	
 		if keyboard_check_pressed(vk_anykey)
 		{

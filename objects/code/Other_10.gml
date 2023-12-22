@@ -2,8 +2,31 @@
 // You can write your code in this editor
 
 camera_focus_on(-4,-4,1)
+var tmp_str = "모든 곡";
+if (global.n_map_list == 1)
+{
+	tmp_str = "좋아요 한 곡";
+}
+else if (global.n_map_list == 2)
+{
+	tmp_str = "유저 제작 커스텀 곡";
+}
+else if (global.n_map_list == 3)
+{
+	tmp_str = "해금 된 곡";
+}
+else if (global.n_map_list == 4)
+{
+	tmp_str = "[곡 필터링] 우왁굳";
+}
+else if (global.n_map_list == 5)
+{
+	tmp_str = "[곡 필터링] 이세계아이돌";
+}
+
+
 np_setpresence_more("", "메인 매뉴", false);
-np_setpresence("메인 매뉴", "", "type0", "");
+np_setpresence(string(tmp_str), "메인 매뉴", "type0", "");
 automatic_loading_cancel = 0
 window_set_cursor(cr_default)
 instance_destroy(map_edior_ui);

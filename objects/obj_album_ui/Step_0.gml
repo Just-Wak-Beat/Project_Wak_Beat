@@ -5,7 +5,7 @@ var yy_h = camera_get_view_height(view_camera[0])
 
 
 
-if global.n_map_list != 2
+if (global.n_map_list != 2)
 {
 	if (sprite_index != spr_album)
 	{

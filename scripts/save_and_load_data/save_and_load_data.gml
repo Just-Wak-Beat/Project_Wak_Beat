@@ -35,7 +35,7 @@ function save_and_load_data(argument0,argument1)
 
 			ini_write_real("n_favorite",string(i),global.real_n_favorite[i]);
 			ini_write_real("fav_map_id",string(i),global.fav_map_id[i]);
-			ini_write_real("unlocked_map_id",string(i),global.unlocked_map_id[i]);
+			ini_write_real("unlocked_map_id",string(i),global.map_id_origin[i]);
 			
 			ini_write_real("real_stage_playtime",string(i),global.real_stage_playtime[i]);
 		}
@@ -99,7 +99,7 @@ function save_and_load_data(argument0,argument1)
 				global.real_n_artifact[i] = ini_read_string("n_artifact",string(i),"X");
 				global.real_n_favorite[i] = ini_read_real("n_favorite",string(i),-1);
 				global.fav_map_id[i] = ini_read_real("fav_map_id",string(i),-4);
-				global.unlocked_map_id[i] = ini_read_real("unlocked_map_id",string(i),-4);
+				global.map_id_origin[i] = ini_read_real("unlocked_map_id",string(i),-4);
 			
 				global.unlocked_music_name[i] = ini_read_string("unlocked_music_name",string(i),"");
 				global.b_unlocked_music_name[i] = ini_read_string("b_unlocked_music_name",string(i),"");
@@ -141,7 +141,20 @@ function save_and_load_data(argument0,argument1)
 		global.nickname = ini_read_string("nickname","none","");
 		decode_nametag(global.nickname);
 		//베타테스터
-		global.beta_tester = ini_read_real("beta_tester","none",0);
+		if (global.beta_tester != 1)
+		{
+			global.beta_tester = ini_read_real("beta_tester","none",0);
+		}
+		//스트리머
+		if (global.streamer != 1)
+		{
+			global.streamer = ini_read_real("streamer","none",0);
+		}
+		//맵 에디터
+		if (global.custom_mapper != 1)
+		{
+			global.custom_mapper = ini_read_real("custom_mapper","none",0);
+		}
 		global.force_wipe_nickname = ini_read_real("force_wipe_nickname","none",1);
 		global.tutorial_played = ini_read_real("tutorial_played","none",0);
 	}

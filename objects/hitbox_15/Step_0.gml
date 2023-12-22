@@ -4,6 +4,7 @@ w_alpha += (0 - w_alpha)*0.3
 
 if (global.timeline_stop != 1)
 {
+	image_alpha = 1;
 	if (my_id != 0)
 	{
 		var target = parent_id.id_num[my_id-1];
@@ -40,5 +41,14 @@ if (global.timeline_stop != 1)
 		des_time += (image_xscale/sprite_width)/5
 	}
 }
-
-
+else
+{
+	if (my_id == 0)
+	{
+		image_alpha = 0.5;
+	}
+	else
+	{
+		image_alpha = 0;
+	}
+}

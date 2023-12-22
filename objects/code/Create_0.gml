@@ -4,9 +4,9 @@ global.version_real = "7.01";
 global.version = "Beta "+string(global.version_real);
 global.beta_tester = 1;
 global.streamer = 0;
+global.custom_mapper = 0;
 global.dev_mode = 0;
 devmode_activate = 0;
-global.custom_mapper = 0;
 surf_screen = -4;
 music_title_alpha = 0
 global.blackout_alpha = 0;
@@ -27,7 +27,6 @@ global.overtime_highlight_song = 1;
 global.automatic_load_ranking = 0;
 global.cannot_connect = 0;
 global.show_credit = 1;
-global.beta_tester = 0;
 var file_name = (global.dev_mode == 1) ? "PWB_Beta.ini" : "PWB_OpenBeta.ini"
 ini_open_protect(file_name)
 var tmp = ini_read_real("tutorial_played","none",0)
@@ -261,7 +260,7 @@ for(var i = 0; i <= 11; i++)
 	global.guide_showed[i] = 0;
 }
 
-global.custom_map_file_dir = array_create(999,"");
+
 global.custom_map_num = 0;
 
 
@@ -294,12 +293,14 @@ automatic_reload_leaderboard = 0;
 
 
 	//곡 정보
-	for(var i = 0; i < 99; i++)
+	for(var i = 0; i < 255; i++)
 	{
 		//좋아요 한 곡
 		global.fav_map_id[i] = -4;
-		//해금된 곡
-		global.unlocked_map_id[i] = -4;
+		//해당 곡의 원래 오리지널 id값
+		global.map_id_origin[i] = -4;
+
+		
 		
 		
 		//새로운 곡 표시에 포함될 곡 (커스텀 곡은 제외)
@@ -378,6 +379,7 @@ automatic_reload_leaderboard = 0;
 		global.custom_stage_album[i] = -4;
 		global.custom_audio_asset[i] = -4;
 		global.custom_stage_mapper[i] = -4;
+		global.custom_map_file_dir[i] = "";
 	}
 
 
@@ -539,6 +541,9 @@ master_movement_dir = -3
 master_movement_timer = 0
 global.master_remix_effect5 = 0
 
+
+//곡 필터링 - 우왁굳
+global.filter_song_wakgood = [ 0, 8 ];
 
 //후쿠로우
 global.real_stage_map_name[9] = "부엉이 (Cover by 아이네 INE)";
@@ -824,7 +829,8 @@ global.real_detailed_difficulty[25] = 1.5;
 global.real_obtainable_type[25] = 99;
 global.real_requirement_level[25] = 9999;
 
-
+//곡 필터링 - 이세돌
+global.filter_song_isedol = [ 9 , 25 ];
 
 
 

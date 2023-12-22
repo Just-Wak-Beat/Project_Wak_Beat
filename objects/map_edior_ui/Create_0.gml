@@ -15,6 +15,8 @@ keep_pressing = 0
 custom_image_type = 2;
 custom_image_ind = 0;
 selected_projectile_type = 0;
+del_current_timeline = 0
+del_all_timeline = 0
 global.tiny_value_scrolling_now = 0;
 for(var i = 0; i < 7; i++)
 {

@@ -7,7 +7,7 @@ var cal = 0, correction = 0;
 	{
 		if (global.level >= global.real_requirement_level[i])
 		{
-			global.unlocked_map_id[i-correction] = i;
+			global.map_id_origin[i-correction] = i;
 			correction = 0
 			cal ++
 		}
