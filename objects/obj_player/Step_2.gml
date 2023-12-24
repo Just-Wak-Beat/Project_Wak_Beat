@@ -8,7 +8,7 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 	var i = 1
 	var ii = 1
 	var _placed_obj = instance_place(x+i*sign(global.hmove_speed),y+ii*sign(global.vmove_speed),hitbox_parents)
-	if (instance_exists(_placed_obj) && _placed_obj.image_alpha >= 0.95)
+	if (instance_exists(_placed_obj) && _placed_obj.image_alpha >= 0.95 && _placed_obj.object_index != hitbox_22)
 	{
 		if invincibility_cooltime <= 0
 		{
@@ -88,8 +88,8 @@ if hurt != -4
 	
 	if (hurt_hspeed != 0 || hurt_vspeed != 0)
 	{
-		global.hmove_speed = -sign(hurt_hspeed)*32
-		global.vmove_speed = -sign(hurt_vspeed)*32
+		global.hmove_speed = -sign(hurt_hspeed)*16
+		global.vmove_speed = -sign(hurt_vspeed)*16
 	}
 
 	global.cannot_control = 1
