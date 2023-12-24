@@ -9,7 +9,7 @@ if (global.dev_mode == 1)
 	var temp_highscore = (global.t_selected_difficulty == 1) ? global.real_n_score[global.n_map_id] : global.real_n_score_hardcore[global.n_map_id];
 	global.unlocked_music_name_new_list[check_new_song] = "Rank";
 	global.unlocked_music_name_new_list_color[check_new_song] = #ff1f77;
-	global.unlocked_music_name_new_list_rightside[check_new_song] = string(global.result_rank);
+	global.unlocked_music_name_new_list_rightside[check_new_song] = string(convert_score_to_rank(global.result_score,0));
 	global.unlocked_music_name_new_list_color_rightside[check_new_song] = c_white
 	check_new_song++;
 		
@@ -26,7 +26,7 @@ if (global.dev_mode == 1)
 	check_new_song++;
 		
 		
-	global.unlocked_music_name_new_list[check_new_song] = "[랭크("+string(global.result_rank)+") + 대쉬로 피한 탄막(x"+string(global.result_obstacle)+") + 게임 오버 횟수 (x"+string(global.total_death_point)+") + 에 의한 점수]";
+	global.unlocked_music_name_new_list[check_new_song] = "[데미지 받은 횟수(x"+string(global.total_damaged)+"), 대쉬로 피한 탄막(x"+string(global.result_obstacle)+"), 게임 오버 횟수 (x"+string(global.total_death_point)+") 에 의한 점수]";
 	global.unlocked_music_name_new_list_color[check_new_song] = merge_color(c_white,c_black,0.2);
 	check_new_song++;
 		

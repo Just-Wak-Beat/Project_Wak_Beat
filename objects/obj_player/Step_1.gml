@@ -1,59 +1,40 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
+
 if (global.b_hp != global.hp || global.crossed_obstacle_num != global.b_crossed_obstacle_num)
 {
 	if (global.hp != 0)
 	{
 		global.rank_display_r_alpha = 1;
-		if (global.total_damaged == 0)
-		{
-			if (global.crossed_obstacle_num <= 10)
-			{
-				global.n_rank_display = "Perfect!";
-			}
-			else
-			{
-				global.n_rank_display = "S+";
-			}
-		}
-		else if (global.total_damaged == 1)
-		{
-			global.n_rank_display = "S";
-		}
-		else if (global.total_damaged == 2 || global.total_damaged == 3) //2
-		{
-			global.n_rank_display = "A+";
-		}
-		else if (global.total_damaged >= 4 || global.total_damaged <= 6) //3
-		{
-			global.n_rank_display = "A";
-		}
-		else if (global.total_damaged >= 7 || global.total_damaged <= 10) //4
-		{
-			global.n_rank_display = "B+";
-		}
-		else if (global.total_damaged >= 11 || global.total_damaged <= 15) //5
-		{
-			global.n_rank_display = "B";
-		}
-		else if (global.total_damaged >= 16 || global.total_damaged <= 21) //6
-		{
-			global.n_rank_display = "C+";
-		}
-		else if (global.total_damaged >= 22 || global.total_damaged <= 28) //7
-		{
-			global.n_rank_display = "C";
-		}
-		else if (global.total_damaged >= 29 || global.total_damaged <= 36) //8
-		{
-			global.n_rank_display = "D";
-		}
-		else
-		{
-			global.n_rank_display = "F";
-		}
 	}
 	global.b_hp = global.hp;
 	global.b_crossed_obstacle_num = global.crossed_obstacle_num;
+}
+
+
+
+
+if (global.minimum_rank > 0 && global.minimum_rank < global.total_damaged)
+{
+	global.total_damaged = global.minimum_rank;
+}
+
+
+//점수 계산
+if (!instance_exists(obj_stage_clear))
+{
+	var tco = global.crossed_obstacle_num; //지나간 장애물 갯수
+	var db1 = global.dash_cross_bonus; //지나간 장애물 갯수에 대한 보너스 점수
+	var db2 = global.dash_cross_bonus_maxhp; //풀피일때 지나간 장애물 갯수에 대한 보너스 점수
+	var obs = global.crossed_obstacle_num; //지나간 장애물 갯수
+	var tdn = global.total_death_point; //총 죽은 횟수
+	var tdm = global.total_damaged; //총 데미지 받은 횟수
+	global.n_score_displaying = fix_to_zero((15-tdm)*10000+tco*(100+db2*100+db1*200)-tdn*5000);
+	if (tco > 15)
+	{
+		global.n_score_displaying = fix_num_inside(global.n_score_displaying,0,140000)
+	}
+	global.n_rank_display = convert_score_to_rank(global.n_score_displaying,0);
 }

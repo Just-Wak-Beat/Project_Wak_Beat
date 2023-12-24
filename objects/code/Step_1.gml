@@ -111,13 +111,19 @@ if (!window_has_focus())
 	if (outside_of_window == -4)
 	{
 		outside_of_window = global.master_volume;
-		if (global.map_editor != 1 && obj_player.image_xscale > 0)
+		if (obj_player.image_xscale > 0)
 		{
-			if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
+			if (global.map_editor != 1)
 			{
-				event_user(2);
-				
+				if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
+				{
+					event_user(2);
+				}
 			}
+		}
+		else
+		{
+			global.master_volume = 0;
 		}
 	}
 }
@@ -125,6 +131,10 @@ else
 {
 	if (outside_of_window != -4)
 	{
+		if (obj_player.image_xscale <= 0)
+		{
+			global.master_volume = outside_of_window;
+		}
 		outside_of_window = -4;
 	}
 }

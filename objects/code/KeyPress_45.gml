@@ -12,5 +12,6 @@ if (global.map_editor != 1)
 		global.level = 999;
 		global.default_directory = working_directory;
 		global.custom_map_directory = string(global.default_directory)+"\\Custom map files\\";
+		save_and_load_data(1,1);
 	}
 }

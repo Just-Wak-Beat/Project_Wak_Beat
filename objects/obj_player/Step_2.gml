@@ -37,10 +37,6 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 					}
 				}
 				
-				if (global.minimum_rank > 0 && global.minimum_rank < global.total_damaged)
-				{
-					global.total_damaged = global.minimum_rank;
-				}
 				
 				kirakira_effect = 1;
 				w_alpha = 2;
@@ -88,8 +84,8 @@ if hurt != -4
 	
 	if (hurt_hspeed != 0 || hurt_vspeed != 0)
 	{
-		global.hmove_speed = -sign(hurt_hspeed)*16
-		global.vmove_speed = -sign(hurt_vspeed)*16
+		global.hmove_speed = -sign(hurt_hspeed)*8
+		global.vmove_speed = -sign(hurt_vspeed)*8
 	}
 
 	global.cannot_control = 1

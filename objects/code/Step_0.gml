@@ -96,25 +96,27 @@ if (global.play_custom_map = 1)
 
 
 //인게임중에 설정 열기
-if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
+if (global.can_change_music_list == 1 && !instance_exists(obj_stage_clear))
 {
-	if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
+	if (global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
 	{
-		event_user(2)
+		if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
+		{
+			event_user(2)
+		}
+	}
+
+	if (gamestart == 1.1)
+	{
+		if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
+		{
+			gamestart = 0;
+			global.t_select_difficulty = 0;
+			audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
+			window_set_cursor(cr_none);
+		}
 	}
 }
-
-if (gamestart == 1.1)
-{
-	if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
-	{
-		gamestart = 0;
-		global.t_select_difficulty = 0;
-		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
-		window_set_cursor(cr_none);
-	}
-}
-
 
 
 //레벨 시스템
@@ -767,41 +769,19 @@ if global.rewind > 0
 			obj_player.y = room_height*0.5
 		}
 		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
-		global.rewind_effect_line_angle = 0
+		global.rewind_effect_line_angle = 0;
 		
-		if (global.t_selected_difficulty == 0)
-		{
-			global.total_died_here = 0;
-			global.total_damaged = 0;
-			global.crossed_obstacle_num = 0;
-		}
+
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
 		global.w_alpha = 1
 		obj_camera.alarm[0] = 2
 		
 		//곡 리스타트
-		if (global.restart_stage == 1)
+		if (global.restart_stage == 1 || global.t_selected_difficulty == 0)
 		{
-			if (global.play_custom_map == 1)
-			{
-				global.map_color = c_white;
-			}
-			else
-			{
-				global.map_color = global.stage_map_color[global.n_map_id];
-			}
-			global.start_point = 0;
-			global.restart_stage = 0;
-			global.respawn_point_xx = room_width*0.5;
-			global.respawn_point_yy = room_height*0.5;
-			global.total_died_here = 0;
-			global.total_damaged = 0;
-			global.check_died = 0;
-			global.n_progress = 0;
-			global.n_camera_zoom = 1;
-			global.dashed = 0
-			obj_camera.v_x = obj_camera.tv_x;
-			obj_camera.v_y = obj_camera.tv_y;
+			//맵 정보 초기화 (리와인드)
+			event_user(12);
+			
 			audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
 		}
 		else

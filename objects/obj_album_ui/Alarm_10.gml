@@ -53,4 +53,4 @@ if (global.title_menu_animation1 == 2)
 	angle_moving_timer = 0
 }
 
-global.can_change_music_list = 1;
+alarm[1] = 120;

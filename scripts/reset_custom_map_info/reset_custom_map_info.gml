@@ -12,8 +12,6 @@ function reset_custom_map_info()
 		global.custom_stage_map_color[i] = -4;
 		global.custom_stage_bpm[i] = -4;
 		global.custom_stage_map_highlight_part[i] = -4;
-		global.custom_n_rank[i] = "--";
-		global.custom_n_rank_hardcore[i] = "--";
 		global.custom_n_score[i] = "--";
 		global.custom_n_score_hardcore[i] = "--";
 		global.custom_n_artifact[i] = "X";

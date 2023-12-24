@@ -1,4 +1,4 @@
-/// @description Reset all of map info
+/// @description 맵 정보 초기화 (일반 사망)
 // You can write your code in this editor
 global.t_b_alpha = -0.01
 global.t_w_alpha = 0
@@ -15,6 +15,12 @@ global.gomem_mashup_effect = 0
 global.run_shake_effect = 0;
 global.blackout_effect = 0;
 global.turisumo_effect_3 = 0
+global.t_shake_x = 0;
+global.shake_x = 0;
+global.real_shake_x = 0;
+global.t_shake_y = 0;
+global.real_shake_y = 0;
+global.shake_y = 0;
 turisumo_bpm_timer = 0
 turisumo_road_sign_delay = 0
 global.ipad_random_xx = -4
@@ -89,4 +95,3 @@ global.minimum_rank = check_player_skin(4)*6;  //단위 rank
 global.addition_invinc_time = check_player_skin(8)*60+check_player_skin(13)*60+check_player_skin(18)*60+check_player_skin(24)*60;  //단위 frame
 global.clear_bonus_score = check_player_skin(10)*5000+check_player_skin(25)*5000; //단위 score
 global.damaged_bonus_score = check_player_skin(2)*5000+check_player_skin(15)*5000;
-global.total_death_point = 0;

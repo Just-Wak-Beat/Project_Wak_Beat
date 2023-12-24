@@ -24,8 +24,6 @@ function save_and_load_data(argument0,argument1)
 		for(var i = 0; i < global.total_map; i++)
 		{
 			//인게임 정보 (맵)
-			ini_write_string("n_rank",string(i),global.real_n_rank[i]);
-			ini_write_string("n_rank_hardcore",string(i),global.real_n_rank_hardcore[i]);
 			ini_write_string("real_n_score",string(i),global.real_n_score[i]);
 			ini_write_string("real_n_score_hardcore",string(i),global.real_n_score_hardcore[i]);
 			ini_write_string("n_artifact",string(i),global.real_n_artifact[i]);
@@ -92,8 +90,6 @@ function save_and_load_data(argument0,argument1)
 			for(var i = 0; i < global.origin_total_map; i++)
 			{
 				//인게임 정보 (맵)
-				global.real_n_rank[i] = ini_read_string("n_rank",string(i),"--");
-				global.real_n_rank_hardcore[i] = ini_read_string("n_rank_hardcore",string(i),"--");
 				global.real_n_score[i] = ini_read_string("real_n_score",string(i),"--");
 				global.real_n_score_hardcore[i] = ini_read_string("real_n_score_hardcore",string(i),"--");
 				global.real_n_artifact[i] = ini_read_string("n_artifact",string(i),"X");

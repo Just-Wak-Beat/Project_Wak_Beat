@@ -119,7 +119,7 @@ if ((global.highlight_time <= 1240 && global.highlight_time > 30 && global.show_
 		{
 			w_alpha_bg = 0.6
 			
-			if (global.n_map_id >= 0 && (global.n_rank[global.n_map_id] == "S+" || global.n_rank[global.n_map_id] == "Perfect!"))
+			if (global.n_map_id >= 0 && (score_string_to_int(global.n_score[global.n_map_id]) >= 14000 || score_string_to_int(global.n_score_hardcore[global.n_map_id]) >= 14000))
 			{
 				var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
 				_ef.image_index = 6

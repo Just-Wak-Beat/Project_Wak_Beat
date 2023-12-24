@@ -34,7 +34,7 @@ for(var i = 0; i < 2; i++)
 
 					if !ds_list_empty(global.gmscoreboard_scores[i])
 					{
-						var tmp_list = ds_list_find_value(global.gmscoreboard_scores[global.player_leaderboard_difficulty], ds_list_size(global.gmscoreboard_scores[i])-1);
+						var tmp_list = ds_list_find_value(global.gmscoreboard_scores[i], ds_list_size(global.gmscoreboard_scores[i])-1);
 						var temp_score = tmp_list[? "score"];
 						if (temp_score == "" || temp_score == " " || temp_score == "0" || temp_score == "1" || temp_score == 1 || temp_score == 0)
 						{

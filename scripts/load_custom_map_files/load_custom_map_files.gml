@@ -19,7 +19,6 @@ function load_custom_map_files()
 			global.custom_stage_map_color[i] = ini_read_string("custom_stage_map_color","value",c_black);
 			global.custom_stage_bpm[i] = ini_read_real("custom_stage_bpm","value",180)
 			global.custom_stage_map_highlight_part[i] = ini_read_real("custom_stage_map_highlight_part","value",-4)
-			global.custom_n_rank[i] = ini_read_string("custom_n_rank","value",-4)
 			global.custom_detailed_difficulty[i] = ini_read_real("custom_detailed_difficulty","value",0)
 			global.custom_obtainable_type[i] = 9;
 			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)

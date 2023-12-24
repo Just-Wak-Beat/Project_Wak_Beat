@@ -24,8 +24,6 @@ function load_musicList(argument0)
 			global.stage_map_audio_name[i] = global.real_stage_map_audio_name[i];
 			global.stage_bpm[i] = global.real_stage_bpm[i];
 			global.stage_map_highlight_part[i] = global.real_stage_map_highlight_part[i];
-			global.n_rank[i] = global.real_n_rank[i];
-			global.n_rank_hardcore[i] = global.real_n_rank_hardcore[i];
 			global.n_score[i] = global.real_n_score[i];
 			global.n_score_hardcore[i] = global.real_n_score_hardcore[i];
 			global.n_favorite[i] = global.real_n_favorite[i];
@@ -54,8 +52,6 @@ function load_musicList(argument0)
 			global.stage_map_audio_name[i] = global.real_stage_map_audio_name[ii];
 			global.stage_bpm[i] = global.real_stage_bpm[ii];
 			global.stage_map_highlight_part[i] = global.real_stage_map_highlight_part[ii];
-			global.n_rank[i] = global.real_n_rank[ii];
-			global.n_rank_hardcore[i] = global.real_n_rank_hardcore[ii];
 			global.n_score[i] = global.real_n_score[ii];
 			global.n_score_hardcore[i] = global.real_n_score_hardcore[ii];
 			global.n_favorite[i] = global.real_n_favorite[ii];
@@ -79,8 +75,6 @@ function load_musicList(argument0)
 			global.stage_map_duration[i] = global.custom_map_duration[i];
 			global.stage_bpm[i] = global.custom_stage_bpm[i];
 			global.stage_map_highlight_part[i] = global.custom_stage_map_highlight_part[i];
-			global.n_rank[i] = global.custom_n_rank[i];
-			global.n_rank_hardcore[i] = global.custom_n_rank_hardcore[i];
 			global.n_score[i] = global.custom_n_score[i];
 			global.n_score_hardcore[i] = global.custom_n_score_hardcore[i];
 			global.n_favorite[i] = -1;
@@ -126,8 +120,6 @@ function load_musicList(argument0)
 				global.stage_map_audio_name[kk] = global.real_stage_map_audio_name[k];
 				global.stage_bpm[kk] = global.real_stage_bpm[k];
 				global.stage_map_highlight_part[kk] = global.real_stage_map_highlight_part[k];
-				global.n_rank[kk] = global.real_n_rank[k];
-				global.n_rank_hardcore[kk] = global.real_n_rank_hardcore[k];
 				global.n_score[kk] = global.real_n_score[k];
 				global.n_score_hardcore[kk] = global.real_n_score_hardcore[k];
 				global.n_favorite[kk] = global.real_n_favorite[k];
@@ -245,7 +237,7 @@ function load_musicList(argument0)
 			check_new_song++;
 		
 		
-			global.unlocked_music_name_new_list[check_new_song] = "[랭크("+string(global.result_rank)+") + 대쉬로 피한 탄막(x"+string(global.result_obstacle)+")에 의한 점수]";
+			global.unlocked_music_name_new_list[check_new_song] = "[데미지 받은 횟수(x"+string(global.total_damaged)+"), 대쉬로 피한 탄막(x"+string(global.result_obstacle)+"), 게임 오버 횟수 (x"+string(global.total_death_point)+") 에 의한 점수]";
 			global.unlocked_music_name_new_list_color[check_new_song] = merge_color(c_white,c_black,0.2);
 			check_new_song++;
 		

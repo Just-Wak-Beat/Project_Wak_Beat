@@ -76,7 +76,7 @@ if (instance_exists(obj_player) && obj_player.image_xscale > 0)
 
 
 	//check point
-	draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx*font_size,global.converted_view_ratio/2*(global.mobile_mode*0.5+1)*font_size,0)
+	draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx*font_size,(global.mobile_mode*0.5+1)*font_size,0)
 }
 
 if (music_title_alpha > 0 && global.tutorial_played >= 0)
@@ -98,10 +98,7 @@ if (music_title_alpha > 0 && global.tutorial_played >= 0)
 
 	//music credit
 	var col = global.map_color
-	if col = c_black
-	{
-		col = c_white
-	}
+	col = (get_dis_color(col,c_white) < 7) ? c_black : c_white;
 	draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7*global.font_ratio_resolution_xx,font_size*0.7,0)
 	draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85*global.font_ratio_resolution_xx,font_size*0.85,0)
 
@@ -433,7 +430,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	}
 	
 	var changed_music = 0
-	if gamestart = 0 && global.sync_setting_alpha < 0.01 && global.title_menu_animation1 == -1
+	if (gamestart = 0 && global.sync_setting_alpha < 0.01 && global.title_menu_animation1 == -1 && global.can_change_music_list == 1)
 	{
 		if global.mobile_mode = 0
 		{
@@ -575,7 +572,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		}
 		
 		//스테이지 선택완료 - 난이도 선택창 (게임 시작)
-		if (global.show_new_songs <= 0 && global.t_b_alpha != -0.02 && global.sync_setting_alpha < 0.01 && global.title_menu_animation1 == -1 && global.level >= global.requirement_level[n_stage] && go_play)
+		if (global.can_change_music_list == 1 && global.show_new_songs <= 0 && global.t_b_alpha != -0.02 && global.sync_setting_alpha < 0.01 && global.title_menu_animation1 == -1 && global.level >= global.requirement_level[n_stage] && go_play)
 		{
 			if (global.real_stage_map_difficulty[global.n_map_id] == "Tutorial" || (string_pos("(Boss)", global.stage_map_difficulty[global.n_map_id]) != 0 && global.n_score[global.n_map_id] == "--"))
 			{
@@ -704,7 +701,7 @@ if (global.map_editor != 1 && global.rank_display_alpha > 0 && global.tutorial_p
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+(global.rank_display_r_alpha+global.rank_display_b_alpha)*0.5)
 	draw_text_kl_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
 	
-	global.n_score_displaying = fix_to_zero(((convert_rank_to_num(global.n_rank_display))*100+global.crossed_obstacle_num)*100+((global.dash_cross_bonus+global.dash_cross_bonus_maxhp)*global.crossed_obstacle_num)-global.total_death_point*5000)
+	
 	draw_text_kl_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(global.n_score_displaying)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
 }
 

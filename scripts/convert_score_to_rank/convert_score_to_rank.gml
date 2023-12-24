@@ -21,7 +21,7 @@ function convert_score_to_rank(argument0,argument1)
 			}
 		}
 		
-		if (tmp_score < 16 && tmp_score >= 15)
+		if (tmp_score >= 15)
 		{
 			tmp_rank = "Perfect!";
 		}
@@ -69,15 +69,19 @@ function convert_score_to_rank(argument0,argument1)
 		{
 			tmp_rank = "D-";
 		}
-		else if (tmp_score < 3)
+		else if (tmp_score < 3 && tmp_score != 0)
 		{
 			tmp_rank = "F";
+		}
+		else if (tmp_score == 0)
+		{
+			tmp_rank = "--";	
 		}
 		//show_debug_message(string(argument0)+" / "+string(tmp_score))
 	}
 	else
 	{
-		tmp_rank = "";
+		tmp_rank = "--";
 	}
 
 	return tmp_rank;

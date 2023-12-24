@@ -84,6 +84,7 @@
     {"name":"tutorial_part1","order":4,"path":"sounds/tutorial_part1/tutorial_part1.yy",},
     {"name":"spr_level_bar","order":13,"path":"sprites/spr_level_bar/spr_level_bar.yy",},
     {"name":"isedolhyang","order":17,"path":"sounds/isedolhyang/isedolhyang.yy",},
+    {"name":"score_string_to_int","order":17,"path":"scripts/score_string_to_int/score_string_to_int.yy",},
     {"name":"spr_hexagon_half","order":49,"path":"sprites/spr_hexagon_half/spr_hexagon_half.yy",},
     {"name":"winter_spring","order":16,"path":"sounds/winter_spring/winter_spring.yy",},
     {"name":"tutorial_part2","order":5,"path":"sounds/tutorial_part2/tutorial_part2.yy",},

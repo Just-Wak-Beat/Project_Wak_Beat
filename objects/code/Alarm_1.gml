@@ -42,7 +42,6 @@ if (global.n_score_displaying > 0)
 			if (tmp_score > tmp_normal_score_to_int)
 			{
 				send_score = 1;
-				global.n_rank[global.n_map_id] = global.result_rank;
 				global.real_n_score[global.n_map_id] = tmp_score;
 				global.n_score = tmp_score;
 			}
@@ -52,7 +51,6 @@ if (global.n_score_displaying > 0)
 			if (tmp_score > tmp_hardcore_score_to_int)
 			{
 				send_score = 1;
-				global.n_rank_hardcore[global.n_map_id] = global.result_rank;
 				global.real_n_score_hardcore[global.n_map_id] = tmp_score;
 				global.n_score_hardcore = tmp_score;
 			}
@@ -60,7 +58,7 @@ if (global.n_score_displaying > 0)
 
 	
 	
-		if (global.real_n_rank[global.n_map_id] == "--" || global.artifact_owned[0] == 0)
+		if (global.artifact_owned[0] == 0)
 		{
 			global.obtainable_type[global.n_map_id] = "완료";
 			global.real_n_artifact[global.n_map_id] = "완료";
@@ -70,7 +68,6 @@ if (global.n_score_displaying > 0)
 	{
 		if (tmp_score > tmp_normal_score_to_int)
 		{
-			global.n_rank[global.n_map_id] = global.result_rank;
 			global.custom_n_score[global.n_map_id] = tmp_score;
 			global.n_score = tmp_score;
 		}
@@ -78,8 +75,6 @@ if (global.n_score_displaying > 0)
 	
 		//커스텀 맵 클리어 내역 저장
 		ini_open(string(global.custom_map_file_dir[global.n_map_id])+"\\map_info.ini")
-		ini_write_string("custom_n_rank","value",global.n_rank[global.n_map_id])
-		ini_write_string("n_rank_hardcore","value",global.n_rank_hardcore[global.n_map_id])
 		ini_write_string("custom_n_score","value",tmp_normal_score_to_int)
 		ini_write_string("n_score_hardcore","value",tmp_hardcore_score_to_int)
 	
@@ -104,7 +99,7 @@ if (global.n_score_displaying > 0)
 
 
 
-	save_and_load_data(0,false)
+	save_and_load_data(0,1)
 	alarm[6] = 20
 
 	event_user(4)

@@ -111,6 +111,7 @@
     {"id":{"name":"obj_album_ui","path":"objects/obj_album_ui/obj_album_ui.yy",},},
     {"id":{"name":"spr_level_bar","path":"sprites/spr_level_bar/spr_level_bar.yy",},},
     {"id":{"name":"isedolhyang","path":"sounds/isedolhyang/isedolhyang.yy",},},
+    {"id":{"name":"score_string_to_int","path":"scripts/score_string_to_int/score_string_to_int.yy",},},
     {"id":{"name":"spr_hexagon_half","path":"sprites/spr_hexagon_half/spr_hexagon_half.yy",},},
     {"id":{"name":"winter_spring","path":"sounds/winter_spring/winter_spring.yy",},},
     {"id":{"name":"tutorial_part2","path":"sounds/tutorial_part2/tutorial_part2.yy",},},

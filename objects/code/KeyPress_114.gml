@@ -5,10 +5,6 @@ if global.dev_mode = 1
 	//곡 정보
 	for(var i = 0; i < global.total_map; i++)
 	{
-		global.n_rank[i] = "--";
-		global.n_rank_hardcore[i] = "--";
-		global.real_n_rank[i] = "--";
-		global.real_n_rank_hardcore[i] = "--";
 		global.n_artifact[i] = "X";
 		global.real_n_artifact[i] = "X";
 		global.n_score[i] = "--";
