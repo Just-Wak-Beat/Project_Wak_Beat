@@ -62,6 +62,31 @@ if (can_draw == 1)
 		}
 		else if (button_id >= 100 && instance_exists(map_edior_ui))
 		{
+			if (button_id >= 100 && button_id <= 105)
+			{
+				var tmp_arr_ind = button_id-100;
+				global.ed_arg[tmp_arr_ind] = fix_num_inside((scroll_value/100)*global.ed_arg_max_val[tmp_arr_ind],global.ed_arg_min_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
+				if (global.ed_arg_divide[tmp_arr_ind] == 90)
+				{
+					global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind]/90)*90;
+				}
+				else
+				{
+					if (global.ed_arg_correction == 1)
+					{
+						global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind])/global.ed_arg_divide[tmp_arr_ind];
+					}
+					else if (global.ed_arg_correction == 2)
+					{
+						global.ed_arg[tmp_arr_ind] = floor(global.ed_arg[tmp_arr_ind])/global.ed_arg_divide[tmp_arr_ind];
+					}
+					else
+					{
+						global.ed_arg[tmp_arr_ind] = global.ed_arg[tmp_arr_ind]/global.ed_arg_divide[tmp_arr_ind];
+					}
+				}
+			}
+			
 			if (sprite_index == spr_spuare_outline_full_mask)
 			{
 				x = xx+xx_w*0.93+80-(map_edior_ui.scroll_y)*2.25;

@@ -5,7 +5,7 @@
 ///@param onlyone/average
 function convert_score_to_rank(argument0,argument1)
 {
-	var tmp_rank = "Perfect!";
+	var tmp_rank = "--";
 	if (argument0 != "--")
 	{
 		var tmp_score = real(argument0)/10000;

@@ -24,23 +24,23 @@ if (sprite_index == spr_square || sprite_index == spr_spuare_outline_full_mask)
 	}
 	else if (button_id == 101)
 	{
-		scroll_value = (global.ed_arg[1]/360)*100
+		scroll_value = (global.ed_arg[1]/global.ed_arg_max_val[1])*100
 	}
 	else if (button_id == 102)
 	{
-		scroll_value = (global.ed_arg[2]/255)*100
+		scroll_value = (global.ed_arg[2]/global.ed_arg_max_val[2])*100
 	}
 	else if (button_id == 103)
 	{
-		scroll_value = (global.ed_arg[3]/255)*100
+		scroll_value = (global.ed_arg[3]/global.ed_arg_max_val[3])*100
 	}
 	else if (button_id == 104)
 	{
-		scroll_value = (global.ed_arg[4]/255)*100
+		scroll_value = (global.ed_arg[4]/global.ed_arg_max_val[4])*100
 	}
 	else if (button_id == 105)
 	{
-		scroll_value = (global.ed_arg[5]/1200)*100
+		scroll_value = (global.ed_arg[5]/global.ed_arg_max_val[5])*100
 	}
 	else if (button_id == 106)
 	{

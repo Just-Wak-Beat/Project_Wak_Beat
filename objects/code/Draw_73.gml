@@ -76,7 +76,7 @@ if (instance_exists(obj_player) && obj_player.image_xscale > 0)
 
 
 	//check point
-	draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,(global.mobile_mode*0.5+1)*global.font_ratio_resolution_xx*font_size,(global.mobile_mode*0.5+1)*font_size,0)
+	draw_text_k_scale(xx+xx_w*0.5,yy+global.converted_view_ratio*(140+global.savepoint_text_alpha*32),string(global.checkpoint_text),64,-1,global.savepoint_text_alpha*0.8,c_white,0,0,normal_font,(0.5*(1+global.mobile_mode*0.3))*global.font_ratio_resolution_xx*font_size,(0.5*(1+global.mobile_mode*0.3))*font_size,0)
 }
 
 if (music_title_alpha > 0 && global.tutorial_played >= 0)
@@ -795,9 +795,39 @@ if !instance_exists(obj_album_ui)
 	draw_set_alpha(global.w_alpha)
 	draw_line_width(0,0,room_width,room_height,5000)
 	
+	
 	draw_set_color(c_black)
 	draw_set_alpha(global.b_alpha)
 	draw_line_width(0,0,room_width,room_height,5000)
+}
+
+if (global.n_music_title == "왁트모르즈비" && global.t_w_alpha > 0 && global.w_alpha >= 0.9)
+{
+	bpm_timer ++
+	if (bpm_timer >= (3600/global.bpm)/2+global.music_sync_offset*3*60)
+	{
+		global.tutorial_wait_beat_scale[n_beat_index] *= 0.5;
+		n_beat_index ++;
+		if (n_beat_index >= 3)
+		{
+			n_beat_index = 0;
+		}
+		bpm_timer -= (3600/global.bpm)/2+global.music_sync_offset*3*60;
+	}
+		
+	global.tutorial_wait_beat_alpha += (1 - global.tutorial_wait_beat_alpha)*0.1;
+	draw_text_k_scale(xx+xx_w*0.5,yy+yy_h*0.5-256,"다음 비트 기다리는 중...",64,-1,global.tutorial_wait_beat_alpha,c_black,0,0,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
+	for(var i = 0; i < 3; i++)
+	{
+		var scale_tmp = 0.1;
+		global.tutorial_wait_beat_scale[i] += (1 - global.tutorial_wait_beat_scale[i])*0.1;
+		draw_sprite_ext(spr_circle,0,xx+xx_w*0.5+(i-1)*256,yy+yy_h*0.5+64,global.tutorial_wait_beat_scale[i]*scale_tmp,global.tutorial_wait_beat_scale[i]*scale_tmp,0,c_black,global.tutorial_wait_beat_alpha)
+	}
+}
+else
+{
+	bpm_timer = 0;
+	global.tutorial_wait_beat_alpha += (-1 - global.tutorial_wait_beat_alpha)*0.3 
 }
 
 

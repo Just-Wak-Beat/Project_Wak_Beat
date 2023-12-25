@@ -96,7 +96,7 @@ if (global.play_custom_map = 1)
 
 
 //인게임중에 설정 열기
-if (global.can_change_music_list == 1 && !instance_exists(obj_stage_clear))
+if (global.can_change_music_list == 1 && (!instance_exists(obj_stage_clear) || global.checkpoint_text = "ESC를 눌러 환경설정 열기"))
 {
 	if (global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
 	{

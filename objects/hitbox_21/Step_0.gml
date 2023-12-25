@@ -14,6 +14,11 @@ if (global.timeline_stop != 1)
 	}
 	x += (m_data_arg3 - x)*0.001*(1+m_data_arg2);
 	y += (m_data_arg4 - y)*0.001*(1+m_data_arg2);
+	
+	if (timer > m_data_arg5)
+	{
+		instance_destroy()
+	}
 }
 else
 {
@@ -34,8 +39,5 @@ else
 }
 
 
-if (timer > m_data_arg5)
-{
-	instance_destroy()
-}
+
 

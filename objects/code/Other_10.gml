@@ -53,6 +53,7 @@ global.paused = 0;
 global.total_damaged = 0;
 instance_activate_all()
 randomize()
+event_user(12);
 event_user(8)
 
 music_title_alpha = 0

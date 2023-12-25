@@ -22,7 +22,7 @@ if (global.timeline_stop == 1)
 	}
 	
 	
-	draw_text_k_scale(t_m_x+32,t_m_y-64,"x : "+string(t_m_x)+"\ny : "+string(t_m_y),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(t_m_x+32,t_m_y-64,"x : "+string(t_m_x-room_width*0.5)+"\ny : "+string(t_m_y-room_height*0.5),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+yy_h*1.01+8*global.converted_view_ratio-scroll_y*global.converted_view_ratio,99,8,0,c_white,1)
 	draw_sprite_ext(spr_square,0,xx+xx_w*0.5,yy+yy_h*1.02-scroll_y*global.converted_view_ratio,99,8,0,c_black,1)
 	
@@ -125,10 +125,7 @@ if (global.timeline_stop == 1)
 					tmp_img_ind = 30; //탄막이 새로 추가되면 수정해야됨
 				}
 			}
-			else if (instance_exists(n_selected) && i == 0 && global.editor_hitbox == 1)
-			{
-				tmp_img_ind = 28; //탄막이 새로 추가되면 수정해야됨
-			}
+
 		
 			draw_sprite_ext(spr_editor_button,tmp_img_ind,tmp_xx,tmp_yy,global.converted_view_ratio/1.333333333,global.converted_view_ratio/1.333333333,0,c_white,1)
 			if (global.editor_selected_type == i)
@@ -139,13 +136,8 @@ if (global.timeline_stop == 1)
 		}
 	}
 
-	if (global.editor_selected_type == 0)
-	{
-		draw_set_color(c_white);
-		draw_set_alpha(1);
-		draw_line_width(t_m_x+lengthdir_x(320,image_angle),t_m_y+lengthdir_y(320,image_angle),t_m_x,t_m_y,3);
-	}
-	else if (global.editor_selected_type == 1)
+
+	if (global.editor_selected_type == 1)
 	{
 		draw_set_color(c_white);
 		draw_set_alpha(1);
@@ -164,14 +156,7 @@ if (global.timeline_stop == 1)
 		draw_set_alpha(1);
 		draw_line_width(t_m_x+lengthdir_x(320,tmp_val_ang),t_m_y+lengthdir_y(320,tmp_val_ang),t_m_x,t_m_y,3);
 	}
-	else if (global.editor_selected_type == 10)
-	{
-		var tmp_val_ang = floor(image_angle)
-		draw_set_color(c_white);
-		draw_set_alpha(1);
-		draw_line_width(t_m_x+lengthdir_x(320,tmp_val_ang),t_m_y+lengthdir_y(320,tmp_val_ang),t_m_x,t_m_y,3);
-	}
-	else if (global.editor_selected_type == 12)
+	else if (global.editor_selected_type == 0 || global.editor_selected_type == 10 || global.editor_selected_type == 12 || global.editor_selected_type == 20)
 	{
 		var tmp_val_ang = floor(image_angle)
 		draw_set_color(c_white);
@@ -200,6 +185,12 @@ if (global.timeline_stop == 1)
 			draw_line_width(t_m_x+lengthdir_x((global.ed_arg[2]/60)*64,tmp_ang+90),t_m_y+lengthdir_y((global.ed_arg[2]/60)*64,tmp_ang+90),t_m_x,t_m_y,3);
 		}
 	}
+	else if (global.editor_selected_type == 19)
+	{
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+		draw_line_width(t_m_x,t_m_y,floor((global.ed_arg[3]-128)*15),floor((global.ed_arg[4]-128)*15),3);
+	}
 }
 
 
@@ -208,251 +199,7 @@ for(var i = 0; i < 7; i++)
 	if (global.ed_arg_name[i] != "")
 	{
 		//보정된 값으로 출력
-		var tmp_val = global.ed_arg[i];
-		if (global.ed_arg_name[i] == "크기")
-		{
-			tmp_val = string(floor(sprite_get_width(sprite_index)*global.ed_arg[i]))+"px";
-			global.ed_arg[i] = floor(sprite_get_width(sprite_index)*global.ed_arg[i])/sprite_get_width(sprite_index);
-		}
-		else if (global.ed_arg_name[i] == "n프레임 이후 활성화 (60fps = 1초)")
-		{
-			tmp_val = string(tmp_val)+"fps 후";
-		}
-		else if (global.ed_arg_name[i] == "지속 시간 (60fps = 1초)")
-		{
-			tmp_val = string(tmp_val)+"fps 후";
-		}
-		else if (global.ed_arg_name[i] == "생성된 탄막의 지속 시간 (60fps = 1초)")
-		{
-			tmp_val = string(tmp_val)+"fps 후";
-		}
-		
-		
-		if (global.editor_selected_type == 1)
-		{
-			if (i == 1)
-			{
-				tmp_val = floor((tmp_val-180)*50);
-			}
-			else if (i == 2)
-			{
-				tmp_val = floor((tmp_val-128)*50);
-			}
-		}
-		else if (global.editor_selected_type == 2)
-		{
-			if (i == 2)
-			{
-				tmp_val = (tmp_val-128)/130;
-			}
-		}
-		else if (global.editor_selected_type == 3)
-		{
-			if (i == 4)
-			{
-				tmp_val /= 255;
-			}
-		}
-		else if (global.editor_selected_type == 4)
-		{
-			if (i == 4)
-			{
-				tmp_val /= 64;
-			}
-		}
-		else if (global.editor_selected_type == 6)
-		{
-			if (i == 0)
-			{
-				tmp_val = string(floor(sprite_get_width(sprite_index)*global.ed_arg[i]*0.5))+"px";
-				global.ed_arg[i] = floor(sprite_get_width(sprite_index)*global.ed_arg[i])/sprite_get_width(sprite_index);
-			}
-		}
-		else if (global.editor_selected_type == 7)
-		{
-			if (i == 1)
-			{
-				tmp_val = round(tmp_val/90)*90;
-			}
-			else if (i == 5)
-			{
-				tmp_val = floor((tmp_val/1200)*359);
-			}
-		}
-		else if (global.editor_selected_type == 10)
-		{
-			if (i == 2)
-			{
-				tmp_val = floor(tmp_val/255*64);
-			}
-		}
-		else if (global.editor_selected_type == 12)
-		{
-			if (i == 2)
-			{
-				tmp_val = floor(tmp_val/4);
-			}
-			else if (i == 3)
-			{
-				tmp_val = floor((tmp_val-128)/255*15);
-			}
-		}
-		else if (global.editor_selected_type == 13)
-		{
-			if (i == 0)
-			{
-				tmp_val = string(floor((50+tmp_val*12*0.65)))+"% 확대";
-			}
-			else if (i == 1)
-			{
-				tmp_val = "1프레임당 "+string(floor((tmp_val-180)/10)/200)+"%씩 확대";
-			}
-		}
-		else if (global.editor_selected_type == 14)
-		{
-			if (i == 0)
-			{
-				tmp_val = (tmp_val-10)/10;
-			}
-			else if (i == 2)
-			{
-				tmp_val = (tmp_val < 128) ? "비활성화됨" : "활성화됨"
-			}
-			else if (i == 5)
-			{
-				tmp_val = (tmp_val)/255;
-			}
-		}
-		else if (global.editor_selected_type == 15)
-		{
-			if (i == 2)
-			{
-				tmp_val = floor((tmp_val)/4);
-			}
-			else if (i == 3)
-			{
-				tmp_val = (tmp_val-128)/16;
-			}
-			else if (i == 4)
-			{
-				tmp_val = floor(fix_to_zero(((tmp_val/255)-1)*60));
-			}
-			else if (i == 5)
-			{
-				tmp_val = 1+floor(tmp_val);
-			}
-		}
-		else if (global.editor_selected_type == 16)
-		{
-			if (i == 1)
-			{
-				tmp_val = round(tmp_val/90)*90;
-			}
-			else if (i == 2)
-			{
-				tmp_val = (tmp_val/60);
-			}
-		}
-		else if (global.editor_selected_type == 17)
-		{
-			if (i == 1)
-			{
-				tmp_val = round(tmp_val/180);
-				if (tmp_val == 0)
-				{
-					tmp_val = "x,y축 모두 흔들림"
-				}
-				else if (tmp_val == 1)
-				{
-					tmp_val = "x축으로만 흔들림"
-				}
-				else
-				{
-					tmp_val = "y축으로만 흔들림"
-				}
-			}
-		}
-		else if (global.editor_selected_type == 18)
-		{
-			if (i == 0)
-			{
-				tmp_val = floor((tmp_val*6-300));
-			}
-			else if (i == 1)
-			{
-				tmp_val = (tmp_val-180);
-			}
-		}
-		else if (global.editor_selected_type == 19)
-		{
-			if (i == 3 || i == 4)
-			{
-				tmp_val = floor((tmp_val-128)*50);
-			}
-		}
-		else if (global.editor_selected_type == 21)
-		{
-			if (i == 0)
-			{
-				tmp_val = round((tmp_val*12/100));
-			}
-		}
-		else if (global.editor_selected_type == 22)
-		{
-			if (i == 6)
-			{
-				tmp_val = (tmp_val == 1) ? "활성화됨" : "비활성화됨";
-			}
-		}
-		else if (global.editor_selected_type == 23)
-		{
-			if (i == 6)
-			{
-				tmp_val = (tmp_val == 1) ? "화면 흔들림 효과" : "블랙아웃 효과";
-			}
-			else if (i == 0)
-			{
-				if (global.ed_arg[6] == 1)
-				{
-					var tmp_val1 = round(tmp_val*12/100*3);
-					tmp_val = "x축으로만 흔들림";
-					if (tmp_val1 == 1)
-					{
-						tmp_val = "y축으로만 흔들림";
-					}
-					else if (tmp_val1 == 2)
-					{
-						tmp_val = "x,y축 모두 흔들림";
-					}
-				}
-				else
-				{
-					var tmp_val1 = round(tmp_val*12/100*4);
-					var tmp_val = "원형";
-					if (tmp_val1 == 1)
-					{
-						tmp_val = "상단";
-					}
-					else if (tmp_val1 == 2)
-					{
-						tmp_val = "우측";
-					}
-					else if (tmp_val1 == 3)
-					{
-						tmp_val = "하단";
-					}
-					else if (tmp_val1 == 4)
-					{
-						tmp_val = "좌측";
-					}
-				}
-			}
-		}
-		
-		
-		
-		
-		
+		var tmp_val = string(global.ed_arg[i])+string(global.ed_arg_tagname[i]);
 		var tmp_string = " ["+string(tmp_val)+"]";
 		var tmp_alpha = 1;
 		with(obj_button)

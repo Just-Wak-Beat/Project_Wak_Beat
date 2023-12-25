@@ -51,29 +51,5 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && spri
 				audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
 			}
 		}
-		else if (button_id == 100)
-		{
-			global.ed_arg[0] = (scroll_value)/12;
-		}
-		else if (button_id == 101)
-		{
-			global.ed_arg[1] = (scroll_value/100)*359;
-		}
-		else if (button_id == 102)
-		{
-			global.ed_arg[2] = (scroll_value/100)*255;
-		}
-		else if (button_id == 103)
-		{
-			global.ed_arg[3] = (scroll_value/100)*255;
-		}
-		else if (button_id == 104)
-		{
-			global.ed_arg[4] = (scroll_value/100)*255;
-		}
-		else if (button_id == 105)
-		{
-			global.ed_arg[5] = (scroll_value/100)*1200;
-		}
 	}
 }

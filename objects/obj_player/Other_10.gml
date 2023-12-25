@@ -2,10 +2,7 @@
 // You can write your code in this editor
 w_alpha = 5
 global.dashed = 1
-if invincibility_cooltime < 25+(1-global.t_selected_difficulty)*15
-{
-	invincibility_cooltime = 25+(1-global.t_selected_difficulty)*15
-}
+
 
 n_max_map_speed = (global.map_speed > global.map_speed_y) ? global.map_speed : global.map_speed_y
 n_max_map_speed = (n_max_map_speed > 28) ? 28 : n_max_map_speed;
@@ -13,6 +10,11 @@ global.dashing = 1
 var tmp = (3600/global.bpm);
 tmp = (tmp <= 20) ? tmp*2 : tmp;
 global.dash_cooltime = fix_to_zero(tmp-1-global.dash_dec_c_time-n_max_map_speed*0.4)
+
+if (invincibility_cooltime < 45)
+{
+	invincibility_cooltime = 45;
+}
 
 var _ef = instance_create_depth(x,y,depth+1,explosion_effect)
 _ef.image_xscale = 1

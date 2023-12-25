@@ -25,3 +25,10 @@ for(var i = -8; i <= 0; i++)
 {
 create_laser(_xx+i*64,global.c_y,1+abs(i)*5,20,0,2,2,180)
 }
+
+if (global.t_selected_difficulty == 0)
+{
+var ins_tmp = instance_create_depth(room_width*0.5,room_height*0.5,depth,hitbox_22)
+ins_tmp.image_xscale = 0.85;
+ins_tmp.image_yscale = 0.85;
+}

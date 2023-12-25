@@ -448,7 +448,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 
 
 	//음악(오디오) 싱크 안맞는거 강제 픽스
-	if gamestart = 2 && global.n_progress < global.music_duration && global.n_progress > 0 && audio_is_playing(global.n_music_instance) && global.n_music_instance != -4
+	if (gamestart == 2 && global.n_progress < global.music_duration && global.n_progress > 0 && audio_is_playing(global.n_music_instance) && global.n_music_instance != -4)
 	{
 		if (timeline_running != false || global.custom_map_timeline != false)
 		{
@@ -456,7 +456,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 			if global.automatic_sycn_fixing > 5
 			{
 				global.n_sync = abs(audio_sound_get_track_position(global.n_music_instance)*60 - global.n_progress)
-				if global.n_sync >= 10
+				if global.n_sync >= 5
 				{
 					audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
 				}

@@ -23,7 +23,7 @@ if (global.minimum_rank > 0 && global.minimum_rank < global.total_damaged)
 
 
 //점수 계산
-if (!instance_exists(obj_stage_clear))
+if (image_xscale > 0 && global.n_progress > 0 && !instance_exists(obj_stage_clear))
 {
 	var tco = global.crossed_obstacle_num; //지나간 장애물 갯수
 	var db1 = global.dash_cross_bonus; //지나간 장애물 갯수에 대한 보너스 점수

@@ -82,7 +82,7 @@ draw_sprite_ext(spr_square,0,global.c_x+1700-(1 - ui_alpha__cal)*1880,global.c_y
 
 //플레이어 캐릭터 아이콘
 draw_sprite_ext(spr_player_icon,1,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,global.font_ratio_resolution_xx*1.15*0.5,global.font_ratio_resolution_xx*1.15*0.5,0,c_white,ui_alpha__cal)
-draw_sprite_ext(spr_player_icon,2+global.n_player_skin,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,global.font_ratio_resolution_xx*1.15*0.5,global.font_ratio_resolution_xx*1.15*0.5,0,c_white,ui_alpha__cal)
+draw_sprite_ext(spr_player_icon,(global.n_player_skin >= 0) ? 2+global.n_player_skin : 2,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,global.font_ratio_resolution_xx*1.15*0.5,global.font_ratio_resolution_xx*1.15*0.5,0,c_white,ui_alpha__cal)
 draw_sprite_ext(spr_player_icon,0,global.c_x-(1 - ui_alpha__cal)*1880,global.c_y,global.font_ratio_resolution_xx*1.15*0.5,global.font_ratio_resolution_xx*1.15*0.5,0,c_white,ui_alpha__cal)
 
 
@@ -247,7 +247,7 @@ var fontsize1 = 0.55*(1+global.mobile_mode*0.3)
 var fontsize2 = 0.65*(1+global.mobile_mode*0.3)
 var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
   
-if global.n_map_id >= 0 && instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 2 && code.gamestart != 3
+if global.n_map_id >= 0 && global.n_map_id < array_length(global.n_score) && instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 2 && code.gamestart != 3
 {
 	if (global.play_custom_map != 1)
 	{
@@ -478,7 +478,7 @@ if (global.select_difficulty > 0 && global.title_menu_animation1 == -1)
 	draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,merge_color(c_white,c_black,dis_temp2),global.select_difficulty)
 	draw_sprite_ext(spr_W,tmp_ind,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,color_temp2,global.select_difficulty)
 	draw_text_k_scale(button_2_xx,middle_yy-s_selected*64,"Hardcore",64,-1,global.select_difficulty,color_temp2,0,0,normal_font,0.65*s_selected*global.font_ratio_resolution_xx,0.65*s_selected,0)
-	draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않고 무적 쿨타임이 짧아지며,\n랜덤한 패턴과 새로운 패턴이 등장합니다.\n\n클리어 시,\n많은 경험치와 아티팩트를 중복하여 획득할 수 있으며,\n특정 캐릭터를 획득할 수 있습니다.",scale*48*s_selected,-1,global.select_difficulty,color_temp2,0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
+	draw_text_k_scale(button_2_xx,middle_yy,"세이브 포인트를 제공하지 않으며,\n새로운 탄막이 추가됩니다.\n\n클리어 시,\n많은 경험치와 아티팩트를 중복하여 획득할 수 있으며,\n특정 캐릭터를 획득할 수 있습니다.",scale*48*s_selected,-1,global.select_difficulty,color_temp2,0,0,normal_font,0.35*s_selected*global.font_ratio_resolution_xx,0.35*s_selected,0)
 	
 	
 	//draw_sprite_ext(spr_circle,0,middle_xx,middle_yy+yy_h*0.15,scale*t_selected*global.font_ratio_resolution_xx*0.5,scale*t_selected*0.5,0,merge_color(c_white,c_black,dis_temp3),global.select_difficulty)

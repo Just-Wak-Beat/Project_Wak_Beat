@@ -53,4 +53,4 @@ if (global.title_menu_animation1 == 2)
 	angle_moving_timer = 0
 }
 
-alarm[1] = 120;
+alarm[1] = 90;

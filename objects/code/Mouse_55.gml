@@ -22,3 +22,8 @@ else
 	set_hitbox_color(#5595ff,0,room_width*0.5,room_height*0.5);
 	set_bg_color_with_effect(#5595ff,room_width*0.5,room_height*0.5,0.3);
 }*/
+
+
+var ins_tmp = instance_create_depth(mouse_x,mouse_y,depth,hitbox_22)
+ins_tmp.image_xscale = 0.85;
+ins_tmp.image_yscale = 0.85;

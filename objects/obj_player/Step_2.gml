@@ -10,7 +10,7 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 	var _placed_obj = instance_place(x+i*sign(global.hmove_speed),y+ii*sign(global.vmove_speed),hitbox_parents)
 	if (instance_exists(_placed_obj) && _placed_obj.image_alpha >= 0.95 && _placed_obj.object_index != hitbox_22)
 	{
-		if invincibility_cooltime <= 0
+		if (invincibility_cooltime <= 0)
 		{
 			hurt = _placed_obj
 			hurt_hspeed = global.hmove_speed
@@ -22,42 +22,39 @@ if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w
 			}
 			
 			
-			if (invincibility_cooltime != 80)
+			if (!percentage_k(global.ignore_damage))
 			{
-				if (!percentage_k(global.ignore_damage))
+				if (global.additional_hp <= 0)
 				{
-					if (global.additional_hp <= 0)
-					{
-						global.total_damaged ++;
-						global.hp -= 1;
-					}
-					else
-					{
-						global.additional_hp --;
-					}
+					global.total_damaged ++;
+					global.hp -= 1;
 				}
+				else
+				{
+					global.additional_hp --;
+				}
+			}
 				
 				
-				kirakira_effect = 1;
-				w_alpha = 2;
-				global.blackout_alpha = 1;
-				invincibility_cooltime = 80+global.addition_invinc_time;
-				show_invincibility = 1;
-				audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6);
+			kirakira_effect = 1;
+			w_alpha = 2;
+			global.blackout_alpha = 1;
+			invincibility_cooltime = 150+global.addition_invinc_time;
+			show_invincibility = 1;
+			audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6);
 			
-				repeat(irandom_range(4,5))
-				{
-					var random_x = irandom_range(-24,24)
-					var random_y = irandom_range(-24,24)
-					var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
-					effect_.image_xscale = 0.6
-					effect_.image_yscale = 0.6
-					effect_.direction = point_direction(x,y,x+random_x,y+random_y)
-					effect_.speed = 24
-					effect_.image_angle = image_angle
-					effect_.image_blend = global.player_color
-					effect_.image_alpha = 0.5;
-				}
+			repeat(irandom_range(4,5))
+			{
+				var random_x = irandom_range(-24,24)
+				var random_y = irandom_range(-24,24)
+				var effect_ = instance_create_depth(x+random_x,y+random_y,depth+1,movement_effect)
+				effect_.image_xscale = 0.6
+				effect_.image_yscale = 0.6
+				effect_.direction = point_direction(x,y,x+random_x,y+random_y)
+				effect_.speed = 24
+				effect_.image_angle = image_angle
+				effect_.image_blend = global.player_color
+				effect_.image_alpha = 0.5;
 			}
 		}
 		else

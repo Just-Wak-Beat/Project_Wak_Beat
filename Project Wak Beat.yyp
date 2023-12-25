@@ -216,6 +216,7 @@
     {"id":{"name":"editor_mode_create_projectile","path":"scripts/editor_mode_create_projectile/editor_mode_create_projectile.yy",},},
     {"id":{"name":"view_shake","path":"scripts/view_shake/view_shake.yy",},},
     {"id":{"name":"Sprite67","path":"sprites/Sprite67/Sprite67.yy",},},
+    {"id":{"name":"scroll_param_set","path":"scripts/scroll_param_set/scroll_param_set.yy",},},
     {"id":{"name":"convert_score_to_rank","path":"scripts/convert_score_to_rank/convert_score_to_rank.yy",},},
     {"id":{"name":"alzar_timeline","path":"timelines/alzar_timeline/alzar_timeline.yy",},},
     {"id":{"name":"create_laser","path":"scripts/create_laser/create_laser.yy",},},

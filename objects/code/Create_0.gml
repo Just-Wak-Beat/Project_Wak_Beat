@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "7.1";
-global.version = "Beta "+string(global.version_real);
+global.version_real = "1.0";
+global.version = "Alpha "+string(global.version_real);
 global.beta_tester = 1;
 global.streamer = 0;
 global.custom_mapper = 0;
@@ -47,6 +47,11 @@ for(var i = 0; i < 7; i++)
 {
 	global.ed_arg[i] = 0.1;
 	global.ed_arg_name[i] = "";
+	global.ed_arg_min_val[i] = 0;
+	global.ed_arg_max_val[i] = 0;
+	global.ed_arg_correction[i] = 0; //0 = none, 1 = round, 2 = floor
+	global.ed_arg_divide[i] = 0;
+	global.ed_arg_tagname[i] = "";
 }
 global.ed_arg[6] = 1;
 
@@ -390,6 +395,10 @@ global.real_detailed_difficulty[0] = 0;
 global.real_obtainable_type[0] = 0
 global.real_requirement_level[0] = 0
 global.tutorial_now = 0
+global.tutorial_wait_beat_alpha = 0;
+bpm_timer = 0;
+n_beat_index = 0;
+global.tutorial_wait_beat_scale = [ 0, 0, 0 ];
 
 //왁굳향 100% 첨가
 global.real_stage_map_name[1] = "왁굳향100% 첨가";
