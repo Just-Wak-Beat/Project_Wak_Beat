@@ -1156,15 +1156,15 @@ else ///크레딧 출력
 	
 	if (credit_text_alpha[1] > 0)
 	{
+		var surface_ratio = 1.87;
 		var video_data = video_draw();
 		var video_status = video_data[0];
 		if (video_status == 0)
 		{
 			var video_width = surface_get_width(video_data[1]);
 			var video_height = surface_get_height(video_data[1]);
-			var scale = 3584/video_width;
 			//show_message_log("scale : "+string(scale)+" / "+string(surface_get_width(video_data[1])))
-			draw_surface_ext(video_data[1],0,0,scale*global.font_ratio_resolution_xx,scale,0,c_white,fix_num_inside(credit_text_alpha[1],0,1));
+			draw_surface_ext(video_data[1],xx,yy,surface_ratio*global.font_ratio_resolution_xx,surface_ratio,0,c_white,fix_num_inside(credit_text_alpha[1],0,1));
 		}
 	}
 	

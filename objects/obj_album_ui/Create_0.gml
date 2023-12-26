@@ -35,7 +35,8 @@ loading_now = -10
 blind_xx_start = 0
 blind_xx_final = 0
 ding_dong_animation = 0
-credit_text_alpha = [ -1, -1, -1, -1, -1 ]
+credit_text_alpha = [ -1, -1, -1, -1, -1 ];
+
 
 global.unlock_partner_animation_queue = 0
 global.b_loaded_ranking = -1
