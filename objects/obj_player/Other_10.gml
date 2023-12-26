@@ -9,7 +9,7 @@ n_max_map_speed = (n_max_map_speed > 28) ? 28 : n_max_map_speed;
 global.dashing = 1
 var tmp = (3600/global.bpm);
 tmp = (tmp <= 20) ? tmp*2 : tmp;
-global.dash_cooltime = fix_to_zero(tmp-1-global.dash_dec_c_time-n_max_map_speed*0.4)
+global.dash_cooltime = fix_num_inside(tmp-10-global.dash_dec_c_time-n_max_map_speed*0.4,10,999);
 
 if (invincibility_cooltime < 45)
 {

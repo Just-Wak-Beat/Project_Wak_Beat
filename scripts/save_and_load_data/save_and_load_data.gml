@@ -134,7 +134,14 @@ function save_and_load_data(argument0,argument1)
 		global.total_score_hardcore = ini_read_real("total_score_hardcore","none",0);
 		
 		//닉네임
-		global.nickname = ini_read_string("nickname","none","");
+		if (global.streamer == 1)
+		{
+			global.nickname = "Wakgood";
+		}
+		else
+		{
+			global.nickname = ini_read_string("nickname","none","");
+		}
 		decode_nametag(global.nickname);
 		//베타테스터
 		if (global.beta_tester != 1)

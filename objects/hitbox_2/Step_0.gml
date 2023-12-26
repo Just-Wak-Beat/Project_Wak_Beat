@@ -9,7 +9,13 @@ if ((sprite_index == spr_triangle_half || sprite_index == spr_hexagon_half) && g
 	
 	if (sprite_index == spr_hexagon_half)
 	{
-		speed += (1280 - speed)*0.001;
+		image_xscale += 0.02*image_xscale;
+		image_yscale += 0.02*image_xscale;
+	}
+	
+	if (image_xscale > 25)
+	{
+		instance_destroy();
 	}
 }
 
@@ -18,7 +24,7 @@ if ((sprite_index == spr_triangle_half || sprite_index == spr_hexagon_half) && g
 
 
 
-if (gravity == 0 || variable_instance_exists(id,"none_map_speed"))
+if (gravity == 0 && !variable_instance_exists(id,"none_map_speed"))
 {
 	x -= global.map_speed
 	y += global.map_speed_y

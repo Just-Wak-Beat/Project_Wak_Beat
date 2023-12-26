@@ -47,7 +47,7 @@ if (global.low_graphics = false)
 			}
 			else
 			{
-				draw_set_color(merge_color(image_blend,c_white,w_alpha))
+				draw_set_color(merge_color_new(image_blend,c_white,w_alpha))
 			}
 			draw_line_width(x+xx[i],y+yy[i],x+lengthdir_x(60+image_xscale*32,spin_rad*0.5),y+lengthdir_y(60+image_xscale*32,spin_rad*0.5),4)
 			draw_circle_color(x+lengthdir_x(60+image_xscale*32,spin_rad*0.5),y+lengthdir_y(60+image_xscale*32,spin_rad*0.5),2.5,c_white,c_white,false)
@@ -62,7 +62,7 @@ if (global.low_graphics = false)
 			}
 			else
 			{
-				draw_set_color(merge_color(image_blend,c_white,w_alpha))
+				draw_set_color(merge_color_new(image_blend,c_white,w_alpha))
 			}
 			draw_line_width(x+xx2[i],y+yy2[i],x+lengthdir_x(76+image_xscale*32,-spin_rad),y+lengthdir_y(76+image_xscale*32,-spin_rad),1.5*image_alpha)
 		}
@@ -85,7 +85,7 @@ if (touched > 3)
 	draw_set_alpha(alpha_*0.5)
 	draw_line_width(xx_-64,yy_+yy__h*0.5,xx__w+64,yy_+yy__h*0.5,9999)
 	
-	draw_set_color(merge_color(global.player_color,c_black,0.3))
+	draw_set_color(merge_color_new(global.player_color,c_black,0.3))
 	draw_set_alpha(alpha_*0.5)
 	draw_line_width(xx_,yy_+yy__h*0.5,xx__w,yy_+yy__h*0.5,600*font_size)
 }

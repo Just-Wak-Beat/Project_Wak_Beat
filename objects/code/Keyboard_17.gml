@@ -4,7 +4,9 @@ if (global.dev_mode == 1)
 {
 	if (keyboard_check_pressed(ord("H")))
 	{
-		global.level--;
+		var ins_tmp = instance_create_depth(mouse_x,mouse_y,depth,hitbox_22)
+		ins_tmp.image_xscale = 0.85;
+		ins_tmp.image_yscale = 0.85;
 	}
 	else if (keyboard_check_pressed(ord("E")))
 	{

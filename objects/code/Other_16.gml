@@ -8,7 +8,7 @@ if instance_exists(obj_album_ui)
 	obj_album_ui.image_yscale = 0
 	obj_album_ui.image_angle = 0
 	load_stage(global.stage_map_name[n_stage],global.stage_map_artist[n_stage],global.stage_map_audio_name[n_stage],global.stage_map_color[n_stage],global.stage_map_duration[n_stage],global.stage_bpm[n_stage])
-	merge_color(global.map_color,c_black,0.9)
+	merge_color_new(global.map_color,c_black,0.9)
 }
 else
 {

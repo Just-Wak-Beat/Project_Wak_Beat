@@ -18,11 +18,5 @@ obj_camera.v_x = obj_camera.tv_x;
 obj_camera.v_y = obj_camera.tv_y;
 
 
-if (global.play_custom_map == 1)
-{
-	global.map_color = global.custom_stage_map_color[global.n_map_id];
-}
-else
-{
-	global.map_color = global.stage_map_color[global.n_map_id];
-}
+//맵 색 설정
+obj_camera.alarm[2] = 5;

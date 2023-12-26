@@ -150,7 +150,7 @@ switch(global.editor_selected_type)
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
 		scroll_param_set(2,"지속시간 (60fps = 1초, 0fps = 무한 지속)",0,3600,2,0,"fps");
 		scroll_param_set(6,"이펙트 활성화",-1,1,2,0,"");
@@ -166,7 +166,7 @@ switch(global.editor_selected_type)
 			selected_projectile_type = 0;
 		}
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"처음 날아오는 위치 (x축)",room_width*0.5-2048,room_width*0.5+2048,2,0,"px");
 		scroll_param_set(2,"처음 날아오는 위치 (y축)",room_height*0.5-1920,room_height*0.5+1920,2,0,"px");
 		scroll_param_set(3,"n프레임 이후 활성화 (60fps = 1초)",1,3600,2,0,"fps");
@@ -183,9 +183,9 @@ switch(global.editor_selected_type)
 		}
 		image_alpha = 0.4;
 		image_angle = global.ed_arg[1];
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
-		scroll_param_set(2,"활성화 이후 회전 속력",0,99,2,100,"");
+		scroll_param_set(2,"활성화 이후 회전 속력",-99,99,0,100,"");
 		scroll_param_set(3,"n프레임 이후 활성화 (60fps = 1초)",1,3600,2,0,"fps");
 		scroll_param_set(4,"지속시간 (60프레임 = 1초)",1,3600,2,0,"fps");
 	break;
@@ -201,7 +201,7 @@ switch(global.editor_selected_type)
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
 		scroll_param_set(2,"좌우 반복 움직임 속력 (각도에 따라 이동이 다름)",0,5,2,0,"");
 		scroll_param_set(3,"n프레임 이후 활성화 (60fps = 1초)",1,3600,2,0,"fps");
@@ -220,7 +220,7 @@ switch(global.editor_selected_type)
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
 		scroll_param_set(2,"속력",0,360,2,0,"");
 		scroll_param_set(3,"몸통 갯수",0,64,2,0,"");
@@ -238,7 +238,7 @@ switch(global.editor_selected_type)
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
 		scroll_param_set(2,"속력",24,360,2,0,"");
 		scroll_param_set(3,"n프레임 이후 활성화 (60fps = 1초)",0,3600,2,0,"fps");
@@ -257,7 +257,7 @@ switch(global.editor_selected_type)
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
 		
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
 		scroll_param_set(2,"n프레임 이후 활성화 (60fps = 1초)",0,3600,2,0,"fps");
 		scroll_param_set(3,"지속시간 (60프레임 = 1초)",1,3600,2,0,"fps");
@@ -275,7 +275,7 @@ switch(global.editor_selected_type)
 		image_angle = round(global.ed_arg[1]/90)*90;
 		image_alpha = 0.4;
 		
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"튀어나오는 각도",0,359,2,90,"deg");
 		scroll_param_set(2,"속력",24,360,2,0,"");
 		scroll_param_set(3,"n프레임 이후 활성화 (60fps = 1초)",1,3600,2,0,"fps");
@@ -308,7 +308,7 @@ switch(global.editor_selected_type)
 			selected_projectile_type = 0;
 			custom_image_type = 2;
 		}
-		image_blend = merge_color(c_black,make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]),fix_num(global.ed_arg[5]/1200));
+		image_blend = merge_color_new(c_black,make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]),fix_num(global.ed_arg[5]/1200));
 		scroll_param_set(0,"R",0,255,2,0,"");
 		scroll_param_set(1,"G",0,255,2,0,"");
 		scroll_param_set(2,"B",0,255,2,0,"");
@@ -317,7 +317,7 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 10: //미사일 탄막
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,90,"deg");
 		scroll_param_set(2,"속력",24,640,2,0,"");
 		scroll_param_set(3,"생성된 탄막의 지속 시간 (60fps = 1초)",1,3600,2,0,"");
@@ -348,7 +348,7 @@ switch(global.editor_selected_type)
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,90,"deg");
 		scroll_param_set(2,"속력",24,640,2,0,"");
 		scroll_param_set(3,"이미지 회전 방향",-50,50,2,10,"");
@@ -385,7 +385,7 @@ switch(global.editor_selected_type)
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"첫 발사 탄막 각도",0,359,2,0,"deg");
 		scroll_param_set(2,"속력",24,640,2,0,"");
 		scroll_param_set(3,"회전 방향",-50,50,2,10,"");
@@ -404,9 +404,9 @@ switch(global.editor_selected_type)
 		image_yscale = image_xscale;
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,90,"deg");
-		scroll_param_set(2,"물방울 높이",0,128,2,0,"");
+		scroll_param_set(2,"물방울 높이",0,64,2,0,"");
 		scroll_param_set(3,"물 파장 길이",0,64,2,0,"");
 		scroll_param_set(6,"물방울 제거",-1,1,2,0,"");
 	break;
@@ -445,7 +445,7 @@ switch(global.editor_selected_type)
 		}
 		image_angle = global.ed_arg[1]-180;
 		image_alpha = 0.4;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
 		scroll_param_set(2,"이동 속력",0,1280,2,0,"");
 		scroll_param_set(3,"이동할 위치 (x축)",room_width*0.5-2048,room_width*0.5+2048,2,0,"");
@@ -465,7 +465,7 @@ switch(global.editor_selected_type)
 		image_angle = global.ed_arg[1]-180;
 		image_alpha = 0.5;
 		image_blend = #7da7d9;
-		scroll_param_set(0,"크기",1,1024,2,0,"px");
+		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
 		scroll_param_set(2,"이동 속력",0,1280,2,0,"");
 		scroll_param_set(3,"지속 시간 (60fps = 1초, 0fps = 무한 지속)",0,3600,2,0,"");

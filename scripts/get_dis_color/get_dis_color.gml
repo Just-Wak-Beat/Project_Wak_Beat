@@ -2,8 +2,8 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function get_dis_color(argument0,argument1)
 {
-	var cannot_cal_arg0 = (!is_string(argument0) || argument0 == "") ? 1 : 0;
-	var cannot_cal_arg1 = (!is_string(argument1) || argument1 == "") ? 1 : 0;
+	var cannot_cal_arg0 = (!is_string(argument0) || argument0 == "" || argument0 == -4) ? 1 : 0;
+	var cannot_cal_arg1 = (!is_string(argument1) || argument1 == "" || argument1 == -4) ? 1 : 0;
 
 	if (cannot_cal_arg0 == 1 && cannot_cal_arg1 == 0)
 	{

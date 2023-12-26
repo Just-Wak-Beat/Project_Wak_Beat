@@ -6,6 +6,10 @@ function view_shake(argument0, argument1, argument2, argument3)
 {
 var zoom_scale = argument0*1.7
 var shake_scale = argument1*1.8
+if (global.play_custom_map != 1 && argument1 < 5)
+{
+	shake_scale = 9; 
+}
 var angle_shake_ = argument2/5
 	
 	global.shake_time = 0

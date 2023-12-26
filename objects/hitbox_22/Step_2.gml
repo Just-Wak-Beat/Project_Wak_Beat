@@ -21,7 +21,6 @@ if (play_animation == 0)
 	line_angle -= (270/des_timer);
 	if (scale <= 0)
 	{
-		w_alpha = 100;
 		play_animation = 1;
 		line_alpha = 1;
 		
@@ -29,6 +28,12 @@ if (play_animation == 0)
 		{
 			global.hp = 0;
 		}
+		
+		with(hitbox_parents)
+		{
+			w_alpha = 1;
+		}
+		w_alpha = 100;
 	}
 }
 else

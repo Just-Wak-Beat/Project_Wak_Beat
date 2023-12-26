@@ -202,7 +202,7 @@ function load_musicList(argument0)
 			load_stage(global.stage_map_name[0],global.stage_map_artist[0],global.stage_map_audio_name[0],global.stage_map_color[0],global.stage_map_duration[0],global.stage_bpm[0])
 		}
 		
-		global.background_color = merge_color(global.map_color,c_black,0.9)
+		global.background_color = merge_color_new(global.map_color,c_black,0.9)
 		if (global.background_color == c_black)
 		{
 			global.background_color = #1f1f1f;
@@ -238,7 +238,7 @@ function load_musicList(argument0)
 		
 		
 			global.unlocked_music_name_new_list[check_new_song] = "[데미지 받은 횟수(x"+string(global.total_damaged)+"), 대쉬로 피한 탄막(x"+string(global.result_obstacle)+"), 게임 오버 횟수 (x"+string(global.total_death_point)+") 에 의한 점수]";
-			global.unlocked_music_name_new_list_color[check_new_song] = merge_color(c_white,c_black,0.2);
+			global.unlocked_music_name_new_list_color[check_new_song] = merge_color_new(c_white,c_black,0.2);
 			check_new_song++;
 		
 			global.unlocked_music_name_new_list[check_new_song] = "___";

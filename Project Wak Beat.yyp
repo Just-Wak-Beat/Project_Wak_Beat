@@ -214,6 +214,7 @@
     {"id":{"name":"bamguy","path":"sounds/bamguy/bamguy.yy",},},
     {"id":{"name":"explosion_effect","path":"objects/explosion_effect/explosion_effect.yy",},},
     {"id":{"name":"editor_mode_create_projectile","path":"scripts/editor_mode_create_projectile/editor_mode_create_projectile.yy",},},
+    {"id":{"name":"merge_color_new","path":"scripts/merge_color_new/merge_color_new.yy",},},
     {"id":{"name":"view_shake","path":"scripts/view_shake/view_shake.yy",},},
     {"id":{"name":"Sprite67","path":"sprites/Sprite67/Sprite67.yy",},},
     {"id":{"name":"scroll_param_set","path":"scripts/scroll_param_set/scroll_param_set.yy",},},

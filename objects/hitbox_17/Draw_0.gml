@@ -4,7 +4,7 @@
 if (can_draw == 1)
 {
 	var _w_alpha = (w_alpha2 > 1) ? 1 : w_alpha2
-	var color_ = merge_color(image_blend,c_white,_w_alpha)
+	var color_ = merge_color_new(image_blend,c_white,_w_alpha)
 
 	if (sprite_index == spr_circle_cylinder && spike_anime != 0)
 	{
@@ -15,7 +15,7 @@ if (can_draw == 1)
 	}
 
 	var _w_alpha = (w_alpha > 1) ? 1 : w_alpha
-	var color_ = merge_color(image_blend,c_white,_w_alpha)
+	var color_ = merge_color_new(image_blend,c_white,_w_alpha)
 	draw_sprite_ext(sprite_index,image_index,floor(x),floor(y),image_xscale+w_alpha2*0.1,image_yscale+w_alpha2*0.1,image_angle,color_,image_alpha)
 	
 	if ((fast_movement != true || global.timeline_stop == 1) && warning_timer < target_time)

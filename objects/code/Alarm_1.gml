@@ -23,6 +23,7 @@ if (global.n_score_displaying > 0)
 	else
 	{
 		global.exp = global.max_exp+1;
+		show_guide("조작법 가이드");
 	}
 	global.exp_w_alpha = 1
 

@@ -67,9 +67,9 @@ if (instance_exists(obj_album_ui))
 	}
 	else
 	{
-		global.map_color = merge_color(global.map_color,global.map_color_tmp,0.12);
+		global.map_color = merge_color_new(global.map_color,global.map_color_tmp,0.12);
 	}
-	global.background_color = merge_color(global.map_color,c_black,0.9);
+	global.background_color = merge_color_new(global.map_color,c_black,0.9);
 }
 
 
@@ -106,36 +106,42 @@ if (global.force_wipe_nickname != b_force_wipe_nickname)
 
 
 //게임이 포커스 되지 않았을 때 소리 재생 X
-if (!window_has_focus())
+if (global.rewind <= 0 && global.hp > 0)
 {
-	if (outside_of_window == -4)
+	if (!window_has_focus())
 	{
-		outside_of_window = global.master_volume;
-		if (obj_player.image_xscale > 0)
+		if (outside_of_window == -4)
 		{
-			if (global.map_editor != 1)
+			outside_of_window = global.master_volume;
+			if (obj_player.image_xscale > 0)
 			{
-				if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
+				if (global.map_editor != 1)
 				{
-					event_user(2);
+					if (global.can_change_music_list == 1 && global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
+					{
+						event_user(2);
+					}
 				}
 			}
-		}
-		else
-		{
-			global.master_volume = 0;
+			else
+			{
+				global.master_volume = 0;
+			}
 		}
 	}
-}
-else
-{
-	if (outside_of_window != -4)
+	else
 	{
-		if (obj_player.image_xscale <= 0)
+		if (outside_of_window != -4)
 		{
-			global.master_volume = outside_of_window;
+			if (outside_of_window >= 0)
+			{
+				if (obj_player.image_xscale <= 0)
+				{
+					global.master_volume = outside_of_window;
+				}
+				outside_of_window = -4;
+			} 
 		}
-		outside_of_window = -4;
 	}
 }
 
@@ -388,7 +394,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 	//메인매뉴 돌아가기
 	if (global.back_to_game > 90)
 	{
-		alarm[8] = 1
+		alarm[8] = 5
 		global.t_bg_color_alpha = 0
 		global.t_bg_color = 1
 		global.w_alpha = global.w_alpha < 1 ? 1 : global.w_alpha
@@ -443,7 +449,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 			global.overtime_highlight_song = 0
 		}
 		
-		alarm[8] = 1
+		alarm[8] = 5
 	}
 
 

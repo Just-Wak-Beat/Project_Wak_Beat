@@ -105,7 +105,7 @@ if (music_title_alpha > 0 && global.tutorial_played >= 0)
 	if global.n_player_skin > 0
 	{
 		draw_set_alpha(music_title_alpha)
-		draw_set_color(merge_color(global.player_color,c_black,0.85))
+		draw_set_color(merge_color_new(global.player_color,c_black,0.85))
 		draw_line_width(xx+music_title_alpha*global.converted_view_ratio*780*font_size,yy-global.converted_view_ratio*128,xx+music_title_alpha*global.converted_view_ratio*320*font_size,yy+music_title_alpha*xx_w*font_size,global.converted_view_ratio*600*font_size)
 	
 
@@ -403,10 +403,10 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 	
 
 	
-	if gamestart != 2
+	if (gamestart != 2)
 	{
-		var color__bg = merge_color(global.map_color,c_black,0.7)
-		var col_cal = merge_color(color__bg,c_white,global.background_w_alpha)
+		var color__bg = merge_color_new(global.map_color,c_black,0.7)
+		var col_cal = merge_color_new(color__bg,c_white,global.background_w_alpha)
 		draw_set_color(col_cal)
 		draw_set_alpha(1)
 		draw_line_width(global.c_w-3070-gamestart_anime*2300,global.c_y,global.c_w-3070-gamestart_anime*2300,global.c_y+yy_h,2000)
@@ -417,7 +417,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		//var xx__ = global.c_w-640
 		//var yy__ = global.c_y+yy_h*0.47
 		//draw_set_alpha(1)
-		//draw_set_color(merge_color(global.map_color,c_white,global.background_w_alpha*10))
+		//draw_set_color(merge_color_new(global.map_color,c_white,global.background_w_alpha*10))
 		//var scale = 2.7+gamestart_anime*5
 		//for(var i = -6; i <= 6; i++)
 		//{
@@ -426,7 +426,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 		//draw_circle(xx__+i,yy__+i,1024*0.5*scale,true)
 		//draw_circle(xx__-i,yy__-i,1024*0.5*scale,true)
 		//}
-		draw_sprite_ext(circle_x2048,0,global.c_w-640,global.c_y+yy_h*0.47,scale,scale,0,merge_color(global.map_color,c_white,global.background_w_alpha*10),1)
+		draw_sprite_ext(circle_x2048,0,global.c_w-640,global.c_y+yy_h*0.47,scale,scale,0,merge_color_new(global.map_color,c_white,global.background_w_alpha*10),1)
 	}
 	
 	var changed_music = 0
@@ -661,7 +661,7 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 						global.t_select_map = 0;
 						global.fav_music_num = 0;
 						global.stage_map_name[global.n_map_id] = -4;
-						global.background_color = merge_color(c_white,c_black,0.95)
+						global.background_color = merge_color_new(c_white,c_black,0.95)
 					}
 
 					load_musicList(global.n_map_list);
@@ -697,12 +697,12 @@ if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
 
 if (global.map_editor != 1 && global.rank_display_alpha > 0 && global.tutorial_played > 0 && ((instance_exists(obj_stage_clear) && obj_stage_clear.play_unlock_animation > 0) || !instance_exists(obj_stage_clear)))
 {
-	var temp_col = merge_color(merge_color((get_dis_color(global.background_color,c_white) < 7) ? c_black : c_white,#bf1a5c,global.rank_display_r_alpha),global.player_color,global.rank_display_b_alpha);
+	var temp_col = merge_color_new(merge_color_new((get_dis_color(global.background_color,c_white) < 7) ? c_black : c_white,#bf1a5c,global.rank_display_r_alpha),global.player_color,global.rank_display_b_alpha);
 	var font_size____ = 0.5*(1+global.mobile_mode*0.3)*(1+(global.rank_display_r_alpha+global.rank_display_b_alpha)*0.5)
 	draw_text_kl_scale(xx+108*global.converted_view_ratio,yy+32*global.converted_view_ratio,"현재 랭크\n"+string(global.n_rank_display),70,-1,global.rank_display_alpha,temp_col,0,0,normal_font,font_size____*global.font_ratio_resolution_xx,font_size____,0)
 	
 	
-	draw_text_kl_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(global.n_score_displaying)),70,-1,global.rank_display_alpha,merge_color(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
+	draw_text_kl_scale(xx+108*global.converted_view_ratio,yy+240*global.converted_view_ratio*font_size____,string(numbers_with_comma(global.n_score_displaying)),70,-1,global.rank_display_alpha,merge_color_new(temp_col,c_black,0.3),0,0,normal_font,0.7*font_size____*global.font_ratio_resolution_xx,0.7*font_size____,0)
 }
 
 
@@ -918,7 +918,7 @@ if (global.blackout_effect_alpha > 0)
 			ef_.image_alpha = 0.99;
 			ef_.gravity = 0.35;
 			ef_.gravity_direction = grav_dir;
-			ef_.vspeed = -irandom_range(5,10);
+			ef_.vspeed = -irandom_range(10,20);
 			ef_.keep_spin_angle = 2
 			ef_.image_xscale = 0.4
 			ef_.image_yscale = 0.4
@@ -932,16 +932,16 @@ if (global.blackout_effect_alpha > 0)
 
 
 /////test
-//if (global.dev_mode == 1 && global.tutorial_now == 1)
-//{
-	//draw_set_alpha(1)
-	//draw_set_color(c_blue)
-	//draw_text(xx+32,yy+64,"global.n_music_id : "+string(global.n_music_id)+"\nglobal.tutorial_now : "+string(global.tutorial_now)+"\nglobal.tutorial_n_stage : "+string(global.tutorial_n_stage)+"\ncamera_x : "+string(global.camera_target_x)+"\ncamera_y : "+string(global.camera_target_y))
+if (global.dev_mode == 1)
+{
+	draw_set_alpha(1)
+	draw_set_color(c_blue)
+	draw_text(xx+32,yy+64,"Timeline : "+string(global.n_progress))
 	//if (instance_exists(obj_stage_clear))
 	//{
 	//	draw_text(xx+32,yy+32,"touched : "+string(obj_stage_clear.touched));
 	//}
-//}
+}
 
 
 

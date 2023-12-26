@@ -65,18 +65,18 @@ if (can_draw == 1)
 			if (button_id >= 100 && button_id <= 105)
 			{
 				var tmp_arr_ind = button_id-100;
-				global.ed_arg[tmp_arr_ind] = fix_num_inside((scroll_value/100)*global.ed_arg_max_val[tmp_arr_ind],global.ed_arg_min_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
+				global.ed_arg[tmp_arr_ind] = fix_num_inside(global.ed_arg_min_val[tmp_arr_ind]+(scroll_value/100)*(global.ed_arg_max_val[tmp_arr_ind]-global.ed_arg_min_val[tmp_arr_ind]),global.ed_arg_min_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
 				if (global.ed_arg_divide[tmp_arr_ind] == 90)
 				{
 					global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind]/90)*90;
 				}
 				else
 				{
-					if (global.ed_arg_correction == 1)
+					if (global.ed_arg_correction[tmp_arr_ind] == 1)
 					{
 						global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind])/global.ed_arg_divide[tmp_arr_ind];
 					}
-					else if (global.ed_arg_correction == 2)
+					else if (global.ed_arg_correction[tmp_arr_ind] == 2)
 					{
 						global.ed_arg[tmp_arr_ind] = floor(global.ed_arg[tmp_arr_ind])/global.ed_arg_divide[tmp_arr_ind];
 					}
@@ -101,6 +101,28 @@ if (can_draw == 1)
 				y = yy+390+(button_id-100)*120;
 				image_xscale = 0.1+fix_to_zero(tiny_value_scrolling)*0.5;
 				image_yscale = 0.1;
+			}
+			
+			
+			
+			//값 수정하기 (에디터에서 탄막 선택)
+			if (global.n_setting_button == button_id)
+			{
+				if (instance_exists(map_edior_ui) && map_edior_ui.n_selected != -4 && instance_exists(map_edior_ui.n_selected))
+				{
+					var tmp_id = map_edior_ui.n_selected;
+					var tmp_arr_ind = button_id-100;
+					variable_instance_set(tmp_id,"m_data_arg"+string(tmp_arr_ind),global.ed_arg[tmp_arr_ind]);
+					tmp_id.editor_selected = 1;
+					global.revalued_projectile_save = 1;
+				}
+			}
+			else
+			{
+				if (global.revalued_projectile_save == 1)
+				{
+					global.revalued_projectile_save = 2;
+				}
 			}
 		}
 	

@@ -9,7 +9,7 @@ if (global.timeline_stop == -1)
 	}
 	else if (m_data_arg4 == 1)
 	{
-		global.w_alpha = round((m_data_arg0*12/100));
+		global.w_alpha = m_data_arg0;
 	}
 	else if (m_data_arg4 == 2)
 	{
@@ -19,11 +19,11 @@ if (global.timeline_stop == -1)
 	{
 		if (m_data_arg5 == 1)
 		{
-			global.automatic_camera_movement = round((m_data_arg0*12/100)*3);
+			global.automatic_camera_movement = m_data_arg0;
 		}
 		else
 		{
-			global.blackout_effect = round((m_data_arg0*12/100)*5);
+			global.blackout_effect = m_data_arg0;
 		}
 	}
 	

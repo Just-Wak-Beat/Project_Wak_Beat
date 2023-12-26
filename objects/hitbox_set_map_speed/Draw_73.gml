@@ -10,6 +10,6 @@ if (global.timeline_stop == 1)
 	if (global.editor_hitbox == 1 && editor_selected == 1)
 	{
 		var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
-		draw_text_k_scale(x,y+64,"x축 이동 속도 : "+string(floor(m_data_arg0*6-300))+"\ny축 이동 속도 : "+string((m_data_arg0-180))+"\n부드럽게 속도 변화 : "+string((m_data_arg6 == 1) ? "활성화됨" : "비활성화됨"),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(x,y+64,"x축 이동 속도 : "+string(m_data_arg0)+"\ny축 이동 속도 : "+string(m_data_arg0)+"\n부드럽게 속도 변화 : "+string((m_data_arg6 == 1) ? "활성화됨" : "비활성화됨"),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }

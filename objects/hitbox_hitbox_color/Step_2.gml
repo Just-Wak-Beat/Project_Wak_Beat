@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-var tmp_color = make_color_rgb(m_data_arg2,m_data_arg3,m_data_arg4);
+var tmp_color = make_color_rgb(m_data_arg0,m_data_arg1,m_data_arg2);
 image_blend = tmp_color;
 if (global.timeline_stop == -1)
 {

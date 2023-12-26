@@ -11,13 +11,16 @@ n_selected = -4;
 t_m_x = mouse_x;
 t_m_y = mouse_y;
 keep_pressing = 0
-
+ins_list = array_create(100,-4);
 custom_image_type = 2;
 custom_image_ind = 0;
 selected_projectile_type = 0;
 del_current_timeline = 0
 del_all_timeline = 0
+tmp_arr_ind_ins_list = 0;
+button_id = 0;
 global.tiny_value_scrolling_now = 0;
+global.revalued_projectile_save = 0;
 for(var i = 0; i < 7; i++)
 {
 	global.converted_param[i] = 0;

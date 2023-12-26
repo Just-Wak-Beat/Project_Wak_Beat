@@ -21,16 +21,16 @@ if (global.timeline_stop == 1)
 				tmp_str2 = "활성화됨"
 			}
 		
-			draw_text_k_scale(x,y+64,"x : "+string(floor(x))+"\ny : "+string(floor(y))+"\n카메라 줌 : "+string(floor((50+m_data_arg0*12*0.65)))+"%\n1프레임당 "+string(floor((m_data_arg1-180)/10)/200)+"%씩 확대\n카메라 포커스 : "+string(tmp_str2),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			draw_text_k_scale(x,y+64,"x : "+string(floor(x))+"\ny : "+string(floor(y))+"\n카메라 줌 : "+string(m_data_arg0)+"\n1프레임당 "+string(m_data_arg1)+"씩 확대\n카메라 포커스 : "+string(tmp_str2),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		}
 		else
 		{
 			var tmp_str = "\n화면 흔들림 방향 : x,y축"
-			if (round(m_data_arg1/180) == 1)
+			if (m_data_arg1 == 1)
 			{
 				tmp_str = "\n화면 흔들림 방향 : x축"
 			}
-			else if (round(m_data_arg1/180) == 2)
+			else if (m_data_arg1 == 2)
 			{
 				tmp_str = "\n화면 흔들림 방향 : y축"
 			}

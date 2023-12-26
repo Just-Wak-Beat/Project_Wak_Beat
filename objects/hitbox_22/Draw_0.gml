@@ -2,7 +2,7 @@
 // You can write your code in this editor
 if (play_animation == 0)
 {
-	draw_text_k_scale(x,y-96,"Go\nHere!",64,-1,image_alpha*0.4,image_blend,0,0,normal_font,1,1,0)
+	draw_text_k_scale(x,y-96,"여기로\n달리세요!",64,-1,image_alpha*0.4,image_blend,0,0,normal_font,1,1,0)
 }
 
 draw_self();

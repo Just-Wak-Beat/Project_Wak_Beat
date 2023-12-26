@@ -220,7 +220,7 @@ if (can_play_animation == 1)
 						effect_.image_yscale = 0.3;
 						effect_.direction = 270;
 						effect_.speed = 16;
-						effect_.image_blend = merge_color(color_sec,c_white,w_alpha);
+						effect_.image_blend = merge_color_new(color_sec,c_white,w_alpha);
 						effect_.alarm[1] = 1;
 					}
 				}
@@ -239,7 +239,7 @@ if (can_play_animation == 1)
 							effect_.image_yscale = 0.3;
 							effect_.direction = 270;
 							effect_.speed = 16;
-							effect_.image_blend = merge_color(color_sec,c_white,w_alpha);
+							effect_.image_blend = merge_color_new(color_sec,c_white,w_alpha);
 							effect_.alarm[1] = 1;
 						}
 					}

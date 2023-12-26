@@ -1,1 +1,0 @@
-create_laser(global.c_w-64,global.c_y,40,360,1,2,1,180)

@@ -181,6 +181,7 @@
     {"name":"bamguy","order":2,"path":"sounds/bamguy/bamguy.yy",},
     {"name":"explosion_effect","order":2,"path":"objects/explosion_effect/explosion_effect.yy",},
     {"name":"editor_mode_create_projectile","order":14,"path":"scripts/editor_mode_create_projectile/editor_mode_create_projectile.yy",},
+    {"name":"merge_color_new","order":18,"path":"scripts/merge_color_new/merge_color_new.yy",},
     {"name":"view_shake","order":3,"path":"scripts/view_shake/view_shake.yy",},
     {"name":"Sprite67","order":2,"path":"sprites/Sprite67/Sprite67.yy",},
     {"name":"scroll_param_set","order":15,"path":"scripts/scroll_param_set/scroll_param_set.yy",},

@@ -898,13 +898,15 @@
 						var random_x = global.c_x-320
 						var random_y = irandom_range(global.c_y,global.c_h)
 					}
+					
+					var tmp_sprite = choose(spr_cross,spr_circle,spr_tmp,spr_hexagon,spr_triangle)
 					var attack_ef = instance_create_depth(random_x,random_y,hitbox_8.depth+1,hitbox_2);
 					attack_ef.direction = point_direction(random_x,random_y,hitbox_8.x,hitbox_8.y);
-					attack_ef.sprite_index = spr_cross;
+					attack_ef.sprite_index = tmp_sprite;
 					attack_ef.speed = irandom_range(10,14);
 					attack_ef.keep_spin_angle = 2;
-					attack_ef.image_xscale = 0.4;
-					attack_ef.image_yscale = 0.4;
+					attack_ef.image_xscale = (tmp_sprite == spr_circle) ? 0.2 : 0.4;
+					attack_ef.image_yscale = (tmp_sprite == spr_circle) ? 0.2 : 0.4;
 					attack_ef.w_alpha = 10;
 				}
 				
@@ -914,16 +916,16 @@
 		
 		if (global.lockdown_effect2 > 0 && instance_exists(pipe_ef))
 		{
-			for(var i = 0; i <= 360; i += 60)
-			{				
-				var _ins__ = create_projectile(spike_ef.x,spike_ef.y,1.7,0,0,0,0,0,spr_hexagon_half)
-				_ins__.direction = 180+spike_ef.image_angle-90+i;
-				_ins__.speed = 0;
-				_ins__.image_angle = spike_ef.image_angle+i;
-				_ins__.image_blend = global.map_color;
-				_ins__.w_alpha = 10;
-				_ins__.none_color_change = 1;
-			}
+			var _ins__ = create_projectile(spike_ef.x,spike_ef.y,1.7,0,0,0,0,0,spr_hexagon_half)
+			_ins__.direction = 180+spike_ef.image_angle-30;
+			_ins__.speed = 0;
+			_ins__.image_angle = spike_ef.image_angle;
+			_ins__.image_blend = global.map_color;
+			_ins__.w_alpha = 10;
+			_ins__.none_color_change = 1;
+			_ins__.none_map_speed = 1;
+			view_shake(1,0,15,2);
+
 			global.lockdown_effect2 = 0;
 		}
 		
@@ -1143,18 +1145,18 @@
 				if lockdown_pattern_timer >= (3600/global.bpm)+global.music_sync_offset*2*60
 				{
 					if (lockdown_pattern_shoot[lockdown_pattern_s_timer] == 1)
-					{
-						for(var i = 0; i <= 120; i += 60)
-						{				
-							var _ins__ = create_projectile(spike_ef.x,spike_ef.y,spike_ef.image_xscale*1.1,0,0,0,0,0,spr_hexagon_half)
-							_ins__.direction = 180+spike_ef.image_angle-90+i;
-							_ins__.speed = global.map_speed_y;
-							_ins__.image_angle = spike_ef.image_angle+i;
-							_ins__.image_blend = global.map_color;
-							_ins__.w_alpha = 10;
-							_ins__.none_color_change = 1;
-							_ins__.none_map_speed = 1;
-						}
+					{		
+						var _ins__ = create_projectile(spike_ef.x,spike_ef.y,spike_ef.image_xscale*1.1,0,0,0,0,0,spr_hexagon_half)
+						_ins__.direction = 180+spike_ef.image_angle-30;
+						_ins__.speed = 0;
+						_ins__.image_angle = spike_ef.image_angle;
+						_ins__.image_blend = global.map_color;
+						_ins__.w_alpha = 10;
+						_ins__.none_color_change = 1;
+						_ins__.none_map_speed = 1;
+						_ins__.none_map_speed = 1;
+						
+						view_shake(1,0,15,2);
 
 
 						if (lockdown_pattern_s_timer == 1)

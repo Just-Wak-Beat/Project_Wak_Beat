@@ -19,7 +19,7 @@ if (global.timeline_stop == 1)
 		}
 		else if (m_data_arg4 == 1)
 		{
-			str_tmp = "플래시 밝기 : "+string(round((m_data_arg0*12/100)));
+			str_tmp = "플래시 밝기 : "+string(m_data_arg0);
 		}
 		else if (m_data_arg4 == 2)
 		{
@@ -29,7 +29,7 @@ if (global.timeline_stop == 1)
 		{
 			if (m_data_arg5 == 1)
 			{
-				var tmp_val = round((m_data_arg0*12/100)*3);
+				var tmp_val = m_data_arg0;
 				var str_tmp2 = "효과 없에기";
 				if (tmp_val == 1)
 				{
@@ -47,7 +47,7 @@ if (global.timeline_stop == 1)
 			}
 			else
 			{
-				var tmp_val = round((m_data_arg0*12/100)*5);
+				var tmp_val = m_data_arg0;
 				var str_tmp2 = "효과 없에기";
 				if (tmp_val == 1)
 				{

@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "1.0";
+global.version_real = "1.1";
 global.version = "Alpha "+string(global.version_real);
-global.beta_tester = 1;
-global.streamer = 0;
+global.beta_tester = 0;
+global.streamer = 1;
 global.custom_mapper = 0;
 global.dev_mode = 0;
 devmode_activate = 0;
@@ -15,7 +15,7 @@ global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1
 global.default_directory = program_directory
 global.custom_map_directory = string(global.default_directory)+"\\Custom map files\\";
-global.nickname = ""
+global.nickname = "Wakgood"
 global.dashed = 0
 global.total_damaged = 0
 global.n_score_displaying = 0;
@@ -205,7 +205,8 @@ global.map_color = c_black
 global.map_color_tmp = c_black
 global.t_bg_color_alpha = 1
 global.t_bg_color = 1
-global.background_color = merge_color(global.map_color,c_black,0.9)
+global.background_color = merge_color_new(global.map_color,c_black,0.9);
+global.col_cal_delay = 0;
 	if (global.background_color == c_black)
 	{
 		global.background_color = #1f1f1f;
@@ -776,7 +777,7 @@ global.lockdown_effect4 = 0
 global.lockdown_effect5 = 0
 global.lockdown_effect6 = 0
 lockdown_pattern_dir = [ 0,1.1,-1,-1.5,1,-0.7,1.6,-1.1,-0.4,1.5 ];
-lockdown_pattern_shoot = [ 1,1,0,0 ];
+lockdown_pattern_shoot = [ 1,0,0,0 ];
 lockdown_pattern_s_timer = 0;
 lockdown_pattern_d_timer = 0;
 lockdown_pattern_timer = 0

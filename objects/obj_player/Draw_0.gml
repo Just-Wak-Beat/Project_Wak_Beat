@@ -29,7 +29,7 @@ if global.hp > 0 && code.gamestart = 2
 		tmp_player_pos_w_alpha = (tmp_player_pos_w_alpha < 0) ? 0 : tmp_player_pos_w_alpha;
 
 		var tmp_scale = (1+player_pos_w_alpha*0.5)*0.12;
-		draw_sprite_ext(spr_square_half,0,x,y-96*global.converted_view_ratio,global.converted_view_ratio*global.font_ratio_resolution_xx*tmp_scale,global.converted_view_ratio*tmp_scale,135,merge_color(c_white,global.player_color,tmp_player_pos_w_alpha),player_pos_alpha)
+		draw_sprite_ext(spr_square_half,0,x,y-96*global.converted_view_ratio,global.converted_view_ratio*global.font_ratio_resolution_xx*tmp_scale,global.converted_view_ratio*tmp_scale,135,merge_color_new(c_white,global.player_color,tmp_player_pos_w_alpha),player_pos_alpha)
 		draw_text_k_scale(x,y-160*global.converted_view_ratio,"You",64,-1,player_pos_alpha,c_white,0,0,normal_font,0.55*global.font_ratio_resolution_xx*global.converted_view_ratio,0.55*global.converted_view_ratio,0)
 	}
 	else
@@ -39,7 +39,7 @@ if global.hp > 0 && code.gamestart = 2
 
 	if (kirakira_alpha > 0)
 	{
-		draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,merge_color(image_blend,#df1a62,0.8),kirakira_alpha)
+		draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,merge_color_new(image_blend,#df1a62,0.8),kirakira_alpha)
 	}
 	else
 	{

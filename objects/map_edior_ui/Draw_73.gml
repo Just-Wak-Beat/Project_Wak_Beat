@@ -69,6 +69,14 @@ if (global.timeline_stop == 1)
 			var tmp_yy = yy+yy_h*0.88+(160-scroll_y)*global.converted_view_ratio;
 			if (mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,tmp_xx,tmp_yy) <= 48*global.converted_view_ratio)
 			{
+				with(hitbox_parents)
+				{
+					if (other.id != id)
+					{
+						editor_selected = 0;
+					}
+				}
+				n_selected = -4;
 				selected_projectile_type = 1;
 				audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume);
 				global.ed_arg_name[0] = "";

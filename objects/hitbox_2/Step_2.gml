@@ -14,7 +14,7 @@ if (!variable_instance_exists(id,"none_color_change"))
 			{
 				if (color_changed == 1 || (point_distance(x,y,changing_hitbox_color.x,changing_hitbox_color.y) <= (changing_hitbox_color.image_xscale*1024*global.n_camera_zoom)+(sprite_width*0.5*image_xscale)))
 				{
-					image_blend = merge_color(image_blend,global.map_color,0.04);
+					image_blend = merge_color_new(image_blend,global.map_color,0.04);
 					if (color_changed == 0)
 					{
 						w_alpha = 2;
@@ -33,7 +33,7 @@ if (!variable_instance_exists(id,"none_color_change"))
 					}
 					else
 					{
-						image_blend = merge_color(image_blend,global.map_color,0.04);
+						image_blend = merge_color_new(image_blend,global.map_color,0.04);
 					}
 				}
 			}

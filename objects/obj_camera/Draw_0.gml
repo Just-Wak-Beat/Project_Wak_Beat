@@ -3,14 +3,14 @@
 
 
 var tmp_val = fix_num(global.t_bg_color_alpha);
-draw_set_color(merge_color(c_black,global.background_color,tmp_val))
+draw_set_color(merge_color_new(c_black,global.background_color,tmp_val))
 draw_set_alpha(1)
 draw_line_width(0,0,room_width,room_height,7000)
 
 
 if (instance_exists(code) && global.gomem_mashup_effect_arrow_alpha > 1)
 {
-	var arrow_col = (merge_color(global.map_color,c_white,global.gomem_mashup_effect_arrow_alpha-1))
+	var arrow_col = (merge_color_new(global.map_color,c_white,global.gomem_mashup_effect_arrow_alpha-1))
 	
 	for(var i = -1; i <= 1; i++)
 	{

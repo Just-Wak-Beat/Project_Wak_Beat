@@ -21,4 +21,4 @@ if (image_alpha <= 0)
 	instance_destroy()
 }
 
-image_blend = merge_color((get_dis_color(global.background_color,c_white) < 7) ? c_black : c_white,image_blend,0.1);
+image_blend = merge_color_new((get_dis_color(global.background_color,c_white) < 7) ? c_black : c_white,image_blend,0.1);

@@ -19,8 +19,8 @@ if (global.timeline_stop != 1)
 	}
 	else
 	{
-		direction = dir
-		image_angle = dir+35
+		direction = dir;
+		image_angle = dir+35;
 		speed = speed_;
 
 		if (auto_shake != 0)
