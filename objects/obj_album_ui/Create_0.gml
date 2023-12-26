@@ -35,10 +35,7 @@ loading_now = -10
 blind_xx_start = 0
 blind_xx_final = 0
 ding_dong_animation = 0
-credit_text_alpha = -1
-credit_text_alpha2 = -1
-credit_text_alpha3 = -1
-credit_text_alpha4 = -1
+credit_text_alpha = [ -1, -1, -1, -1, -1 ]
 
 global.unlock_partner_animation_queue = 0
 global.b_loaded_ranking = -1
@@ -52,8 +49,7 @@ if global.title_menu_animation1 = 0
 
 
 
-
-
+global.wakta_games_credit = -4
 
 holding_now = 0
 

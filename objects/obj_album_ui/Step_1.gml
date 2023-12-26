@@ -6,15 +6,15 @@ if (delete_current_map > 0)
 }
 
 
-if (keyboard_check(vk_anykey) || global.touch_to_skip == 1)
+if (keyboard_check_pressed(vk_anykey) || global.touch_to_skip == 1)
 {
-	if (credit_text_alpha <= 0)
+	if (credit_text_alpha[1] <= 0)
 	{
 		if (global.show_credit > 1)
 		{
-			credit_text_alpha2 = 1;
-			credit_text_alpha3 = 1;
-			credit_text_alpha4 = 1;
+			credit_text_alpha[2] = 1;
+			credit_text_alpha[3] = 1;
+			credit_text_alpha[4] = 1;
 			global.show_credit = 0;
 			alarm[8] = 80;
 			alarm[11] = 1;
@@ -22,10 +22,14 @@ if (keyboard_check(vk_anykey) || global.touch_to_skip == 1)
 	}
 	else
 	{
-		if (global.show_credit <= 1)
+		if (global.show_credit < 2)
 		{
-			credit_text_alpha = 1;
+			credit_text_alpha[1] = 1;
 			global.show_credit = 2;
+			if (global.wakta_games_credit != -4)
+			{
+				video_close();
+			}
 		}
 	}
 	global.touch_to_skip = 0;
@@ -35,50 +39,70 @@ if (keyboard_check(vk_anykey) || global.touch_to_skip == 1)
 
 if (global.show_credit == 1)
 {
-	credit_text_alpha += (1.1 - credit_text_alpha)*0.025
+	credit_text_alpha[0] += (1.1 - credit_text_alpha[0])*0.025;
+	window_set_cursor(cr_none)
+}
+else if (global.show_credit == 1.1)
+{
+	credit_text_alpha[0] += (-0.01 - credit_text_alpha[0])*0.05
+	if (credit_text_alpha[0] <= 0)
+	{
+		credit_text_alpha[1] += 0.1;
+		if (global.wakta_games_credit == -4)
+		{
+			global.wakta_games_credit = video_open("https://public-r2.waktaverse.games/assets/logo_animation/LogoAnimation_SFX.mp4")
+			video_enable_loop(false);
+			video_set_volume(global.master_volume*global.sfx_volume);
+		}
+	}
+	
+	if (credit_text_alpha[1] >= 31)
+	{
+		global.show_credit = 2;
+	}
 	window_set_cursor(cr_none)
 }
 else if (global.show_credit == 2)
 {
-	credit_text_alpha += (-0.01 - credit_text_alpha)*0.05
-	if (credit_text_alpha <= 0)
+	credit_text_alpha[1] += (-0.01 - credit_text_alpha[1])*0.05
+	if (credit_text_alpha[1] <= 0)
 	{
-		if (credit_text_alpha2 < 0)
+		if (credit_text_alpha[2] < 0)
 		{
-			credit_text_alpha2 = 0;
+			credit_text_alpha[2] = 0;
 			audio_play_sound(glow_sfx,0,false,global.master_volume*global.sfx_volume)
 		}
-		credit_text_alpha2 += (1.01 - credit_text_alpha2)*0.025
+		credit_text_alpha[2] += (1.01 - credit_text_alpha[2])*0.025
 	}
 		
-	if (credit_text_alpha2 >= 0.9)
+	if (credit_text_alpha[2] >= 0.9)
 	{
 		global.show_credit = 3
 	}
 }
 else if (global.show_credit == 3)
 {
-	credit_text_alpha3 += (1.01 - credit_text_alpha3)*0.025
-	if (credit_text_alpha3 >= 0.9)
+	credit_text_alpha[3] += (1.01 - credit_text_alpha[3])*0.025
+	if (credit_text_alpha[3] >= 0.9)
 	{
 		global.show_credit = 4
 	}
 }
 else if (global.show_credit == 4)
 {
-	credit_text_alpha4 += (1.01 - credit_text_alpha4)*0.025
-	if (credit_text_alpha4 >= 0.99)
+	credit_text_alpha[4] += (1.01 - credit_text_alpha[4])*0.025
+	if (credit_text_alpha[4] >= 0.99)
 	{
-		global.show_credit = 0
-		alarm[8] = 80
-		alarm[11] = 35
+		global.show_credit = 0;
+		alarm[8] = 80;
+		alarm[11] = 35;
 	}
 }
 else
 {
-	credit_text_alpha4 += (-0.01 - credit_text_alpha4)*0.05
-	credit_text_alpha3 += (-0.01 - credit_text_alpha3)*0.05
-	credit_text_alpha2 += (-0.01 - credit_text_alpha2)*0.05
+	credit_text_alpha[4] += (-0.01 - credit_text_alpha[4])*0.05
+	credit_text_alpha[3] += (-0.01 - credit_text_alpha[3])*0.05
+	credit_text_alpha[2] += (-0.01 - credit_text_alpha[2])*0.05
 }
 
 
