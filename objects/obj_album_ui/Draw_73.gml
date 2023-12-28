@@ -328,6 +328,9 @@ if (global.show_title_menu == 0)
 
 		if (global.mobile_mode == 0)
 		{
+			draw_text_k_scale(xx+64,yy+yy_h*0.55-8,"플래시 효과 줄이기  ["+string((global.flash_effect_setting == 1) ? "설정됨" : "해제됨")+"]",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			draw_text_k_scale(xx+64,yy+yy_h*0.585-8,"화면의 번쩍거림이 거슬린다면 사용해보세요",64,-1,global.sync_setting_alpha,c_white,0,-1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+			
 			draw_text_k_scale(xx+64,yy+yy_h*0.7-8,"화면 리로드",64,-1,global.sync_setting_alpha,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 			draw_text_k_scale(xx+64,yy+yy_h*0.735-8,"화면(프레임)이 끊긴다면 사용해보세요",64,-1,global.sync_setting_alpha,c_white,0,-1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 

@@ -46,6 +46,8 @@ if (sprite_index == spr_square || sprite_index == spr_spuare_outline_full_mask)
 	{
 		scroll_value = floor(global.ed_arg[6])
 	}
+	
+	scroll_value = fix_num_inside(scroll_value,0,100);
 }
 
 can_draw = 1

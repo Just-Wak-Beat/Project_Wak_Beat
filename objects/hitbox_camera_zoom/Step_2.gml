@@ -14,7 +14,7 @@ if (global.timeline_stop == -1)
 			camera_focus_on(x,y,m_data_arg0)
 		}
 		
-		global.camera_slow_zoom = m_data_arg1;
+		global.camera_slow_zoom = m_data_arg1/1000;
 		show_debug_message("tmp_slow_zoom : "+string(m_data_arg1));
 	}
 	else

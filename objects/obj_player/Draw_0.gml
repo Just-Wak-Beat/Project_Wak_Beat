@@ -4,7 +4,7 @@
 if global.hp > 0 && code.gamestart = 2
 {
 	shader_set(shFlash)
-	draw_sprite_ext(sprite_index,image_index,x,y+6,image_xscale,image_yscale,image_angle,c_black,image_alpha*0.2)
+	draw_sprite_ext(sprite_index,image_index,x,y+12,image_xscale,image_yscale,image_angle,c_black,image_alpha*0.2)
 	shader_reset()
 	
 	if invincibility_cooltime > 0 && show_invincibility = 1

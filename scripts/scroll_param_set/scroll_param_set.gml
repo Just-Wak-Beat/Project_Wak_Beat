@@ -3,7 +3,7 @@
 
 ///@param num
 ///@param name
-///@param min
+///@param has_min
 ///@param max
 ///@param correction
 ///@param divide

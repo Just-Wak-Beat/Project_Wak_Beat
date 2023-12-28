@@ -3,7 +3,7 @@
 
 
 
-if (global.map_editor != 1 && global.hp > 0 && (global.t_w_alpha < 1 || global.w_alpha < 0.9) && (!instance_exists(obj_stage_clear) || (instance_exists(obj_stage_clear) && obj_stage_clear.touched <= 0)))
+if (global.map_editor != 1 && global.hp > 0 && (global.w_alpha <= 0.8) && (!instance_exists(obj_stage_clear) || (instance_exists(obj_stage_clear) && obj_stage_clear.touched <= 0)))
 {
 	var i = 1
 	var ii = 1

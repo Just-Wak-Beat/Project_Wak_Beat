@@ -51,6 +51,8 @@ function save_and_load_data(argument0,argument1)
 		ini_write_real("bgm_volume","none",global.bgm_volume);
 		ini_write_real("sfx_volume","none",global.sfx_volume);
 		ini_write_real("music_sync_offset","none",global.music_sync_offset);
+		ini_write_real("flash_effect_setting","none",global.flash_effect_setting);
+
 
 		ini_write_real("window_width","none",window_get_width());
 		ini_write_real("window_height","none",window_get_height());
@@ -120,6 +122,7 @@ function save_and_load_data(argument0,argument1)
 		global.window_width = ini_read_real("window_width","none",1920);
 		global.window_height = ini_read_real("window_height","none",1080);
 		global.window_fullscreen = ini_read_real("window_fullscreen","none",true);
+		global.flash_effect_setting = ini_read_real("flash_effect_setting","none",-1);
 	
 
 		
@@ -134,9 +137,36 @@ function save_and_load_data(argument0,argument1)
 		global.total_score_hardcore = ini_read_real("total_score_hardcore","none",0);
 		
 		//닉네임
-		if (global.streamer == 1)
+		if (global.streamer != 0)
 		{
-			global.nickname = "Wakgood";
+			if (global.streamer == 1)
+			{
+				global.nickname = "Wakgood";
+			}
+			else if (global.streamer == 2)
+			{
+				global.nickname = "Jururu";
+			}
+			else if (global.streamer == 3)
+			{
+				global.nickname = "JINGBURGER";
+			}
+			else if (global.streamer == 4)
+			{
+				global.nickname = "VIichan";
+			}
+			else if (global.streamer == 5)
+			{
+				global.nickname = "INE";
+			}
+			else if (global.streamer == 6)
+			{
+				global.nickname = "Gosegu";
+			}
+			else if (global.streamer == 7)
+			{
+				global.nickname = "Lilpa";
+			}
 		}
 		else
 		{
@@ -149,7 +179,7 @@ function save_and_load_data(argument0,argument1)
 			global.beta_tester = ini_read_real("beta_tester","none",0);
 		}
 		//스트리머
-		if (global.streamer != 1)
+		if (global.streamer == 0)
 		{
 			global.streamer = ini_read_real("streamer","none",0);
 		}

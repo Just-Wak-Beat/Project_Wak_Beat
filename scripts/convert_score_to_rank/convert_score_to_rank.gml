@@ -41,35 +41,35 @@ function convert_score_to_rank(argument0,argument1)
 		{
 			tmp_rank = "A";
 		}
-		else if (tmp_score < 10 && tmp_score >= 9)
+		else if (tmp_score < 11 && tmp_score >= 10)
 		{
 			tmp_rank = "B+";
 		}
-		else if (tmp_score < 9 && tmp_score >= 8)
+		else if (tmp_score < 10 && tmp_score >= 9)
 		{
 			tmp_rank = "B";
 		}
-		else if (tmp_score < 8 && tmp_score >= 7)
+		else if (tmp_score < 9 && tmp_score >= 8)
 		{
 			tmp_rank = "C+";
 		}
-		else if (tmp_score < 7 && tmp_score >= 6)
+		else if (tmp_score < 8 && tmp_score >= 7)
 		{
 			tmp_rank = "C";
 		}
-		else if (tmp_score < 6 && tmp_score >= 5)
+		else if (tmp_score < 7 && tmp_score >= 6)
 		{
 			tmp_rank = "C-";
 		}
-		else if (tmp_score < 5 && tmp_score >= 4)
+		else if (tmp_score < 6 && tmp_score >= 5)
 		{
 			tmp_rank = "D";
 		}
-		else if (tmp_score < 4 && tmp_score >= 3)
+		else if (tmp_score < 5 && tmp_score >= 4)
 		{
 			tmp_rank = "D-";
 		}
-		else if (tmp_score < 3 && tmp_score != 0)
+		else if (tmp_score < 4 && tmp_score != 0)
 		{
 			tmp_rank = "F";
 		}

@@ -49,6 +49,11 @@ if (can_draw == 1)
 			x = xx+100;
 			y = yy+yy_h*0.053;
 		}
+		else if (button_id == 11)
+		{
+			x = xx+xx_w-100;
+			y = yy+yy_h*0.75;
+		}
 		else if (button_id == 7 && instance_exists(map_edior_ui))
 		{
 			x = xx+xx_w*0.5;
@@ -65,7 +70,20 @@ if (can_draw == 1)
 			if (button_id >= 100 && button_id <= 105)
 			{
 				var tmp_arr_ind = button_id-100;
-				global.ed_arg[tmp_arr_ind] = fix_num_inside(global.ed_arg_min_val[tmp_arr_ind]+(scroll_value/100)*(global.ed_arg_max_val[tmp_arr_ind]-global.ed_arg_min_val[tmp_arr_ind]),global.ed_arg_min_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
+				if (global.ed_arg_min_val[tmp_arr_ind] != 0 && global.ed_arg_min_val[tmp_arr_ind] != 1)
+				{
+					global.ed_arg[tmp_arr_ind] = fix_num_inside(((scroll_value-50)/50)*(global.ed_arg_max_val[tmp_arr_ind]),-global.ed_arg_max_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
+				}
+				else if (global.ed_arg_min_val[tmp_arr_ind] == 1)
+				{
+					global.ed_arg[tmp_arr_ind] = fix_num_inside(1+(scroll_value/100)*(global.ed_arg_max_val[tmp_arr_ind]),1,global.ed_arg_max_val[tmp_arr_ind]);
+				}
+				else
+				{
+					global.ed_arg[tmp_arr_ind] = fix_num_inside((scroll_value/100)*(global.ed_arg_max_val[tmp_arr_ind]),0,global.ed_arg_max_val[tmp_arr_ind]);
+				}
+				
+				
 				if (global.ed_arg_divide[tmp_arr_ind] == 90)
 				{
 					global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind]/90)*90;
@@ -193,15 +211,16 @@ if (can_draw == 1)
 		}
 		else if (sprite_index == spr_triangle)
 		{
-			draw_sprite_ext(spr_square_half,0,x-20,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-135,c_white,image_alpha)
-			draw_sprite_ext(spr_square_half,0,x+20,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,-135,c_white,image_alpha)
+			image_xscale = 3;
+			draw_sprite_ext(spr_square_half,0,x-20,y,image_yscale*global.font_ratio_resolution_xx,image_yscale,-135,c_white,image_alpha)
+			draw_sprite_ext(spr_square_half,0,x+20,y,image_yscale*global.font_ratio_resolution_xx,image_yscale,-135,c_white,image_alpha)
 		}
 		else if (sprite_index == spr_spuare_outline_full_mask)
 		{
-			draw_sprite_ext(spr_spuare_outline_full_mask,0,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,0,c_white,image_alpha)
+			draw_sprite_ext(spr_spuare_outline_full_mask,0,x,y,image_yscale*global.font_ratio_resolution_xx,image_yscale,0,c_white,image_alpha)
 			if (scroll_value == 1)
 			{
-				draw_sprite_ext(spr_square,0,x,y,image_xscale*global.font_ratio_resolution_xx*0.6,image_yscale*0.6,0,c_white,image_alpha)
+				draw_sprite_ext(spr_square,0,x,y,image_yscale*global.font_ratio_resolution_xx*0.6,image_yscale*0.6,0,c_white,image_alpha)
 			}
 		}
 	}

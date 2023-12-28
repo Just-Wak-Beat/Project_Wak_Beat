@@ -61,6 +61,10 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && glob
 			}
 		}
 	}
+	else if (button_id == 11)
+	{
+		global.flash_effect_setting *= -1;
+	}
 }
 
 

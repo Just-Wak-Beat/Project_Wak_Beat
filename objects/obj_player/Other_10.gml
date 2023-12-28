@@ -32,4 +32,5 @@ repeat(irandom_range(4,6))
 	effect_.speed = 48;
 	effect_.image_angle = angle;
 	effect_.image_blend = global.player_color;
+	effect_.image_alpha = 0.3;
 }

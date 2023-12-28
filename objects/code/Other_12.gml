@@ -66,6 +66,10 @@ if (global.can_change_music_list == 1 && global.t_select_difficulty == 0)
 			buttom_ui.sprite_index = spr_square
 			buttom_ui.alarm[11] = 1
 			
+			//눈뽕제거
+			var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.65,depth,obj_button)
+			buttom_ui.button_id = 11
+			
 			window_set_cursor(cr_default)
 		}
 	}
@@ -118,6 +122,10 @@ if (global.can_change_music_list == 1 && global.t_select_difficulty == 0)
 			buttom_ui.button_id = 5
 			buttom_ui.sprite_index = spr_square
 			buttom_ui.alarm[11] = 1
+			
+			//눈뽕제거
+			var buttom_ui = instance_create_depth(xx+xx_w-320,yy+yy_h*0.75,depth,obj_button)
+			buttom_ui.button_id = 11
 			
 			if (global.tutorial_played > 0)
 			{

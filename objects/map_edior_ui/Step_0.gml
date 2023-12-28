@@ -362,7 +362,7 @@ switch(global.editor_selected_type)
 		}
 		
 		scroll_param_set(0,"줌 정도 설정",55,115,2,100,"");
-		scroll_param_set(1,"천천히 줌되는 비율 (값이 클수록 빠르게 변화합니다)",-20,20,2,10000,"deg");
+		scroll_param_set(1,"프레임당 천천히 줌되는 비율 (값이 클수록 빠르게 변화합니다)",-20,20,2,10,"");
 		scroll_param_set(6,"포커스 활성화 (카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)",-1,1,2,0,"");
 	break;
 	

@@ -409,7 +409,10 @@
 						hitbox_8.w_alpha = 1
 						hitbox_8.image_xscale = 0.8
 						hitbox_8.image_yscale = 0.8
-						global.w_alpha = 0.15
+						if (global.flash_effect_setting == -1)
+						{
+							global.w_alpha = 0.15;
+						}
 						
 						var _ef = instance_create_depth(hitbox_8.x,hitbox_8.y,hitbox_8.depth+1,explosion_effect)
 						_ef.image_xscale = 3
@@ -678,7 +681,10 @@
 					else if (global.gomem_mashup_effect == 7)
 					{
 						gomem_mashup_effect_dir_updown2 *= -1
-						global.w_alpha = 0.3
+						if (global.flash_effect_setting == -1)
+						{
+							global.w_alpha = 0.3
+						}
 						master_bpm_timer -= (3600/global.bpm)*4+global.music_sync_offset*3*60
 					}
 			
@@ -797,7 +803,10 @@
 						ins_tmp.image_blend = (global.map_color == c_white) ? #5595ff : #ff637a;
 						ins_tmp.depth -= 52
 						create_laser(ins_tmp.x,ins_tmp.y,60,20,1,2,1,dir-90)
-						global.w_alpha = 0.3
+						if (global.flash_effect_setting == -1)
+						{
+							global.w_alpha = 0.3
+						}
 					}
 				}
 		

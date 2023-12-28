@@ -42,7 +42,11 @@ if (global.timeline_stop != 1)
 		_ef.image_yscale = 1
 		_ef.t_scale = 2
 		_ef.image_blend = (get_dis_color(global.background_color,c_white) < 7) ? c_black : c_white;
-		global.w_alpha = 0.4
+		
+		if (global.flash_effect_setting == -1)
+		{
+			global.w_alpha = 0.4;
+		}
 		
 		view_shake(0.1,shake_scale,3,shake_dir)
 		w_alpha = 0.3

@@ -54,7 +54,7 @@ if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty
 
 //파트너 해금
 var player_unlocked = 0;
-if (global.streamer != 1 && global.tutorial_now != 1)
+if (global.streamer == 0 && global.tutorial_now != 1)
 {
 	for(var i = 0; i < sprite_get_number(spr_illustrationCG); i++)
 	{

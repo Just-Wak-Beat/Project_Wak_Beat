@@ -3,7 +3,7 @@
 
 if (audio_is_playing(phony) || audio_is_playing(gungsirung)) && (image_angle = 0 || image_angle = 180)
 {
-	x -= global.map_speed
+	x -= global.map_speed;
 }
 
 

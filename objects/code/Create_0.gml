@@ -3,7 +3,7 @@
 global.version_real = "1.1";
 global.version = "Alpha "+string(global.version_real);
 global.beta_tester = 0;
-global.streamer = 1;
+global.streamer = 7;
 global.custom_mapper = 0;
 global.dev_mode = 0;
 devmode_activate = 0;
@@ -12,10 +12,10 @@ music_title_alpha = 0
 global.blackout_alpha = 0;
 global.low_graphics = false;
 global.mobile_mode = (os_type == 0) ? 0 : 1;
-global.font_ratio_resolution_xx = 1
+global.font_ratio_resolution_xx = 1;
 global.default_directory = program_directory
 global.custom_map_directory = string(global.default_directory)+"\\Custom map files\\";
-global.nickname = "Wakgood"
+global.nickname = ""
 global.dashed = 0
 global.total_damaged = 0
 global.n_score_displaying = 0;
@@ -25,6 +25,7 @@ global.title_menu_animation1 = 0;
 global.title_menu_animation2 = 0;
 global.overtime_highlight_song = 1;
 global.automatic_load_ranking = 0;
+global.flash_effect_setting = -1;
 global.cannot_connect = 0;
 global.show_credit = 1;
 var file_name = (global.dev_mode == 1) ? "PWB_Beta.ini" : "PWB_OpenBeta.ini"
@@ -728,48 +729,90 @@ global.real_obtainable_type[19] = 15;
 global.real_requirement_level[19] = 6;
 
 
+//스테이
+global.real_stage_map_name[20] = "STAY (Cover by 징버거 JINGBURGER)";
+global.real_stage_map_artist[20] = "Mixing by 시온 / Original by The Kid LAROI, Justin Bieber";
+global.real_stage_map_difficulty[20] = "Normal";
+global.real_stage_map_color[20] = #5cc4cd;
+global.real_stage_map_duration[20] = 3343;
+global.real_stage_map_audio_name[20] = "stay";
+global.real_stage_bpm[20] = 60;
+global.real_stage_map_highlight_part[20] = 2;
+global.real_detailed_difficulty[20] = 2;
+global.real_obtainable_type[20] = 99;
+global.real_requirement_level[20] = 9999;
+
+
+//어푸
+global.real_stage_map_name[21] = "어푸 (Cover by 주르르 Jururu)";
+global.real_stage_map_artist[21] = "Mixing by 믹스마스터 / Original by 아이유 IU";
+global.real_stage_map_difficulty[21] = "Hard";
+global.real_stage_map_color[21] = #2BA6ED;
+global.real_stage_map_duration[21] = 6300;
+global.real_stage_map_audio_name[21] = "apu";
+global.real_stage_bpm[21] = 121;
+global.real_stage_map_highlight_part[21] = 51.5;
+global.real_detailed_difficulty[21] = 4.5;
+global.real_obtainable_type[21] = 99;
+global.real_requirement_level[21] = 9999;
+
+
+//사이언티스트
+global.real_stage_map_name[22] = "SCIENTIST (Cover by 주르르 Jururu, feat. 아이네)";
+global.real_stage_map_artist[22] = "Mixing by Chocotree / Original by TWICE(트와이스)";
+global.real_stage_map_difficulty[22] = "Hard";
+global.real_stage_map_color[22] = $FF7D5EEE;
+global.real_stage_map_duration[22] = 3343;
+global.real_stage_map_audio_name[22] = "scientist";
+global.real_stage_bpm[22] = 120;
+global.real_stage_map_highlight_part[22] = 43.41;
+global.real_detailed_difficulty[22] = 4;
+global.real_obtainable_type[22] = 99;
+global.real_requirement_level[22] = 9999;
+
+
 
 
 //Re:wind
-global.real_stage_map_name[20] = "RE:WIND";
-global.real_stage_map_artist[20] = "Arranged by 아버 / Remix by Hyeok, Elestee";
-global.real_stage_map_difficulty[20] = "Expert";
-global.real_stage_map_color[20] = #d892a6;
-global.real_stage_map_duration[20] = 7495;
-global.real_stage_map_audio_name[20] = "rewind";
-global.real_stage_bpm[20] = 75;
-global.real_stage_map_highlight_part[20] = 12.70;
-global.real_detailed_difficulty[20] = 3.5;
-global.real_obtainable_type[20] = 8;
-global.real_requirement_level[20] = 4;
+global.real_stage_map_name[23] = "RE:WIND";
+global.real_stage_map_artist[23] = "Arranged by 아버 / Remix by Hyeok, Elestee";
+global.real_stage_map_difficulty[23] = "Expert";
+global.real_stage_map_color[23] = #d892a6;
+global.real_stage_map_duration[23] = 7495;
+global.real_stage_map_audio_name[23] = "rewind";
+global.real_stage_bpm[23] = 75;
+global.real_stage_map_highlight_part[23] = 12.70;
+global.real_detailed_difficulty[23] = 4.5;
+global.real_obtainable_type[23] = 8;
+global.real_requirement_level[23] = 4;
 
 
 //겨울봄
-global.real_stage_map_name[21] = "겨울봄 (Winter Spring)";
-global.real_stage_map_artist[21] = "Remix by BAKAINU";
-global.real_stage_map_difficulty[21] = "Normal (Hardcore)";
-global.real_stage_map_color[21] = #a594e4;
-global.real_stage_map_duration[21] = 3489.6;
-global.real_stage_map_audio_name[21] = "winter_spring";
-global.real_stage_bpm[21] = 85;
-global.real_stage_map_highlight_part[21] = 33.95;
-global.real_detailed_difficulty[21] = 2;
-global.real_obtainable_type[21] = 8;
-global.real_requirement_level[21] = 5;
+global.real_stage_map_name[24] = "겨울봄 (Winter Spring)";
+global.real_stage_map_artist[24] = "Remix by BAKAINU";
+global.real_stage_map_difficulty[24] = "Normal (Hardcore)";
+global.real_stage_map_color[24] = #a594e4;
+global.real_stage_map_duration[24] = 3489.6;
+global.real_stage_map_audio_name[24] = "winter_spring";
+global.real_stage_bpm[24] = 85;
+global.real_stage_map_highlight_part[24] = 33.95;
+global.real_detailed_difficulty[24] = 2;
+global.real_obtainable_type[24] = 8;
+global.real_requirement_level[24] = 5;
 
 
 //락다운
-global.real_stage_map_name[22] = "Lockdown (락다운)";
-global.real_stage_map_artist[22] = "Remix by Mitsutoki";
-global.real_stage_map_difficulty[22] = "Expert (Boss)";
-global.real_stage_map_color[22] = c_black;
-global.real_stage_map_duration[22] = 4530;
-global.real_stage_map_audio_name[22] = "lockdown";
-global.real_stage_bpm[22] = 132.4;
-global.real_stage_map_highlight_part[22] = 28.1;
-global.real_detailed_difficulty[22] = 6.5;
-global.real_obtainable_type[22] = 8;
-global.real_requirement_level[22] = 12;
+global.real_stage_map_name[25] = "Lockdown (락다운)";
+global.real_stage_map_artist[25] = "Remix by Mitsutoki";
+global.real_stage_map_difficulty[25] = "Expert (Boss)";
+global.real_stage_map_color[25] = c_black;
+global.real_stage_map_duration[25] = 4530;
+global.real_stage_map_audio_name[25] = "lockdown";
+global.real_stage_bpm[25] = 132.4;
+global.real_stage_map_highlight_part[25] = 28.1;
+global.real_detailed_difficulty[25] = 6.5;
+global.real_obtainable_type[25] = 8;
+global.real_requirement_level[25] = 12;
 global.lockdown_effect1 = 0
 global.lockdown_effect2 = 0
 global.lockdown_effect3 = 0
@@ -792,49 +835,49 @@ total_stack_direction_plusment = 0
 
 
 //이세돌향 첨가
-global.real_stage_map_name[23] = "이세돌향 100% 첨가";
-global.real_stage_map_artist[23] = "제이타지";
-global.real_stage_map_difficulty[23] = "Hard (Hardcore)";
-global.real_stage_map_color[23] = $FF7D5EEE;
-global.real_stage_map_duration[23] = 4432;
-global.real_stage_map_audio_name[23] = "isedolhyang";
-global.real_stage_bpm[23] = 85;
-global.real_stage_map_highlight_part[23] = 28.71;
-global.real_detailed_difficulty[23] = 3;
-global.real_obtainable_type[23] = 8;
-global.real_requirement_level[23] = 7;
+global.real_stage_map_name[26] = "이세돌향 100% 첨가";
+global.real_stage_map_artist[26] = "제이타지";
+global.real_stage_map_difficulty[26] = "Hard (Hardcore)";
+global.real_stage_map_color[26] = $FF7D5EEE;
+global.real_stage_map_duration[26] = 4432;
+global.real_stage_map_audio_name[26] = "isedolhyang";
+global.real_stage_bpm[26] = 85;
+global.real_stage_map_highlight_part[26] = 28.71;
+global.real_detailed_difficulty[26] = 3;
+global.real_obtainable_type[26] = 8;
+global.real_requirement_level[26] = 7;
 
 
 //우마뾰이 전설
-global.real_stage_map_name[24] = "우마뾰이 전설 (Cover by 이세계아이돌)";
-global.real_stage_map_artist[24] = "Uma Musume Pretty Derby OST";
-global.real_stage_map_difficulty[24] = "Expert";
-global.real_stage_map_color[24] = #363d5a;
-global.real_stage_map_duration[24] = 4432;
-global.real_stage_map_audio_name[24] = "umamusume";
-global.real_stage_bpm[24] = 170;
-global.real_stage_map_highlight_part[24] = 66;
-global.real_detailed_difficulty[24] = 4;
-global.real_obtainable_type[24] = 99;
-global.real_requirement_level[24] = 9999;
+global.real_stage_map_name[27] = "우마뾰이 전설 (Cover by 이세계아이돌)";
+global.real_stage_map_artist[27] = "Uma Musume Pretty Derby OST";
+global.real_stage_map_difficulty[27] = "Expert";
+global.real_stage_map_color[27] = #363d5a;
+global.real_stage_map_duration[27] = 4432;
+global.real_stage_map_audio_name[27] = "umamusume";
+global.real_stage_bpm[27] = 170;
+global.real_stage_map_highlight_part[27] = 66;
+global.real_detailed_difficulty[27] = 4;
+global.real_obtainable_type[27] = 99;
+global.real_requirement_level[27] = 9999;
 
 
 
 //키딩 (Kidding)
-global.real_stage_map_name[25] = "키딩 (Kidding)";
-global.real_stage_map_artist[25] = "이세계아이돌 (ISEGYE IDOL)";
-global.real_stage_map_difficulty[25] = "Normal";
-global.real_stage_map_color[25] = #B4C0DD;
-global.real_stage_map_duration[25] = 4432;
-global.real_stage_map_audio_name[25] = "kidding";
-global.real_stage_bpm[25] = 130;
-global.real_stage_map_highlight_part[25] = 74;
-global.real_detailed_difficulty[25] = 1.5;
-global.real_obtainable_type[25] = 99;
-global.real_requirement_level[25] = 9999;
+global.real_stage_map_name[28] = "키딩 (Kidding)";
+global.real_stage_map_artist[28] = "이세계아이돌 (ISEGYE IDOL)";
+global.real_stage_map_difficulty[28] = "Normal";
+global.real_stage_map_color[28] = #B4C0DD;
+global.real_stage_map_duration[28] = 4432;
+global.real_stage_map_audio_name[28] = "kidding";
+global.real_stage_bpm[28] = 130;
+global.real_stage_map_highlight_part[28] = 74;
+global.real_detailed_difficulty[28] = 1.5;
+global.real_obtainable_type[28] = 99;
+global.real_requirement_level[28] = 9999;
 
 //곡 필터링 - 이세돌
-global.filter_song_isedol = [ 9 , 25 ];
+global.filter_song_isedol = [ 9 , 28 ];
 
 
 

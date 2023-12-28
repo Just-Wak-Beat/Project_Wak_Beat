@@ -23,7 +23,7 @@ if (global.can_change_music_list == 1)
 		}
 		else if (global.sync_setting <= 0 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+660) < 80) || keyboard_check_pressed(ord("W"))))
 		{
-			if (global.streamer == 1)
+			if (global.streamer != 0)
 			{
 				clean_message_log();
 				show_message_log("연말공모전 규정에 따라, 스트리머는 사용할 수 없는 기능입니다!");

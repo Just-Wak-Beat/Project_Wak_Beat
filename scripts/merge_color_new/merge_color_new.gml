@@ -6,6 +6,9 @@
 ///@param amount
 function merge_color_new(argument0,argument1,argument2)
 {
+	global.merge_col1 = argument0;
+	global.merge_col2 = argument1;
+	global.merge_col3 = argument2;
 	var has_problem_col1 = 0, has_problem_col2 = 0;
 	if (argument0 == "" || argument0 == -4 || argument0 == " ")
 	{

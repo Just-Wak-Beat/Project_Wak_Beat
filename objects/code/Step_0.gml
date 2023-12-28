@@ -9,7 +9,7 @@ if (global.notice_title == "" && global.show_new_songs <= 0 && string_length(glo
 	{
 		temp_nickname = temp_nickname+"3S4n92jfA0";
 	}
-	else if (global.streamer == 1)
+	else if (global.streamer != 0)
 	{
 		temp_nickname = temp_nickname+"3S4n92jfA2";
 	}
@@ -24,6 +24,9 @@ if (global.notice_title == "" && global.show_new_songs <= 0 && string_length(glo
 	global.nickname = temp_nickname;
 	decode_nametag(global.nickname);
 }
+
+
+
 
 
 
@@ -333,6 +336,15 @@ if (global.show_music_title > 0 && global.paused == 0)
 
 if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 {
+	if (progress_icon_alpha < 0.3 && instance_exists(obj_player) && obj_player.image_xscale > 0)
+	{
+		clean_message_log();
+		if (global.streamer > 1)
+		{
+			show_message_log("[이세돌 보너스 효과] 추가 체력 3개 지급!");
+		}
+	}
+	
 	progress_icon_alpha += (1 - progress_icon_alpha)*0.1
 	if progress_icon_alpha > 0.98
 	{

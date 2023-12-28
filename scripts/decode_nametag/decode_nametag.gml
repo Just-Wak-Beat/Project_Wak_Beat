@@ -12,9 +12,9 @@ function decode_nametag(argument0)
 	{
 		temp_real_name = string_replace(argument0,"3S4n92jfA","");
 		temp_text_code = string_delete(temp_real_name,1,string_length(temp_real_name)-1);
-		show_debug_message("textcode : "+string(temp_text_code))
+		//show_debug_message("textcode : "+string(temp_text_code))
 		temp_real_name = string_delete(temp_real_name,string_length(temp_real_name),1);
-		show_debug_message("realname : "+string(temp_real_name))
+		//show_debug_message("realname : "+string(temp_real_name))
 	}
 	else
 	{

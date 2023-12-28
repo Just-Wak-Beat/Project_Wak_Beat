@@ -35,7 +35,7 @@ else
 var font_size = 1//global.camera_sx
 if (instance_exists(obj_player) && obj_player.image_xscale > 0)
 {
-	if (progress_alpha > 0.01 && global.timeline_stop != 1 && global.tutorial_now != 1 && global.show_rank == 0 && (!instance_exists(obj_stage_clear) || obj_stage_clear.touched == 0))
+	if (progress_alpha > 0.01 && global.timeline_stop != 1 && global.tutorial_now != 1 && global.show_rank == 0 && (!instance_exists(obj_stage_clear) || (instance_exists(obj_stage_clear) && obj_stage_clear.touched == 0)))
 	{
 		var tmp_map_color = global.map_color;
 		//progress bar
@@ -102,7 +102,7 @@ if (music_title_alpha > 0 && global.tutorial_played >= 0)
 	draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*350*font_size,"by",64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.7*global.font_ratio_resolution_xx,font_size*0.7,0)
 	draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*256*font_size,string(global.n_music_artist),64*font_size,-1,music_title_alpha,col,0,1,light_font,font_size*0.85*global.font_ratio_resolution_xx,font_size*0.85,0)
 
-	if global.n_player_skin > 0
+	if (global.n_player_skin > 0 && global.streamer == 0)
 	{
 		draw_set_alpha(music_title_alpha)
 		draw_set_color(merge_color_new(global.player_color,c_black,0.85))
@@ -781,6 +781,9 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 
 	draw_text_k_scale(xx+xx_w-64,yy+yy_h*(0.85-global.mobile_mode*0.03),"사용자 지정 오프셋",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.885,"(음악 싱크가 맞지 않는다면 사용해보세요)",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
+	
+	draw_text_k_scale(xx+xx_w-64,yy+yy_h*(0.65-global.mobile_mode*0.03),"플래시 효과 줄이기  ["+string((global.flash_effect_setting == 1) ? "설정됨" : "해제됨")+"]",64,-1,global.sync_setting_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+	draw_text_k_scale(xx+xx_w-64,yy+yy_h*0.685,"화면의 번쩍거림이 거슬린다면 사용해보세요",64,-1,global.sync_setting_alpha,c_white,0,1,light_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
 	
 	if (global.tutorial_played > 0)
 	{

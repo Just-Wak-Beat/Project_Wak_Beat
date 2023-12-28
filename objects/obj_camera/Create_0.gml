@@ -37,3 +37,8 @@ alarm[1] = 30
 global.camera_target_x = -4
 global.camera_target_y = -4
 
+
+
+global.merge_col1 = 0
+global.merge_col2 = 0
+global.merge_col3 = 0
