@@ -27,7 +27,7 @@ global.overtime_highlight_song = 1;
 global.automatic_load_ranking = 0;
 global.flash_effect_setting = -1;
 global.cannot_connect = 0;
-global.show_credit = 1;
+global.show_credit = 0.1;
 var file_name = (global.dev_mode == 1) ? "PWB_Beta.ini" : "PWB_OpenBeta.ini"
 ini_open_protect(file_name)
 var tmp = ini_read_real("tutorial_played","none",0)

@@ -9,42 +9,55 @@ if (delete_current_map > 0)
 if (keyboard_check_pressed(vk_anykey) || global.touch_to_skip == 1)
 {
 	global.touch_to_skip = 0;
-	if (global.show_credit == 1) //1번 크레딧 스킵 (Studio A)
+	if (global.show_credit == 0.1) //광과민성 경고문
 	{
 		if (credit_text_alpha[0] < 1)
-		{
-			for(var i = 0; i < array_length(credit_text_alpha); i++)
-			{
-				credit_text_alpha[i] = 0;
-			}
-			credit_text_alpha[0] = 1;
-			global.show_credit = 1.1;
-		}
-	}
-	else if (global.show_credit == 1.1) //2번 크레딧 스킵 (Waktaverse games)
-	{
-		if (credit_text_alpha[1] < 31 && credit_text_alpha[0] <= 0)
 		{
 			//show_message_log("skiped")
 			for(var i = 0; i < array_length(credit_text_alpha); i++)
 			{
 				credit_text_alpha[i] = 0;
 			}
-			credit_text_alpha[1] = 1;
-			global.show_credit = 2;
+			credit_text_alpha[0] = 1.11;
+			global.show_credit = 1;
 		}
 	}
-	else if (global.show_credit >= 2 && global.show_credit <= 4) //3번 크레딧 스킵 (스토리)
+	else if (global.show_credit == 1) //1번 크레딧 스킵 (Studio A)
 	{
-		if (credit_text_alpha[4] < 1 && credit_text_alpha[1] <= 0)
+		if (credit_text_alpha[1] < 1 && credit_text_alpha[0] <= 0)
 		{
 			for(var i = 0; i < array_length(credit_text_alpha); i++)
 			{
 				credit_text_alpha[i] = 0;
 			}
+			credit_text_alpha[1] = 1.11;
+			global.show_credit = 1.1;
+		}
+	}
+	else if (global.show_credit == 1.1) //2번 크레딧 스킵 (Waktaverse games)
+	{
+		if (credit_text_alpha[2] < 31 && credit_text_alpha[1] <= 0)
+		{
+			//show_message_log("skiped")
+			for(var i = 0; i < array_length(credit_text_alpha); i++)
+			{
+				credit_text_alpha[i] = 0;
+			}
 			credit_text_alpha[2] = 1;
+			global.show_credit = 2;
+		}
+	}
+	else if (global.show_credit >= 2 && global.show_credit <= 4) //3번 크레딧 스킵 (스토리)
+	{
+		if (credit_text_alpha[5] < 1 && credit_text_alpha[2] <= 0)
+		{
+			for(var i = 0; i < array_length(credit_text_alpha); i++)
+			{
+				credit_text_alpha[i] = 0;
+			}
 			credit_text_alpha[3] = 1;
 			credit_text_alpha[4] = 1;
+			credit_text_alpha[5] = 1;
 			alarm[8] = 80;
 			alarm[11] = 1;
 		}
@@ -52,18 +65,33 @@ if (keyboard_check_pressed(vk_anykey) || global.touch_to_skip == 1)
 }
 
 
-
-if (global.show_credit == 1)
+if (global.show_credit == 0.1)
 {
-	credit_text_alpha[0] += (1.1 - credit_text_alpha[0])*0.025;
 	window_set_cursor(cr_none)
+	credit_text_alpha[0] += (1.11 - credit_text_alpha[0])*0.025;
+	if (credit_text_alpha[0] > 1.109 && global.title_menu_animation1 == 0 && global.show_credit < 1)
+	{
+		global.show_credit = 1;
+	}
+}
+else if (global.show_credit == 1)
+{
+	credit_text_alpha[0] += (-0.1 - credit_text_alpha[0])*0.025;
+	if (credit_text_alpha[0] <= 0)
+	{
+		credit_text_alpha[1] += (1.11 - credit_text_alpha[1])*0.025;
+		if (credit_text_alpha[1] > 1.109)
+		{
+			global.show_credit = 1.1;
+		}
+	}
 }
 else if (global.show_credit == 1.1)
 {
-	credit_text_alpha[0] += (-0.01 - credit_text_alpha[0])*0.1;
-	if (credit_text_alpha[0] <= 0)
+	credit_text_alpha[1] += (-0.01 - credit_text_alpha[1])*0.1;
+	if (credit_text_alpha[1] <= 0)
 	{
-		credit_text_alpha[1] += 0.1;
+		credit_text_alpha[2] += 0.1;
 		if (global.wakta_games_credit == -4)
 		{
 			global.wakta_games_credit = video_open("https://public-r2.waktaverse.games/assets/logo_animation/LogoAnimation_SFX.mp4")
@@ -72,7 +100,7 @@ else if (global.show_credit == 1.1)
 		}
 	}
 	
-	if (credit_text_alpha[1] >= 31)
+	if (credit_text_alpha[2] >= 31)
 	{
 		global.show_credit = 2;
 	}
@@ -80,41 +108,41 @@ else if (global.show_credit == 1.1)
 }
 else if (global.show_credit == 2)
 {
-	if (credit_text_alpha[1] > 1)
+	if (credit_text_alpha[2] > 1)
 	{
-		credit_text_alpha[1] = 1;
+		credit_text_alpha[2] = 1;
 	}
-	credit_text_alpha[1] += (-0.01 - credit_text_alpha[1])*0.1;
-	if (credit_text_alpha[1] <= 0)
+	credit_text_alpha[2] += (-0.01 - credit_text_alpha[2])*0.1;
+	if (credit_text_alpha[2] <= 0)
 	{
 		video_pause();
 		video_seek_to(5000);
 		video_close();
-		if (credit_text_alpha[2] < 0)
+		if (credit_text_alpha[3] < 0)
 		{
-			credit_text_alpha[2] = 0;
+			credit_text_alpha[3] = 0;
 			audio_play_sound(glow_sfx,0,false,global.master_volume*global.sfx_volume)
 		}
-		credit_text_alpha[2] += (1.01 - credit_text_alpha[2])*0.025
+		credit_text_alpha[3] += (1.01 - credit_text_alpha[3])*0.025
 	}
 		
-	if (credit_text_alpha[2] >= 0.9)
+	if (credit_text_alpha[3] >= 0.9)
 	{
 		global.show_credit = 3
 	}
 }
 else if (global.show_credit == 3)
 {
-	credit_text_alpha[3] += (1.01 - credit_text_alpha[3])*0.025
-	if (credit_text_alpha[3] >= 0.9)
+	credit_text_alpha[4] += (1.01 - credit_text_alpha[4])*0.025
+	if (credit_text_alpha[4] >= 0.9)
 	{
 		global.show_credit = 4
 	}
 }
 else if (global.show_credit == 4)
 {
-	credit_text_alpha[4] += (1.01 - credit_text_alpha[4])*0.025
-	if (credit_text_alpha[4] >= 0.99)
+	credit_text_alpha[5] += (1.01 - credit_text_alpha[5])*0.025
+	if (credit_text_alpha[5] >= 0.99)
 	{
 		global.show_credit = 0;
 		alarm[8] = 80;
@@ -123,9 +151,9 @@ else if (global.show_credit == 4)
 }
 else
 {
+	credit_text_alpha[5] += (-0.01 - credit_text_alpha[5])*0.05
 	credit_text_alpha[4] += (-0.01 - credit_text_alpha[4])*0.05
 	credit_text_alpha[3] += (-0.01 - credit_text_alpha[3])*0.05
-	credit_text_alpha[2] += (-0.01 - credit_text_alpha[2])*0.05
 }
 
 

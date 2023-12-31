@@ -1142,7 +1142,7 @@ if (global.show_title_menu == 0)
 }
 else ///크레딧 출력
 {
-	var tmp_color_amount = fix_num_inside(credit_text_alpha[0],0,1);
+	var tmp_color_amount = fix_num_inside(credit_text_alpha[1],0,1);
 	draw_set_color(merge_color_new(c_black,#121212,tmp_color_amount*0.3))
 	draw_set_alpha(1)
 	draw_line_width(0,0,room_width,room_height,5000)
@@ -1151,13 +1151,23 @@ else ///크레딧 출력
 	
 	if (credit_text_alpha[0] > 0)
 	{
-		draw_text_k_scale(middle_xx,middle_yy-480,"Presented by",64,-1,credit_text_alpha[0],c_white,0,0,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
-		
-		draw_sprite_ext(Sprite49,0,middle_xx,middle_yy,global.font_ratio_resolution_xx*1.1,1.1,0,c_white,credit_text_alpha[0])
-		draw_text_k_scale(middle_xx-32,middle_yy+190,"Studio",64,-1,credit_text_alpha[0],c_white,0,0,normal_font,global.font_ratio_resolution_xx*0.8,0.8,0)
+		draw_text_k_scale(middle_xx,middle_yy-480,"광과민성 반응 경고",64,-1,credit_text_alpha[0],#fbd780,0,0,normal_font,global.font_ratio_resolution_xx*0.8,0.8,0)
+		draw_set_alpha(credit_text_alpha[0])
+		draw_set_color(merge_color(#fbd780,c_white,0.8))
+		draw_line_width(middle_xx-(credit_text_alpha[0])*320,middle_yy-320,middle_xx+(credit_text_alpha[0])*320,middle_yy-320,5)
+		draw_text_k_scale(middle_xx-32,middle_yy-64,"이 게임은 밝은 색상이 반짝이는 연출이 다수 포함되어 있습니다.",64,-1,credit_text_alpha[0],c_white,0,0,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
+		draw_text_k_scale(middle_xx-32,middle_yy,"(환경설정을 통해 반짝이는 연출을 없앨 수 있습니다)",64,-1,credit_text_alpha[0]*0.7,c_white,0,0,normal_font,global.font_ratio_resolution_xx*0.6,0.6,0)
 	}
 	
 	if (credit_text_alpha[1] > 0)
+	{
+		draw_text_k_scale(middle_xx,middle_yy-480,"Presented by",64,-1,credit_text_alpha[1],c_white,0,0,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
+		
+		draw_sprite_ext(Sprite49,0,middle_xx,middle_yy,global.font_ratio_resolution_xx*1.1,1.1,0,c_white,credit_text_alpha[1])
+		draw_text_k_scale(middle_xx-32,middle_yy+190,"Studio",64,-1,credit_text_alpha[1],c_white,0,0,normal_font,global.font_ratio_resolution_xx*0.8,0.8,0)
+	}
+	
+	if (credit_text_alpha[2] > 0)
 	{
 		var surface_ratio = 1.87;
 		var video_data = video_draw();
@@ -1167,38 +1177,38 @@ else ///크레딧 출력
 			var video_width = surface_get_width(video_data[1]);
 			var video_height = surface_get_height(video_data[1]);
 			//show_message_log("scale : "+string(scale)+" / "+string(surface_get_width(video_data[1])))
-			draw_surface_ext(video_data[1],xx,yy,surface_ratio*global.font_ratio_resolution_xx,surface_ratio,0,c_white,fix_num_inside(credit_text_alpha[1],0,1));
+			draw_surface_ext(video_data[1],xx,yy,surface_ratio*global.font_ratio_resolution_xx,surface_ratio,0,c_white,fix_num_inside(credit_text_alpha[2],0,1));
 		}
-	}
-	
-	if (credit_text_alpha[2] > 0)
-	{
-		var text_tmp = "어느 날, 음악 속에 갇혀버린 왁타버스 멤버들...";
-		draw_text_kl_scale(middle_xx-420,middle_yy-300-credit_text_alpha[2]*80,text_tmp,64,-1,credit_text_alpha[2],c_white,0,-1,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
-		
-		draw_set_alpha(credit_text_alpha[2])
-		draw_set_color(c_white)
-		draw_line_width(middle_xx-420,middle_yy-300-credit_text_alpha[2]*80,middle_xx-250+credit_text_alpha[2]*power(string_length(text_tmp),2)/2,middle_yy-300-credit_text_alpha[2]*80,4)
 	}
 	
 	if (credit_text_alpha[3] > 0)
 	{
-		var text_tmp = "음악 속에 숨겨진 '아티팩트'를 모아";
-		draw_text_kl_scale(middle_xx-420,middle_yy-150-credit_text_alpha[3]*80,text_tmp,64,-1,credit_text_alpha[3],c_white,0,-1,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
+		var text_tmp = "어느 날, 음악 속에 갇혀버린 왁타버스 멤버들...";
+		draw_text_kl_scale(middle_xx-420,middle_yy-300-credit_text_alpha[3]*80,text_tmp,64,-1,credit_text_alpha[3],c_white,0,-1,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
 		
 		draw_set_alpha(credit_text_alpha[3])
 		draw_set_color(c_white)
-		draw_line_width(middle_xx-420,middle_yy-150-credit_text_alpha[3]*80,middle_xx-250+credit_text_alpha[3]*power(string_length(text_tmp),2)/2,middle_yy-150-credit_text_alpha[3]*80,4)
+		draw_line_width(middle_xx-420,middle_yy-300-credit_text_alpha[3]*80,middle_xx-250+credit_text_alpha[3]*power(string_length(text_tmp),2)/2,middle_yy-300-credit_text_alpha[3]*80,4)
 	}
 	
 	if (credit_text_alpha[4] > 0)
 	{
-		var text_tmp = "왁타버스 멤버들을 구해주세요...";
-		draw_text_kl_scale(middle_xx-420,middle_yy-credit_text_alpha[4]*80,text_tmp,64,-1,credit_text_alpha[4],c_white,0,-1,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
+		var text_tmp = "음악 속에 숨겨진 '아티팩트'를 모아";
+		draw_text_kl_scale(middle_xx-420,middle_yy-150-credit_text_alpha[4]*80,text_tmp,64,-1,credit_text_alpha[4],c_white,0,-1,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
 		
 		draw_set_alpha(credit_text_alpha[4])
 		draw_set_color(c_white)
-		draw_line_width(middle_xx-420,middle_yy-credit_text_alpha[4]*80,middle_xx-250+credit_text_alpha[4]*power(string_length(text_tmp),2)/2,middle_yy-credit_text_alpha[4]*80,4)
+		draw_line_width(middle_xx-420,middle_yy-150-credit_text_alpha[4]*80,middle_xx-250+credit_text_alpha[4]*power(string_length(text_tmp),2)/2,middle_yy-150-credit_text_alpha[4]*80,4)
+	}
+	
+	if (credit_text_alpha[5] > 0)
+	{
+		var text_tmp = "왁타버스 멤버들을 구해주세요...";
+		draw_text_kl_scale(middle_xx-420,middle_yy-credit_text_alpha[5]*80,text_tmp,64,-1,credit_text_alpha[5],c_white,0,-1,normal_font,global.font_ratio_resolution_xx*0.7,0.7,0)
+		
+		draw_set_alpha(credit_text_alpha[5])
+		draw_set_color(c_white)
+		draw_line_width(middle_xx-420,middle_yy-credit_text_alpha[5]*80,middle_xx-250+credit_text_alpha[5]*power(string_length(text_tmp),2)/2,middle_yy-credit_text_alpha[5]*80,4)
 	}
 }
 
