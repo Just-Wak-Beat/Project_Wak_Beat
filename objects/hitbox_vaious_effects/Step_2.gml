@@ -3,21 +3,21 @@
 
 if (global.timeline_stop == -1)
 {
-	if (m_data_arg4 == 0)
+	if (m_data_arg8 == 0)
 	{
-		global.t_bg_color = ed_arg0;
+		global.t_bg_color = m_data_arg0;
 	}
-	else if (m_data_arg4 == 1)
+	else if (m_data_arg8 == 1)
 	{
 		global.w_alpha = m_data_arg0;
 	}
-	else if (m_data_arg4 == 2)
+	else if (m_data_arg8 == 2)
 	{
-		global.master_remix_effect = (m_data_arg5 == 1) ? 1 : 0;
+		global.master_remix_effect = (m_data_arg6 == 1) ? 1 : 0;
 	}
-	else if (m_data_arg4 == 3)
+	else if (m_data_arg8 == 3)
 	{
-		if (m_data_arg5 == 1)
+		if (m_data_arg6 == 1)
 		{
 			global.automatic_camera_movement = m_data_arg0;
 		}

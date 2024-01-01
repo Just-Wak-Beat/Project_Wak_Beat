@@ -135,13 +135,6 @@ if (can_draw == 1)
 					global.revalued_projectile_save = 1;
 				}
 			}
-			else
-			{
-				if (global.revalued_projectile_save == 1)
-				{
-					global.revalued_projectile_save = 2;
-				}
-			}
 		}
 	
 	

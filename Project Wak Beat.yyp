@@ -51,6 +51,10 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"확장","folderPath":"folders/확장.yy",},
   ],
   "IncludedFiles": [
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"ah_puh.ogg","CopyToMask":-1,"filePath":"datafiles/Ah_puh",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"album.png","CopyToMask":-1,"filePath":"datafiles/Ah_puh",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"map_data.ini","CopyToMask":-1,"filePath":"datafiles/Ah_puh",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"map_info.ini","CopyToMask":-1,"filePath":"datafiles/Ah_puh",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"settings.ini","CopyToMask":64,"filePath":"datafiles/Custom map files",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"ah_puh.ogg","CopyToMask":64,"filePath":"datafiles/Custom map files/user_custom_map/Ah_puh",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"album.png","CopyToMask":64,"filePath":"datafiles/Custom map files/user_custom_map/Ah_puh",},
@@ -66,6 +70,7 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"map_info.ini","CopyToMask":64,"filePath":"datafiles/Custom map files/user_custom_map/CustomUserMap_Example",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"system_map.ini","CopyToMask":64,"filePath":"datafiles/Custom map files/user_custom_map",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"system.ini","CopyToMask":64,"filePath":"datafiles/Custom map files/user_custom_map",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"map_data.ini","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"읽어주세요.txt","CopyToMask":-1,"filePath":"datafiles",},
   ],
   "isEcma": false,

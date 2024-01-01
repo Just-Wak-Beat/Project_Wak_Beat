@@ -13,21 +13,21 @@ if (global.timeline_stop == 1)
 	if (global.editor_hitbox == 1 && editor_selected == 1)
 	{
 		var str_tmp = "";
-		if (m_data_arg4 == 0)
+		if (m_data_arg8 == 0)
 		{
 			str_tmp = "배경 투명도 변화 : "+string(ed_arg0);
 		}
-		else if (m_data_arg4 == 1)
+		else if (m_data_arg8 == 1)
 		{
 			str_tmp = "플래시 밝기 : "+string(m_data_arg0);
 		}
-		else if (m_data_arg4 == 2)
+		else if (m_data_arg8 == 2)
 		{
-			str_tmp = "비 효과 : "+string((m_data_arg5 == 1) ? "활성화됨" : "비활성화됨");
+			str_tmp = "비 효과 : "+string((m_data_arg6 == 1) ? "활성화됨" : "비활성화됨");
 		}
-		else if (m_data_arg4 == 3)
+		else if (m_data_arg8 == 3)
 		{
-			if (m_data_arg5 == 1)
+			if (m_data_arg6 == 1)
 			{
 				var tmp_val = m_data_arg0;
 				var str_tmp2 = "효과 없에기";

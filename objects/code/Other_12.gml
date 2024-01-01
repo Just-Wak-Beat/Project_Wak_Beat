@@ -37,7 +37,7 @@ if (global.can_change_music_list == 1 && global.t_select_difficulty == 0)
 			var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.94,depth,obj_button)
 			buttom_ui.button_id = 1
 			
-			if (global.tutorial_played > 0)
+			if (global.tutorial_played > 0 && global.map_editor != 1)
 			{
 				//곡 리스타트 / 게임 종료
 				var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.053,depth,obj_button);
@@ -127,7 +127,7 @@ if (global.can_change_music_list == 1 && global.t_select_difficulty == 0)
 			var buttom_ui = instance_create_depth(xx+xx_w-320,yy+yy_h*0.75,depth,obj_button)
 			buttom_ui.button_id = 11
 			
-			if (global.tutorial_played > 0)
+			if (global.tutorial_played > 0 && global.map_editor != 1)
 			{
 				//곡 리스타트 / 게임 종료
 				var buttom_ui = instance_create_depth(xx+100,yy+yy_h*0.053,depth,obj_button);

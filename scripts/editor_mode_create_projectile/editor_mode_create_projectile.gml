@@ -315,14 +315,14 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
-			tmp_ins.m_data_arg1 = 0;
+			tmp_ins.m_data_arg1 = argument4;
 			tmp_ins.m_data_arg2 = argument5;
-			tmp_ins.m_data_arg3 = 0;
-			tmp_ins.m_data_arg4 = 0;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
-			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.m_data_arg8 = 0;
 			
 			tmp_ins.ed_arg0 = (argument3-10)/10;
 			tmp_ins.ed_arg5 = argument8/255;
@@ -467,42 +467,42 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
-			tmp_ins.m_data_arg1 = 0;
-			tmp_ins.m_data_arg2 = 0;
-			tmp_ins.m_data_arg3 = 0;
-			tmp_ins.m_data_arg4 = 1;
+			tmp_ins.m_data_arg1 = argument4;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
-			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.m_data_arg8 = 1;
 		break;
 		
 		case 22: //비 효과
 			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
 			tmp_ins.projectile_type = argument0;
-			tmp_ins.m_data_arg0 = 0;
-			tmp_ins.m_data_arg1 = 0;
-			tmp_ins.m_data_arg2 = 0;
-			tmp_ins.m_data_arg3 = 0;
-			tmp_ins.m_data_arg4 = 2;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = argument4;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
-			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.m_data_arg8 = 2;
 		break;
 		
 		case 23: //화면 효과
 			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
-			tmp_ins.m_data_arg1 = 0;
-			tmp_ins.m_data_arg2 = 0;
-			tmp_ins.m_data_arg3 = 0;
-			tmp_ins.m_data_arg4 = 3;
+			tmp_ins.m_data_arg1 = argument4;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
-			tmp_ins.m_data_arg8 = argument11;
+			tmp_ins.m_data_arg8 = 3;
 		break;
 	}
 }

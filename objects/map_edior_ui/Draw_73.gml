@@ -202,6 +202,12 @@ if (global.timeline_stop == 1)
 }
 
 
+if (n_selected != -4 && instance_exists(n_selected))
+{
+	draw_text_k_scale(xx+xx_w*0.98-scroll_y*1.25,yy+200,"선택된 탄막 값 수정",64,-1,0.8,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
+}
+
+
 for(var i = 0; i < 7; i++)
 {
 	if (global.ed_arg_name[i] != "")
@@ -218,7 +224,7 @@ for(var i = 0; i < 7; i++)
 			}
 		}
 		
-
+	
 		draw_text_k_scale(xx+xx_w*0.98-scroll_y*1.25,yy+320+i*120,string(global.ed_arg_name[i])+string(tmp_string),64,-1,tmp_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
 	}
 }

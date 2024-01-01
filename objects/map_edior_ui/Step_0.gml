@@ -246,7 +246,7 @@ switch(global.editor_selected_type)
 	break;
 	
 	case 6: //원형 폭발 탄막
-		image_xscale = global.ed_arg[0]*0.5;
+		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
 		if (selected_projectile_type == 1)
 		{
@@ -272,7 +272,7 @@ switch(global.editor_selected_type)
 			custom_image_ind = 0;
 			custom_image_type = 1;
 		}
-		image_angle = round(global.ed_arg[1]/90)*90;
+		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
 		
 		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
@@ -285,14 +285,14 @@ switch(global.editor_selected_type)
 	
 	case 8: //탄막색 변경
 		sprite_index = spr_circle;
-		image_xscale = 0.3;
+		image_xscale = 0.06;
 		image_yscale = image_xscale;
 		if (selected_projectile_type == 1)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
 		}
-		image_blend = make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]);
+		image_blend = make_color_rgb(global.ed_arg[0],global.ed_arg[1],global.ed_arg[2]);
 		scroll_param_set(0,"R",0,255,2,0,"");
 		scroll_param_set(1,"G",0,255,2,0,"");
 		scroll_param_set(2,"B",0,255,2,0,"");
@@ -301,18 +301,18 @@ switch(global.editor_selected_type)
 	
 	case 9: //배경색 변경
 		sprite_index = spr_circle;
-		image_xscale = 0.3;
+		image_xscale = 0.06;
 		image_yscale = image_xscale;
 		if (selected_projectile_type == 1)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
 		}
-		image_blend = merge_color_new(c_black,make_color_rgb(global.ed_arg[2],global.ed_arg[3],global.ed_arg[4]),fix_num(global.ed_arg[5]/1200));
+		image_blend = merge_color_new(c_black,make_color_rgb(global.ed_arg[0],global.ed_arg[1],global.ed_arg[2]),fix_num(global.ed_arg[3]));
 		scroll_param_set(0,"R",0,255,2,0,"");
 		scroll_param_set(1,"G",0,255,2,0,"");
 		scroll_param_set(2,"B",0,255,2,0,"");
-		scroll_param_set(3,"배경색 투명도",0,1,2,100,"");
+		scroll_param_set(3,"배경색 투명도",0,100,2,100,"");
 		scroll_param_set(6,"이펙트 활성화",-1,1,2,0,"");
 	break;
 	
@@ -462,7 +462,7 @@ switch(global.editor_selected_type)
 			custom_image_type = 0;
 			selected_projectile_type = 0;
 		}
-		image_angle = global.ed_arg[1]-180;
+		image_angle = global.ed_arg[1];
 		image_alpha = 0.5;
 		image_blend = #7da7d9;
 		scroll_param_set(0,"크기",1,1024,2,sprite_get_width(sprite_index),"px");
