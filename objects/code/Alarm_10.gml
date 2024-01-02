@@ -87,3 +87,5 @@ if global.mobile_mode = 1
 		}
 	}
 }
+
+instance_destroy(hitbox_parents);

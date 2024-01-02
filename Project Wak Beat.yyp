@@ -187,6 +187,7 @@
     {"id":{"name":"spr_spuare_outline_full_mask","path":"sprites/spr_spuare_outline_full_mask/spr_spuare_outline_full_mask.yy",},},
     {"id":{"name":"hitbox_vaious_effects","path":"objects/hitbox_vaious_effects/hitbox_vaious_effects.yy",},},
     {"id":{"name":"spr_player_icon","path":"sprites/spr_player_icon/spr_player_icon.yy",},},
+    {"id":{"name":"spr_beaker","path":"sprites/spr_beaker/spr_beaker.yy",},},
     {"id":{"name":"obj_player_left_hp_effect","path":"objects/obj_player_left_hp_effect/obj_player_left_hp_effect.yy",},},
     {"id":{"name":"bichan_hurt","path":"sounds/bichan_hurt/bichan_hurt.yy",},},
     {"id":{"name":"reset_custom_map_info","path":"scripts/reset_custom_map_info/reset_custom_map_info.yy",},},
