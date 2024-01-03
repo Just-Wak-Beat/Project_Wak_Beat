@@ -31,3 +31,10 @@ with(code)
 {
 	event_user(15);
 }
+
+
+
+saved_hitbox_xx = -4;
+saved_hitbox_yy = -4;
+saved_obj_num = -4;
+saved_param = array_create(8,"");

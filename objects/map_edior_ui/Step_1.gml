@@ -27,9 +27,14 @@ if (del_all_timeline > 0)
 
 if (global.revalued_projectile_save == 2)
 {
-	var saved_hitbox_xx = n_selected.x;
-	var saved_hitbox_yy = n_selected.y;
-	var saved_obj_num = n_selected.object_index;
+	saved_hitbox_xx = n_selected.x;
+	saved_hitbox_yy = n_selected.y;
+	saved_obj_num = n_selected.object_index;
+	for(var i = 0; i <= 8; i++)
+	{
+		saved_param[i] = variable_instance_get(n_selected,"m_data_arg"+string(i));
+	}
+	
 	
 	with(code)
 	{
@@ -43,18 +48,7 @@ if (global.revalued_projectile_save == 2)
 		event_user(11);
 	}
 	
-	with(hitbox_parents)
-	{
-		if (other.object_index != saved_obj_num && other.x == saved_hitbox_xx && other.y == saved_hitbox_yy && other.projectile_type == global.editor_selected_type)
-		{
-			if (other.m_data_arg0 == global.ed_arg[0] && other.m_data_arg1 == global.ed_arg[1] && other.m_data_arg2 == global.ed_arg[2] && other.m_data_arg3 == global.ed_arg[3] && other.m_data_arg4 == global.ed_arg[4] && other.m_data_arg5 == global.ed_arg[5] && other.m_data_arg6 == global.ed_arg[6] && other.m_data_arg7 == global.ed_arg[7] && other.m_data_arg8 == global.ed_arg[8])
-			{
-				n_selected = other.id;
-				other.editor_selected = 1;
-				global.editor_hitbox = 1;
-			}
-		}
-	}
+	alarm[3] = 5;
 	global.revalued_projectile_save = 0;
 }
 

@@ -803,7 +803,7 @@ global.real_requirement_level[24] = 5;
 
 //락다운
 global.real_stage_map_name[25] = "Lockdown (락다운)";
-global.real_stage_map_artist[25] = "Remix by Mitsutoki";
+global.real_stage_map_artist[25] = "Remix by Matsutoki";
 global.real_stage_map_difficulty[25] = "Expert (Boss)";
 global.real_stage_map_color[25] = c_black;
 global.real_stage_map_duration[25] = 4530;

@@ -103,6 +103,5 @@ if (global.n_score_displaying > 0)
 	save_and_load_data(0,1)
 	alarm[6] = 20
 
-	event_user(4)
 	global.n_score_displaying = -4;
 }

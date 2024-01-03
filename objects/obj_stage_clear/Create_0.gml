@@ -65,9 +65,10 @@ if (global.streamer == 0 && global.tutorial_now != 1)
 			{
 				global.unlocked_player_skin[i] = 3;
 				play_unlock_animation = 1;
+				
 				player_unlocked = 1;
 		
-				if (global.artifact_type == floor(i/3))
+				if (global.artifact_type == floor(i/4))
 				{
 					unlocked_char_index = i;
 				}
@@ -75,14 +76,34 @@ if (global.streamer == 0 && global.tutorial_now != 1)
 		}
 		else
 		{
-			if (tmp_require_num == "아무 곡이나 대쉬를 사용하지 않고 S랭크 이상으로 클리어")
+			if (tmp_require_num == "아무 곡이나 대쉬를 사용하지 않고\nS랭크 이상으로 클리어 (튜토리얼 제외)")
 			{
-				if (global.unlocked_player_skin[2] < 1 && global.dashed == 0 && (global.n_rank_display == "Perfect!" || global.n_rank_display == "S+" || global.n_rank_display == "S"))
+				if (global.unlocked_player_skin[2] < 1 && global.dashed == 0 && global.n_score_displaying >= 130000)
 				{
 					global.unlocked_player_skin[2] = 3;
 					play_unlock_animation = 1;
 					player_unlocked = 1;
 					unlocked_char_index = 2;
+				}
+			}
+			else if (tmp_require_num == "'왁굳향100% 첨가'곡을\nA+랭크 이상으로 클리어")
+			{
+				if (global.unlocked_player_skin[3] < 1 && global.n_score_displaying >= 120000 && global.n_music_title == "왁굳향100% 첨가")
+				{
+					global.unlocked_player_skin[3] = 3;
+					play_unlock_animation = 1;
+					player_unlocked = 1;
+					unlocked_char_index = 3;
+				}
+			}
+			else if (tmp_require_num == "'로키 ROKI'곡을\nA+랭크 이상으로 클리어")
+			{
+				if (global.unlocked_player_skin[11] < 1 && global.n_score_displaying >= 120000 && global.n_music_title == "로키 ROKI (Cover by 비챤 VIichan)")
+				{
+					global.unlocked_player_skin[11] = 3;
+					play_unlock_animation = 1;
+					player_unlocked = 1;
+					unlocked_char_index = 11;
 				}
 			}
 		}
