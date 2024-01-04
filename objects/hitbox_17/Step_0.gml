@@ -139,3 +139,14 @@ if (global.timeline_stop != 1)
 	warning_timer ++
 }
 
+
+
+
+if (can_des > 1)
+{
+	can_des ++;
+	if (can_des > 300)
+	{
+		instance_destroy();
+	}
+}

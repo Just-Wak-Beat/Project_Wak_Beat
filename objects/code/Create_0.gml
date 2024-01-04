@@ -348,7 +348,7 @@ automatic_reload_leaderboard = 0;
 		global.real_stage_map_duration[i] = -4;
 		global.real_stage_map_audio_name[i] = -4;
 		global.real_stage_bpm[i] = -4;
-		global.real_stage_map_highlight_part[i] = -4
+		global.real_stage_map_highlight_part[i] = -4;
 		global.real_n_score[i] = "--";
 		global.real_n_score_hardcore[i] = "--";
 		global.real_n_favorite[i] = -1;
@@ -745,7 +745,7 @@ global.real_requirement_level[20] = 9999;
 
 //어푸
 global.real_stage_map_name[21] = "어푸 (Cover by 주르르 Jururu)";
-global.real_stage_map_artist[21] = "Mixing by 믹스마스터 / Original by 아이유 IU";
+global.real_stage_map_artist[21] = "Mixing by 믹스마스터 / Original by 아이유 IU\nOriginal Map by 댐쿵이";
 global.real_stage_map_difficulty[21] = "Hard";
 global.real_stage_map_color[21] = #2BA6ED;
 global.real_stage_map_duration[21] = 6300;
