@@ -921,7 +921,8 @@ if (global.blackout_effect_alpha > 0)
 			ef_.image_alpha = 0.99;
 			ef_.gravity = 0.35;
 			ef_.gravity_direction = grav_dir;
-			ef_.vspeed = -irandom_range(10,20);
+			ef_.direction = grav_dir+180;
+			ef_.speed = -irandom_range(10,20);
 			ef_.keep_spin_angle = 2
 			ef_.image_xscale = 0.4
 			ef_.image_yscale = 0.4
@@ -930,7 +931,7 @@ if (global.blackout_effect_alpha > 0)
 			ef_.image_blend = c_black;
 		}
 	}
-	draw_sprite_ext(camera_effect_blackout,tmp_ind_val,xx-global.real_shake_x,yy-global.real_shake_y,global.n_camera_zoom*tmp_xscale,global.n_camera_zoom*tmp_yscale,0,c_white,global.blackout_effect_alpha*0.3 + (global.blackout_effect > 1) ? 0.7 : 0)
+	draw_sprite_ext(camera_effect_blackout,tmp_ind_val,xx-global.real_shake_x,yy-global.real_shake_y,global.n_camera_zoom*tmp_xscale,global.n_camera_zoom*tmp_yscale,0,c_white,global.blackout_effect_alpha*0.3 + (global.blackout_effect >= 1) ? 0.7 : 0)
 }
 
 

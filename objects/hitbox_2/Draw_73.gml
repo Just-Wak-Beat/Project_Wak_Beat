@@ -12,9 +12,11 @@ if (global.timeline_stop == 1)
 	{
 		draw_set_color(c_white);
 		draw_set_alpha(1);
+		var xx = x-room_width*0.5;
+		var yy = y-room_height*0.5;
 		draw_line_width(x,y,x+lengthdir_x(320,direction),y+lengthdir_y(320,direction),3);
 		
 		var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
-		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale*sprite_get_width(sprite_index))+"px"+"\nx : "+string(floor(x))+"\ny : "+string(floor(y))+"\n"+((m_data_arg6 == 1) ? "이펙트 활성화" : "이펙트 비활성화"),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale)+"\nx : "+string(floor(xx))+"\ny : "+string(floor(yy))+"\n"+((m_data_arg6 == 1) ? "이펙트 활성화" : "이펙트 비활성화"),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }

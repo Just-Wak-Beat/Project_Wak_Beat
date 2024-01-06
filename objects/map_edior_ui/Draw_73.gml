@@ -149,7 +149,7 @@ if (global.timeline_stop == 1)
 	{
 		draw_set_color(c_white);
 		draw_set_alpha(1);
-		draw_line_width(t_m_x+(global.ed_arg[1]-180)*50,t_m_y+(global.ed_arg[2]-128)*50,t_m_x,t_m_y,3);
+		draw_line_width(room_width*0.5+global.ed_arg[1],room_height*0.5+global.ed_arg[2],t_m_x,t_m_y,3);
 	}
 	else if (global.editor_selected_type == 4)
 	{
@@ -190,14 +190,14 @@ if (global.timeline_stop == 1)
 		{
 			draw_set_color(c_white);
 			draw_set_alpha(1);
-			draw_line_width(t_m_x+lengthdir_x((global.ed_arg[2]/60)*64,tmp_ang+90),t_m_y+lengthdir_y((global.ed_arg[2]/60)*64,tmp_ang+90),t_m_x,t_m_y,3);
+			draw_line_width(t_m_x+lengthdir_x(global.ed_arg[2],tmp_ang+90),t_m_y+lengthdir_y(global.ed_arg[2],tmp_ang+90),t_m_x,t_m_y,3);
 		}
 	}
 	else if (global.editor_selected_type == 19)
 	{
 		draw_set_color(c_white);
 		draw_set_alpha(1);
-		draw_line_width(t_m_x,t_m_y,floor((global.ed_arg[3]-128)*15),floor((global.ed_arg[4]-128)*15),3);
+		draw_line_width(t_m_x,t_m_y,room_width*0.5+global.ed_arg[3],room_height*0.5+global.ed_arg[4],3);
 	}
 }
 
@@ -208,23 +208,31 @@ if (n_selected != -4 && instance_exists(n_selected))
 }
 
 
-for(var i = 0; i < 7; i++)
+if (global.timeline_stop == 1 && scroll_y > -639)
 {
-	if (global.ed_arg_name[i] != "")
+	for(var i = 0; i < 7; i++)
 	{
-		//보정된 값으로 출력
-		var tmp_val = string(global.ed_arg[i])+string(global.ed_arg_tagname[i]);
-		var tmp_string = " ["+string(tmp_val)+"]";
-		var tmp_alpha = 1;
-		with(obj_button)
+		if (global.ed_arg_name[i] != "")
 		{
-			if (other.object_index != map_edior_ui && other.button_id-100 == i)
+			//보정된 값으로 출력
+			var tmp_val = string(global.ed_arg[i])+string(global.ed_arg_tagname[i]);
+			var tmp_string = string(tmp_val);
+			var tmp_alpha = 1;
+			with(obj_button)
 			{
-				tmp_alpha = other.image_alpha;
+				if (other.object_index != map_edior_ui && other.button_id-100 == i)
+				{
+					tmp_alpha = other.image_alpha;
+				}
 			}
-		}
 		
-	
-		draw_text_k_scale(xx+xx_w*0.98-scroll_y*1.25,yy+320+i*120,string(global.ed_arg_name[i])+string(tmp_string),64,-1,tmp_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
+			var tmp_xx = xx-scroll_y*1.25;
+			var tmp_yy = yy+320+i*120;
+			draw_set_alpha(0.1);
+			draw_set_color(c_white);
+			draw_line_width(tmp_xx+xx_w*0.97-42,tmp_yy+28,tmp_xx+xx_w*0.97+42,tmp_yy+28,42);
+			draw_text_k_scale(tmp_xx+xx_w*0.948,tmp_yy,string(global.ed_arg_name[i]),64,-1,tmp_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
+			draw_text_k_scale(tmp_xx+xx_w*0.97,tmp_yy,string(tmp_string),64,-1,tmp_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
+		}
 	}
 }

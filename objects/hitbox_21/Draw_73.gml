@@ -10,11 +10,13 @@ if (global.timeline_stop == 1)
 	
 	if (global.editor_hitbox == 1 && editor_selected == 1)
 	{
+		var xx = x-room_width*0.5;
+		var yy = y-room_height*0.5;
 		draw_set_color(c_white);
 		draw_set_alpha(1);
-		draw_line_width(x,y,m_data_arg3,m_data_arg4,3);
+		draw_line_width(x,y,m_data_arg3+room_width*0.5,m_data_arg4+room_height*0.5,3);
 		
 		var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
-		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale*sprite_get_width(sprite_index))+"px"+"\nx : "+string(floor(x))+"\ny : "+string(floor(y))+"\n이동 속도 : "+string(m_data_arg2)+"\n"+string(m_data_arg5)+"프레임 이후 삭제",64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale)+"\nx : "+string(floor(xx))+"\ny : "+string(floor(yy))+"\n이동할 x좌표 : "+string(floor(m_data_arg3))+"\n이동할 y좌표 : "+string(floor(m_data_arg4))+"\n이동 속도 : "+string(m_data_arg2)+"\n"+string(m_data_arg5)+"프레임 이후 삭제",64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }

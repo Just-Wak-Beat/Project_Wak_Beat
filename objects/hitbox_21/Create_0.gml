@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-//일반 탄막
+//위치 이동 탄막
 
 image_speed = 0
 timer = 0

@@ -50,7 +50,7 @@ if (global.timeline_stop != 1)
 		
 		view_shake(0.1,shake_scale,3,shake_dir)
 		w_alpha = 0.3
-		if global.n_music_name = "wakrio" && global.n_progress >= 2930
+		if (global.n_music_name == "wakrio" && global.n_progress >= 2930)
 		{
 			for(var i = 0; i < 360; i += 30-(1-global.t_selected_difficulty)*15)
 			{
@@ -65,7 +65,7 @@ if (global.timeline_stop != 1)
 		}
 		else
 		{
-			if global.n_music_name = "isedolhyang"
+			if (global.n_music_name == "isedolhyang")
 			{
 				for(var i = 0; i < 360; i += 20)
 				{
@@ -82,22 +82,22 @@ if (global.timeline_stop != 1)
 			{
 				for(var i = 0; i < 360; i += 20-(1-global.t_selected_difficulty)*10)
 				{
-					var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6)
-					attack_ef.direction = i
-					attack_ef.speed = 20
-					attack_ef.keep_spin_angle = 2
-					attack_ef.image_xscale = 0.25*t_scale
-					attack_ef.image_yscale = 0.25*t_scale
-					attack_ef.w_alpha = 10
+					var attack_ef = instance_create_depth(x,y,depth+1,hitbox_6);
+					attack_ef.direction = i;
+					attack_ef.speed = 20;
+					attack_ef.keep_spin_angle = 2;
+					attack_ef.image_xscale = 0.25*t_scale;
+					attack_ef.image_yscale = 0.25*t_scale;
+					attack_ef.w_alpha = 10;
 				}
 			}
 		}
-		instance_destroy()
+		instance_destroy();
 	}
 
-	if warning_timer%10 = 0 && abs(warning_timer - target_time) < 120
+	if (warning_timer%10 == 0 && abs(warning_timer - target_time) < 120)
 	{
-		w_alpha = 1
+		w_alpha = 1;
 	}
 }
 

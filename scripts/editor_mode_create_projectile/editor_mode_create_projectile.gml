@@ -52,7 +52,7 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 		break;
 	
 		case 1: //스파이크 폭발 탄막
-			var tmp_ins = create_spike_circle(argument1,argument2,argument1,argument2,argument6,0,0,argument3);
+			var tmp_ins = create_spike_circle(argument1,argument2,room_width*0.5+argument4,room_height*0.5+argument5,argument6,0,0,argument3);
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
 			tmp_ins.m_data_arg1 = argument4;
@@ -394,8 +394,8 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 				tmp_ins.m_data_arg1 = argument4;
 				tmp_ins.m_data_arg2 = argument5;
 				tmp_ins.m_data_arg3 = argument6;
-				tmp_ins.m_data_arg4 = 0;
-				tmp_ins.m_data_arg5 = 0;
+				tmp_ins.m_data_arg4 = argument7;
+				tmp_ins.m_data_arg5 = argument8;
 				tmp_ins.m_data_arg6 = argument9;
 				tmp_ins.m_data_arg7 = -999;
 				tmp_ins.m_data_arg8 = argument11;
@@ -413,10 +413,10 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 				tmp_ins.projectile_type = argument0;
 				tmp_ins.m_data_arg0 = argument3;
 				tmp_ins.m_data_arg1 = argument4;
-				tmp_ins.m_data_arg2 = 0;
-				tmp_ins.m_data_arg3 = 0;
-				tmp_ins.m_data_arg4 = 0;
-				tmp_ins.m_data_arg5 = 0;
+				tmp_ins.m_data_arg2 = argument5;
+				tmp_ins.m_data_arg3 = argument6;
+				tmp_ins.m_data_arg4 = argument7;
+				tmp_ins.m_data_arg5 = argument8;
 				tmp_ins.m_data_arg6 = argument9;
 				tmp_ins.m_data_arg7 = argument10;
 				tmp_ins.m_data_arg8 = argument11;
@@ -450,17 +450,20 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.image_alpha = 0.5;
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;
-			tmp_ins.m_data_arg1 = 0;
+			tmp_ins.m_data_arg1 = argument4;
 			tmp_ins.m_data_arg2 = argument5;
-			tmp_ins.m_data_arg3 = 0;
-			tmp_ins.m_data_arg4 = 0;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = argument7;
 			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
 			tmp_ins.m_data_arg8 = argument11;
 			tmp_ins.saved_alpha = 0.4;
+			tmp_ins.w_alpha = 0;
+			tmp_ins.keep_spin_angle = 0;
 			tmp_ins.image_xscale = argument3;
 			tmp_ins.image_yscale = argument3;
+			tmp_ins.sprite_index = tmp_spr___;
 		break;
 		
 		case 21: //카메라 플래시 효과
@@ -492,6 +495,20 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 		break;
 		
 		case 23: //화면 효과
+			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
+			tmp_ins.projectile_type = argument0;
+			tmp_ins.m_data_arg0 = argument3;
+			tmp_ins.m_data_arg1 = argument4;
+			tmp_ins.m_data_arg2 = argument5;
+			tmp_ins.m_data_arg3 = argument6;
+			tmp_ins.m_data_arg4 = argument7;
+			tmp_ins.m_data_arg5 = argument8;
+			tmp_ins.m_data_arg6 = argument9;
+			tmp_ins.m_data_arg7 = argument10;
+			tmp_ins.m_data_arg8 = 3;
+		break;
+		
+		case 24: //
 			var tmp_ins = instance_create_depth(argument1,argument2,obj_player.depth+15,hitbox_vaious_effects)
 			tmp_ins.projectile_type = argument0;
 			tmp_ins.m_data_arg0 = argument3;

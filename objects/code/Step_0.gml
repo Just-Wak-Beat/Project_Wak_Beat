@@ -409,6 +409,10 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 					}
 					else
 					{
+						timeline_running = false;
+						timeline_index = -4;
+						global.t_selected_difficulty = 1;
+						global.selected_difficulty = 1;
 						var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
 						global.c_map_param = array_create(global.music_duration+1,"");
 						global.custom_map_timeline = true;

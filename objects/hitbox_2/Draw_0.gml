@@ -15,7 +15,7 @@ if (sprite_index == spr_circle_spike2)
 }
 
 
-if (image_alpha >= 1)
+if (image_alpha > 0)
 {
 	if (!variable_instance_exists(id,"none_color_change") && circle_w_alpha > 0 && sprite_index != spr_rain)
 	{

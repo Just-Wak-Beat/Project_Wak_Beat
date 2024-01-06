@@ -7,6 +7,7 @@ if (global.dev_mode == 1)
 		var ins_tmp = instance_create_depth(mouse_x,mouse_y,depth,hitbox_22)
 		ins_tmp.image_xscale = 0.85;
 		ins_tmp.image_yscale = 0.85;
+		ins_tmp.des_timer = 180;
 	}
 	else if (keyboard_check_pressed(ord("E")))
 	{

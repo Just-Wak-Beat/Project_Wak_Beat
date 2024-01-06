@@ -11,7 +11,9 @@ if (global.timeline_stop == 1)
 	
 	if (global.editor_hitbox == 1 && editor_selected == 1)
 	{
+		var xx = x-room_width*0.5;
+		var yy = y-room_height*0.5;
 		var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
-		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale*sprite_get_width(sprite_index))+"px"+"\nx : "+string(floor(x))+"\ny : "+string(floor(y))+"\n"+string(target_time)+"프레임 이후 활성화\n"+string(des_time)+"프레임 이후 삭제",64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale)+"\nx : "+string(floor(xx))+"\ny : "+string(floor(yy))+"\n"+string(target_time)+"프레임 이후 활성화\n"+string(des_time)+"프레임 이후 삭제",64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }

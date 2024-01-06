@@ -12,8 +12,11 @@ if (global.timeline_stop != 1)
 	{
 		timer ++;
 	}
-	x += (m_data_arg3 - x)*0.001*(1+m_data_arg2);
-	y += (m_data_arg4 - y)*0.001*(1+m_data_arg2);
+	if (m_data_arg2 != 0)
+	{
+		x += (room_width*0.5+m_data_arg3 - x)*0.0001*(1+m_data_arg2);
+		y += (room_height*0.5+m_data_arg4 - y)*0.0001*(1+m_data_arg2);
+	}
 	
 	if (timer > m_data_arg5)
 	{
