@@ -106,15 +106,6 @@ value="180.000000"
 value="32.000000"
 ...
 ```
-<img src = "imgs\Guideline_imgs\gl5.PNG">
-
-
-|[custom_stage_bpm]|[custom_requirement_level]|[custom_stage_map_map_by]|[custom_stage_map_name]|[custom_stage_map_artist]|[custom_stage_map_difficulty]|[custom_stage_map_highlight_part]|[custom_detailed_difficulty]|
-|---|---|---|---|---|---|---|---|
-|음악의 BPM값<br>(소수점 사용 가능)|맵 해금 레벨<br>(0~999사이의 정수)|맵 제작자<br>(원하시는 본인 이름 적으시면 됩니다)|맵 이름<br>(음악 제목 적으시면 됩니다)|아티스트<br>(곡 작곡가 적으시면 됩니다)|맵 난이도<br>(원하시는 맵 난이도를 적어주시면 됩니다 ex: Expert)|해당 곡의 하이라이트 부분<br>(소수점도 입력 가능하며, 단위는 '초'입니다)|맵 난이도<br>(난이도를 0~9사이의 숫자로 환산한 값을 입력해 주세요, 0.5단위로 입력 가능합니다)|
-
-
-
 
 |[custom_stage_map_color]|Hex값이란?|
 |---|---|
@@ -130,7 +121,7 @@ value="32.000000"
 
 
 <details>
-<summary>커스텀 맵 엘범 이미지 적용 <b> [클릭] </b></summary>
+<summary>커스텀 맵 앨범 이미지 적용 <b> [클릭] </b></summary>
 
 -------------
 
@@ -217,3 +208,11 @@ value="32.000000"
 
 
 -------------
+
+<div align = "center">
+
+#### 이외에 궁금하신 점이 있다면, 아래 디스코드에 접속해 DM으로 메세지 주세요!
+
+[![](https://discordapp.com/api/guilds/958378000414568558/embed.png?style=banner2)](https://discord.gg/hzbCTRemqq)
+
+</div>
