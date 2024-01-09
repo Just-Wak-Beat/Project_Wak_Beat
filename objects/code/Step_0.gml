@@ -103,7 +103,7 @@ if (global.can_change_music_list == 1 && (!instance_exists(obj_stage_clear) || g
 {
 	if (global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
 	{
-		if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
+		if (keyboard_check_pressed(vk_escape) || (keyboard_check_pressed(vk_backspace) && global.mobile_mode == 1))
 		{
 			event_user(2)
 		}
@@ -111,7 +111,7 @@ if (global.can_change_music_list == 1 && (!instance_exists(obj_stage_clear) || g
 
 	if (gamestart == 1.1)
 	{
-		if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace))
+		if (keyboard_check_pressed(vk_escape) || (keyboard_check_pressed(vk_backspace) && global.mobile_mode == 1))
 		{
 			gamestart = 0;
 			global.t_select_difficulty = 0;

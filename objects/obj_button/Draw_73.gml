@@ -70,13 +70,29 @@ if (can_draw == 1)
 			if (button_id >= 100 && button_id <= 105)
 			{
 				var tmp_arr_ind = button_id-100;
+				var tmp_val_cal2 = 0;
+				var tmp_const = map_edior_ui.modified_value;
+				
+				//숫자 값 직접 입력
+				if (global.ed_arg_modifying[tmp_arr_ind] != "")
+				{
+					if (global.ed_arg_min_val[tmp_arr_ind] != 0 && global.ed_arg_min_val[tmp_arr_ind] != 1)
+					{
+						tmp_val_cal2 = fix_num_inside(((tmp_const/(global.ed_arg_max_val[tmp_arr_ind])*50)+50)*global.ed_arg_divide[tmp_arr_ind],-global.ed_arg_max_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
+						scroll_value = tmp_val_cal2;
+					}
+					else
+					{
+						tmp_val_cal2 = fix_num_inside((tmp_const/global.ed_arg_max_val[tmp_arr_ind]*100)*global.ed_arg_divide[tmp_arr_ind],0,global.ed_arg_max_val[tmp_arr_ind]);
+						scroll_value = tmp_val_cal2;
+					}
+				}
+				
+				
+				//스크롤 바로 입력
 				if (global.ed_arg_min_val[tmp_arr_ind] != 0 && global.ed_arg_min_val[tmp_arr_ind] != 1)
 				{
 					global.ed_arg[tmp_arr_ind] = fix_num_inside(((scroll_value-50)/50)*(global.ed_arg_max_val[tmp_arr_ind]),-global.ed_arg_max_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
-				}
-				else if (global.ed_arg_min_val[tmp_arr_ind] == 1)
-				{
-					global.ed_arg[tmp_arr_ind] = fix_num_inside(1+(scroll_value/100)*(global.ed_arg_max_val[tmp_arr_ind]),1,global.ed_arg_max_val[tmp_arr_ind]);
 				}
 				else
 				{
@@ -100,7 +116,7 @@ if (can_draw == 1)
 					}
 					else
 					{
-						global.ed_arg[tmp_arr_ind] = global.ed_arg[tmp_arr_ind]/global.ed_arg_divide[tmp_arr_ind];
+						global.ed_arg[tmp_arr_ind] /= global.ed_arg_divide[tmp_arr_ind];
 					}
 				}
 			}

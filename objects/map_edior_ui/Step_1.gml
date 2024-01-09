@@ -69,3 +69,6 @@ if (instance_exists(n_selected))
 		global.ed_arg[7] = n_selected.m_data_arg7;
 	}
 }
+
+
+

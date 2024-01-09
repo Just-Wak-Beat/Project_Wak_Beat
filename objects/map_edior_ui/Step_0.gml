@@ -15,23 +15,26 @@ y = t_m_y;
 scroll_y += (t_scroll_y - scroll_y)*0.1;
 
 
-if (global.show_music_title >= 200 || global.show_music_title <= 0)
+if (modifying_value != 1)
 {
-	if (keyboard_check_pressed(vk_enter) || (global.timeline_stop == 1 && keyboard_check_pressed(vk_space)))
+	if (global.show_music_title >= 200 || global.show_music_title <= 0)
 	{
-		show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
-		audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
-		activated *= -1;
-		if (global.timeline_stop != 1)
+		if (keyboard_check_pressed(vk_enter) || (global.timeline_stop == 1 && keyboard_check_pressed(vk_space)))
 		{
-			global.b_n_progress = global.n_progress;
-			global.timeline_stop = 1;
-			camera_focus_on(-4,-4,1)
-			instance_destroy(hitbox_parents);
-			instance_destroy(effect_parents);
-			instance_destroy(changing_hitbox_color);
-			instance_destroy(changing_bg_color);
-			audio_stop_sound(global.n_music_id);
+			show_message_log("(우측 상단의 '플레이 버튼'을 통해 일시정지 해제)");
+			audio_play_sound(setting_scroll_sfx,0,false,global.master_volume*global.sfx_volume*32)
+			activated *= -1;
+			if (global.timeline_stop != 1)
+			{
+				global.b_n_progress = global.n_progress;
+				global.timeline_stop = 1;
+				camera_focus_on(-4,-4,1)
+				instance_destroy(hitbox_parents);
+				instance_destroy(effect_parents);
+				instance_destroy(changing_hitbox_color);
+				instance_destroy(changing_bg_color);
+				audio_stop_sound(global.n_music_id);
+			}
 		}
 	}
 }

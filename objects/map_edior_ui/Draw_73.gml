@@ -32,7 +32,7 @@ if (global.timeline_stop == 1)
 	{
 		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.35-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		var plus_str = (custom_image_type != 2) ? "\n탄막 이미지 변경 [좌/우 방향키]" : "";
-		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n세밀한 값 조절 [Shift+스크롤 바 좌클릭]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]\n현재 타임라인 삭제 [Ctrl + Del]\n전체 타임라인 삭제 [Alt + Del]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n세밀한 값 조절 [Shift+스크롤 바 좌클릭]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]\n현재 타임라인 삭제 [Ctrl + Del]\n전체 타임라인 삭제 [Alt + Del]\n직접 값 입력 [스크롤 바 옆 숫자 클릭]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
 	
@@ -208,8 +208,16 @@ if (n_selected != -4 && instance_exists(n_selected))
 }
 
 
+
 if (global.timeline_stop == 1 && scroll_y > -639)
 {
+	keyboard_string = string_digit_with_minus(keyboard_string);
+	if (string_length(keyboard_string) > 5)
+	{
+		keyboard_string = string_delete(keyboard_string,6,2);
+	}
+	
+	var activated_modifying = 0;
 	for(var i = 0; i < 7; i++)
 	{
 		if (global.ed_arg_name[i] != "")
@@ -228,11 +236,52 @@ if (global.timeline_stop == 1 && scroll_y > -639)
 		
 			var tmp_xx = xx-scroll_y*1.25;
 			var tmp_yy = yy+320+i*120;
+			
+			var tmp_xx2 = tmp_xx+xx_w*0.97;
+			var tmp_yy2 = tmp_yy+28;
 			draw_set_alpha(0.1);
 			draw_set_color(c_white);
-			draw_line_width(tmp_xx+xx_w*0.97-42,tmp_yy+28,tmp_xx+xx_w*0.97+42,tmp_yy+28,42);
+			draw_line_width(tmp_xx2-52,tmp_yy2,tmp_xx2+52,tmp_yy2,42);
+			
+			
+			
+			
+			
+			if (global.ed_arg_modifying[i] != "")
+			{
+				activated_modifying = 1;
+				var tmp_val_cal = string_digit_with_minus(keyboard_string);
+				
+				//.이 있거나 -부호가 있는 경우
+				if (string_char_at(tmp_val_cal,1) == "-")
+				{
+					modified_value = (string_digits(tmp_val_cal) == "") ? modified_value : -real(string_digits(tmp_val_cal));
+				}
+				else
+				{
+					modified_value = (tmp_val_cal == "") ? modified_value : real(tmp_val_cal);
+				}
+				
+				global.ed_arg[i] = modified_value;
+			}
+			
+			if (mouse_check_button_released(mb_left) || keyboard_check_released(vk_enter))
+			{
+				if (abs(mouse_x-tmp_xx2) <= 52 && abs(mouse_y-tmp_yy2) <= 18)
+				{
+					keyboard_string = "";
+					modified_value = 0;
+					global.ed_arg_modifying[i] = global.ed_arg[i];
+				}
+				else
+				{
+					global.ed_arg_modifying[i] = "";
+				}
+			}
+			
 			draw_text_k_scale(tmp_xx+xx_w*0.948,tmp_yy,string(global.ed_arg_name[i]),64,-1,tmp_alpha,c_white,0,1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
-			draw_text_k_scale(tmp_xx+xx_w*0.97,tmp_yy,string(tmp_string),64,-1,tmp_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
+			draw_text_k_scale(tmp_xx+xx_w*0.97,tmp_yy,(global.ed_arg_modifying[i] != "") ? string(keyboard_string)+"|" : string(tmp_string),64,-1,tmp_alpha,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0);
 		}
 	}
+	modifying_value = activated_modifying;
 }

@@ -47,6 +47,7 @@ global.selected_animation = 0;
 for(var i = 0; i < 7; i++)
 {
 	global.ed_arg[i] = 0.1;
+	global.ed_arg_modifying[i] = "";
 	global.ed_arg_name[i] = "";
 	global.ed_arg_min_val[i] = 0;
 	global.ed_arg_max_val[i] = 0;

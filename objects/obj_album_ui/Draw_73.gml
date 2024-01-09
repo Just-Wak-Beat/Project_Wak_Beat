@@ -1019,7 +1019,7 @@ if (global.show_title_menu == 0)
 						}
 					}
 					
-					if (keyboard_check_pressed(vk_backspace))
+					if (keyboard_check_pressed(vk_backspace) && global.mobile_mode == 1)
 					{
 						global.nickname = string_delete(global.nickname,string_length(global.nickname),5);
 					}

@@ -9,7 +9,10 @@ if (global.timeline_stop == -1)
 	}
 	else if (m_data_arg8 == 1)
 	{
-		global.w_alpha = m_data_arg0;
+		if (global.flash_effect_setting != 1)
+		{
+			global.w_alpha = m_data_arg0;
+		}
 	}
 	else if (m_data_arg8 == 2)
 	{

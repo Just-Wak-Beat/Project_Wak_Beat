@@ -247,6 +247,7 @@
     {"id":{"name":"load_none_cleared_list","path":"scripts/load_none_cleared_list/load_none_cleared_list.yy",},},
     {"id":{"name":"spr_status","path":"sprites/spr_status/spr_status.yy",},},
     {"id":{"name":"Sprite49","path":"sprites/Sprite49/Sprite49.yy",},},
+    {"id":{"name":"string_digit_with_minus","path":"scripts/string_digit_with_minus/string_digit_with_minus.yy",},},
     {"id":{"name":"kinmoku","path":"sounds/kinmoku/kinmoku.yy",},},
     {"id":{"name":"jing_hurt","path":"sounds/jing_hurt/jing_hurt.yy",},},
     {"id":{"name":"roki_timeline","path":"timelines/roki_timeline/roki_timeline.yy",},},
