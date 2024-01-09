@@ -208,3 +208,11 @@ value="32.000000"
 
 
 -------------
+
+<div align = "center">
+
+#### 이외에 궁금하신 점이 있다면, 아래 디스코드에 접속해 DM으로 메세지 주세요!
+
+[![](https://discordapp.com/api/guilds/958378000414568558/embed.png?style=banner2)](https://discord.gg/hzbCTRemqq)
+
+</div>
