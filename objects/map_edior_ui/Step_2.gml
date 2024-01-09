@@ -26,6 +26,8 @@ if (keyboard_check_pressed(ord("W")))
 
 if (global.timeline_stop == 1)
 {
+	global.automatic_camera_movement = 0;
+	global.blackout_effect = 0;
 	global.camera_target_x = -4;
 	global.camera_target_y = -4;
 	global.master_remix_effect = 0;

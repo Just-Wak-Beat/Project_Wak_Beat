@@ -15,9 +15,13 @@ function load_stage(argument0,argument1,argument2,argument3,argument4,argument5)
 	global.n_music_name = argument2
 	if (global.n_map_list == 2)
 	{
-		global.map_color_tmp = hex_to_color(argument3,1)
+		var tmp_col = hex_to_color(argument3,1);
+		if (argument3 != "" && argument3 != " " && is_real(tmp_col))
+		{
+			global.map_color_tmp = tmp_col;
+		}
 
-		show_debug_message(string(#F77E9A)+" / "+string(hex_to_color(argument3,1)))
+		//show_debug_message(string(#F77E9A)+" / "+string(hex_to_color(argument3,1)))
 	}
 	else
 	{

@@ -19,5 +19,5 @@
   "sampleRate": 48000,
   "soundFile": "fukurou.wav",
   "type": 1,
-  "volume": 0.57,
+  "volume": 0.58,
 }

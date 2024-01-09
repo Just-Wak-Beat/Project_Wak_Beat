@@ -32,7 +32,7 @@ if (global.notice_title == "" && global.show_new_songs <= 0 && string_length(glo
 
 //에디터 모드
 global.play_custom_map = (global.n_map_list == 2) ? 1 : 0;
-if (global.play_custom_map = 1)
+if (global.play_custom_map == 1)
 {
 	if ((global.show_progress_bar == 1 || global.map_editor == 1) && custom_map_loading >= 0)
 	{
@@ -402,7 +402,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 						{
 							timeline_running = true
 						}
-						global.map_color = global.map_color_tmp;
+						global.map_color = (is_real(global.map_color_tmp)) ? global.map_color_tmp : hex_to_color(global.map_color_tmp,1);
 						timeline_speed = 1;
 		
 						show_debug_message("timeline")

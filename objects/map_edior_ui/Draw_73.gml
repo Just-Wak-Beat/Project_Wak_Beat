@@ -30,7 +30,7 @@ if (global.timeline_stop == 1)
 	var tmp_alpha_ = fix_to_zero(1-global.tiny_value_scrolling_now);
 	if (tmp_alpha_ > 0)
 	{
-		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.35-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.3-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		var plus_str = (custom_image_type != 2) ? "\n탄막 이미지 변경 [좌/우 방향키]" : "";
 		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n세밀한 값 조절 [Shift+스크롤 바 좌클릭]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]\n현재 타임라인 삭제 [Ctrl + Del]\n전체 타임라인 삭제 [Alt + Del]\n직접 값 입력 [스크롤 바 옆 숫자 클릭]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
@@ -225,6 +225,85 @@ if (global.timeline_stop == 1 && scroll_y > -639)
 			//보정된 값으로 출력
 			var tmp_val = string(global.ed_arg[i])+string(global.ed_arg_tagname[i]);
 			var tmp_string = string(tmp_val);
+			
+			//현재 설정값 문자열 표기
+			if (i == 6)
+			{
+				tmp_string = (tmp_val == 1) ? "활성화됨" : "비활성화됨";
+			}
+			
+
+			
+			if (global.ed_arg_name[i] == "효과 방향")
+			{
+				if (global.ed_arg[6] == 1)
+				{
+					if (global.ed_arg[i] == 0)
+					{
+						tmp_string = "효과 해제";
+					}
+					else if (global.ed_arg[i] == 1)
+					{
+						tmp_string = "좌우로만";
+					}
+					else if (global.ed_arg[i] == 2)
+					{
+						tmp_string = "상하로만";
+					}
+					else
+					{
+						tmp_string = "좌우상하";
+					}
+				}
+				else
+				{
+					if (global.ed_arg[i] == 0)
+					{
+						tmp_string = "효과 해제";
+					}
+					else if (global.ed_arg[i] == 1)
+					{
+						tmp_string = "중심";
+					}
+					else if (global.ed_arg[i] == 2)
+					{
+						tmp_string = "상단";
+					}
+					else if (global.ed_arg[i] == 3)
+					{
+						tmp_string = "우측";
+					}
+					else if (global.ed_arg[i] == 4)
+					{
+						tmp_string = "좌측";
+					}
+					else
+					{
+						tmp_string = "하단";
+					}
+				}
+			}
+			else if (global.ed_arg_name[i] == "설정된 효과 종류")
+			{
+				tmp_string = (global.ed_arg[i] == 1) ? "카메라 웨이브" : "블랙 아웃";
+			}
+			else if (global.ed_arg_name[i] == "화면 흔들림 방향")
+			{
+				if (global.ed_arg[i] == 0)
+				{
+					tmp_string = "좌우상하";
+				}
+				else if (global.ed_arg[i] == 1)
+				{
+					tmp_string = "좌우로만";
+				}
+				else
+				{
+					tmp_string = "상하로만";
+				}
+			}
+			/////////////////////////////////////////////////////////////////////////////
+			
 			var tmp_alpha = 1;
 			with(obj_button)
 			{
@@ -265,7 +344,7 @@ if (global.timeline_stop == 1 && scroll_y > -639)
 				global.ed_arg[i] = modified_value;
 			}
 			
-			if (mouse_check_button_released(mb_left) || keyboard_check_released(vk_enter))
+			if (i < 6 && (mouse_check_button_released(mb_left) || keyboard_check_released(vk_enter)))
 			{
 				if (abs(mouse_x-tmp_xx2) <= 52 && abs(mouse_y-tmp_yy2) <= 18)
 				{

@@ -1,4 +1,4 @@
-if (global.total_died_here > 0)
+if (global.total_died_here > 0 && global.t_selected_difficulty == 1)
 {
 	square = instance_create_depth(global.c_x+640,room_height*0.5,obj_player.depth-3,hitbox_11)
 	square.sprite_index = spr_spuare_outline

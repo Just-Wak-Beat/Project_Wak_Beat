@@ -323,7 +323,7 @@ switch(global.editor_selected_type)
 		scroll_param_set(0,"크기",1,1024,2,100,"");
 		scroll_param_set(1,"각도",0,359,2,90,"deg");
 		scroll_param_set(2,"속력",24,640,2,0,"");
-		scroll_param_set(3,"생성된 탄막의 지속 시간 (60fps = 1초)",1,3600,2,0,"");
+		scroll_param_set(3,"생성된 탄막의 지속 시간 (60fps = 1초)",1,3600,2,0,"fps");
 		
 		image_angle = global.ed_arg[1];
 		image_xscale = global.ed_arg[0];
@@ -391,7 +391,7 @@ switch(global.editor_selected_type)
 		scroll_param_set(0,"크기",1,1024,2,100,"");
 		scroll_param_set(1,"첫 발사 탄막 각도",0,359,2,0,"deg");
 		scroll_param_set(2,"속력",24,640,2,0,"");
-		scroll_param_set(3,"회전 방향",-50,50,2,10,"");
+		scroll_param_set(3,"회전 방향",-50,50,2,10,"deg");
 		scroll_param_set(4,"프레임당 탄막 생성 속도",1,720,2,0,"fps");
 		scroll_param_set(5,"지속 시간 (60fps = 1초)",1,3600,2,0,"");
 	break;
@@ -481,7 +481,7 @@ switch(global.editor_selected_type)
 			custom_image_type = 2;
 		}
 		image_alpha = 1;
-		scroll_param_set(0,"플래시 밝기",1,100,2,100,"px");
+		scroll_param_set(0,"플래시 밝기",1,100,2,100,"");
 	break;
 	
 	case 22: //비효과
@@ -501,7 +501,7 @@ switch(global.editor_selected_type)
 			custom_image_type = 2;
 		}
 		image_alpha = 1;
-		scroll_param_set(0,"효과 방향",0,(global.ed_arg[6] == 1) ? 3 : 4,2,0,"");
+		scroll_param_set(0,"효과 방향",0,(global.ed_arg[6] == 1) ? 3 : 5,2,0,"");
 		scroll_param_set(6,"설정된 효과 종류",-1,1,2,0,"");
 	break;
 }

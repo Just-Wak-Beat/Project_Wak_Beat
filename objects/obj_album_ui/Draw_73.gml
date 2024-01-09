@@ -122,6 +122,8 @@ if (global.show_title_menu == 0)
 	draw_text_k_scale(global.c_x+104,global.c_y+950,"유저 랭킹"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
 	draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910+16,0.17*global.font_ratio_resolution_xx*0.85,0.17*0.85,0,c_black,0.3*ui_alpha__cal)
 	draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910,0.17*global.font_ratio_resolution_xx*0.85,0.17*0.85,0,c_white,ui_alpha__cal)
+	
+
 
 	//리더보드 랭크 순위 버튼
 	if (global.n_map_list != 2)
@@ -132,6 +134,11 @@ if (global.show_title_menu == 0)
 		//	draw_sprite_ext(spr_music,global.player_skin,global.c_x+100,global.c_y+1170+16,0.17*global.font_ratio_resolution_xx,0.2,-15,c_black,0.3*ui_alpha__cal)
 		//	draw_sprite_ext(spr_music,global.player_skin,global.c_x+100,global.c_y+1170,0.17*global.font_ratio_resolution_xx,0.2,-15,c_white,ui_alpha__cal)
 		//}
+		
+		//멀티플레이 버튼
+		draw_sprite_ext(spr_gamepad,0,global.c_x+104,global.c_y+1180+16,global.font_ratio_resolution_xx*0.3,0.3,0,c_black,0.3*ui_alpha__cal)
+		draw_sprite_ext(spr_gamepad,0,global.c_x+104,global.c_y+1180,global.font_ratio_resolution_xx*0.3,0.3,0,c_white,ui_alpha__cal)
+		draw_text_k_scale(global.c_x+104,global.c_y+1220,"온라인\n모드"+((global.mobile_mode == 1) ? "" : "\n[M]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
 	
 		if (global.total_map > 0)
 		{

@@ -271,7 +271,7 @@ if (global.paused == 0 && global.timeline_stop != 1)
 			effect_.hspeed = -global.hmove_speed*1.2;
 			effect_.image_blend = global.player_color;
 			effect_.image_angle = image_angle;
-			effect_.image_alpha = 0.3;
+			effect_.image_alpha = 0.1;
 		}
 
 

@@ -63,7 +63,7 @@ if (instance_exists(obj_album_ui))
 {
 	if (get_dis_color(global.map_color,global.map_color_tmp) < 7)
 	{
-		global.map_color = global.map_color_tmp;
+		global.map_color = (is_real(global.map_color_tmp)) ? global.map_color_tmp : hex_to_color(global.map_color_tmp,1);
 	}
 	else
 	{
@@ -316,6 +316,29 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 		global.unlocked_music_name_new_list_color[check_new_song] = c_gray;
 		check_new_song ++
 	}
+	else if (global.saved_notice_title == "온라인 모드")
+	{
+		global.unlocked_music_name_new_list[check_new_song] = "온라인 모드는 다른 유저들과 함께 스테이지를 클리어하는 '멀티플레이 모드' 입니다.";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+	
+		global.unlocked_music_name_new_list[check_new_song] = "현재는 사용할 수 없는 기능이며, 추후 추가되지 않을 수도 있습니다.";
+		global.unlocked_music_name_new_list_color[check_new_song] = #dc809a;
+		check_new_song ++
+		
+		global.unlocked_music_name_new_list[check_new_song] = "";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+		
+		global.unlocked_music_name_new_list[check_new_song] = "";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++
+		
+		global.unlocked_music_name_new_list[check_new_song] = "(혹시 반응이 좋으면 추가될지도..?)";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_gray;
+		check_new_song ++
+	}
+
 	
 	for(var i = 0; i < check_new_song; i++)
 	{
@@ -394,7 +417,8 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 	//메인매뉴 돌아가기
 	if (global.back_to_game > 90)
 	{
-		alarm[8] = 5
+		event_user(0);
+		alarm[8] = 5;
 		global.t_bg_color_alpha = 0
 		global.t_bg_color = 1
 		global.w_alpha = global.w_alpha < 1 ? 1 : global.w_alpha
@@ -423,7 +447,6 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 		audio_stop_sound(global.n_music_instance)
 		timeline_running = false;
 		global.custom_map_timeline = false;
-		event_user(0)
 		instance_destroy(hitbox_parents)
 		instance_destroy(obj_savepoint)
 		instance_destroy(obj_savepoint)
@@ -449,7 +472,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 			global.overtime_highlight_song = 0
 		}
 		
-		alarm[8] = 5
+		alarm[8] = 5;
 	}
 
 
@@ -525,23 +548,28 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 
 
 	// global.n_map_list setting
-	if gamestart = 0
+	if (gamestart == 0)
 	{
-		if global.n_map_list = 0
+		if (global.n_map_list == 0)
 		{
 			global.n_map_id = n_stage
 		}
-		else if global.n_map_list = 1
+		else if (global.n_map_list == 1)
 		{
 			global.n_map_id = global.fav_map_id[n_stage]
 		}
-		else if global.n_map_list = 2
+		else if (global.n_map_list == 2)
 		{
 			global.n_map_id = n_stage
 		}
 		else if (global.n_map_list == 3 || global.n_map_list == 4 || global.n_map_list == 5)
 		{
 			global.n_map_id = global.map_id_origin[n_stage]
+		}
+		
+		if (global.n_map_id <= 0)
+		{
+			global.n_map_id = 0;
 		}
 
 	

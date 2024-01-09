@@ -42,7 +42,7 @@ master_bpm_timer = 0
 global.map_speed_y = 0
 global.t_map_speed_y = 15
 
-if (global.total_died_here > 0)
+if (global.total_died_here > 0 && global.t_selected_difficulty == 1)
 {
 	spike_ef = instance_create_depth(room_width*0.5,room_height*0.5,obj_player.depth-10,hitbox_8)
 	spike_ef.t_x = room_width*0.5;

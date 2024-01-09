@@ -1,6 +1,9 @@
 /// @description Reset discord presence
 // You can write your code in this editor
-
+if (global.n_map_list != 2)
+{
+	load_musicList(global.n_map_list);
+}
 camera_focus_on(-4,-4,1)
 var tmp_str = "모든 곡";
 if (global.n_map_list == 1)
@@ -65,7 +68,7 @@ global.scroll_n_m_xx = -4
 global.joystick_xx = -4
 global.scroll_n_m_yy = -4
 global.joystick_yy = -4
-load_musicList(global.n_map_list);
+
 instance_destroy(hitbox_parents);
 
 
