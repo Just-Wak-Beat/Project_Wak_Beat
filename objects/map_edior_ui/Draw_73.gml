@@ -30,9 +30,9 @@ if (global.timeline_stop == 1)
 	var tmp_alpha_ = fix_to_zero(1-global.tiny_value_scrolling_now);
 	if (tmp_alpha_ > 0)
 	{
-		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.3-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.01,yy+yy_h*(0.27-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		var plus_str = (custom_image_type != 2) ? "\n탄막 이미지 변경 [좌/우 방향키]" : "";
-		draw_text_k_scale(xx+xx_w*0.02,yy+yy_h*(0.4-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n세밀한 값 조절 [Shift+스크롤 바 좌클릭]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]\n현재 타임라인 삭제 [Ctrl + Del]\n전체 타임라인 삭제 [Alt + Del]\n직접 값 입력 [스크롤 바 옆 숫자 클릭]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.01,yy+yy_h*(0.3-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n세밀한 값 조절 [Shift+스크롤 바 좌클릭]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]\n현재 타임라인 삭제 [Ctrl + Del]\n전체 타임라인 삭제 [Alt + Del]\n직접 값 입력 [스크롤 바 옆 숫자 클릭]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
 	
@@ -44,7 +44,7 @@ if (global.timeline_stop == 1)
 	}
 
 
-	var tmp_name = [ "이동 탄막 - 이동하는 탄막을 생성합니다", "스파이크 폭발 탄막 - 멀리서 날아와 폭발하는 탄막을 생성합니다", "레이저 탄막 - 레이저를 생성합니다", "눈꽃 탄막 - '겨울봄 (Winter Spring)'에 등장한 눈꽃 탄막을 생성합니다", "지렁이 탄막 - '매스터 리믹스 (Orchestral Edit)'에 등장한 지렁이 탄막을 생성합니다", "화살표 레이저 탄막 - 'Happy Gosegu Sencho!'에 등장한 화살표 방향으로 날아가는 탄막을 생성합니다", "원형 폭발 탄막 - 시간이 지난 뒤 등장하는 탄막을 생성합니다", "맵 밖에서 튀어나오는 탄막 - '고멤가요제 MASHUP (아이네 INE)'에 등장한 막대기 모양의 탄막을 생성합니다", "탄막색 변경 - 탄막색을 변경합니다" , "배경색 변경 - 배경색을 변경합니다" , "미사일 탄막 - '밤가이!!'에 등장한 날아가면서 탄막을 생성하는 탄막을 생성합니다" , "세이브 포인트 지정 - 현재 타임라인에 세이브 포인트를 지정합니다", "바운스 탄막 - 'Happy Gosegu Sencho!'에 등장한 맵 바깥에서 튕기며 폭발하는 탄막을 생성합니다", "카메라 효과 - 카메라 줌 정도를 조절합니다", "배경 투명도 변화 - 배경의 투명도를 조절합니다", "회전하는 탄막 자동 생성기 - 지속 시간 동안 계속 '이동 탄막'을 생성합니다", "물 이펙트 탄막 - '아이패드'에 등장한 물이 튀기는 듯한 모양의 탄막을 생성합니다", "카메라 지진 효과 - 카메라를 시점을 흔드는 효과를 줍니다", "맵 이동 효과 - '밤가이!!'에 등장한 맵이 이동하는 효과를 줍니다", "지정 위치 이동 탄막 - 특정 좌표로 이동하는 탄막을 생성합니다", "이펙트 탄막 - 피격판정이 없는 탄막을 생성합니다", "화면 플래시 효과 - 화면이 번쩍거리는 효과를 줍니다", "비 효과 - '매스터 리믹스 (Orchestral Edit)'에 등장한 비 내리는 효과를 줍니다", "특수 카메라 효과 - 몇몇 특수한 카메라 효과를 줍니다", "Unknown", "Unknown", "Unknown", "배치된 탄막 수정 ['마우스 가운데 휠 버튼'으로 바로 선택 가능]", "타임라인 플레이/일시정지" ];
+	var tmp_name = [ "이동 탄막 - 이동하는 탄막을 생성합니다", "스파이크 폭발 탄막 - 멀리서 날아와 폭발하는 탄막을 생성합니다", "레이저 탄막 - 레이저를 생성합니다", "눈꽃 탄막 - '겨울봄 (Winter Spring)'에 등장한 눈꽃 탄막을 생성합니다", "지렁이 탄막 - '매스터 리믹스 (Orchestral Edit)'에 등장한 지렁이 탄막을 생성합니다", "화살표 레이저 탄막 - 'Happy Gosegu Sencho!'에 등장한 화살표 방향으로 날아가는 탄막을 생성합니다", "원형 폭발 탄막 - 시간이 지난 뒤 등장하는 탄막을 생성합니다", "맵 밖에서 튀어나오는 탄막 - '고멤가요제 MASHUP (아이네 INE)'에 등장한 막대기 모양의 탄막을 생성합니다", "탄막색 변경 - 탄막색을 변경합니다" , "배경색 변경 - 배경색을 변경합니다" , "미사일 탄막 - '밤가이!!'에 등장한 날아가면서 탄막을 생성하는 탄막을 생성합니다" , "세이브 포인트 지정 - 현재 타임라인에 세이브 포인트를 지정합니다", "바운스 탄막 - 'Happy Gosegu Sencho!'에 등장한 맵 바깥에서 튕기며 폭발하는 탄막을 생성합니다", "카메라 효과 - 카메라 줌 정도를 조절합니다", "배경 투명도 변화 - 배경의 투명도를 조절합니다", "회전하는 탄막 자동 생성기 - 지속 시간 동안 계속 '이동 탄막'을 생성합니다", "물 이펙트 탄막 - '아이패드'에 등장한 물이 튀기는 듯한 모양의 탄막을 생성합니다", "카메라 지진 효과 - 카메라를 시점을 흔드는 효과를 줍니다", "맵 이동 효과 - '밤가이!!'에 등장한 맵이 이동하는 효과를 줍니다", "지정 위치 이동 탄막 - 특정 좌표로 이동하는 탄막을 생성합니다", "이펙트 탄막 - 피격판정이 없는 탄막을 생성합니다", "화면 플래시 효과 - 화면이 번쩍거리는 효과를 줍니다", "비 효과 - '매스터 리믹스 (Orchestral Edit)'에 등장한 비 내리는 효과를 줍니다", "특수 카메라 효과 - 몇몇 특수한 카메라 효과를 줍니다", "세이프존 - 'Hardcore'모드에 등장하는 세이프존을 생성합니다", "산탄형 탄막 - 특정 각도로 특정 범위만큼 탄막을 산탄합니다.", "Unknown", "배치된 탄막 수정 ['마우스 가운데 휠 버튼'으로 바로 선택 가능]", "타임라인 플레이/일시정지" ];
 	if (global.editor_selected_type >= 0)
 	{
 		draw_text_k_scale(xx+64,yy+yy_h*0.88+32-scroll_y,string(tmp_name[global.editor_selected_type]),64,-1,1,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
@@ -63,7 +63,7 @@ if (global.timeline_stop == 1)
 
 	for(var i = 0; i <= 28; i++) //탄막이 새로 추가되면 수정해야됨
 	{
-		if (i <= 23 || i > 27)
+		if (i <= 25 || i > 27)
 		{
 			var tmp_xx = xx+(96+i*120)*global.converted_view_ratio;
 			var tmp_yy = yy+yy_h*0.88+(160-scroll_y)*global.converted_view_ratio;
@@ -199,6 +199,17 @@ if (global.timeline_stop == 1)
 		draw_set_alpha(1);
 		draw_line_width(t_m_x,t_m_y,room_width*0.5+global.ed_arg[3],room_height*0.5+global.ed_arg[4],3);
 	}
+	else if (global.editor_selected_type == 25)
+	{
+		var tmp_angle = image_angle;
+		draw_set_color(c_white);
+		draw_set_alpha(0.2);
+		draw_line_width(t_m_x,t_m_y,t_m_x+lengthdir_x(256,tmp_angle),t_m_y+lengthdir_y(256,tmp_angle),1.5);
+	
+		draw_set_alpha(0.7);
+		draw_line_width(t_m_x,t_m_y,t_m_x+lengthdir_x(160,tmp_angle-global.ed_arg[3]/2),t_m_y+lengthdir_y(160,tmp_angle-global.ed_arg[3]/2),3);
+		draw_line_width(t_m_x,t_m_y,t_m_x+lengthdir_x(160,tmp_angle+global.ed_arg[3]/2),t_m_y+lengthdir_y(160,tmp_angle+global.ed_arg[3]/2),3);
+	}
 }
 
 
@@ -285,7 +296,7 @@ if (global.timeline_stop == 1 && scroll_y > -639)
 			}
 			else if (global.ed_arg_name[i] == "설정된 효과 종류")
 			{
-				tmp_string = (global.ed_arg[i] == 1) ? "카메라 웨이브" : "블랙 아웃";
+				tmp_string = (global.ed_arg[i] == 1) ? "화면웨이브" : "블랙 아웃";
 			}
 			else if (global.ed_arg_name[i] == "화면 흔들림 방향")
 			{
@@ -354,7 +365,18 @@ if (global.timeline_stop == 1 && scroll_y > -639)
 				}
 				else
 				{
-					global.ed_arg_modifying[i] = "";
+					if (global.ed_arg_modifying[i] != "")
+					{
+						global.ed_arg_modifying[i] = "";
+						if (instance_exists(map_edior_ui) && map_edior_ui.n_selected != -4 && instance_exists(map_edior_ui.n_selected))
+						{
+							var tmp_id = map_edior_ui.n_selected;
+							variable_instance_set(tmp_id,"m_data_arg"+string(i),global.ed_arg[i]);
+							tmp_id.editor_selected = 1;
+							global.revalued_projectile_save = 2;
+							show_message_log("값 수정됨");
+						}
+					}
 				}
 			}
 			

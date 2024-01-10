@@ -12,6 +12,6 @@ if (global.timeline_stop == 1)
 		var yy = y-room_height*0.5;
 
 		var fontsize2 = (0.45*(1+global.mobile_mode*0.3))*global.converted_view_ratio;
-		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale)+"\nx : "+string(floor(xx))+"\ny : "+string(floor(yy))+"\n각도 : "+string(image_angle+45)+"\n"+string(des_timer)+"프레임 이후 활성화",64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(x,y+64,"Size : "+string(image_xscale)+"\nx : "+string(floor(xx))+"\ny : "+string(floor(yy))+"\n각도 : "+string(floor(image_angle))+"\n산탄 범위 : "+string(floor(m_data_arg3))+"\n탄막 갯수 : "+string(floor(m_data_arg4)),64,-1,1,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 	}
 }

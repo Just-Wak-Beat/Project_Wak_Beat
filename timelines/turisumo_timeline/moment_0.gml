@@ -32,4 +32,5 @@ var ins_tmp = instance_create_depth(room_width*0.5,room_height*0.5,depth,hitbox_
 ins_tmp.image_xscale = 0.85;
 ins_tmp.image_yscale = 0.85;
 ins_tmp.des_timer = 180;
+ins_tmp.image_angle = -45;
 }

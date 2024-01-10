@@ -6,7 +6,6 @@ t_col_changing = -1;
 des_timer = 180;
 image_speed = 0;
 event_user(11);
-image_angle = -45;
 play_animation = 0;
 line_width = 8;
 line_angle = 315;

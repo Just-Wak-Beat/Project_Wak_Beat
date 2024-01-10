@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 
-
+/*
 with(hitbox_parents)
 {
 	if (other.object_index != map_edior_ui.saved_obj_num && other.x == map_edior_ui.saved_hitbox_xx && other.y == saved_hitbox_yy && other.projectile_type == global.editor_selected_type)

@@ -92,7 +92,7 @@ if (music_title_alpha > 0 && global.tutorial_played >= 0)
 	}
 	else if (global.play_custom_map == 1)
 	{
-		draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*640*font_size,"Custom User Map",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
+		draw_text_k_scale(xx+xx_w-music_title_alpha*global.converted_view_ratio*128*font_size,yy+yy_h-global.converted_view_ratio*640*font_size,"*Custom User Map",64,-1,music_title_alpha,#bf1a5c,0,1,normal_font,font_size*global.font_ratio_resolution_xx*0.6,font_size*0.6,0)
 	}
 	
 
@@ -806,9 +806,12 @@ if gamestart >= 2 && global.sync_setting_alpha >= 0.01 && global.n_progress > 1
 
 if !instance_exists(obj_album_ui)
 {
-	draw_set_color(c_white)
-	draw_set_alpha(global.w_alpha)
-	draw_line_width(0,0,room_width,room_height,5000)
+	if (global.flash_effect_setting != 1 || (global.flash_effect_setting == 1 && global.t_w_alpha > 0))
+	{
+		draw_set_color(c_white)
+		draw_set_alpha(global.w_alpha)
+		draw_line_width(0,0,room_width,room_height,5000)
+	}
 	
 	
 	draw_set_color(c_black)

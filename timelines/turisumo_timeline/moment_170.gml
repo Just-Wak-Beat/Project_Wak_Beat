@@ -4,4 +4,5 @@ if (global.t_selected_difficulty == 0)
 	ins_tmp.image_xscale = 1.25;
 	ins_tmp.image_yscale = 1.25;
 	ins_tmp.des_timer = 180;
+	ins_tmp.image_angle = -45;
 }

@@ -20,7 +20,19 @@ if (global.timeline_stop != 1)
 	
 	if (timer > m_data_arg5)
 	{
-		instance_destroy()
+		if (m_data_arg6 == 1)
+		{
+			image_xscale += (-0.01 - image_xscale)*0.2;
+			image_yscale += (-0.01 - image_yscale)*0.2;
+			if (image_yscale <= 0)
+			{
+				instance_destroy();
+			}
+		}
+		else
+		{
+			instance_destroy();
+		}	
 	}
 }
 else

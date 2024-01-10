@@ -23,7 +23,6 @@ function create_square_misile(argument0,argument1,argument2,argument3,argument4,
 	laser__.image_xscale = argument6
 	laser__.image_yscale = argument6
 	laser__.t_scale = argument6
-	laser__.sprite_index = spr_square;
 
 	return laser__;
 }

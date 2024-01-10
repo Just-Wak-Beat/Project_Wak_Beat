@@ -63,7 +63,7 @@ if (instance_exists(obj_album_ui))
 {
 	if (get_dis_color(global.map_color,global.map_color_tmp) < 7)
 	{
-		global.map_color = (is_real(global.map_color_tmp)) ? global.map_color_tmp : hex_to_color(global.map_color_tmp,1);
+		global.map_color = (!is_string(global.map_color_tmp)) ? global.map_color_tmp : hex_to_color(global.map_color_tmp,1);
 	}
 	else
 	{

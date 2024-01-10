@@ -402,7 +402,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 						{
 							timeline_running = true
 						}
-						global.map_color = (is_real(global.map_color_tmp)) ? global.map_color_tmp : hex_to_color(global.map_color_tmp,1);
+						global.map_color = (is_string(global.map_color_tmp)) ? hex_to_color(global.map_color_tmp,1) : global.map_color_tmp;
 						timeline_speed = 1;
 		
 						show_debug_message("timeline")

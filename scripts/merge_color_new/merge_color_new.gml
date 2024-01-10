@@ -11,12 +11,12 @@ function merge_color_new(argument0,argument1,argument2)
 	global.merge_col2 = argument1;
 	global.merge_col3 = argument2;
 	var has_problem_col1 = 0, has_problem_col2 = 0;
-	if (!is_real(global.merge_col1))
+	if (is_string(global.merge_col1))
 	{
 		global.merge_col1 = hex_to_color(global.merge_col1,1);
 	}
 	
-	if (!is_real(global.merge_col2))
+	if (is_string(global.merge_col2))
 	{
 		global.merge_col2 = hex_to_color(global.merge_col2,1);
 	}

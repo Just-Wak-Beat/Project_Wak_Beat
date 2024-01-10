@@ -155,7 +155,8 @@ switch(global.editor_selected_type)
 		image_alpha = 0.4;
 		scroll_param_set(0,"크기",1,1024,2,100,"");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
-		scroll_param_set(2,"지속시간 (60fps = 1초, 0fps = 무한 지속)",0,3600,2,0,"fps");
+		scroll_param_set(2,"속력",0,360,2,0,"");
+		scroll_param_set(3,"지속시간 (60fps = 1초, 0fps = 무한 지속)",0,3600,2,0,"fps");
 		scroll_param_set(6,"이펙트 활성화",-1,1,2,0,"");
 	break;
 	
@@ -322,7 +323,7 @@ switch(global.editor_selected_type)
 	case 10: //미사일 탄막
 		scroll_param_set(0,"크기",1,1024,2,100,"");
 		scroll_param_set(1,"각도",0,359,2,90,"deg");
-		scroll_param_set(2,"속력",24,640,2,0,"");
+		scroll_param_set(2,"속력",0,640,2,0,"");
 		scroll_param_set(3,"생성된 탄막의 지속 시간 (60fps = 1초)",1,3600,2,0,"fps");
 		
 		image_angle = global.ed_arg[1];
@@ -454,6 +455,7 @@ switch(global.editor_selected_type)
 		scroll_param_set(3,"이동할 위치 (x축)",-2048,2048,2,0,"");
 		scroll_param_set(4,"이동할 위치 (y축)",-1920,1920,2,0,"");
 		scroll_param_set(5,"지속 시간 (60fps = 1초, 0fps = 무한 지속)",0,3600,2,0,"");
+		scroll_param_set(6,"삭제 애니메이션",-1,1,2,0,"");
 	break;
 	
 	case 20: //이펙트 탄막
@@ -470,7 +472,7 @@ switch(global.editor_selected_type)
 		image_blend = #7da7d9;
 		scroll_param_set(0,"크기",1,1024,2,100,"");
 		scroll_param_set(1,"각도",0,359,2,0,"deg");
-		scroll_param_set(2,"이동 속력",0,1280,2,0,"");
+		scroll_param_set(2,"이동 속력",0,320,2,0,"");
 		scroll_param_set(3,"지속 시간 (60fps = 1초, 0fps = 무한 지속)",0,3600,2,0,"");
 	break;
 	
@@ -503,6 +505,43 @@ switch(global.editor_selected_type)
 		image_alpha = 1;
 		scroll_param_set(0,"효과 방향",0,(global.ed_arg[6] == 1) ? 3 : 5,2,0,"");
 		scroll_param_set(6,"설정된 효과 종류",-1,1,2,0,"");
+	break;
+	
+	case 24: //세이프존 탄막
+		if (selected_projectile_type == 1)
+		{
+			selected_projectile_type = 0;
+			custom_image_type = 2;
+		}
+		image_angle = global.ed_arg[1]-45;
+		image_alpha = 0.4;
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+		sprite_index = spr_square_line;
+		
+		scroll_param_set(0,"크기",1,1024,2,100,"");
+		scroll_param_set(1,"각도",0,359,2,0,"deg");
+		scroll_param_set(2,"n프레임 이후 활성화 (60fps = 1초)",1,3600,2,0,"fps");
+	break;
+	
+	case 25: //산탄형 탄막
+		if (selected_projectile_type == 1)
+		{
+			custom_image_ind = 0;
+			custom_image_type = 0;
+			selected_projectile_type = 0;
+		}
+		image_angle = global.ed_arg[1];
+		image_alpha = 0.4;
+		image_xscale = global.ed_arg[0];
+		image_yscale = image_xscale;
+
+		
+		scroll_param_set(0,"탄막 크기",1,1024,2,100,"");
+		scroll_param_set(1,"각도",0,359,2,0,"deg");
+		scroll_param_set(2,"이동 속력",0,320,2,0,"");
+		scroll_param_set(3,"산탄 범위",0,359,2,0,"deg");
+		scroll_param_set(4,"탄막 갯수",1,360,2,0,"개");
 	break;
 }
 

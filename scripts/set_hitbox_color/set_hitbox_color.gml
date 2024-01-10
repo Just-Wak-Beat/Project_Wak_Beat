@@ -11,7 +11,7 @@ function set_hitbox_color(argument0,argument1,argument2,argument3)
 	{
 		global.w_alpha = 0;
 	}
-	global.map_color = (is_real(argument0)) ? argument0 : hex_to_color(argument0,1);
+	global.map_color = (!is_string(argument0)) ? argument0 : hex_to_color(argument0,1);
 	var ins_tmp = -4;
 	if (argument1 == 1)
 	{

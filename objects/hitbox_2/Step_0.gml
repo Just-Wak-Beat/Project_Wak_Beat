@@ -59,7 +59,7 @@ if (global.timeline_stop != 1)
 			effect_.image_alpha = 1
 		}
 	
-		if (m_data_arg5 != 0 && m_data_arg5 < des_timer)
+		if (m_data_arg3 != 0 && m_data_arg3 < des_timer)
 		{
 			instance_destroy()
 		}

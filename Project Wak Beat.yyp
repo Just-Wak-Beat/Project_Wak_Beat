@@ -343,6 +343,7 @@
     {"id":{"name":"code","path":"objects/code/code.yy",},},
     {"id":{"name":"phony_timeline","path":"timelines/phony_timeline/phony_timeline.yy",},},
     {"id":{"name":"lilpa_hurt","path":"sounds/lilpa_hurt/lilpa_hurt.yy",},},
+    {"id":{"name":"hitbox_23","path":"objects/hitbox_23/hitbox_23.yy",},},
     {"id":{"name":"spr_circle_outline_light","path":"sprites/spr_circle_outline_light/spr_circle_outline_light.yy",},},
     {"id":{"name":"show_message_log","path":"scripts/show_message_log/show_message_log.yy",},},
     {"id":{"name":"happysegu_timeline","path":"timelines/happysegu_timeline/happysegu_timeline.yy",},},

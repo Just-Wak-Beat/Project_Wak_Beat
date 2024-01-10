@@ -25,6 +25,8 @@ if (del_all_timeline > 0)
 }*/
 
 
+
+
 if (global.revalued_projectile_save == 2)
 {
 	saved_hitbox_xx = n_selected.x;
@@ -69,6 +71,8 @@ if (instance_exists(n_selected))
 		global.ed_arg[7] = n_selected.m_data_arg7;
 	}
 }
+
+
 
 
 

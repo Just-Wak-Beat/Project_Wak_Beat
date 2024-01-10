@@ -35,6 +35,7 @@ saved_ef_ins_id = -4
 
 global.dash_cooltime = 0
 global.dashing = 0
+global.in_safe_zone = -4;
 
 w_alpha = 0
 
