@@ -34,7 +34,7 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && spri
 		}
 		else if (button_id == 7)
 		{
-			global.n_progress = floor((scroll_value/100)*global.music_duration);
+			global.n_progress = fix_num_inside(floor((scroll_value/100)*global.music_duration),1,global.music_duration);
 			timeline_position = global.n_progress+floor(global.music_sync_offset*3*60);
 			
 			if (global.timeline_stop == -1 && !audio_is_playing(global.n_music_instance))

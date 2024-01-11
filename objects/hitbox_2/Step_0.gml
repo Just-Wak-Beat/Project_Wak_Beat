@@ -39,6 +39,10 @@ if (global.timeline_stop != 1)
 		{
 			speed = speed_;
 			image_alpha = saved_alpha;
+			if (saved_alpha < 1)
+			{
+				effect_projectile = 1;
+			}
 		}
 	}
 	else

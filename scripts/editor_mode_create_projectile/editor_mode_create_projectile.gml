@@ -458,12 +458,13 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
 			tmp_ins.m_data_arg8 = argument11;
-			tmp_ins.saved_alpha = 0.4;
+			tmp_ins.saved_alpha = 0.5;
 			tmp_ins.w_alpha = 0;
 			tmp_ins.keep_spin_angle = 0;
 			tmp_ins.image_xscale = argument3;
 			tmp_ins.image_yscale = argument3;
 			tmp_ins.sprite_index = tmp_spr___;
+			tmp_ins.image_angle = argument4;
 		break;
 		
 		case 21: //카메라 플래시 효과

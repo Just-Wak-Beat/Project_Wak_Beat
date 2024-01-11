@@ -98,6 +98,13 @@ else
 				}
 			}
 		}
+		else
+		{
+			if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right))
+			{
+				show_message_log("해당 탄막은 이미지를 변경할 수 없습니다!");
+			}
+		}
 	}
 }
 
@@ -150,6 +157,13 @@ switch(global.editor_selected_type)
 			custom_image_ind = 0;
 			custom_image_type = 0;
 			selected_projectile_type = 0;
+			
+			//defalut value
+			global.ed_arg[0] = 0.16;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 14;
+			global.ed_arg[3] = 0;
+			global.ed_arg[6] = -1;
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
@@ -168,6 +182,11 @@ switch(global.editor_selected_type)
 			custom_image_ind = 4;
 			custom_image_type = 0;
 			selected_projectile_type = 0;
+			//defalut value
+			global.ed_arg[0] = 0.18;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 0;
+			global.ed_arg[3] = 60;
 		}
 		image_alpha = 0.4;
 		scroll_param_set(0,"크기",1,1024,2,100,"");
@@ -184,6 +203,12 @@ switch(global.editor_selected_type)
 		{
 			custom_image_type = 2;
 			selected_projectile_type = 0;
+			//defalut value
+			global.ed_arg[0] = 1;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 0;
+			global.ed_arg[3] = 60;
+			global.ed_arg[4] = 15;
 		}
 		image_alpha = 0.4;
 		image_angle = global.ed_arg[1];
@@ -202,6 +227,13 @@ switch(global.editor_selected_type)
 			custom_image_ind = 9;
 			custom_image_type = 0;
 			selected_projectile_type = 0;
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 0;
+			global.ed_arg[3] = 60;
+			global.ed_arg[4] = 0.3;
+			global.ed_arg[5] = 320;
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
@@ -221,6 +253,12 @@ switch(global.editor_selected_type)
 			custom_image_ind = 6;
 			custom_image_type = 0;
 			selected_projectile_type = 0;
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 24;
+			global.ed_arg[3] = 5;
+			global.ed_arg[4] = 3;
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
@@ -239,6 +277,12 @@ switch(global.editor_selected_type)
 		{
 			custom_image_type = 2;
 			selected_projectile_type = 0;
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 128;
+			global.ed_arg[3] = 60;
+			global.ed_arg[6] = 1;
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
@@ -257,6 +301,11 @@ switch(global.editor_selected_type)
 			custom_image_ind = 1;
 			custom_image_type = 0;
 			selected_projectile_type = 0;
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 60;
+			global.ed_arg[3] = 25;
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
@@ -275,6 +324,13 @@ switch(global.editor_selected_type)
 			selected_projectile_type = 0;
 			custom_image_ind = 0;
 			custom_image_type = 1;
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 64;
+			global.ed_arg[3] = 60;
+			global.ed_arg[4] = 180;
+			global.ed_arg[6] = -1;
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
@@ -295,6 +351,11 @@ switch(global.editor_selected_type)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
+			//defalut value
+			global.ed_arg[0] = irandom_range(0,255);
+			global.ed_arg[1] = irandom_range(0,255);
+			global.ed_arg[2] = irandom_range(0,255);
+			global.ed_arg[6] = 1;
 		}
 		image_blend = make_color_rgb(global.ed_arg[0],global.ed_arg[1],global.ed_arg[2]);
 		scroll_param_set(0,"R",0,255,2,0,"");
@@ -311,6 +372,11 @@ switch(global.editor_selected_type)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
+			//defalut value
+			global.ed_arg[0] = irandom_range(0,255);
+			global.ed_arg[1] = irandom_range(0,255);
+			global.ed_arg[2] = irandom_range(0,255);
+			global.ed_arg[6] = 1;
 		}
 		image_blend = merge_color_new(c_black,make_color_rgb(global.ed_arg[0],global.ed_arg[1],global.ed_arg[2]),fix_num(global.ed_arg[3]));
 		scroll_param_set(0,"R",0,255,2,0,"");
@@ -331,6 +397,11 @@ switch(global.editor_selected_type)
 		image_yscale = image_xscale;
 		if (selected_projectile_type == 1)
 		{
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 24;
+			global.ed_arg[3] = 25;
 			selected_projectile_type = 0;
 			custom_image_ind = 0;
 			custom_image_type = 0;
@@ -346,6 +417,11 @@ switch(global.editor_selected_type)
 		image_yscale = image_xscale;
 		if (selected_projectile_type == 1)
 		{
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 24;
+			global.ed_arg[3] = choose(-5,5);
 			selected_projectile_type = 0;
 			custom_image_ind = 13;
 			custom_image_type = 0;
@@ -361,11 +437,15 @@ switch(global.editor_selected_type)
 	case 13: //카메라 효과
 		if (selected_projectile_type == 1)
 		{
+			//defalut value
+			global.ed_arg[0] = 1;
+			global.ed_arg[1] = 0;
+			global.ed_arg[6] = -1;
 			selected_projectile_type = 0;
 			custom_image_type = 2;
 		}
 		
-		scroll_param_set(0,"줌 정도 설정",55,115,2,100,"");
+		scroll_param_set(0,"줌 정도 설정 (값이 클수록 축소, 1이 기본값)",55,115,2,100,"");
 		scroll_param_set(1,"프레임당 천천히 줌되는 비율 (값이 클수록 빠르게 변화합니다)",-20,20,2,10,"");
 		scroll_param_set(6,"포커스 활성화 (카메라 시점이 '카메라 효과'가 배치된 위치로 고정됨)",-1,1,2,0,"");
 	break;
@@ -373,6 +453,8 @@ switch(global.editor_selected_type)
 	case 14: //배경 투명도 변화
 		if (selected_projectile_type == 1)
 		{
+			//defalut value
+			global.ed_arg[0] = 0;
 			selected_projectile_type = 0;
 			custom_image_type = 2;
 		}
@@ -382,6 +464,13 @@ switch(global.editor_selected_type)
 	case 15: //회전하는 탄막 자동 생성기
 		if (selected_projectile_type == 1)
 		{
+			//defalut value
+			global.ed_arg[0] = 0.16;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 14;
+			global.ed_arg[3] = 5;
+			global.ed_arg[4] = 5;
+			global.ed_arg[5] = 60;
 			selected_projectile_type = 0;
 			custom_image_ind = 0;
 			custom_image_type = 0;
@@ -403,6 +492,12 @@ switch(global.editor_selected_type)
 			selected_projectile_type = 0;
 			custom_image_ind = 0;
 			custom_image_type = 1;
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 16;
+			global.ed_arg[3] = 4;
+			global.ed_arg[6] = -1;
 		}
 		image_xscale = global.ed_arg[0];
 		image_yscale = image_xscale;
@@ -420,6 +515,9 @@ switch(global.editor_selected_type)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
+			//defalut value
+			global.ed_arg[0] = 16;
+			global.ed_arg[1] = 0;
 		}
 
 		scroll_param_set(0,"화면 흔들림 정도",1,64,2,0,"");
@@ -431,6 +529,10 @@ switch(global.editor_selected_type)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
+			//defalut value
+			global.ed_arg[0] = 16;
+			global.ed_arg[1] = 0;
+			global.ed_arg[6] = 1;
 		}
 
 		scroll_param_set(0,"x축 속도",-64,64,2,0,"");
@@ -446,6 +548,15 @@ switch(global.editor_selected_type)
 			custom_image_ind = 0;
 			custom_image_type = 0;
 			selected_projectile_type = 0;
+			
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 128;
+			global.ed_arg[3] = 0;
+			global.ed_arg[4] = 0;
+			global.ed_arg[5] = 300;
+			global.ed_arg[6] = 1;
 		}
 		image_angle = global.ed_arg[1]-180;
 		image_alpha = 0.4;
@@ -466,6 +577,11 @@ switch(global.editor_selected_type)
 			custom_image_ind = 0;
 			custom_image_type = 0;
 			selected_projectile_type = 0;
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 12;
+			global.ed_arg[3] = 60;
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.5;
@@ -481,6 +597,8 @@ switch(global.editor_selected_type)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
+			//defalut value
+			global.ed_arg[0] = 1;
 		}
 		image_alpha = 1;
 		scroll_param_set(0,"플래시 밝기",1,100,2,100,"");
@@ -491,6 +609,8 @@ switch(global.editor_selected_type)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
+			//defalut value
+			global.ed_arg[6] = 1;
 		}
 		image_alpha = 1;
 		scroll_param_set(6,"비 이펙트",-1,1,2,0,"");
@@ -501,6 +621,10 @@ switch(global.editor_selected_type)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
+			//defalut value
+			var random_effect = choose(-1,1);
+			global.ed_arg[0] = (random_effect == 1) ? 3 : 1;
+			global.ed_arg[6] = random_effect;
 		}
 		image_alpha = 1;
 		scroll_param_set(0,"효과 방향",0,(global.ed_arg[6] == 1) ? 3 : 5,2,0,"");
@@ -512,6 +636,10 @@ switch(global.editor_selected_type)
 		{
 			selected_projectile_type = 0;
 			custom_image_type = 2;
+			//defalut value
+			global.ed_arg[0] = 0.5;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 180;
 		}
 		image_angle = global.ed_arg[1]-45;
 		image_alpha = 0.4;
@@ -530,6 +658,12 @@ switch(global.editor_selected_type)
 			custom_image_ind = 0;
 			custom_image_type = 0;
 			selected_projectile_type = 0;
+			//defalut value
+			global.ed_arg[0] = 0.16;
+			global.ed_arg[1] = 0;
+			global.ed_arg[2] = 14;
+			global.ed_arg[3] = 359;
+			global.ed_arg[4] = 5;
 		}
 		image_angle = global.ed_arg[1];
 		image_alpha = 0.4;
