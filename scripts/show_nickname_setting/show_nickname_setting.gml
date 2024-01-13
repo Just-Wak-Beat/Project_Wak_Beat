@@ -3,7 +3,7 @@
 function show_nickname_setting()
 {
 	global.notice_title = "게임을 시작하기 전...";
-	global.notice_title_sub = "온라인 랭킹에 사용할 이름을 설정해주세요!";
+	global.notice_title_sub = "명예의 전당에 사용할 이름을 설정해주세요!";
 	global.unlocked_music_name_new_list[0] = "";
 	global.unlocked_music_name_new_list_color[0] = c_white
 	global.unlocked_music_name_new_list[1] = "";

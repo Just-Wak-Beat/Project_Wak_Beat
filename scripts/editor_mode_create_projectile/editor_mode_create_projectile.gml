@@ -128,7 +128,7 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 		break;
 	
 		case 6: //원형 폭발 탄막
-			var tmp_ins = create_explo_circle(argument1,argument2,argument6,argument7,0,0,argument3,0,0,0,0)
+			var tmp_ins = create_explo_circle(argument1,argument2,argument5,argument6,0,0,argument3,0,0,0,0)
 			tmp_ins.image_angle = argument4;
 			tmp_ins.direction = argument4;
 			tmp_ins.projectile_type = argument0;
@@ -202,7 +202,7 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 		break;
 	
 		case 10: //미사일 탄막
-			var tmp_ins = create_square_misile(argument1,argument2,0,argument7,0,0,argument3)
+			var tmp_ins = create_square_misile(argument1,argument2,0,argument6,0,0,argument3)
 			tmp_ins.direction = argument4;
 			tmp_ins.image_angle = argument4;
 			tmp_ins.saved_speed = argument5;
@@ -210,9 +210,9 @@ function editor_mode_create_projectile(argument0,argument1,argument2,argument3,a
 			tmp_ins.m_data_arg0 = argument3; //크기 
 			tmp_ins.m_data_arg1 = argument4; //각도
 			tmp_ins.m_data_arg2 = argument5; //속도
-			tmp_ins.m_data_arg3 = argument6; 
+			tmp_ins.m_data_arg3 = argument6; //삭제 타이밍
 			tmp_ins.m_data_arg4 = argument7;
-			tmp_ins.m_data_arg5 = argument8; //삭제 타이밍
+			tmp_ins.m_data_arg5 = argument8;
 			tmp_ins.m_data_arg6 = argument9;
 			tmp_ins.m_data_arg7 = argument10;
 			tmp_ins.m_data_arg8 = argument11;

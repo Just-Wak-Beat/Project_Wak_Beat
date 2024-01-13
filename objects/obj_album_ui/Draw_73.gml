@@ -119,7 +119,7 @@ if (global.show_title_menu == 0)
 
 
 
-	draw_text_k_scale(global.c_x+104,global.c_y+950,"유저 랭킹"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
+	draw_text_k_scale(global.c_x+104,global.c_y+950,"명예의 전당"+((global.mobile_mode == 1) ? "" : "\n[Q]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.47*global.font_ratio_resolution_xx,0.47,0)
 	draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910+16,0.17*global.font_ratio_resolution_xx*0.85,0.17*0.85,0,c_black,0.3*ui_alpha__cal)
 	draw_sprite_ext(spr_star,global.player_skin,global.c_x+100,global.c_y+910,0.17*global.font_ratio_resolution_xx*0.85,0.17*0.85,0,c_white,ui_alpha__cal)
 	
@@ -856,7 +856,7 @@ if (global.show_title_menu == 0)
 					tmp_target_score = (global.n_score_hardcore[global.n_map_id] == "--") ? 0 : global.n_score_hardcore[global.n_map_id];
 					tmp_val2 = tmp_target_score/global.top_ten_score_hardcore;
 					tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
-					tmp_str2 = (tmp_val2 != 1) ? "유저 랭킹 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_hardcore - tmp_target_score))+"점!" : "유저 랭킹 Top5 달성!";
+					tmp_str2 = (tmp_val2 != 1) ? "명예의 전당 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_hardcore - tmp_target_score))+"점!" : "명예의 전당 Top5 달성!";
 				}
 				else
 				{
@@ -864,7 +864,7 @@ if (global.show_title_menu == 0)
 					tmp_target_score = (global.n_score[global.n_map_id] == "--") ? 0 : global.n_score[global.n_map_id];
 					tmp_val2 = tmp_target_score/global.top_ten_score_normal;
 					tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
-					tmp_str2 = (tmp_val2 != 1) ? "유저 랭킹 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "유저 랭킹 Top5 달성!";
+					tmp_str2 = (tmp_val2 != 1) ? "명예의 전당 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "명예의 전당 Top5 달성!";
 				}
 						
 				if (can_show_top_ten == 1)
@@ -896,9 +896,14 @@ if (global.show_title_menu == 0)
 				global.t_new_song_scroll -= 150;
 			}
 	
-			if (mouse_wheel_down() && global.t_new_song_scroll < global.new_unlocked_map_num*150-1500)
+	
+			if (global.t_new_song_scroll < global.new_unlocked_map_num*150-1500)
 			{
-				global.t_new_song_scroll += 150;
+				draw_text_k_scale(xx+xx_w-16,yy+yy_h*0.97,"[스크롤 하여 내용 더 보기]",scale*48,-1,0.7*global.show_new_songs/100,c_white,0,1,normal_font,0.25*global.font_ratio_resolution_xx*scale,0.25*scale,0)
+				if (mouse_wheel_down())
+				{
+					global.t_new_song_scroll += 150;
+				}
 			}
 			
 			if (global.notice_title == "Ranking")
@@ -951,7 +956,7 @@ if (global.show_title_menu == 0)
 					global.t_selected_difficulty = 0
 				}
 			}
-			else if (global.notice_title == "User Ranking")
+			else if (global.notice_title == "명예의 전당")
 			{
 				if (code.automatic_reload_player_leaderboard == 0)
 				{
@@ -1079,10 +1084,23 @@ if (global.show_title_menu == 0)
 			}
 			else if global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left))
 			{
-				if (global.nickname == "" && global.notice_title == "조작법 가이드")
+				if (global.notice_title == "조작법 가이드")
 				{
-					global.show_new_songs = 1;
-					show_nickname_setting();
+					if (global.nickname == "")
+					{
+						global.show_new_songs = 1;
+						show_nickname_setting();
+					}
+					else
+					{
+						global.t_b_alpha = -0.02;
+						show_guide("새로운 소식!");
+					}
+				}
+				else if (global.notice_title == "게임을 시작하기 전...")
+				{
+					global.t_b_alpha = -0.02;
+					show_guide("새로운 소식!");
 				}
 				else
 				{

@@ -31,10 +31,11 @@ if (image_xscale > 0 && global.n_progress > 0 && !instance_exists(obj_stage_clea
 	var obs = global.crossed_obstacle_num; //지나간 장애물 갯수
 	var tdn = global.total_death_point; //총 죽은 횟수
 	var tdm = global.total_damaged; //총 데미지 받은 횟수
-	global.n_score_displaying = fix_to_zero((15-tdm)*10000+tco*(100+db2*100+db1*200)-tdn*5000);
+	global.n_score_displaying = fix_num_inside((15-tdm)*10000+tco*(100+db2*100+db1*200)-tdn*5000,100,200000);
 	if (tco > 15)
 	{
-		global.n_score_displaying = fix_num_inside(global.n_score_displaying,0,140000)
+		global.n_score_displaying = fix_num_inside(global.n_score_displaying,100,140000)
 	}
+	
 	global.n_rank_display = convert_score_to_rank(global.n_score_displaying,0);
 }

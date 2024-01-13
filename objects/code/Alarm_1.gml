@@ -33,7 +33,7 @@ if (global.n_score_displaying > 0)
 
 	var send_score = 0;
 
-	if global.n_map_list != 2
+	if (global.n_map_list != 2)
 	{
 		global.real_stage_playtime[global.n_map_id] ++;
 	
@@ -76,12 +76,12 @@ if (global.n_score_displaying > 0)
 	
 		//커스텀 맵 클리어 내역 저장
 		ini_open(string(global.custom_map_file_dir[global.n_map_id])+"\\map_info.ini")
-		ini_write_string("custom_n_score","value",tmp_normal_score_to_int)
-		ini_write_string("n_score_hardcore","value",tmp_hardcore_score_to_int)
+		ini_write_string("custom_n_score",string(global.nickname),tmp_normal_score_to_int)
+		ini_write_string("n_score_hardcore",string(global.nickname),tmp_hardcore_score_to_int)
 	
 		if (global.custom_n_artifact[global.n_map_id] != "완료")
 		{
-			ini_write_string("custom_n_artifact","value","완료")
+			ini_write_string("custom_n_artifact",string(global.nickname),"완료")
 		}
 
 		ini_close()

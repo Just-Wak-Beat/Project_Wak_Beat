@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "1.1";
-global.version = "Alpha "+string(global.version_real);
+global.version_real = "1.0";
+global.version = "Release "+string(global.version_real);
 global.beta_tester = 0;
-global.streamer = 7;
+global.streamer = 0;
 global.custom_mapper = 0;
 global.dev_mode = 0;
 devmode_activate = 0;
@@ -27,6 +27,7 @@ global.overtime_highlight_song = 1;
 global.automatic_load_ranking = 0;
 global.flash_effect_setting = -1;
 global.cannot_connect = 0;
+global.play_usermade_official_map = 0;
 global.show_credit = 0.1;
 var file_name = (global.dev_mode == 1) ? "PWB_Beta.ini" : "PWB_OpenBeta.ini"
 ini_open_protect(file_name)
@@ -387,7 +388,7 @@ automatic_reload_leaderboard = 0;
 
 //왁트 모르즈비
 global.real_stage_map_name[0] = "왁트모르즈비";
-global.real_stage_map_artist[0] = "영바이브 (아버 편곡)";
+global.real_stage_map_artist[0] = "영바이브 (ABER* (아버) 편곡)";
 global.real_stage_map_difficulty[0] = "Tutorial";
 global.real_stage_map_color[0] = #1076c8;
 global.real_stage_map_duration[0] = 99999;
@@ -418,7 +419,7 @@ global.real_requirement_level[1] = 0
 
 //밤가이
 global.real_stage_map_name[2] = "밤가이!!";
-global.real_stage_map_artist[2] = "나쁜개츠비 (아버 편곡)";
+global.real_stage_map_artist[2] = "나쁜개츠비 (ABER* (아버) 편곡)";
 global.real_stage_map_difficulty[2] = "Hard";
 global.real_stage_map_color[2] = #bb631d;
 global.real_stage_map_duration[2] = 5411;
@@ -432,7 +433,7 @@ global.bamguy_effect = 0
 
 //왁리오
 global.real_stage_map_name[3] = "왁리오 (Wak'Lio)";
-global.real_stage_map_artist[3] = "Team Pangenie (아버 편곡)";
+global.real_stage_map_artist[3] = "Team Pangenie (ABER* (아버) 편곡)";
 global.real_stage_map_difficulty[3] = "Expert (Boss)";
 global.real_stage_map_color[3] = #415c84;
 global.real_stage_map_duration[3] = 4482;
@@ -450,7 +451,7 @@ wakrio_timer = 0
 
 //알잘딱깔센
 global.real_stage_map_name[4] = "Alzar Takkarsen";
-global.real_stage_map_artist[4] = "BLKFLAGZ, WAKGOOD RECORDS (아버 편곡)";
+global.real_stage_map_artist[4] = "BLKFLAGZ, WAKGOOD RECORDS (ABER* (아버) 편곡)";
 global.real_stage_map_difficulty[4] = "Expert";
 global.real_stage_map_color[4] = #c54a3d;
 global.real_stage_map_duration[4] = 7005;
@@ -746,16 +747,16 @@ global.real_requirement_level[20] = 9999;
 
 //어푸
 global.real_stage_map_name[21] = "어푸 (Cover by 주르르 Jururu)";
-global.real_stage_map_artist[21] = "Mixing by 믹스마스터 / Original by 아이유 IU\nOriginal Map by 댐쿵이";
-global.real_stage_map_difficulty[21] = "Hard";
+global.real_stage_map_artist[21] = "Mixing by 믹스마스터 / Original by 아이유 IU\nReworked Map by ABER* (아버) / Original Map by 댐쿵이";
+global.real_stage_map_difficulty[21] = "Normal";
 global.real_stage_map_color[21] = #2BA6ED;
 global.real_stage_map_duration[21] = 6300;
 global.real_stage_map_audio_name[21] = "apu";
 global.real_stage_bpm[21] = 121;
 global.real_stage_map_highlight_part[21] = 51.5;
-global.real_detailed_difficulty[21] = 4.5;
-global.real_obtainable_type[21] = 99;
-global.real_requirement_level[21] = 9999;
+global.real_detailed_difficulty[21] = 3.5;
+global.real_obtainable_type[21] = 5;
+global.real_requirement_level[21] = 4;
 
 
 //사이언티스트
@@ -776,7 +777,7 @@ global.real_requirement_level[22] = 9999;
 
 //Re:wind
 global.real_stage_map_name[23] = "RE:WIND";
-global.real_stage_map_artist[23] = "Arranged by 아버 / Remix by Hyeok, Elestee";
+global.real_stage_map_artist[23] = "Arranged by ABER* (아버) / Remix by Hyeok, Elestee";
 global.real_stage_map_difficulty[23] = "Expert";
 global.real_stage_map_color[23] = #d892a6;
 global.real_stage_map_duration[23] = 7495;

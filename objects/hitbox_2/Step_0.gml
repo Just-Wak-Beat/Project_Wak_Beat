@@ -42,6 +42,8 @@ if (global.timeline_stop != 1)
 			if (saved_alpha < 1)
 			{
 				effect_projectile = 1;
+				circle_ef_xscale = 0;
+				circle_w_alpha = 0;
 			}
 		}
 	}

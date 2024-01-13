@@ -64,7 +64,7 @@ function load_musicList(argument0)
 	else if argument0 = 2
 	{
 		global.total_map = global.custom_map_num;//"custom_map_file_"+string(i)의 파일 갯수로 확인 
-	
+		
 		for(var i = 0; i < global.total_map; i++)
 		{
 			//기존 모든 곡 항목에서 좋아하는 곡 목록으로 데이터 복사

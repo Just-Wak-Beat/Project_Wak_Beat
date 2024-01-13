@@ -21,14 +21,15 @@ if (global.n_music_title == "왁트모르즈비")
 }
 
 
-//커스텀 유저 맵 재생
-if (global.timeline_stop != 1 && global.play_custom_map == 1 && audio_is_playing(global.n_music_instance) && global.paused != 1)
+//커스텀 유저 맵 재생 / 오피셜 유저맵 재생
+if (((global.timeline_stop != 1 && global.play_custom_map == 1) || global.play_usermade_official_map == 1) && audio_is_playing(global.n_music_instance) && global.paused != 1)
 {
+	var map_file_dir = (global.n_map_list == 2) ? global.custom_map_file_dir[global.n_map_id] : string(global.default_directory)+"\\Official map files\\"+string(global.real_stage_map_audio_name[global.n_map_id]);
+	var tmp_directory = string(map_file_dir)+"\\map_data.ini";
 	event_user(11);
 	show_debug_message("custom_map_data_load - "+string(global.n_progress-1)+" / "+string(global.savepoint_position[0]))
-	
-	var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
 }
+
 
 
 
@@ -175,9 +176,9 @@ if (automatic_reload_player_leaderboard > 0)
 		global.cannot_connect += 1+global.cannot_connect;
 		show_message_log("온라인 서버 연결 중...");
 		
-		show_debug_message("showing User Ranking now")
+		show_debug_message("showing 명예의 전당 now")
 		var temp_difficulty_str = (global.player_leaderboard_difficulty != 0) ? "하드코어" : "노말";
-		global.notice_title = "User Ranking";
+		global.notice_title = "명예의 전당";
 		global.notice_title_sub = "<    (모든 곡의 "+string(temp_difficulty_str)+"난이도 스코어 총합 기준)    >";
 		global.show_new_songs = 1
 	}
@@ -221,14 +222,14 @@ if (automatic_reload_player_leaderboard > 0)
 
 	if (automatic_reload_player_leaderboard >= 150)
 	{
-		show_message_log("유저 랭킹 불러오는 중...");
+		show_message_log("명예의 전당 불러오는 중...");
 		event_user(9);
 		automatic_reload_player_leaderboard = 0;
 	}
 	
 	if (automatic_leaderboard_cancle > 900)
 	{
-		show_message_log("유저 랭킹을 불러오는 데 실패했습니다! (잠시 뒤 다시 시도해주세요)");
+		show_message_log("명예의 전당을 불러오는 데 실패했습니다! (잠시 뒤 다시 시도해주세요)");
 		global.automatic_load_ranking = 0;
 		automatic_leaderboard_cancle = 0;
 		automatic_reload_player_leaderboard = 0;
@@ -312,7 +313,7 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 		global.unlocked_music_name_new_list_color[check_new_song] = #dc809a;
 		check_new_song ++
 		
-		global.unlocked_music_name_new_list[check_new_song] = "또한, 해당 유저 커스텀 맵은 '전체 플레이어 랭킹 순위'에 영향을 끼치지 않습니다";
+		global.unlocked_music_name_new_list[check_new_song] = "또한, 해당 유저 커스텀 맵은 '명예의 전당'순위에 영향을 끼치지 않습니다";
 		global.unlocked_music_name_new_list_color[check_new_song] = c_gray;
 		check_new_song ++
 	}
@@ -338,12 +339,59 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 		global.unlocked_music_name_new_list_color[check_new_song] = c_gray;
 		check_new_song ++
 	}
-
-	
-	for(var i = 0; i < check_new_song; i++)
+	else if (global.saved_notice_title == "새로운 소식!")
 	{
-		global.unlocked_music_name_new_list_rightside[i] = "";
-		global.unlocked_music_name_new_list_color_rightside[i] = c_white;
+		global.unlocked_music_name_new_list[check_new_song] = "패치노트 - "+string(global.version);
+		global.unlocked_music_name_new_list_color[check_new_song] = #2BA6ED;
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "___";
+		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+		check_new_song ++;
+		
+		
+		global.unlocked_music_name_new_list[check_new_song] = "Project Wak Beat 정식 출시";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "새로운 곡 추가! - 어푸 (Cover by 주르르 Jururu)";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 시스템 리메이크 - 기존 맵 파일이 정상 작동 하지 않을 수 있음";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 에디터에 새로운 탄막 추가";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵에서 배경을 특정 색상으로 변경시 오류가 발생하던 버그 수정";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "기존의 유저 랭크를 '명예의 전당'으로 변경";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "광과민성 경고 문구 추가";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "플래쉬 효과 끄기 기능 추가";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 리메이크 - FightFifthDeusExMachina_Letheia();";
+		check_new_song ++;
+	}
+
+	if (global.saved_notice_title != "새로운 소식!")
+	{
+		for(var i = 0; i < check_new_song; i++)
+		{
+			global.unlocked_music_name_new_list_rightside[i] = "";
+			global.unlocked_music_name_new_list_color_rightside[i] = c_white;
+		}
+	}
+	else
+	{
+		for(var i = 0; i < check_new_song-2; i++)
+		{
+			global.unlocked_music_name_new_list_color[i+2] = merge_color(c_white,c_black,fix_num_inside((i+1)/(check_new_song+2),0,0.9));
+		}
 	}
 	
 	global.notice_title = global.saved_notice_title;

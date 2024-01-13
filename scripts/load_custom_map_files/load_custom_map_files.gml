@@ -22,8 +22,10 @@ function load_custom_map_files()
 			global.custom_detailed_difficulty[i] = ini_read_real("custom_detailed_difficulty","value",0)
 			global.custom_obtainable_type[i] = 9;
 			global.custom_requirement_level[i] = ini_read_real("custom_requirement_level","value",-4)
-			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact","value","X")
 			global.custom_stage_mapper[i] = ini_read_string("custom_stage_map_map_by","value","Unknown")
+			global.custom_n_score[i] = ini_read_string("custom_n_score",string(global.nickname),"--");
+			global.custom_n_score_hardcore[i] = ini_read_string("n_score_hardcore",string(global.nickname),"--");
+			global.custom_n_artifact[i] = ini_read_string("custom_n_artifact",string(global.nickname),"X")
 		
 			var _firstFile = file_find_first(string(global.custom_map_file_dir[i])+"\\*.ogg", fa_none);
 			show_debug_message("_firstFile : "+string(_firstFile));

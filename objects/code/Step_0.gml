@@ -413,7 +413,13 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 						timeline_index = -4;
 						global.t_selected_difficulty = 1;
 						global.selected_difficulty = 1;
-						var tmp_directory = string(global.custom_map_file_dir[global.n_map_id])+"\\map_data.ini";
+						var map_file_dir = (global.n_map_list == 2) ? global.custom_map_file_dir[global.n_map_id] : string(global.default_directory)+"\\Official map files\\"+string(global.real_stage_map_audio_name[global.n_map_id]);
+						if (global.n_map_list != 2)
+						{
+							global.play_usermade_official_map = 1;
+						}
+						
+						var tmp_directory = string(map_file_dir)+"\\map_data.ini";
 						global.c_map_param = array_create(global.music_duration+1,"");
 						global.custom_map_timeline = true;
 						if (file_exists(tmp_directory))
@@ -437,6 +443,15 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 							}
 		
 							ini_close();
+						}
+						
+						if (global.t_selected_difficulty != 1)
+						{
+							for(var ii = 0; ii < global.save_point_num; ii++)
+							{
+								global.savepoint_position[ii] = -4;
+								global.savepoint_color[ii] = -4;
+							}
 						}
 					}
 				}	

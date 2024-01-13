@@ -8,7 +8,7 @@ if !ds_list_empty(global.gmscoreboard_scores[global.player_leaderboard_difficult
 	//show_message_log("ds_list_size : "+string(ds_list_size(global.gmscoreboard_scores[global.player_leaderboard_difficulty])))
 	for(var i = 0; i < ds_list_size(global.gmscoreboard_scores[global.player_leaderboard_difficulty]); i++)
 	{
-		show_debug_message("랭킹 불러오기 : "+string(i))
+		show_debug_message("명예의 전당 불러오기 : "+string(i))
 		var tmp_list = ds_list_find_value(global.gmscoreboard_scores[global.player_leaderboard_difficulty], i);
 		var temp_name = tmp_list[? "player"];
 		if (temp_name == "" || temp_name == " ")

@@ -63,7 +63,7 @@ function save_and_load_data(argument0,argument1)
 		ini_write_real("exp","none",global.exp);
 		ini_write_real("max_exp","none",global.max_exp);
 		
-		//유저 랭킹 스코어
+		//명예의 전당 스코어
 		ini_write_real("total_score_normal","none",global.total_score_normal);
 		ini_write_real("total_score_hardcore","none",global.total_score_hardcore);
 		
@@ -132,7 +132,7 @@ function save_and_load_data(argument0,argument1)
 		global.exp = ini_read_real("exp","none",0);
 		global.max_exp = ini_read_real("max_exp","none",1000);
 		
-		//유저 랭킹 스코어
+		//명예의 전당 스코어
 		global.total_score_normal = ini_read_real("total_score_normal","none",0);
 		global.total_score_hardcore = ini_read_real("total_score_hardcore","none",0);
 		
