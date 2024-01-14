@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "1.01";
+global.version_real = "1.02";
 global.version = "Release "+string(global.version_real);
 global.beta_tester = 0;
 global.streamer = 0;
@@ -283,7 +283,7 @@ global.none_cleared_music_num = 0
 //언락된 곡 총 갯수
 global.unlocked_music_num = 0
 
-var total_original_map = 26;
+var total_original_map = 29;
 global.origin_total_map = total_original_map;
 global.total_map = total_original_map;
 outside_of_window = -4
@@ -892,16 +892,12 @@ global.both_difficulty_num = 0;
 for(var i = 0; i < global.total_map; i++)
 {
 	var tmp_type = global.real_obtainable_type[i];
-	if (tmp_type == 8 || tmp_type == 17)
-	{
-		tmp_type = 5
-	}
-	else if (tmp_type > 7)
+	if (tmp_type >= 9)
 	{
 		tmp_type -= 9;
 	}
 	
-	if (tmp_type <= 17)
+	if (tmp_type != 8 && tmp_type < 17)
 	{
 		global.max_artifact_owned[tmp_type]++;
 	}

@@ -14,7 +14,10 @@ if image_angle = 0
 
 		if (global.n_progress >= global.music_duration && global.map_editor != 1)
 		{
-			instance_create_depth(room_width+128,irandom_range(0,room_height),obj_player.depth-1,obj_stage_clear)
+			if (!instance_exists(obj_stage_clear) && global.paused != 1)
+			{
+				instance_create_depth(room_width+128,irandom_range(0,room_height),obj_player.depth-1,obj_stage_clear)
+			}
 			global.show_progress_bar = 0
 	
 			instance_destroy(hitbox_parents)
@@ -47,7 +50,10 @@ else
 
 		if global.n_progress >= global.music_duration
 		{
-			instance_create_depth(irandom_range(0,room_width),-128,obj_player.depth-1,obj_stage_clear)
+			if (!instance_exists(obj_stage_clear) && global.paused != 1)
+			{
+				instance_create_depth(irandom_range(0,room_width),-128,obj_player.depth-1,obj_stage_clear)
+			}
 			global.show_progress_bar = 0
 	
 			instance_destroy(hitbox_parents)

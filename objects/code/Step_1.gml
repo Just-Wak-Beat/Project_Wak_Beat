@@ -6,6 +6,7 @@ if (fps_real >= 58)
 {
 	global.low_graphics = false;
 }
+
 if (global.n_music_title == "왁트모르즈비")
 {
 	global.tutorial_now = 1;
@@ -357,7 +358,16 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 		global.unlocked_music_name_new_list[check_new_song] = "Project Wak Beat 정식 출시";
 		check_new_song ++;
 		
+		global.unlocked_music_name_new_list[check_new_song] = "일부 곡이 보이지 않던 버그 수정 (이세돌향 100%, Kidding, 우마무스메)";
+		check_new_song ++;
+		
 		global.unlocked_music_name_new_list[check_new_song] = "새로운 곡 추가! - 어푸 (Cover by 주르르 Jururu)";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "모바일 화면 비율 버그(글씨 및 이미지 깨짐 현상) 수정";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 리메이크 - FightFifthDeusExMachina_Letheia();";
 		check_new_song ++;
 		
 		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 시스템 리메이크 - 기존 맵 파일이 정상 작동 하지 않을 수 있음";
@@ -376,9 +386,6 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 		check_new_song ++;
 		
 		global.unlocked_music_name_new_list[check_new_song] = "플래쉬 효과 끄기 기능 추가";
-		check_new_song ++;
-		
-		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 리메이크 - FightFifthDeusExMachina_Letheia();";
 		check_new_song ++;
 	}
 
@@ -604,19 +611,19 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 	{
 		if (global.n_map_list == 0)
 		{
-			global.n_map_id = n_stage
+			global.n_map_id = fix_num_inside(n_stage,0,255);
 		}
 		else if (global.n_map_list == 1)
 		{
-			global.n_map_id = global.fav_map_id[n_stage]
+			global.n_map_id = fix_num_inside(global.fav_map_id[n_stage],0,255);
 		}
 		else if (global.n_map_list == 2)
 		{
-			global.n_map_id = n_stage
+			global.n_map_id = fix_num_inside(n_stage,0,255);
 		}
 		else if (global.n_map_list == 3 || global.n_map_list == 4 || global.n_map_list == 5)
 		{
-			global.n_map_id = global.map_id_origin[n_stage]
+			global.n_map_id = fix_num_inside(global.map_id_origin[n_stage],0,255);
 		}
 		
 		if (global.n_map_id <= 0)
@@ -794,7 +801,7 @@ global.rank_display_b_alpha += (0 - global.rank_display_b_alpha)*0.1
 
 	if gamestart = 2 && global.show_progress_bar = 0 && global.n_progress > 1000
 	{
-		if !instance_exists(obj_stage_clear) && global.paused != 1
+		if (!instance_exists(obj_stage_clear) && global.paused != 1)
 		{
 			instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),obj_player.depth-1,obj_stage_clear)
 		}

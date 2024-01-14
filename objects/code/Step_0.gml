@@ -367,7 +367,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 				if (global.tutorial_played != 1 && global.tutorial_n_stage == 0)
 				{
 					//튜토리얼
-					if !instance_exists(obj_stage_clear) && global.paused != 1
+					if (!instance_exists(obj_stage_clear) && global.paused != 1)
 					{
 						instance_create_depth(global.c_w+128,irandom_range(global.c_y,global.c_h),obj_player.depth-1,obj_stage_clear)
 					}
@@ -500,7 +500,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 	}
 	else //첫 튜토리얼 안 했을경우
 	{
-		if (!instance_exists(obj_stage_clear) && global.paused == 0)
+		if (!instance_exists(obj_stage_clear) && global.paused != 1)
 		{
 			instance_create_depth(global.c_w+128,room_height*0.5,obj_player.depth-1,obj_stage_clear)
 			global.t_bg_color = 1;

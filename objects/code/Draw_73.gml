@@ -207,7 +207,7 @@ if global.clock_alpha_1 > 0
 
 
 
-if global.select_map != 0 && abs(obj_player.image_xscale) < 0.1
+if (global.select_map != 0 && instance_exists(obj_player) && abs(obj_player.image_xscale) < 0.1 && instance_exists(obj_album_ui))
 {
 	for(var i = 0; i < global.total_map; i++)
 	{
