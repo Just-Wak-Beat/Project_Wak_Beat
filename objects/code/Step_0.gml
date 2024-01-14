@@ -718,19 +718,19 @@ if global.rewind > 0
 	}
 
 
-	if global.rewind <= 240 && global.rewind >= 91
+	if (global.rewind <= 240 && global.rewind >= 91)
 	{
 		global.clock_alpha_1 += (1 - global.clock_alpha_1)*0.02
 		global.clock_alpha_2 += (1 - global.clock_alpha_2)*0.02
 	}
 
-	if global.rewind > 240
+	if (global.rewind > 240)
 	{
 		global.clock_alpha_1 += (2.01 - global.clock_alpha_1)*0.02
 		global.clock_alpha_2 += (-0.01 - global.clock_alpha_2)*0.05
 	}
 	
-	if global.rewind > 260
+	if (global.rewind > 260)
 	{
 		audio_stop_sound(global.n_music_instance);
 		global.w_alpha = 1.1;

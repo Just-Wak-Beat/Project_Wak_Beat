@@ -84,7 +84,7 @@ else
 }
 
 
-if global.low_graphics = false
+if global.low_graphics == false
 {
 	w_alpha += (-0.01 - w_alpha)*0.15
 	circle_w_alpha += (-0.01 - circle_w_alpha)*0.1

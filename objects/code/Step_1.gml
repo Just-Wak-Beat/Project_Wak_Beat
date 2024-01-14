@@ -2,6 +2,10 @@
 // You can write your code in this editor
 
 //튜토리얼 스테이지 가이드 표기
+if (fps_real >= 58)
+{
+	global.low_graphics = false;
+}
 if (global.n_music_title == "왁트모르즈비")
 {
 	global.tutorial_now = 1;

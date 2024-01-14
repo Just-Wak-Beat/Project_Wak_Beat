@@ -7,6 +7,7 @@ var yy_h = camera_get_view_height(view_camera[0])
 
 var middle_xx = xx+xx_w*0.5;
 var middle_yy = yy+yy_h*0.5;
+var tmp_n_map_id = fix_num_inside(global.n_map_id,0,255);
 
 if (global.show_title_menu == 0)
 {
@@ -128,7 +129,7 @@ if (global.show_title_menu == 0)
 	//리더보드 랭크 순위 버튼
 	if (global.n_map_list != 2)
 	{
-		//if (global.n_map_id >= 0 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial")
+		//if (tmp_n_map_id >= 0 && global.real_stage_map_difficulty[tmp_n_map_id] != "Tutorial")
 		//{
 		//	draw_text_k_scale(global.c_x+104,global.c_y+1210,"스테이지 랭킹"+((global.mobile_mode == 1) ? "" : "\n[Tab]"),80,-1,ui_alpha__cal,c_white,0,0,normal_font,0.5*global.font_ratio_resolution_xx,0.5,0)
 		//	draw_sprite_ext(spr_music,global.player_skin,global.c_x+100,global.c_y+1170+16,0.17*global.font_ratio_resolution_xx,0.2,-15,c_black,0.3*ui_alpha__cal)
@@ -256,63 +257,62 @@ if (global.show_title_menu == 0)
 	var fontsize1 = 0.55*(1+global.mobile_mode*0.3)
 	var fontsize2 = 0.65*(1+global.mobile_mode*0.3)
 	var fontsize3 = 0.52*(1+global.mobile_mode*0.3)
-  
-	if global.n_map_id >= 0 && global.n_map_id < array_length(global.n_score) && instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 2 && code.gamestart != 3
+	if tmp_n_map_id >= 0 && tmp_n_map_id < array_length(global.n_score) && instance_exists(code) && code.gamestart != 1 && code.gamestart != 2 && code.gamestart != 2 && code.gamestart != 3
 	{
-		if (global.play_custom_map != 1)
+		if (global.play_custom_map != 1 && tmp_n_map_id >= 0)
 		{
 			draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Normal\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-			draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(convert_score_to_rank(global.n_score[global.n_map_id],0)),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-			if (global.n_score[global.n_map_id] != "--")
+			draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(convert_score_to_rank(global.n_score[tmp_n_map_id],0)),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			if (global.n_score[tmp_n_map_id] != "--")
 			{
-				draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+				draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score[tmp_n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
 			}
 
 			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Hardcore\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(convert_score_to_rank(global.n_score_hardcore[global.n_map_id],0)),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-			if (global.n_score_hardcore[global.n_map_id] != "--")
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(convert_score_to_rank(global.n_score_hardcore[tmp_n_map_id],0)),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			if (global.n_score_hardcore[tmp_n_map_id] != "--")
 			{
-				draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score_hardcore[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+				draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.n_score_hardcore[tmp_n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
 			}
 	
 	
 
 			draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*64+8,"아티팩트 수집",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
-			draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_artifact[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(global.n_artifact[tmp_n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
 
 			draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Normal\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-			draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(convert_score_to_rank(global.n_score[global.n_map_id],0)),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-			if (global.n_score[global.n_map_id] != "--")
+			draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(convert_score_to_rank(global.n_score[tmp_n_map_id],0)),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			if (global.n_score[tmp_n_map_id] != "--")
 			{
-				draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+				draw_text_k_scale(x-260-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score[tmp_n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
 			}
 
 			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Hardcore\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(convert_score_to_rank(global.n_score_hardcore[global.n_map_id],0)),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-			if (global.n_score_hardcore[global.n_map_id] != "--")
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(convert_score_to_rank(global.n_score_hardcore[tmp_n_map_id],0)),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			if (global.n_score_hardcore[tmp_n_map_id] != "--")
 			{
-				draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score_hardcore[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+				draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.n_score_hardcore[tmp_n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
 			}
 
 			draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+620+global.mobile_mode*64,"아티팩트 수집",64,-1,dis__,c_white,0,0,normal_font,fontsize3*global.font_ratio_resolution_xx,fontsize3,0)
-			draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_artifact[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			draw_text_k_scale(x+260+global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(global.n_artifact[tmp_n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		}
 		else
 		{
 			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64+8,"Custom Map\nRank",64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(convert_score_to_rank(global.custom_n_score[global.n_map_id],0)),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-			if (global.custom_n_score[global.n_map_id] != "--")
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96+8,string(convert_score_to_rank(global.custom_n_score[tmp_n_map_id],0)),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			if (global.custom_n_score[tmp_n_map_id] != "--")
 			{
-				draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.custom_n_score[global.n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+				draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96+8,string(global.custom_n_score[tmp_n_map_id]),64,-1,0.3*dis__,c_black,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
 			}
 		
 			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+590+global.mobile_mode*64,"Custom Map\nRank",64,-1,dis__,c_white,0,0,normal_font,fontsize1*global.font_ratio_resolution_xx,fontsize1,0)
-			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(convert_score_to_rank(global.custom_n_score[global.n_map_id],0)),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
-			if (global.custom_n_score[global.n_map_id] != "--")
+			draw_text_k_scale(x-global.mobile_mode*64,middle_yy+680+global.mobile_mode*96,string(convert_score_to_rank(global.custom_n_score[tmp_n_map_id],0)),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+			if (global.custom_n_score[tmp_n_map_id] != "--")
 			{
-				draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.custom_n_score[global.n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
+				draw_text_k_scale(x-global.mobile_mode*64,middle_yy+750+global.mobile_mode*96,string(global.custom_n_score[tmp_n_map_id]),64,-1,dis__,c_white,0,0,normal_font,fontsize2*global.font_ratio_resolution_xx*0.8,fontsize2*0.8,0)
 			}
 		}
 	}
@@ -422,11 +422,11 @@ if (global.show_title_menu == 0)
 		
 			if (global.can_change_music_list == 1)
 			{
-				if (global.t_selected_difficulty == 1 || (global.n_map_id >= 0 && global.t_selected_difficulty != 1))
+				if (global.t_selected_difficulty == 1 || (tmp_n_map_id >= 0 && global.t_selected_difficulty != 1))
 				{
 					if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 					{
-						if (global.t_selected_difficulty = 1 || (global.t_selected_difficulty = 0 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*4))
+						if (global.t_selected_difficulty = 1 || (global.t_selected_difficulty = 0 && global.level >= (global.detailed_difficulty[tmp_n_map_id]+1)*4))
 						{
 							code.gamestart = 1
 							global.paused = 0
@@ -450,7 +450,7 @@ if (global.show_title_menu == 0)
 						else if (point_distance(mouse_x,mouse_y,button_2_xx,middle_yy) < 256*s_selected)
 						{
 							global.t_selected_difficulty = 0
-							if (global.n_map_id >= 0 && global.level >= (global.detailed_difficulty[global.n_map_id]+1)*4)
+							if (tmp_n_map_id >= 0 && global.level >= (global.detailed_difficulty[tmp_n_map_id]+1)*4)
 							{
 								code.gamestart = 1
 								global.paused = 0
@@ -486,7 +486,7 @@ if (global.show_title_menu == 0)
 		draw_text_k_scale(button_1_xx,middle_yy-f_selected*64,"Normal",64,-1,global.select_difficulty,color_temp1,0,0,normal_font,0.65*f_selected*global.font_ratio_resolution_xx,0.65*f_selected,0)
 		draw_text_k_scale(button_1_xx,middle_yy,"특정 하이라이트 부분에서\n세이브 포인트를 제공합니다",scale*48*f_selected,-1,global.select_difficulty,color_temp1,0,0,normal_font,0.35*f_selected*global.font_ratio_resolution_xx,0.35*f_selected,0)
 
-		var tmp_ind = global.obtainable_type[global.n_map_id];
+		var tmp_ind = global.obtainable_type[tmp_n_map_id];
 		tmp_ind = (tmp_ind > 9) ? tmp_ind-9 : tmp_ind;
 		draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,merge_color_new(c_white,c_black,dis_temp2),global.select_difficulty)
 		draw_sprite_ext(spr_W,tmp_ind,button_2_xx,middle_yy-s_selected*130,icon_scale*s_selected*global.font_ratio_resolution_xx,icon_scale*s_selected,image_angle,color_temp2,global.select_difficulty)
@@ -499,9 +499,9 @@ if (global.show_title_menu == 0)
 		//draw_text_k_scale(middle_xx,middle_yy+yy_h*0.15-t_selected*64,"Nightcore",64,-1,global.select_difficulty,merge_color_new(c_black,c_white,dis_temp3),0,0,normal_font,0.65*t_selected*global.font_ratio_resolution_xx,0.65*t_selected,0)
 		//draw_text_k_scale(middle_xx,middle_yy+yy_h*0.15,"특정 하이라이트 부분에서\n세이브 포인트를 제공하며,\n음악의 속도가 조금 빨라집니다.",scale*48*t_selected,-1,global.select_difficulty,color_temp3,0,0,normal_font,0.35*t_selected*global.font_ratio_resolution_xx,0.35*t_selected,0)
 	
-		if (global.n_map_id >= 0)
+		if (tmp_n_map_id >= 0)
 		{
-			var unlock_level = (global.detailed_difficulty[global.n_map_id]+1)*4;
+			var unlock_level = (global.detailed_difficulty[tmp_n_map_id]+1)*4;
 			if (global.level < unlock_level)
 			{
 				draw_sprite_ext(spr_circle,0,button_2_xx,middle_yy,scale*s_selected*global.font_ratio_resolution_xx*0.5,scale*s_selected*0.5,0,c_black,global.select_difficulty*0.7)
@@ -853,7 +853,7 @@ if (global.show_title_menu == 0)
 				if (global.player_leaderboard_difficulty != 0)
 				{
 					can_show_top_ten = (global.top_ten_score_hardcore != -4) ? 1 : 0;
-					tmp_target_score = (global.n_score_hardcore[global.n_map_id] == "--") ? 0 : global.n_score_hardcore[global.n_map_id];
+					tmp_target_score = (global.n_score_hardcore[tmp_n_map_id] == "--") ? 0 : global.n_score_hardcore[tmp_n_map_id];
 					tmp_val2 = tmp_target_score/global.top_ten_score_hardcore;
 					tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
 					tmp_str2 = (tmp_val2 != 1) ? "명예의 전당 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_hardcore - tmp_target_score))+"점!" : "명예의 전당 Top5 달성!";
@@ -861,7 +861,7 @@ if (global.show_title_menu == 0)
 				else
 				{
 					can_show_top_ten = (global.top_ten_score_normal != -4) ? 1 : 0;
-					tmp_target_score = (global.n_score[global.n_map_id] == "--") ? 0 : global.n_score[global.n_map_id];
+					tmp_target_score = (global.n_score[tmp_n_map_id] == "--") ? 0 : global.n_score[tmp_n_map_id];
 					tmp_val2 = tmp_target_score/global.top_ten_score_normal;
 					tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
 					tmp_str2 = (tmp_val2 != 1) ? "명예의 전당 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "명예의 전당 Top5 달성!";

@@ -47,7 +47,7 @@ if (global.paused == 0 && global.timeline_stop != 1)
 	}
 	
 	
-	if global.select_map != 0
+	if (global.select_map != 0)
 	{
 		image_xscale = 0;
 		image_yscale = 0;
@@ -276,7 +276,7 @@ if (global.paused == 0 && global.timeline_stop != 1)
 
 
 		//체력에 따른 이미지 설정
-		obj_player.image_index = global.player_skin*7+(5-global.hp)
+		obj_player.image_index = global.player_skin*7+fix_num_inside(5-global.hp,0,9999);
 
 		if (global.dash_cooltime > 0)
 		{

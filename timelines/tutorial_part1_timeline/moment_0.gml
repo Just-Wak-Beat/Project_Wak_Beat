@@ -5,7 +5,7 @@ if (!instance_exists(obj_stage_clear))
 	global.checkpoint_text = "리듬에 맞춰 등장하는 탄막을 피하기"
 }
 
-
+global.hp = 5;
 global.t_w_alpha = 0;
 global.t_bg_color = 1
 global.t_bg_color_alpha = 1
