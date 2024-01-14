@@ -69,14 +69,14 @@
 
 <img src = "imgs/android.png" width = "200px"></br>
 
-[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/Release1.01/Project.Wak.Beat.release.v1.01.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/Just-Wak-Beat/Project_Wak_Beat/releases/download/Release1.01/Project.Wak.Beat.release.v1.01.apk)
+[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/Release1.03/Project.Wak.Beat.release.v1.01.apk?color=98FF6A&label=Download&style=for-the-badge)](https://github.com/Just-Wak-Beat/Project_Wak_Beat/releases/download/Release1.01/Project.Wak.Beat.release.v1.03.apk)
 
 
 </br></br></br>
 
 <img src = "imgs/windows.png" width = "200px"></br>
 
-[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/Release1.01/Project.Wak.Beat.release.v1.01.zip?color=6AE2FF&label=Download&style=for-the-badge)](https://github.com/Just-Wak-Beat/Project_Wak_Beat/releases/download/Release1.01/Project.Wak.Beat.release.v1.01.zip)
+[![](https://img.shields.io/github/downloads/ABER1047/Just_Wak_and_Beats/Release1.03/Project.Wak.Beat.release.v1.01.zip?color=6AE2FF&label=Download&style=for-the-badge)](https://github.com/Just-Wak-Beat/Project_Wak_Beat/releases/download/Release1.01/Project.Wak.Beat.release.v1.03.zip)
 
 </br></br>
 
