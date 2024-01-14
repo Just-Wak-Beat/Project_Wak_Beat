@@ -14,7 +14,7 @@ global.low_graphics = false;
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1;
 global.default_directory = program_directory;
-global.custom_map_directory = string(global.default_directory)+"\\Custom map files\\";
+global.custom_map_directory = string(global.default_directory)+"Custom map files\\";
 global.nickname = ""
 global.dashed = 0
 global.total_damaged = 0

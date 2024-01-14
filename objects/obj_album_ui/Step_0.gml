@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+var tmp_n_map_id = fix_num_inside(global.n_map_id,0,255);
 var yy = camera_get_view_y(view_camera[0])
 var yy_h = camera_get_view_height(view_camera[0])
 
@@ -13,24 +14,24 @@ if (global.n_map_list != 2)
 		image_scale = 1;
 		sprite_set_offset(sprite_index,256,256)
 	}
-	image_index = global.n_map_id+2
+	image_index = tmp_n_map_id+2
 }
 else
 {
-	if (global.n_map_id != global.b_n_map_id)
+	if (tmp_n_map_id != global.b_n_map_id)
 	{
-		var tmp_spr = global.custom_stage_album[global.n_map_id];
+		var tmp_spr = global.custom_stage_album[tmp_n_map_id];
 		if (sprite_exists(tmp_spr))
 		{
-			var spr_width = sprite_get_width(global.custom_stage_album[global.n_map_id]);
-			var spr_height = sprite_get_height(global.custom_stage_album[global.n_map_id]);
+			var spr_width = sprite_get_width(global.custom_stage_album[tmp_n_map_id]);
+			var spr_height = sprite_get_height(global.custom_stage_album[tmp_n_map_id]);
 			var max_sprite_size = (spr_width > spr_height) ? spr_width : spr_height;
 			var cal_val = 512/max_sprite_size;
 			image_scale = cal_val;
 			if (image_scale <= 1 && image_scale > 0)
 			{
 				sprite_index = tmp_spr;
-				global.b_n_map_id = global.n_map_id;
+				global.b_n_map_id = tmp_n_map_id;
 				sprite_set_offset(tmp_spr,spr_width*0.5,spr_height*0.5)
 			}
 		}
@@ -119,7 +120,7 @@ if ((global.highlight_time <= 1240 && global.highlight_time > 30 && global.show_
 		{
 			w_alpha_bg = 0.6
 			
-			if (global.n_map_id >= 0 && (score_string_to_int(global.n_score[global.n_map_id]) >= 14000 || score_string_to_int(global.n_score_hardcore[global.n_map_id]) >= 14000))
+			if (tmp_n_map_id >= 0 && (score_string_to_int(global.n_score[tmp_n_map_id]) >= 14000 || score_string_to_int(global.n_score_hardcore[tmp_n_map_id]) >= 14000))
 			{
 				var _ef = instance_create_depth(x,y,depth+2,explosion_effect)
 				_ef.image_index = 6

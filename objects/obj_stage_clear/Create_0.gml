@@ -21,7 +21,7 @@ timer_del = 0
 char_ef_alpha = 0
 char_ef = 0
 
-
+reset_img_ind = 0;
 
 rings_alpha = 1
 can_play_animation = 0;

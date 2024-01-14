@@ -29,7 +29,7 @@ if (global.n_music_title == "왁트모르즈비")
 //커스텀 유저 맵 재생 / 오피셜 유저맵 재생
 if (((global.timeline_stop != 1 && global.play_custom_map == 1) || global.play_usermade_official_map == 1) && audio_is_playing(global.n_music_instance) && global.paused != 1)
 {
-	var map_file_dir = (global.n_map_list == 2) ? global.custom_map_file_dir[global.n_map_id] : string(global.default_directory)+"\\Official map files\\"+string(global.real_stage_map_audio_name[global.n_map_id]);
+	var map_file_dir = (global.n_map_list == 2) ? global.custom_map_file_dir[global.n_map_id] : string(global.default_directory)+"Official map files\\"+string(global.real_stage_map_audio_name[global.n_map_id]);
 	var tmp_directory = string(map_file_dir)+"\\map_data.ini";
 	event_user(11);
 	show_debug_message("custom_map_data_load - "+string(global.n_progress-1)+" / "+string(global.savepoint_position[0]))
@@ -346,6 +346,8 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 	}
 	else if (global.saved_notice_title == "새로운 소식!")
 	{
+		//패치노트
+		
 		global.unlocked_music_name_new_list[check_new_song] = "패치노트 - "+string(global.version);
 		global.unlocked_music_name_new_list_color[check_new_song] = #2BA6ED;
 		check_new_song ++;
@@ -368,6 +370,9 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 		check_new_song ++;
 		
 		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 리메이크 - FightFifthDeusExMachina_Letheia();";
+		check_new_song ++;
+		
+		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 생성 폴더 위치 및 이와 관련된 가이드 라인 내용 변경";
 		check_new_song ++;
 		
 		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 시스템 리메이크 - 기존 맵 파일이 정상 작동 하지 않을 수 있음";

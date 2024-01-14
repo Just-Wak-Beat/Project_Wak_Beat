@@ -2,29 +2,20 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function create_new_custom_map_file()
 {
-	if global.dev_mode != 1
-	{
-		global.default_directory = program_directory;
-		global.custom_map_directory = string(global.default_directory)+"\\Custom map files\\";
-		ini_open_protect(string(global.custom_map_directory)+"settings.ini");
-			ini_write_string("user","none","none");
-		ini_close_protect();
-	}
-	
 	var date_time = date_current_datetime();
 	var str_current_date = string(date_get_year(date_time))+"_"+string(date_get_month(date_time))+"_"+string(date_get_day(date_time))+"_"+string(date_get_hour(date_time))+"_"+string(date_get_minute(date_time))+"_"+string(date_get_second(date_time));
 	var map_dir = string(global.custom_map_directory)+"user_custom_map\\custom_map_file "+string(str_current_date);
 	
 	ini_open(string(global.custom_map_directory)+"user_custom_map\\system.ini")
-	ini_write_real("dummy_data","dummy_data",0);
+		ini_write_real("dummy_data","dummy_data",0);
 	ini_close();
 	
 	ini_open(string(map_dir)+"\\custom_hitbox_image\\center_origin\\[커스텀 탄막 이미지는 png파일만 가능합니다].txt");
-	ini_write_real("dummy_data","dummy_data",0);
+		ini_write_real("dummy_data","dummy_data",0);
 	ini_close();
 	
 	ini_open(string(map_dir)+"\\custom_hitbox_image\\top_origin\\[커스텀 탄막 이미지는 png파일만 가능합니다].ini");
-	ini_write_real("dummy_data","dummy_data",0);
+		ini_write_real("dummy_data","dummy_data",0);
 	ini_close();
 	
 	

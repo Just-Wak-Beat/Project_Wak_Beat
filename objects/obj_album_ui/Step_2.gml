@@ -1,5 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
+var tmp_n_map_id = fix_num_inside(global.n_map_id,0,255);
+
+
 if (global.can_change_music_list == 1)
 {
 	if (global.select_difficulty == 0 && global.show_new_songs <= 0 && global.unlock_partner_animation_queue == 0)
@@ -54,7 +57,7 @@ if (global.can_change_music_list == 1)
 					}
 				}
 			}
-			//else if (global.total_map > 0 && global.n_map_id >= 0 && global.real_stage_map_difficulty[global.n_map_id] != "Tutorial" && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1170) < 80) || keyboard_check_pressed(vk_tab)))
+			//else if (global.total_map > 0 && tmp_n_map_id >= 0 && global.real_stage_map_difficulty[tmp_n_map_id] != "Tutorial" && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1170) < 80) || keyboard_check_pressed(vk_tab)))
 			//{
 			//	if (global.nickname == "")
 			//	{
@@ -72,7 +75,7 @@ if (global.can_change_music_list == 1)
 			//		}
 			//	}
 			//}
-			else if (global.n_map_id >= 0 && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80) || keyboard_check_pressed(ord("Q"))))
+			else if (tmp_n_map_id >= 0 && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80) || keyboard_check_pressed(ord("Q"))))
 			{
 				if (global.nickname == "")
 				{
@@ -113,7 +116,7 @@ if (global.can_change_music_list == 1)
 				delete_current_map ++;
 				if (delete_current_map > 1)
 				{
-					var tmp_dir = global.custom_map_file_dir[global.n_map_id];
+					var tmp_dir = global.custom_map_file_dir[tmp_n_map_id];
 					file_delete(string(tmp_dir)+"\\map_info.ini");
 					load_custom_map_files();
 					ini_open(string(tmp_dir)+"\\삭제된 커스텀 유저맵.txt")
@@ -124,10 +127,10 @@ if (global.can_change_music_list == 1)
 				}
 				else
 				{
-					show_message_log("해당 맵을 지우려면 한 번 더 눌러주세요 ("+string(global.custom_stage_map_name[global.n_map_id])+")");
+					show_message_log("해당 맵을 지우려면 한 번 더 눌러주세요 ("+string(global.custom_stage_map_name[tmp_n_map_id])+")");
 				}
 			}
-			else if (global.n_map_id >= 0 && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80) || keyboard_check_pressed(ord("Q"))))
+			else if (tmp_n_map_id >= 0 && global.show_new_songs <= 0 && global.sync_setting != 1 && global.character_setting != 1 && ((mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+910) < 80) || keyboard_check_pressed(ord("Q"))))
 			{
 				if (global.nickname == "")
 				{

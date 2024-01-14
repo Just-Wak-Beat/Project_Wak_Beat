@@ -99,7 +99,7 @@ if (global.play_custom_map == 1)
 
 
 //인게임중에 설정 열기
-if (global.can_change_music_list == 1 && (!instance_exists(obj_stage_clear) || global.checkpoint_text = "ESC를 눌러 환경설정 열기"))
+if (global.rewind == 0 && global.can_change_music_list == 1 && (!instance_exists(obj_stage_clear) || global.checkpoint_text = "ESC를 눌러 환경설정 열기"))
 {
 	if (global.sync_setting == 0 && global.paused == 0 && (global.n_progress > 0 || music_title_alpha > 0))
 	{
@@ -413,7 +413,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 						timeline_index = -4;
 						global.t_selected_difficulty = 1;
 						global.selected_difficulty = 1;
-						var map_file_dir = (global.n_map_list == 2) ? global.custom_map_file_dir[global.n_map_id] : string(global.default_directory)+"\\Official map files\\"+string(global.real_stage_map_audio_name[global.n_map_id]);
+						var map_file_dir = (global.n_map_list == 2) ? global.custom_map_file_dir[global.n_map_id] : string(global.default_directory)+"Official map files\\"+string(global.real_stage_map_audio_name[global.n_map_id]);
 						if (global.n_map_list != 2)
 						{
 							global.play_usermade_official_map = 1;
