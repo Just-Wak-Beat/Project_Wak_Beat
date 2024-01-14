@@ -1,6 +1,15 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//업데이트
+if (global.update_plz > 0 && global.t_b_alpha <= 0 && global.notice_title == "")
+{
+	url_open("https://just-wak-beat.github.io/Project-Wak-Beat-website/");
+	global.update_plz = 0;
+}
+
+
+
 //닉네임 태그
 if (global.notice_title == "" && global.show_new_songs <= 0 && string_length(global.nickname) >= 3 && string_pos("3S4n92jfA",global.nickname) == 0)
 {

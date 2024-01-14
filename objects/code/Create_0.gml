@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "1.03";
+global.version_real = 1.04;
 global.version = "Release "+string(global.version_real);
 global.beta_tester = 0;
 global.streamer = 0;
@@ -70,7 +70,8 @@ global.c_spr_top_origin_num = 0;
 //닉네임 강제 초기화는 b_force_wipe_nickname 값을 수정하면 가능
 b_force_wipe_nickname = 0
 
-global.force_wipe_nickname = 1
+global.force_wipe_nickname = 1;
+global.update_plz = 0;
 
 
 
@@ -136,7 +137,7 @@ if (!np_initdiscord(DISCORD_APP_ID, true, np_steam_app_id_empty))
 
 
 //전체 랭킹 리더보드
-setup_gmscoreboard("a70d65f34511fece65808739de70d212","134126fa6426e417e2b28e18f146f280");
+setup_gmscoreboard("a70d65f34511fece65808739de70d212","134126fa6426e417e2b28e18f146f280","04994b729d3a3b126cf95209f6639e39");
 automatic_reload_player_leaderboard = 0;
 automatic_leaderboard_cancle = 0;
 global.player_leaderboard_difficulty = 0

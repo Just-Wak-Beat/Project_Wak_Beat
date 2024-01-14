@@ -183,7 +183,7 @@ if (automatic_reload_player_leaderboard > 0)
 		
 		show_debug_message("showing 명예의 전당 now")
 		var temp_difficulty_str = (global.player_leaderboard_difficulty != 0) ? "하드코어" : "노말";
-		global.notice_title = "명예의 전당";
+		global.notice_title = "명예의 전당 - "+string(temp_difficulty_str)+" 부문";
 		global.notice_title_sub = "<    (모든 곡의 "+string(temp_difficulty_str)+"난이도 스코어 총합 기준)    >";
 		global.show_new_songs = 1
 	}
@@ -347,51 +347,92 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 	else if (global.saved_notice_title == "새로운 소식!")
 	{
 		//패치노트
+		var has_new_version = 0;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "패치노트 - "+string(global.version);
-		global.unlocked_music_name_new_list_color[check_new_song] = #2BA6ED;
-		check_new_song ++;
+		if !ds_list_empty(global.gmscoreboard_scores[2])
+		{
+			//show_message_log("ds_list_size : "+string(ds_list_size(global.gmscoreboard_scores[global.player_leaderboard_difficulty])))
+			var tmp_list = ds_list_find_value(global.gmscoreboard_scores[2], 0);
+			var temp_score = tmp_list[? "score"];
+				
+			show_message_log(temp_score);
+			if (temp_score > global.version_real*10000)
+			{
+				has_new_version = temp_score;
+			}
+		}
 		
-		global.unlocked_music_name_new_list[check_new_song] = "___";
-		global.unlocked_music_name_new_list_color[check_new_song] = c_white;
-		check_new_song ++;
 		
 		
-		global.unlocked_music_name_new_list[check_new_song] = "Project Wak Beat 정식 출시";
-		check_new_song ++;
+		if (has_new_version == 0)
+		{
+			global.unlocked_music_name_new_list[check_new_song] = "패치노트 - "+string(global.version);
+			global.unlocked_music_name_new_list_color[check_new_song] = #2BA6ED;
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "일부 곡이 보이지 않던 버그 수정 (이세돌향 100%, Kidding, 우마무스메)";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "___";
+			global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "새로운 곡 추가! - 어푸 (Cover by 주르르 Jururu)";
-		check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "모바일 화면 비율 버그(글씨 및 이미지 깨짐 현상) 수정";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "Project Wak Beat 정식 출시";
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 리메이크 - FightFifthDeusExMachina_Letheia();";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "일부 곡이 보이지 않던 버그 수정 (이세돌향 100%, Kidding, 우마무스메)";
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 생성 폴더 위치 및 이와 관련된 가이드 라인 내용 변경";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "새로운 곡 추가! - 어푸 (Cover by 주르르 Jururu)";
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 시스템 리메이크 - 기존 맵 파일이 정상 작동 하지 않을 수 있음";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "모바일 화면 비율 버그(글씨 및 이미지 깨짐 현상) 수정";
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 에디터에 새로운 탄막 추가";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 리메이크 - FightFifthDeusExMachina_Letheia();";
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵에서 배경을 특정 색상으로 변경시 오류가 발생하던 버그 수정";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 생성 폴더 위치 및 이와 관련된 가이드 라인 내용 변경";
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "기존의 유저 랭크를 '명예의 전당'으로 변경";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 시스템 리메이크 - 기존 맵 파일이 정상 작동 하지 않을 수 있음";
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "광과민성 경고 문구 추가";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 에디터에 새로운 탄막 추가";
+			check_new_song ++;
 		
-		global.unlocked_music_name_new_list[check_new_song] = "플래쉬 효과 끄기 기능 추가";
-		check_new_song ++;
+			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵에서 배경을 특정 색상으로 변경시 오류가 발생하던 버그 수정";
+			check_new_song ++;
+		
+			global.unlocked_music_name_new_list[check_new_song] = "기존의 유저 랭크를 '명예의 전당'으로 변경";
+			check_new_song ++;
+		
+			global.unlocked_music_name_new_list[check_new_song] = "광과민성 경고 문구 추가";
+			check_new_song ++;
+		
+			global.unlocked_music_name_new_list[check_new_song] = "플래쉬 효과 끄기 기능 추가";
+			check_new_song ++;
+		}
+		else //새로운 버전 존재함
+		{
+			global.unlocked_music_name_new_list[check_new_song] = "새로운 버전으로 업데이트가 가능합니다!";
+			global.unlocked_music_name_new_list_color[check_new_song] = #2BA6ED;
+			check_new_song ++;
+			
+			global.unlocked_music_name_new_list[check_new_song] = "현재 버전 - "+string(global.version);
+			global.unlocked_music_name_new_list_color[check_new_song] = c_gray;
+			global.unlocked_music_name_new_list_rightside[check_new_song] = "새로운 버전 - Release "+string(temp_score/10000);
+			global.unlocked_music_name_new_list_color_rightside[check_new_song] = merge_color(c_white,c_gray,0.5);
+			check_new_song ++;
+		
+			global.unlocked_music_name_new_list[check_new_song] = "___";
+			global.unlocked_music_name_new_list_color[check_new_song] = c_white;
+			check_new_song ++;
+			
+			global.unlocked_music_name_new_list[check_new_song] = "(아무키나 누르면 자동으로 다운로드 페이지로 이동합니다)";
+			global.unlocked_music_name_new_list_color[check_new_song] = c_gray;
+			check_new_song ++;
+			
+			global.update_plz = 1;
+		}
 	}
 
 	if (global.saved_notice_title != "새로운 소식!")

@@ -21,7 +21,6 @@ timer_del = 0
 char_ef_alpha = 0
 char_ef = 0
 
-reset_img_ind = 0;
 
 rings_alpha = 1
 can_play_animation = 0;
@@ -31,6 +30,27 @@ rainbow_ef_alpha = 0
 rainbow_ef = 0
 rainbow_ef_angle = 0
 unlocked_char_index = 0
+
+
+if (global.play_custom_map != 1 && global.n_map_list != 2)
+{
+	var tmp_val = global.real_obtainable_type[global.n_map_id];
+	var tmp_artifact_type = (tmp_val >= 9) ? tmp_val-9 : tmp_val;
+	if (tmp_artifact_type == 8)
+	{
+		global.artifact_type = irandom_range(1,6);
+	}
+	else
+	{
+		global.artifact_type = tmp_artifact_type;
+	}
+	image_index = (sprite_index == spr_player) ? global.artifact_type*7 : global.artifact_type;
+}
+
+
+
+
+
 
 if (global.n_artifact[global.n_map_id] != "완료" || global.selected_difficulty == 0 || global.play_custom_map == 1)
 {

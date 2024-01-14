@@ -3,7 +3,7 @@
 
 
 
-for(var i = 0; i < 2; i++)
+for(var i = 0; i < 3; i++)
 {
 	if (ds_map_find_value(async_load, "id") == global.gmscoreboard_response[i])
 	{
@@ -32,7 +32,7 @@ for(var i = 0; i < 2; i++)
 					global.gmscoreboard_scores[i] = result[? "scores"];
 					
 
-					if !ds_list_empty(global.gmscoreboard_scores[i])
+					if (i != 2 && !ds_list_empty(global.gmscoreboard_scores[i])) //업데이트 체크용 리더보드 제외
 					{
 						var tmp_list = ds_list_find_value(global.gmscoreboard_scores[i], ds_list_size(global.gmscoreboard_scores[i])-1);
 						var temp_score = tmp_list[? "score"];

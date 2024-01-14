@@ -13,5 +13,6 @@ if (global.map_editor != 1)
 		global.dev_mode = 1;
 		show_message_log("개발자 모드가 활성화 되었습니다!");
 		global.level = 999;
+		set_score("NewVersion", string(global.version_real*10000), 2);
 	}
 }

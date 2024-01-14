@@ -2,20 +2,6 @@
 // You can write your code in this editor
 if (global.play_custom_map != 1 && global.n_map_list != 2)
 {
-	if (reset_img_ind == 0)
-	{
-		var tmp_val = global.real_obtainable_type[global.n_map_id];
-		var tmp_artifact_type = (tmp_val >= 9) ? tmp_val-9 : tmp_val;
-		if (tmp_artifact_type == 8)
-		{
-			global.artifact_type = irandom_range(1,6);
-		}
-		else
-		{
-			global.artifact_type = tmp_artifact_type;
-		}
-		reset_img_ind = 1;
-	}
 	image_index = (sprite_index == spr_player) ? global.artifact_type*7 : global.artifact_type;
 }
 

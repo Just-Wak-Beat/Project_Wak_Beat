@@ -1151,8 +1151,8 @@ if (global.show_title_menu == 0)
 			{
 				global.t_b_alpha = -0.01
 				global.unlocked_music_name_new_list_rightside[0] = "";
-				global.notice_title_sub = ""
-				global.notice_title = ""
+				global.notice_title_sub = "";
+				global.notice_title = "";
 				code.gamestart = 0
 			}
 		}
