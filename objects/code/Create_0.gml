@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = "1.02";
+global.version_real = "1.03";
 global.version = "Release "+string(global.version_real);
 global.beta_tester = 0;
 global.streamer = 0;
@@ -13,7 +13,7 @@ global.blackout_alpha = 0;
 global.low_graphics = false;
 global.mobile_mode = (os_type == 0) ? 0 : 1;
 global.font_ratio_resolution_xx = 1;
-global.default_directory = program_directory
+global.default_directory = program_directory;
 global.custom_map_directory = string(global.default_directory)+"\\Custom map files\\";
 global.nickname = ""
 global.dashed = 0
