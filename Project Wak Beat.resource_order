@@ -296,6 +296,7 @@
     {"name":"lilpa_hurt","order":3,"path":"sounds/lilpa_hurt/lilpa_hurt.yy",},
     {"name":"hitbox_23","order":24,"path":"objects/hitbox_23/hitbox_23.yy",},
     {"name":"spr_circle_outline_light","order":8,"path":"sprites/spr_circle_outline_light/spr_circle_outline_light.yy",},
+    {"name":"Sprite86","order":28,"path":"sprites/Sprite86/Sprite86.yy",},
     {"name":"show_message_log","order":7,"path":"scripts/show_message_log/show_message_log.yy",},
     {"name":"happysegu_timeline","order":25,"path":"timelines/happysegu_timeline/happysegu_timeline.yy",},
     {"name":"load_stage","order":1,"path":"scripts/load_stage/load_stage.yy",},

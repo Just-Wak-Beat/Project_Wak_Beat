@@ -49,7 +49,14 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"LootLockerLeaderBoardsExamples","folderPath":"folders/확장 기능/LootLockerLeaderboards/LootLockerLeaderBoardsExamples.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"확장","folderPath":"folders/확장.yy",},
   ],
-  "IncludedFiles": [],
+  "IncludedFiles": [
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"ah_puh.ogg","CopyToMask":-1,"filePath":"datafiles/apu",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"album.png","CopyToMask":-1,"filePath":"datafiles/apu",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"map_data.ini","CopyToMask":-1,"filePath":"datafiles/apu",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"map_info.ini","CopyToMask":-1,"filePath":"datafiles/apu",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"커스텀 맵 파일.lnk","CopyToMask":-1,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"커스텀 맵을 플레이 하기 전.txt","CopyToMask":-1,"filePath":"datafiles",},
+  ],
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
@@ -339,6 +346,7 @@
     {"id":{"name":"lilpa_hurt","path":"sounds/lilpa_hurt/lilpa_hurt.yy",},},
     {"id":{"name":"hitbox_23","path":"objects/hitbox_23/hitbox_23.yy",},},
     {"id":{"name":"spr_circle_outline_light","path":"sprites/spr_circle_outline_light/spr_circle_outline_light.yy",},},
+    {"id":{"name":"Sprite86","path":"sprites/Sprite86/Sprite86.yy",},},
     {"id":{"name":"show_message_log","path":"scripts/show_message_log/show_message_log.yy",},},
     {"id":{"name":"happysegu_timeline","path":"timelines/happysegu_timeline/happysegu_timeline.yy",},},
     {"id":{"name":"load_stage","path":"scripts/load_stage/load_stage.yy",},},

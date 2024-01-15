@@ -11,9 +11,10 @@ var tmp = (3600/global.bpm);
 tmp = (tmp <= 20) ? tmp*2 : tmp;
 global.dash_cooltime = fix_num_inside(tmp-10-global.dash_dec_c_time-n_max_map_speed*0.4,15,999);
 
-if (invincibility_cooltime < 45)
+var inv_cooltime = global.dash_cooltime-15+((global.mobile_mode == 1) ? 15 : 0);
+if (invincibility_cooltime < inv_cooltime)
 {
-	invincibility_cooltime = 45;
+	invincibility_cooltime = inv_cooltime;
 }
 
 var _ef = instance_create_depth(x,y,depth+1,explosion_effect)

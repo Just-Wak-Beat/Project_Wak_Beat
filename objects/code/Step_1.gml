@@ -377,6 +377,18 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 		
 			global.unlocked_music_name_new_list[check_new_song] = "Project Wak Beat 정식 출시";
 			check_new_song ++;
+			
+			global.unlocked_music_name_new_list[check_new_song] = "기존 파트너 변경 (민수 -> 마법소녀 오영택)";
+			check_new_song ++;
+			
+			global.unlocked_music_name_new_list[check_new_song] = "모바일 버전 벨런스 패치 (대쉬 무적시간 증가)";
+			check_new_song ++;
+			
+			global.unlocked_music_name_new_list[check_new_song] = "모바일 버전 화면 비율 버그 수정";
+			check_new_song ++;
+			
+			global.unlocked_music_name_new_list[check_new_song] = "새로운 파트너 추가";
+			check_new_song ++;
 		
 			global.unlocked_music_name_new_list[check_new_song] = "일부 곡이 보이지 않던 버그 수정 (이세돌향 100%, Kidding, 우마무스메)";
 			check_new_song ++;

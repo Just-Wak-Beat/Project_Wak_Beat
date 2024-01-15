@@ -11,7 +11,7 @@ if (global.can_change_music_list == 1)
 		{
 			with(code)
 			{
-				if object_index = code
+				if (object_index == code)
 				{
 					if (global.character_setting <= 0)
 					{
