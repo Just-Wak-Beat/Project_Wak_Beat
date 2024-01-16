@@ -9,6 +9,7 @@ global.respawn_point_yy = room_height*0.5;
 global.total_died_here = 0;
 global.total_damaged = 0;
 global.crossed_obstacle_num = 0;
+global.crossed_obstacle_num_with_maxhp = 0;
 global.total_death_point = 0;
 global.check_died = 0;
 global.n_progress = 0;

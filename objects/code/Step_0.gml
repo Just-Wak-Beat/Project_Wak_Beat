@@ -174,8 +174,9 @@ if (global.level < 0)
 
 
 //조이스틱
-global.joystick_alpha += (sign(global.joystick_activated+1) - global.joystick_alpha)*0.15
-if global.joystick_activated != -1
+var tmp_alpha = (sign(global.joystick_activated+1) == 1) ? 1 : -0.01;
+global.joystick_alpha += (tmp_alpha*3 - global.joystick_alpha)*0.05;
+if (global.joystick_activated != -1)
 {
 	global.hmove = floor((global.joystick_n_xx - global.joystick_xx)/(global.joystick_size*0.5)*10)/10
 	global.vmove = floor((global.joystick_n_yy - global.joystick_yy)/(global.joystick_size*0.5)*10)/10
@@ -197,26 +198,30 @@ if global.mobile_mode = 1 && global.sync_setting = 0
 		var xx_w = camera_get_view_width(view_camera[0])
 
 
-		if instance_exists(obj_player) && obj_player.image_xscale > 0
+		if (instance_exists(obj_player) && obj_player.image_xscale > 0)
 		{
 			if global.hp > 0
 			{
-				if device_mouse_x(i) < xx+xx_w*0.5
+				if (device_mouse_x(i) < xx+xx_w*0.5)
 				{
-					if is_click
+					if (is_click)
 					{
-						global.joystick_xx = device_mouse_x(i)
-						global.joystick_yy = device_mouse_y(i)
-						global.joystick_activated = i
+						global.joystick_activated = i;
+						
+						if (global.joystick_alpha <= 0.01)
+						{
+							global.joystick_xx = device_mouse_x(i);
+							global.joystick_yy = device_mouse_y(i);
+						}
 					}
 				}
 				else
 				{
-					if global.dash_cooltime <= 0 && is_click
+					if (global.dash_cooltime <= 0 && is_click)
 					{
 						with(obj_player)
 						{
-							if object_index = obj_player
+							if (object_index == obj_player)
 							{
 								event_user(0)
 							}
@@ -229,9 +234,13 @@ if global.mobile_mode = 1 && global.sync_setting = 0
 		{
 			if (is_click && global.can_change_music_list == 1 && gamestart == 0)
 			{
-				global.joystick_xx = device_mouse_x(i)
-				global.joystick_yy = device_mouse_y(i)
-				global.scroll_activated = i
+				global.scroll_activated = i;
+				
+				if (global.joystick_alpha <= 0.01)
+				{
+					global.joystick_xx = device_mouse_x(i);
+					global.joystick_yy = device_mouse_y(i);
+				}
 			}
 		}
 	
@@ -243,17 +252,17 @@ if global.mobile_mode = 1 && global.sync_setting = 0
 	
 		var is_clicked_joystick = device_mouse_check_button_released(global.joystick_activated, mb_left);
 		var is_clicked_scroll = device_mouse_check_button_released(global.scroll_activated, mb_left);
-		if (is_clicked_joystick || (global.cannot_control == 1 && instance_exists(obj_stage_clear)) || instance_exists(dead_explosion))
+		if (is_clicked_joystick || (global.cannot_control == 1 && instance_exists(obj_player) && obj_player.image_xscale <= 0 && instance_exists(obj_stage_clear)) || instance_exists(dead_explosion))
 		{
-			global.joystick_activated = -1
-			global.vmove = 0
-			global.hmove = 0
+			global.joystick_activated = -1;
+			global.vmove = 0;
+			global.hmove = 0;
 		}
 		
 		if (is_clicked_scroll)
 		{
-			global.t_select_map = round(global.t_select_map)
-			global.scroll_activated = -1
+			global.t_select_map = round(global.t_select_map);
+			global.scroll_activated = -1;
 		}
 	}
 }

@@ -20,8 +20,8 @@ once_in = 0
 timer_del = 0
 char_ef_alpha = 0
 char_ef = 0
-
-
+//클리어 보너스 점수
+global.n_score_displaying += global.clear_bonus_score;
 rings_alpha = 1
 can_play_animation = 0;
 play_unlock_animation = 0;

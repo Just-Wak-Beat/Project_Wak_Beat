@@ -357,7 +357,7 @@ if (global.timeline_stop == 1 && scroll_y > -639)
 			
 			if (i < 6 && (mouse_check_button_released(mb_left) || keyboard_check_released(vk_enter)))
 			{
-				if (abs(mouse_x-tmp_xx2) <= 52 && abs(mouse_y-tmp_yy2) <= 18)
+				if (abs(mouse_x-tmp_xx2) <= 52 && abs(mouse_y-tmp_yy2) <= 18 && !keyboard_check_released(vk_enter))
 				{
 					keyboard_string = "";
 					modified_value = 0;

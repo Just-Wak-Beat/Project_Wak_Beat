@@ -42,7 +42,7 @@ if (global.map_editor != 1)
 				kirakira_effect = 1;
 				w_alpha = 2;
 				global.blackout_alpha = 1;
-				invincibility_cooltime = 150+global.addition_invinc_time;
+				invincibility_cooltime = 150+global.addition_invinc_time+(global.mobile_mode == 1 ? 30 : 0);
 				show_invincibility = 1;
 				audio_play_sound(hit_sfx,0,false,global.master_volume*global.sfx_volume*6);
 			
@@ -65,6 +65,10 @@ if (global.map_editor != 1)
 				if (global.dashing > 0 && crossed_obstacle_cooldown = 0)
 				{
 					global.crossed_obstacle_num ++;
+					if (global.hp >= 5)
+					{
+						global.crossed_obstacle_num_with_maxhp ++;
+					}
 					global.rank_display_b_alpha = 1;
 					crossed_obstacle_cooldown = 1;
 					alarm[1] = 11

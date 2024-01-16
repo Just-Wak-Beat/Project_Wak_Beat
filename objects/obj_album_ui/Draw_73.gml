@@ -27,11 +27,11 @@ if (global.show_title_menu == 0)
 		var yscale = image_yscale*image_scale
 		//draw_self랑 같은 코드
 		draw_sprite_ext(sprite_index,image_index,x,y,xscale*global.font_ratio_resolution_xx,yscale,image_angle,image_blend,image_alpha)
-		if (global.obtainable_type[code.n_stage] != 99)
+		if (global.obtainable_type[tmp_n_map_id] != 99)
 		{
-			var tmp_ind1 = (global.obtainable_type[code.n_stage] >= 9) ? 21 : 20;
-			var tmp_ind2 = global.obtainable_type[code.n_stage];
-			var tmp_ind3 = (global.obtainable_type[code.n_stage] >= 9) ? 19 : 18;
+			var tmp_ind1 = (global.obtainable_type[tmp_n_map_id] >= 9) ? 21 : 20;
+			var tmp_ind2 = global.obtainable_type[tmp_n_map_id];
+			var tmp_ind3 = (global.obtainable_type[tmp_n_map_id] >= 9) ? 19 : 18;
 			if (global.play_custom_map == 1)
 			{
 				tmp_ind1 = 20;
@@ -44,7 +44,7 @@ if (global.show_title_menu == 0)
 			draw_sprite_ext(spr_W52,tmp_ind3,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,image_blend,image_alpha)
 		}
 
-		if instance_exists(code) && global.level < global.requirement_level[code.n_stage]
+		if instance_exists(code) && global.level < global.requirement_level[tmp_n_map_id]
 		{
 			__brighting_col = #68646f
 			draw_sprite_ext(spr_album,1,x,y,image_xscale*global.font_ratio_resolution_xx,image_yscale,image_angle,__brighting_col,0.5*image_alpha)
@@ -951,7 +951,7 @@ if (global.show_title_menu == 0)
 					global.t_selected_difficulty = 1
 				}
 				
-				if (code.n_stage >= 0 && string_pos("(Hardcore)", global.stage_map_difficulty[code.n_stage]) != 0)
+				if (tmp_n_map_id >= 0 && string_pos("(Hardcore)", global.stage_map_difficulty[tmp_n_map_id]) != 0)
 				{
 					global.t_selected_difficulty = 0
 				}

@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = 1.05;
+global.version_real = 1.06;
 global.version = "Release "+string(global.version_real);
 global.beta_tester = 0;
 global.streamer = 0;
@@ -228,7 +228,8 @@ global.t_select_difficulty = 0
 global.selected_difficulty = 0
 global.t_selected_difficulty = 1 //맵 난이도 설정 (1 == 노말)
 
-global.crossed_obstacle_num = 0
+global.crossed_obstacle_num = 0;
+global.crossed_obstacle_num_with_maxhp = 0;
 
 global.music_duration = 99999
 global.bpm = 172

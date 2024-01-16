@@ -853,7 +853,7 @@ else
 
 
 //조이스틱
-if global.joystick_alpha > 0.01
+if (global.joystick_alpha > 0.01)
 {
 	var joystick_size_real = global.joystick_size*global.converted_view_ratio
 	var joystick_size__ = joystick_size_real/512

@@ -85,11 +85,7 @@ if (global.dev_mode == 1 || global.tutorial_skip == 1)
 	global.tutorial_played = 1;
 }
 
-//장애물 회피 점수가 최대치를 못넘도록 설정
-if (global.crossed_obstacle_num > 99)
-{
-	global.crossed_obstacle_num = 99;
-}
+
 
 //레벨 한계치
 if (global.level > 999)
@@ -375,52 +371,19 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 			check_new_song ++;
 		
 		
-			global.unlocked_music_name_new_list[check_new_song] = "Project Wak Beat 정식 출시";
+			global.unlocked_music_name_new_list[check_new_song] = "모바일 버전 조이스틱 조작감 개선";
 			check_new_song ++;
 			
-			global.unlocked_music_name_new_list[check_new_song] = "기존 파트너 변경 (민수 -> 마법소녀 오영택)";
+			global.unlocked_music_name_new_list[check_new_song] = "점수 및 랭크 관련 버그 수정";
 			check_new_song ++;
 			
-			global.unlocked_music_name_new_list[check_new_song] = "모바일 버전 벨런스 패치 (대쉬 무적시간 증가)";
+			global.unlocked_music_name_new_list[check_new_song] = "자동 업데이트 감지 기능 추가";
 			check_new_song ++;
 			
-			global.unlocked_music_name_new_list[check_new_song] = "모바일 버전 화면 비율 버그 수정";
+			global.unlocked_music_name_new_list[check_new_song] = "대쉬 무적 쿨타임 관련 버그 수정";
 			check_new_song ++;
 			
-			global.unlocked_music_name_new_list[check_new_song] = "새로운 파트너 추가";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "일부 곡이 보이지 않던 버그 수정 (이세돌향 100%, Kidding, 우마무스메)";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "새로운 곡 추가! - 어푸 (Cover by 주르르 Jururu)";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "모바일 화면 비율 버그(글씨 및 이미지 깨짐 현상) 수정";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 리메이크 - FightFifthDeusExMachina_Letheia();";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 생성 폴더 위치 및 이와 관련된 가이드 라인 내용 변경";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 시스템 리메이크 - 기존 맵 파일이 정상 작동 하지 않을 수 있음";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 에디터에 새로운 탄막 추가";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵에서 배경을 특정 색상으로 변경시 오류가 발생하던 버그 수정";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "기존의 유저 랭크를 '명예의 전당'으로 변경";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "광과민성 경고 문구 추가";
-			check_new_song ++;
-		
-			global.unlocked_music_name_new_list[check_new_song] = "플래쉬 효과 끄기 기능 추가";
+			global.unlocked_music_name_new_list[check_new_song] = "모바일 버전 벨런스 패치";
 			check_new_song ++;
 		}
 		else //새로운 버전 존재함
