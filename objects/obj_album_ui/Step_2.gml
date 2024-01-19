@@ -46,7 +46,7 @@ if (global.can_change_music_list == 1)
 		{
 			if (global.show_new_songs <= 0 && mouse_check_button_released(mb_left) && point_distance(mouse_x,mouse_y,global.c_x+104,global.c_y+1430) < 80)
 			{
-				if (global.level >= global.requirement_level[code.n_stage])
+				if (global.level >= global.requirement_level[tmp_n_map_id])
 				{
 					if (global.sync_setting == 0 && global.character_setting == 0 && code.gamestart == 0)
 					{

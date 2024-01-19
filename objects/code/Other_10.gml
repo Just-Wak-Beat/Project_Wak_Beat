@@ -72,7 +72,11 @@ global.joystick_yy = -4
 
 instance_destroy(hitbox_parents);
 
-
+for(var ii = 0; ii <= 5; ii++)
+{
+	global.savepoint_position[ii] = -4;
+	global.savepoint_color[ii] = -4;
+}
 
 
 

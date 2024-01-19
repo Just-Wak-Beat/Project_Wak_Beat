@@ -156,6 +156,7 @@
     {"name":"spr_spot_light","order":26,"path":"sprites/spr_spot_light/spr_spot_light.yy",},
     {"name":"show_rank_sfx","order":13,"path":"sounds/show_rank_sfx/show_rank_sfx.yy",},
     {"name":"obj_message_log","order":2,"path":"objects/obj_message_log/obj_message_log.yy",},
+    {"name":"spr_pause","order":29,"path":"sprites/spr_pause/spr_pause.yy",},
     {"name":"automaticLoadPlayerRanking","order":2,"path":"scripts/automaticLoadPlayerRanking/automaticLoadPlayerRanking.yy",},
     {"name":"hitbox_18","order":19,"path":"objects/hitbox_18/hitbox_18.yy",},
     {"name":"create_arrow_laser","order":10,"path":"scripts/create_arrow_laser/create_arrow_laser.yy",},

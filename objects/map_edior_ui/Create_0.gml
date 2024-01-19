@@ -21,8 +21,10 @@ tmp_arr_ind_ins_list = 0;
 button_id = 0;
 modified_value = 0;
 modifying_value = 0;
+global.copied_img = -4;
 global.tiny_value_scrolling_now = 0;
 global.revalued_projectile_save = 0;
+global.value_set_arg = 0;
 for(var i = 0; i < 7; i++)
 {
 	global.converted_param[i] = 0;

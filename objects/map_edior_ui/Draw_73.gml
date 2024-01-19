@@ -32,7 +32,7 @@ if (global.timeline_stop == 1)
 	{
 		draw_text_k_scale(xx+xx_w*0.01,yy+yy_h*(0.27-global.mobile_mode*0.03),"- 단축키",fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 		var plus_str = (custom_image_type != 2) ? "\n탄막 이미지 변경 [좌/우 방향키]" : "";
-		draw_text_k_scale(xx+xx_w*0.01,yy+yy_h*(0.3-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n세밀한 값 조절 [Shift+스크롤 바 좌클릭]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]\n현재 타임라인 삭제 [Ctrl + Del]\n전체 타임라인 삭제 [Alt + Del]\n직접 값 입력 [스크롤 바 옆 숫자 클릭]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
+		draw_text_k_scale(xx+xx_w*0.01,yy+yy_h*(0.3-global.mobile_mode*0.03),"눈금선 위로 고정 [Shift]\n세밀한 값 조절 [Shift+스크롤 바 좌클릭]\n배치된 탄막 선택/수정 [마우스 가운데 휠 버튼]\n선택된 탄막 삭제 [Delete]\n에디터 창 열기/닫기 [Space / Enter]\n현재 타임라인 삭제 [Ctrl + Del]\n전체 타임라인 삭제 [Alt + Del]\n직접 값 입력 [스크롤 바 옆 숫자 클릭]\n선택된 탄막 정보 복사하기 [Ctrl + C]"+string(plus_str),fontsize2*256,-1,tmp_alpha_,c_white,0,-1,normal_font,fontsize2*global.font_ratio_resolution_xx,fontsize2,0)
 
 
 	
@@ -73,19 +73,20 @@ if (global.timeline_stop == 1)
 				{
 					if (other.id != id)
 					{
-						editor_selected = 0;
+						editor_selected = -1;
 					}
 				}
 				n_selected = -4;
 				selected_projectile_type = 1;
 				audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume);
-				global.ed_arg_name[0] = "";
-				global.ed_arg_name[1] = "";
-				global.ed_arg_name[2] = "";
-				global.ed_arg_name[3] = "";
-				global.ed_arg_name[4] = "";
-				global.ed_arg_name[5] = "";
-				global.ed_arg_name[6] = "";
+				for(var ii = 0 ; ii < 8 ; ii++)
+				{
+					global.ed_arg_name[ii] = "";
+					global.ed_arg_modifying[ii] = "";
+				}
+				
+				//global.ed_arg값이 obj_button에도 적용될려면 global.value_set_arg = 1 선언 해줘야 함
+				global.value_set_arg = 1;
 				global.editor_hitbox = -1;
 				image_blend = global.map_color;
 				image_angle = 0;
@@ -112,11 +113,6 @@ if (global.timeline_stop == 1)
 				else
 				{
 					global.editor_selected_type = i;
-				}
-			
-				with(code)
-				{
-					event_user(14);
 				}
 			}
 	

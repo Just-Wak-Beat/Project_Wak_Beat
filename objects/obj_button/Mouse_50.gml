@@ -37,6 +37,11 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && spri
 			global.n_progress = fix_num_inside(floor((scroll_value/100)*global.music_duration),1,global.music_duration);
 			timeline_position = global.n_progress+floor(global.music_sync_offset*3*60);
 			
+			with(code)
+			{
+				event_user(14);
+			}
+			
 			if (global.timeline_stop == -1 && !audio_is_playing(global.n_music_instance))
 			{
 				var _audio_asset = (global.n_map_list != 2) ? asset_get_index(global.n_music_name) : global.custom_audio_asset[code.n_stage];
@@ -50,6 +55,11 @@ if (global.n_setting_button = -4 || global.n_setting_button = button_id) && spri
 			{
 				audio_sound_set_track_position(global.n_music_instance,global.n_progress/60);
 			}
+		}
+		else if (button_id >= 100 && button_id <= 105)
+		{
+			var tmp_arr_ind = button_id-100;
+			global.ed_arg_modifed[tmp_arr_ind] = 1;
 		}
 	}
 }

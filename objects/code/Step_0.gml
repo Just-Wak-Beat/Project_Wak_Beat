@@ -114,7 +114,7 @@ if (global.rewind == 0 && global.can_change_music_list == 1 && (!instance_exists
 	{
 		if (keyboard_check_pressed(vk_escape) || (keyboard_check_pressed(vk_backspace) && global.mobile_mode == 1))
 		{
-			event_user(2)
+			event_user(2);
 		}
 	}
 
@@ -175,11 +175,13 @@ if (global.level < 0)
 
 //조이스틱
 var tmp_alpha = (sign(global.joystick_activated+1) == 1) ? 1 : -0.01;
-global.joystick_alpha += (tmp_alpha*3 - global.joystick_alpha)*0.05;
+global.joystick_alpha += (tmp_alpha*3 - global.joystick_alpha)*0.08;
 if (global.joystick_activated != -1)
 {
-	global.hmove = floor((global.joystick_n_xx - global.joystick_xx)/(global.joystick_size*0.5)*10)/10
-	global.vmove = floor((global.joystick_n_yy - global.joystick_yy)/(global.joystick_size*0.5)*10)/10
+	var tmp_xx_joy = (global.c_x+camera_get_view_width(view_camera[0])*0.5)+(global.joystick_width/global.n_camera_zoom);
+	var tmp_yy_joy = (global.c_y+camera_get_view_height(view_camera[0])*0.5)+(global.joystick_height/global.n_camera_zoom);
+	global.hmove = floor((global.joystick_n_xx - tmp_xx_joy)/(global.joystick_size*0.5)*10)/10
+	global.vmove = floor((global.joystick_n_yy - tmp_yy_joy)/(global.joystick_size*0.5)*10)/10
 }
 
 
@@ -212,6 +214,8 @@ if global.mobile_mode = 1 && global.sync_setting = 0
 						{
 							global.joystick_xx = device_mouse_x(i);
 							global.joystick_yy = device_mouse_y(i);
+							global.joystick_width = global.joystick_xx-(global.c_x+camera_get_view_width(view_camera[0])*0.5);
+							global.joystick_height = global.joystick_yy-(global.c_y+camera_get_view_height(view_camera[0])*0.5);
 						}
 					}
 				}
@@ -240,6 +244,8 @@ if global.mobile_mode = 1 && global.sync_setting = 0
 				{
 					global.joystick_xx = device_mouse_x(i);
 					global.joystick_yy = device_mouse_y(i);
+					global.joystick_width = global.joystick_xx-(global.c_x+camera_get_view_width(view_camera[0])*0.5);
+					global.joystick_height = global.joystick_yy-(global.c_y+camera_get_view_height(view_camera[0])*0.5);
 				}
 			}
 		}
@@ -382,6 +388,9 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 		{
 			if (global.n_music_id == -4 && (global.n_progress == 0 || global.tutorial_now == 1))
 			{
+				//탄막 중심점 조정
+				event_user(14);
+				
 				if (global.tutorial_played != 1 && global.tutorial_n_stage == 0)
 				{
 					//튜토리얼
@@ -465,7 +474,7 @@ if (global.show_progress_bar == 1 || global.tutorial_now == 1)
 						
 						if (global.t_selected_difficulty != 1)
 						{
-							for(var ii = 0; ii < global.save_point_num; ii++)
+							for(var ii = 0; ii <= 5; ii++)
 							{
 								global.savepoint_position[ii] = -4;
 								global.savepoint_color[ii] = -4;
@@ -585,7 +594,7 @@ global.w_alpha += (global.t_w_alpha - global.w_alpha)*0.1
 
 
 //되감기 이펙트
-if global.rewind > 0
+if (global.rewind > 0)
 {
 	if (global.rewind > 60)
 	{
@@ -668,7 +677,7 @@ if global.rewind > 0
 	}
 
 	
-	if global.rewind >= 132 && global.rewind <= 152
+	if (global.rewind >= 132 && global.rewind <= 152)
 	{
 		for(var i = 0; i < 16; i++)
 		{
@@ -676,7 +685,7 @@ if global.rewind > 0
 		}
 	}
 	
-	if global.rewind >= 188 && global.rewind <= 203
+	if (global.rewind >= 188 && global.rewind <= 203)
 	{
 		for(var i = 0; i < 16; i++)
 		{
@@ -684,7 +693,7 @@ if global.rewind > 0
 		}
 	}
 	
-	if global.rewind = 162
+	if (global.rewind == 162)
 	{
 		global.rewind_effect_line_angle = -20*4
 	
@@ -696,56 +705,56 @@ if global.rewind > 0
 		}
 	}
 	
-	if global.rewind = 172
+	if (global.rewind == 172)
 	{
-		global.rewind_effect_line_angle = 0
+		global.rewind_effect_line_angle = 0;
 	}
 	
-	if global.rewind = 177
+	if (global.rewind == 177)
 	{
-		global.rewind_effect_line_angle = -20*4
+		global.rewind_effect_line_angle = -20*4;
 	
-		var yy_h = camera_get_view_height(view_camera[0])
+		var yy_h = camera_get_view_height(view_camera[0]);
 		
 		for(var i = 0; i < 16; i++)
 		{
-			global.rewind_effect_line_pos[i] = irandom_range(0,yy_h)
+			global.rewind_effect_line_pos[i] = irandom_range(0,yy_h);
 		}
 	}
 	
 	
-	if global.rewind >= 211 && global.rewind <= 222
+	if (global.rewind >= 211 && global.rewind <= 222)
 	{
 		for(var i = 0; i < 16; i++)
 		{
-			global.rewind_effect_line_pos[i] -= 72
+			global.rewind_effect_line_pos[i] -= 72;
 		}
 	}
 	
-	if global.rewind = 222
+	if (global.rewind == 222)
 	{
 		global.rewind_effect_line_angle = 0
 	
-		var yy_h = camera_get_view_height(view_camera[0])
+		var yy_h = camera_get_view_height(view_camera[0]);
 		
 		
 		for(var i = 0; i < 16; i++)
 		{
-			global.rewind_effect_line_pos[i] = irandom_range(0,yy_h)
+			global.rewind_effect_line_pos[i] = irandom_range(0,yy_h);
 		}
 	}
 
 
 	if (global.rewind <= 240 && global.rewind >= 91)
 	{
-		global.clock_alpha_1 += (1 - global.clock_alpha_1)*0.02
-		global.clock_alpha_2 += (1 - global.clock_alpha_2)*0.02
+		global.clock_alpha_1 += (1 - global.clock_alpha_1)*0.02;
+		global.clock_alpha_2 += (1 - global.clock_alpha_2)*0.02;
 	}
 
 	if (global.rewind > 240)
 	{
-		global.clock_alpha_1 += (2.01 - global.clock_alpha_1)*0.02
-		global.clock_alpha_2 += (-0.01 - global.clock_alpha_2)*0.05
+		global.clock_alpha_1 += (2.01 - global.clock_alpha_1)*0.02;
+		global.clock_alpha_2 += (-0.01 - global.clock_alpha_2)*0.05;
 	}
 	
 	if (global.rewind > 260)
@@ -764,66 +773,66 @@ if global.rewind > 0
 		instance_destroy(obj_stage_clear);
 		event_user(8);
 	
-		if global.fukurou_snow_effect != 0
+		if (global.fukurou_snow_effect != 0)
 		{
 			for(var i = 0; i <= 64; i++)
 			{
-				var _shaking_circle = create_explo_circle(global.c_x+i*64,global.c_y+64,1+i*10,7200,0,0,0.18,2,0,0)
-				_shaking_circle.direction = 90
+				var _shaking_circle = create_explo_circle(global.c_x+i*64,global.c_y+64,1+i*10,7200,0,0,0.18,2,0,0);
+				_shaking_circle.direction = 90;
 			}
 		}
 	
-		if global.turisumo_effect != 0
+		if (global.turisumo_effect != 0)
 		{
-			var tmp_xx = (room_width - 3584)*0.5
-			var tmp_yy = (room_height + 2016)*0.5
+			var tmp_xx = (room_width - 3584)*0.5;
+			var tmp_yy = (room_height + 2016)*0.5;
 			for(var i = 0; i <= 64; i++)
 			{
-				var _shaking_circle = create_explo_circle(tmp_xx+i*128,tmp_yy+128,1+i*5,7200,0,0,0.5,2,0,0)
-				_shaking_circle.direction = 90
+				var _shaking_circle = create_explo_circle(tmp_xx+i*128,tmp_yy+128,1+i*5,7200,0,0,0.5,2,0,0);
+				_shaking_circle.direction = 90;
 			}
 		}
 	
 	
 		if (audio_is_playing(happysegu) && global.start_point == 4945)
 		{
-			var tmp_c_x = (room_width - 3584)*0.5
-			var tmp_c_w = (room_width + 3584)*0.5
-			var tmp_c_y = (room_height - 2016)*0.5
-			create_laser(tmp_c_x,tmp_c_y,1,1650,4,2,7,180)
-			create_laser(tmp_c_w,tmp_c_y,1,1650,4,2,7,180)
+			var tmp_c_x = (room_width - 3584)*0.5;
+			var tmp_c_w = (room_width + 3584)*0.5;
+			var tmp_c_y = (room_height - 2016)*0.5;
+			create_laser(tmp_c_x,tmp_c_y,1,1650,4,2,7,180);
+			create_laser(tmp_c_w,tmp_c_y,1,1650,4,2,7,180);
 			
 			if (global.t_selected_difficulty == 0)
 			{
-				var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7)
+				var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7);
 				tmp_ins.image_angle = 0;
-				var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7)
+				var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7);
 				tmp_ins.image_angle = 180;
 			}
-			var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7)
+			var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7);
 			tmp_ins.image_angle = 90;
-			var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7)
+			var tmp_ins = create_laser(room_width*0.5,room_height*0.5,1,320,4,2,1,0.7);
 			tmp_ins.image_angle = 270;
 		}
 
 	
-		if global.respawn_point_xx != -4
+		if (global.respawn_point_xx != -4)
 		{
-			obj_player.x = global.respawn_point_xx
-			obj_player.y = global.respawn_point_yy
+			obj_player.x = global.respawn_point_xx;
+			obj_player.y = global.respawn_point_yy;
 		}
 		else
 		{
-			obj_player.x = room_width*0.5
-			obj_player.y = room_height*0.5
+			obj_player.x = room_width*0.5;
+			obj_player.y = room_height*0.5;
 		}
-		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60)
+		global.n_music_instance = audio_play_sound(global.n_music_id,0,false,global.custom_map_volume_control*0.5*global.master_volume*global.bgm_volume*(global.mobile_mode*0.5+1),global.start_point/60);
 		global.rewind_effect_line_angle = 0;
 		
 
 		audio_play_sound(cleared_sfx,0,false,global.master_volume*global.sfx_volume*4);
-		global.w_alpha = 1
-		obj_camera.alarm[0] = 2
+		global.w_alpha = 1;
+		obj_camera.alarm[0] = 2;
 		
 		//곡 리스타트
 		if (global.restart_stage == 1 || global.t_selected_difficulty == 0)
@@ -843,6 +852,7 @@ if global.rewind > 0
 		if (global.play_custom_map == 1)
 		{
 			global.custom_map_timeline = false;
+			global.background_color = c_black;
 		}
 		else
 		{
@@ -850,7 +860,7 @@ if global.rewind > 0
 			timeline_running = false;
 			global.custom_map_timeline = false;
 			var time__ = floor(global.music_sync_offset*3*60);
-			if time__ > 0 && global.tutorial_now != 1
+			if (time__ > 0 && global.tutorial_now != 1)
 			{
 				alarm[7] = time__;
 			}

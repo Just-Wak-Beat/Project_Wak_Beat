@@ -71,6 +71,11 @@ if (instance_exists(obj_player) && obj_player.image_xscale > 0)
 	
 			draw_sprite_ext(spr_W,global.obtainable_type[global.n_map_id],xx+xx_w*0.3+progress_icon_alpha*1433*global.converted_view_ratio,yy+global.converted_view_ratio*81*progress_icon_alpha,0.13*global.converted_view_ratio,0.13*global.converted_view_ratio,0,c_white,progress_icon_alpha)
 		}
+		
+		if (progress_icon_alpha > 0 && global.mobile_mode == 1)
+		{
+			draw_sprite_ext(spr_pause,0,xx+xx_w*0.966,yy+yy_h*0.063,0.6*global.converted_view_ratio*global.font_ratio_resolution_xx,0.6*global.converted_view_ratio,0,c_white,progress_icon_alpha*0.8);
+		}
 	}
 
 
@@ -450,14 +455,14 @@ if (global.select_map != 0 && instance_exists(obj_player) && abs(obj_player.imag
 				global.t_select_map --
 			}
 			
-			if global.t_select_map <= 1
+			if (global.t_select_map <= 1)
 			{
-				global.t_select_map = global.total_map+1
+				global.t_select_map = global.total_map+1;
 			}
 	
-			if global.t_select_map > global.total_map+1
+			if (global.t_select_map > global.total_map+1)
 			{
-				global.t_select_map = 2
+				global.t_select_map = 2;
 			}
 		}
 		else
@@ -855,32 +860,34 @@ else
 //조이스틱
 if (global.joystick_alpha > 0.01)
 {
-	var joystick_size_real = global.joystick_size*global.converted_view_ratio
-	var joystick_size__ = joystick_size_real/512
-	draw_sprite_ext(spr_joystick,0,global.joystick_xx,global.joystick_yy,joystick_size__*global.font_ratio_resolution_xx,joystick_size__,0,c_white,global.joystick_alpha*0.1)
+	var joystick_size_real = global.joystick_size*global.converted_view_ratio*global.n_camera_zoom;
+	var joystick_size__ = joystick_size_real/512;
+	var tmp_xx_joy = (global.c_x+camera_get_view_width(view_camera[0])*0.5)+(global.joystick_width/global.n_camera_zoom);
+	var tmp_yy_joy = (global.c_y+camera_get_view_height(view_camera[0])*0.5)+(global.joystick_height/global.n_camera_zoom);
+	draw_sprite_ext(spr_joystick,0,tmp_xx_joy,tmp_yy_joy,joystick_size__*global.font_ratio_resolution_xx*global.n_camera_zoom,joystick_size__*global.n_camera_zoom,0,c_white,global.joystick_alpha*0.1);
 
 
-	if global.joystick_activated != -1
+	if (global.joystick_activated != -1)
 	{
-		var rad__ = joystick_size_real*0.5
-		global.joystick_n_xx = device_mouse_x(global.joystick_activated)
-		global.joystick_n_yy = device_mouse_y(global.joystick_activated)
+		var rad__ = joystick_size_real*0.5;
+		global.joystick_n_xx = device_mouse_x(global.joystick_activated);
+		global.joystick_n_yy = device_mouse_y(global.joystick_activated);
 	
-		global.joystick_dir = point_direction(global.joystick_xx,global.joystick_yy,global.joystick_n_xx,global.joystick_n_yy)
-		if point_distance(global.joystick_xx,global.joystick_yy,global.joystick_n_xx,global.joystick_n_yy) > rad__
+		global.joystick_dir = point_direction(tmp_xx_joy,tmp_yy_joy,global.joystick_n_xx,global.joystick_n_yy);
+		if (point_distance(tmp_xx_joy,tmp_yy_joy,global.joystick_n_xx,global.joystick_n_yy) > rad__)
 		{
-			global.joystick_n_xx = global.joystick_xx+lengthdir_x(rad__,global.joystick_dir)
-			global.joystick_n_yy = global.joystick_yy+lengthdir_y(rad__,global.joystick_dir)
+			global.joystick_n_xx = tmp_xx_joy+lengthdir_x(rad__,global.joystick_dir);
+			global.joystick_n_yy = tmp_yy_joy+lengthdir_y(rad__,global.joystick_dir);
 		}
 	}
 	else
 	{
-		global.joystick_n_xx += (global.joystick_xx - global.joystick_n_xx)*0.2
-		global.joystick_n_yy += (global.joystick_yy - global.joystick_n_yy)*0.2
+		global.joystick_n_xx += (tmp_xx_joy - global.joystick_n_xx)*0.2;
+		global.joystick_n_yy += (tmp_yy_joy - global.joystick_n_yy)*0.2;
 	}
 	
 
-	draw_sprite_ext(spr_circle,0,global.joystick_n_xx,global.joystick_n_yy,joystick_size__*0.35*global.font_ratio_resolution_xx*0.5,joystick_size__*0.35*0.5,0,c_white,global.joystick_alpha*0.15)
+	draw_sprite_ext(spr_circle,0,global.joystick_n_xx,global.joystick_n_yy,joystick_size__*0.35*global.font_ratio_resolution_xx*0.5,joystick_size__*0.35*0.5,0,c_white,global.joystick_alpha*0.15);
 }
 
 

@@ -86,38 +86,45 @@ if (can_draw == 1)
 						tmp_val_cal2 = fix_num_inside((tmp_const/global.ed_arg_max_val[tmp_arr_ind]*100)*global.ed_arg_divide[tmp_arr_ind],0,global.ed_arg_max_val[tmp_arr_ind]);
 						scroll_value = tmp_val_cal2;
 					}
+					
+					global.ed_arg_modifed[tmp_arr_ind] = 1;
 				}
 				
-				
+
 				//스크롤 바로 입력
-				if (global.ed_arg_min_val[tmp_arr_ind] != 0 && global.ed_arg_min_val[tmp_arr_ind] != 1)
+				if (global.ed_arg_modifed[tmp_arr_ind] == 1)
 				{
-					global.ed_arg[tmp_arr_ind] = fix_num_inside(((scroll_value-50)/50)*(global.ed_arg_max_val[tmp_arr_ind]),-global.ed_arg_max_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
-				}
-				else
-				{
-					global.ed_arg[tmp_arr_ind] = fix_num_inside((scroll_value/100)*(global.ed_arg_max_val[tmp_arr_ind]),0,global.ed_arg_max_val[tmp_arr_ind]);
-				}
-				
-				
-				if (global.ed_arg_divide[tmp_arr_ind] == 90)
-				{
-					global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind]/90)*90;
-				}
-				else
-				{
-					if (global.ed_arg_correction[tmp_arr_ind] == 1)
+					if (global.ed_arg_min_val[tmp_arr_ind] != 0 && global.ed_arg_min_val[tmp_arr_ind] != 1)
 					{
-						global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind])/global.ed_arg_divide[tmp_arr_ind];
-					}
-					else if (global.ed_arg_correction[tmp_arr_ind] == 2)
-					{
-						global.ed_arg[tmp_arr_ind] = floor(global.ed_arg[tmp_arr_ind])/global.ed_arg_divide[tmp_arr_ind];
+						global.ed_arg[tmp_arr_ind] = fix_num_inside(((scroll_value-50)/50)*(global.ed_arg_max_val[tmp_arr_ind]),-global.ed_arg_max_val[tmp_arr_ind],global.ed_arg_max_val[tmp_arr_ind]);
 					}
 					else
 					{
-						global.ed_arg[tmp_arr_ind] /= global.ed_arg_divide[tmp_arr_ind];
+						global.ed_arg[tmp_arr_ind] = fix_num_inside((scroll_value/100)*(global.ed_arg_max_val[tmp_arr_ind]),0,global.ed_arg_max_val[tmp_arr_ind]);
 					}
+				
+				
+				
+					if (global.ed_arg_divide[tmp_arr_ind] == 90)
+					{
+						global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind]/90)*90;
+					}
+					else
+					{
+						if (global.ed_arg_correction[tmp_arr_ind] == 1)
+						{
+							global.ed_arg[tmp_arr_ind] = round(global.ed_arg[tmp_arr_ind])/global.ed_arg_divide[tmp_arr_ind];
+						}
+						else if (global.ed_arg_correction[tmp_arr_ind] == 2)
+						{
+							global.ed_arg[tmp_arr_ind] = floor(global.ed_arg[tmp_arr_ind])/global.ed_arg_divide[tmp_arr_ind];
+						}
+						else
+						{
+							global.ed_arg[tmp_arr_ind] /= global.ed_arg_divide[tmp_arr_ind];
+						}
+					}
+					global.ed_arg_modifed[tmp_arr_ind] = 0;
 				}
 			}
 			
@@ -202,7 +209,7 @@ if (can_draw == 1)
 					if (global.savepoint_position[i] != -4)
 					{
 						var _xx_ = x+tmp_width_full*(-0.5+global.savepoint_position[i]/global.music_duration)
-						draw_sprite_ext(spr_square,0,_xx_,y,0.1,image_yscale*4,0,global.player_color,2*image_alpha)
+						draw_sprite_ext(spr_square,0,_xx_,y,0.07,image_yscale*4.1,0,global.player_color,4*image_alpha)
 					}
 				}
 				

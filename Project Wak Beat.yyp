@@ -194,6 +194,7 @@
     {"id":{"name":"spr_rewind_clock","path":"sprites/spr_rewind_clock/spr_rewind_clock.yy",},},
     {"id":{"name":"show_rank_sfx","path":"sounds/show_rank_sfx/show_rank_sfx.yy",},},
     {"id":{"name":"obj_message_log","path":"objects/obj_message_log/obj_message_log.yy",},},
+    {"id":{"name":"spr_pause","path":"sprites/spr_pause/spr_pause.yy",},},
     {"id":{"name":"send_one","path":"scripts/send_one/send_one.yy",},},
     {"id":{"name":"automaticLoadPlayerRanking","path":"scripts/automaticLoadPlayerRanking/automaticLoadPlayerRanking.yy",},},
     {"id":{"name":"hitbox_18","path":"objects/hitbox_18/hitbox_18.yy",},},

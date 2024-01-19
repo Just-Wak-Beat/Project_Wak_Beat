@@ -98,6 +98,24 @@ else
 				}
 			}
 		}
+		else if (custom_image_type == 3)
+		{
+			if (sprite_exists(global.copied_img))
+			{
+				custom_image_ind = 0;
+				var spr_offset_xx = sprite_get_xoffset(global.copied_img);
+				var spr_offset_yy = sprite_get_yoffset(global.copied_img);
+				
+				if (abs(sprite_get_width(global.copied_img)*0.5-spr_offset_xx) <= 1 && abs(sprite_get_height(global.copied_img)*0.5-spr_offset_yy) <= 1)
+				{
+					custom_image_type = 0;
+				}
+				else
+				{
+					custom_image_type = 1;
+				}
+			}
+		}
 		else
 		{
 			if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_right))

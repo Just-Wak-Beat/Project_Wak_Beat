@@ -28,16 +28,7 @@ global.map_speed = 0
 global.artifact_type = irandom_range(1,6)
 
 
-while(true)
-{
-	global.t_map_speed_x = 64*choose(-1,0,1)
-	global.t_map_speed_y = 64*choose(-1,0,1)
 
-	if (global.t_map_speed_x != 0 || global.t_map_speed_y != 0)
-	{
-		break;
-	}
-}
 
 if (global.t_selected_difficulty = 1 && global.boss_battle == 0)
 {

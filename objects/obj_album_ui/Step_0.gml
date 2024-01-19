@@ -51,9 +51,9 @@ else
 
 
 
-x = global.c_x+916-global.mobile_mode*64
-depth = code.depth-100
-image_alpha = global.ui_alpha
+x = global.c_x+916-global.mobile_mode*64;
+depth = code.depth-100;
+image_alpha = global.ui_alpha;
 if (global.title_menu_animation2 == 1 && global.total_map > 0)
 {
 	if instance_exists(code) && code.gamestart = 1

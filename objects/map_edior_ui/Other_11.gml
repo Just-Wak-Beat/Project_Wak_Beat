@@ -80,18 +80,19 @@ if (instance_exists(n_selected))
 		global.ed_arg[5] = n_selected.m_data_arg5;
 		global.ed_arg[6] = n_selected.m_data_arg6;
 		global.ed_arg[7] = n_selected.m_data_arg7;
+		
+		
+		
 		global.editor_hitbox = -1;
 		alarm[2] = 5;
 	}
 	
-	selected_projectile_type = 1;
-	global.ed_arg_name[0] = "";
-	global.ed_arg_name[1] = "";
-	global.ed_arg_name[2] = "";
-	global.ed_arg_name[3] = "";
-	global.ed_arg_name[4] = "";
-	global.ed_arg_name[5] = "";
-	global.ed_arg_name[6] = "";
+
+	for(var ii = 0 ; ii < 8 ; ii++)
+	{
+		global.ed_arg_name[ii] = "";
+		global.ed_arg_modifying[ii] = "";
+	}
 	clean_message_log();
 	show_message_log("선택된 탄막은 [Delete]키를 눌러 삭제 가능하며,");
 	show_message_log("우측의 스크롤 바를 통해 기존 값을 수정할 수 있습니다");

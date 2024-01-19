@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = 1.06;
+global.version_real = 1.07;
 global.version = "Release "+string(global.version_real);
 global.beta_tester = 0;
 global.streamer = 0;
@@ -49,6 +49,7 @@ for(var i = 0; i < 7; i++)
 {
 	global.ed_arg[i] = 0.1;
 	global.ed_arg_modifying[i] = "";
+	global.ed_arg_modifed[i] = 0;
 	global.ed_arg_name[i] = "";
 	global.ed_arg_min_val[i] = 0;
 	global.ed_arg_max_val[i] = 0;
@@ -1124,6 +1125,8 @@ event_user(7)
 //모바일용 조이스틱
 global.joystick_xx = -4
 global.joystick_yy = -4
+global.joystick_width = -4;
+global.joystick_height = -4;
 global.joystick_n_xx = -4
 global.joystick_n_yy = -4
 global.scroll_n_m_xx = -1
