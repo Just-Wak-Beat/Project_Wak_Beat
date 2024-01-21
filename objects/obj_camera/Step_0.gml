@@ -131,24 +131,24 @@ if (global.paused == 0)
 	global.real_shake_y = global.t_shake_y*global.shake_y
 	global.shake_time ++
 
-		if (global.shake_time > 1)
-		{
-			global.shake_x = -global.shake_x
-			global.shake_y = -global.shake_y
-			global.shake_time = 0
-		}
+	if (global.shake_time > 1)
+	{
+		global.shake_x = -global.shake_x
+		global.shake_y = -global.shake_y
+		global.shake_time = 0
+	}
 
 
-		if (global.sync_setting_alpha <= 0.01)
-		{
-			x += global.real_shake_x*0.3
-			y += global.real_shake_y*0.3
-			camera_set_view_angle(view_camera[0],global.view_angle_)
-		}
-		else
-		{
-			camera_set_view_angle(view_camera[0],0)
-		}
+	if (global.sync_setting_alpha <= 0.01)
+	{
+		x += global.real_shake_x*0.3
+		y += global.real_shake_y*0.3
+		camera_set_view_angle(view_camera[0],global.view_angle_)
+	}
+	else
+	{
+		camera_set_view_angle(view_camera[0],0)
+	}
 	
 	/*if (global.blackout_alpha > 0 && surface_exists(code.surf_screen))
 	{
