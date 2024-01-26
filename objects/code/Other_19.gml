@@ -62,7 +62,7 @@ var temp_real_name = global.nametag_script_return0;
 var temp_text_code = global.nametag_script_return1;
 var text_code_col = global.nametag_script_return2;
 var	add_nametag = global.nametag_script_return3;
-var temp_score = (global.player_leaderboard_difficulty == 0) ? global.total_score_normal : global.total_score_hardcore;
+var temp_score = global.total_score_normal+global.total_score_hardcore;
 global.unlocked_music_name_new_list[7] = "___";
 global.unlocked_music_name_new_list[8] = "[현재 내 순위 - "+string(my_ranking_num);
 global.unlocked_music_name_new_list_color[8] = $FF56D2FF;

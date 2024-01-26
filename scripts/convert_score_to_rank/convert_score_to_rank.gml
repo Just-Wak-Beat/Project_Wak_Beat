@@ -11,14 +11,7 @@ function convert_score_to_rank(argument0,argument1)
 		var tmp_score = real(argument0)/10000;
 		if (argument1 == 1)
 		{
-			if (global.player_leaderboard_difficulty == 0)
-			{
-				tmp_score /= (global.both_difficulty_num);
-			}
-			else
-			{
-				tmp_score /= (global.both_difficulty_num+global.hardcore_only_num);
-			}
+			tmp_score /= (global.both_difficulty_num*2+global.hardcore_only_num);
 		}
 		
 		if (tmp_score >= 15)

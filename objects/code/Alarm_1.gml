@@ -93,9 +93,23 @@ if (global.n_score_displaying > 0)
 	global.result_obstacle = global.crossed_obstacle_num
 
 	//온라인 랭킹 점수 등록
+	global.total_score_normal = 0;
+	global.total_score_hardcore = 0;
 	if (send_score == 1 && global.nickname != "")
 	{
-		set_score(global.nickname, global.result_score, global.t_selected_difficulty);
+		for(var i = 0; i < global.origin_total_map; i++)
+		{
+			if (string_pos("(Hardcore)", global.real_stage_map_name[i]) == 0)
+			{
+				global.total_score_normal += (global.real_n_score[i] != "--") ? real(global.real_n_score[i]) : 0;
+			}
+			global.total_score_hardcore += (global.real_n_score_hardcore[i] != "--") ? real(global.real_n_score_hardcore[i]) : 0;
+		}
+		
+
+		set_score(global.nickname, global.total_score_normal+global.total_score_hardcore, 0);
+		get_scores(5,0);
+		show_debug_message("점수 전송 - ("+string(global.nickname)+")");
 	}
 
 

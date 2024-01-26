@@ -178,9 +178,8 @@ if (automatic_reload_player_leaderboard > 0)
 		show_message_log("온라인 서버 연결 중...");
 		
 		show_debug_message("showing 명예의 전당 now")
-		var temp_difficulty_str = (global.player_leaderboard_difficulty != 0) ? "하드코어" : "노말";
-		global.notice_title = "명예의 전당 - "+string(temp_difficulty_str)+" 부문";
-		global.notice_title_sub = "<    (모든 곡의 "+string(temp_difficulty_str)+"난이도 스코어 총합 기준)    >";
+		global.notice_title = "명예의 전당";
+		global.notice_title_sub = "<    (모든 곡의 모든 난이도 스코어 총합 기준)    >";
 		global.show_new_songs = 1
 	}
 	automatic_reload_player_leaderboard++;
@@ -191,33 +190,21 @@ if (automatic_reload_player_leaderboard > 0)
 	
 	if (automatic_reload_player_leaderboard == 3 && global.nickname != "")
 	{
-		var tmp_total_score = 0;
+		global.total_score_normal = 0;
+		global.total_score_hardcore = 0;
 		for(var i = 0; i < global.origin_total_map; i++)
 		{
-			if (global.player_leaderboard_difficulty == 0)
+			if (string_pos("(Hardcore)", global.real_stage_map_name[i]) == 0)
 			{
-				tmp_total_score += (global.real_n_score[i] != "--") ? real(global.real_n_score[i]) : 0;
+				global.total_score_normal += (global.real_n_score[i] != "--") ? real(global.real_n_score[i]) : 0;
 			}
-			else
-			{
-				tmp_total_score += (global.real_n_score_hardcore[i] != "--") ? real(global.real_n_score_hardcore[i]) : 0;
-			}
+			global.total_score_hardcore += (global.real_n_score_hardcore[i] != "--") ? real(global.real_n_score_hardcore[i]) : 0;
 		}
 		
-		if (global.player_leaderboard_difficulty == 0)
-		{
-			set_score(global.nickname, (tmp_total_score < 1) ? 1 : tmp_total_score, 0);
-			get_scores(5,0);
-			show_debug_message("점수 전송 - "+string(tmp_total_score)+" ("+string(global.nickname)+")");
-			global.total_score_normal = tmp_total_score;
-		}
-		else
-		{
-			set_score(global.nickname, (tmp_total_score < 1) ? 1 : tmp_total_score, 1);
-			get_scores(5,1);
-			show_debug_message("점수 전송 - "+string(tmp_total_score)+" ("+string(global.nickname)+")");
-			global.total_score_hardcore = tmp_total_score;
-		}
+
+		set_score(global.nickname, global.total_score_normal+global.total_score_hardcore, 0);
+		get_scores(5,0);
+		show_debug_message("점수 전송 - ("+string(global.nickname)+")");
 	}
 	
 
@@ -371,10 +358,10 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 			check_new_song ++;
 		
 		
-			global.unlocked_music_name_new_list[check_new_song] = "대쉬 무적 판정 시간 관련 버그 수정";
+			global.unlocked_music_name_new_list[check_new_song] = "개발 예정 곡 변경 (Kinmokusei 금목서 -> Fire Again)";
 			check_new_song ++;
 			
-			global.unlocked_music_name_new_list[check_new_song] = "모바일 닉네임 입력 관련 일부 사항 수정";
+			global.unlocked_music_name_new_list[check_new_song] = "명예의 전당 랭크 시스템 변경 (각 난이도별 점수 -> 모든 난이도 점수 합산)";
 			check_new_song ++;
 			
 			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 탄막 이미지 변경 메시지 관련 일부 사항 수정";

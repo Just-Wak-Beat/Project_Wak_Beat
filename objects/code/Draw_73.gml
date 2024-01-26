@@ -266,9 +266,9 @@ if (global.select_map != 0 && instance_exists(obj_player) && abs(obj_player.imag
 			}
 			
 			//title
-			if selected_me = 0
+			if (selected_me == 0)
 			{
-				if locked_now = 0 && dis_alpha > 0.1
+				if locked_now == 0 && dis_alpha > 0.1
 				{
 					var tmp_score_n = (is_real(global.n_score[i])) ? global.n_score[i] : 0;
 					var tmp_score_hc = (is_real(global.n_score_hardcore[i])) ? global.n_score_hardcore[i] : 0;

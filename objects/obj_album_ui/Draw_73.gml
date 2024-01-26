@@ -850,22 +850,13 @@ if (global.show_title_menu == 0)
 						
 				
 				var can_show_top_ten, tmp_target_score, tmp_val2, tmp_str2;
-				if (global.player_leaderboard_difficulty != 0)
-				{
-					can_show_top_ten = (global.top_ten_score_hardcore != -4) ? 1 : 0;
-					tmp_target_score = (global.n_score_hardcore[tmp_n_map_id] == "--") ? 0 : global.n_score_hardcore[tmp_n_map_id];
-					tmp_val2 = tmp_target_score/global.top_ten_score_hardcore;
-					tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
-					tmp_str2 = (tmp_val2 != 1) ? "명예의 전당 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_hardcore - tmp_target_score))+"점!" : "명예의 전당 Top5 달성!";
-				}
-				else
-				{
-					can_show_top_ten = (global.top_ten_score_normal != -4) ? 1 : 0;
-					tmp_target_score = (global.n_score[tmp_n_map_id] == "--") ? 0 : global.n_score[tmp_n_map_id];
-					tmp_val2 = tmp_target_score/global.top_ten_score_normal;
-					tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
-					tmp_str2 = (tmp_val2 != 1) ? "명예의 전당 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "명예의 전당 Top5 달성!";
-				}
+				can_show_top_ten = (global.top_ten_score_normal != -4) ? 1 : 0;
+				tmp_target_score = global.total_score_hardcore+global.total_score_normal;
+				tmp_val2 = tmp_target_score/global.top_ten_score_normal;
+				tmp_val2 = (tmp_val2 > 1) ? 1 : tmp_val2;
+				tmp_str2 = (tmp_val2 != 1) ? "명예의 전당 Top5까지 앞으로 "+string(numbers_with_comma(global.top_ten_score_normal - tmp_target_score))+"점!" : "명예의 전당 Top5 달성!";
+				
+
 						
 				if (can_show_top_ten == 1)
 				{	
@@ -906,80 +897,17 @@ if (global.show_title_menu == 0)
 				}
 			}
 			
-			if (global.notice_title == "Ranking")
-			{
-				global.new_unlocked_map_num = 11;
-				if (code.automatic_reload_leaderboard == 0)
-				{
-					if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_up))
-					{
-						global.t_selected_difficulty--;
-						global.b_loaded_ranking = -1;
-						audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
 
-						code.automatic_reload_leaderboard = 1
-					}
-					else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down))
-					{
-						global.t_selected_difficulty++;
-						global.b_loaded_ranking = -1;
-						audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
-
-
-						code.automatic_reload_leaderboard = 1
-					}
-					else if (global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left)))
-					{
-						global.t_b_alpha = -0.02
-						code.gamestart = 5
-						alarm[4] = 15
-					}
-				}
-				else
-				{
-					var tmp_alpha = (code.automatic_reload_leaderboard/30 > 1) ? 1 : code.automatic_reload_leaderboard/30;
-					draw_sprite_ext(spr_loading,0,middle_xx,yy+yy_h*0.52,global.font_ratio_resolution_xx,1,-5*code.automatic_reload_leaderboard,c_white,tmp_alpha)
-				}
-				
-				
-				if global.t_selected_difficulty > 1
-				{
-					global.t_selected_difficulty = 0
-				}
-				else if global.t_selected_difficulty < 0
-				{
-					global.t_selected_difficulty = 1
-				}
-				
-				if (tmp_n_map_id >= 0 && string_pos("(Hardcore)", global.stage_map_difficulty[tmp_n_map_id]) != 0)
-				{
-					global.t_selected_difficulty = 0
-				}
-			}
-			else if (global.notice_title == "명예의 전당")
+			if (string_last_pos("명예의 전당",global.notice_title) != 0)
 			{
 				if (code.automatic_reload_player_leaderboard == 0)
 				{
-					if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(vk_up))
+					global.player_leaderboard_difficulty = 0;
+					if (global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left)))
 					{
-						global.player_leaderboard_difficulty--
-						audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
-
-						code.automatic_reload_player_leaderboard = 1;
-					}
-					else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_down))
-					{
-						global.player_leaderboard_difficulty++
-						audio_play_sound(common_sfx1,0,false,0.2*global.master_volume*global.sfx_volume)
-
-
-						code.automatic_reload_player_leaderboard = 1;
-					}
-					else if (global.b_alpha >= 0.85 && (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_left)))
-					{
-						global.t_b_alpha = -0.02
-						code.gamestart = 5
-						alarm[4] = 15
+						global.t_b_alpha = -0.02;
+						code.gamestart = 5;
+						alarm[4] = 15;
 					}
 				}
 				else
@@ -991,11 +919,11 @@ if (global.show_title_menu == 0)
 				
 				if global.player_leaderboard_difficulty > 1
 				{
-					global.player_leaderboard_difficulty = 0
+					global.player_leaderboard_difficulty = 0;
 				}
 				else if global.player_leaderboard_difficulty < 0
 				{
-					global.player_leaderboard_difficulty = 1
+					global.player_leaderboard_difficulty = 1;
 				}
 			}
 			else if (global.notice_title == "게임을 시작하기 전...")
@@ -1027,7 +955,7 @@ if (global.show_title_menu == 0)
 						
 						if (keyboard_check_released(vk_space))
 						{
-							holding_now = 0
+							holding_now = 0;
 						}
 					}
 					
@@ -1043,7 +971,7 @@ if (global.show_title_menu == 0)
 						
 						if (string_length(global.nickname) <= 15)
 						{
-							global.nickname = string_replace_all(global.nickname," ","")
+							global.nickname = string_replace_all(global.nickname," ","");
 						}
 						else
 						{
@@ -1052,8 +980,8 @@ if (global.show_title_menu == 0)
 						
 						if (global.mobile_mode == 1 && (keyboard_string == "\n" || keyboard_string == "\r"))
 						{
-							keyboard_input_display = 999
-							keyboard_virtual_hide()
+							keyboard_input_display = 999;
+							keyboard_virtual_hide();
 						}
 
 						keyboard_string = "";
@@ -1073,7 +1001,7 @@ if (global.show_title_menu == 0)
 				}
 				
 				
-				if holding_now > 90
+				if (holding_now > 90)
 				{
 					global.nickname = string_replace_all(global.nickname," ","")
 					global.t_b_alpha = -0.02
@@ -1104,9 +1032,9 @@ if (global.show_title_menu == 0)
 				}
 				else
 				{
-					global.t_b_alpha = -0.02
-					code.gamestart = 5
-					alarm[4] = 15
+					global.t_b_alpha = -0.02;
+					code.gamestart = 5;
+					alarm[4] = 15;
 				}
 			}
 

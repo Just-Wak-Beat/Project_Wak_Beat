@@ -624,14 +624,14 @@ global.roki_effect1 = 0
 
 
 //금목서
-global.real_stage_map_name[13] = "금목서 Kinmokusei (Cover by 비챤 VIichan)";
-global.real_stage_map_artist[13] = "Original by Kujira";
+global.real_stage_map_name[13] = "Fire Again (Cover by 비챤 VIichan)";
+global.real_stage_map_artist[13] = "Original by Ashnikko, Grabbitz";
 global.real_stage_map_difficulty[13] = "Hard";
-global.real_stage_map_color[13] = #f2aca0;
+global.real_stage_map_color[13] = c_black;
 global.real_stage_map_duration[13] = 6474;
-global.real_stage_map_audio_name[13] = "kinmoku";
-global.real_stage_bpm[13] = 123;
-global.real_stage_map_highlight_part[13] = 58.4;
+global.real_stage_map_audio_name[13] = "fire_again";
+global.real_stage_bpm[13] = 99;
+global.real_stage_map_highlight_part[13] = 180;
 global.real_detailed_difficulty[13] = 3;
 global.real_obtainable_type[13] = 99;
 global.real_requirement_level[13] = 9999;

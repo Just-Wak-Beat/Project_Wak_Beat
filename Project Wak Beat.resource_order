@@ -212,7 +212,7 @@
     {"name":"spr_status","order":5,"path":"sprites/spr_status/spr_status.yy",},
     {"name":"Sprite49","order":12,"path":"sprites/Sprite49/Sprite49.yy",},
     {"name":"string_digit_with_minus","order":19,"path":"scripts/string_digit_with_minus/string_digit_with_minus.yy",},
-    {"name":"kinmoku","order":24,"path":"sounds/kinmoku/kinmoku.yy",},
+    {"name":"fire_again","order":24,"path":"sounds/fire_again/fire_again.yy",},
     {"name":"jing_hurt","order":6,"path":"sounds/jing_hurt/jing_hurt.yy",},
     {"name":"roki_timeline","order":22,"path":"timelines/roki_timeline/roki_timeline.yy",},
     {"name":"favorite_sfx","order":6,"path":"sounds/favorite_sfx/favorite_sfx.yy",},
