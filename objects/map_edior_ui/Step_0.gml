@@ -132,6 +132,7 @@ if (custom_image_type == 0)
 	var tmp_spr__ = global.custom_proj_center_spr[custom_image_ind];
 	if (sprite_exists(tmp_spr__) && sprite_index != tmp_spr__)
 	{
+		clean_message_log();
 		show_message_log("이미지 변경 중 - "+string(custom_image_ind));
 		sprite_index = tmp_spr__;
 		with(code)
@@ -145,6 +146,7 @@ else if (custom_image_type == 1)
 	var tmp_spr__ = global.custom_proj_top_spr[custom_image_ind];
 	if (sprite_exists(tmp_spr__) && sprite_index != tmp_spr__)
 	{
+		clean_message_log();
 		show_message_log("이미지 변경 중 - "+string(custom_image_ind));
 		sprite_index = tmp_spr__;
 		with(code)

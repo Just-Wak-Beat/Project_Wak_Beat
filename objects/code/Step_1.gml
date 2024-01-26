@@ -371,19 +371,13 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 			check_new_song ++;
 		
 		
-			global.unlocked_music_name_new_list[check_new_song] = "모바일 전용 일시 정지 버튼 추가";
+			global.unlocked_music_name_new_list[check_new_song] = "대쉬 무적 판정 시간 관련 버그 수정";
 			check_new_song ++;
 			
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 타임라인 버그 수정";
+			global.unlocked_music_name_new_list[check_new_song] = "모바일 닉네임 입력 관련 일부 사항 수정";
 			check_new_song ++;
 			
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 탄막 복사 기능 추가";
-			check_new_song ++;
-			
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 탄막 파라미터 값 (크기, 이동 속도...) 관련 버그 수정";
-			check_new_song ++;
-			
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 탄막 디폴트 값 관련 버그 수정";
+			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 탄막 이미지 변경 메시지 관련 일부 사항 수정";
 			check_new_song ++;
 			
 			global.unlocked_music_name_new_list[check_new_song] = "(이외에 제보 주신 버그들은 수정 중에 있습니다!)";
