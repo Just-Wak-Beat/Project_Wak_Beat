@@ -1,15 +1,15 @@
  /// @description Movement - Dashing
 // You can write your code in this editor
 w_alpha = 5
-global.dashed = 1
+global.dashed = 1;
 
 
-n_max_map_speed = (global.map_speed > global.map_speed_y) ? global.map_speed : global.map_speed_y
+n_max_map_speed = (global.map_speed > global.map_speed_y) ? global.map_speed : global.map_speed_y;
 n_max_map_speed = (n_max_map_speed > 28) ? 28 : n_max_map_speed;
-global.dashing = 1
+global.dashing = 1;
 var tmp = (3600/global.bpm);
 tmp = (tmp <= 20) ? tmp*2 : tmp;
-global.dash_cooltime = fix_num_inside(tmp+20-global.dash_dec_c_time-n_max_map_speed*0.4,15,999);
+global.dash_cooltime = fix_num_inside(tmp+20-global.dash_dec_c_time-n_max_map_speed,tmp-5,999);
 
 var inv_cooltime = global.dash_cooltime-10;
 //show_message_log(inv_cooltime)

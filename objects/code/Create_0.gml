@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.version_real = 1.09;
+global.version_real = 1.10;
 global.version = "Release "+string(global.version_real);
 global.beta_tester = 0;
 global.streamer = 0;

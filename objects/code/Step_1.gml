@@ -357,14 +357,11 @@ if (global.b_alpha < 0.1 && global.t_b_alpha <= 0 && global.t_b_alpha != -0.02 &
 			global.unlocked_music_name_new_list_color[check_new_song] = c_white;
 			check_new_song ++;
 		
-		
-			global.unlocked_music_name_new_list[check_new_song] = "개발 예정 곡 변경 (Kinmokusei 금목서 -> Fire Again)";
+
+			global.unlocked_music_name_new_list[check_new_song] = "대쉬 쿨타임 관련 버그 수정";
 			check_new_song ++;
 			
-			global.unlocked_music_name_new_list[check_new_song] = "명예의 전당 랭크 시스템 변경 (각 난이도별 점수 -> 모든 난이도 점수 합산)";
-			check_new_song ++;
-			
-			global.unlocked_music_name_new_list[check_new_song] = "커스텀 맵 탄막 이미지 변경 메시지 관련 일부 사항 수정";
+			global.unlocked_music_name_new_list[check_new_song] = "이외의 잡다한 버그 수정";
 			check_new_song ++;
 			
 			global.unlocked_music_name_new_list[check_new_song] = "(이외에 제보 주신 버그들은 수정 중에 있습니다!)";
