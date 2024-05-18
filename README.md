@@ -6,6 +6,8 @@
 -----------------------------
 
 
+
+
 </br></br>
   
 <img src = "imgs/comp1.gif"></br>
@@ -40,6 +42,15 @@
 <b> 여러 유저들이 직접 제작한 커스텀 유저맵을 플레이 해보세요! </b>
 
 직접 원하는 곡을 활용해 자신만의 맵, '커스텀 유저맵'을 제작 할 수 있습니다.
+
+</br></br>
+
+##### 커스텀 맵 제작과 관련해선 아래 페이지를 참고해주세요!
+##### To make your own Custom Stage, please read guideline below
+
+<a href = "https://github.com/Just-Wak-Beat/Project_Wak_Beat/blob/main/Guideline%20for%20Custom%20User%20Stage%20(English).md">Custom Stage Guideline [ENG]</a>
+
+<a href = "https://github.com/Just-Wak-Beat/Project_Wak_Beat/blob/main/Guideline%20for%20Custom%20User%20Stage.md">커스텀 맵 가이드라인 [KOR]</a>
 
 </br></br>
 
